@@ -1,0 +1,17 @@
+site_name: The GenericSuite
+
+theme:
+  name: material
+  # favicon: images/favicon-genericsuite-core.ico
+  favicon: images/gs_logo_circle.png
+  logo: images/gs_logo_circle.png
+  # custom_dir: overrides
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
