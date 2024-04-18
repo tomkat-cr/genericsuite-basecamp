@@ -19,7 +19,7 @@ GenericSuite AI (frontend version) is based on [The GenericSuite](https://github
 
 ## Pre-requisites
 
-Install same tools described in [GenericSuite for ReactJS (frontend version)](https://github.com/tomkat-cr/genericsuite-basecamp?tab=readme-ov-file#genericsuite-for-reactjs-frontend-version) `Pre-requisites` section.
+Install same tools described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#pre-requisites) `Pre-requisites` section.
 
 ## Getting Started
 
@@ -27,11 +27,11 @@ To get started with GenericSuite AI, follow these simple steps:
 
 ### Create Git repositories
 
-Same steps described in [GenericSuite for ReactJS (frontend version)](https://github.com/tomkat-cr/genericsuite-basecamp?tab=readme-ov-file#genericsuite-for-reactjs-frontend-version) `Getting started > Create Git repositories` section.
+Same steps described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#create-git-repositories) `Getting started > Create Git repositories` section.
 
 ### Initiate your project
 
-Same steps described in [GenericSuite for ReactJS (frontend version)](https://github.com/tomkat-cr/genericsuite-basecamp?tab=readme-ov-file#genericsuite-for-reactjs-frontend-version) `Getting started > Initiate your project` section.
+Same steps described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#initiate-your-project) `Getting started > Initiate your project` section.
 
 ### Install GenericSuite AI Library
 
@@ -41,7 +41,7 @@ npm install genericsuite-ai
 
 ### Install additional development dependencies
 
-Same steps described in [GenericSuite for ReactJS (frontend version)](https://github.com/tomkat-cr/genericsuite-basecamp?tab=readme-ov-file#genericsuite-for-reactjs-frontend-version) `Getting started > Install additional development dependencies` section.
+Same steps described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#install-additional-development-dependencies) `Getting started > Install additional development dependencies` section.
 
 ### Prepare the Configuration Files
 
@@ -53,7 +53,7 @@ cp node_modules/genericsuite-ai/.env.example ./.env
 
 And configure the variables according your needs:
 
-1. Assign the same variables described in described in [GenericSuite for ReactJS (frontend version)](https://github.com/tomkat-cr/genericsuite-basecamp?tab=readme-ov-file#genericsuite-for-reactjs-frontend-version) `Getting started > Prepare the Configuration Files` section.
+1. Assign the same variables described in described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#prepare-the-configuration-files) `Getting started > Prepare the Configuration Files` section.
 
 2. Assign the additional `AWS_*` parameters with your AWS data (used by aws_deploy_to_s3.sh and change_env_be_endpoint.sh). You'll need an AWS account.
 
@@ -69,7 +69,7 @@ cp node_modules/genericsuite-ai/Makefile ./Makefile
 
 ### Change Scripts in Package.json
 
-Same steps described in [GenericSuite for ReactJS (frontend version)](https://github.com/tomkat-cr/genericsuite-basecamp?tab=readme-ov-file#genericsuite-for-reactjs-frontend-version) `Getting started > Change Scripts in Package.json` section.
+Same steps described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#change-scripts-in-packagejson) `Getting started > Change Scripts in Package.json` section.
 
 
 ### Create the version file
@@ -87,18 +87,18 @@ Add the version number (e.g. `1.0.0`) and save the file.
 
 ## App structure
 
-The suggested App development repository structure is the same described in [GenericSuite for ReactJS (frontend version)](https://github.com/tomkat-cr/genericsuite-basecamp?tab=readme-ov-file#genericsuite-for-reactjs-frontend-version) `App structure` section.
+The suggested App development repository structure is the same described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#app-structure) `App structure` section.
 
 
 ## Configure the project
 
-Click [here](https://github.com/tomkat-cr/genericsuite-fe/blob/main/README.md#configure-the-project) for more information about how to configure the project.
+Click [here](../../Configuration-Guide/index.md) for more information about how to configure the project.
 
 ## Code examples and JSON configuration files
 
 The main menu, API endpoints and CRUD editor configurations are defined in the JSON configuration files.
 
-You can find examples about configurations and how to code an App in the [GenericSuite App Creation and Configuration guide](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/configs/README.md).
+You can find examples about configurations and how to code an App in the [GenericSuite App Creation and Configuration guide](../../Configuration-Guide/index.md).
 
 ## Start Development Server
 

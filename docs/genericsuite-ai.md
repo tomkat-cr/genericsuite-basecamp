@@ -1,8 +1,8 @@
-# The Genericsuite AI
+# The GenericSuite AI
 
 <img src="../images/gs_ai_logo_circle.svg" style="margin-top: -50px; display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
-The **Genericsuite AI** is an extension of the [Genericsuite Core](./genericsuite-core.md) focused on AI Apps development.
+The **GenericSuite AI** is an extension of the [GenericSuite Core](./genericsuite-core.md) focused on AI Apps development.
 
 It has the following elements:
 

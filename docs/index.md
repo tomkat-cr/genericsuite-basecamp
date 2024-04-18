@@ -1,6 +1,6 @@
 # Welcome to GenericSuite
 
-<table style="border: 0;">
+<table cellpadding="0" cellspacing="0" style="border: 0px white;">
 <tr>
     <td><a href="./genericsuite-core/"><img src="images/gs_logo_circle.svg" /></a></td>
     <td><a href="./genericsuite-ai/"><img src="images/gs_ai_logo_circle.svg" /></a></td>
@@ -13,19 +13,19 @@ GenericSuite is a comprehensive software library designed for backend and fronte
 
 * [What is the GenericSuite for?](#what-is-the-genericsuite-for)
 * [The GenericSuite Core](#the-genericsuite-core)
-* [The GenericSuite AI](/#the-genericsuite-ai)
+* [The GenericSuite AI](#the-genericsuite-ai)
 * [Repositories](#repositories)
 * [Post](#posts)
-* [Frontend Development](./Frontend-Development)
-* [Backend Development](./Backend-Development)
-* [Configuration Guide](./Configuration-Guide)
+* [Frontend Development](./Frontend-Development/index.md)
+* [Backend Development](./Backend-Development/index.md)
+* [Configuration Guide](./Configuration-Guide/index.md)
 * [History](./history.md)
 
 ## What is the GenericSuite for?
 
 The GenericSuite is a frontend and backend set of utilities made with ReactJS and Python to help develop Apps faster.
 
-It's composed by a **Genericsuite Core** is the code base all the suite elements, like extensions and plug-ins.
+It's composed by a **GenericSuite Core** is the code base all the suite elements, like extensions and plug-ins.
 
 ## The GenericSuite Core
 
@@ -78,8 +78,8 @@ Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi l
 
 ## Posts
 
-* [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
-* [https://www.carlosjramirez.com/genericsuite-es/](https://www.carlosjramirez.com/genericsuite-es/)
+* English: [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
+* Spanish: [https://www.carlosjramirez.com/genericsuite-es/](https://www.carlosjramirez.com/genericsuite-es/)
 
 ## License
 

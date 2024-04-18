@@ -1,8 +1,8 @@
-# The Genericsuite Core
+# The GenericSuite Core
 
 <img src="../images/gs_logo_circle.svg" style="margin-top: -50px; display: block; margin-left: auto; margin-right: auto; width: 50%;"  />
 
-The **Genericsuite Core** is the code base all the suite elements, extensions and plug-ins.
+The **GenericSuite Core** is the code base all the suite elements, extensions and plug-ins.
 
 It has the following elements:
 
@@ -12,6 +12,6 @@ It has the following elements:
 
 Extensions:
 
-* [The Genericsuite AI](./genericsuite-ai.md)
+* [The GenericSuite AI](./genericsuite-ai.md)
 
 Check the [Configuration Guide](./Configuration-Guide/index.md) to learn how to develop an App, configuring the CRUD editors, endpoints, menus, AI assistants, and more.

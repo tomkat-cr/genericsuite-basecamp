@@ -1,4 +1,5 @@
 site_name: The GenericSuite
+site_url: https://genericsuite.carlosjramirez.com
 
 theme:
   name: material

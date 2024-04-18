@@ -26,6 +26,28 @@ You need to install these tools:
 
 To get started with GenericSuite, follow these steps:
 
+### Create the git repositories
+
+Create the git repositories in your favorite Git Platform ([Github](https://github.com/), [Gitlab](https://gitlab.com/), [Bitbucket](https://bitbucket.org/)).
+
+One repository is for the frontend App, and the other for the configs (JSON configuration files) to be shared between the frontend and backend repos as a Git sub-module.
+
+Once created, open a Terminal window and change to your repositories' root directory.
+
+Clone the repos.
+
+E.g. for a repo called `exampleapp_frontend` created in Github:
+
+```bash
+git clone https://github.com/tomkat-cr/exampleapp_frontend.git
+```
+
+And for the configs repo called `exampleapp_configs` created in Github:
+
+```bash
+git clone https://github.com/tomkat-cr/exampleapp_configs.git
+```
+
 ### Initiate your project
 
 Create the ReactJs App. E.g. `exampleapp_frontend`:
@@ -91,6 +113,14 @@ npm install --save-dev \
    webpack-cli \
    webpack-dev-server \
    whatwg-fetch
+```
+
+### Uninstall not required dependencies
+
+Uninstall not required dependencies installed by CRA and included in the GenericSuite library:
+
+```bash
+npm uninstall react react-dom react-scripts web-vitals
 ```
 
 ### Prepare the Configuration Files
@@ -443,7 +473,7 @@ cp src/output.css public/
 
 The main menu, API endpoints and CRUD editor configurations are defined in the JSON configuration files.
 
-You can find examples about configurations and how to code an App in the [GenericSuite App Creation and Configuration guide](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/configs/README.md).
+You can find examples about configurations and how to code an App in the [GenericSuite App Creation and Configuration guide](../../Configuration-Guide/index.md).
 
 ## Do the first build
 

@@ -6,7 +6,7 @@ This documentation shows how to create the App frontend/backend configurations a
 
 Every App should have a frontend and a backend parts.<br/>
 
-The frontend is the element the user interacts with, the visible part. Can be a website made with RactJS or a mobile App made by Flutter or React Native.<br/>
+The frontend is the element the user interacts with, the visible part. Can be a website made with React.JS or a mobile App made by Flutter or React Native.<br/>
 
 The backend is the API interacts with the Database and other elements invisible for the use. Can be made in Python or GoLang.<br/>
 
@@ -28,7 +28,6 @@ src/configs
 │   └── users_config.json
 └── frontend
     ├── app_constants.json
-    ├── class_name_constants.js
     ├── general_config.json
     ├── general_constants.json
     ├── users.json
@@ -40,73 +39,69 @@ src/configs
 
 Configurations used by both the frontend App and the backend API.
 
-### app_constants.json
+* **app_constants.json**<BR/><BR/>
+  App specific constants. These constants should be copied to the target App directory to change the specific values for e.g. `BILLING_PLANS`, email address in `ERROR_MESSAGES`, `APP_EMAILS` and `APP_VALID_URLS` (check `includesAppValidLinks()` and `dangerouslySetInnerHTML`).<BR/><BR/>
 
-App general constants.
-These constants should be copied to the target App directory to change the specific values for e.g. `BILLING_PLANS`, email address in `ERROR_MESSAGES`, `APP_EMAILS` and `APP_VALID_URLS` (check `includesAppValidLinks()` and `dangerouslySetInnerHTML`).
+* **general_constants.json**<BR/><BR/>
+  App general constants, mostly for `<select/>` pull downs. E.g. `TRUE_FALSE`, `YES_NO`, `LANGUAGES`.<BR/><BR/>
 
-### class_name_constants.js
+* **general_config.json**<BR/><BR/>
+  App general Configuration Parameters editor definitions.<BR/>
+  All the parameters in the backend Config() class that can be read from environment variables can be dynamically overwritten by the Configuration Parameters.<BR/>
+  This is used for the frontend `Admin > Configuration Parameters` menu option.<BR/><BR/>
 
-App class names and definitions, for CSS design.
+* **users.json**<BR/><BR/>
+  Users' CRUD editor and table definitions. This is used for the frontend `Admin > Users` menu option.<BR/><BR/>
 
-### general_constants.json
+* **users_config.json**<BR/><BR/>
+  Users' specific configuration parameters CRUD editor and table definitions.<BR/>
+  This is used for the `Configuration parameters` in frontend's `Admin > Users` menu option.<BR/><BR/>
 
-App general constants, mostly for `<select/>` pull downs. E.g. `TRUE_FALSE`, `YES_NO`, `LANGUAGES`.
-
-### general_config.json
-
-App general Configuration Parameters editor definitions.
-All the parameters in the backend Config() class that can be read from environment variables can be dynamically overwritten by the Configuration Parameters.
-This is used for the frontend `Admin > Configuration Parameters` menu option.
-
-### users.json
-
-Users' CRUD editor and table definitions.
-This is used for the frontend `Admin > Users` menu option.
-
-### users_config.json
-
-Users' specific configuration parameters CRUD editor and table definitions.
-This is used for the `Configuration parameters` in frontend's `Admin > Users` menu option.
-
-### users_profile.json
-
-Users' profile configuration.
-This is used for the frontend `Hamburger Menu > Profile` menu option.
+* **users_profile.json**<BR/><BR/>
+  Users' profile configuration. This is used for the frontend `Hamburger Menu > Profile` menu option.
 
 ## Backend directory
 
 Configurations only visible in the backend API.
+
 This is mostly for options the menu structure and security that we don't want to be available in the frontend.
 
-### app_main_menu.json
+* **app_main_menu.json**<BR/><BR/>
+  Menu structure and security configurations.<BR/><BR/>
 
-Menu structure and security configurations.
+* **endpoints.json**<BR/><BR/>
+  Endpoints definition and configuration.<BR/><BR/>
 
-### endpoints.json
+* **general_config.json**<BR/><BR/>
+  App general Configuration Parameters editor definitions.<BR/><BR/>
 
-Endpoints definition and configuration.
+* **users.json**<BR/><BR/>
+  Users editor definitions.<BR/><BR/>
 
-### general_config.json
-
-App general Configuration Parameters editor definitions.
-
-### users.json
-
-Users editor definitions.
-
-### users_config.json
-
-Users' specific configuration parameters editor definitions.
-These configuration parameters overwrite the general Configuration Parameters, by user.
+* **users_config.json**<BR/><BR/>
+  Users' specific configuration parameters editor definitions.<BR/>
+  These configuration parameters overwrite the general Configuration Parameters, by user.
 
 ## Share JSON files between the development repositories
 
 To share the JSON files between the frontend and backend development repositories, a separate repository can be created and linked to both repos with a Git Sub-Module:
 
-1. Create the repository for only the JSON files.
+### Create a repository for only the JSON files
 
-2. Create this directory structure:
+  Create the JSON files git repository in your favorite Git Platform ([Github](https://github.com/), [Gitlab](https://gitlab.com/), [Bitbucket](https://bitbucket.org/)).
+
+  Once created, open a Terminal window and change to your repositories' root directory.
+
+  Then clone the repos:
+
+  E.g. for the configs repo called `exampleapp_configs` created in Github:
+
+```bash
+git clone https://github.com/tomkat-cr/exampleapp_configs.git
+```
+
+### Create this directory structure
+
 ```
 .
 ├── CHANGELOG.md
@@ -115,29 +110,31 @@ To share the JSON files between the frontend and backend development repositorie
 └── frontend
 ```
 
-3. Define the `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` parametes in the frontend [.env](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example) file.
+### Define git submodule parameters
 
-4. Define the `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` parametes in the backend [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) file.
+* Define the `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` parametes in the frontend [.env](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example) file.
 
-5. In the frontend directory run this to initialize the Git submodule:
+* Define the `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` parametes in the backend [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) file.
 
-```bash
-make add_submodules
-```
-
-6. In the backend directory, run this to initialize the Git submodule:
+* In the frontend directory run this to initialize the Git submodule:
 
 ```bash
 make add_submodules
 ```
 
-6. In the backend directory, run this to copy the basic JSON configuration files:
+* In the backend directory, run this to initialize the Git submodule:
+
+```bash
+make add_submodules
+```
+
+* In the backend directory, run this to copy the basic JSON configuration files:
 
 ```bash
 make init_submodules
 ```
 
-7. Commit and push the changes to make it availlable for the frontend:
+* Commit and push the changes to make it availlable for the frontend:
 
 ```bash
 # FastAPI
@@ -156,8 +153,9 @@ git push
 
 ## App frontend
 
-Follow the instructions to create the App's frontend in ReactJS [here](https://github.com/tomkat-cr/genericsuite-fe/blob/main/README.md).<br/>
-If the App will include AI features, click [here](https://github.com/tomkat-cr/genericsuite-fe-ai/blob/main/README.md).<br/>
+Follow the instructions to create the App's frontend in ReactJS [here](../Configuration-Guide/index.md).
+
+If the App will include AI features, click [here](../Frontend-Development/GenericSuite-AI/index.md).<br/>
 
 ### Create the starting code
 
