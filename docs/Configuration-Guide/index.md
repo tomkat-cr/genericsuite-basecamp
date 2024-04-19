@@ -4,11 +4,12 @@
     width="100"
     height="100"
     src="../images/gs_logo_circle.svg"
-    title="GenericSuite logo by Carlos J. Ramirez">
+    title="GenericSuite logo by Carlos J. Ramirez"
+/>
 
 This documentation shows how to create the App frontend/backend configurations and data structures.
 
-# Creating the App
+## Creating the App
 
 Every App should have a frontend and a backend parts.<br/>
 

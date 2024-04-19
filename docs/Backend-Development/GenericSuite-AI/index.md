@@ -5,7 +5,7 @@
     height="100"
     src="../../images/gs_ai_logo_circle.svg"
     title="GenericSuite AI logo by Carlos J. Ramirez"
->
+/>
 
 [GenericSuite AI (backend version)](https://github.com/tomkat-cr/genericsuite-be-ai) is a versatile backend solution, designed to provide a comprehensive suite of features, tools and functionalities for AI oriented Python APIs.
 

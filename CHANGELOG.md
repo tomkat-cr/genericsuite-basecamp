@@ -30,6 +30,7 @@ Change: add minimized logos to all *.md files.
 
 ### Fixes
 Fix: All links point to "index.md".
+Fix: Configuration Guide index at the right side.
 
 
 ## 0.0.1 (2024-04-16)

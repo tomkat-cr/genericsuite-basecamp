@@ -6,14 +6,14 @@
     height="100"
     src="../images/gs_ai_logo_circle.svg"
     title="GenericSuite AI logo by Carlos J. Ramirez"
->
+/>
 <img 
     align="right"
     width="100"
     height="100"
     src="../images/gs_logo_circle.svg"
     title="GenericSuite logo by Carlos J. Ramirez"
->
+/>
 
 ### Frontend
 

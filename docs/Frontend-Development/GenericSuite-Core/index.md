@@ -5,7 +5,8 @@
     width="100"
     height="100"
     src="../../images/gs_logo_circle.svg"
-    title="GenericSuite logo by Carlos J. Ramirez">
+    title="GenericSuite logo by Carlos J. Ramirez"
+/>
 
 The GenericSuite (frontend version) has a customizable CRUD editor, menu generator, login interface, API secure communication and a suite of tools to kickstart your development process.
 
