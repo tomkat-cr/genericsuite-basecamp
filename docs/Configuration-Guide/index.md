@@ -1,4 +1,10 @@
 # GenericSuite App Creation and Configuration guide
+<img 
+    align="right"
+    width="100"
+    height="100"
+    src="../images/gs_logo_circle.svg"
+    title="GenericSuite logo by Carlos J. Ramirez">
 
 This documentation shows how to create the App frontend/backend configurations and data structures.
 

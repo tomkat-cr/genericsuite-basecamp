@@ -1,6 +1,10 @@
 # The GenericSuite Core
 
-<img src="../images/gs_logo_circle.svg" style="margin-top: -50px; display: block; margin-left: auto; margin-right: auto; width: 50%;"  />
+<img
+    src="../images/gs_logo_circle.svg"
+    style="margin-top: -50px; display: block; margin-left: auto; margin-right: auto; width: 50%;"
+    title="GenericSuite logo by Carlos J. Ramirez"
+/>
 
 The **GenericSuite Core** is the code base all the suite elements, extensions and plug-ins.
 

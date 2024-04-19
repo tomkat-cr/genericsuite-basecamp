@@ -2,8 +2,22 @@
 
 <table cellpadding="0" cellspacing="0" style="border: 0px white;">
 <tr>
-    <td><a href="./genericsuite-core/"><img src="images/gs_logo_circle.svg" /></a></td>
-    <td><a href="./genericsuite-ai/"><img src="images/gs_ai_logo_circle.svg" /></a></td>
+    <td>
+        <a href="./genericsuite-core/">
+            <img
+                src="images/gs_logo_circle.svg"
+                title="GenericSuite logo by Carlos J. Ramirez"
+            />
+        </a>
+    </td>
+    <td>
+        <a href="./genericsuite-ai/">
+            <img
+                src="images/gs_ai_logo_circle.svg"
+                title="GenericSuite AI logo by Carlos J. Ramirez"
+            />
+        </a>
+    </td>
 </tr>
 </table>
 
@@ -27,6 +41,14 @@ The GenericSuite is a frontend and backend set of utilities made with ReactJS an
 
 It's composed by a **GenericSuite Core** is the code base all the suite elements, like extensions and plug-ins.
 
+<img 
+    align="right"
+    width="100"
+    height="100"
+    src="../images/gs_logo_circle.svg"
+    title="GenericSuite logo by Carlos J. Ramirez"
+/>
+
 ## The GenericSuite Core
 
 Features:
@@ -43,6 +65,14 @@ Libraries:
 * :fontawesome-brands-react:{ .react } [GenericSuite Core (frontend version) for React.js](./Frontend-Development/GenericSuite-Core/index.md)
 * :fontawesome-brands-python:{ .python } [GenericSuite Core (backend version) for Python](./Backend-Development/GenericSuite-Core/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
+
+<img 
+    align="right"
+    width="100"
+    height="100"
+    src="../images/gs_ai_logo_circle.svg"
+    title="GenericSuite AI logo by Carlos J. Ramirez"
+/>
 
 ## The GenericSuite AI
 
@@ -76,6 +106,10 @@ Libraries:
 
 Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi libraris.
 
+## Docs
+
+[https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
+
 ## Posts
 
 * English: [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
@@ -88,7 +122,5 @@ GenericSuite is open-sourced software licensed under the [ISC](https://github.co
 ## Credits
 
 This project is developed and maintained by [Carlos J. Ramirez](https://www.carlosjramirez.com). For more information or to contribute to the project, visit [GenericSuite on GitHub](https://github.com/stars/tomkat-cr/lists/genericsuite).
-
-[https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
 
 Happy Coding!

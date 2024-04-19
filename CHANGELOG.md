@@ -26,6 +26,7 @@ Add: "mkdocs_install.sh" and "mkdocs_transfer_site.sh" bash scripts.
 
 ### Changes
 Change: sample files directories moved to "/docs"
+Change: add minimized logos to all *.md files.
 
 ### Fixes
 Fix: All links point to "index.md".

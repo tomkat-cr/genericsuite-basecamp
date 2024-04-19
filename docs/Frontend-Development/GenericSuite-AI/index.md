@@ -1,5 +1,13 @@
 # GenericSuite AI for ReactJS
 
+<img 
+    align="right"
+    width="100"
+    height="100"
+    src="../../images/gs_ai_logo_circle.svg"
+    title="GenericSuite AI logo by Carlos J. Ramirez"
+>
+
 GenericSuite AI (frontend version) has AI ChatBot tools, a customizable CRUD editor, login interface and a suite of tools to kickstart your AI App development process.
 
 ## Features
