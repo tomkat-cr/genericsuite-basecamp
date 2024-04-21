@@ -70,8 +70,6 @@ cd exampleapp_backend
 
 To use [GenericSuite](https://www.carlosjramirez.com/genericsuite) in your project, install it with the following command(s):
 
-### From Pypi
-
 #### Pip
 ```bash
 pip install genericsuite
@@ -87,6 +85,37 @@ pipenv install genericsuite
 poetry add genericsuite
 ```
 
+NOTE: in the following instructions we'll only show `pip install ...`.<BR/>
+If you'll use `Pipenv`, change it with `pipenv install ...`.<BR/>
+If you'll use `Poetry`, change it with `poetry add ...`.<BR/>
+
+
+## Framework installation
+
+Install the desired framework: [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) or [Chalice](https://aws.github.io/chalice/quickstart.html):
+
+#### FastAPI
+```bash
+pip install fastapi "uvicorn[standard]" python-multipart mangum
+```
+
+#### Flask
+```bash
+pip install Flask
+```
+
+#### Chalice
+```bash
+pip install chalice
+```
+
+For more information:
+
+* [FastAPI installation](https://fastapi.tiangolo.com/#installation)
+* [Flask installation](https://flask.palletsprojects.com/en/2.3.x/installation/)
+* [Chalice installation](https://aws.github.io/chalice/quickstart.html)
+
+
 ### Test dependencies
 
 To execute the unit and integration test, install `pytest` and `coverage`:
@@ -94,16 +123,6 @@ To execute the unit and integration test, install `pytest` and `coverage`:
 #### Pip
 ```bash
 pip install pytest coverage
-```
-
-#### Pipenv
-```bash
-pipenv install --dev pytest coverage
-```
-
-#### Poetry
-```bash
-poetry add --dev pytest coverage
 ```
 
 ### Development scripts installation
@@ -116,7 +135,7 @@ npm install -D genericsuite-be-scripts
 
 ## Features
 
-1. **Select Your Framework**: Depending on your project, choose between [Chalice](https://aws.github.io/chalice/quickstart.html), [FastAPI](https://fastapi.tiangolo.com/), or [Flask](https://flask.palletsprojects.com/).
+1. **Select Your Framework**: Depending on your project, choose between [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) or [Chalice](https://aws.github.io/chalice/quickstart.html).
 2. **Select Your Database of choice**: Implement database operations using the provided abstracted functions for [MongoDB](https://www.mongodb.com/) and [DynamoDB](https://aws.amazon.com/pm/dynamodb/).
 3. **Included Authentication**: Your endpoints will be secured with [JWT](https://jwt.io/libraries)-based authentication.
 4. **Define Endpoints**: Utilize the dynamic endpoint creation feature by defining your endpoints in a JSON configuration file. Visit the [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs) for more information.
@@ -331,12 +350,6 @@ TEST_APP_URL=http://app.exampleapp.local:5001
 ```
 FLASK_APP=__init__.py
 ```
-
-## Framework installation
-
-* [FastAPI installation](https://fastapi.tiangolo.com/#installation)
-* [Flask installation](https://flask.palletsprojects.com/en/2.3.x/installation/)
-* [Chalice installation](https://aws.github.io/chalice/quickstart.html)
 
 ## App structure
 

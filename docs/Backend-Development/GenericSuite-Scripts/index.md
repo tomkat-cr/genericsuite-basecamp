@@ -213,6 +213,18 @@ To perform a QA deployment as an AWS Lambda Function and AWS API Gateway:
    make deploy_qa
    ```
 
+To link backend API to the App domain:
+
+* Go to Route 53.
+* Click on the Zone corresponding to the App domain.
+* Click on 'Create Record'.
+* Enter the subdomain: 'api-qa', 'api-staging', 'api-demo' or 'api' (for production).
+* Enable 'alias'.
+* In 'Route traffic to' select the 'Alias to API Gateway API' option.
+* In 'Choose region' select the App region.
+* In 'Choose endpoint' select the one corresponding to App domain.
+* Click on 'Create Records'.
+
 ## Install dependencies
 
 * Install default package categories from Pipfile.<br/>

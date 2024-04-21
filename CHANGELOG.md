@@ -17,6 +17,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.3 (2024-04-18)
+---
+
+## Changes
+More details on framework installation for GS BE Core, and instructions to link the Domains to frontend and backend Apps.
+
+
 ## 0.0.2 (2024-04-18)
 ---
 
