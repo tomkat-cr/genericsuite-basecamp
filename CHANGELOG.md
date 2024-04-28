@@ -17,6 +17,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.4 (2024-04-28)
+---
+
+### Fixes
+Add "mkdocs_run.sh" to fix the error running the "mkdocs serve" the first time.
+
+
 ## 0.0.3 (2024-04-18)
 ---
 
