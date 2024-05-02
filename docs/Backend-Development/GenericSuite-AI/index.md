@@ -110,12 +110,17 @@ AI_ASSISTANT_NAME=ExampleBot
 ```
 
 2. Google configuration
+[https://console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
 ```
 GOOGLE_API_KEY=google_console_api_key
+```
+[https://programmablesearchengine.google.com/](https://programmablesearchengine.google.com/)
+```
 GOOGLE_CSE_ID=google_console_cse_key
 ```
 
 3. OpenAI configuration
+[https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 ```
 OPENAI_API_KEY=openai_api_key
 OPENAI_MODEL=gpt-3.5-turbo
@@ -123,18 +128,21 @@ OPENAI_TEMPERATURE=0.7
 ```
 
 4. Langchain/LangSmith configuration
+[https://smith.langchain.com/settings](https://smith.langchain.com/settings)
 ```
 LANGCHAIN_API_KEY=langchain_api_key
 LANGCHAIN_PROJECT=langchain_project
 ```
 
 5. Hugging Face credentials and model URL
+[https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
 ```
 HUGGINGFACE_API_KEY=huggingface_api_key
 HUGGINGFACE_ENDPOINT_URL=huggingface_endpoint_url
 ```
 
 6. AWS Configuration
+[https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_DEV=exampleapp-chatbot-attachments-dev
 AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_QA=exampleapp-chatbot-attachments-qa
@@ -152,7 +160,7 @@ VECTOR_STORE_ENGINE=FAISS
 # VECTOR_STORE_ENGINE=mongo
 # VECTOR_STORE_ENGINE=vectara
 
-`LANGCHAIN_DEFAULT_MODEL=chat_openai
+LANGCHAIN_DEFAULT_MODEL=chat_openai
 # LANGCHAIN_DEFAULT_MODEL=gemini
 # LANGCHAIN_DEFAULT_MODEL=huggingface
 # LANGCHAIN_DEFAULT_MODEL=clarifai
@@ -235,11 +243,13 @@ OPENAI_EMBEDDINGS_MODEL=text-embedding-ada-002
 OPENAI_EMBEDDINGS_MODEL_PREMIUM=text-embedding-3-large'
 
 # Anthropic credentials and other parameters
+# https://console.anthropic.com/settings/keys
 
 ANTHROPIC_MODEL=claude-2
 ANTHROPIC_API_KEY=
 
 # AWS Bedrock credentials and other parameters
+# https://console.aws.amazon.com
 
 AWS_BEDROCK_EMBEDDINGS_MODEL_ID=amazon.titan-embed-text-v1
 AWS_BEDROCK_EMBEDDINGS_PROFILE=bedrock-admin
@@ -263,6 +273,7 @@ HUGGINGFACE_EMBEDDINGS_MODEL_KWARGS='{"device":"cpu"}'
 HUGGINGFACE_EMBEDDINGS_ENCODE_KWARGS='{"normalize_embeddings": true}'
 
 # Clarifai credentials and other parameters
+# https://clarifai.com > UserId > ProjectId > Settings
 
 # PAT (Personal API Token): https://clarifai.com/settings/security
 CLARIFAI_PAT=
@@ -292,6 +303,7 @@ AI_CLARIFAI_DEFAULT_VISION_MODEL=openai-gpt-4-vision
 # AI_CLARIFAI_DEFAULT_VISION_MODEL=food-item-recognition
 
 # ElevenLabs
+# https://elevenlabs.io/app/subscription
 
 ELEVENLABS_API_KEY=
 
@@ -307,30 +319,36 @@ ELEVENLABS_STYLE=0
 ELEVENLABS_USE_SPEAKER_BOOST=1
 
 # Cohere credentials and other parameters
+# https://dashboard.cohere.com/api-keys
 
 COHERE_API_KEY=
 COHERE_EMBEDDINGS_MODEL=embed-english-light-v3.0
 
-# Ollama credentials and other parameters
+# Ollama parameters
 
 OLLAMA_MODEL=llama:7b
 OLLAMA_EMBEDDINGS_MODEL=llama:7b
 
 # MongooDB embeddings
+
 MONGODB_VS_COLLECTION=
 MONGODB_VS_INDEX_NAME=
 
 # Pinecone credentials and other parameters
+# https://app.pinecone.io/keys
+
 # PINECONE_API_KEY=
 # PINECONE_ENV=
 
 # Vectara credentials and other parameters
+# https://console.vectara.com/console/apiAccess/personalApiKey
 
 VECTARA_CUSTOMER_ID=
 VECTARA_CORPUS_ID=
 VECTARA_API_KEY=
 
 # Weaviate credentials and other parameters
+# https://console.weaviate.cloud/dashboard
 
 WEAVIATE_URL=
 WEAVIATE_API_KEY=

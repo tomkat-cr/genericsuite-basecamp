@@ -302,7 +302,7 @@ export const HomePage = () => {
         "o": "Other"
     },
     "ERROR_MESSAGES": {
-        "ACCOUNT_INACTIVE": "User account inactive [L5]. To activate your account, please contact <a href=\"mailto:support@exampleapp.com\">support@exampleapp.com</a></div>"
+        "ACCOUNT_INACTIVE": "User account inactive [L5]. To activate your account, please contact support@exampleapp.com"
     },
     "APP_EMAILS": {
         "SUPPORT_EMAIL": "support@exampleapp.com",

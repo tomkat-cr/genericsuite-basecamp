@@ -186,6 +186,7 @@ APP_SUPERADMIN_EMAIL=xxxx
 ```
 7. Database configuration
 - For AWS DynamoDB
+[https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 # DEV: docker
 APP_DB_ENGINE_DEV=DYNAMO_DB
@@ -211,6 +212,7 @@ APP_DB_URI_PROD=
 # APP_DB_URI_DEMO=
 ```
 - For MongoDB
+[https://www.mongodb.com/](https://www.mongodb.com/)
 ```
 # DEV: Docker container
 APP_DB_ENGINE_DEV=MONGO_DB
@@ -284,6 +286,7 @@ PYTHON_VERSION=3.11.5
 # PYTHON_VERSION=3.9.17
 ```
 13. AWS Configuration
+[https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 AWS_S3_BUCKET_NAME_FE=exampleapp-frontend-website-[STAGE]
 AWS_REGION=aws-region
