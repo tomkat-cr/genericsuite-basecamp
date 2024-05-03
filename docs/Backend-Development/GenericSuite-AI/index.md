@@ -109,17 +109,17 @@ For GenericSuite AI, there are these additional environment variables:
 AI_ASSISTANT_NAME=ExampleBot
 ```
 
-2. Google configuration
+2. Google configuration<BR/>
 [https://console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
 ```
 GOOGLE_API_KEY=google_console_api_key
 ```
-[https://programmablesearchengine.google.com/](https://programmablesearchengine.google.com/)
+[https://programmablesearchengine.google.com/](https://programmablesearchengine.google.com/)<BR/>
 ```
 GOOGLE_CSE_ID=google_console_cse_key
 ```
 
-3. OpenAI configuration
+3. OpenAI configuration<BR/>
 [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 ```
 OPENAI_API_KEY=openai_api_key
@@ -127,21 +127,21 @@ OPENAI_MODEL=gpt-3.5-turbo
 OPENAI_TEMPERATURE=0.7
 ```
 
-4. Langchain/LangSmith configuration
+4. Langchain/LangSmith configuration<BR/>
 [https://smith.langchain.com/settings](https://smith.langchain.com/settings)
 ```
 LANGCHAIN_API_KEY=langchain_api_key
 LANGCHAIN_PROJECT=langchain_project
 ```
 
-5. Hugging Face credentials and model URL
+5. Hugging Face credentials and model URL<BR/>
 [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
 ```
 HUGGINGFACE_API_KEY=huggingface_api_key
 HUGGINGFACE_ENDPOINT_URL=huggingface_endpoint_url
 ```
 
-6. AWS Configuration
+6. AWS Configuration<BR/>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_DEV=exampleapp-chatbot-attachments-dev
@@ -255,6 +255,7 @@ AWS_BEDROCK_EMBEDDINGS_MODEL_ID=amazon.titan-embed-text-v1
 AWS_BEDROCK_EMBEDDINGS_PROFILE=bedrock-admin
 
 # HuggingFace other parameters
+# https://huggingface.co
 
 HUGGINGFACE_MAX_NEW_TOKENS=512
 HUGGINGFACE_TOP_K=50
@@ -330,6 +331,7 @@ OLLAMA_MODEL=llama:7b
 OLLAMA_EMBEDDINGS_MODEL=llama:7b
 
 # MongooDB embeddings
+# https://www.mongodb.com
 
 MONGODB_VS_COLLECTION=
 MONGODB_VS_INDEX_NAME=

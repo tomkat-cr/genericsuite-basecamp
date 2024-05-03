@@ -185,7 +185,7 @@ APP_SECRET_KEY=xxxx
 APP_SUPERADMIN_EMAIL=xxxx
 ```
 7. Database configuration
-- For AWS DynamoDB
+- For AWS DynamoDB<BR/>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 # DEV: docker
@@ -211,7 +211,7 @@ APP_DB_URI_PROD=
 # APP_DB_NAME_DEMO=
 # APP_DB_URI_DEMO=
 ```
-- For MongoDB
+- For MongoDB<BR/>
 [https://www.mongodb.com/](https://www.mongodb.com/)
 ```
 # DEV: Docker container
@@ -285,7 +285,7 @@ PYTHON_VERSION=3.11.5
 # PYTHON_VERSION=3.10.12
 # PYTHON_VERSION=3.9.17
 ```
-13. AWS Configuration
+13. AWS Configuration<BR/>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 AWS_S3_BUCKET_NAME_FE=exampleapp-frontend-website-[STAGE]
