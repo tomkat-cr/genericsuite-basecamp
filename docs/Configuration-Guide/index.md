@@ -1,8 +1,15 @@
 # GenericSuite App Creation and Configuration guide
+<img 
+    align="right"
+    width="100"
+    height="100"
+    src="../images/gs_logo_circle.svg"
+    title="GenericSuite logo by Carlos J. Ramirez"
+/>
 
 This documentation shows how to create the App frontend/backend configurations and data structures.
 
-# Creating the App
+## Creating the App
 
 Every App should have a frontend and a backend parts.<br/>
 
@@ -295,7 +302,7 @@ export const HomePage = () => {
         "o": "Other"
     },
     "ERROR_MESSAGES": {
-        "ACCOUNT_INACTIVE": "User account inactive [L5]. To activate your account, please contact <a href=\"mailto:support@exampleapp.com\">support@exampleapp.com</a></div>"
+        "ACCOUNT_INACTIVE": "User account inactive [L5]. To activate your account, please contact support@exampleapp.com"
     },
     "APP_EMAILS": {
         "SUPPORT_EMAIL": "support@exampleapp.com",

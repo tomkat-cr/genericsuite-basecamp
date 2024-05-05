@@ -13,9 +13,9 @@ transfer:
 	sh scripts/mkdocs_transfer_site.sh
 
 build:
-	mkdocs build
+	sh scripts/mkdocs_run.sh build
 
 serve:
-	mkdocs serve
+	sh scripts/mkdocs_run.sh serve
 
 run: serve

@@ -1,4 +1,11 @@
 # The GenericSuite for Python
+<img 
+    align="right"
+    width="100"
+    height="100"
+    src="../../images/gs_logo_circle.svg"
+    title="GenericSuite logo by Carlos J. Ramirez"
+/>
 
 [GenericSuite (backend version)](https://github.com/tomkat-cr/genericsuite-be) is a versatile backend solution, designed to provide a comprehensive suite of features for Python APIs. It supports various frameworks including FastAPI, Flask and Chalice, making it adaptable to a range of projects. This repository contains the backend logic, utilities, and configurations necessary to build and deploy scalable and maintainable applications.
 
@@ -30,7 +37,7 @@ If you plan to deploy the App in the AWS Cloud:
 
 ## Getting Started
 
-To get started with [GenericSuite](https://www.carlosjramirez.com/genericsuite), follow these steps:
+To get started with [GenericSuite](../../index.md), follow these steps:
 
 ### Initiate your project
 
@@ -61,9 +68,7 @@ cd exampleapp_backend
 
 ## Installation
 
-To use [GenericSuite](https://www.carlosjramirez.com/genericsuite) in your project, install it with the following command(s):
-
-### From Pypi
+To use [GenericSuite](../../index.md) in your project, install it with the following command(s):
 
 #### Pip
 ```bash
@@ -80,6 +85,37 @@ pipenv install genericsuite
 poetry add genericsuite
 ```
 
+NOTE: in the following instructions we'll only show `pip install ...`.<BR/>
+If you'll use `Pipenv`, change it with `pipenv install ...`.<BR/>
+If you'll use `Poetry`, change it with `poetry add ...`.<BR/>
+
+
+## Framework installation
+
+Install the desired framework: [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) or [Chalice](https://aws.github.io/chalice/quickstart.html):
+
+#### FastAPI
+```bash
+pip install fastapi fastapi-cors "uvicorn[standard]" python-multipart mangum
+```
+
+#### Flask
+```bash
+pip install Flask
+```
+
+#### Chalice
+```bash
+pip install chalice
+```
+
+For more information:
+
+* [FastAPI installation](https://fastapi.tiangolo.com/#installation)
+* [Flask installation](https://flask.palletsprojects.com/en/2.3.x/installation/)
+* [Chalice installation](https://aws.github.io/chalice/quickstart.html)
+
+
 ### Test dependencies
 
 To execute the unit and integration test, install `pytest` and `coverage`:
@@ -87,16 +123,6 @@ To execute the unit and integration test, install `pytest` and `coverage`:
 #### Pip
 ```bash
 pip install pytest coverage
-```
-
-#### Pipenv
-```bash
-pipenv install --dev pytest coverage
-```
-
-#### Poetry
-```bash
-poetry add --dev pytest coverage
 ```
 
 ### Development scripts installation
@@ -107,9 +133,9 @@ poetry add --dev pytest coverage
 npm install -D genericsuite-be-scripts
 ```
 
-## Features
+## Available options
 
-1. **Select Your Framework**: Depending on your project, choose between [Chalice](https://aws.github.io/chalice/quickstart.html), [FastAPI](https://fastapi.tiangolo.com/), or [Flask](https://flask.palletsprojects.com/).
+1. **Select Your Framework**: Depending on your project, choose between [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) or [Chalice](https://aws.github.io/chalice/quickstart.html).
 2. **Select Your Database of choice**: Implement database operations using the provided abstracted functions for [MongoDB](https://www.mongodb.com/) and [DynamoDB](https://aws.amazon.com/pm/dynamodb/).
 3. **Included Authentication**: Your endpoints will be secured with [JWT](https://jwt.io/libraries)-based authentication.
 4. **Define Endpoints**: Utilize the dynamic endpoint creation feature by defining your endpoints in a JSON configuration file. Visit the [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs) for more information.
@@ -159,7 +185,8 @@ APP_SECRET_KEY=xxxx
 APP_SUPERADMIN_EMAIL=xxxx
 ```
 7. Database configuration
-- For AWS DynamoDB
+- For AWS DynamoDB<BR/>
+[https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 # DEV: docker
 APP_DB_ENGINE_DEV=DYNAMO_DB
@@ -184,7 +211,8 @@ APP_DB_URI_PROD=
 # APP_DB_NAME_DEMO=
 # APP_DB_URI_DEMO=
 ```
-- For MongoDB
+- For MongoDB<BR/>
+[https://www.mongodb.com/](https://www.mongodb.com/)
 ```
 # DEV: Docker container
 APP_DB_ENGINE_DEV=MONGO_DB
@@ -257,7 +285,8 @@ PYTHON_VERSION=3.11.5
 # PYTHON_VERSION=3.10.12
 # PYTHON_VERSION=3.9.17
 ```
-13. AWS Configuration
+13. AWS Configuration<BR/>
+[https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 AWS_S3_BUCKET_NAME_FE=exampleapp-frontend-website-[STAGE]
 AWS_REGION=aws-region
@@ -324,12 +353,6 @@ TEST_APP_URL=http://app.exampleapp.local:5001
 ```
 FLASK_APP=__init__.py
 ```
-
-## Framework installation
-
-* [FastAPI installation](https://fastapi.tiangolo.com/#installation)
-* [Flask installation](https://flask.palletsprojects.com/en/2.3.x/installation/)
-* [Chalice installation](https://aws.github.io/chalice/quickstart.html)
 
 ## App structure
 
@@ -485,7 +508,7 @@ You can find examples about configurations and how to code an App in the [Generi
 
 ## Usage
 
-Check the [The GenericSuite backend development scripts](https://github.com/tomkat-cr/genericsuite-be-scripts?tab=readme-ov-file#the-genericsuite-scripts-backend-version) for more details.
+Check the [The GenericSuite backend development scripts](../GenericSuite-Scripts/index.md) for more details.
 
 ## License
 

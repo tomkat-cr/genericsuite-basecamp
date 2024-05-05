@@ -39,6 +39,10 @@ In this repository you will find the instructions and code examples for your App
 * [https://pypi.org/project/genericsuite-ai/](https://pypi.org/project/genericsuite-ai/)
 * [https://www.npmjs.com/package/genericsuite-be-scripts](https://www.npmjs.com/package/genericsuite-be-scripts)
 
+## Docs
+
+[https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
+
 ## Posts
 
 * [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
@@ -51,7 +55,5 @@ GenericSuite is open-sourced software licensed under the [ISC](https://github.co
 ## Credits
 
 This project is developed and maintained by [Carlos J. Ramirez](https://www.carlosjramirez.com). For more information or to contribute to the project, visit [GenericSuite on GitHub](https://github.com/stars/tomkat-cr/lists/genericsuite).
-
-[https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
 
 Happy Coding!
