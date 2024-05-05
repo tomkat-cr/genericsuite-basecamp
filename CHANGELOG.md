@@ -17,12 +17,15 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
-## 0.0.5 (2024-05-02)
+## 0.0.5 (2024-05-05)
 ---
+
+### New
+Add API Key creation URL references.
+Create a documentation mirror in readthedocs.org [GS-75].
 
 ### Changes
 Change: remove <a /> from "ACCOUNT_INACTIVE" in "app_constants.json".
-Add: API Key creation URL references.
 
 
 ## 0.0.4 (2024-04-28)

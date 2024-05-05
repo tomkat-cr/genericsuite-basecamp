@@ -21,9 +21,9 @@ GenericSuite AI (frontend version) has AI ChatBot tools, a customizable CRUD edi
 - **Inclusion of Essential Files:** `.env.example` for environment variables setup, `Makefile` to short-cut frequent operations, `webpack.config.js` and `config-overrides.js` to run the App locally with `Webpack` or `react-app-rewired`, `scripts` with development and production scripts, 
  and `CHANGELOG.md` for tracking changes across versions.
 
-The perfect companion for this frontend solution is the [backend version of The GenericSuite AI](https://github.com/tomkat-cr/genericsuite-be-ai).
+The perfect companion for this frontend solution is the [backend version of The GenericSuite AI](../../Backend-Development/GenericSuite-AI/index.md).
 
-GenericSuite AI (frontend version) is based on [The GenericSuite](https://github.com/tomkat-cr/genericsuite-fe).
+GenericSuite AI (frontend version) is based on [The GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md).
 
 ## Pre-requisites
 
@@ -44,7 +44,7 @@ Same steps described in [GenericSuite for ReactJS (frontend version)](../Generic
 ### Install GenericSuite AI Library
 
 ```bash
-npm install genericsuite-ai
+npm install genericsuite genericsuite-ai
 ```
 
 ### Install additional development dependencies
@@ -108,7 +108,9 @@ The main menu, API endpoints and CRUD editor configurations are defined in the J
 
 You can find examples about configurations and how to code an App in the [GenericSuite App Creation and Configuration guide](../../Configuration-Guide/index.md).
 
-## Start Development Server
+## Usage
+
+### Start Development Server
 
 To start the development server:
 
@@ -116,36 +118,6 @@ To start the development server:
 make run
 ```
 
-## Deploy QA
+### Deploy QA
 
-To perform a QA deployment over AWS S3:
-
-```bash
-make deploy_qa
-```
-
-If you receive the error `ERROR running aws s3api put-bucket-policy --bucket BUCKET_NAME --policy S3_BUCKET_POLICY`, probably the script was unable to deactivate the 'Block all public access' option on the S3 bucket.
-
-To solve it:
-
-* Go to the AWS Console.
-* Go to S3.
-* Search for App bucket (e.g. `exampleapp-frontend-website`).
-* Click on the bucket name.
-* Click on the 'Permissions' tab.
-* Click on 'Edit' in the 'Block public access (bucket settings)' section.
-* Uncheck 'Block all public access'.
-* Click on 'Save changes'.
-* Confirm the operation.
- 
-To link this S3 bucket to the App domain:"
- 
-* Go to Route 53.
-* Click on the Zone corresponding to the App domain.
-* Click on 'Create Record'.
-* Enter the subdomain: 'app-qa', 'app-staging', 'app-demo' or 'app' (for production).
-* Enable 'alias'.
-* In 'Route traffic to' select the 'Alias to CloudFront' option.
-* In 'Choose distribution' select the one corresponding to App stage.
-* Click on 'Create Records'.
- 
+Check the [Deployment Guide](../deployment.md) for details.

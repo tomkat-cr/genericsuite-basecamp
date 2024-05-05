@@ -104,11 +104,12 @@ Libraries:
 
 ## Repositories
 
-Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi libraris.
+Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi libraries.
 
-## Docs
+## Documentation
 
-[https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
+* [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
+* Mirror: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
 
 ## Posts
 

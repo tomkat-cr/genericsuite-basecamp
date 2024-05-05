@@ -483,13 +483,15 @@ The main menu, API endpoints and CRUD editor configurations are defined in the J
 
 You can find examples about configurations and how to code an App in the [GenericSuite App Creation and Configuration guide](../../Configuration-Guide/index.md).
 
+## Usage
+
 ## Do the first build
 
 ```bash
 make build
 ```
 
-## Start Development Server
+### Start Development Server
 
 To start the development server:
 
@@ -497,10 +499,6 @@ To start the development server:
 make run
 ```
 
-## Deploy QA
+### Deploy QA
 
-To perform a QA deployment over AWS S3:
-
-```bash
-make deploy_qa
-```
+Check the [Deployment Guide](../deployment.md) for details.

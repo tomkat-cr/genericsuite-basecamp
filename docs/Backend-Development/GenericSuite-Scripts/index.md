@@ -185,7 +185,9 @@ If you're using the Chalice framework, add the additional environment variables 
    ```
 ... replacing "ENVVAR_NAME" with the name of the environment variable (in both places).
 
-## Start Development Server
+## Usage
+
+### Start Development Server
 
 To start the development server for the `dev` stage and a local docker MongoDB container:
 
@@ -205,13 +207,13 @@ When there are changes to the dependencies or `.env` file, restart the local dev
    make restart_qa
    ```
 
-## Deploy QA
+### Deploy QA
 
 To perform a QA deployment as an AWS Lambda Function and AWS API Gateway:
 
-   ```bash
-   make deploy_qa
-   ```
+```bash
+make deploy_qa
+```
 
 To link backend API to the App domain:
 
@@ -225,7 +227,7 @@ To link backend API to the App domain:
 * In 'Choose endpoint' select the one corresponding to App domain.
 * Click on 'Create Records'.
 
-## Install dependencies
+### Install dependencies
 
 * Install default package categories from Pipfile.<br/>
 Runs `pipenv install`.<br/>
@@ -274,7 +276,7 @@ Alias that runs `make clean_rm` and `make install`.
 make fresh
 ```
 
-## Cleaning
+### Cleaning
 
 * Alias to run `make clean_rm`, `make clean_temp_dir`, and `make clean_logs`.
 
@@ -303,7 +305,7 @@ Runs `sh scripts/aws/run_aws.sh clean`.
 make clean_temp_dir
 ```
 
-## CLI Utilities
+### CLI Utilities
 
 * Install development tools (pyenv, pipenv, make, and optionally: poetry, saml2aws).<br/>
 Check [node_modules/genericsuite-be-scripts/scripts/install_dev_tools.sh](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/install_dev_tools.sh) for more details about how to configure via `.env` file.
@@ -319,7 +321,7 @@ Runs `sh scripts/run_lsof.sh`.
 make lsof
 ```
 
-## Automated Testing
+### Automated Testing
 
 * Start the local MongoDB docker container and run the tests.<br/>
 Runs `sh scripts/run_app_tests.sh`.
@@ -335,7 +337,7 @@ Runs `sh scripts/aws/run_tests.sh`.
 make test_only
 ```
 
-## Linting
+### Linting
 
 * Execute Prospector.<br/>
 Runs `pipenv run prospector`.
@@ -375,7 +377,7 @@ Runs `pipenv run yapf --diff *.py **/*.py **/**/*.py` and `pycodestyle`.
 make format_check
 ```
 
-## Development Commands
+### Development Commands
 
 * Perform a complete Lint, Type check, unit and integration test, format check, and styling before deployments.<br/>
 Alias to run `make lint`, `make types`, `make tests`, `make format_check`, and `make pycodestyle`.
@@ -398,7 +400,7 @@ Runs `sh scripts/mongo/run_mongo_docker.sh down`
 make mongo_docker_down
 ```
 
-## Chalice Specific Commands
+### Chalice Specific Commands
 
 * Set parameters on `.chalice/config.json` as the production stage.<br/>
 Runs `sh scripts/aws/set_chalice_cnf.sh prod`.
@@ -492,7 +494,7 @@ Runs `sh scripts/aws/run_aws.sh delete_stack`
 make delete_stack
 ```
 
-## AWS S3 and other
+### AWS S3 and other
 
 * Create a default `${HOME}/.aws/config` AWS configuration.<br/>
 Runs `sh scripts/aws/create_aws_config.sh`.
@@ -529,7 +531,7 @@ Runs `sh scripts/aws/create_chatbot_s3_bucket.sh prod`.
 make create_s3_bucket_prod
 ```
 
-## Deployment
+### Deployment
 
 * Deploy the App on QA.<br/>
 Runs `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh sam_deploy qa`
@@ -573,7 +575,7 @@ make deploy_prod
 make deploy
 ```
 
-## Application Specific Commands
+### Application Specific Commands
 
 * Execute the App locally using the development database, asking to run it over `http` or `https`.<br/>
 Runs `make config_qa`, `make clean_logs`, and `sh scripts/aws/run_aws.sh run_local`.
@@ -619,7 +621,7 @@ Runs `make config`, `make clean_logs`, `sh scripts/aws/run_aws.sh run`.
 make run_prod
 ```
 
-## Common JSON config
+### Common JSON config
 
 * Add the Git Submodule with the common JSON config directories.<br/>
 Runs `sh scripts/add_github_submodules.sh`.
@@ -628,7 +630,7 @@ Runs `sh scripts/add_github_submodules.sh`.
 make add_submodules
 ```
 
-# Local DNS Server
+### Local DNS Server
 
 * Start the local DNS Server.<br/>
 Runs `sh scripts/dns/run_local_dns.sh`
@@ -664,7 +666,7 @@ Runs `sh scripts/dns/run_local_dns.sh test`.
 make local_dns_test
 ```
 
-## Self-signed local SSL certificates
+### Self-signed SSL certificates
 
 * Create the self-signed local SSL certificates (required to run the local development frontend and backend over https).<br/>
 Runs `sh scripts/local_ssl_certs_creation.sh`.
@@ -686,7 +688,7 @@ make copy_ssl_certs
 make create_ssl_certs
 ```
 
-# NPM library scripts
+### NPM library scripts
 
 * Update the package.json file with the version and all other parameters except dependencies.<br/>
 Runs `npm install --package-lock-only`.
@@ -711,7 +713,7 @@ Requirements:<br/>
 make publish
 ```
 
-# Pypi library scripts
+### Pypi library scripts
 
 * Build 'dist' directory needed for the Pypi publish.<br/>
 Runs `poetry lock --no-update`, `rm -rf dist` and `python3 -m build`.<br/>
@@ -747,8 +749,10 @@ make pypi-publish
 - If you get the error `Warning: Python >=3.9,<4.0 was not found on your system...` doing `make install`:
 
 ```bash
-$ make install
-
+make install
+```
+... and the response is like:
+```
 pipenv install
 Warning: Python >=3.9,<4.0 was not found on your system...
 
@@ -756,7 +760,9 @@ You can specify specific versions of Python with:
 $ pipenv --python path/to/python
 make: *** [install] Error 1
 ```
+
 Fix it with these commands:
+
 ```bash   
 # Set the project Python version with pyenv
 pyenv local 3.11
@@ -772,8 +778,13 @@ And repeat `make install`
 
 ```bash
 npm install
-
-npm WARN read-shrinkwrap This version of npm is compatible with lockfileVersion@1, but package-lock.json was generated for lockfileVersion@3. I'll try to do my best with it!
+```
+... and the response is like:
+```
+npm WARN read-shrinkwrap
+This version of npm is compatible with lockfileVersion@1,
+but package-lock.json was generated for lockfileVersion@3.
+I'll try to do my best with it!
 ```
 
 It's because you're using an old Node version. To solve it:

@@ -9,7 +9,7 @@
 
 [GenericSuite AI (backend version)](https://github.com/tomkat-cr/genericsuite-be-ai) is a versatile backend solution, designed to provide a comprehensive suite of features, tools and functionalities for AI oriented Python APIs.
 
-It's bassed on [The Generic Suite (backend version)](../GenericSuite-Core/index.md), so its features are inherited.
+It's bassed on [The Generic Suite (backend version)](../GenericSuite-Core/index.md).
 
 The perfect companion for this backend solution is [The GenericSuite AI (frontend version)](../../Frontend-Development/GenericSuite-AI/index.md)
 
@@ -37,17 +37,17 @@ To use GenericSuite AI in your project, install it with the following command(s)
 
 #### Pip
 ```bash
-pip install genericsuite-ai
+pip install genericsuite genericsuite-ai
 ```
 
 #### Pipenv
 ```bash
-pipenv install genericsuite-ai
+pipenv install genericsuite genericsuite-ai
 ```
 
 #### Poetry
 ```bash
-poetry add genericsuite-ai
+poetry add genericsuite genericsuite-ai
 ```
 
 ### Test dependencies

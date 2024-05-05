@@ -37,7 +37,7 @@ If you plan to deploy the App in the AWS Cloud:
 
 ## Getting Started
 
-To get started with [GenericSuite](https://www.carlosjramirez.com/genericsuite), follow these steps:
+To get started with [GenericSuite](../../index.md), follow these steps:
 
 ### Initiate your project
 
@@ -68,7 +68,7 @@ cd exampleapp_backend
 
 ## Installation
 
-To use [GenericSuite](https://www.carlosjramirez.com/genericsuite) in your project, install it with the following command(s):
+To use [GenericSuite](../../index.md) in your project, install it with the following command(s):
 
 #### Pip
 ```bash
@@ -96,7 +96,7 @@ Install the desired framework: [FastAPI](https://fastapi.tiangolo.com/), [Flask]
 
 #### FastAPI
 ```bash
-pip install fastapi "uvicorn[standard]" python-multipart mangum
+pip install fastapi fastapi-cors "uvicorn[standard]" python-multipart mangum
 ```
 
 #### Flask
@@ -133,7 +133,7 @@ pip install pytest coverage
 npm install -D genericsuite-be-scripts
 ```
 
-## Features
+## Available options
 
 1. **Select Your Framework**: Depending on your project, choose between [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) or [Chalice](https://aws.github.io/chalice/quickstart.html).
 2. **Select Your Database of choice**: Implement database operations using the provided abstracted functions for [MongoDB](https://www.mongodb.com/) and [DynamoDB](https://aws.amazon.com/pm/dynamodb/).
@@ -508,7 +508,7 @@ You can find examples about configurations and how to code an App in the [Generi
 
 ## Usage
 
-Check the [The GenericSuite backend development scripts](https://github.com/tomkat-cr/genericsuite-be-scripts?tab=readme-ov-file#the-genericsuite-scripts-backend-version) for more details.
+Check the [The GenericSuite backend development scripts](../GenericSuite-Scripts/index.md) for more details.
 
 ## License
 
