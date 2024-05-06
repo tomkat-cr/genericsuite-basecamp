@@ -70,24 +70,30 @@ cd exampleapp_backend
 
 To use [GenericSuite](../../index.md) in your project, install it with the following command(s):
 
-#### Pip
+### From PyPi
+
+Pip
 ```bash
 pip install genericsuite
 ```
 
-#### Pipenv
+Pipenv
 ```bash
 pipenv install genericsuite
 ```
 
-#### Poetry
+Poetry
 ```bash
 poetry add genericsuite
 ```
 
-NOTE: in the following instructions we'll only show `pip install ...`.<BR/>
+**NOTE**: in the following instructions we'll only show `pip install ...`.<BR/>
 If you'll use `Pipenv`, change it with `pipenv install ...`.<BR/>
 If you'll use `Poetry`, change it with `poetry add ...`.<BR/>
+
+### From Git or Local Directory
+
+Check [this documentation](../../Other/special-installs.md) to install from a Git repository/branch or a Local Directory.
 
 
 ## Framework installation
@@ -115,12 +121,10 @@ For more information:
 * [Flask installation](https://flask.palletsprojects.com/en/2.3.x/installation/)
 * [Chalice installation](https://aws.github.io/chalice/quickstart.html)
 
-
 ### Test dependencies
 
 To execute the unit and integration test, install `pytest` and `coverage`:
 
-#### Pip
 ```bash
 pip install pytest coverage
 ```

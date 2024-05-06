@@ -45,7 +45,7 @@ It's composed by a **GenericSuite Core** is the code base all the suite elements
     align="right"
     width="100"
     height="100"
-    src="../images/gs_logo_circle.svg"
+    src="images/gs_logo_circle.svg"
     title="GenericSuite logo by Carlos J. Ramirez"
 />
 
@@ -70,7 +70,7 @@ Libraries:
     align="right"
     width="100"
     height="100"
-    src="../images/gs_ai_logo_circle.svg"
+    src="images/gs_ai_logo_circle.svg"
     title="GenericSuite AI logo by Carlos J. Ramirez"
 />
 
@@ -113,6 +113,7 @@ Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi l
 
 ## Posts
 
+* X: [@genericsuitelib](https://twitter.com/genericsuitelib)
 * English: [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
 * Spanish: [https://www.carlosjramirez.com/genericsuite-es/](https://www.carlosjramirez.com/genericsuite-es/)
 

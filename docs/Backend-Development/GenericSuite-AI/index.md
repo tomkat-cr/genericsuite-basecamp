@@ -33,40 +33,37 @@ First check the [Getting Started](https://github.com/tomkat-cr/genericsuite-be/b
 
 To use GenericSuite AI in your project, install it with the following command(s):
 
-### From Pypi
+### From PyPi
 
-#### Pip
+Pip
 ```bash
 pip install genericsuite genericsuite-ai
 ```
 
-#### Pipenv
+Pipenv
 ```bash
 pipenv install genericsuite genericsuite-ai
 ```
 
-#### Poetry
+Poetry
 ```bash
 poetry add genericsuite genericsuite-ai
 ```
+
+**NOTE**: in the following instructions we'll only show `pip install ...`.<BR/>
+If you'll use `Pipenv`, change it with `pipenv install ...`.<BR/>
+If you'll use `Poetry`, change it with `poetry add ...`.<BR/>
+
+### From Git or Local Directory
+
+Check [this documentation](../../Other/special-installs.md) to install from a Git repository/branch or a Local Directory.
 
 ### Test dependencies
 
 To execute the unit and integration test, install `pytest` and `coverage`:
 
-#### Pip
 ```bash
 pip install pytest coverage
-```
-
-#### Pipenv
-```bash
-pipenv install --dev pytest coverage
-```
-
-#### Poetry
-```bash
-poetry add --dev pytest coverage
 ```
 
 ### Development scripts installation

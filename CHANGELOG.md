@@ -23,13 +23,23 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### New
 Add API Key creation URL references.
 Create a documentation mirror in readthedocs.org [GS-75].
+Special installs section (from Git or Local directory).
+Add Google Analytics config.
+Add Cookie consent.
 
 ### Changes
 Change: remove <a /> from "ACCOUNT_INACTIVE" in "app_constants.json".
+Pipenv, poetry and pip instructions are not longer ### sections.
+
+### Fixes
+Fix homepage section's image paths.
 
 
 ## 0.0.4 (2024-04-28)
 ---
+
+### Changes
+Change: document the API Keys URLs for each configuration.
 
 ### Fixes
 Add "mkdocs_run.sh" to fix the error running the "mkdocs serve" the first time.
