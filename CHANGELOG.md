@@ -17,12 +17,27 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.6 (2024-05-07)
+---
+
+### New
+Add special install instructions.
+
+### Changes
+Navigation on the top.
+Social icons and copyright notice on footer.
+Repository reference on header.
+Git committers on each page footer.
+Add logos, readthedocs documentation URL and X url to README.
+History and repositories pages revised.
+
+
 ## 0.0.5 (2024-05-05)
 ---
 
 ### New
-Add API Key creation URL references.
 Create a documentation mirror in readthedocs.org [GS-75].
+Add API Key creation URL references.
 Special installs section (from Git or Local directory).
 Add Google Analytics config.
 Add Cookie consent.

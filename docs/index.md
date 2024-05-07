@@ -1,24 +1,24 @@
 # Welcome to GenericSuite
 
 <table cellpadding="0" cellspacing="0" style="border: 0px white;">
-<tr>
-    <td>
-        <a href="./genericsuite-core/">
-            <img
-                src="images/gs_logo_circle.svg"
-                title="GenericSuite logo by Carlos J. Ramirez"
-            />
-        </a>
-    </td>
-    <td>
-        <a href="./genericsuite-ai/">
-            <img
-                src="images/gs_ai_logo_circle.svg"
-                title="GenericSuite AI logo by Carlos J. Ramirez"
-            />
-        </a>
-    </td>
-</tr>
+    <tr>
+        <td>
+            <a href="./genericsuite-core/">
+                <img
+                    src="images/gs_logo_circle.svg"
+                    title="GenericSuite logo by Carlos J. Ramirez"
+                />
+            </a>
+        </td>
+        <td>
+            <a href="./genericsuite-ai/">
+                <img
+                    src="images/gs_ai_logo_circle.svg"
+                    title="GenericSuite AI logo by Carlos J. Ramirez"
+                />
+            </a>
+        </td>
+    </tr>
 </table>
 
 GenericSuite is a comprehensive software library designed for backend and frontend App development in Python and React.js, including AI features, to enhance your productivity and streamline your workflows.
@@ -108,7 +108,7 @@ Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi l
 
 ## Documentation
 
-* [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
+* Main: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
 * Mirror: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
 
 ## Posts

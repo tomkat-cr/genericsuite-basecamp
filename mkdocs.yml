@@ -1,12 +1,48 @@
 site_name: The GenericSuite
 site_url: https://genericsuite.carlosjramirez.com
+copyright: Copyright &copy; 2024 <a href="https://www.carlosjramirez.com">Carlos J. Ramirez</a>
+
+repo_url: https://github.com/tomkat-cr/genericsuite-basecamp
+repo_name: tomkat-cr/genericsuite
+
+nav:
+  - 'Introduction': './index.md'
+  - 'History': './history.md'
+  - 'Repositories': 'repositories.md'
+  - 'The GenericSuite Core': 'genericsuite-core.md'
+  - 'The GenericSuite AI': 'genericsuite-ai.md'
+  - 'Frontend Development':
+    - 'GenericSuite Core': './Frontend-Development/GenericSuite-Core/index.md'
+    - 'GenericSuite AI': './Frontend-Development/GenericSuite-AI/index.md'
+    - 'Deployment': './Frontend-Development/deployment.md'
+  - 'Backend Development':
+    - 'GenericSuite Core': './Backend-Development/GenericSuite-Core/index.md'
+    - 'GenericSuite AI': './Backend-Development/GenericSuite-AI/index.md'
+    - 'Backend Scripts': './Backend-Development/GenericSuite-Scripts/index.md'
+    - 'Deployment': './Backend-Development/deployment.md'
+  - 'Configuration Guide': './Configuration-Guide/index.md'
+  # - 'Sample Code':
+  - 'Other':
+    - 'Special Installation': './Other/special-installs.md'
 
 theme:
   name: material
-  # favicon: images/favicon-genericsuite-core.ico
   favicon: images/gs_logo_circle.png
   logo: images/gs_logo_circle.png
-  # custom_dir: overrides
+  features:
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    # - content.code.annotate
+    # - navigation.indexes
+    # - navigation.sections
+    # - navigation.top
+    # - navigation.instant    
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.footer
+  icon:
+    repo: fontawesome/brands/git-alt
 
 extra_css:
   - stylesheets/extra.css
@@ -22,6 +58,21 @@ extra:
   analytics:
     provider: google
     property: G-HL2GMT09NW
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/stars/tomkat-cr/lists/genericsuite
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/genericsuitelib
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/carlosjramirez/
+  version:
+    provider: mike
+
+plugins:
+  - git-committers:
+      repository: tomkat-cr/genericsuite-basecamp
+      branch: main
+  - search
 
 markdown_extensions:
   - attr_list
