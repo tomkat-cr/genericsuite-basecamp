@@ -393,12 +393,42 @@ Runs `sh scripts/mongo/run_mongo_docker.sh run`.
 make mongo_docker
 ```
 
+NOTES:<BR/>
+Use `mongodb://root:example@mongo:27017/` as URL to connect to the local MongoDb database.<BR/>
+Use [http://localhost:8081](http://localhost:8081) to access the MongoDb Admin UI.<BR/>
+Use user: `admin` and password: `pass` as credentials to access the Admin UI.<BR/>
+
 * Stop the local MongoDB docker container.<br/>
 Runs `sh scripts/mongo/run_mongo_docker.sh down`
 
 ```bash
 make mongo_docker_down
 ```
+
+* Backup a mongoDB database.<br/>
+Runs `sh scripts/mongo/db_mongo_backup.sh ${STAGE} ${BACKUP_DIR}`<br/>
+
+```bash
+make mongo_backup
+```
+
+E.g.
+```bash
+STAGE=qa BACKUP_DIR=./dumps make mongo_backup
+```
+
+* Restore a mongoDB database.<br/>
+Run `sh scripts/mongo/db_mongo_restore.sh ${STAGE} ${RESTORE_DIR}`
+
+```bash
+make mongo_restore
+```
+
+E.g.
+```bash
+STAGE=qa RESTORE_DIR=./dumps/bkp-mongodb-[exampleapp]_[stage]-[date]_[time].zip make mongo_restore
+```
+
 
 ### Chalice Specific Commands
 
@@ -529,6 +559,16 @@ Runs `sh scripts/aws/create_chatbot_s3_bucket.sh prod`.
 
 ```bash
 make create_s3_bucket_prod
+```
+
+### Secrets
+
+* Generate a new seed for the storage assets URL masking
+
+To assign the STORAGE_URL_SEED environment variable.
+
+```bash
+make generate_seed
 ```
 
 ### Deployment

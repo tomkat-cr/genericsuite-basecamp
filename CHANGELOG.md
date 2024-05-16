@@ -17,6 +17,18 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.7 (2024-05-09)
+---
+
+### New
+Add STORAGE_URL_SEED env. vars. [GS-72].
+Add sample code for genericsuite-be-scripts.
+Add genericsuite-be-ai sample code files for AWS and AWS big lambdas deployment.
+
+### Changes
+Change special instructions to remove the fronend install from git/local directory (until find a way to make it work).
+
+
 ## 0.0.6 (2024-05-07)
 ---
 

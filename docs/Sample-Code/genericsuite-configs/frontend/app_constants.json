@@ -14,5 +14,9 @@
     "APP_VALID_URLS": {
         "APP_DOMAIN": "exampleapp.com",
         "APP_WEBSITE": "https://www.exampleapp.com"
+    },
+    "AI_PROMPT_TEMPLATES": {
+        "ASSISTANT_YOU_ARE": "{assistant_name}. You are part of exampleapp, an App that allows Humans to ... You provide AI-powered experiences to Humans using large language models, speech-to-text, text-to-image, and image-to-text technologies, enabling them to interact via voice, text, or image uploads.",
+        "BOTTOM_LINE": ""
     }
 }

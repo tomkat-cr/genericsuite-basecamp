@@ -29,6 +29,14 @@
         ]
     },
     {
+        "title": "AI Assistant",
+        "location": "top_menu",
+        "type": "nav_link",
+        "sec_group": "users",
+        "path": "/chatbot",
+        "element": "Chatbot"
+    },
+    {
         "title": "User Menu",
         "location": "hamburger",
         "sub_menu_options": [

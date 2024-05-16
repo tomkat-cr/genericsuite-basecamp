@@ -100,13 +100,13 @@ Please check the [GenericSuite backend version configuration section](https://gi
 
 For GenericSuite AI, there are these additional environment variables:
 
-1. Chabot configuration
+* Chabot configuration
 ```
 # Aplicacion AI assistant name
 AI_ASSISTANT_NAME=ExampleBot
 ```
 
-2. Google configuration<BR/>
+* Google configuration<BR/>
 [https://console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
 ```
 GOOGLE_API_KEY=google_console_api_key
@@ -116,7 +116,7 @@ GOOGLE_API_KEY=google_console_api_key
 GOOGLE_CSE_ID=google_console_cse_key
 ```
 
-3. OpenAI configuration<BR/>
+* OpenAI configuration<BR/>
 [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 ```
 OPENAI_API_KEY=openai_api_key
@@ -124,21 +124,21 @@ OPENAI_MODEL=gpt-3.5-turbo
 OPENAI_TEMPERATURE=0.7
 ```
 
-4. Langchain/LangSmith configuration<BR/>
+* Langchain/LangSmith configuration<BR/>
 [https://smith.langchain.com/settings](https://smith.langchain.com/settings)
 ```
 LANGCHAIN_API_KEY=langchain_api_key
 LANGCHAIN_PROJECT=langchain_project
 ```
 
-5. Hugging Face credentials and model URL<BR/>
+* Hugging Face credentials and model URL<BR/>
 [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
 ```
 HUGGINGFACE_API_KEY=huggingface_api_key
 HUGGINGFACE_ENDPOINT_URL=huggingface_endpoint_url
 ```
 
-6. AWS Configuration<BR/>
+* AWS Configuration<BR/>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_DEV=exampleapp-chatbot-attachments-dev
@@ -147,83 +147,116 @@ AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_STAGING=exampleapp-chatbot-attachments-staging
 AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_PROD=exampleapp-chatbot-attachments-prod
 ```
 
-7. Other AI configurations<br/>(not included in the original AWS Lambda deployment. Configurable via Configuration Parameters)
+Dynamic AI configurations<br/>
+
+Configurable via frontend `Admin > Configuration Parameters` menu option, because they're not included as AWS Lambda environment variables in the deployment scripts.
+
+* General AI Engine configurations
 ```
 EMBEDDINGS_ENGINE=openai
 # EMBEDDINGS_ENGINE=clarifai
-
+```
+```
 VECTOR_STORE_ENGINE=FAISS
 # VECTOR_STORE_ENGINE=clarifai
 # VECTOR_STORE_ENGINE=mongo
 # VECTOR_STORE_ENGINE=vectara
-
+```
+```
 LANGCHAIN_DEFAULT_MODEL=chat_openai
 # LANGCHAIN_DEFAULT_MODEL=gemini
 # LANGCHAIN_DEFAULT_MODEL=huggingface
 # LANGCHAIN_DEFAULT_MODEL=clarifai
-
+```
+```
 AI_VISION_TECHNOLOGY=openai
 # AI_VISION_TECHNOLOGY=gemini
 # AI_VISION_TECHNOLOGY=clarifai
-
+```
+```
 AI_IMG_GEN_TECHNOLOGY=openai
 # AI_IMG_GEN_TECHNOLOGY=gemini
 # AI_IMG_GEN_TECHNOLOGY=clarifai
-
+```
+```
 AI_AUDIO_TO_TEXT_TECHNOLOGY=openai
 # AI_AUDIO_TO_TEXT_TECHNOLOGY=google
 # AI_AUDIO_TO_TEXT_TECHNOLOGY=clarifai
-
+```
+```
 AI_TEXT_TO_AUDIO_TECHNOLOGY=openai
 # AI_TEXT_TO_AUDIO_TECHNOLOGY=clarifai
-
+```
+```
 # Add aditional models to the LLM
 AI_ADDITIONAL_MODELS=0
 # AI_ADDITIONAL_MODELS=1
+```
 
-# Langchain credentials and other parameters
+* Langchain credentials and other parameters
 
+```
 # Langsmith
 LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
 LANGCHAIN_TRACING_V2=true
-
+```
+```
 # Agent configuration
 LANGCHAIN_AGENT_TYPE=react_chat_agent
 # LANGCHAIN_AGENT_TYPE=react_agent
 # LANGCHAIN_AGENT_TYPE=structured_chat_agent
 # LANGCHAIN_AGENT_TYPE=LLMSingleActionAgent
-
+```
+```
 LANGCHAIN_MAX_ITERATIONS=8
 LANGCHAIN_EARLY_STOPPING_METHOD=force
 # LANGCHAIN_EARLY_STOPPING_METHOD=generate
 LANGCHAIN_HANDLE_PARSING_ERR=1
-
+```
+```
 # Translate final Chatbot response to the user in case user's language is not english
 LANGCHAIN_TRANSLATE_USING=google_translate
 # LANGCHAIN_TRANSLATE_USING=initial_prompt
 # LANGCHAIN_TRANSLATE_USING=same_model
 # LANGCHAIN_TRANSLATE_USING=
-
+```
+```
 LANGCHAIN_USE_LANGSMITH_HUB=0
 # LANGCHAIN_USE_LANGSMITH_HUB=1
+```
 
-# Google other parameters
+* Google other parameters
 
+```
 GOOGLE_MODEL=gemini-pro
+```
+```
 GOOGLE_VISION_MODEL=gemini-pro-vision
+```
+```
 # GOOGLE_IMG_GEN_MODEL=gemini-pro-vision
 GOOGLE_IMG_GEN_MODEL=imagegeneration@005
+```
 
-# OpenAI other parameters
+* OpenAI other parameters
+```
 OPENAI_MAX_TOKENS=500
+```
+```
 # Addicional NLP model
 OPENAI_MODEL_PREMIUM=gpt-4-turbo-preview
 OPENAI_MODEL_INSTRUCT=gpt-3.5-turbo-instruct
+```
+```
 # Computer Vision model
 OPENAI_VISION_MODEL=gpt-4-vision-preview
-# Image neration model
+```
+```
+# Image generation model
 OPENAI_IMAGE_GEN_MODEL=dall-e-3
 # Speech-to-text model
+```
+```
 OPENAI_VOICE_MODEL=whisper-1
 # Text-to-speech model
 OPENAI_TEXT_TO_AUDIO_MODEL=tts-1
@@ -233,32 +266,42 @@ OPENAI_TEXT_TO_AUDIO_VOICE=onyx
 # OPENAI_TEXT_TO_AUDIO_VOICE=fable
 # OPENAI_TEXT_TO_AUDIO_VOICE=nova
 # OPENAI_TEXT_TO_AUDIO_VOICE=shimmer
+```
+```
 # Embeddings model
 OPENAI_EMBEDDINGS_MODEL=text-embedding-ada-002
 # OPENAI_EMBEDDINGS_MODEL=text-embedding-3-small
 # Embeddings premium model
 OPENAI_EMBEDDINGS_MODEL_PREMIUM=text-embedding-3-large'
+```
 
-# Anthropic credentials and other parameters
-# https://console.anthropic.com/settings/keys
+* Anthropic credentials and other parameters<BR/>
+https://console.anthropic.com/settings/keys
 
+```
 ANTHROPIC_MODEL=claude-2
 ANTHROPIC_API_KEY=
+```
 
-# AWS Bedrock credentials and other parameters
-# https://console.aws.amazon.com
+* AWS Bedrock credentials and other parameters<BR/>
+https://console.aws.amazon.com
 
+```
 AWS_BEDROCK_EMBEDDINGS_MODEL_ID=amazon.titan-embed-text-v1
 AWS_BEDROCK_EMBEDDINGS_PROFILE=bedrock-admin
+```
 
-# HuggingFace other parameters
-# https://huggingface.co
+* HuggingFace other parameters<BR/>
+https://huggingface.co
 
+```
 HUGGINGFACE_MAX_NEW_TOKENS=512
 HUGGINGFACE_TOP_K=50
 HUGGINGFACE_TEMPERATURE=1
 HUGGINGFACE_REPETITION_PENALTY=03
+```
 
+```
 # IMPORTANT: about "sentence-transformers" lib. Be careful, because
 # when it's included, the package size increase by 5 Gb. and if the
 # app runs in a AWS Lambda Function, it overpass the package size
@@ -269,86 +312,120 @@ HUGGINGFACE_EMBEDDINGS_MODEL="BAAI/bge-base-en-v1.5"
 
 HUGGINGFACE_EMBEDDINGS_MODEL_KWARGS='{"device":"cpu"}'
 HUGGINGFACE_EMBEDDINGS_ENCODE_KWARGS='{"normalize_embeddings": true}'
+```
 
-# Clarifai credentials and other parameters
-# https://clarifai.com > UserId > ProjectId > Settings
+* Clarifai credentials and other parameters<BR/>
+https://clarifai.com > UserId > ProjectId > Settings
 
+```
 # PAT (Personal API Token): https://clarifai.com/settings/security
 CLARIFAI_PAT=
 CLARIFAI_USER_ID=
 CLARIFAI_APP_ID=
+```
 
+```
 AI_CLARIFAI_DEFAULT_CHAT_MODEL=GPT-4
 # AI_CLARIFAI_DEFAULT_CHAT_MODEL=claude-v2
 # AI_CLARIFAI_DEFAULT_CHAT_MODEL=mixtral-8x7B-Instruct-v0_1
 # AI_CLARIFAI_DEFAULT_CHAT_MODEL=llama2-70b-chat
+```
 
+```
 AI_CLARIFAI_DEFAULT_TEXT_EMBEDDING_MODEL==text-embedding-ada
 # AI_CLARIFAI_DEFAULT_TEXT_EMBEDDING_MODEL==BAAI-bge-base-en-v15
+```
 
+```
+AI_CLARIFAI_DEFAULT_TEXT_TO_AUDIO_MODEL=speech-synthesis
+```
+
+```
 AI_CLARIFAI_DEFAULT_AUDIO_TO_TEXT_MODEL=whisper
 # AI_CLARIFAI_DEFAULT_AUDIO_TO_TEXT_MODEL=whisper-large-v2
 
-AI_CLARIFAI_DEFAULT_TEXT_TO_AUDIO_MODEL=speech-synthesis
-
 AI_CLARIFAI_AUDIO_TO_TEXT_SDK_TYPE=python_sdk
 # AI_CLARIFAI_AUDIO_TO_TEXT_SDK_TYPE=clarifai_grpc
+```
 
+```
 AI_CLARIFAI_DEFAULT_IMG_GEN_MODEL=stable-diffusion-xl
 # AI_CLARIFAI_DEFAULT_IMG_GEN_MODEL=dall-e-3
+```
 
+```
 AI_CLARIFAI_DEFAULT_VISION_MODEL=openai-gpt-4-vision
 # AI_CLARIFAI_DEFAULT_VISION_MODEL=food-item-recognition
+```
 
-# ElevenLabs
-# https://elevenlabs.io/app/subscription
+* ElevenLabs<BR/>
+https://elevenlabs.io/app/subscription
 
+```
 ELEVENLABS_API_KEY=
-
+```
+```
 # Sarah
 ELEVENLABS_VOICE_ID_FEMALE=EXAVITQu4vr4xnSDxMaL
 # Drew
 ELEVENLABS_VOICE_ID_MALE=29vD33N1CtxCmqQRPOHJ
-
+```
+```
 ELEVENLABS_MODEL_ID=eleven_multilingual_v2
 ELEVENLABS_STABILITY=0.5
 ELEVENLABS_SIMILARITY_BOOST=0.5
 ELEVENLABS_STYLE=0
 ELEVENLABS_USE_SPEAKER_BOOST=1
+```
 
-# Cohere credentials and other parameters
-# https://dashboard.cohere.com/api-keys
+* Cohere credentials and other parameters<BR/>
+https://dashboard.cohere.com/api-keys
 
+```
 COHERE_API_KEY=
+```
+```
 COHERE_EMBEDDINGS_MODEL=embed-english-light-v3.0
+```
 
-# Ollama parameters
+* Ollama parameters
 
+```
 OLLAMA_MODEL=llama:7b
+```
+```
 OLLAMA_EMBEDDINGS_MODEL=llama:7b
+```
 
-# MongooDB embeddings
-# https://www.mongodb.com
+* MongooDB embeddings<BR/>
+https://www.mongodb.com
 
+```
 MONGODB_VS_COLLECTION=
 MONGODB_VS_INDEX_NAME=
+```
 
-# Pinecone credentials and other parameters
-# https://app.pinecone.io/keys
+* Pinecone credentials and other parameters<BR/>
+https://app.pinecone.io/keys
 
+```
 # PINECONE_API_KEY=
 # PINECONE_ENV=
+```
 
-# Vectara credentials and other parameters
-# https://console.vectara.com/console/apiAccess/personalApiKey
+* Vectara credentials and other parameters<BR/>
+https://console.vectara.com/console/apiAccess/personalApiKey
 
+```
 VECTARA_CUSTOMER_ID=
 VECTARA_CORPUS_ID=
 VECTARA_API_KEY=
+```
 
-# Weaviate credentials and other parameters
-# https://console.weaviate.cloud/dashboard
+* Weaviate credentials and other parameters<BR/>
+https://console.weaviate.cloud/dashboard
 
+```
 WEAVIATE_URL=
 WEAVIATE_API_KEY=
 ```
