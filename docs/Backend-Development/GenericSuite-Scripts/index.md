@@ -526,28 +526,35 @@ make delete_stack
 
 ### AWS S3 and other
 
-* Create a default `${HOME}/.aws/config` AWS configuration.<br/>
-Runs `sh scripts/aws/create_aws_config.sh`.
+Create the AWS S3 Buckets for different environments and other AWS utilities.
 
-```bash
-make create_aws_config
-```
-
-* Create the Development S3 buckets.<br/>
+* Create S3 bucket for development.<br/>
 Runs `sh scripts/aws/create_chatbot_s3_bucket.sh dev`.
 
 ```bash
 make create_s3_bucket_dev
 ```
 
-* Create the QA S3 buckets.<br/>
+   * NOTES:
+
+      * The `create_s3_bucket_*` scripts also allows to create or re-assign the S3 Bucket Policy.
+
+
+      * If you receive the `AWS_S3_CHATBOT_ATTACHMENTS_CREATION is not set to 1` message, set that environment variable or run the script in this way:
+
+         ```bash
+         AWS_S3_CHATBOT_ATTACHMENTS_CREATION=1 make create_s3_bucket_dev
+         ```
+
+
+* Create S3 bucket for QA.<br/>
 Runs `sh scripts/aws/create_chatbot_s3_bucket.sh qa`.
 
 ```bash
 make create_s3_bucket_qa
 ```
 
-* Create the Staging S3 buckets.<br/>
+* Create S3 bucket for Staging.<br/>
 Runs `sh scripts/aws/create_chatbot_s3_bucket.sh staging`.
 
 ```bash
@@ -559,6 +566,13 @@ Runs `sh scripts/aws/create_chatbot_s3_bucket.sh prod`.
 
 ```bash
 make create_s3_bucket_prod
+```
+
+* Create a default `${HOME}/.aws/config` AWS configuration.<br/>
+Runs `sh scripts/aws/create_aws_config.sh`.
+
+```bash
+make create_aws_config
 ```
 
 ### Secrets

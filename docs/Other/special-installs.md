@@ -33,6 +33,7 @@ poetry add git+https://github.com/tomkat-cr/genericsuite-be-ai@branch_x
 To install the backend scripts from a specific branch in the Git repositories, e.g. "branch_x":
 
 ```bash
+nvm use 18
 npm install tomkat-cr/genericsuite-be-scripts#branch_x
 ```
 
@@ -67,5 +68,31 @@ poetry add ../genericsuite-be-ai
 To install the backend scripts from a local directory:
 
 ```bash
+nvm use 18
 npm install ../genericsuite-be-scripts
+```
+
+## Frontend
+
+### Install from Git repositories
+
+From the `main` branch:
+
+```bash
+nvm use 18
+```
+```bash
+npm install tomkat-cr/genericsuite-fe
+```
+```bash
+npm install tomkat-cr/genericsuite-fe-ai
+```
+
+From a specific branch:
+
+```bash
+npm install tomkat-cr/genericsuite-fe#branch_name
+```
+```bash
+npm install tomkat-cr/genericsuite-fe-ai#branch_name
 ```

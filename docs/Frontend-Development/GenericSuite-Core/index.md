@@ -106,6 +106,7 @@ npm install --save-dev \
    babel-jest \
    babel-loader \
    babel-plugin-css-modules-transform \
+   css-loader \
    file-loader \
    html-webpack-plugin \
    jest \
