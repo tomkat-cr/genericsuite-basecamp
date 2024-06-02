@@ -49,7 +49,16 @@ echo ""
 echo "Begin 'mkdocs build' run..."
 echo ""
 
-mkdocs build
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+if ! mkdocs build
+then
+    echo "ERROR: 'mkdocs build' failed"
+    exit 1
+fi
+deactivate
 
 echo ""
 echo "'mkdocs build' completed"
@@ -74,6 +83,10 @@ lftp -u ${REMOTE_USERNAME},${REMOTE_PASSWORD} -e "set ssl:verify-certificate no"
 mirror -R ${SOURCE_DIRECTORY_PATH} ${REMOTE_DIRECTORY_PATH}
 bye
 EOF
+if [ $? -ne 0 ]; then
+    echo "ERROR: FTP transfer failed"
+    exit 1
+fi
 
 echo ""
 echo "FTP transfer complete"

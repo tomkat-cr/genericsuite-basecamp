@@ -568,6 +568,13 @@ Runs `sh scripts/aws/create_chatbot_s3_bucket.sh prod`.
 make create_s3_bucket_prod
 ```
 
+* Generate SAM DynamoDB table definitions<br/>
+Read all table definitions from the JSON configuration directory and generates a template file that can be inserted in the SAM `template.yml` file.
+
+```bash
+make generate_sam_dynamodb
+```
+
 * Create a default `${HOME}/.aws/config` AWS configuration.<br/>
 Runs `sh scripts/aws/create_aws_config.sh`.
 

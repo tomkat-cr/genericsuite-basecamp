@@ -113,9 +113,17 @@ Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi l
 
 ## Posts
 
-* X: [@genericsuitelib](https://twitter.com/genericsuitelib)
-* English: [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
-* Spanish: [https://www.carlosjramirez.com/genericsuite-es/](https://www.carlosjramirez.com/genericsuite-es/)
+X: [@genericsuitelib](https://twitter.com/genericsuitelib)
+
+English:
+
+* [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
+* [Introduction to GenericSuite](./documents/GS_Presentation_EN.pdf)
+
+Spanish:
+
+* [https://www.carlosjramirez.com/genericsuite-es/](https://www.carlosjramirez.com/genericsuite-es/)
+* [Introducción a GenericSuite](./documents/GS_Presentation_SP.pdf)
 
 ## License
 

@@ -17,6 +17,28 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.9 (2024-06-02)
+---
+
+### New
+Add GenericSuite presentations in both PDF and PPTx formats [GS-1].
+Add Generate SAM DynamoDB table definitions instructions [GS-84].
+Add local ports FRONTEND_LOCAL_PORT & BACKEND_LOCAL_PORT env. vars. instructions.
+
+### Fixes
+Publish error handling to cath mkdocs not installed [GS-85].
+
+
+## 0.0.8 (2024-05-20)
+---
+
+### New
+Add: GS FE special install from a git repo.
+
+### Fixes
+Fix: automatic FTP transfer.
+
+
 ## 0.0.7 (2024-05-09)
 ---
 

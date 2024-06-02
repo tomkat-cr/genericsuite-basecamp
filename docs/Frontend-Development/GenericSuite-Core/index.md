@@ -147,9 +147,9 @@ And configure the variables according your needs:
 2. Assign `APP_LOCAL_DOMAIN_NAME` with the local development environment backend API domain name. E.g. app.exampleapp.local or localhost.<BR/>
 Defaults to app.${REACT_APP_APP_NAME}.local (the REACT_APP_APP_NAME will be converted to all lowercase).
 
-2. Assign `FRONTEND_LOCAL_PORT` with the port number for the local development environment backend API. Defaults to 3000.
+2. Assign `FRONTEND_LOCAL_PORT` with the local development frontend port number. Defaults to 3000.
 
-3. Assign `BACKEND_LOCAL_PORT` with the port number for the local development environment backend API. Defaults to 5000.
+3. Assign `BACKEND_LOCAL_PORT` with the local development backend API port number. Defaults to 5000.
 
 4. Assign `APP_API_URL_QA`, `APP_API_URL_STAGING`, `APP_API_URL_PROD`, and `APP_API_URL_DEMO` with the corresponding public backend API domain names for your App environments.
 

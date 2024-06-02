@@ -370,6 +370,14 @@ TEST_APP_URL=http://app.exampleapp.local:5001
 ```
 FLASK_APP=__init__.py
 ```
+* App local ports
+```
+# Local frontend port (defaults to 3000)
+FRONTEND_LOCAL_PORT=3000
+#
+# Local backend API port (defaults to 5001)
+BACKEND_LOCAL_PORT=5001
+```
 
 ## App structure
 
