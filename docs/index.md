@@ -111,6 +111,16 @@ Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi l
 * Main: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
 * Mirror: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
 
+## Presentation
+
+English:
+
+* [Introduction to GenericSuite](./documents/GS_Presentation_EN.pdf)
+
+Spanish:
+
+* [Introducción a GenericSuite](./documents/GS_Presentation_SP.pdf)
+
 ## Posts
 
 X: [@genericsuitelib](https://twitter.com/genericsuitelib)
@@ -118,12 +128,10 @@ X: [@genericsuitelib](https://twitter.com/genericsuitelib)
 English:
 
 * [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
-* [Introduction to GenericSuite](./documents/GS_Presentation_EN.pdf)
 
 Spanish:
 
 * [https://www.carlosjramirez.com/genericsuite-es/](https://www.carlosjramirez.com/genericsuite-es/)
-* [Introducción a GenericSuite](./documents/GS_Presentation_SP.pdf)
 
 ## License
 
