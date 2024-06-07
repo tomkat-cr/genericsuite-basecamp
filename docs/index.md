@@ -1,24 +1,24 @@
 # Welcome to GenericSuite
 
 <table cellpadding="0" cellspacing="0" style="border: 0px white;">
-<tr>
-    <td>
-        <a href="./genericsuite-core/">
-            <img
-                src="images/gs_logo_circle.svg"
-                title="GenericSuite logo by Carlos J. Ramirez"
-            />
-        </a>
-    </td>
-    <td>
-        <a href="./genericsuite-ai/">
-            <img
-                src="images/gs_ai_logo_circle.svg"
-                title="GenericSuite AI logo by Carlos J. Ramirez"
-            />
-        </a>
-    </td>
-</tr>
+    <tr>
+        <td>
+            <a href="./genericsuite-core/">
+                <img
+                    src="images/gs_logo_circle.svg"
+                    title="GenericSuite logo by Carlos J. Ramirez"
+                />
+            </a>
+        </td>
+        <td>
+            <a href="./genericsuite-ai/">
+                <img
+                    src="images/gs_ai_logo_circle.svg"
+                    title="GenericSuite AI logo by Carlos J. Ramirez"
+                />
+            </a>
+        </td>
+    </tr>
 </table>
 
 GenericSuite is a comprehensive software library designed for backend and frontend App development in Python and React.js, including AI features, to enhance your productivity and streamline your workflows.
@@ -45,7 +45,7 @@ It's composed by a **GenericSuite Core** is the code base all the suite elements
     align="right"
     width="100"
     height="100"
-    src="../images/gs_logo_circle.svg"
+    src="images/gs_logo_circle.svg"
     title="GenericSuite logo by Carlos J. Ramirez"
 />
 
@@ -70,7 +70,7 @@ Libraries:
     align="right"
     width="100"
     height="100"
-    src="../images/gs_ai_logo_circle.svg"
+    src="images/gs_ai_logo_circle.svg"
     title="GenericSuite AI logo by Carlos J. Ramirez"
 />
 
@@ -108,13 +108,30 @@ Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi l
 
 ## Documentation
 
-* [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
+* Main: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
 * Mirror: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
+
+## Presentation
+
+English:
+
+* [Introduction to GenericSuite](./documents/GS_Presentation_EN.pdf)
+
+Spanish:
+
+* [Introducción a GenericSuite](./documents/GS_Presentation_SP.pdf)
 
 ## Posts
 
-* English: [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
-* Spanish: [https://www.carlosjramirez.com/genericsuite-es/](https://www.carlosjramirez.com/genericsuite-es/)
+X: [@genericsuitelib](https://twitter.com/genericsuitelib)
+
+English:
+
+* [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
+
+Spanish:
+
+* [https://www.carlosjramirez.com/genericsuite-es/](https://www.carlosjramirez.com/genericsuite-es/)
 
 ## License
 

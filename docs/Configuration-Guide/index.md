@@ -1430,7 +1430,7 @@ export const ExampleElement = () => (
 
 ## Create the MongoDB Database
 
-You can crate a MongoDB database in MongoDB Atlas:
+You can create a MongoDB database in MongoDB Atlas:
 
 1. Go to [mongodb.com/](https://www.mongodb.com/)
 

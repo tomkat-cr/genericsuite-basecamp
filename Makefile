@@ -12,6 +12,8 @@ install:
 transfer:
 	sh scripts/mkdocs_transfer_site.sh
 
+publish: transfer
+
 build:
 	sh scripts/mkdocs_run.sh build
 

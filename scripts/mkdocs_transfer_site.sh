@@ -12,6 +12,8 @@
 
 set -o allexport; . .env ; set +o allexport ;
 
+FAKE_PASSWORD=$(echo ${REMOTE_PASSWORD} | perl -i -pe's/./*/g')
+
 echo ""
 echo "MKDOCS TRANSFER"
 echo ""
@@ -19,7 +21,7 @@ echo "Source directory path: ${SOURCE_DIRECTORY_PATH}"
 echo ""
 echo "Remote host: ${REMOTE_HOST}"
 echo "Remote username: ${REMOTE_USERNAME}"
-echo "Remote password: ${REMOTE_PASSWORD}"
+echo "Remote password: ${FAKE_PASSWORD}"
 echo "Remote directory path: ${REMOTE_DIRECTORY_PATH}"
 
 if [ "${SOURCE_DIRECTORY_PATH}" = "" ]; then
@@ -47,7 +49,16 @@ echo ""
 echo "Begin 'mkdocs build' run..."
 echo ""
 
-mkdocs build
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+if ! mkdocs build
+then
+    echo "ERROR: 'mkdocs build' failed"
+    exit 1
+fi
+deactivate
 
 echo ""
 echo "'mkdocs build' completed"
@@ -55,26 +66,27 @@ echo "'mkdocs build' completed"
 # Automate the ftp transfer of all files/directories under the `./site` directory  to a remote host, replacing all existing ones
 
 echo ""
+echo "Verifying tools..."
+echo ""
+
+if ! lftp --help > /dev/null 2>&1
+then
+    brew install lftp
+fi
+
+echo ""
 echo "Begin FTP transfer..."
 echo ""
 
-if ! ftp
-then
-    brew install inetutils
-fi
-
-cd ${SOURCE_DIRECTORY_PATH}
-
-ftp -n ${REMOTE_HOST} <<EOF
-
-verbose
-user ${REMOTE_USERNAME} ${REMOTE_PASSWORD}
-binary
-cd ${REMOTE_DIRECTORY_PATH}
-mdelete *
-mput *
+# Transfer the entire local directory to the FTP server
+lftp -u ${REMOTE_USERNAME},${REMOTE_PASSWORD} -e "set ssl:verify-certificate no" ${REMOTE_HOST} <<EOF
+mirror -R ${SOURCE_DIRECTORY_PATH} ${REMOTE_DIRECTORY_PATH}
 bye
 EOF
+if [ $? -ne 0 ]; then
+    echo "ERROR: FTP transfer failed"
+    exit 1
+fi
 
 echo ""
 echo "FTP transfer complete"

@@ -20,5 +20,6 @@
     ],
     "additional_query_params": [
         "email"
-    ]
+    ],
+    "specific_function": "delete_params_file"
 }

@@ -61,11 +61,15 @@ cp node_modules/genericsuite-ai/.env.example ./.env
 
 And configure the variables according your needs:
 
-1. Assign the same variables described in described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#prepare-the-configuration-files) `Getting started > Prepare the Configuration Files` section.
+* Assign the same variables described in described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#prepare-the-configuration-files) `Getting started > Prepare the Configuration Files` section.
 
-2. Assign the additional `AWS_*` parameters with your AWS data (used by aws_deploy_to_s3.sh and change_env_be_endpoint.sh). You'll need an AWS account.
+* Assign the additional `AWS_*` parameters with your AWS data (used by aws_deploy_to_s3.sh and change_env_be_endpoint.sh). You'll need an AWS account.
 
 For more information, check the comments for each variable in the [.env.example](https://github.com/tomkat-cr/genericsuite-fe-ai/blob/main/.env.example) file.
+
+#### Other parameters
+
+* `REACT_APP_USE_AXIOS`: "1" = use of axios to send files, "0" = use fetch instead. Defaults to "1".
 
 ### Prepare the Makefile
 

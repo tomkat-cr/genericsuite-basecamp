@@ -4,7 +4,7 @@
 
 ### Install from Git repositories
 
-* To install any of the the backend solutions (Core, AI, etc) from a specific branch in the Git repositories, e.g. "branch_x":
+To install any of the the backend solutions (Core, AI, etc) from a specific branch in the Git repositories, e.g. "branch_x":
 
 Pip
 ```bash
@@ -30,15 +30,16 @@ poetry add git+https://github.com/tomkat-cr/genericsuite-be@branch_x
 poetry add git+https://github.com/tomkat-cr/genericsuite-be-ai@branch_x
 ```
 
-* To install the backend scripts from a specific branch in the Git repositories, e.g. "branch_x":
+To install the backend scripts from a specific branch in the Git repositories, e.g. "branch_x":
 
 ```bash
+nvm use 18
 npm install tomkat-cr/genericsuite-be-scripts#branch_x
 ```
 
 ### Install from local directory
 
-* To install any of the the backend solutions (Core, AI, etc) from a local directory:
+To install any of the the backend solutions (Core, AI, etc) from a local directory:
 
 Pip
 ```bash
@@ -64,9 +65,10 @@ poetry add ../genericsuite-be
 poetry add ../genericsuite-be-ai
 ```
 
-* To install the backend scripts from a local directory:
+To install the backend scripts from a local directory:
 
 ```bash
+nvm use 18
 npm install ../genericsuite-be-scripts
 ```
 
@@ -74,23 +76,23 @@ npm install ../genericsuite-be-scripts
 
 ### Install from Git repositories
 
-* To install any of the the frontend solutions (Core, AI, etc) from a specific branch in the Git repositories, e.g. "branch_x":
+From the `main` branch:
 
 ```bash
-npm install tomkat-cr/genericsuite-fe#branch_x
+nvm use 18
 ```
 ```bash
-npm install tomkat-cr/genericsuite-fe-ai#branch_x
-```
-
-### Install from local directory
-
-* To install any of the the backend solutions (Core, AI, etc) from a local directory:
-
-```bash
-npm install ../genericsuite-fe
+npm install tomkat-cr/genericsuite-fe
 ```
 ```bash
-npm install ../genericsuite-fe-ai
+npm install tomkat-cr/genericsuite-fe-ai
 ```
 
+From a specific branch:
+
+```bash
+npm install tomkat-cr/genericsuite-fe#branch_name
+```
+```bash
+npm install tomkat-cr/genericsuite-fe-ai#branch_name
+```

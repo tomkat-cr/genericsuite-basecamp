@@ -70,24 +70,30 @@ cd exampleapp_backend
 
 To use [GenericSuite](../../index.md) in your project, install it with the following command(s):
 
-#### Pip
+### From PyPi
+
+Pip
 ```bash
 pip install genericsuite
 ```
 
-#### Pipenv
+Pipenv
 ```bash
 pipenv install genericsuite
 ```
 
-#### Poetry
+Poetry
 ```bash
 poetry add genericsuite
 ```
 
-NOTE: in the following instructions we'll only show `pip install ...`.<BR/>
+**NOTE**: in the following instructions we'll only show `pip install ...`.<BR/>
 If you'll use `Pipenv`, change it with `pipenv install ...`.<BR/>
 If you'll use `Poetry`, change it with `poetry add ...`.<BR/>
+
+### From Git or Local Directory
+
+Check [this documentation](../../Other/special-installs.md) to install from a Git repository/branch or a Local Directory.
 
 
 ## Framework installation
@@ -115,12 +121,10 @@ For more information:
 * [Flask installation](https://flask.palletsprojects.com/en/2.3.x/installation/)
 * [Chalice installation](https://aws.github.io/chalice/quickstart.html)
 
-
 ### Test dependencies
 
 To execute the unit and integration test, install `pytest` and `coverage`:
 
-#### Pip
 ```bash
 pip install pytest coverage
 ```
@@ -146,19 +150,19 @@ npm install -D genericsuite-be-scripts
 
 Configure your application by setting up the necessary environment variables. Refer to the [.env.example](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) and [config.py](https://github.com/tomkat-cr/genericsuite-be/blob/main/genericsuite/config/config.py) files for the available options.
 
-1. Aplicacion name
+* Aplicacion name
 ```
 APP_NAME=ExampleApp
 ```
-2. Aplicacion domain
+* Aplicacion domain
 ```
 APP_DOMAIN_NAME=exampleapp.com
 ```
-3. Application default language
+* Application default language
 ```
 DEFAULT_LANG=en
 ```
-4. Stage and Debug flag
+* Stage and Debug flag
 ```
 # DEV
 # Application debug (0,1)
@@ -176,16 +180,22 @@ APP_STAGE=qa
 APP_DEBUG=0
 APP_STAGE=prod
 ```
-5. Application secret key (to be used in password encryption)
+* Application secret keys
 ```
+# Application secret key (to be used in password encryption)
 APP_SECRET_KEY=xxxx
 ```
-6. Application super administrator Email
+```
+# Storage seed: to be used in storage URL encryption -e.g. AWS S3-
+# Generate a new one with: `make generate_seed`
+STORAGE_URL_SEED="yyyy"
+```
+* Application super administrator Email
 ```
 APP_SUPERADMIN_EMAIL=xxxx
 ```
-7. Database configuration
-- For AWS DynamoDB<BR/>
+* Database configuration
+1. For AWS DynamoDB<BR/>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 # DEV: docker
@@ -211,7 +221,7 @@ APP_DB_URI_PROD=
 # APP_DB_NAME_DEMO=
 # APP_DB_URI_DEMO=
 ```
-- For MongoDB<BR/>
+2. For MongoDB<BR/>
 [https://www.mongodb.com/](https://www.mongodb.com/)
 ```
 # DEV: Docker container
@@ -243,7 +253,7 @@ APP_DB_ENGINE_DEMO=MONGO_DB
 APP_DB_NAME_DEMO=xxxx
 APP_DB_URI_DEMO=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
 ```
-8. CORS origin
+* CORS Origin
 ```
 # DEV
 APP_CORS_ORIGIN_DEV=*
@@ -266,26 +276,26 @@ APP_CORS_ORIGIN_PROD=https://app.exampleapp.com
 # DEMO
 APP_CORS_ORIGIN_DEMO=https://app-demo.exampleapp.com
 ```
-9. Current framework options: chalice, flask, fastapi
+* Current framework options: chalice, flask, fastapi
 ```
 CURRENT_FRAMEWORK=chalice
 ```
-10. JSON configuration files location and git URL
+* JSON configuration files location and git URL
 ```
 GIT_SUBMODULE_LOCAL_PATH=lib/config_dbdef
 GIT_SUBMODULE_URL=git://github.com/username/exampleapp_configs.git
 ```
-11. Frontend application path (to copy version file during big lambdas deployment)
+* Frontend application path (to copy version file during big lambdas deployment)
 ```
 FRONTEND_PATH=../exampleapp_frontend
 ```
-12. Local python version
+* Local python version
 ```
 PYTHON_VERSION=3.11.5
 # PYTHON_VERSION=3.10.12
 # PYTHON_VERSION=3.9.17
 ```
-13. AWS Configuration<BR/>
+* AWS Configuration<BR/>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```
 AWS_S3_BUCKET_NAME_FE=exampleapp-frontend-website-[STAGE]
@@ -297,7 +307,14 @@ AWS_LAMBDA_FUNCTION_ROLE_DEMO=exampleapp-api_handler-role-demo
 AWS_LAMBDA_FUNCTION_ROLE_PROD=exampleapp-api_handler-role-prod
 AWS_SSL_CERTIFICATE_ARN=arn:aws:acm:AWS-REGION:AWS-ACCOUNT:certificate/AWS-CERTIFICATE-UUID
 ```
-15. SMTP Mail configuration
+* Assests URL masking external hostname
+```
+# For features like AI Vision, only in development environment, used by the storage URL encryption.
+# E.g. app-dev.exampleapp.com
+# Leave blank to use the same URL stored, for example in the AI Assistant conversarions.
+URL_MASK_EXTERNAL_HOSTNAME=
+```
+* SMTP Mail configuration
 ```
 SMTP_SERVER=smtp_server
 SMTP_PORT=smtp_port
@@ -305,11 +322,11 @@ SMTP_USER=smtp_user
 SMTP_PASSWORD=smtp_password
 SMTP_DEFAULT_SENDER=sender_email
 ```
-16. Docker configuration
+* Docker configuration
 ```
 DOCKER_ACCOUNT=docker_account_username
 ```
-17. Local development environment run configuration
+* Local development environment run configuration
 ```
 # Options are: uvicorn, gunicorn, chalice, chalice_docker
 # Chalice case: "chalice" to use http (running without docker) or "chalice_docker" to use https (with docker)
@@ -318,12 +335,12 @@ DOCKER_ACCOUNT=docker_account_username
 # https:
 RUN_METHOD="chalice_docker"
 ```
-18. Tests configuration
+* Tests configuration
 ```
 # Testing enndpoint
 TEST_APP_URL=http://app.exampleapp.local:5001
 ```
-19. Run methods and framework App directory and entry point
+* Run methods and framework App directory and entry point
 ```
 #
 # Default App main code directory
@@ -349,9 +366,17 @@ TEST_APP_URL=http://app.exampleapp.local:5001
 # APP_MAIN_FILE='__init__'
 #
 ```
-20. Flask configuration
+* Flask configuration
 ```
 FLASK_APP=__init__.py
+```
+* App local ports
+```
+# Local frontend port (defaults to 3000)
+FRONTEND_LOCAL_PORT=3000
+#
+# Local backend API port (defaults to 5001)
+BACKEND_LOCAL_PORT=5001
 ```
 
 ## App structure

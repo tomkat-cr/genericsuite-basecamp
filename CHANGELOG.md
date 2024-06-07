@@ -17,19 +17,86 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.10 (2024-06-06)
+---
+
+### New
+Add REACT_APP_USE_AXIOS env. var. to GenericSuite FE AI [GS-95].
+Add "Presentations" section to main page.
+
+
+## 0.0.9 (2024-06-02)
+---
+
+### New
+Add GenericSuite presentations in both PDF and PPTx formats [GS-1].
+Add Generate SAM DynamoDB table definitions instructions [GS-84].
+Add local ports FRONTEND_LOCAL_PORT & BACKEND_LOCAL_PORT env. vars. instructions.
+
+### Fixes
+Publish error handling to cath mkdocs not installed [GS-85].
+
+
+## 0.0.8 (2024-05-20)
+---
+
+### New
+Add: GS FE special install from a git repo.
+
+### Fixes
+Fix: automatic FTP transfer.
+
+
+## 0.0.7 (2024-05-09)
+---
+
+### New
+Add STORAGE_URL_SEED env. vars. [GS-72].
+Add sample code for genericsuite-be-scripts.
+Add genericsuite-be-ai sample code files for AWS and AWS big lambdas deployment.
+
+### Changes
+Change special instructions to remove the fronend install from git/local directory (until find a way to make it work).
+
+
+## 0.0.6 (2024-05-07)
+---
+
+### New
+Add special install instructions.
+
+### Changes
+Navigation on the top.
+Social icons and copyright notice on footer.
+Repository reference on header.
+Git committers on each page footer.
+Add logos, readthedocs documentation URL and X url to README.
+History and repositories pages revised.
+
+
 ## 0.0.5 (2024-05-05)
 ---
 
 ### New
-Add API Key creation URL references.
 Create a documentation mirror in readthedocs.org [GS-75].
+Add API Key creation URL references.
+Special installs section (from Git or Local directory).
+Add Google Analytics config.
+Add Cookie consent.
 
 ### Changes
 Change: remove <a /> from "ACCOUNT_INACTIVE" in "app_constants.json".
+Pipenv, poetry and pip instructions are not longer ### sections.
+
+### Fixes
+Fix homepage section's image paths.
 
 
 ## 0.0.4 (2024-04-28)
 ---
+
+### Changes
+Change: document the API Keys URLs for each configuration.
 
 ### Fixes
 Add "mkdocs_run.sh" to fix the error running the "mkdocs serve" the first time.

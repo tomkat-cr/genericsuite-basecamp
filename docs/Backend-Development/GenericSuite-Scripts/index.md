@@ -393,12 +393,42 @@ Runs `sh scripts/mongo/run_mongo_docker.sh run`.
 make mongo_docker
 ```
 
+NOTES:<BR/>
+Use `mongodb://root:example@mongo:27017/` as URL to connect to the local MongoDb database.<BR/>
+Use [http://localhost:8081](http://localhost:8081) to access the MongoDb Admin UI.<BR/>
+Use user: `admin` and password: `pass` as credentials to access the Admin UI.<BR/>
+
 * Stop the local MongoDB docker container.<br/>
 Runs `sh scripts/mongo/run_mongo_docker.sh down`
 
 ```bash
 make mongo_docker_down
 ```
+
+* Backup a mongoDB database.<br/>
+Runs `sh scripts/mongo/db_mongo_backup.sh ${STAGE} ${BACKUP_DIR}`<br/>
+
+```bash
+make mongo_backup
+```
+
+E.g.
+```bash
+STAGE=qa BACKUP_DIR=./dumps make mongo_backup
+```
+
+* Restore a mongoDB database.<br/>
+Run `sh scripts/mongo/db_mongo_restore.sh ${STAGE} ${RESTORE_DIR}`
+
+```bash
+make mongo_restore
+```
+
+E.g.
+```bash
+STAGE=qa RESTORE_DIR=./dumps/bkp-mongodb-[exampleapp]_[stage]-[date]_[time].zip make mongo_restore
+```
+
 
 ### Chalice Specific Commands
 
@@ -496,28 +526,35 @@ make delete_stack
 
 ### AWS S3 and other
 
-* Create a default `${HOME}/.aws/config` AWS configuration.<br/>
-Runs `sh scripts/aws/create_aws_config.sh`.
+Create the AWS S3 Buckets for different environments and other AWS utilities.
 
-```bash
-make create_aws_config
-```
-
-* Create the Development S3 buckets.<br/>
+* Create S3 bucket for development.<br/>
 Runs `sh scripts/aws/create_chatbot_s3_bucket.sh dev`.
 
 ```bash
 make create_s3_bucket_dev
 ```
 
-* Create the QA S3 buckets.<br/>
+   * NOTES:
+
+      * The `create_s3_bucket_*` scripts also allows to create or re-assign the S3 Bucket Policy.
+
+
+      * If you receive the `AWS_S3_CHATBOT_ATTACHMENTS_CREATION is not set to 1` message, set that environment variable or run the script in this way:
+
+         ```bash
+         AWS_S3_CHATBOT_ATTACHMENTS_CREATION=1 make create_s3_bucket_dev
+         ```
+
+
+* Create S3 bucket for QA.<br/>
 Runs `sh scripts/aws/create_chatbot_s3_bucket.sh qa`.
 
 ```bash
 make create_s3_bucket_qa
 ```
 
-* Create the Staging S3 buckets.<br/>
+* Create S3 bucket for Staging.<br/>
 Runs `sh scripts/aws/create_chatbot_s3_bucket.sh staging`.
 
 ```bash
@@ -529,6 +566,30 @@ Runs `sh scripts/aws/create_chatbot_s3_bucket.sh prod`.
 
 ```bash
 make create_s3_bucket_prod
+```
+
+* Generate SAM DynamoDB table definitions<br/>
+Read all table definitions from the JSON configuration directory and generates a template file that can be inserted in the SAM `template.yml` file.
+
+```bash
+make generate_sam_dynamodb
+```
+
+* Create a default `${HOME}/.aws/config` AWS configuration.<br/>
+Runs `sh scripts/aws/create_aws_config.sh`.
+
+```bash
+make create_aws_config
+```
+
+### Secrets
+
+* Generate a new seed for the storage assets URL masking
+
+To assign the STORAGE_URL_SEED environment variable.
+
+```bash
+make generate_seed
 ```
 
 ### Deployment

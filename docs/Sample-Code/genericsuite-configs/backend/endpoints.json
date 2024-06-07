@@ -43,5 +43,20 @@
                 }
             }
         ]
+    }, 
+    {
+        "name": "ai_chatbot_conversations",
+        "url_prefix": "ai_chatbot_conversations",
+        "routes": [
+            {
+                "endpoint": "/",
+                "methods": ["GET", "POST", "PUT", "DELETE"],
+                "handler_type": "GenericEndpointHelper",
+                "view_func": "lib.util.generic_endpoint_builder.generic_route_handler",
+                "params": {
+                    "json_file": "ai_chatbot_conversations"
+                }
+            }
+        ]
     }
 ]
