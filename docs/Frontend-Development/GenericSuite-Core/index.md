@@ -142,30 +142,35 @@ cp node_modules/genericsuite/.env.example ./.env
 
 And configure the variables according your needs:
 
-1. Assign `REACT_APP_APP_NAME` with your App's name.
+* Assign `REACT_APP_APP_NAME` with your App's name.
 
-2. Assign `APP_LOCAL_DOMAIN_NAME` with the local development environment backend API domain name. E.g. app.exampleapp.local or localhost.<BR/>
+* Assign `APP_LOCAL_DOMAIN_NAME` with the local development environment backend API domain name. E.g. app.exampleapp.local or localhost.<BR/>
 Defaults to app.${REACT_APP_APP_NAME}.local (the REACT_APP_APP_NAME will be converted to all lowercase).
 
-2. Assign `FRONTEND_LOCAL_PORT` with the local development frontend port number. Defaults to 3000.
+* Assign `FRONTEND_LOCAL_PORT` with the local development frontend port number. Defaults to 3000.
 
-3. Assign `BACKEND_LOCAL_PORT` with the local development backend API port number. Defaults to 5000.
+* Assign `BACKEND_LOCAL_PORT` with the local development backend API port number. Defaults to 5000.
 
-4. Assign `APP_API_URL_QA`, `APP_API_URL_STAGING`, `APP_API_URL_PROD`, and `APP_API_URL_DEMO` with the corresponding public backend API domain names for your App environments.
+* Assign `APP_API_URL_QA`, `APP_API_URL_STAGING`, `APP_API_URL_PROD`, and `APP_API_URL_DEMO` with the corresponding public backend API domain names for your App environments.
 
-5. Assign `APP_FE_URL_QA`, `APP_FE_URL_STAGING`, `APP_FE_URL_PROD`, and `APP_FE_URL_DEMO` with the corresponding public frontend domain names for your App environments.
+* Assign `APP_FE_URL_QA`, `APP_FE_URL_STAGING`, `APP_FE_URL_PROD`, and `APP_FE_URL_DEMO` with the corresponding public frontend domain names for your App environments.
 
-6. Assign `REACT_APP_URI_PREFIX` with the App URI prefix. This will be used in all environments after the domain name. E.g. https://app.exampleapp.com/exampleapp_frontend
+* Assign `REACT_APP_URI_PREFIX` with the App URI prefix. This will be used in all environments after the domain name. E.g. https://app.exampleapp.com/exampleapp_frontend
 
-7. Configure your desired `RUN_METHOD`. Available options are "webpack" and "react-scripts". Defaults to "webpack".
+* Configure your desired `RUN_METHOD`. Available options are "webpack" and "react-scripts". Defaults to "webpack".
 
-8. Configure `BACKEND_PATH` with the path for your backend API local development repo.
+* Configure `BACKEND_PATH` with the path for your backend API local development repo.
 
-9. Configure `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` with the JSON files submodule parameters to stablish a common configuration place for both frontend and backend (used by add_github_submodules.sh).<BR/>For example files, visit: [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs)
+* Configure `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` with the JSON files submodule parameters to stablish a common configuration place for both frontend and backend (used by add_github_submodules.sh).<BR/>For example files, visit: [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs)
 
-10. Configure the `AWS_*` parameters with your AWS data (used by aws_deploy_to_s3.sh and change_env_be_endpoint.sh). You'll need an AWS account.
+* Configure the `AWS_*` parameters with your AWS data (used by aws_deploy_to_s3.sh and change_env_be_endpoint.sh). You'll need an AWS account.
 
 For more information, check the comments for each variable in the [.env.example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example) file.
+
+#### Other parameters
+
+* `REACT_APP_X_TOKEN=1` to use 'x-access-tokens' instead of 'Authorization: Bearer'. Defaults to "0"
+
 
 ### Prepare the Makefile
 

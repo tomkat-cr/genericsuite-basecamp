@@ -17,6 +17,14 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.10 (2024-06-06)
+---
+
+### New
+Add REACT_APP_USE_AXIOS env. var. to GenericSuite FE AI [GS-95].
+Add "Presentations" section to main page.
+
+
 ## 0.0.9 (2024-06-02)
 ---
 
