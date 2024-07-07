@@ -29,6 +29,7 @@ GenericSuite is a comprehensive software library designed for backend and fronte
 * [The GenericSuite Core](#the-genericsuite-core)
 * [The GenericSuite AI](#the-genericsuite-ai)
 * [Repositories](#repositories)
+* [Presentation](#presentation)
 * [Post](#posts)
 * [Frontend Development](./Frontend-Development/index.md)
 * [Backend Development](./Backend-Development/index.md)
@@ -39,7 +40,7 @@ GenericSuite is a comprehensive software library designed for backend and fronte
 
 The GenericSuite is a frontend and backend set of utilities made with ReactJS and Python to help develop Apps faster.
 
-It's composed by a **GenericSuite Core** is the code base all the suite elements, like extensions and plug-ins.
+It's composed by a **GenericSuite Core**, which is the core for all the suite elements, and extensions like the GenericSuite AI.
 
 <img 
     align="right"
@@ -76,7 +77,7 @@ Libraries:
 
 ## The GenericSuite AI
 
-The GenericSuite AI is a frontend and backend set of utilities made with ReactJS and Python to help develop Apps that implements AI.
+The **GenericSuite AI** is an extension to help develop Apps that implements AI.
 
 Features:
 
@@ -115,11 +116,11 @@ Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi l
 
 English:
 
-* [Introduction to GenericSuite](./documents/GS_Presentation_EN.pdf)
+* [Introduction to GenericSuite](./documents/GS_Presentation_EN_V2.pdf)
 
 Spanish:
 
-* [Introducción a GenericSuite](./documents/GS_Presentation_SP.pdf)
+* [Introducción a GenericSuite](./documents/GS_Presentation_SP_V2.pdf)
 
 ## Posts
 

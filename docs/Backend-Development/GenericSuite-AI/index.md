@@ -19,6 +19,7 @@ The perfect companion for this backend solution is [The GenericSuite AI (fronten
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 - Node version 18+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
+* [Docker and Docker Composer](https://www.docker.com/products/docker-desktop)
 
 ### AWS account and credentials
 

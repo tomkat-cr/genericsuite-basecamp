@@ -9,5 +9,9 @@
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-mkdocs $1
-deactivate
+if [ "$1" != "" ]; then
+    mkdocs $1
+    deactivate
+else
+    bash
+fi

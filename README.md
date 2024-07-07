@@ -21,7 +21,7 @@ Welcome to GenericSuite Basecamp, the starting point and documentation for Gener
 
 [GenericSuite]((https://genericsuite.carlosjramirez.com)) is a comprehensive software solution designed to enhance your productivity and streamline your workflows.
 
-In [this repository](https://github.com/tomkat-cr/genericsuite-basecamp) you will find the instructions and code examples for your App development.
+In this repository you will find the [instructions](https://genericsuite.carlosjramirez.com/Configuration-Guide/) and [frontend](https://genericsuite.carlosjramirez.com/Configuration-Guide/#app-frontend) / [backend](https://genericsuite.carlosjramirez.com/Configuration-Guide/#app-backend) code examples for your App development.
 
 ## Documentation
 

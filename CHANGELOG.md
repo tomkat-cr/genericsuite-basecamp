@@ -17,6 +17,22 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.11 (2024-07-07)
+---
+
+### New
+Add "mkdocs-print-site-plugin" to create the "site/print_page/index.html" file and be able to generate a .pdf documentation.
+Add LOCAL_DNS_DISABLED and BRIDGE_PROXY_DISABLED envvars to GenericSuite BE Core, to disable local services working on the road.
+Add GET_SECRETS_ENABLED envvar to GenericSuite BE Core, to enable/disable cloud provider secrets [GS-41].
+Add CLOUD_PROVIDER envvar to GenericSuite BE Core, to select between AWS, GCP and Azure secrets management [GS-41].
+Add AWS_DEPLOYMENT_TYPE envvar to GenericSuite BE Core, to select between AWS Lambda Function, EC2 or Fargate deployments [GS-96].
+
+### Changes
+Update README introduction removing the "this repository" hyperlink and add links in "instructions" and "code examples".
+Update main index document GS Core and GS AI descriptions.
+Updated presentation V2.
+
+
 ## 0.0.10 (2024-06-06)
 ---
 

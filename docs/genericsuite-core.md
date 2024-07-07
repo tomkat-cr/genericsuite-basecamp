@@ -2,7 +2,7 @@
 
 <img
     src="../images/gs_logo_circle.svg"
-    style="margin-top: -50px; display: block; margin-left: auto; margin-right: auto; width: 50%;"
+    style="margin-top: -20px; display: block; margin-left: auto; margin-right: auto; width: 50%;"
     title="GenericSuite logo by Carlos J. Ramirez"
 />
 
