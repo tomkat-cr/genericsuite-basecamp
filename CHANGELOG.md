@@ -17,6 +17,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.12 (2024-07-17)
+---
+
+### Changes
+Add: GET_SECRETS_CRITICAL and GET_SECRETS_CRITICAL envvars to the GS BE Core documentation to fine-grained disabling of cloud secrets manager for critical secrets and plain envvars [GS-41].
+
+
 ## 0.0.11 (2024-07-07)
 ---
 
