@@ -1,5 +1,45 @@
 # Special Installations
 
+## Node global version
+
+To set the default `Node` version to be used by `nvm`:
+
+1. Run the following command in your terminal, replacing `<version>` with the Node version number you want to set as the default: `nvm alias default <version>`. For example, to  use `Node 18`:
+
+```sh
+nvm alias default 18
+```
+
+2. Create a `.nvmrc` file in your project root directory with the Node version in its content, so the new version will be set when you run `nvm use` or when a Terminal is opened in your favorite code editor (e.g. Visual Studio Code or Cursor.sh). For example:
+
+File: `.nvmrc`
+
+```
+18
+```
+
+3. Create a `.nvmrc` file in your user's home directory with the Node version and add the commands on the shell starter script, so the new version will be set when a new Terminal window is opened. For example:
+
+MacOS:
+
+File: `/Users/$USER/.zshrc` or `/Users/$USER/.bashrc`
+
+Linux:
+
+File: `/home/$USER/.bashrc` or `/home/$USER/.profile`
+
+Add this lines:
+
+```sh
+# To set the Node version when new Terminal window is opened
+if [ -f "./.nvmrc" ]; then
+    nvm use
+fi
+```
+
+And create the `.nvmrc` file mentioned earlier in the user's home directory: `/Users/$USER` or `/home/$USER`.
+
+
 ## Backend
 
 ### Install from Git repositories
@@ -33,7 +73,6 @@ poetry add git+https://github.com/tomkat-cr/genericsuite-be-ai@branch_x
 To install the backend scripts from a specific branch in the Git repositories, e.g. "branch_x":
 
 ```bash
-nvm use 18
 npm install tomkat-cr/genericsuite-be-scripts#branch_x
 ```
 
@@ -68,7 +107,6 @@ poetry add ../genericsuite-be-ai
 To install the backend scripts from a local directory:
 
 ```bash
-nvm use 18
 npm install ../genericsuite-be-scripts
 ```
 
@@ -78,9 +116,6 @@ npm install ../genericsuite-be-scripts
 
 From the `main` branch:
 
-```bash
-nvm use 18
-```
 ```bash
 npm install tomkat-cr/genericsuite-fe
 ```
@@ -96,3 +131,7 @@ npm install tomkat-cr/genericsuite-fe#branch_name
 ```bash
 npm install tomkat-cr/genericsuite-fe-ai#branch_name
 ```
+
+**IMPORTANT**:
+
+* When you've made changes to any of the GenericSuite frontend libraries code, perform a `make pre-publish` to rebuild the `dist` directory files before the Git `commit` and `push`, because those files are the ones used when the parent project use (installs) the libraries. Then reinstall the changed library in the parent project using the `npm install tomkat-cr/genericsuite-fe...` command.
