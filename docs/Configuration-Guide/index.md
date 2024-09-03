@@ -1608,7 +1608,7 @@ mkdir -p .chalice
     "LANGCHAIN_API_KEY": "LANGCHAIN_API_KEY_placeholder",
     "LANGCHAIN_PROJECT": "GOOGLE_CSE_ID_placeholder",
     "HUGGINGFACE_API_KEY": "HUGGINGFACE_API_KEY_placeholder",
-    "HUGGINGFACE_ENDPOINT_URL": "HUGGINGFACE_ENDPOINT_URL_placeholder",
+    "HUGGINGFACE_DEFAULT_CHAT_MODEL": "HUGGINGFACE_DEFAULT_CHAT_MODEL_placeholder",
     "SMTP_SERVER": "SMTP_SERVER_placeholder",
     "SMTP_PORT": "SMTP_PORT_placeholder",
     "SMTP_USER": "SMTP_USER_placeholder",
@@ -2966,7 +2966,7 @@ Resources:
           LANGCHAIN_API_KEY: LANGCHAIN_API_KEY_placeholder
           LANGCHAIN_PROJECT: LANGCHAIN_PROJECT_placeholder
           HUGGINGFACE_API_KEY: HUGGINGFACE_API_KEY_placeholder
-          HUGGINGFACE_ENDPOINT_URL: HUGGINGFACE_ENDPOINT_URL_placeholder
+          HUGGINGFACE_DEFAULT_CHAT_MODEL: HUGGINGFACE_DEFAULT_CHAT_MODEL_placeholder
       Role:
         Fn::GetAtt:
         - LambdaExecutionRole

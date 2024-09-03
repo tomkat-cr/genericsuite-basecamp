@@ -208,27 +208,29 @@ APP_SUPERADMIN_EMAIL=xxxx
 ```env
 # DEV: docker
 APP_DB_ENGINE_DEV=DYNAMO_DB
-APP_DB_NAME_DEV=
-APP_DB_URI_DEV=http://localhost:8000
+DYNAMDB_PREFIX_DEV=
+APP_DB_URI_DEV=http://127.0.0.1:8000
 ```
 ```env
 # QA: AWS DynamoDB
 APP_DB_ENGINE_QA=DYNAMO_DB
-APP_DB_NAME_QA=
+DYNAMDB_PREFIX_QA=
 APP_DB_URI_QA=
 ```
 ```env
 # PROD: AWS DynamoDB
 APP_DB_ENGINE_PROD=DYNAMO_DB
-APP_DB_NAME_PROD=
+DYNAMDB_PREFIX_PROD=
 APP_DB_URI_PROD=
 ```
 ```env
 # # DEMO: AWS DynamoDB
 # APP_DB_ENGINE_DEMO=DYNAMO_DB
-# APP_DB_NAME_DEMO=
+# DYNAMDB_PREFIX_DEMO=
 # APP_DB_URI_DEMO=
 ```
+
+**NOTE**: set `DYNAMDB_PREFIX_*` empty and it'll be defaulted to `<APP_NAME_LOWERCASE>_<STAGE>_`.
 
 2. For MongoDB<BR/>
 [https://www.mongodb.com/](https://www.mongodb.com/)
@@ -447,7 +449,7 @@ BACKEND_LOCAL_PORT=5001
 ```
 
 * Disable local services<BR/>
-  (useful when running the local dev environment on the road, over a smartphone internet connection)
+  (useful when running the local dev environment on the road, offline, over a smartphone internet connection)
 ```env
 # Disable local DNS server startup during app run
 LOCAL_DNS_DISABLED=1
@@ -458,6 +460,15 @@ BRIDGE_PROXY_DISABLED=1
 * Flask configuration
 ```env
 FLASK_APP=__init__.py
+```
+
+* Localstack<BR/>
+[https://www.localstack.cloud/](https://www.localstack.cloud/)
+
+```env
+# Localstack configuration
+# LOCALSTACK_AUTH_TOKEN=""
+# (Set LOCALSTACK_AUTH_TOKEN empty when working offline, and assign the Auth Token to make services like EC2 to work correctly)
 ```
 
 ## App structure

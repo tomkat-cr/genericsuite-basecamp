@@ -17,6 +17,31 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## Unreleased
+## 0.0.12 (2024-08-05)
+---
+
+### New
+Make DynamoDb tables with prefix work with the GS DB Abstraction [GS-102].
+Implement HF (HuggingFace) local pipelines [GS-59].
+Implement Falcon Mamba with HF [GS-118].
+Implement Meta Llama 3.1 with HF [GS-119].
+Implement HF (HuggingFace) image generator [GS-117].
+Implement Flux.1 image generator [GS-117].
+Implement Anthropic Claude 3.5 Sonnet [GS-33].
+Implement Groq chat model [GS-92].
+Add LOCALSTACK_AUTH_TOKEN documentation [GS-97].
+
+### Changes
+Replace react-bootstrap entirely and use only Tailwind CSS [GS-63].
+"index-template.html" is not longer required because the %PUBLIC_URL% issue in public/index.html file running the app with webpack was fixed [GS-116].
+Replace GPT-3.5 with gpt-4o-mini as default OpenAI model [GS-109].
+HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
+
+# Fixes
+Fix the %PUBLIC_URL% issue in public/index.html file running the app with webpack [GS-116].
+
+
 ## 0.0.11 (2024-07-27)
 ---
 

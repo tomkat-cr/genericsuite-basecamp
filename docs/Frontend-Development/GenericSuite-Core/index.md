@@ -109,6 +109,7 @@ npm install --save-dev \
    css-loader \
    file-loader \
    html-webpack-plugin \
+   interpolate-html-plugin \
    jest \
    jest-environment-jsdom \
    path \
@@ -351,10 +352,10 @@ To configure TypeScript. e.g.
 
 If you don't have a customized `public/index.html` (just the default one created by CRA):
 
-Create the `index-template.html` file:
+Create the `index.html` file:
 
 ```bash
-vi public/index-template.html
+vi public/index.html
 ```
 
 Copy and paste this content:
@@ -372,6 +373,7 @@ Copy and paste this content:
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!-- Tailwind -->
     <link href="%PUBLIC_URL%/output.css" rel="stylesheet">
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -388,8 +390,6 @@ Copy and paste this content:
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>exampleapp.com</title>
-    <!-- bootstrap css -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         a { cursor: pointer; }
     </style>
@@ -461,12 +461,6 @@ After this line:
 
 ```html
     <link href="%PUBLIC_URL%/output.css" rel="stylesheet">
-```
-
-Finally run this command:
-
-```bash
-cp public/index.html public/index-template.html
 ```
 
 ### Final step for any option
