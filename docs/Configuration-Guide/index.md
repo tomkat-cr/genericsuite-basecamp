@@ -181,9 +181,7 @@ const root = createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <HashRouter>
-      <App/>
-    </HashRouter>
+    <App/>
   </React.StrictMode>
 );
 ```
@@ -232,6 +230,7 @@ export const AboutBody = () => {
 - `App/App.jsx` component ([example](https://github.com/tomkat-cr/genericsuite-fe-ai/blob/main/src/lib/components/App/App.jsx)).<br/>
 
    Configure the App logo (e.g. `app_logo_circle.svg`) and the main menu components (e.g. `ExampleMainElement` and `ExampleChildElement`).
+
 ```js
 import React from 'react';
 import * as gs from "genericsuite";
@@ -247,14 +246,101 @@ const componentMap = {
     "HomePage": HomePage,
     "ExampleMainElement": ExampleMainElement,
     "ExampleChildElement": ExampleChildElement,
+    "exampleChildElementFormula": () => ( parseFloat(document.getElementsByName('yes_no')[0].value) == '0' ? 0 : ( parseFloat(document.getElementsByName('float_value')[01].value) * parseFloat(document.getElementsByName('quantity')[0].value) ).toFixed(2) ),
 };
 
 export const App = () => {
     return (
         <gs.App
+            // Logo for login page (circled)
             appLogo="app_logo_circle.svg"
+            // Logo for the header (landscape)
+            // appLogoHeader={"app_logo_landscape.svg"}
             componentMap={componentMap}
         />
+    );
+}
+```
+
+To change the default theme colors:
+
+```js
+export const defaultTheme = {
+  light: {
+    primary: 'bg-blue-600 defaultThemeLightPrimary',
+    secondary: 'bg-gray-200 defaultThemeLightSecondary',
+    text: 'text-gray-800 defaultThemeLightText',
+    textHoverTop: 'hover:bg-blue-400 defaultThemeLightTextHoverTop',
+    textHoverTopSubMenu: 'hover:bg-gray-200 defaultThemeLightTextHoverTopSubMenu',
+    textHoverSide: 'hover:bg-gray-300 defaultThemeLightTextHoverSide',
+    background: 'bg-gray-100 defaultThemeLightBackground',
+    contentBg: 'bg-gray-300 defaultThemeLightContentBg',
+  },
+  dark: {
+    primary: 'bg-blue-800 defaultThemeDarkPrimary',
+    secondary: 'bg-gray-700 defaultThemeDarkSecondary',
+    text: 'text-gray-200 defaultThemeDarkText',
+    textHoverTop: 'hover:bg-blue-400 defaultThemeDarkTextHoverTop',
+    textHoverTopSubMenu: 'hover:bg-gray-200 defaultThemeDarkTextHoverTopSubMenu',
+    textHoverSide: 'hover:bg-gray-400 defaultThemeDarkTextHoverSide',
+    background: 'bg-gray-900 defaultThemeDarkBackground',
+    contentBg: 'bg-slate-500 defaultThemeDarkContentBg',
+  }
+}
+
+const componentMap = {
+        .
+        .
+    "defaultTheme": defaultTheme,
+}
+```
+
+To replace the App footer by a custom <AppFooter /> component:
+
+```js
+// import * as gs from "genericsuite";
+import * as gsAi from "genericsuite-ai";
+
+import { HomePage } from '../HomePage/HomePage.jsx';
+import { AboutBody } from '../About/About.jsx';
+import { AppFooter } from '../AppFooter/AppFooter.jsx';
+
+const AppLogo = 'app_logo_square.svg';
+
+const componentMap = {
+    "AboutBody": AboutBody,
+    "HomePage": HomePage,
+    "AppFooter": AppFooter,
+};
+
+const GsAiApp = gsAi.App;
+
+export const App = () => {
+    return (
+        <GsAiApp
+            appLogo={AppLogo}
+            componentMap={componentMap}
+        />
+    );
+}
+```
+
+And...
+
+File: `src/components/AppFooter/AppFooter.jsx`
+
+```js
+import React from "react";
+import * as gs from "genericsuite";
+const GsAppFooter = gs.AppFooter;
+
+export const AppFooter = () => {
+    return (
+        <GsAppFooter>
+            year={`2020-${new Date().getFullYear()}`}
+            url="https://www.exampleapp.com"
+            otherLine={"Made by https://www.examplecompany.com"}
+        </>
     );
 }
 ```
@@ -613,7 +699,7 @@ Will have the child component configuration for both backend and frontend.<br/>
             "type": "number",
             "readonly": true,
             "listing": true,
-            "formula": "( parseFloat(document.getElementsByName('yes_no')[0].value) == '0' ? 0 : ( parseFloat(document.getElementsByName('float_value')[01].value * parseFloat(document.getElementsByName('quantity')[0].value ).toFixed(2) )"
+            "formula": "exampleChildElementFormula"
         }
     ]
 }
@@ -626,6 +712,44 @@ Will have the child component backend configuration.<br/>
     "table_name": "example_table",
     "notes": "Example table array attribute with 1-to-many relationship in the same table",
 }
+```
+
+### Use bmbedded Icons library: <GsIcons>
+
+There's a list of included or embedded Icons in the `node_modules/genericsuite/src/lib/helpers/IconsLib.jsx` file.
+
+To use them, import the `GsIcons` component and use the `icon` prop to select the icon to be displayed.
+
+```js
+import * as gs from "genericsuite";
+const GsIcons = gs.IconsLib.GsIcons;
+
+      .
+      .
+  <GsIcons
+      icon="google-logo"
+      alt="Open Google Search"
+  />
+```
+
+To define a specific set of Icons:
+
+- Create a new Helpers directory, e.g. `src/helpers`, and create a new file for the new Icons. E.g. `src/helpers/iconsLibAiExtras.jsx`
+
+- Import the icons you want to use in the file. E.g.
+
+```js
+import { iconsLibAiExtras } from '../../helpers/iconsLibAiExtras.jsx';
+```
+
+- Use the icons in the file. E.g.
+
+```js
+<GsIcons
+    icon={isRecording ? 'stop' : 'microphone'}
+    size='lg'
+    additionalIconsFn={iconsLibAiExtras}
+/>
 ```
 
 ### Create images
@@ -719,7 +843,7 @@ There are some pre-loaded images used by the GenericSuite library. Check [here](
             },
             {
                 "title": "About",
-                "on_click": "|js|window.open(window.location.origin + '/#/about_body?menu=0', 'AppAboutPopUp','height=600,width=400')"
+                "on_click": "|about|"
             },
             {
                 "title": "Logout",
@@ -801,6 +925,117 @@ There are some pre-loaded images used by the GenericSuite library. Check [here](
     }
 ]
 ```
+
+### Use the User Context
+
+
+There are some cases where is required to get some of current user data. For this reason, the `UserContext` is provided. This context is used to get the current logged user data.
+
+To use the `UserContext`, import the `useUser` hook from the `UserContext` and use it in your component:
+
+```js
+// Example component that use the UserContext to the the user's first name
+import React, { useState, useEffect } from 'react';
+import * as gs from "genericsuite";
+const useUser = gs.UserContext.useUser;
+export const HomePage = () => {
+    // Get the current logged user data
+    const { currentUser } = useUser();
+    return (
+        <gs.HomePage>
+            <h1>Hi {currentUser.firstName}!</h1>
+            <OtherComponents ... />
+        </gs.HomePage>
+    );
+}
+```
+
+The complete list of available UserContext attributes can be found in the [GenericSuite UserContext](https://github.com/tomkat-cr/genericsuite-fe/blob/master/src/lib/helpers/UserContext.jsx) documentation.
+
+### Use the App Context
+
+The App Context is used to share attributes, variables and functions across the App components. E.g.
+
+* `appLogo`
+* `appLogoHeader`
+* `componentMap`
+* `state` (to store the eventual error messages in the main App component)
+* `menuOptions`
+* `sideMenu` (flag thats tells if the left side menu is active)
+* `isDarkMode`
+* `isMobileMenuOpen`
+* `expandedMenus` (constains a list of exapanded sub-menus)
+* `isWide` (true if the window has more than 640 pixels wide)
+* `theme` (color attributes for light and dark modes, depending on which is active)
+* `toggleDarkMode()`
+* `toggleSideMenu()`
+* `toggleMobileMenu()`
+* `toggleSubmenu()`
+* `isComponent()` (to check if an object is a React component)
+* `setExpanded()`
+
+For example, to use the App Context, image directory, class names constants, and NavLib elements (like the ToggleSideBar, GsButton and CenteredBoxContainer):
+
+```js
+import React, { useState, useEffect } from 'react';
+
+import * as gs from "genericsuite";
+
+const useAppContext = gs.AppContext.useAppContext;
+
+const imageDirectory = gs.generalConstants.imageDirectory;
+
+const LOGIN_PAGE_APP_LOGO_CLASS = gs.classNameConstants.LOGIN_PAGE_APP_LOGO_CLASS;
+const MAIN_CONTAINER_FOR_SIDE_MENU_CLASS = gs.classNameConstants.MAIN_CONTAINER_FOR_SIDE_MENU_CLASS;
+const MAIN_CONTAINER_FOR_TOP_MENU_CLASS = gs.classNameConstants.MAIN_CONTAINER_FOR_TOP_MENU_CLASS;
+const HIDDEN_CLASS = gs.classNameConstants.HIDDEN_CLASS;
+
+const NavLib = gs.NavLib;
+const ToggleSideBar = gs.NavLib.ToggleSideBar;
+
+const alternativeAppLogo = "app_logo_square.svg";
+
+export const SomeComponent = () => {
+    const { theme, appLogo, appLogoHeader } = useAppContext();
+
+    const [hideBar, setHideBar] = useState(false);
+    const handleBarVisibility = () => {
+        setHideBar(!hideBar);
+    }
+    const barClassName = () = (hideBar ? HIDDEN_CLASS : "");
+
+    return (
+        <NavLib.CenteredBoxContainer>
+          <div
+            className={`${sideMenu ? MAIN_CONTAINER_FOR_SIDE_MENU_CLASS : MAIN_CONTAINER_FOR_TOP_MENU_CLASS} ${theme.background} ${theme.text}`}
+          >
+            <div
+              className={barClassName()}
+            >
+              <img
+                src={imageDirectory + (appLogo || alternativeAppLogo)}
+                width="150"
+                height="150"
+                className={LOGIN_PAGE_APP_LOGO_CLASS}
+                alt="App Logo"
+              />
+              <GsButton
+                variant={"secondary"}
+                onClick={handleBarVisibility}
+              >
+                Toggle Side Menu
+              </GsButton>
+            </div>
+          </div>
+          <ToggleSideBar
+            onClick={handleBarVisibility}
+          />
+        </NavLib.CenteredBoxContainer>
+    );
+}
+```
+
+The complete list of available AppContext attributes can be found in the [GenericSuite AppContext](https://github.com/tomkat-cr/genericsuite-fe/blob/master/src/lib/helpers/AppContext.jsx) documentation.
 
 ## App backend
 

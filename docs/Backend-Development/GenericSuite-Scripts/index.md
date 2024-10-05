@@ -568,7 +568,18 @@ Runs `sh scripts/aws/create_chatbot_s3_bucket.sh prod`.
 make create_s3_bucket_prod
 ```
 
-* Generate SAM DynamoDB table definitions<br/>
+* Generate DynamoDB table definitions<br/>
+
+For CF (CloudFormation) deployment:
+
+Read all table definitions from the JSON configuration directory and generates a file that can be used as AWS Cloud Formation template.
+
+```bash
+make generate_cf_dynamodb
+```
+
+For SAM (Serverless Application Model) deployment:
+
 Read all table definitions from the JSON configuration directory and generates a template file that can be inserted in the SAM `template.yml` file.
 
 ```bash

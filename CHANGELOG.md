@@ -37,9 +37,16 @@ Replace react-bootstrap entirely and use only Tailwind CSS [GS-63].
 "index-template.html" is not longer required because the %PUBLIC_URL% issue in public/index.html file running the app with webpack was fixed [GS-116].
 Replace GPT-3.5 with gpt-4o-mini as default OpenAI model [GS-109].
 HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
+<HashRouter> was replaced by <RouterProvider> and createBrowserRouter() [GS-112].
 
 # Fixes
 Fix the %PUBLIC_URL% issue in public/index.html file running the app with webpack [GS-116].
+
+### Breaks
+Bootstrap CSS is not longer used [GS-63].
+FontAwesome is not longer used [GS-115].
+SVG images removed and included in the "GsIcons" library [GS-115].
+Get rid of eval() in the GS FrontEnd [GS-127].
 
 
 ## 0.0.11 (2024-07-27)
