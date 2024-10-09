@@ -509,7 +509,7 @@ And copy the file generated to the `public` directory:
 cp src/output.css public/
 ```
 
-To keep the `src/output.css` file updated, during the development cicle open a new terminal and run:
+To keep the `src/output.css` file updated, during the development cycle open a new terminal and run:
 
 ```bash
 make tailwind
