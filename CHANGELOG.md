@@ -17,6 +17,41 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.12 (2024-10-07)
+---
+
+### New
+Make DynamoDb tables with prefix work with the GS DB Abstraction [GS-102].
+Implement HF (HuggingFace) local pipelines [GS-59].
+Implement Falcon Mamba with HF [GS-118].
+Implement Meta Llama 3.1 with HF [GS-119].
+Implement HF (HuggingFace) image generator [GS-117].
+Implement Flux.1 image generator [GS-117].
+Implement Anthropic Claude 3.5 Sonnet [GS-33].
+Implement Groq chat model [GS-92].
+Add LOCALSTACK_AUTH_TOKEN documentation [GS-97].
+Implement Amazon Bedrock chat and image generator [GS-131].
+Add HUGGINGFACE_PIPELINE_DEVICE to configure the "device" pipeline() parameter [FA-233].
+Implement o1-mini/o1-preview models use through AI/ML API aimlapi.com [GS-138].
+Implement GS Huggingface lightweight model, identified by model_types "huggingface_remote" or "gs_huggingface" [GS-136].
+
+### Changes
+Replace react-bootstrap entirely and use only Tailwind CSS [GS-63].
+"index-template.html" is not longer required because the %PUBLIC_URL% issue in public/index.html file running the app with webpack was fixed [GS-116].
+Replace GPT-3.5 with gpt-4o-mini as default OpenAI model [GS-109].
+HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
+<HashRouter> was replaced by <RouterProvider> and createBrowserRouter() [GS-112].
+
+# Fixes
+Fix the %PUBLIC_URL% issue in public/index.html file running the app with webpack [GS-116].
+
+### Breaks
+Bootstrap CSS is not longer used [GS-63].
+FontAwesome is not longer used [GS-115].
+SVG images removed and included in the "GsIcons" library [GS-115].
+Get rid of eval() in the GS FrontEnd [GS-127].
+
+
 ## 0.0.11 (2024-07-27)
 ---
 

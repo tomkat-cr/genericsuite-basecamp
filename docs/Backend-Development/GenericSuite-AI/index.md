@@ -121,7 +121,7 @@ GOOGLE_CSE_ID=google_console_cse_key
 [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 ```
 OPENAI_API_KEY=openai_api_key
-OPENAI_MODEL=gpt-3.5-turbo
+OPENAI_MODEL=gpt-4o-mini
 OPENAI_TEMPERATURE=0.7
 ```
 
@@ -132,11 +132,33 @@ LANGCHAIN_API_KEY=langchain_api_key
 LANGCHAIN_PROJECT=langchain_project
 ```
 
-* Hugging Face credentials and model URL<BR/>
+* Hugging Face credentials<BR/>
 [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
 ```
 HUGGINGFACE_API_KEY=huggingface_api_key
-HUGGINGFACE_ENDPOINT_URL=huggingface_endpoint_url
+```
+
+* Hugging Face chat model
+```
+HUGGINGFACE_DEFAULT_CHAT_MODEL=huggingface_default_chat_model
+
+# Tested models:
+# HUGGINGFACE_DEFAULT_CHAT_MODEL=mistralai/Mistral-7B-Instruct-v0.2
+# HUGGINGFACE_DEFAULT_CHAT_MODEL=meta-llama/Meta-Llama-3.1-8B-Instruct
+# HUGGINGFACE_DEFAULT_CHAT_MODEL=meta-llama/Llama-2-7b-chat-hf
+
+# NOTE: Big models work with huggingface_pipeline only
+# HUGGINGFACE_DEFAULT_CHAT_MODEL=meta-llama/Meta-Llama-3.1-405B-Instruct
+# HUGGINGFACE_DEFAULT_CHAT_MODEL=tiiuae/falcon-mamba-7b
+```
+
+* Hugging Face image generation model
+```
+HUGGINGFACE_DEFAULT_IMG_GEN_MODEL=huggingface_default_img_gen_model
+
+# Tested models:
+# HUGGINGFACE_DEFAULT_IMG_GEN_MODEL=black-forest-labs/FLUX.1-dev
+# HUGGINGFACE_DEFAULT_IMG_GEN_MODEL=black-forest-labs/FLUX.1-schnell
 ```
 
 * AWS Configuration<BR/>
@@ -153,22 +175,21 @@ Dynamic AI configurations<br/>
 Configurable via frontend `Admin > Configuration Parameters` menu option, because they're not included as AWS Lambda environment variables in the deployment scripts.
 
 * General AI Engine configurations
-```
-EMBEDDINGS_ENGINE=openai
-# EMBEDDINGS_ENGINE=clarifai
-```
-```
-VECTOR_STORE_ENGINE=FAISS
-# VECTOR_STORE_ENGINE=clarifai
-# VECTOR_STORE_ENGINE=mongo
-# VECTOR_STORE_ENGINE=vectara
-```
+
 ```
 LANGCHAIN_DEFAULT_MODEL=chat_openai
+# LANGCHAIN_DEFAULT_MODEL=anthropic
+# LANGCHAIN_DEFAULT_MODEL=groq
 # LANGCHAIN_DEFAULT_MODEL=gemini
-# LANGCHAIN_DEFAULT_MODEL=huggingface
 # LANGCHAIN_DEFAULT_MODEL=clarifai
+# LANGCHAIN_DEFAULT_MODEL=gs_huggingface
+#                      or huggingface_remote | Genericsuite's Hugging Face lightweight Inference API
+# LANGCHAIN_DEFAULT_MODEL=huggingface
+# LANGCHAIN_DEFAULT_MODEL=huggingface_pipeline
 ```
+
+IMPORTANT: The model_types "huggingface" and "huggingface_pipeline" use the "langchain_hugginface" dependency that required "sentence-transformers", making imposible to deploy the project AWS Lambda Functions. The alternative is the GS Huggingface lightweight identified by model_types "huggingface_remote" or "gs_huggingface".
+
 ```
 AI_VISION_TECHNOLOGY=openai
 # AI_VISION_TECHNOLOGY=gemini
@@ -176,6 +197,7 @@ AI_VISION_TECHNOLOGY=openai
 ```
 ```
 AI_IMG_GEN_TECHNOLOGY=openai
+# AI_IMG_GEN_TECHNOLOGY=huggingface
 # AI_IMG_GEN_TECHNOLOGY=gemini
 # AI_IMG_GEN_TECHNOLOGY=clarifai
 ```
@@ -187,6 +209,16 @@ AI_AUDIO_TO_TEXT_TECHNOLOGY=openai
 ```
 AI_TEXT_TO_AUDIO_TECHNOLOGY=openai
 # AI_TEXT_TO_AUDIO_TECHNOLOGY=clarifai
+```
+```
+EMBEDDINGS_ENGINE=openai
+# EMBEDDINGS_ENGINE=clarifai
+```
+```
+VECTOR_STORE_ENGINE=FAISS
+# VECTOR_STORE_ENGINE=clarifai
+# VECTOR_STORE_ENGINE=mongo
+# VECTOR_STORE_ENGINE=vectara
 ```
 ```
 # Add aditional models to the LLM
@@ -280,16 +312,55 @@ OPENAI_EMBEDDINGS_MODEL_PREMIUM=text-embedding-3-large'
 https://console.anthropic.com/settings/keys
 
 ```
-ANTHROPIC_MODEL=claude-2
 ANTHROPIC_API_KEY=
+ANTHROPIC_MODEL=claude-3-5-sonnet-20240620
 ```
 
-* AWS Bedrock credentials and other parameters<BR/>
+* Groq credentials and other parameters<BR/>
+https://console.groq.com/keys
+
+```
+GROQ_API_KEY=groq_api_key
+# https://console.groq.com/docs/models
+GROQ_MODEL=mixtral-8x7b-32768
+```
+
+* AWS Amazon Bedrock credentials and other parameters<BR/>
 https://console.aws.amazon.com
 
 ```
+AWS_BEDROCK_MODEL_ID=amazon.titan-text-premier-v1:0
+# AWS_BEDROCK_MODEL_ID=amazon.titan-text-express-v1
+# AWS_BEDROCK_MODEL_ID=ai21.jamba-instruct-v1:0
+# AWS_BEDROCK_MODEL_ID=anthropic.claude-3-haiku-20240307-v1:0
+# AWS_BEDROCK_MODEL_ID=anthropic.claude-3-opus-20240229-v1:0
+# AWS_BEDROCK_MODEL_ID=anthropic.claude-3-sonnet-20240229-v1:0
+# AWS_BEDROCK_MODEL_ID=anthropic.claude-3-5-sonnet-20240229-v1:0
+#
+AWS_BEDROCK_IMAGE_GEN_MODEL_ID=stability.stable-diffusion-xl-v1
+#
+AWS_BEDROCK_CREDENTIALS_PROFILE=
+# AWS_BEDROCK_CREDENTIALS_PROFILE=bedrock-admin
+#
+AWS_BEDROCK_GUARDRAIL_ID=
+AWS_BEDROCK_GUARDRAIL_VERSION=
+AWS_BEDROCK_GUARDRAIL_TRACE=1
+#
 AWS_BEDROCK_EMBEDDINGS_MODEL_ID=amazon.titan-embed-text-v1
-AWS_BEDROCK_EMBEDDINGS_PROFILE=bedrock-admin
+AWS_BEDROCK_EMBEDDINGS_PROFILE=
+# AWS_BEDROCK_EMBEDDINGS_PROFILE=bedrock-admin
+```
+
+* AI/ML API platform (one API, 200+ AI Models)<BR/>
+https://aimlapi.com/app/keys
+
+```
+AIMLAPI_API_KEY=aimlapi_api_key
+
+# AIMLAPI_MODEL_NAME=o1-mini
+# AIMLAPI_MODEL_NAME=o1-preview
+
+# AIMLAPI_TEMPERATURE=1
 ```
 
 * HuggingFace other parameters<BR/>
@@ -300,6 +371,13 @@ HUGGINGFACE_MAX_NEW_TOKENS=512
 HUGGINGFACE_TOP_K=50
 HUGGINGFACE_TEMPERATURE=1
 HUGGINGFACE_REPETITION_PENALTY=03
+#
+# For "huggingface_pipeline" model_type:
+# device (`int` or `str` or `torch.device`):
+#   Defines the device (*e.g.*, `"cpu"`, `"cuda:1"`, `"mps"`, or a GPU
+#   ordinal rank like `1`) on which this pipeline will be allocated.
+# HUGGINGFACE_PIPELINE_DEVICE=0
+# HUGGINGFACE_PIPELINE_DEVICE=cuda
 ```
 
 ```

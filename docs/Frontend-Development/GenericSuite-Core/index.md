@@ -109,6 +109,7 @@ npm install --save-dev \
    css-loader \
    file-loader \
    html-webpack-plugin \
+   interpolate-html-plugin \
    jest \
    jest-environment-jsdom \
    path \
@@ -286,27 +287,65 @@ This is a suggested App development repository structure:
 
 In the project's directory:
 
-- `.babelrc` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.babelrc))<br/>
+- `.babelrc` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.babelrc))<br/><br/>
+
 - `babel.config.js` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/babel.config.cjs))<br/>
 Babel transpiler configuration. Check the [documentation here](https://babeljs.io/docs/configuration).<br/><br/>
+
 - `CHANGELOG` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/CHANGELOG.md))<br/>
 Changes documentation to this project.<br/><br/>
+
 - `config-overrides.js` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/config-overrides.js))<br/>
 react-app-rewired configuration. Check [react-app-rewired documentation](https://github.com/timarney/react-app-rewired) for more information.<br/><br/>
+
 - `jest.config.cjs` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/jest.config.cjs))<br/>
 JEST test configuration.<br/><br/>
+
 - `server.js` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/server.js))<br/>
 Node server, to test and debug your App in a production-like environment.<br/><br/>
+
 - `tailwind.config.js`<br/>
 Install and initialize Tailwind with [instructions here](https://tailwindcss.com/docs/installation).<br/>
 For additional Tailwind configuration check the [documentation here](https://tailwindcss.com/docs/configuration).<br/><br/>
+
+Suggested Tailwind configuration:
+
+```js
+const { relative } = require('path');
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: 'selector',
+  content: {
+    relative: true,
+    files: [
+      "./node_modules/genericsuite/src/lib/**/*.{html,js,jsx}",
+      "./src/lib/components/**/*.{html,js,jsx}",
+      "./src/lib/constants/**/*.{html,js,jsx}",
+                .
+                .
+      "./src/index.{tsx,jsx,cjs}",
+      './public/index.html',
+    ],
+  },
+  theme: {
+    extend: {},
+  },
+  plugins: [
+  ],
+}
+```
+
 - `webpack.config.js` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/webpack.config.js))<br/>
 To configure Webpack as an alternative to CRA / `react-app-rewired`.<br/>
 **IMPORTANT**: Make sure to replace `entry: './src/index.tsx'` by `entry: './src/index.jsx'`.<br/>
 Check the [documentation here](https://webpack.js.org/configuration).<br/>
 <br/>
+
 - `tsconfig.json`<br/>
+
 To configure TypeScript. e.g.
+
 ```json
 {
   "compilerOptions": {
@@ -351,10 +390,10 @@ To configure TypeScript. e.g.
 
 If you don't have a customized `public/index.html` (just the default one created by CRA):
 
-Create the `index-template.html` file:
+Create the `index.html` file:
 
 ```bash
-vi public/index-template.html
+vi public/index.html
 ```
 
 Copy and paste this content:
@@ -372,6 +411,7 @@ Copy and paste this content:
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!-- Tailwind -->
     <link href="%PUBLIC_URL%/output.css" rel="stylesheet">
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -388,8 +428,6 @@ Copy and paste this content:
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>exampleapp.com</title>
-    <!-- bootstrap css -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         a { cursor: pointer; }
     </style>
@@ -408,25 +446,8 @@ Copy and paste this content:
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <!-- credits -->
-    <div class="text-center">
-      <p>
-          <a href="https://exampleapp.com" target="_blank" rel="noreferrer">exampleapp.com</a>
-      </p>
-    </div>
   </body>
 </html>
-```
-
-Replace `exampleapp.com` with your App domain name and the App name where it's necessary.
-
-For example in these lines:
-
-```html
-<title>exampleapp.com</title>
-```
-```html
-<a href="https://exampleapp.com" target="_blank" rel="noreferrer">exampleapp.com</a>
 ```
 
 ### Option 2
@@ -463,10 +484,15 @@ After this line:
     <link href="%PUBLIC_URL%/output.css" rel="stylesheet">
 ```
 
-Finally run this command:
+Remove the footer and credits:
 
-```bash
-cp public/index.html public/index-template.html
+```html
+    <!-- credits -->
+    <div class="text-center">
+      <p>
+          <a href="https://exampleapp.com" target="_blank" rel="noreferrer">exampleapp.com</a>
+      </p>
+    </div>
 ```
 
 ### Final step for any option
@@ -481,6 +507,12 @@ And copy the file generated to the `public` directory:
 
 ```bash
 cp src/output.css public/
+```
+
+To keep the `src/output.css` file updated, during the development cycle open a new terminal and run:
+
+```bash
+make tailwind
 ```
 
 ## Code examples and JSON configuration files
