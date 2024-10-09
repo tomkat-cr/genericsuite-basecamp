@@ -325,12 +325,30 @@ GROQ_API_KEY=groq_api_key
 GROQ_MODEL=mixtral-8x7b-32768
 ```
 
-* AWS Bedrock credentials and other parameters<BR/>
+* AWS Amazon Bedrock credentials and other parameters<BR/>
 https://console.aws.amazon.com
 
 ```
+AWS_BEDROCK_MODEL_ID=amazon.titan-text-premier-v1:0
+# AWS_BEDROCK_MODEL_ID=amazon.titan-text-express-v1
+# AWS_BEDROCK_MODEL_ID=ai21.jamba-instruct-v1:0
+# AWS_BEDROCK_MODEL_ID=anthropic.claude-3-haiku-20240307-v1:0
+# AWS_BEDROCK_MODEL_ID=anthropic.claude-3-opus-20240229-v1:0
+# AWS_BEDROCK_MODEL_ID=anthropic.claude-3-sonnet-20240229-v1:0
+# AWS_BEDROCK_MODEL_ID=anthropic.claude-3-5-sonnet-20240229-v1:0
+#
+AWS_BEDROCK_IMAGE_GEN_MODEL_ID=stability.stable-diffusion-xl-v1
+#
+AWS_BEDROCK_CREDENTIALS_PROFILE=
+# AWS_BEDROCK_CREDENTIALS_PROFILE=bedrock-admin
+#
+AWS_BEDROCK_GUARDRAIL_ID=
+AWS_BEDROCK_GUARDRAIL_VERSION=
+AWS_BEDROCK_GUARDRAIL_TRACE=1
+#
 AWS_BEDROCK_EMBEDDINGS_MODEL_ID=amazon.titan-embed-text-v1
-AWS_BEDROCK_EMBEDDINGS_PROFILE=bedrock-admin
+AWS_BEDROCK_EMBEDDINGS_PROFILE=
+# AWS_BEDROCK_EMBEDDINGS_PROFILE=bedrock-admin
 ```
 
 * AI/ML API platform (one API, 200+ AI Models)<BR/>
