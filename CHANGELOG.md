@@ -17,8 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
-## Unreleased
-## 0.0.12 (2024-08-05)
+## 0.0.12 (2024-10-07)
 ---
 
 ### New
@@ -31,6 +30,10 @@ Implement Flux.1 image generator [GS-117].
 Implement Anthropic Claude 3.5 Sonnet [GS-33].
 Implement Groq chat model [GS-92].
 Add LOCALSTACK_AUTH_TOKEN documentation [GS-97].
+Implement Amazon Bedrock chat and image generator [GS-131].
+Add HUGGINGFACE_PIPELINE_DEVICE to configure the "device" pipeline() parameter [FA-233].
+Implement o1-mini/o1-preview models use through AI/ML API aimlapi.com [GS-138].
+Implement GS Huggingface lightweight model, identified by model_types "huggingface_remote" or "gs_huggingface" [GS-136].
 
 ### Changes
 Replace react-bootstrap entirely and use only Tailwind CSS [GS-63].

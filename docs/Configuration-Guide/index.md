@@ -1295,7 +1295,7 @@ from datetime import datetime
 from uuid import uuid4
 
 from langchain.agents import tool
-from langchain.pydantic_v1 import BaseModel, Field
+from pydantic import BaseModel, Field
 from langchain.schema import Document
 
 from genericsuite.util.app_context import CommonAppContext

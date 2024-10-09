@@ -175,25 +175,21 @@ Dynamic AI configurations<br/>
 Configurable via frontend `Admin > Configuration Parameters` menu option, because they're not included as AWS Lambda environment variables in the deployment scripts.
 
 * General AI Engine configurations
-```
-EMBEDDINGS_ENGINE=openai
-# EMBEDDINGS_ENGINE=clarifai
-```
-```
-VECTOR_STORE_ENGINE=FAISS
-# VECTOR_STORE_ENGINE=clarifai
-# VECTOR_STORE_ENGINE=mongo
-# VECTOR_STORE_ENGINE=vectara
-```
+
 ```
 LANGCHAIN_DEFAULT_MODEL=chat_openai
 # LANGCHAIN_DEFAULT_MODEL=anthropic
-# LANGCHAIN_DEFAULT_MODEL=huggingface
-# LANGCHAIN_DEFAULT_MODEL=huggingface_pipeline
 # LANGCHAIN_DEFAULT_MODEL=groq
 # LANGCHAIN_DEFAULT_MODEL=gemini
 # LANGCHAIN_DEFAULT_MODEL=clarifai
+# LANGCHAIN_DEFAULT_MODEL=gs_huggingface
+#                      or huggingface_remote | Genericsuite's Hugging Face lightweight Inference API
+# LANGCHAIN_DEFAULT_MODEL=huggingface
+# LANGCHAIN_DEFAULT_MODEL=huggingface_pipeline
 ```
+
+IMPORTANT: The model_types "huggingface" and "huggingface_pipeline" use the "langchain_hugginface" dependency that required "sentence-transformers", making imposible to deploy the project AWS Lambda Functions. The alternative is the GS Huggingface lightweight identified by model_types "huggingface_remote" or "gs_huggingface".
+
 ```
 AI_VISION_TECHNOLOGY=openai
 # AI_VISION_TECHNOLOGY=gemini
@@ -213,6 +209,16 @@ AI_AUDIO_TO_TEXT_TECHNOLOGY=openai
 ```
 AI_TEXT_TO_AUDIO_TECHNOLOGY=openai
 # AI_TEXT_TO_AUDIO_TECHNOLOGY=clarifai
+```
+```
+EMBEDDINGS_ENGINE=openai
+# EMBEDDINGS_ENGINE=clarifai
+```
+```
+VECTOR_STORE_ENGINE=FAISS
+# VECTOR_STORE_ENGINE=clarifai
+# VECTOR_STORE_ENGINE=mongo
+# VECTOR_STORE_ENGINE=vectara
 ```
 ```
 # Add aditional models to the LLM
@@ -327,6 +333,18 @@ AWS_BEDROCK_EMBEDDINGS_MODEL_ID=amazon.titan-embed-text-v1
 AWS_BEDROCK_EMBEDDINGS_PROFILE=bedrock-admin
 ```
 
+* AI/ML API platform (one API, 200+ AI Models)<BR/>
+https://aimlapi.com/app/keys
+
+```
+AIMLAPI_API_KEY=aimlapi_api_key
+
+# AIMLAPI_MODEL_NAME=o1-mini
+# AIMLAPI_MODEL_NAME=o1-preview
+
+# AIMLAPI_TEMPERATURE=1
+```
+
 * HuggingFace other parameters<BR/>
 https://huggingface.co
 
@@ -335,6 +353,13 @@ HUGGINGFACE_MAX_NEW_TOKENS=512
 HUGGINGFACE_TOP_K=50
 HUGGINGFACE_TEMPERATURE=1
 HUGGINGFACE_REPETITION_PENALTY=03
+#
+# For "huggingface_pipeline" model_type:
+# device (`int` or `str` or `torch.device`):
+#   Defines the device (*e.g.*, `"cpu"`, `"cuda:1"`, `"mps"`, or a GPU
+#   ordinal rank like `1`) on which this pipeline will be allocated.
+# HUGGINGFACE_PIPELINE_DEVICE=0
+# HUGGINGFACE_PIPELINE_DEVICE=cuda
 ```
 
 ```
