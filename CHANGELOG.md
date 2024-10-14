@@ -17,6 +17,15 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## Unreleased
+## 0.0.13 (2024-10-13)
+---
+
+### New
+VPS Install scripts [GS-141].
+Implement ollama server [GS-139].
+
+
 ## 0.0.12 (2024-10-07)
 ---
 

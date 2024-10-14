@@ -309,7 +309,7 @@ OPENAI_EMBEDDINGS_MODEL_PREMIUM=text-embedding-3-large'
 ```
 
 * Anthropic credentials and other parameters<BR/>
-https://console.anthropic.com/settings/keys
+[https://console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys)
 
 ```
 ANTHROPIC_API_KEY=
@@ -317,16 +317,18 @@ ANTHROPIC_MODEL=claude-3-5-sonnet-20240620
 ```
 
 * Groq credentials and other parameters<BR/>
-https://console.groq.com/keys
+[https://console.groq.com/keys](https://console.groq.com/keys)<BR/>
+[https://console.groq.com/docs/models](https://console.groq.com/docs/models)
 
 ```
 GROQ_API_KEY=groq_api_key
+#
 # https://console.groq.com/docs/models
 GROQ_MODEL=mixtral-8x7b-32768
 ```
 
 * AWS Amazon Bedrock credentials and other parameters<BR/>
-https://console.aws.amazon.com
+[https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock)
 
 ```
 AWS_BEDROCK_MODEL_ID=amazon.titan-text-premier-v1:0
@@ -352,7 +354,7 @@ AWS_BEDROCK_EMBEDDINGS_PROFILE=
 ```
 
 * AI/ML API platform (one API, 200+ AI Models)<BR/>
-https://aimlapi.com/app/keys
+[https://aimlapi.com/app/keys](https://aimlapi.com/app/keys)
 
 ```
 AIMLAPI_API_KEY=aimlapi_api_key
@@ -364,7 +366,7 @@ AIMLAPI_API_KEY=aimlapi_api_key
 ```
 
 * HuggingFace other parameters<BR/>
-https://huggingface.co
+[https://huggingface.co](https://huggingface.co)
 
 ```
 HUGGINGFACE_MAX_NEW_TOKENS=512
@@ -394,7 +396,7 @@ HUGGINGFACE_EMBEDDINGS_ENCODE_KWARGS='{"normalize_embeddings": true}'
 ```
 
 * Clarifai credentials and other parameters<BR/>
-https://clarifai.com > UserId > ProjectId > Settings
+[https://clarifai.com](https://clarifai.com) > UserId > ProjectId > Settings
 
 ```
 # PAT (Personal API Token): https://clarifai.com/settings/security
@@ -438,7 +440,7 @@ AI_CLARIFAI_DEFAULT_VISION_MODEL=openai-gpt-4-vision
 ```
 
 * ElevenLabs<BR/>
-https://elevenlabs.io/app/subscription
+[https://elevenlabs.io/app/subscription](https://elevenlabs.io/app/subscription)
 
 ```
 ELEVENLABS_API_KEY=
@@ -458,7 +460,7 @@ ELEVENLABS_USE_SPEAKER_BOOST=1
 ```
 
 * Cohere credentials and other parameters<BR/>
-https://dashboard.cohere.com/api-keys
+[https://dashboard.cohere.com/api-keys](https://dashboard.cohere.com/api-keys)
 
 ```
 COHERE_API_KEY=
@@ -476,8 +478,8 @@ OLLAMA_MODEL=llama:7b
 OLLAMA_EMBEDDINGS_MODEL=llama:7b
 ```
 
-* MongooDB embeddings<BR/>
-https://www.mongodb.com
+* MongoDB embeddings<BR/>
+[https://www.mongodb.com](https://www.mongodb.com)
 
 ```
 MONGODB_VS_COLLECTION=
@@ -485,7 +487,7 @@ MONGODB_VS_INDEX_NAME=
 ```
 
 * Pinecone credentials and other parameters<BR/>
-https://app.pinecone.io/keys
+[https://app.pinecone.io/keys](https://app.pinecone.io/keys)
 
 ```
 # PINECONE_API_KEY=
@@ -493,7 +495,7 @@ https://app.pinecone.io/keys
 ```
 
 * Vectara credentials and other parameters<BR/>
-https://console.vectara.com/console/apiAccess/personalApiKey
+[https://console.vectara.com/console/apiAccess/personalApiKey](https://console.vectara.com/console/apiAccess/personalApiKey)
 
 ```
 VECTARA_CUSTOMER_ID=
@@ -502,7 +504,7 @@ VECTARA_API_KEY=
 ```
 
 * Weaviate credentials and other parameters<BR/>
-https://console.weaviate.cloud/dashboard
+[https://console.weaviate.cloud/dashboard](https://console.weaviate.cloud/dashboard)
 
 ```
 WEAVIATE_URL=
