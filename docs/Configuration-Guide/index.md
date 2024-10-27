@@ -141,7 +141,7 @@ make add_submodules
 make init_submodules
 ```
 
-* Commit and push the changes to make it availlable for the frontend:
+* Commit and push the changes to make it available for the frontend:
 
 ```bash
 # FastAPI
@@ -157,6 +157,11 @@ git commit -m "Initial JSON config files"
 ```bash
 git push
 ```
+
+## Build the .json files
+
+Follow the instructions to build the .json files [here](./Generic-CRUD-Editor-Configuration.md).
+
 
 ## App frontend
 

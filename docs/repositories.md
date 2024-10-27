@@ -25,6 +25,7 @@
 * :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-be](https://github.com/tomkat-cr/genericsuite-be)
 * :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-be-ai](https://github.com/tomkat-cr/genericsuite-be-ai)
 * :fontawesome-brands-linux:{ .linux } [https://github.com/tomkat-cr/genericsuite-be-scripts](https://github.com/tomkat-cr/genericsuite-be-scripts)
+* :fontawesome-brands-linux:{ .linux } [https://github.com/tomkat-cr/genericsuite-gitops](https://github.com/tomkat-cr/genericsuite-gitops)
 
 ### Other
 

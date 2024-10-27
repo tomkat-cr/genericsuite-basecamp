@@ -22,6 +22,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ---
 
 ### New
+Code example monorepos [GS-137].
+Generic CRUD Editor Configuration guide [GS-137].
 VPS Install scripts [GS-141].
 Implement ollama server [GS-139].
 
@@ -193,4 +195,4 @@ Fix: Configuration Guide index at the right side.
 
 ### New
 
-Initial commits [FA-257].
+Initial commits [FA-257] [GS-19].
