@@ -1,16 +1,28 @@
 # Generic CRUD Editor Configuration Documentation
 
-This documentation provides a general overview of the configuration options available for a generic CRUD editor. The specific values and options used will depend on the individual use case and requirements.
+This documentation provides configuration specifications for the Generic CRUD Editor JSON files.
 
-## Table of Contents
+## Configuration directory
 
-* [Frontend Configuration](#frontend-configuration)
-    1. [General Configuration](#general-configuration)
-    2. [Field Elements](#field-elements)
-    3. [Additional Query Parameters](#additional-query-parameters)
-    4. [Mandatory Filters](#mandatory-filters)
-    5. [Default Order](#default-order)
-* [Backend Configuration](#backend-configuration)
+Here's where the Generic CRUD Editor JSON files are stored. The directory structure is:
+
+```
+.
+├── CHANGELOG.md
+├── README.md
+├── backend
+│   ├── app_main_menu.json
+│   ├── endpoints.json
+│   ├── general_config.json
+│   ├── users.json
+│   └── users_config.json
+└── frontend
+    ├── app_constants.json
+    ├── general_config.json
+    ├── general_constants.json
+    ├── users.json
+    ├── users_config.json
+    └── users_profile.json
 
 ## Frontend Configuration
 
