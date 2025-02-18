@@ -122,7 +122,7 @@ GOOGLE_CSE_ID=google_console_cse_key
 ```
 OPENAI_API_KEY=openai_api_key
 OPENAI_MODEL=gpt-4o-mini
-OPENAI_TEMPERATURE=0.7
+OPENAI_TEMPERATURE=0.5
 ```
 
 * Langchain/LangSmith configuration<BR/>
@@ -189,6 +189,15 @@ LANGCHAIN_DEFAULT_MODEL=chat_openai
 ```
 
 IMPORTANT: The model_types "huggingface" and "huggingface_pipeline" use the "langchain_hugginface" dependency that required "sentence-transformers", making imposible to deploy the project AWS Lambda Functions. The alternative is the GS Huggingface lightweight identified by model_types "huggingface_remote" or "gs_huggingface".
+
+```
+# AI response method:
+#
+# Wait-until-finished response method (default)
+AI_STREAMING=0
+# Streaming response method
+# AI_STREAMING=1
+```
 
 ```
 AI_VISION_TECHNOLOGY=openai
@@ -273,7 +282,8 @@ GOOGLE_IMG_GEN_MODEL=imagegeneration@005
 
 * OpenAI other parameters
 ```
-OPENAI_MAX_TOKENS=500
+# OPENAI_MAX_TOKENS=""
+# OPENAI_TOP_P="1"
 ```
 ```
 # Addicional NLP model
@@ -287,9 +297,9 @@ OPENAI_VISION_MODEL=gpt-4-vision-preview
 ```
 # Image generation model
 OPENAI_IMAGE_GEN_MODEL=dall-e-3
+```
+```
 # Speech-to-text model
-```
-```
 OPENAI_VOICE_MODEL=whisper-1
 # Text-to-speech model
 OPENAI_TEXT_TO_AUDIO_MODEL=tts-1
@@ -363,6 +373,69 @@ AIMLAPI_API_KEY=aimlapi_api_key
 # AIMLAPI_MODEL_NAME=o1-preview
 
 # AIMLAPI_TEMPERATURE=1
+# AIMLAPI_MAX_TOKENS=""
+# AIMLAPI_TOP_P="1"
+```
+
+* Together.ai<BR/>
+  [https://api.together.xyz/settings/api-keys](https://api.together.xyz/settings/api-keys)
+
+```
+TOGETHER_API_KEY=together_api_key
+# TOGETHER_MODEL_NAME="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+```
+
+* xAI (Grok)<BR/>
+  [https://console.x.ai](https://console.x.ai)
+
+```
+XAI_API_KEY=xai_api_key
+# XAI_MODEL_NAME=grok-2
+```
+
+* Nvidia NIMs<BR/>
+  [https://www.nvidia.com/en-us/account/](https://www.nvidia.com/en-us/account/)
+
+```
+NVIDIA_API_KEY=nvidia_api_key
+#
+# NVIDIA_MODEL_NAME=nvidia/llama-3.1-nemotron-70b-instruct
+#
+# NVIDIA_TEMPERATURE=0.5
+# NVIDIA_MAX_TOKENS=
+# NVIDIA_TOP_P=1
+```
+
+* Rhymes.ai<BR/>
+  [https://rhymes.ai](https://rhymes.ai)
+
+```
+RHYMES_CHAT_API_KEY=rhymes_chat_api_key
+RHYMES_VIDEO_API_KEY=rhymes_video_api_key
+#
+# https://rhymes.ai/blog-details/aria-first-open-multimodal-native-moe-model
+# RHYMES_CHAT_MODEL_NAME=aria
+# RHYMES_CHAT_TEMPERATURE=0.5
+# RHYMES_CHAT_MAX_TOKENS=
+# RHYMES_CHAT_TOP_P=1
+#
+# https://rhymes.ai/blog-details/allegro-advanced-video-generation-model
+# RHYMES_VIDEO_MODEL_NAME=allegro
+# RHYMES_VIDEO_NUM_STEP=50
+# RHYMES_VIDEO_CFG_SCALE=7.5
+```
+
+* IBM watsonx<BR/>
+  [https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-credentials.html?context=wx&audience=wdp](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-credentials.html?context=wx&audience=wdp)<BR/>
+  [https://cloud.ibm.com/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey](https://cloud.ibm.com/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey)
+
+```
+# IBM_WATSONX_MODEL_NAME="meta-llama/llama-3-1-70b-instruct"
+# IBM_WATSONX_MODEL_NAME="ibm/granite-13b-chat-v2"
+# IBM_WATSONX_MODEL_NAME="google/flan-t5-xxl"
+#
+IBM_WATSONX_PROJECT_ID=ibm_watsonx_project_id
+IBM_WATSONX_API_KEY=ibm_watsonx_api_key
 ```
 
 * HuggingFace other parameters<BR/>
