@@ -126,9 +126,11 @@ npm install tomkat-cr/genericsuite-fe-ai
 From a specific branch:
 
 ```bash
+npm uninstall generisuite
 npm install tomkat-cr/genericsuite-fe#branch_name
 ```
 ```bash
+npm uninstall generisuite-ai
 npm install tomkat-cr/genericsuite-fe-ai#branch_name
 ```
 

@@ -6,7 +6,7 @@ This documentation provides configuration specifications for the Generic CRUD Ed
 
 Here's where the Generic CRUD Editor JSON files are stored. The directory structure is:
 
-```
+```text
 .
 ├── CHANGELOG.md
 ├── README.md
@@ -23,6 +23,7 @@ Here's where the Generic CRUD Editor JSON files are stored. The directory struct
     ├── users.json
     ├── users_config.json
     └── users_profile.json
+```
 
 ## Frontend Configuration
 
@@ -157,6 +158,8 @@ Field elements define the individual fields used in the CRUD editor.
 * **_id**: generates a hidden input field with the current object's primary key value.
 
 * **select**: generates a select input field from a list of options.
+
+* **select_table**: generates a select input field from a list of items in a related table.
 
 * **select_component**: generates a select input field with a ReactJS component that populates the options from the database.
 
@@ -293,6 +296,7 @@ At the end of the list, the `timestampDbPreWrite` will be appended by default to
 Formulas are used to calculate the fields' values from other fields.
 
 Example: in a Order form with a 1 to many relationship with Order Lines, the `total` field could have the `totalCalcInOrderLine` in the **formula** attribute and the corresponding ReactJS component could be:
+
 ```jsx
 export const totalCalcInOrderLine = () => {
     // Calculate the total price of the order lines by multiplying the price by the quantity
@@ -300,7 +304,9 @@ export const totalCalcInOrderLine = () => {
     return response;
 }
 ```
+
 To calculate the form data page's `grand_total`, there must be a `dbPostWrite` specific function in the Order Lines child component, e.g.  `granTotalFromOrderLines` and the ReactJS componet could be: 
+
 ```jsx
 const dbApiService = gs.dbService.dbApiService;
 const genericFuncArrayDefaultValue = gs.genericEditorRfcSpecificFunc.genericFuncArrayDefaultValue;

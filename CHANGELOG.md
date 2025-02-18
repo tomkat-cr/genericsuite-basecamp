@@ -17,15 +17,16 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
-## Unreleased
-## 0.0.13 (2024-10-13)
+## 0.0.13 (2025-02-18)
 ---
 
 ### New
-Code example monorepos [GS-137].
 Generic CRUD Editor Configuration guide [GS-137].
 VPS Install scripts [GS-141].
 Implement ollama server [GS-139].
+Implement API keys to GS BE Core [GS-159].
+Generic Endpoint Builder for Flask [GS-15].
+Implement n8n server [GS-165].
 
 
 ## 0.0.12 (2024-10-07)

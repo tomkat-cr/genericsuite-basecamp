@@ -8,6 +8,9 @@
 - **K8**: Deploy your App on a Kubernetes cluster.
 - **Docker**: Build and push your App to a Docker registry.
 - **Olama**: install and configure a local OLLAMA service.
+- **WebUI**: Run the local WebUI service.
+- **Stable Diffusion**: install and configure a local Stable Diffusion service, annd run its WebUi.
+- **N8n**: install and configure a local N8n service.
 
 ## Pre-requisites
 
@@ -167,8 +170,74 @@ sh ~/genericsuite-gitops/ollama/run_stable_diffusion.sh
 To watch the GPU status, performance, use percentages and temperatures:
 
 ```bash
-sh ollama/watch_gpu.sh
+sh ~/genericsuite-gitops/ollama/watch_gpu.sh
 ```
+
+### Run n8n
+
+n8n is a workflow automation and collaboration platform for teams.
+
+[https://n8n.com/](https://n8n.io/)
+
+* Change to the n8n directory
+    ```bash
+    cd ~/genericsuite-gitops/n8n
+    ```
+
+* Runs n8n in detached mode
+    ```bash
+    make run
+    ```
+
+* Stops n8n
+    ```bash
+    make stop
+    ```
+
+* Stops and removes n8n containers
+    ```bash
+    make down
+    ```
+
+* Shows n8n and postgres logs
+    ```bash
+    make logs
+    ```
+
+* Upgrade n8n, postgress and pg_admin
+    ```bash
+    make update
+    ```
+
+* Restart docker containers
+    ```bash
+    make restart
+    ```
+
+* Open n8n port (linux)
+    ```bash
+    make open
+    ```
+
+* Close n8n port (linux)
+    ```bash
+    make close
+    ```
+
+* Run n8n with force-recreate
+    ```bash
+    make force-recreate
+    ```
+
+* Enter to the n8n-postgres container
+    ```bash
+    make enter_pg
+    ```
+
+* Enter to the n8n container
+    ```bash
+    make enter_n8n
+    ```
 
 ## License
 
