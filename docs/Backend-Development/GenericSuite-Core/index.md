@@ -108,7 +108,7 @@ pip install fastapi fastapi-cors "uvicorn[standard]" python-multipart mangum
 
 #### Flask
 ```bash
-pip install Flask
+pip install flask flask_cors gunicorn
 ```
 
 #### Chalice

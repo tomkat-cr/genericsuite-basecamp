@@ -2,7 +2,7 @@
     "baseUrl": "ai_chatbot_conversations",
     "title": "FynBot Conversations",
     "name": "FynBot Conversation",
-    "component": "FynBot Conversations",
+    "component": "",
     "dbApiUrl": "ai_chatbot_conversations",
     "mandatoryFilters": {
         "user_id": "{CurrentUserId}"

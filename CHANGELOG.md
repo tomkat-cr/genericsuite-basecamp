@@ -17,6 +17,34 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.0.13 (2025-02-18)
+---
+
+### New
+Generic CRUD Editor Configuration guide [GS-137].
+VPS Install scripts [GS-141].
+Implement ollama server [GS-139].
+Implement API keys to GS BE Core [GS-159].
+Generic Endpoint Builder for Flask [GS-15].
+Implement n8n server [GS-165].
+Implement Together AI provider and models [GS-158].
+Implement xAI Grok model [GS-157].
+Implement IBM watsonx provider [GS-155].
+Implement Nvidia API / NIM / Nemotron [GS-93].
+Implement Rhymes.ai Aria chat model [GS-152].
+Implement Rhymes.ai Allegro video generation model (only configuration) [GS-153].
+Add AI_STREAMING envvar to configure the Streaming response method [GS-32].
+Add NVIDIA_API_KEY, NVIDIA_MODEL_NAME, NVIDIA_TEMPERATURE, NVIDIA_MAX_TOKENS, NVIDIA_TOP_P, and NVIDIA_BASE_URL envvars [GS-93].
+Add RHYMES_CHAT_API_KEY, RHYMES_CHAT_MODEL_NAME, RHYMES_CHAT_TEMPERATURE, RHYMES_CHAT_MAX_TOKENS, RHYMES_CHAT_TOP_P, RHYMES_CHAT_BASE_URL, RHYMES_VIDEO_API_KEY, RHYMES_VIDEO_MODEL_NAME, RHYMES_VIDEO_BASE_URL, RHYMES_VIDEO_NUM_STEP, and RHYMES_VIDEO_CFG_SCALE envvars [GS-152].
+Add AIMLAPI_TOP_P to configure top_p parameter in AI/ML API [GS-138].
+Add OPENAI_TOP_P to configure top_p parameter in OpenAI chat model.
+
+### Changes
+Change "black-forest-labs/FLUX.1-schnell" image generation model by default.
+Change OPENAI_MAX_TOKENS and AIMLAPI_MAX_TOKENS to have '' by default to get the maximun tokens possible [GS-157].
+Change "grok-beta" changed to "grok-2" as default model for xAI [GS-157].
+
+
 ## 0.0.12 (2024-10-07)
 ---
 
@@ -184,4 +212,4 @@ Fix: Configuration Guide index at the right side.
 
 ### New
 
-Initial commits [FA-257].
+Initial commits [FA-257] [GS-19].

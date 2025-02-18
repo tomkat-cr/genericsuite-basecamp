@@ -122,7 +122,7 @@ GOOGLE_CSE_ID=google_console_cse_key
 ```
 OPENAI_API_KEY=openai_api_key
 OPENAI_MODEL=gpt-4o-mini
-OPENAI_TEMPERATURE=0.7
+OPENAI_TEMPERATURE=0.5
 ```
 
 * Langchain/LangSmith configuration<BR/>
@@ -189,6 +189,15 @@ LANGCHAIN_DEFAULT_MODEL=chat_openai
 ```
 
 IMPORTANT: The model_types "huggingface" and "huggingface_pipeline" use the "langchain_hugginface" dependency that required "sentence-transformers", making imposible to deploy the project AWS Lambda Functions. The alternative is the GS Huggingface lightweight identified by model_types "huggingface_remote" or "gs_huggingface".
+
+```
+# AI response method:
+#
+# Wait-until-finished response method (default)
+AI_STREAMING=0
+# Streaming response method
+# AI_STREAMING=1
+```
 
 ```
 AI_VISION_TECHNOLOGY=openai
@@ -273,7 +282,8 @@ GOOGLE_IMG_GEN_MODEL=imagegeneration@005
 
 * OpenAI other parameters
 ```
-OPENAI_MAX_TOKENS=500
+# OPENAI_MAX_TOKENS=""
+# OPENAI_TOP_P="1"
 ```
 ```
 # Addicional NLP model
@@ -287,9 +297,9 @@ OPENAI_VISION_MODEL=gpt-4-vision-preview
 ```
 # Image generation model
 OPENAI_IMAGE_GEN_MODEL=dall-e-3
+```
+```
 # Speech-to-text model
-```
-```
 OPENAI_VOICE_MODEL=whisper-1
 # Text-to-speech model
 OPENAI_TEXT_TO_AUDIO_MODEL=tts-1
@@ -309,7 +319,7 @@ OPENAI_EMBEDDINGS_MODEL_PREMIUM=text-embedding-3-large'
 ```
 
 * Anthropic credentials and other parameters<BR/>
-https://console.anthropic.com/settings/keys
+[https://console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys)
 
 ```
 ANTHROPIC_API_KEY=
@@ -317,16 +327,18 @@ ANTHROPIC_MODEL=claude-3-5-sonnet-20240620
 ```
 
 * Groq credentials and other parameters<BR/>
-https://console.groq.com/keys
+[https://console.groq.com/keys](https://console.groq.com/keys)<BR/>
+[https://console.groq.com/docs/models](https://console.groq.com/docs/models)
 
 ```
 GROQ_API_KEY=groq_api_key
+#
 # https://console.groq.com/docs/models
 GROQ_MODEL=mixtral-8x7b-32768
 ```
 
 * AWS Amazon Bedrock credentials and other parameters<BR/>
-https://console.aws.amazon.com
+[https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock)
 
 ```
 AWS_BEDROCK_MODEL_ID=amazon.titan-text-premier-v1:0
@@ -352,7 +364,7 @@ AWS_BEDROCK_EMBEDDINGS_PROFILE=
 ```
 
 * AI/ML API platform (one API, 200+ AI Models)<BR/>
-https://aimlapi.com/app/keys
+[https://aimlapi.com/app/keys](https://aimlapi.com/app/keys)
 
 ```
 AIMLAPI_API_KEY=aimlapi_api_key
@@ -361,10 +373,73 @@ AIMLAPI_API_KEY=aimlapi_api_key
 # AIMLAPI_MODEL_NAME=o1-preview
 
 # AIMLAPI_TEMPERATURE=1
+# AIMLAPI_MAX_TOKENS=""
+# AIMLAPI_TOP_P="1"
+```
+
+* Together.ai<BR/>
+  [https://api.together.xyz/settings/api-keys](https://api.together.xyz/settings/api-keys)
+
+```
+TOGETHER_API_KEY=together_api_key
+# TOGETHER_MODEL_NAME="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+```
+
+* xAI (Grok)<BR/>
+  [https://console.x.ai](https://console.x.ai)
+
+```
+XAI_API_KEY=xai_api_key
+# XAI_MODEL_NAME=grok-2
+```
+
+* Nvidia NIMs<BR/>
+  [https://www.nvidia.com/en-us/account/](https://www.nvidia.com/en-us/account/)
+
+```
+NVIDIA_API_KEY=nvidia_api_key
+#
+# NVIDIA_MODEL_NAME=nvidia/llama-3.1-nemotron-70b-instruct
+#
+# NVIDIA_TEMPERATURE=0.5
+# NVIDIA_MAX_TOKENS=
+# NVIDIA_TOP_P=1
+```
+
+* Rhymes.ai<BR/>
+  [https://rhymes.ai](https://rhymes.ai)
+
+```
+RHYMES_CHAT_API_KEY=rhymes_chat_api_key
+RHYMES_VIDEO_API_KEY=rhymes_video_api_key
+#
+# https://rhymes.ai/blog-details/aria-first-open-multimodal-native-moe-model
+# RHYMES_CHAT_MODEL_NAME=aria
+# RHYMES_CHAT_TEMPERATURE=0.5
+# RHYMES_CHAT_MAX_TOKENS=
+# RHYMES_CHAT_TOP_P=1
+#
+# https://rhymes.ai/blog-details/allegro-advanced-video-generation-model
+# RHYMES_VIDEO_MODEL_NAME=allegro
+# RHYMES_VIDEO_NUM_STEP=50
+# RHYMES_VIDEO_CFG_SCALE=7.5
+```
+
+* IBM watsonx<BR/>
+  [https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-credentials.html?context=wx&audience=wdp](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-credentials.html?context=wx&audience=wdp)<BR/>
+  [https://cloud.ibm.com/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey](https://cloud.ibm.com/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey)
+
+```
+# IBM_WATSONX_MODEL_NAME="meta-llama/llama-3-1-70b-instruct"
+# IBM_WATSONX_MODEL_NAME="ibm/granite-13b-chat-v2"
+# IBM_WATSONX_MODEL_NAME="google/flan-t5-xxl"
+#
+IBM_WATSONX_PROJECT_ID=ibm_watsonx_project_id
+IBM_WATSONX_API_KEY=ibm_watsonx_api_key
 ```
 
 * HuggingFace other parameters<BR/>
-https://huggingface.co
+[https://huggingface.co](https://huggingface.co)
 
 ```
 HUGGINGFACE_MAX_NEW_TOKENS=512
@@ -394,7 +469,7 @@ HUGGINGFACE_EMBEDDINGS_ENCODE_KWARGS='{"normalize_embeddings": true}'
 ```
 
 * Clarifai credentials and other parameters<BR/>
-https://clarifai.com > UserId > ProjectId > Settings
+[https://clarifai.com](https://clarifai.com) > UserId > ProjectId > Settings
 
 ```
 # PAT (Personal API Token): https://clarifai.com/settings/security
@@ -438,7 +513,7 @@ AI_CLARIFAI_DEFAULT_VISION_MODEL=openai-gpt-4-vision
 ```
 
 * ElevenLabs<BR/>
-https://elevenlabs.io/app/subscription
+[https://elevenlabs.io/app/subscription](https://elevenlabs.io/app/subscription)
 
 ```
 ELEVENLABS_API_KEY=
@@ -458,7 +533,7 @@ ELEVENLABS_USE_SPEAKER_BOOST=1
 ```
 
 * Cohere credentials and other parameters<BR/>
-https://dashboard.cohere.com/api-keys
+[https://dashboard.cohere.com/api-keys](https://dashboard.cohere.com/api-keys)
 
 ```
 COHERE_API_KEY=
@@ -476,8 +551,8 @@ OLLAMA_MODEL=llama:7b
 OLLAMA_EMBEDDINGS_MODEL=llama:7b
 ```
 
-* MongooDB embeddings<BR/>
-https://www.mongodb.com
+* MongoDB embeddings<BR/>
+[https://www.mongodb.com](https://www.mongodb.com)
 
 ```
 MONGODB_VS_COLLECTION=
@@ -485,7 +560,7 @@ MONGODB_VS_INDEX_NAME=
 ```
 
 * Pinecone credentials and other parameters<BR/>
-https://app.pinecone.io/keys
+[https://app.pinecone.io/keys](https://app.pinecone.io/keys)
 
 ```
 # PINECONE_API_KEY=
@@ -493,7 +568,7 @@ https://app.pinecone.io/keys
 ```
 
 * Vectara credentials and other parameters<BR/>
-https://console.vectara.com/console/apiAccess/personalApiKey
+[https://console.vectara.com/console/apiAccess/personalApiKey](https://console.vectara.com/console/apiAccess/personalApiKey)
 
 ```
 VECTARA_CUSTOMER_ID=
@@ -502,7 +577,7 @@ VECTARA_API_KEY=
 ```
 
 * Weaviate credentials and other parameters<BR/>
-https://console.weaviate.cloud/dashboard
+[https://console.weaviate.cloud/dashboard](https://console.weaviate.cloud/dashboard)
 
 ```
 WEAVIATE_URL=
