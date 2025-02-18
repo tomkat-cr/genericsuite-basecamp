@@ -184,6 +184,13 @@ n8n is a workflow automation and collaboration platform for teams.
     cd ~/genericsuite-gitops/n8n
     ```
 
+* Set the environment variables
+    ```bash
+    cp .env.example .env
+    vi .env
+    # Assign the necessary variables
+    ```
+
 * Runs n8n in detached mode
     ```bash
     make run
