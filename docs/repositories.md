@@ -41,10 +41,6 @@
 
 ### Frontend
 
-## Published libraries
-
-### Frontend
-
 * :fontawesome-brands-npm:{ .npm } [https://www.npmjs.com/package/genericsuite](https://www.npmjs.com/package/genericsuite)
 * :fontawesome-brands-npm:{ .npm } [https://www.npmjs.com/package/genericsuite-ai](https://www.npmjs.com/package/genericsuite-ai)
 
