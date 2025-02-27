@@ -17,20 +17,29 @@
 
 ### Frontend
 
-* :fontawesome-brands-react:{ .react } [https://github.com/tomkat-cr/genericsuite-fe](https://github.com/tomkat-cr/genericsuite-fe)
-* :fontawesome-brands-react:{ .react } [https://github.com/tomkat-cr/genericsuite-fe-ai](https://github.com/tomkat-cr/genericsuite-fe-ai)
+* GS FE Core: :fontawesome-brands-react:{ .react } [https://github.com/tomkat-cr/genericsuite-fe](https://github.com/tomkat-cr/genericsuite-fe)
+* GS FE AI: :fontawesome-brands-react:{ .react } [https://github.com/tomkat-cr/genericsuite-fe-ai](https://github.com/tomkat-cr/genericsuite-fe-ai)
 
 ### Backend
 
-* :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-be](https://github.com/tomkat-cr/genericsuite-be)
-* :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-be-ai](https://github.com/tomkat-cr/genericsuite-be-ai)
-* :fontawesome-brands-linux:{ .linux } [https://github.com/tomkat-cr/genericsuite-be-scripts](https://github.com/tomkat-cr/genericsuite-be-scripts)
-* :fontawesome-brands-linux:{ .linux } [https://github.com/tomkat-cr/genericsuite-gitops](https://github.com/tomkat-cr/genericsuite-gitops)
+* GS BE Core: :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-be](https://github.com/tomkat-cr/genericsuite-be)
+* GS BE AI: :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-be-ai](https://github.com/tomkat-cr/genericsuite-be-ai)
+* GS BE Scripts: :fontawesome-brands-linux:{ .linux } [https://github.com/tomkat-cr/genericsuite-be-scripts](https://github.com/tomkat-cr/genericsuite-be-scripts)
+
+### AI
+
+* GSAM (App Maker): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-app-maker](https://github.com/tomkat-cr/genericsuite-app-maker)
+* GS ASDT (Agentic Software Development Team): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-asdt-be](https://github.com/tomkat-cr/genericsuite-asdt-be)
 
 ### Other
 
-* :fontawesome-brands-github:{ .github } [https://github.com/tomkat-cr/genericsuite-basecamp](https://github.com/tomkat-cr/genericsuite-basecamp)
-* :fontawesome-brands-github:{ .github } [https://github.com/stars/tomkat-cr/lists/genericsuite](https://github.com/stars/tomkat-cr/lists/genericsuite)
+* GS Basecamp: :fontawesome-brands-github:{ .github } [https://github.com/tomkat-cr/genericsuite-basecamp](https://github.com/tomkat-cr/genericsuite-basecamp)
+* Repos index: :fontawesome-brands-github:{ .github } [https://github.com/stars/tomkat-cr/lists/genericsuite](https://github.com/stars/tomkat-cr/lists/genericsuite)
+* GS Gitops (Local Development Server operations): :fontawesome-brands-linux:{ .linux } [https://github.com/tomkat-cr/genericsuite-gitops](https://github.com/tomkat-cr/genericsuite-gitops)
+
+## Published libraries
+
+### Frontend
 
 ## Published libraries
 
