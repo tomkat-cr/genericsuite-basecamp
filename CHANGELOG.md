@@ -26,7 +26,7 @@ Code example monorepos [GS-137].
 
 ### Changes
 Add new repos to the README, repos index and general documentation index [GS-1].
-Enhance intro in the documentation index to enphatize the importance of the project [GS-1].
+Enhance intro in the documentation index to emphasize the importance of the project [GS-1].
 
 
 ## 0.0.13 (2025-02-18)
