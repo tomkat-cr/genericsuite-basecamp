@@ -17,6 +17,18 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## Unreleased
+## 0.0.14 (2025-02-??)
+---
+
+### New
+Code example monorepos [GS-137].
+
+### Changes
+Add new repos to the README, repos index and general documentation index [GS-1].
+Enhance intro in the documentation index to emphasize the importance of the project [GS-1].
+
+
 ## 0.0.13 (2025-02-18)
 ---
 
