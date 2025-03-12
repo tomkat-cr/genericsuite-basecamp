@@ -21,3 +21,5 @@ make deploy_demo
 ```bash
 make deploy_prod
 ```
+
+IMPORTANT: for more deployment options and instructions, check the [Deployment](./GenericSuite-Scripts/index.md#deployment) section in the GenericSuite Scripts documentation.

@@ -258,15 +258,18 @@ Runs `pipenv install --dev --ignore-pipfile`.
 make locked_dev
 ```
 
+* Re-create the Pipenv lock file.<br/>
+Runs `pipenv lock`.
+
+```bash
+make lock
+```
+
 * Generates the `requirements.txt` file.<br/>
 Runs `sh scripts/aws/run_aws.sh pipfile`.
 
 ```bash
 make requirements
-```
-or...
-```bash
-make lock_pip_file
 ```
 
 * Clean install.<br/>
@@ -605,12 +608,26 @@ make generate_seed
 
 ### Deployment
 
+#### AWS Serverless deployment
+
+Perform the application deployment with AWS Lambda Functions and API Gateway, using SAM (Serverless Application Model).
+
 * Deploy the App on QA.<br/>
 Runs `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh sam_deploy qa`
 
 ```bash
 make deploy_qa
 ```
+
+* Test the API Gateway and AWS Lambda function locally, using SAM local. It runs the `sam build` to test eventual issues with packages and dependencies conflicts, and then runs `sam run local`.<br/>
+Runs `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/aws_big_lambda/big_lambdas_manager.sh sam_run_local qa`
+
+```bash
+make deploy_run_local_qa
+```
+
+**NOTE**: set `SAM_BUILD_CONTAINER=1` environment variable in `.env` to force `sam build --use-container --debug`.
+
 
 * Validate the SAM deployment templates on QA.<br/>
 Runs `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh sam_validate qa`
@@ -634,6 +651,13 @@ Runs `make create_s3_bucket_staging`, `sh scripts/aws_big_lambda/big_lambdas_man
 make deploy_staging
 ```
 
+* Deploy the App on Demo.<br/>
+Runs `make create_s3_bucket_demo`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh sam_deploy demo` 
+
+```bash
+make deploy_demo
+```
+
 * Deploy the App on Production.<br/>
 Runs `make create_s3_bucket_prod`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh sam_deploy prod`
 
@@ -645,6 +669,158 @@ make deploy_prod
 
 ```bash
 make deploy
+```
+
+#### AWS secrets
+
+* Manage AWS secrets.
+Runs: `sh scripts/aws_secrets/aws_secrets_manager.sh`
+
+```bash
+make aws_secrets
+```
+
+Options:
+
+`ACTION`: `run` (create the secrets), `destroy` (destroy the secrets), `describe` (describe the secrets)
+
+`STAGE`: `dev`, `qa`, `staging`, `demo`, `prod`
+
+`TARGET`: `kms` (manage the KMS keys), `secrets` (manage the secrets).
+
+`ENGINE`: `localstack` (use LocalStack as a backend), `aws` (use AWS as a backend). Defaults to `aws`
+
+`AWS_DEPLOYMENT_TYPE`: used to set the `APP_HOST_NAME` envvar. Options are: `lambda` (application deployed as AWS Lambda), `fargate` (application deployed as AWS Fargate), `ec2` (application deployed as AWS EC2). Defaults to `lambda`.
+
+`KMS_KEY_ALIAS`: alias for the KMS key. Defaults to `genericsuite-key`.
+
+`CICD_MODE`: `0` (verbose mode), `1` (less verbose, more suitable for CI/CD). Defaults to `0`
+
+`TMP_BUILD_DIR`: temporary working directory. Defaults to `/tmp/${APP_NAME_LOWERCASE}_aws_secrets_tmp`
+
+`DEBUG`: `1` (enable debug mode), `0` (disable debug mode). Defaults to `1`
+
+Usage:
+
+```bash
+# Create the KMS keys in QA on the AWS Cloud
+ACTION=run STAGE=qa TARGET=kms make aws_secrets
+```
+
+```bash
+# Create the KMS keys in QA using LocalStack
+ACTION=run STAGE=qa TARGET=kms ENGINE=localstack make aws_secrets
+```
+
+```bash
+# Create the secrets in QA on the AWS Cloud
+ACTION=run STAGE=qa TARGET=secrets make aws_secrets
+```
+
+#### AWS EC2 deployment
+
+Perform the application deployment with AWS EC2 instances, ALB (Application Load Balancer), ECR (Elastic Container Registry), AWS Secrets Manager and CloudFormation.
+
+* Prepare the ECR image for a given stage (e.g. QA, staging, Demo, Prod).<br/>
+Runs `sh scripts/aws_ec2_elb/run-fastapi-ecr-creation.sh`
+
+```bash
+make deploy_ecr_creation
+```
+
+Usage:
+
+```bash
+ECR_IMAGE_TAG="0.0.16" STAGE=qa make deploy_ecr_creation
+```
+
+* Manages EC2 deployments on the different stages (e.g. QA, staging, Demo, Prod).<br/>
+Runs `sh scripts/aws_ec2_elb/run-ec2-cloud-deploy.sh`
+
+```bash
+make deploy_ec2
+```
+
+Options:
+
+`ACTION`: `run` (perform the deployment), `destroy` (destroy the deployment)
+
+`STAGE`: `dev`, `qa`, `staging`, `demo`, `prod`
+
+`TARGET`: `ec2` (deploy the ALB (Elastic Load Balancer) + EC2 instance), `domain` (deploy the domain associated to the ALB).
+
+`ECR_DOCKER_IMAGE_TAG`: Tag of the Docker image in the ECR repository
+
+`ENGINE`: `localstack` (use LocalStack as a backend), `aws` (use AWS as a backend). Defaults to `aws`
+
+`CICD_MODE`: `0` (verbose mode), `1` (less verbose, more suitable for CI/CD). Defaults to `0`
+
+`TMP_WORKING_DIR`: temporary working directory. Defaults to `/tmp`
+
+`DEBUG`: `1` (enable debug mode), `0` (disable debug mode). Defaults to `1`
+
+Usage:
+
+```bash
+# Perform the ALB (Elastic Load Balancer) + EC2 instance deployment in the live AWS Cloud
+ACTION=run STAGE=qa TARGET=ec2 ECR_DOCKER_IMAGE_TAG=0.0.16 make deploy_ec2
+```
+
+```bash
+# Perform the Domain deployment in the live AWS Cloud
+ACTION=run STAGE=qa TARGET=domain ECR_DOCKER_IMAGE_TAG=0.1.16 make deploy_ec2
+```
+
+```bash
+# Destroy the ALB + EC2 instance deployment in the live AWS Cloud
+ACTION=destroy STAGE=qa TARGET=ec2 ECR_DOCKER_IMAGE_TAG=0.0.16 make deploy_ec2
+```
+
+```bash
+# Perform the Domain deployment in the local AWS Cloud
+ACTION=run STAGE=qa TARGET=domain ECR_DOCKER_IMAGE_TAG=0.1.16 ENGINE=localstack make deploy_ec2
+```
+
+```bash
+# Perform the EC2 instance deployment in the local AWS Cloud (ALB cannot be simulated locally)
+ACTION=run STAGE=qa TARGET=ec2 ECR_DOCKER_IMAGE_TAG=0.0.16 ENGINE=localstack make deploy_ec2
+```
+
+#### AWS DynamoDB deployment
+
+* Manages DynamoDB deployments on the different stages (e.g. QA, staging, Demo, Prod).<br/>
+Runs `sh scripts/aws_dynamodb/run-dynamodb-deploy.sh`.
+
+```bash
+make deploy_dynamodb
+```
+
+Options:
+
+`ACTION`: `run` (perform the deployment), `destroy` (destroy the deployment), `describe` (describe the DynamoDB tables), `list_tables` (list all DynamoDB tables).
+
+`STAGE`: `dev`, `qa`, `staging`, `demo`, `prod`
+
+`TARGET`: `dynamodb` (deploy the DynamoDB table).
+
+`ENGINE`: `localstack` (use LocalStack as a backend), `aws` (use AWS as a backend). Defaults to `aws`
+
+`CICD_MODE`: `0` (verbose mode), `1` (less verbose, more suitable for CI/CD). Defaults to `0`
+
+`TMP_BUILD_DIR`: temporary working directory. Defaults to `/tmp/${APP_NAME_LOWERCASE}_dynamodb_tmp`
+
+`DEBUG`: `1` (enable debug mode), `0` (disable debug mode). Defaults to `1`
+
+Usage:
+
+```bash
+# Perform the DynamoDB deployment in the local AWS Cloud
+ACTION=run STAGE=qa TARGET=dynamodb ENGINE=localstack make deploy_dynamodb
+```
+
+```bash
+# Perform the DynamoDB deployment in the live AWS Cloud
+ACTION=run STAGE=qa TARGET=dynamodb make deploy_dynamodb
 ```
 
 ### Application Specific Commands
@@ -766,7 +942,7 @@ make create_ssl_certs
 Runs `npm install --package-lock-only`.
 
 ```bash
-make lock
+make npm_lock
 ```
 
 * Test the publish to NPMJS without actually publishing.<br/>
