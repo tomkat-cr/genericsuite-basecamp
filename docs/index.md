@@ -1,4 +1,4 @@
-# Unlock Full-Stack Power with GenericSuite (GS)
+# Unlock Full-Stack Power with Generic Suite (GS)
 
 <table cellpadding="0" cellspacing="0" style="border: 0px white;">
     <tr>
@@ -6,7 +6,7 @@
             <a href="./genericsuite-core/">
                 <img
                     src="images/gs_logo_circle.svg"
-                    title="GenericSuite logo by Carlos J. Ramirez"
+                    title="Generic Suite logo by Carlos J. Ramirez"
                 />
             </a>
         </td>
@@ -14,16 +14,16 @@
             <a href="./genericsuite-ai/">
                 <img
                     src="images/gs_ai_logo_circle.svg"
-                    title="GenericSuite AI logo by Carlos J. Ramirez"
+                    title="Generic Suite AI logo by Carlos J. Ramirez"
                 />
             </a>
         </td>
     </tr>
 </table>
 
-GenericSuite (GS) is the ultimate development library designed to streamline both frontend and backend workflows, enabling rapid app development with AI-powered enhancements. Whether you're building robust APIs, scalable databases, or dynamic user interfaces, GS provides the flexibility and efficiency needed to accelerate your projects.
+Generic Suite (GS) is the ultimate development library designed to streamline both frontend and backend workflows, enabling rapid app development with AI-powered enhancements. Whether you're building robust APIs, scalable databases, or dynamic user interfaces, GS provides the flexibility and efficiency needed to accelerate your projects.
 
-## Why Choose GenericSuite?
+## Why Choose Generic Suite?
 
 * Seamless Full-Stack Integration – Develop applications faster with a unified library for both frontend and backend, reducing redundant code and ensuring consistency.
 * AI-Driven Efficiency – Leverage built-in AI capabilities to enhance automation, generate content, and optimize software development.
@@ -43,11 +43,11 @@ GenericSuite (GS) is the ultimate development library designed to streamline bot
 
 ### AI-Powered Development
 
-* AI chatbot endpoints with OpenAI, LangChain, and Hugging Face integrations.
+* AI chatbot endpoint with OpenAI, LangChain, and Hugging Face integrations.
 * Computer vision, speech processing, and text-to-speech capabilities.
 * Web scraping, translation tools, and vector search for advanced data handling.
 
-### GSAM (GenericSuite App Maker)
+### GSAM (Generic Suite App Maker)
 
 * AI-assisted ideation for app development, code generation, and database structuring.
 * Image and video generation using cutting-edge AI models.
@@ -62,15 +62,15 @@ GenericSuite (GS) is the ultimate development library designed to streamline bot
 
 * Pre-configured GitOps scripts for Kubernetes, Docker, and VPS environments.
 * Local AI service setups, including OLLAMA, WebUI, Stable Diffusion, and N8N.
-* Comprehensive documentation and best practices via GenericSuite Basecamp.
+* Comprehensive documentation and best practices via Generic Suite Basecamp.
 
 ## Get Started
 
-Join the growing community of developers using GenericSuite to supercharge their projects. Explore the repositories and start building today!
+Join the growing community of developers using Generic Suite to supercharge their projects. Explore the repositories and start building today!
 
-* [What is the GenericSuite for?](#what-is-the-genericsuite-for)
-* [The GenericSuite Core](#the-genericsuite-core)
-* [The GenericSuite AI](#the-genericsuite-ai)
+* [What is the Generic Suite for?](#what-is-the-genericsuite-for)
+* [The Generic Suite Core](#the-genericsuite-core)
+* [The Generic Suite AI](#the-genericsuite-ai)
 * [Repositories](#repositories)
 * [Presentation](#presentation)
 * [Post](#posts)
@@ -79,21 +79,21 @@ Join the growing community of developers using GenericSuite to supercharge their
 * [Configuration Guide](./Configuration-Guide/index.md)
 * [History](./history.md)
 
-## What is the GenericSuite for?
+## What is the Generic Suite for?
 
-The GenericSuite is a frontend and backend set of utilities made with ReactJS and Python to help develop Apps faster.
+The Generic Suite is a frontend and backend set of utilities made with ReactJS and Python to help develop Apps faster.
 
-It's composed by a **GenericSuite Core**, which is the core for all the suite elements, and extensions like the GenericSuite AI.
+It's composed by a **Generic Suite Core**, which is the core for all the suite elements, and extensions like the Generic Suite AI.
 
 <img 
     align="right"
     width="100"
     height="100"
     src="images/gs_logo_circle.svg"
-    title="GenericSuite logo by Carlos J. Ramirez"
+    title="Generic Suite logo by Carlos J. Ramirez"
 />
 
-## The GenericSuite Core
+## The Generic Suite Core
 
 Features:
 
@@ -115,12 +115,12 @@ Libraries:
     width="100"
     height="100"
     src="images/gs_ai_logo_circle.svg"
-    title="GenericSuite AI logo by Carlos J. Ramirez"
+    title="Generic Suite AI logo by Carlos J. Ramirez"
 />
 
-## The GenericSuite AI
+## The Generic Suite AI
 
-The **GenericSuite AI** is an extension to help develop Apps that implements AI.
+The **Generic Suite AI** is an extension to help develop Apps that implements AI.
 
 Features:
 
@@ -146,9 +146,9 @@ Libraries:
 * :fontawesome-brands-python:{ .python } [GenericSuite AI (backend version) for Python](./Backend-Development/GenericSuite-AI/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
 
-### GSAM: The GenericSuite AI App Maker
+### GSAM: The Generic Suite AI App Maker
 
-The **GenericSuite App Maker (GSAM)** is the AI tool to enhance the software development ideation and test AI models, LLM providers and its features. It also allows to generate descriptions, database structures, images, videos or answers from a text prompt, and kick start code to be used with the GenericSuite library.
+The **Generic Suite App Maker (GSAM)** is the AI tool to enhance the software development ideation and test AI models, LLM providers and its features. It also allows to generate descriptions, database structures, images, videos or answers from a text prompt, and kick start code to be used with the Generic Suite library.
 
 Libraries:
 
@@ -156,7 +156,7 @@ Libraries:
 
 ### AI Agentic Software Development Team
 
-The **GenericSuite Agentic Software Development Team (ASDT)** provides a team of autonomous entities designed to solve software development problems using AI to make decisions, learn from interactions, and adapt to changing conditions without human intervention.
+The **Generic Suite Agentic Software Development Team (ASDT)** provides a team of autonomous entities designed to solve software development problems using AI to make decisions, learn from interactions, and adapt to changing conditions without human intervention.
 
 Libraries:
 
@@ -164,7 +164,7 @@ Libraries:
 
 ### Git and Server Operations
 
-The **GenericSuite Gitops** provides the scripts and configurations needed to deploy on various platforms (local development servers, VPS) using orchestration technologies like Kubernetes, and manage artifacts and repositories with Docker and GitHub.
+The **Generic Suite Gitops** provides the scripts and configurations needed to deploy on various platforms (local development servers, VPS) using orchestration technologies like Kubernetes, and manage artifacts and repositories with Docker and GitHub.
 
 Libraries:
 
@@ -183,11 +183,11 @@ Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi l
 
 English:
 
-* [Introduction to GenericSuite](./documents/GS_Presentation_EN_V2.pdf)
+* [Introduction to Generic Suite](./documents/GS_Presentation_EN_V2.pdf)
 
 Spanish:
 
-* [Introducción a GenericSuite](./documents/GS_Presentation_SP_V2.pdf)
+* [Introducción a Generic Suite](./documents/GS_Presentation_SP_V2.pdf)
 
 ## Posts
 
@@ -203,7 +203,7 @@ Spanish:
 
 ## License
 
-GenericSuite is open-sourced software licensed under the [ISC](https://github.com/tomkat-cr/genericsuite-basecamp/blob/main/LICENSE) license.
+Generic Suite is open-sourced software licensed under the [ISC](https://github.com/tomkat-cr/genericsuite-basecamp/blob/main/LICENSE) license.
 
 ## Credits
 
