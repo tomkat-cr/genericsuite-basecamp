@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  app_frontend:
+    container_name: app_frontend
+    image: ${DOCKER_ACCOUNT}/${APP_NAME_LOWERCASE}_frontend:v${APP_VERSION}-amd64
+    restart: unless-stopped
+    ports:
+      - 3001:3001
+    expose:
+      - 3001
+    environment:
+      - REACT_APP_API_URL=$APP_REACT_APP_API_URL

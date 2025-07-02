@@ -1,0 +1,74 @@
+
+name: Deploy ExampleApp Frontend to gh-pages
+
+on:
+  pull_request:
+    types: [ closed ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ${{ matrix.os }}
+    name: Deploy ExampleApp Frontend
+    strategy:
+      matrix:
+        node-version: [18.x] 
+        os: [ubuntu-20.04]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Add SSH private keys for submodule repositories
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          submodules: 'recursive'
+
+      - name: Git submodule update
+        working-directory: .
+        env:
+          GIT_USERNAME: ${{ vars.GIT_USERNAME }}
+          SSH_KEY_SUBMODULE: ${{ secrets.SSH_PRIVATE_KEY }}
+          GIT_CONFIG_PARAMETERS: ${{ secrets.GIT_CONFIG_PARAMETERS }}
+          GIT_SUBMODULE_UPDATE_CMD: ${{ vars.GIT_SUBMODULE_UPDATE_CMD }}
+          GIT_SUBMODULE_URL: ${{ vars.GIT_SUBMODULE_URL }}
+          GIT_SUBMODULE_LOCAL_PATH: ${{ vars.GIT_SUBMODULE_LOCAL_PATH }}
+        run: |
+          # GIT_CONFIG_PARAMETERS="'url.git@github.com:.insteadof=git://github.com/'"
+          # GIT_SUBMODULE_UPDATE_CMD="git submodule update --init --recursive"
+
+          git config --global user.name "${GIT_USERNAME}"
+
+          eval `ssh-agent -s`
+          ssh-add - <<< "${SSH_KEY_SUBMODULE}";
+
+          if ! ssh -T git@github.com
+          then
+            echo "ssh -T git@github.com failed, but let's continue anyway"
+          fi
+
+          bash -c "${GIT_SUBMODULE_UPDATE_CMD}"
+
+      - name: Frontend npm ci, build
+        working-directory: .
+        env:
+          REACT_APP_API_URL: ${{ vars.REACT_APP_API_URL }}
+          REACT_APP_DEBUG: ${{ vars.REACT_APP_DEBUG }}
+          REACT_APP_URI_PREFIX: ${{ vars.REACT_APP_URI_PREFIX }}
+          REACT_APP_X_TOKEN: ${{ vars.REACT_APP_X_TOKEN }}
+        run: |
+          export REACT_APP_VERSION=$(cat version.txt)
+          npm install
+          npm run build --if-present
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./build

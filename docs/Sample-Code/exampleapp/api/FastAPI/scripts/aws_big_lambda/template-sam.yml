@@ -1,0 +1,1517 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Outputs:
+
+  RestAPIId:
+    Value:
+      Ref: RestAPI
+  APIHandlerName:
+    Value:
+      Ref: APIHandler
+  APIHandlerArn:
+    Value:
+      Fn::GetAtt:
+      - APIHandler
+      - Arn
+  EndpointURL:
+    Value:
+      Fn::Sub: https://${RestAPI}.execute-api.${AWS::Region}.${AWS::URLSuffix}/api/
+
+Resources:
+
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties: 
+      AssumeRolePolicyDocument: 
+        Version: "2012-10-17"
+        Statement: 
+          - Effect: Allow
+            Principal: 
+              Service: 
+                - lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies: 
+        - PolicyName: LambdaS3Access 
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement: 
+              - Effect: Allow 
+                Action: 
+                - s3:PutObject
+                - s3:PutObjectAcl
+                - s3:GetObject
+                - s3:GetObjectAcl
+                - s3:DeleteObject
+                Resource: "arn:aws:s3:::AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_placeholder/*"
+        - PolicyName: DefaultRolePolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+            - Effect: Allow
+              Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+              Resource: arn:*:logs:*:*:*
+        - PolicyName: Ec2SecretsAccessPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - secretsmanager:GetSecretValue
+                Resource: '*'
+                # Resource: 
+                # #   - arn:aws:secretsmanager:*:*:secret:AWS_SECRETS_MANAGER_SECRETS_NAME_placeholder
+                #   - !Sub arn:aws:secretsmanager:*:*:secret:${AsmSecretsName}
+                # #   - arn:aws:secretsmanager:*:*:secret:AWS_SECRETS_MANAGER_ENVS_NAME_placeholder
+                #   - !Sub arn:aws:secretsmanager:*:*:secret:${AsmEnvsName}
+        - PolicyName: Ec2KmsAccessPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - kms:Decrypt
+                  - kms:GenerateDataKey*
+                  - kms:CreateGrant
+                Resource: !Sub 'arn:aws:kms:${AWS::Region}:${AWS::AccountId}:key/*'
+                # Resource: !Sub 'arn:aws:kms:${AWS::Region}:${AWS::AccountId}:alias/${KmsKeyAlias}'
+                # Resource: '*'
+                # Resource: 
+                # # - arn:aws:kms:AWS_REGION_placeholder:AWS_ACCOUNT_ID_placeholder:alias/AWS_KMS_KEY_ALIAS_placeholder
+                #   - !Sub arn:aws:kms:${AwsRegion}:${AwsAccountId}:alias/${KmsKeyAlias}
+
+  APIHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: APP_NAME_LOWERCASE_placeholder-backend-APP_STAGE_placeholder
+      # New 2024-05-30
+      # Runtime: python3.12
+      Runtime: python3.11
+      Handler: app.app
+      # CodeUri: ./deployment.zip
+      CodeUri: .
+      Tags:
+        APP: APP_NAME_LOWERCASE_placeholder-backend-APP_STAGE_placeholder
+        # New 2024-05-30
+        STAGE: APP_STAGE_placeholder
+        FRAMEWORK: name=fastapi
+        # FRAMEWORK: name=aws-chalice:version=1.30.0
+      Tracing: PassThrough
+      Timeout: 180
+      MemorySize: 512
+      # New 2024-05-30
+      # Architectures:
+      #   - arm64      
+      Environment:
+        Variables:
+          APP_NAME: APP_NAME_placeholder
+          APP_STAGE: APP_STAGE_placeholder
+          CLOUD_PROVIDER: CLOUD_PROVIDER_placeholder
+
+          # Lambda was unable to configure your environment variables because the environment variables you have provided contains reserved keys that are currently not supported for modification. Reserved keys used in this request: AWS_REGION
+          # AWS_REGION: AWS_REGION_placeholder
+
+          # AI_ASSISTANT_NAME: AI_ASSISTANT_NAME_placeholder
+          # APP_VERSION: APP_VERSION_placeholder
+          # FLASK_APP: FLASK_APP_placeholder
+          # APP_DEBUG: APP_DEBUG_placeholder
+          # APP_STAGE: APP_STAGE_placeholder
+          # # APP_SECRET_KEY: APP_SECRET_KEY_placeholder    # GsSecretParameter
+          # # APP_SUPERADMIN_EMAIL: APP_SUPERADMIN_EMAIL_placeholder    # GsSecretParameter
+          # APP_CORS_ORIGIN: APP_CORS_ORIGIN_placeholder
+          # APP_DB_ENGINE: APP_DB_ENGINE_placeholder
+          # APP_DB_NAME: APP_DB_NAME_placeholder
+          # # APP_DB_URI: APP_DB_URI_placeholder    # GsSecretParameter
+          # CURRENT_FRAMEWORK: CURRENT_FRAMEWORK_placeholder
+          # DEFAULT_LANG: DEFAULT_LANG_placeholder
+          # GIT_SUBMODULE_URL: GIT_SUBMODULE_URL_placeholder
+          # GIT_SUBMODULE_LOCAL_PATH: GIT_SUBMODULE_LOCAL_PATH_placeholder
+          # AWS_S3_CHATBOT_ATTACHMENTS_BUCKET: AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_placeholder
+          # SMTP_SERVER: SMTP_SERVER_placeholder
+          # SMTP_PORT: SMTP_PORT_placeholder
+          # # SMTP_USER: SMTP_USER_placeholder    # GsSecretParameter
+          # # SMTP_PASSWORD: SMTP_PASSWORD_placeholder    # GsSecretParameter
+          # SMTP_DEFAULT_SENDER: SMTP_DEFAULT_SENDER_placeholder
+          # # OPENAI_API_KEY: OPENAI_API_KEY_placeholder    # GsSecretParameter
+          # OPENAI_MODEL: OPENAI_MODEL_placeholder
+          # OPENAI_TEMPERATURE: OPENAI_TEMPERATURE_placeholder
+          # # GOOGLE_API_KEY: GOOGLE_API_KEY_placeholder    # GsSecretParameter
+          # # GOOGLE_CSE_ID: GOOGLE_CSE_ID_placeholder    # GsSecretParameter
+          # # LANGCHAIN_API_KEY: LANGCHAIN_API_KEY_placeholder    # GsSecretParameter
+          # LANGCHAIN_PROJECT: LANGCHAIN_PROJECT_placeholder
+          # USER_AGENT: USER_AGENT_placeholder
+          # # HUGGINGFACE_API_KEY: HUGGINGFACE_API_KEY_placeholder    # GsSecretParameter
+          # HUGGINGFACE_ENDPOINT_URL: HUGGINGFACE_ENDPOINT_URL_placeholder
+          # # FDA_API_KEY: FDA_API_KEY_placeholder    # GsSecretParameter
+
+          # # New 2024-05-30
+          # APP_HOST_NAME: APP_HOST_NAME_placeholder
+          # # STORAGE_URL_SEED: STORAGE_URL_SEED_placeholder    # GsSecretParameter
+
+          # # New 2024-06-16
+          # CLOUD_PROVIDER: CLOUD_PROVIDER_placeholder
+          # AWS_REGION: AWS_REGION_placeholder
+
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        # - DefaultRole
+        - Arn
+
+      # New 2024-05-30
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /asset/{item_id}
+            Method: get
+            RestApiId:
+              Ref: RestAPI
+
+  APIHandlerInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName:
+        Ref: APIHandler
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Sub:
+        - arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${RestAPIId}/*
+        - RestAPIId:
+            Ref: RestAPI
+
+  RestAPI:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: APP_NAME_LOWERCASE_placeholder-backend-APP_STAGE_placeholder
+      StageName: api
+      EndpointConfiguration: EDGE
+      Domain: 
+        DomainName: api.example.com
+        CertificateArn: CertificateArn_placeholder
+
+      # New 2024-05-30
+      Cors:
+        AllowMethods: "'GET,POST,PUT,DELETE,OPTIONS'"
+        AllowHeaders: "'Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'"
+        AllowOrigin: "'APP_CORS_ORIGIN_placeholder'"
+        # ExposeHeaders: "'Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'"
+        AllowCredentials: "'true'"
+
+      BinaryMediaTypes:
+      - multipart/form-data
+      - audio/basic
+      - audio/ogg
+      - audio/mp4
+      - audio/mpeg
+      - audio/wav
+      - audio/webm
+      - image/png
+      - image/jpg
+      - image/jpeg
+      - image/gif
+      - video/ogg
+      - video/mpeg
+      - video/webm
+      - application/octet-stream
+      - application/x-tar
+      - application/zip
+
+      DefinitionBody:
+        # New 2024-05-30
+        # swagger: '2.0'
+        openapi: 3.0.1
+
+        info:
+          version: '1.0'
+          title: APP_NAME_LOWERCASE_placeholder-backend
+
+        # New 2024-05-30
+        # schemes:
+        # - https
+        # definitions:
+        #   Empty:
+        #     type: object
+        #     title: Empty Schema
+        # x-amazon-apigateway-binary-media-types:
+        # - multipart/form-data
+        # - application/octet-stream
+        # - application/x-tar
+        # - application/zip
+        # - audio/basic
+        # - audio/ogg
+        # - audio/mp4
+        # - audio/mpeg
+        # - audio/wav
+        # - audio/webm
+        # - image/png
+        # - image/jpg
+        # - image/jpeg
+        # - image/gif
+        # - video/ogg
+        # - video/mpeg
+        # - video/webm
+
+        paths:
+
+          # New 2024-05-30
+          /asset/{item_id}:
+            get:
+              parameters:
+                - name: item_id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+              responses:
+                '200':
+                  description: Get asset (image, audio, or any other file type) stored in S3.
+                  content:
+                    application/octet-stream:
+                      schema:
+                        type: string
+                        format: binary
+                '404':
+                  description: File not found
+              x-amazon-apigateway-integration:
+                uri:
+                  # Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                type: aws_proxy
+
+          /menu_options:
+            get:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: 'Get authorized menu options '
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''GET,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /menu_options/element:
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: 'Get menu element configuration '
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /users:
+            get:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: User's CRUD operations (create, read, update, delete)
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: User's CRUD operations (create, read, update, delete)
+            put:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: User's CRUD operations (create, read, update, delete)
+            delete:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: User's CRUD operations (create, read, update, delete)
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /users/test:
+            get:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Connection handler test
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''GET,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /users/login:
+            get:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: User login
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: User login
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /users/supad-create:
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Super admin user emergency creation
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /ai/chatbot:
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              - audio/mpeg
+              - application/octet-stream
+              - text/csv
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                # timeoutInMillis: 180000
+                responses:
+                  default:
+                    statusCode: '200'
+                responseTemplates:
+                  application/json: '{"statusCode": 200}'
+                  audio/mpeg: '{"statusCode": 200}'
+                  application/octet-stream: '{"statusCode": 200}' 
+                  text/csv: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                # Content type conversions in API Gateway
+                # https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-payload-encodings-workflow.html
+                # contentHandling: CONVERT_TO_TEXT
+                # contentHandling: CONVERT_TO_BINARY
+                type: aws_proxy
+              summary: This function is the endpoint for the AI Chatbot.
+              description: 'Retrieves the user data (question), runs the conversation with the AI Chatbot and returns the AI Chatbot''s response.'
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /ai/image_to_text:
+            post:
+              consumes:
+              - multipart/form-data
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                # timeoutInMillis: 180000
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: This endpoint receives an image file, saves it to a temporary
+                directory
+              description: 'with a uuid4 .jpg | .png filename, calls @vision_image_analyzer
+                with
+
+                the file path, and returns the result.
+
+
+                :param request: The request containing the image file.
+
+                :return: The transcription result.'
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                # timeoutInMillis: 180000
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /ai/voice_to_text:
+            post:
+              consumes:
+              - multipart/form-data
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                # timeoutInMillis: 180000
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: This endpoint receives an audio file, saves it to a temporary
+                directory
+              description: 'with a uuid4 .mp3 filename, calls @audio_to_text_transcript
+                with
+
+                the file path, and returns the result.
+
+
+                :param request: The request containing the audio file.
+
+                :return: The transcription result.'
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /ai_chatbot_conversations:
+            get:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                # timeoutInMillis: 60000
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            put:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            delete:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /general_config:
+            get:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            put:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            delete:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /users_config:
+            get:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            put:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            delete:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "CRUD operation based on the request parameters.\n\nArgs:\n\
+                \    request (AuthorizedRequest): The authorized request object.\n\
+                \    kwargs (dict): Additional keyword arguments.\n\nReturns:\n  \
+                \  Response: The response from the CRUD operation."
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /users/current_user_d:
+            get:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "Get current authenticated user data."
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "Get current authenticated user data."
+            put:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "Get current authenticated user data."
+            delete:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Handles generic route requests and delegates to the appropriate
+              description: "Get current authenticated user data."
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT

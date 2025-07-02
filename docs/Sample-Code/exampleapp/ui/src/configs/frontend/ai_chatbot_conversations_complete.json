@@ -1,0 +1,57 @@
+{
+    "table_name": "ai_chatbot_conversations",
+    "creation_pk_name": "_id",
+    "additional_query_params": [
+        "_id"
+    ],
+    "baseUrl": "ai_chatbot_conversations",
+    "title": "FynBot Conversations",
+    "name": "FynBot Conversation",
+    "component": "FynBot Conversations",
+    "dbApiUrl": "ai_chatbot_conversations",
+    "mandatoryFilters": {
+        "user_id": "{CurrentUserId}"
+    },
+    "defaultOrder": "update_date|desc",
+    "fieldElements": [
+        {
+            "name": "id",
+            "label": "ID",
+            "type": "_id",
+            "listing": true
+        },
+        {
+            "name": "user_id",
+            "label": "User ID",
+            "type": "text",
+            "listing": true
+        },
+        {
+            "name": "title",
+            "label": "Title",
+            "type": "text",
+            "listing": true
+        },
+        {
+            "name": "creation_date",
+            "required": true,
+            "label": "Created",
+            "type": "datetime-local",
+            "listing": true
+        },
+        {
+            "name": "update_date",
+            "required": true,
+            "label": "Last update",
+            "type": "datetime-local",
+            "listing": true
+        },
+        {
+            "name": "messages",
+            "required": true,
+            "label": "Messages",
+            "type": "array",
+            "listing": true
+        }
+    ]
+}

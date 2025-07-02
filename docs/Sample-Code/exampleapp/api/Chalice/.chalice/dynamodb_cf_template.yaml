@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  UsersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: users
+      AttributeDefinitions:
+        - AttributeName: "email"
+          AttributeType: "S"
+        # - AttributeName: "username"
+        #   AttributeType: "S"
+      KeySchema:
+        - AttributeName: "email"
+          KeyType: "RANGE"
+        # - AttributeName: "username"
+        #   KeyType: "HASH"
+      ProvisionedThroughput:
+        ReadCapacityUnits: "5"
+        WriteCapacityUnits: "5"
+
+  GeneralConfigTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: general_config
+      AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "config_name"
+          KeyType: "HASH"
+      ProvisionedThroughput:
+        ReadCapacityUnits: "5"
+        WriteCapacityUnits: "5"
+
+Outputs:
+  Users:
+    Description: Users
+    Value: !Ref "UsersTable"
+  Sessions:
+    Description: General Config
+    Value: !Ref "GeneralConfigTable"

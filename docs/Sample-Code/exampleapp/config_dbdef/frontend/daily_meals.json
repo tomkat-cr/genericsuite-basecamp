@@ -1,0 +1,65 @@
+{
+    "baseUrl": "daily_meals",
+    "title": "Daily Meals",
+    "name": "Daily Meal",
+    "component": "DailyMeals",
+    "dbApiUrl": "daily_meals",
+    "mandatoryFilters": {
+        "user_id": "{CurrentUserId}"
+    },
+    "createReenter": true,
+    "defaultOrder": "meal_date|desc",
+    "fieldElements": [
+        {
+            "name": "id",
+            "required": true,
+            "label": "ID",
+            "type": "_id",
+            "readonly": true,
+            "hidden": true
+        },
+        {
+            "name": "user_id",
+            "required": true,
+            "label": "User ID",
+            "type": "text",
+            "readonly": true,
+            "hidden": true
+        },
+        {
+            "name": "meal_date",
+            "required": true,
+            "label": "Date",
+            "type": "date",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "total_calories",
+            "label": "Total Calories",
+            "type": "number",
+            "readonly": true,
+            "listing": true,
+            "component": "UserDailyCaloriesAndCondition"
+        },
+        {
+            "name": "minimun_daily_calories",
+            "label": "Daily Calorie Goal",
+            "type": "component",
+            "component": "UserMinimumDailyCalories",
+            "readonly": true,
+            "listing": false
+        },
+        {
+            "name": "observations",
+            "required": false,
+            "label": "Observations",
+            "type": "textarea",
+            "readonly": false,
+            "listing": true
+        }
+    ],
+    "childComponents": [
+        "DailyMealIngredients"
+    ]
+}

@@ -1,0 +1,80 @@
+{
+    "baseUrl": "user_ingredients",
+    "title": "Ingredients for Suggestions",
+    "name": "Ingredient",
+    "component": "UserIngredients",
+    "dbApiUrl": "user_ingredients",
+    "mandatoryFilters": {
+        "user_id": "{CurrentUserId}"
+    },
+    "fieldElements": [
+        {
+            "name": "id",
+            "required": true,
+            "label": "ID",
+            "type": "_id",
+            "readonly": true,
+            "hidden": true
+        },
+        {
+            "name": "user_id",
+            "required": true,
+            "label": "User ID",
+            "type": "text",
+            "readonly": true,
+            "hidden": true
+        },
+        {
+            "name": "name",
+            "required": true,
+            "label": "Name",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "calories_value",
+            "required": true,
+            "label": "Calories",
+            "type": "number",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "calories_unit",
+            "required": true,
+            "label": "Calories Unit",
+            "type": "select",
+            "select_elements": "CALORIE_UNITS",
+            "readonly": false,
+            "listing": true,
+            "default_value": "kcal" 
+        },
+        {
+            "name": "serving_size",
+            "required": true,
+            "label": "Serving size",
+            "type": "number",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "serving_size_unit",
+            "required": true,
+            "label": "Serving size unit",
+            "type": "select",
+            "select_elements": "SERVING_SIZE_UNITS",
+            "readonly": false,
+            "listing": true,
+            "default_value": "g" 
+        },
+        {
+            "name": "brand_name",
+            "required": false,
+            "label": "Brand Name",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        }
+    ]
+}

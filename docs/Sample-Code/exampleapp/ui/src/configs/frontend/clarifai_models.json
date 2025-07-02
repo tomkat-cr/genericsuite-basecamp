@@ -1,0 +1,84 @@
+{
+    "baseUrl": "clarifai_models",
+    "title": "Clarifai Models",
+    "name": "Clarifai Model Configuration",
+    "component": "ClarifaiModels",
+    "dbApiUrl": "clarifai_models",
+    "defaultOrder": "model_name|asc",
+    "fieldElements": [
+        {
+            "name": "id",
+            "required": true,
+            "label": "ID",
+            "type": "_id",
+            "readonly": true
+        },
+        {
+            "name": "model_name",
+            "required": true,
+            "label": "Name",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "active",
+            "required": true,
+            "label": "Active",
+            "type": "select",
+            "select_elements": "TRUE_FALSE",
+            "readonly": false,
+            "hidden": false,
+            "default_value": "1",
+            "listing": true
+        },
+        {
+            "name": "user_id",
+            "required": true,
+            "label": "User ID",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "app_id",
+            "required": true,
+            "label": "App ID",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "model_id",
+            "required": true,
+            "label": "Model ID",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "model_version_id",
+            "required": true,
+            "label": "Model Version ID",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "model_url",
+            "required": false,
+            "label": "Model urL",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "notes",
+            "required": false,
+            "label": "Notes",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        }
+    ]
+}

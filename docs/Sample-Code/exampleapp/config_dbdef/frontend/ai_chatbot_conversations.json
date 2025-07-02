@@ -1,0 +1,65 @@
+{
+    "baseUrl": "ai_chatbot_conversations",
+    "title": "ExampleApp Bot Conversations",
+    "name": "ExampleApp Bot Conversation",
+    "component": "ExampleApp Bot Conversations",
+    "dbApiUrl": "ai_chatbot_conversations",
+    "mandatoryFilters": {
+        "user_id": "{CurrentUserId}"
+    },
+    "defaultOrder": "update_date|desc",
+    "fieldElements": [
+        {
+            "name": "id",
+            "required": true,
+            "label": "ID",
+            "type": "_id",
+            "readonly": true,
+            "hidden": true
+        },
+        {
+            "name": "user_id",
+            "required": true,
+            "label": "User ID",
+            "type": "text",
+            "readonly": true,
+            "hidden": true
+        },
+        {
+            "name": "title",
+            "required": true,
+            "label": "Title",
+            "type": "text",
+            "readonly": true,
+            "listing": true
+        },
+        {
+            "name": "creation_date",
+            "required": true,
+            "label": "Created",
+            "type": "datetime-local",
+            "readonly": true,
+            "hidden": false,
+            "default_value": "current_timestamp",
+            "listing": true
+        },
+        {
+            "name": "update_date",
+            "required": true,
+            "label": "Last update",
+            "type": "datetime-local",
+            "readonly": true,
+            "hidden": false,
+            "default_value": "current_timestamp",
+            "listing": true
+        },
+        {
+            "name": "messages",
+            "required": true,
+            "label": "Messages",
+            "type": "array",
+            "readonly": true,
+            "listing": false
+        }
+    ]
+}
