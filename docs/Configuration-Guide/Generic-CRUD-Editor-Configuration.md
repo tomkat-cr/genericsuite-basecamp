@@ -4,7 +4,7 @@ This documentation provides configuration specifications for the Generic CRUD Ed
 
 ## Configuration directory
 
-Here's where the Generic CRUD Editor JSON files are stored. The directory structure is:
+The configuration directory is where the Generic CRUD Editor JSON files are stored. The suggested directory structure is:
 
 ```text
 .
@@ -27,11 +27,25 @@ Here's where the Generic CRUD Editor JSON files are stored. The directory struct
 
 ## Frontend Configuration
 
-This configuration section defines the overall behavior of the CRUD editor and is used by both the frontend and backend.
+The frontend configuration defines the overall behavior of the CRUD editor and is used by both the frontend and backend.
+
+The frontend configuration is located in the `frontend` directory.
+
+In the frontend configuration directory, there are several JSON files, most of them are CRUD editor configurations, and there are three special files:
+
+* `app_constants.json`
+* `general_constants.json`
+* `general_config.json`
+
+Check the [Frontend directory](./index.md#frontend-directory) section in the [GenericSuite App Creation and Configuration guide](./index.md) for more details.
 
 ### General Configuration
 
-The general configuration section defines the overall behavior of the CRUD editor.
+The JSON files for each table or CRUD editor in the example are `users.json`, `users_config.json`, and `users_profile.json`.
+
+For those files, the general configuration section defines the overall behavior of the CRUD editor.
+
+The following attributes are used in the general configuration section:
 
 * **baseUrl**: The ReactJS router URL for the CRUD editor.
 	+ Example: `ai_chatbot_conversations`
@@ -455,3 +469,7 @@ This configuration is used by the backend exclusively.
 ```json
     "specific_function": "delete_params_file"
 ```
+
+## Examples
+
+Let's see some examples of the configuration files using a hypothetical App called `Calorie Counter`.

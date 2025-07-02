@@ -334,7 +334,7 @@ This is a suggested App development repository structure:
 ├── tailwind.config.js
 ├── tsconfig.json
 ├── version.txt
-├── vite.config.js
+├── vite.config.mjs
 └── webpack.config.js
 ```
 
@@ -391,8 +391,13 @@ module.exports = {
 }
 ```
 
-- `vite.config.js` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/vite.config.js))<br/>
+- `vite.config.mjs` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/vite.config.mjs))<br/>
 Vite configuration. For more information check [Vite documentation](https://vite.dev/guide).<br/><br/>
+
+**IMPORTANT**: if you have a `vite.config.js` file, rename it to `vite.config.mjs`. If you don't do it, Vite will not work giving errors like:
+```
+ERROR: [plugin: externalize-deps] Failed to resolve "@tailwindcss/vite". This package is ESM only but it was tried to load by `require`.
+```
 
 - `webpack.config.js` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/webpack.config.js))<br/>
 To configure Webpack as an alternative to CRA / `react-app-rewired`.<br/>

@@ -71,7 +71,19 @@ echo ""
 
 if ! lftp --help > /dev/null 2>&1
 then
-    brew install lftp
+if ! lftp --help > /dev/null 2>&1
+then
+    if ! brew install lftp
+    then
+        if ! sudo apt install lftp
+        then
+            if ! sudo yum install lftp
+            then
+                echo "ERROR: could not install lftp"
+                exit 1
+            fi
+        fi
+    fi
 fi
 
 echo ""

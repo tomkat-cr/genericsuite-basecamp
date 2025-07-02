@@ -18,7 +18,7 @@ GenericSuite AI (frontend version) has AI ChatBot tools, a customizable CRUD edi
 - **Customizable Login Interface:** Easily adapt the login page to match your brand identity with the App logo.
 - **Development and Production Scripts:** Quick commands to start development or build your application for QA, staging production environments on AWS.
 - **Testing with Jest:** Comes pre-configured with Jest for running tests, including an initial test for the `<App />` component.
-- **Inclusion of Essential Files:** `.env.example` for environment variables setup, `Makefile` to short-cut frequent operations, `vite.config.js`, `webpack.config.js` and `config-overrides.js` to run the App locally with `Webpack` or `react-app-rewired`, `scripts` with development and production scripts, 
+- **Inclusion of Essential Files:** `.env.example` for environment variables setup, `Makefile` to short-cut frequent operations, `vite.config.mjs`, `webpack.config.js` and `config-overrides.js` to run the App locally with `Webpack` or `react-app-rewired`, `scripts` with development and production scripts, 
  and `CHANGELOG.md` for tracking changes across versions.
 
 The perfect companion for this frontend solution is the [backend version of The GenericSuite AI](../../Backend-Development/GenericSuite-AI/index.md).

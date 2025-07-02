@@ -22,16 +22,20 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ---
 
 ### New
-Code example monorepos [GS-137].
 Add the EC2, KMS, Secrets Manager, and DynamoDB commands [GS-96].
 Add the "link_gs_libs_for_dev.sh" script to link LOCAL GenericSuite libraries and trigger the uvicorn/gunicorn reload without need to run "pipenv update". Add to the Makefile and run with `make link_gs_libs` [FA-84].
 Add the BASE_DEVELOPMENT_PATH envvar to specify the GS base development path (parent directory of genericsuite-be* repos) to enable "make link_gs_libs_for_dev" [FA-84].
 Add the SAM_BUILD_CONTAINER envvar to force "sam build --use-container --debug" when "make deploy_run_local_qa" is executed [GS-87].
+Add project overview document for Gemini CLI (or Claude Code).
 
 ### Changes
 Add new repos to the README, repos index and general documentation index [GS-1].
 Enhance intro in the documentation index to highlight the importance of the project [GS-1].
 Remove "make lock_pip_file" and replace it with "make requirements". Add "make lock" and "make npm_lock" [FA-84] [GS-15].
+Change wording and instruction fixes in the configuration guide
+Make the "mkdocs_transfer_site.sh" to be used in both macos and linux
+Change "vite.config.js" -> "vite.config.mjs"
+Change "fynapp_gitops" -> "genericsuite-gitops"
 
 
 ## 0.0.13 (2025-02-18)
