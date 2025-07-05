@@ -1858,7 +1858,7 @@ mkdir -p .chalice
   },
   "stages": {
     "dev": {
-      "api_gateway_stage": "API_GATEWAY_STAGE_placeholder",
+      "api_gateway_stage": "dev",
       "environment_variables": {
         "APP_DEBUG": "APP_DEBUG_placeholder",
         "APP_STAGE": "dev",
@@ -1871,14 +1871,8 @@ mkdir -p .chalice
       }
     },
     "qa": {
-      "api_gateway_stage": "API_GATEWAY_STAGE_placeholder",
+      "api_gateway_stage": "qa",
       "autogen_policy": false,
-      "iam_role_arn": "arn:aws:iam::071141316464:role/chalice-api-dev-api_handler",
-      "manage_iam_role": false,
-      "certificate_arn": "",
-      "certificate_arn_key": "",
-      "certificate_path": "./app.APP_NAME_LOWERCASE_placeholder.local.crt",
-      "private_key_path": "./app.APP_NAME_LOWERCASE_placeholder.local.key",
       "environment_variables": {
         "PORT": "5001",
         "APP_DEBUG": "APP_DEBUG_placeholder",
@@ -1892,7 +1886,7 @@ mkdir -p .chalice
       }
     },
     "prod": {
-      "api_gateway_stage": "API_GATEWAY_STAGE_placeholder",
+      "api_gateway_stage": "prod",
       "environment_variables": {
         "APP_DEBUG": "0",
         "APP_STAGE": "prod",

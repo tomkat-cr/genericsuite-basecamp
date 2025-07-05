@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+python-multipart = "*"
+mangum = "*"
+fastapi-cors = "*"
+gunicorn = "*"
+flask = "*"
+flask-cors = "*"
+genericsuite = {ref = "develop", git = "https://github.com/tomkat-cr/genericsuite-be"}
+genericsuite-ai = {ref = "develop", git = "https://github.com/tomkat-cr/genericsuite-be-ai"}
+
+[dev-packages]
+pytest = "*"
+coverage = "*"
+cfn-lint = "*"
+
+[requires]
+python_version = "3.11"

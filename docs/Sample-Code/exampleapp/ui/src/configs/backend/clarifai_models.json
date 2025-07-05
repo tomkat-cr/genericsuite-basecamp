@@ -1,7 +1,0 @@
-{
-    "table_name": "clarifai_models",
-    "creation_pk_name": "model_name",
-    "additional_query_params": [
-        "model_name"
-    ]
-}

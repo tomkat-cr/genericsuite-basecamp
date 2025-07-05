@@ -1,0 +1,96 @@
+#!/bin/sh
+# scripts/link_common_assets.sh
+# Link ExampleApp common files, directories and libraries
+# 2025-07-04 | CR
+
+copy_common_assets() {
+    common_asset_source_name="$1"
+    common_asset_target_name="$2"
+    echo ""
+    echo "Copying '$common_asset_source_name' to '$common_asset_target_name'"
+    if ! cp -r "${BASE_DIR}/$common_asset_source_name" "${BASE_DIR}/$common_asset_target_name"
+    then
+        echo "ERROR: Could not copy '$common_asset_source_name' to '$common_asset_target_name'"
+    fi
+}
+
+link_common_assets() {
+    common_asset_source_name="$1"
+    common_asset_target_name="$2"
+    echo ""
+    echo "Linking '$common_asset_source_name' to '$common_asset_target_name'"
+    if ! ln -s "${BASE_DIR}/$common_asset_source_name/" "${BASE_DIR}/$common_asset_target_name/"
+    then
+        echo "ERROR: Could not link '$common_asset_source_name' to '$common_asset_target_name'"
+    fi
+}
+
+unlink_common_assets() {
+    common_asset_source_name="$1"
+    common_asset_target_name="$2"
+
+    echo ""
+    echo "Unlinking '$common_asset_source_name' from '$common_asset_target_name'"
+
+    if ! unlink "${BASE_DIR}/$common_asset_target_name/$common_asset_source_name"
+    then
+        echo "ERROR: Could not unlink '${BASE_DIR}/$common_asset_target_name/$common_asset_source_name'"
+    fi
+}
+
+remove_common_assets() {
+    common_asset_source_name="$1"
+    echo ""
+    echo "Removing '$common_asset_source_name'"
+    if ! rm -rf "${BASE_DIR}/$common_asset_source_name"
+    then
+        echo "ERROR: Could not remove '${BASE_DIR}/$common_asset_source_name'"
+    fi
+}
+
+BASE_DIR="`pwd`"
+cd "`dirname "$0"`" ;
+SCRIPTS_DIR="`pwd`" ;
+cd "${BASE_DIR}"
+
+echo ""
+echo "link_common_assets.sh"
+echo "BASE_DIR: $BASE_DIR"
+echo "SCRIPTS_DIR: $SCRIPTS_DIR"
+echo "ACTION: $ACTION"
+echo ""
+
+ACTION="$1"
+if [ "$ACTION" = "link" ]; then
+    echo ""
+    echo "link_common_assets.sh | Linking common assets..."
+    copy_common_assets "apps/config_dbdef" "apps/ui/src/configs"
+    link_common_assets "apps/config_dbdef" "apps/api-chalice/lib"
+    link_common_assets "apps/config_dbdef" "apps/api-fastapi/lib"
+    link_common_assets "apps/config_dbdef" "apps/api-flask/lib"
+    link_common_assets "apps/api-chalice/lib/config" "apps/api-fastapi/lib"
+    link_common_assets "apps/api-chalice/lib/models" "apps/api-fastapi/lib"
+    link_common_assets "apps/api-chalice/lib/config" "apps/api-flask/lib"
+    link_common_assets "apps/api-chalice/lib/models" "apps/api-flask/lib"
+    exit 0
+fi
+
+if [ "$ACTION" = "unlink" ]; then
+    echo ""
+    echo "link_common_assets.sh | Unlinking common assets..."
+    remove_common_assets "apps/ui/src/configs"
+    unlink_common_assets "config_dbdef" "apps/api-chalice/lib"
+    unlink_common_assets "config_dbdef" "apps/api-fastapi/lib"
+    unlink_common_assets "config_dbdef" "apps/api-flask/lib"
+    unlink_common_assets "config" "apps/api-fastapi/lib"
+    unlink_common_assets "models" "apps/api-fastapi/lib"
+    unlink_common_assets "config" "apps/api-flask/lib"
+    unlink_common_assets "models" "apps/api-flask/lib"
+    exit 0
+fi
+
+echo ""
+echo "ERROR: Unknown action: '$ACTION'"
+echo ""
+exit 1
+

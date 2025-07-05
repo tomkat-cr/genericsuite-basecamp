@@ -210,7 +210,9 @@ Defaults to app.${REACT_APP_APP_NAME}.local (the REACT_APP_APP_NAME will be conv
 
 * Assign `REACT_APP_URI_PREFIX` with the App URI prefix. This will be used in all environments after the domain name. E.g. https://app.exampleapp.com/exampleapp_frontend
 
-* Configure your desired `RUN_METHOD`. Available options are "webpack" and "react-scripts". Defaults to "webpack".
+* Configure your desired `RUN_METHOD`. Available options are "vite", "webpack" and "react-scripts". Defaults to "vite".
+
+* Configure `RUN_PROTOCOL` with the protocol for your local development environment. Available options are "http" and "https". Defaults to "" meaning that the user must manually set the protocol when the local dev environment run starts.
 
 * Configure `BACKEND_PATH` with the path for your backend API local development repo.
 

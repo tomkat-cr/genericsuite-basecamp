@@ -1,7 +1,0 @@
-{
-    "table_name": "ai_chatbot_conversations",
-    "creation_pk_name": "_id",
-    "additional_query_params": [
-        "_id"
-    ]
-}

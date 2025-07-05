@@ -399,11 +399,22 @@ DOCKER_ACCOUNT=docker_account_username
 * Local development environment run configuration
 ```env
 # Options are: uvicorn, gunicorn, chalice, chalice_docker
+# RUN_METHOD="uvicorn"
+# RUN_METHOD="gunicorn"
 # Chalice case: "chalice" to use http (running without docker) or "chalice_docker" to use https (with docker)
 # http:
 # RUN_METHOD="chalice"
 # https:
 RUN_METHOD="chalice_docker"
+```
+
+* Local run http/https protocol, to have it automatically on the application local running, no user intervention.
+```env
+# RUN_PROTOCOL="http"
+# RUN_PROTOCOL="https"
+#
+# Leave blank to let the user select the protocol when the local dev environment run starts.
+# RUN_PROTOCOL=""
 ```
 
 * Tests configuration

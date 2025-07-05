@@ -22,12 +22,18 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ---
 
 ### New
-Add Code example monorepos [GS-137].
+Add Code example monorepo [GS-137].
 Add the EC2, KMS, Secrets Manager, and DynamoDB commands [GS-96].
 Add the "link_gs_libs_for_dev.sh" script to link LOCAL GenericSuite libraries and trigger the uvicorn/gunicorn reload without need to run "pipenv update". Add to the Makefile and run with `make link_gs_libs` [FA-84].
 Add the BASE_DEVELOPMENT_PATH envvar to specify the GS base development path (parent directory of genericsuite-be* repos) to enable "make link_gs_libs_for_dev" [FA-84].
 Add the SAM_BUILD_CONTAINER envvar to force "sam build --use-container --debug" when "make deploy_run_local_qa" is executed [GS-87].
 Add project overview document for Gemini CLI (or Claude Code).
+Implement Turborepo in the example monorepo [GS-188].
+Implement Pnpm in the example monorepo [GS-187].
+Implement RUN_PROTOCOL envvar to have the http/https protocol automatically on app local running, no user intervention [GS-188].
+Add the "TARGET_DIR" (defaults to "public") and "BASE_DIR" (defaults to ".") parameters to the "build_copy_images.sh" script to copy the images to the "public" directory [GS-188].
+Add the "run_method_build.sh" script to run the build process using the specified run method [GS-188].
+Add: "make test-run-build" documentation.
 
 ### Changes
 Add new repos to the README, repos index and general documentation index [GS-1].
@@ -37,6 +43,9 @@ Change wording and instruction fixes in the configuration guide
 Make the "mkdocs_transfer_site.sh" to be used in both macos and linux
 Change "vite.config.js" -> "vite.config.mjs"
 Change "fynapp_gitops" -> "genericsuite-gitops"
+
+### Fixes
+Fix: chalice config template file in documentation.
 
 
 ## 0.0.13 (2025-02-18)

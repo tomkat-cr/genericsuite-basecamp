@@ -1,8 +1,0 @@
-{
-    "table_name": "user_ingredients",
-    "notes": "'dishes' are 'user_ingredients' with type 'D'",
-    "creation_pk_name": "name",
-    "additional_query_params": [
-        "name"
-    ]
-}

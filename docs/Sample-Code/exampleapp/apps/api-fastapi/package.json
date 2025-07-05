@@ -1,0 +1,32 @@
+{
+  "name": "api_fastapi",
+  "version": "1.0.0",
+  "description": "ExampleApp (FastAPI backend)",
+  "author": "Example App Author",
+  "license": "Private",
+  "homepage": "https://github.com/github-username/exampleapp_backend_fastapi#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github-username/exampleapp_backend_fastapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/github-username/exampleapp_backend_fastapi/issues"
+  },
+  "scripts": {
+    "dev": "npm run start:qa",
+    "build": "make install_dev",
+    "test": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh test",
+    "start:local": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh",
+    "start:qa": "sh node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local qa",
+    "deploy": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh deploy",
+    "pipfile": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile",
+    "shell": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh shell",
+    "clean": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh clean",
+    "coverage": "pipenv run coverage run -m unittest discover tests; pipenv run coverage report",
+    "lint": "pipenv run prospector",
+    "check-types": "npm run coverage && npm run lint && npm run test"
+  },
+  "dependencies": {
+    "genericsuite-be-scripts": "github:tomkat-cr/genericsuite-be-scripts#develop"
+  }
+}

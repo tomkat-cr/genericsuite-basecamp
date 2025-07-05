@@ -671,6 +671,19 @@ make deploy_prod
 make deploy
 ```
 
+* Preview the QA/Staging/Prod live environments behavior.<br/>
+Runs the `scripts/build_prod_test.sh` bash script.
+
+```bash
+# Run the test
+make test-run-build
+```
+
+```bash
+# Restore the environment after the test
+make test-run-build-restore
+```
+
 #### AWS secrets
 
 * Manage AWS secrets.
