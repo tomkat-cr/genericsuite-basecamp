@@ -1,9 +1,12 @@
 #!/bin/sh
 # run_server_prod.sh
+# Heroku production server script to run a Chalice application with Gunicorn
 # 2022-03-10 | CR
+#
 # Parameters:
 # $1 = $PORT (Heroku)
 # $2 = Base dir [/app]
+#
 PORT=$1
 BASE_DIR=$2
 if [ "$BASE_DIR" = "" ]; then

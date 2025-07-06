@@ -1,1 +1,1 @@
-# ExampleApp Frontend
+# ExampleApp UI (Frontend)

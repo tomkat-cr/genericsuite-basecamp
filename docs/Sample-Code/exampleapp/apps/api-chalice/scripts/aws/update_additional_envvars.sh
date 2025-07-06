@@ -10,16 +10,13 @@
 #
 # 2024-03-28 | CR
 
-# New 2024-06-16
 # Set the App specific secrets
 export APP_SECRETS="FDA_API_KEY"
+# /\ /\ /\ ExampleApp specific configuration
 
 CONFIG_FILE="$1"
 if [ "${CONFIG_FILE}" = "" ]; then
-    # New 2024-06-16
-    echo "ExampleApp: CONFIG_FILE not set. Exiting..."
-    # echo "1st parameter (CONFIG_FILE) not set"
-    # exit 1
+    echo "WARNING: ExampleApp: CONFIG_FILE not set. Exiting..."
 else
     REPO_BASEDIR="$2"
     if [ "${REPO_BASEDIR}" = "" ]; then
@@ -30,14 +27,59 @@ else
 
     perl -i -pe"s|FLASK_APP_placeholder|${FLASK_APP}|g" "${CONFIG_FILE}"
 
+    # GsSecretParameter
+    # perl -i -pe"s|ENVVAR_NAME_placeholder|${ENVVAR_NAME}|g" "${CONFIG_FILE}"
+    # /\ /\ /\ ExampleApp specific configuration
+
     # INSTRUCTIONS:
 
-    # 1) Add you additional environment variables replacements here as:
+    # 1) Copy and edit this file:
+    #
+    # $ cp node_modules/genericsuite-be-scripts/scripts/aws/update_additional_envvars.sh ./scripts/aws/
+    # $ vi scripts/aws/update_additional_envvars.sh
+
+    # 2) Add your additional environment variables replacements here as:
+    #
     # perl -i -pe"s|ENVVAR_NAME_placeholder|${ENVVAR_NAME}|g" "${CONFIG_FILE}"
+    #
     # ... replacing "ENVVAR_NAME" with the name of the environment variable
 
-    # 2) And remember to add the additional environment variables to the .env file
+    # 3) Add the additional environment variables to the ".env" file:
+    #
+    # ENVVAR_NAME=value
+    #
+    # ... replacing "ENVVAR_NAME" with the name of the environment variable and ENVVAR_VALUE with its value.
 
-    # GsSecretParameter
-    # perl -i -pe"s|FDA_API_KEY_placeholder|${FDA_API_KEY}|g" "${CONFIG_FILE}"
+    # 4) Add the additional environment variables to the "scripts/aws_big_lambda/template-sam.yml" file in the section "APIHandler > Properties > Environment > Variables". E.g.
+    #      .
+    #      .
+    #   APIHandler:
+    #          .
+    #          .
+    #      Properties:
+    #             .
+    #             .
+    #        Environment:
+    #          Variables:
+    #            ENVVAR_NAME: ENVVAR_VALUE
+    #                  .
+    #                  .
+    # ... replacing "ENVVAR_NAME" with the name of the environment variable
+
+    # 5) If you're using the Chalice framework, add the additional environment variables to the ".chalice/config-example.json" file, in the main "environment_variables" section. E.g.
+    #
+    #    {
+    #       "version": "2.0",
+    #             .
+    #             .
+    #       "environment_variables": {
+    #                .
+    #                .
+    #          "ENVVAR_NAME": "ENVVAR_NAME_placeholder"
+    #       },
+    #       "stages": {
+    #             .
+    #             .
+    #
+    # ... replacing "ENVVAR_NAME" with the name of the environment variable (in both places).
 fi

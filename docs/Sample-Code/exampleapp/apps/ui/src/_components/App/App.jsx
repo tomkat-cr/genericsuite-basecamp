@@ -17,8 +17,7 @@ import { AboutBody } from '../About/About.jsx';
 
 // const AppLogo = 'app_logo_square.svg';
 const AppLogo = 'app_logo_circle.svg';
-// const MadeByLogoSquare = 'madeby_logo_square.svg';
-// const MadeByLogoCircle = 'madeby_logo_emblem.svg';
+const AppLogoHeader = 'app_logo_horizontal.svg';
 
 const componentMap = {
     "FoodMoments_EditorData": FoodMoments_EditorData,
@@ -39,6 +38,7 @@ export const App = () => {
     return (
         <GsAiApp
             appLogo={AppLogo}
+            appLogoHeader={AppLogoHeader}
             componentMap={componentMap}
         />
     );

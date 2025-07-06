@@ -1,2 +1,1 @@
-# exampleapp_backend
-ExampleApp backend
+# ExampleApp backend (FastAPI)

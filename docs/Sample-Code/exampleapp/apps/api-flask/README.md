@@ -1,3 +1,1 @@
-# ExampleApp backend
-
-ExampleApp backend.
+# ExampleApp backend (Flask)

@@ -1,6 +1,12 @@
 #!/bin/sh
 # run_server.sh
+# Run a Chalice application with Gunicorn in a local development environment
 # 2022-02-18 | CR
+#
+# Parameters:
+# $1 = $PORT (default: 5001)
+# $2 = Base dir [default: .]
+#
 if [ -f ".env" ] ; then
     set -o allexport; . .env ; set +o allexport ;
 fi

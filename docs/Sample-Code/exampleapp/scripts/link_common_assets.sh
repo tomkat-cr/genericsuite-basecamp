@@ -53,25 +53,47 @@ cd "`dirname "$0"`" ;
 SCRIPTS_DIR="`pwd`" ;
 cd "${BASE_DIR}"
 
+ACTION="$1"
+
+COPY_OR_SYMLINK="$2"
+if [ "$COPY_OR_SYMLINK" = "" ]; then
+    COPY_OR_SYMLINK="copy"
+    # COPY_OR_SYMLINK="symlink"
+fi
+
 echo ""
 echo "link_common_assets.sh"
 echo "BASE_DIR: $BASE_DIR"
 echo "SCRIPTS_DIR: $SCRIPTS_DIR"
 echo "ACTION: $ACTION"
+echo "COPY_OR_SYMLINK: $COPY_OR_SYMLINK"
 echo ""
 
-ACTION="$1"
 if [ "$ACTION" = "link" ]; then
     echo ""
     echo "link_common_assets.sh | Linking common assets..."
     copy_common_assets "apps/config_dbdef" "apps/ui/src/configs"
-    link_common_assets "apps/config_dbdef" "apps/api-chalice/lib"
-    link_common_assets "apps/config_dbdef" "apps/api-fastapi/lib"
-    link_common_assets "apps/config_dbdef" "apps/api-flask/lib"
-    link_common_assets "apps/api-chalice/lib/config" "apps/api-fastapi/lib"
-    link_common_assets "apps/api-chalice/lib/models" "apps/api-fastapi/lib"
-    link_common_assets "apps/api-chalice/lib/config" "apps/api-flask/lib"
-    link_common_assets "apps/api-chalice/lib/models" "apps/api-flask/lib"
+    if [ "$COPY_OR_SYMLINK" = "symlink" ]; then
+        link_common_assets "apps/config_dbdef" "apps/api-chalice/lib"
+        link_common_assets "apps/config_dbdef" "apps/api-fastapi/lib"
+        link_common_assets "apps/config_dbdef" "apps/api-flask/lib"
+        link_common_assets "apps/api-chalice/lib/config" "apps/api-fastapi/lib"
+        link_common_assets "apps/api-chalice/lib/models" "apps/api-fastapi/lib"
+        link_common_assets "apps/api-chalice/lib/config" "apps/api-flask/lib"
+        link_common_assets "apps/api-chalice/lib/models" "apps/api-flask/lib"
+        link_common_assets "apps/api-chalice/scripts" "apps/api-fastapi"
+        link_common_assets "apps/api-chalice/scripts" "apps/api-flask"
+    else
+        copy_common_assets "apps/config_dbdef" "apps/api-chalice/lib/"
+        copy_common_assets "apps/config_dbdef" "apps/api-fastapi/lib/"
+        copy_common_assets "apps/config_dbdef" "apps/api-flask/lib/"
+        copy_common_assets "apps/api-chalice/lib/config" "apps/api-fastapi/lib/"
+        copy_common_assets "apps/api-chalice/lib/models" "apps/api-fastapi/lib/"
+        copy_common_assets "apps/api-chalice/lib/config" "apps/api-flask/lib/"
+        copy_common_assets "apps/api-chalice/lib/models" "apps/api-flask/lib/"
+        copy_common_assets "apps/api-chalice/scripts" "apps/api-fastapi/"
+        copy_common_assets "apps/api-chalice/scripts" "apps/api-flask/"
+    fi
     exit 0
 fi
 
@@ -79,13 +101,27 @@ if [ "$ACTION" = "unlink" ]; then
     echo ""
     echo "link_common_assets.sh | Unlinking common assets..."
     remove_common_assets "apps/ui/src/configs"
-    unlink_common_assets "config_dbdef" "apps/api-chalice/lib"
-    unlink_common_assets "config_dbdef" "apps/api-fastapi/lib"
-    unlink_common_assets "config_dbdef" "apps/api-flask/lib"
-    unlink_common_assets "config" "apps/api-fastapi/lib"
-    unlink_common_assets "models" "apps/api-fastapi/lib"
-    unlink_common_assets "config" "apps/api-flask/lib"
-    unlink_common_assets "models" "apps/api-flask/lib"
+    if [ "$COPY_OR_SYMLINK" = "symlink" ]; then
+        unlink_common_assets "config_dbdef" "apps/api-chalice/lib"
+        unlink_common_assets "config_dbdef" "apps/api-fastapi/lib"
+        unlink_common_assets "config_dbdef" "apps/api-flask/lib"
+        unlink_common_assets "config" "apps/api-fastapi/lib"
+        unlink_common_assets "models" "apps/api-fastapi/lib"
+        unlink_common_assets "scripts" "apps/api-fastapi"
+        unlink_common_assets "config" "apps/api-flask/lib"
+        unlink_common_assets "models" "apps/api-flask/lib"
+        unlink_common_assets "scripts" "apps/api-flask"
+    else
+        remove_common_assets "apps/api-chalice/lib/config_dbdef"
+        remove_common_assets "apps/api-fastapi/lib/config_dbdef"
+        remove_common_assets "apps/api-flask/lib/config_dbdef"
+        remove_common_assets "apps/api-fastapi/lib/config"
+        remove_common_assets "apps/api-fastapi/lib/models"
+        remove_common_assets "apps/api-fastapi/scripts"
+        remove_common_assets "apps/api-flask/lib/config"
+        remove_common_assets "apps/api-flask/lib/models"
+        remove_common_assets "apps/api-flask/scripts"
+    fi
     exit 0
 fi
 

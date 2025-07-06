@@ -24,3 +24,12 @@ serve:
 	sh scripts/mkdocs_run.sh serve
 
 run: serve
+
+exampleapp-install:
+	cd docs/Sample-Code/exampleapp && make install
+
+exampleapp-run:
+	cd docs/Sample-Code/exampleapp && make run
+
+exampleapp-clean:
+	sh docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp false true

@@ -10,12 +10,12 @@ help:
 ## Install dependecies
 
 install:
-	pipenv install
 	npm install
+	pipenv install
 
 install_dev:
-	pipenv install --dev
 	npm install
+	pipenv install --dev
 
 lock:
 	pipenv lock

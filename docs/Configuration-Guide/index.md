@@ -9,6 +9,12 @@
 
 This documentation shows how to create the App frontend/backend configurations and data structures.
 
+## Example App
+
+The [ExampleApp](../Sample-Code/exampleapp/README.md) is a full-stack example application demonstrating how to create an App using GenericSuite. It is a web application architecture with a React-based frontend and backend services implemented in FastAPI, Flask and Chalice.
+
+Click [here](../Sample-Code/exampleapp/README.md) to know more about it.
+
 ## Creating the App
 
 Every App should have a frontend and a backend parts.<br/>

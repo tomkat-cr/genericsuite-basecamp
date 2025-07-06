@@ -34,7 +34,6 @@ If you plan to deploy the App in the AWS Cloud:
 * AWS account, see [free tier](https://aws.amazon.com/free).
 * AWS Token, see [Access Keys](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials?section=IAM_credentials).
 * AWS Command-line interface, see [awscli](https://formulae.brew.sh/formula/awscli).
-* API Framework and Serverless Deployment, see [Chalice](https://github.com/aws/chalice).
 
 ## Getting Started
 
