@@ -113,7 +113,7 @@ CRA (`create-react-app`) is outdated, so we use [react-app-rewired](https://www.
 npm install --save-dev react-app-rewired
 ```
 
-### Install the GenericSuite Library
+### Install the GenericSuite package
 
 ```bash
 npm install genericsuite
@@ -165,7 +165,7 @@ npm uninstall react react-dom react-scripts web-vitals
 
 ### Install the build tools alone
 
-If you have your project already initialized, e.g. with CRA, ayou can install the alternative build tools alone:
+If you have your project already initialized, e.g. with CRA, you can install the alternative build tools alone:
 
 * **Vite**<br/>
 

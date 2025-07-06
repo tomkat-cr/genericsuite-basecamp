@@ -41,7 +41,7 @@ Same steps described in [GenericSuite for ReactJS (frontend version)](../Generic
 
 Same steps described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#initiate-your-project) `Getting started > Initiate your project` section.
 
-### Install GenericSuite AI Library
+### Install GenericSuite AI packages
 
 ```bash
 npm install genericsuite genericsuite-ai

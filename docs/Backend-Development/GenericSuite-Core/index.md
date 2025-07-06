@@ -392,8 +392,24 @@ SMTP_DEFAULT_SENDER=sender_email
 
 * Docker configuration
 ```env
+# Docker account username: used by the docker login command to push images (e.g. when using Kubernetes)
 DOCKER_ACCOUNT=docker_account_username
 ```
+
+* Container engine configuration
+```env
+# Container engine: used by the docker run command to run the container
+# Available options: `docker`, `podman`. Defaults to: docker
+# CONTAINER_ENGINE=docker
+# CONTAINER_ENGINE=podman
+
+# Open containers engine app
+# Available options: `1` to enable, `0` to disable. Defaults to: 1
+# OPEN_CONTAINERS_ENGINE_APP=1
+# OPEN_CONTAINERS_ENGINE_APP=0
+```
+
+**NOTE**: `podman` engine has some issues with the `podman composer` command. It's recommended to use `docker` engine instead.
 
 * Local development environment run configuration
 ```env
@@ -458,6 +474,16 @@ FRONTEND_LOCAL_PORT=3000
 BACKEND_LOCAL_PORT=5001
 ```
 
+* Local self-generated SSL certificate creation method (used when running the local dev environment with https)
+```env
+# Local self-generated SSL certificate creation method
+# (used by "scripts/local_ssl_certs_creation.sh", defaults to "mkcert")
+#
+# SSL_CERT_GEN_METHOD="mkcert"
+# SSL_CERT_GEN_METHOD="office-addin-dev-certs"
+# SSL_CERT_GEN_METHOD="openssl"
+```
+
 * Disable local services<BR/>
   (useful when running the local dev environment on the road, offline, over a smartphone internet connection)
 ```env
@@ -469,7 +495,10 @@ BRIDGE_PROXY_DISABLED=1
 
 * Flask configuration
 ```env
+# Flask app entry point
 FLASK_APP=__init__.py
+# Flask secret key
+FLASK_SECRET_KEY=xxxx
 ```
 
 * Localstack<BR/>

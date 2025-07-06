@@ -303,3 +303,6 @@ docs/Sample-Code/exampleapp/apps/ui/src/configs
 docs/Sample-Code/exampleapp/apps/api-chalice/lib/config_dbdef
 docs/Sample-Code/exampleapp/apps/api-fastapi/app/config_dbdef
 docs/Sample-Code/exampleapp/apps/api-flask/flaskr/config_dbdef
+changed_files.txt
+potential_secrets.txt
+security_scan.txt

@@ -949,7 +949,7 @@ make copy_ssl_certs
 make create_ssl_certs
 ```
 
-### NPM library scripts
+### NPM package scripts
 
 * Update the package.json file with the version and all other parameters except dependencies.<br/>
 Runs `npm install --package-lock-only`.
@@ -965,7 +965,7 @@ Runs `sh scripts/npm_publish.sh pre-publish`.
 make pre-publish
 ```
 
-* Publish the scripts library to NPMJS.<br/>
+* Publish the scripts package to NPMJS.<br/>
 Runs `sh scripts/npm_publish.sh publish`.<br/>
 Requirements:<br/>
    * [NpmJS Account](https://www.npmjs.com/signup).
@@ -974,7 +974,7 @@ Requirements:<br/>
 make publish
 ```
 
-### Pypi library scripts
+### Pypi package scripts
 
 * Build 'dist' directory needed for the Pypi publish.<br/>
 Runs `poetry lock --no-update`, `rm -rf dist` and `python3 -m build`.<br/>

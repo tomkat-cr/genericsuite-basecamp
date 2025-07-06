@@ -32,7 +32,10 @@ Implement Pnpm in the example monorepo [GS-187].
 Implement RUN_PROTOCOL envvar to have the http/https protocol automatically on app local running, no user intervention [GS-188].
 Add the "TARGET_DIR" (defaults to "public") and "BASE_DIR" (defaults to ".") parameters to the "build_copy_images.sh" script to copy the images to the "public" directory [GS-188].
 Add the "run_method_build.sh" script to run the build process using the specified run method [GS-188].
-Add: "make test-run-build" documentation.
+Add "make test-run-build" documentation.
+Implement Podman as an alternative to Docker [GS-215].
+Add CONTAINER_ENGINE and OPEN_CONTAINERS_ENGINE_APP envvars to GenericSuite BE Core [GS-215].
+Add the SSL_CERT_GEN_METHOD envvar to select the SSL certificate generation method [GS-198].
 
 ### Changes
 Add new repos to the README, repos index and general documentation index [GS-1].

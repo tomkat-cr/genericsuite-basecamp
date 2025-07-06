@@ -91,7 +91,7 @@ npm install -D genericsuite-be-scripts
 * JSON, PDF, Git and YouTube readers.
 * Language translation tools.
 * Chats stored in the Database.
-* User Plan, OpenAI API key and model name attributes in the user profile, to allow free plan users to use Models at their own expenses.
+* User Plan, OpenAI API key and model name attributes in the user profile, to allow free plan users to use Models at their own expense.
 
 ## Configuration
 

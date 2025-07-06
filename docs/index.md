@@ -68,6 +68,8 @@ Generic Suite (GS) is the ultimate development library designed to streamline bo
 
 Join the growing community of developers using Generic Suite to supercharge their projects. Explore the repositories and start building today!
 
+* [Why choose Generic Suite?](#why-choose-generic-suite)
+* [Key Features](#key-features)
 * [What is the Generic Suite for?](#what-is-the-genericsuite-for)
 * [The Generic Suite Core](#the-genericsuite-core)
 * [The Generic Suite AI](#the-genericsuite-ai)
@@ -104,7 +106,7 @@ Features:
 * Framework abstractor: supports various frameworks including FastAPI, Flask and Chalice, making it adaptable to a range of projects.
 * [Utilities](./Backend-Development/GenericSuite-Scripts/index.md), and [Configurations](./Configuration-Guide/index.md) necessary to build and deploy scalable and maintainable applications.
 
-Libraries:
+Packages:
 
 * :fontawesome-brands-react:{ .react } [GenericSuite Core (frontend version) for React.js](./Frontend-Development/GenericSuite-Core/index.md)
 * :fontawesome-brands-python:{ .python } [GenericSuite Core (backend version) for Python](./Backend-Development/GenericSuite-Core/index.md)
@@ -138,9 +140,9 @@ Features:
 * JSON, PDF, Git and YouTube readers.
 * Language translation tools.
 * Chats stored in the Database.
-* User Plan, OpenAI API key and model name attributes in the user profile, to allow free plan users to use Models at their own expenses.
+* User Plan, OpenAI API key and model name attributes in the user profile, to allow free plan users to use Models at their own expense.
 
-Libraries:
+Packages:
 
 * :fontawesome-brands-react:{ .react } [GenericSuite AI (frontend version) for React.js](./Frontend-Development/GenericSuite-AI/index.md)
 * :fontawesome-brands-python:{ .python } [GenericSuite AI (backend version) for Python](./Backend-Development/GenericSuite-AI/index.md)
@@ -150,7 +152,7 @@ Libraries:
 
 The **Generic Suite App Maker (GSAM)** is the AI tool to enhance the software development ideation and test AI models, LLM providers and its features. It also allows to generate descriptions, database structures, images, videos or answers from a text prompt, and kick start code to be used with the Generic Suite library.
 
-Libraries:
+Repository:
 
 * :fontawesome-brands-python:{ .python } [GenericSuite App Maker](https://github.com/tomkat-cr/genericsuite-app-maker)
 
@@ -158,7 +160,7 @@ Libraries:
 
 The **Generic Suite Agentic Software Development Team (ASDT)** provides a team of autonomous entities designed to solve software development problems using AI to make decisions, learn from interactions, and adapt to changing conditions without human intervention.
 
-Libraries:
+Repository:
 
 * :fontawesome-brands-python:{ .python } [GenericSuite Agentic Software Development Team](https://github.com/tomkat-cr/genericsuite-asdt-be)
 
@@ -166,7 +168,7 @@ Libraries:
 
 The **Generic Suite Gitops** provides the scripts and configurations needed to deploy on various platforms (local development servers, VPS) using orchestration technologies like Kubernetes, and manage artifacts and repositories with Docker and GitHub.
 
-Libraries:
+Repository:
 
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Gitops (Local Development Server operations)](https://github.com/tomkat-cr/genericsuite-gitops)
 

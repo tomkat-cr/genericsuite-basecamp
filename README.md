@@ -53,7 +53,7 @@ In this repository you will find the [instructions](https://genericsuite.carlosj
 * Repos index: [https://github.com/stars/tomkat-cr/lists/genericsuite](https://github.com/stars/tomkat-cr/lists/genericsuite)
 * GS Gitops (Local Development Server operations): [https://github.com/tomkat-cr/genericsuite-gitops](https://github.com/tomkat-cr/genericsuite-gitops)
 
-## Published libraries
+## Published packages
 
 ### Frontend
 * GS FE: [https://www.npmjs.com/package/genericsuite](https://www.npmjs.com/package/genericsuite)
