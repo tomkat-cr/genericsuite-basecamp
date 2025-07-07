@@ -74,10 +74,6 @@ echo ""
 echo "Begin 'mkdocs build' run..."
 echo ""
 
-echo ""
-echo "Begin 'mkdocs build' run..."
-echo ""
-
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -106,8 +102,9 @@ echo ""
 
 if ! lftp --help > /dev/null 2>&1
 then
-if ! lftp --help > /dev/null 2>&1
-then
+    echo ""
+    echo "lftp not found. Attempting to install..."
+    echo ""
     if ! brew install lftp
     then
         if ! sudo apt install lftp

@@ -12,6 +12,10 @@ install:
 transfer:
 	sh scripts/mkdocs_transfer_site.sh
 
+transfer_cicd:
+	# Set DEBUG to false to avoid blocking automation in CI environments
+	DEBUG="false" sh scripts/mkdocs_transfer_site.sh
+
 publish: transfer
 
 venv:
