@@ -27,8 +27,8 @@ const UsersValidations = gs.UsersValidations;
 const UsersDbListPreRead = gs.UsersDbListPreRead;
 const UsersPasswordValidations = gs.UsersPasswordValidations;
 const UsersDbPreWrite = gs.UsersDbPreWrite;
-
 const UsersConfig = gs.UsersConfig;
+const UsersApiKey = gs.UsersApiKey;
 
 const ACTION_CREATE = gs.generalConstants.ACTION_CREATE;
 const ACTION_UPDATE = gs.generalConstants.ACTION_UPDATE;
@@ -56,6 +56,7 @@ export function Users_EditorData(calleeName='Users_EditorData') {
         "UsersDbPreWrite": UsersDbPreWrite,
         "UsersValidations": UsersValidations,
         "UsersPasswordValidations": UsersPasswordValidations,
+        "UsersApiKey": UsersApiKey,
     }
     return GetFormData(users, registry, calleeName);
 }

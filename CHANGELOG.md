@@ -22,6 +22,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### New
 Add Code example monorepo [GS-137].
+Add "make exampleapp-run", "make exampleapp-install", "make exampleapp-update" and "make exampleapp-clean" commands to handle the example monorepo [GS-137].
 Add the EC2, KMS, Secrets Manager, and DynamoDB commands [GS-96].
 Add the "link_gs_libs_for_dev.sh" script to link LOCAL GenericSuite libraries and trigger the uvicorn/gunicorn reload without need to run "pipenv update". Add to the Makefile and run with `make link_gs_libs` [FA-84].
 Add the BASE_DEVELOPMENT_PATH envvar to specify the GS base development path (parent directory of genericsuite-be* repos) to enable "make link_gs_libs_for_dev" [FA-84].

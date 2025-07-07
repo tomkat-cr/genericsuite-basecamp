@@ -32,6 +32,9 @@ run: serve
 exampleapp-install:
 	cd docs/Sample-Code/exampleapp && make install
 
+exampleapp-update:
+	cd docs/Sample-Code/exampleapp && make update
+
 exampleapp-run:
 	cd docs/Sample-Code/exampleapp && make run
 

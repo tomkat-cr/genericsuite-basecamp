@@ -9,6 +9,9 @@ help:
 install:
 	pnpm install
 
+update:
+	pnpm update
+
 build:
 	pnpx turbo build --force
 

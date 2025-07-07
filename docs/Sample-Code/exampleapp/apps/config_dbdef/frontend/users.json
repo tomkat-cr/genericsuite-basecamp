@@ -220,7 +220,8 @@
     "childComponents": [
         "UsersFoodTimes",
         "UsersUserHistory",
-        "UsersConfig"
+        "UsersConfig",
+        "UsersApiKey"
     ],
     "dbListPreRead": [
         "UsersDbListPreRead"

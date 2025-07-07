@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import * as gs from "genericsuite";
-import * as gsAi from "genericsuite-ai";
+import { App as GsAiApp } from "genericsuite-ai";
 
 import { FoodMoments_EditorData } from '../SuperAdminOptions/FoodMoments.jsx';
 import { GeneralIngredients_EditorData } from '../SuperAdminOptions/GeneralIngredients.jsx';
@@ -31,8 +31,6 @@ const componentMap = {
     "AboutBody": AboutBody,
     "HomePage": HomePage,
 };
-
-const GsAiApp = gsAi.App;
 
 export const App = () => {
     return (

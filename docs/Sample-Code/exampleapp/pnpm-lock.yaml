@@ -16,28 +16,28 @@ importers:
     dependencies:
       genericsuite-be-scripts:
         specifier: github:tomkat-cr/genericsuite-be-scripts#develop
-        version: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/ce4180edb2d4c44679d33f714ecd97d3c06e8060
+        version: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/cc50a1f03592db32a2cfc8323b00e7aa6a76dde6
 
   apps/api-fastapi:
     dependencies:
       genericsuite-be-scripts:
         specifier: github:tomkat-cr/genericsuite-be-scripts#develop
-        version: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/ce4180edb2d4c44679d33f714ecd97d3c06e8060
+        version: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/cc50a1f03592db32a2cfc8323b00e7aa6a76dde6
 
   apps/api-flask:
     dependencies:
       genericsuite-be-scripts:
         specifier: github:tomkat-cr/genericsuite-be-scripts#develop
-        version: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/ce4180edb2d4c44679d33f714ecd97d3c06e8060
+        version: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/cc50a1f03592db32a2cfc8323b00e7aa6a76dde6
 
   apps/ui:
     dependencies:
       genericsuite:
         specifier: github:tomkat-cr/genericsuite-fe#develop
-        version: https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/e2c2c483488d7e4041c3ab596ea31c042b453d25(axios@1.10.0)(buffer@5.7.1)(constants-browserify@1.0.0)(crypto-browserify@3.12.1)(downshift@8.5.0(react@19.1.0))(express@4.21.2)(formik@2.4.5(react@19.1.0))(fs@0.0.2)(history@4.10.1)(json-loader@0.5.7)(os-browserify@0.3.0)(react-dom@19.1.0(react@19.1.0))(react-error-overlay@6.0.9)(react-icons@4.12.0(react@19.1.0))(react-markdown@9.1.0(@types/react@19.1.0)(react@19.1.0))(react-router-dom@7.6.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-syntax-highlighter@15.6.1(react@19.1.0))(react@19.1.0)(rxjs@7.8.2)(stream-browserify@3.0.0)(tty-browserify@0.0.1)(url@0.11.4)(vm-browserify@1.1.2)(web-vitals@2.1.4)(with@7.0.2)(yup@0.32.11)
+        version: https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/b164573303e9d53feb523c15e0a1499725d8fb1a(axios@1.10.0)(buffer@5.7.1)(constants-browserify@1.0.0)(crypto-browserify@3.12.1)(downshift@8.5.0(react@19.1.0))(express@4.21.2)(formik@2.4.5(react@19.1.0))(fs@0.0.2)(history@4.10.1)(json-loader@0.5.7)(os-browserify@0.3.0)(react-dom@19.1.0(react@19.1.0))(react-error-overlay@6.0.9)(react-icons@4.12.0(react@19.1.0))(react-markdown@9.1.0(@types/react@19.1.0)(react@19.1.0))(react-router-dom@7.6.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-syntax-highlighter@15.6.1(react@19.1.0))(react@19.1.0)(rxjs@7.8.2)(stream-browserify@3.0.0)(tty-browserify@0.0.1)(url@0.11.4)(vm-browserify@1.1.2)(web-vitals@2.1.4)(with@7.0.2)(yup@0.32.11)
       genericsuite-ai:
         specifier: github:tomkat-cr/genericsuite-fe-ai#develop
-        version: https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/13fa7271780b37fb78445c83663e13d88707f19b(dba94c86122e3d13c5c420acb350d5bd)
+        version: https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/13fa7271780b37fb78445c83663e13d88707f19b(7e626b2618c0f9b25b78074429a49d48)
     devDependencies:
       '@babel/cli':
         specifier: ^7.23.0
@@ -3000,12 +3000,12 @@ packages:
       with: ^7.0.2
       yup: ^0.32.11
 
-  genericsuite-be-scripts@https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/ce4180edb2d4c44679d33f714ecd97d3c06e8060:
-    resolution: {tarball: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/ce4180edb2d4c44679d33f714ecd97d3c06e8060}
+  genericsuite-be-scripts@https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/cc50a1f03592db32a2cfc8323b00e7aa6a76dde6:
+    resolution: {tarball: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/cc50a1f03592db32a2cfc8323b00e7aa6a76dde6}
     version: 1.0.14
 
-  genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/e2c2c483488d7e4041c3ab596ea31c042b453d25:
-    resolution: {tarball: https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/e2c2c483488d7e4041c3ab596ea31c042b453d25}
+  genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/b164573303e9d53feb523c15e0a1499725d8fb1a:
+    resolution: {tarball: https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/b164573303e9d53feb523c15e0a1499725d8fb1a}
     version: 1.0.25
     engines: {node: '>= 18.12.0'}
     peerDependencies:
@@ -9088,7 +9088,7 @@ snapshots:
     dependencies:
       loader-utils: 0.2.17
 
-  genericsuite-ai@https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/13fa7271780b37fb78445c83663e13d88707f19b(dba94c86122e3d13c5c420acb350d5bd):
+  genericsuite-ai@https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/13fa7271780b37fb78445c83663e13d88707f19b(7e626b2618c0f9b25b78074429a49d48):
     dependencies:
       axios: 1.10.0
       browserify-zlib: 0.2.0
@@ -9099,7 +9099,7 @@ snapshots:
       express: 4.21.2
       formik: 2.4.5(react@19.1.0)
       fs: 0.0.2
-      genericsuite: https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/e2c2c483488d7e4041c3ab596ea31c042b453d25(axios@1.10.0)(buffer@5.7.1)(constants-browserify@1.0.0)(crypto-browserify@3.12.1)(downshift@8.5.0(react@19.1.0))(express@4.21.2)(formik@2.4.5(react@19.1.0))(fs@0.0.2)(history@4.10.1)(json-loader@0.5.7)(os-browserify@0.3.0)(react-dom@19.1.0(react@19.1.0))(react-error-overlay@6.0.9)(react-icons@4.12.0(react@19.1.0))(react-markdown@9.1.0(@types/react@19.1.0)(react@19.1.0))(react-router-dom@7.6.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-syntax-highlighter@15.6.1(react@19.1.0))(react@19.1.0)(rxjs@7.8.2)(stream-browserify@3.0.0)(tty-browserify@0.0.1)(url@0.11.4)(vm-browserify@1.1.2)(web-vitals@2.1.4)(with@7.0.2)(yup@0.32.11)
+      genericsuite: https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/b164573303e9d53feb523c15e0a1499725d8fb1a(axios@1.10.0)(buffer@5.7.1)(constants-browserify@1.0.0)(crypto-browserify@3.12.1)(downshift@8.5.0(react@19.1.0))(express@4.21.2)(formik@2.4.5(react@19.1.0))(fs@0.0.2)(history@4.10.1)(json-loader@0.5.7)(os-browserify@0.3.0)(react-dom@19.1.0(react@19.1.0))(react-error-overlay@6.0.9)(react-icons@4.12.0(react@19.1.0))(react-markdown@9.1.0(@types/react@19.1.0)(react@19.1.0))(react-router-dom@7.6.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-syntax-highlighter@15.6.1(react@19.1.0))(react@19.1.0)(rxjs@7.8.2)(stream-browserify@3.0.0)(tty-browserify@0.0.1)(url@0.11.4)(vm-browserify@1.1.2)(web-vitals@2.1.4)(with@7.0.2)(yup@0.32.11)
       history: 4.10.1
       https-browserify: 1.0.0
       json-loader: 0.5.7
@@ -9124,9 +9124,9 @@ snapshots:
       with: 7.0.2
       yup: 0.32.11
 
-  genericsuite-be-scripts@https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/ce4180edb2d4c44679d33f714ecd97d3c06e8060: {}
+  genericsuite-be-scripts@https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/cc50a1f03592db32a2cfc8323b00e7aa6a76dde6: {}
 
-  genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/e2c2c483488d7e4041c3ab596ea31c042b453d25(axios@1.10.0)(buffer@5.7.1)(constants-browserify@1.0.0)(crypto-browserify@3.12.1)(downshift@8.5.0(react@19.1.0))(express@4.21.2)(formik@2.4.5(react@19.1.0))(fs@0.0.2)(history@4.10.1)(json-loader@0.5.7)(os-browserify@0.3.0)(react-dom@19.1.0(react@19.1.0))(react-error-overlay@6.0.9)(react-icons@4.12.0(react@19.1.0))(react-markdown@9.1.0(@types/react@19.1.0)(react@19.1.0))(react-router-dom@7.6.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-syntax-highlighter@15.6.1(react@19.1.0))(react@19.1.0)(rxjs@7.8.2)(stream-browserify@3.0.0)(tty-browserify@0.0.1)(url@0.11.4)(vm-browserify@1.1.2)(web-vitals@2.1.4)(with@7.0.2)(yup@0.32.11):
+  genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/b164573303e9d53feb523c15e0a1499725d8fb1a(axios@1.10.0)(buffer@5.7.1)(constants-browserify@1.0.0)(crypto-browserify@3.12.1)(downshift@8.5.0(react@19.1.0))(express@4.21.2)(formik@2.4.5(react@19.1.0))(fs@0.0.2)(history@4.10.1)(json-loader@0.5.7)(os-browserify@0.3.0)(react-dom@19.1.0(react@19.1.0))(react-error-overlay@6.0.9)(react-icons@4.12.0(react@19.1.0))(react-markdown@9.1.0(@types/react@19.1.0)(react@19.1.0))(react-router-dom@7.6.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-syntax-highlighter@15.6.1(react@19.1.0))(react@19.1.0)(rxjs@7.8.2)(stream-browserify@3.0.0)(tty-browserify@0.0.1)(url@0.11.4)(vm-browserify@1.1.2)(web-vitals@2.1.4)(with@7.0.2)(yup@0.32.11):
     dependencies:
       axios: 1.10.0
       buffer: 5.7.1
