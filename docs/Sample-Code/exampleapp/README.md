@@ -99,6 +99,20 @@ If you plan to deploy the App in the AWS Cloud:
 
     **Note:** Once changed the `BACKEND_LOCAL_PORT` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
+4. Use **https**: by default the application will use http (non-secure), if you want to use https:
+    - Set the `RUN_PROTOCOL` variable to `https` in the `apps/ui/.env`, `apps/api-fastapi/.env`, `apps/api-flask/.env`, `apps/api-chalice/.env` files.
+    - Generate a self-signed certificate and keys (only once):
+        ```bash
+        make exampleapp-create-ssl-certs
+        ```
+    
+    **Note:** Once changed the `RUN_PROTOCOL` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
+
+5. Use "webpack": by default the application will use "vite", if you want to use "webpack":
+    - Uncomment the line `RUN_METHOD="webpack"` in the `apps/ui/.env`.
+    
+    **Note:** Once changed the `RUN_METHOD` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
+
 ## 🏃‍♂️ Running the Application
 
 ### Development Mode

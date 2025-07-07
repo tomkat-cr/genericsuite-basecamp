@@ -1,9 +1,18 @@
+/* webpack.config.js | Webpack */
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const appLocalDomainName = process.env.APP_LOCAL_DOMAIN_NAME;
+const localEnvironment = process.env.REACT_APP_API_URL.includes("local") || ['development', 'dev', 'qa'].includes(process.env.NODE_ENV);
+
+/*
+https://webpack.js.org/
+
+npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin interpolate-html-plugin
+*/
 
 let devServerConfig = {
     historyApiFallback: true,
@@ -13,24 +22,45 @@ let devServerConfig = {
     allowedHosts: [appLocalDomainName], // To avoid "Invalid Host header" error
 };
 
+if (localEnvironment) {
+    console.log('** WebPack options **');
+    console.log('');
+}
+
 if (process.env.REACT_APP_API_URL.includes("https://")) {
     devServerConfig.server = {
         // Enable HTTPS
         type: 'https',
         options: {
             key: fs.readFileSync(path.resolve(__dirname, `${appLocalDomainName}.key`)),
-            cert: fs.readFileSync(path.resolve(__dirname, `${appLocalDomainName}.chain.crt`)),
-            // ca_cert: fs.readFileSync(path.resolve(__dirname, 'ca.crt')),
-            // passphrase: 'password',
+            cert: fs.readFileSync(path.resolve(__dirname, `${appLocalDomainName}.crt`)),
+            ca: fs.readFileSync(path.resolve(__dirname, 'ca.crt')),
+            // passphrase: process.env.SSL_PASSPHRASE || 'password',
         },
     };
 }
 
-console.log('devServerConfig:', devServerConfig);
+const process_env = {
+    // PUBLIC_URL: JSON.stringify(`https://${appLocalDomainName}`),
+    REACT_APP_VERSION: JSON.stringify(process.env.REACT_APP_VERSION || fs.readFileSync('version.txt', 'utf8')),
+    REACT_APP_API_URL: JSON.stringify(process.env.REACT_APP_API_URL || `https://${appLocalDomainName}`),
+    REACT_APP_DEBUG: JSON.stringify(process.env.REACT_APP_DEBUG || '0'),
+    REACT_APP_URI_PREFIX: JSON.stringify(process.env.REACT_APP_URI_PREFIX || 'exampleapp_frontend'),
+    REACT_APP_X_TOKEN: JSON.stringify(process.env.REACT_APP_X_TOKEN || ''),
+    REACT_APP_APP_NAME: JSON.stringify(process.env.REACT_APP_APP_NAME || 'exampleapp'),
+    REACT_APP_USE_AXIOS: JSON.stringify(process.env.REACT_APP_USE_AXIOS || '1'),
+}
+
+if (localEnvironment) {
+    console.log('devServerConfig:', devServerConfig);
+    console.log('process_env:', process_env);
+    console.log('');
+}
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.jsx', 
+    // entry: './src/index.tsx',
+    entry: './src/index.jsx',
     target: 'web',
     module: {
         rules: [
@@ -75,27 +105,25 @@ module.exports = {
             "vm": require.resolve("vm-browserify"),
             "tty": require.resolve("tty-browserify"),
             "constants": require.resolve("constants-browserify"),
+            "zlib": require.resolve("browserify-zlib"),
+            "https": require.resolve("https-browserify"),
+            "http": require.resolve("stream-http"),
+            "util": require.resolve("util"),
         }
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html',
-            filename: "./index.html",
+            // template: './public/index.html',
+            // filename: "./index.html",
+            template: path.resolve(__dirname, "public", "index.html"),
             favicon: "./public/favicon.ico",
+            filename: "index.html",
             manifest: "./public/manifest.json",
             publicPath: '/'
         }),
         new webpack.DefinePlugin({
             // Environment variables
-            'process.env': {
-                // PUBLIC_URL: JSON.stringify(`https://${appLocalDomainName}`),
-                REACT_APP_VERSION: JSON.stringify(process.env.REACT_APP_VERSION || fs.readFileSync('version.txt', 'utf8')),
-                REACT_APP_API_URL: JSON.stringify(process.env.REACT_APP_API_URL || `https://${appLocalDomainName}`),
-                REACT_APP_DEBUG: JSON.stringify(process.env.REACT_APP_DEBUG || '0'),
-                REACT_APP_URI_PREFIX: JSON.stringify(process.env.REACT_APP_URI_PREFIX || 'exampleapp_frontend'),
-                REACT_APP_X_TOKEN: JSON.stringify(process.env.REACT_APP_X_TOKEN || ''),
-                REACT_APP_APP_NAME: JSON.stringify(process.env.REACT_APP_APP_NAME || 'exampleapp'),
-            }
+            'process.env': process_env
         }),
         new webpack.ProvidePlugin({
             process: 'process/browser',
@@ -104,6 +132,12 @@ module.exports = {
         new InterpolateHtmlPlugin({
             PUBLIC_URL: '',
         }),
+        // Patch for "process/browser" not found in some modules (e.g., react-router@6+ ESM builds)
+        // See: https://github.com/remix-run/react-router/issues/10238
+        new webpack.NormalModuleReplacementPlugin(
+            /process\/browser/,
+            require.resolve('process/browser')
+        ),
     ],
     devServer: devServerConfig,
     output: {
