@@ -29,12 +29,11 @@
 
 ### AWS account and credentials
 
-If you plan to deploy the App in the AWS Cloud:
+If you plan to deploy the App in the AWS Cloud and/or use DynamoDB:
 
 * AWS account, see [free tier](https://aws.amazon.com/free).
 * AWS Token, see [Access Keys](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials?section=IAM_credentials).
 * AWS Command-line interface, see [awscli](https://formulae.brew.sh/formula/awscli).
-* API Framework and Serverless Deployment, see [Chalice](https://github.com/aws/chalice).
 
 ## Getting Started
 
@@ -144,8 +143,8 @@ npm install -D genericsuite-be-scripts
 2. **Select Your Database of choice**: Implement database operations using the provided abstracted functions for [MongoDB](https://www.mongodb.com/) and [DynamoDB](https://aws.amazon.com/pm/dynamodb/).
 3. **Included Authentication**: Your endpoints will be secured with [JWT](https://jwt.io/libraries)-based authentication.
 4. **Define Endpoints**: Utilize the dynamic endpoint creation feature by defining your endpoints in a JSON configuration file. Visit the [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs) for more information.
-2. **Define Menu Options**: Utilize the dynamic menu creation feature by defining your muenu and option access security in a JSON configuration file. Visit the [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs) for guidance.
-2. **Define Table structures**: Utilize the dynamic table creation feature by defining your CRUD editors in JSON configuration files. Visit the [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs) for sample code and files.
+5. **Define Menu Options**: Utilize the dynamic menu creation feature by defining your menu and option access security in a JSON configuration file. Visit the [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs) for guidance.
+6. **Define Table structures**: Utilize the dynamic table creation feature by defining your CRUD editors in JSON configuration files. Visit the [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs) for sample code and files.
 
 ## Configuration
 
@@ -393,12 +392,30 @@ SMTP_DEFAULT_SENDER=sender_email
 
 * Docker configuration
 ```env
+# Docker account username: used by the docker login command to push images (e.g. when using Kubernetes)
 DOCKER_ACCOUNT=docker_account_username
 ```
+
+* Container engine configuration
+```env
+# Container engine: used by the docker run command to run the container
+# Available options: `docker`, `podman`. Defaults to: docker
+# CONTAINER_ENGINE=docker
+# CONTAINER_ENGINE=podman
+
+# Open containers engine app
+# Available options: `1` to enable, `0` to disable. Defaults to: 1
+# OPEN_CONTAINERS_ENGINE_APP=1
+# OPEN_CONTAINERS_ENGINE_APP=0
+```
+
+**NOTE**: `podman` engine has some issues with the `podman composer` command. It's recommended to use `docker` engine instead.
 
 * Local development environment run configuration
 ```env
 # Options are: uvicorn, gunicorn, chalice, chalice_docker
+# RUN_METHOD="uvicorn"
+# RUN_METHOD="gunicorn"
 # Chalice case: "chalice" to use http (running without docker) or "chalice_docker" to use https (with docker)
 # http:
 # RUN_METHOD="chalice"
@@ -406,10 +423,29 @@ DOCKER_ACCOUNT=docker_account_username
 RUN_METHOD="chalice_docker"
 ```
 
+* Local run http/https protocol, to have it automatically on the application local running, no user intervention.
+```env
+# RUN_PROTOCOL="http"
+# RUN_PROTOCOL="https"
+#
+# Leave blank to let the user select the protocol when the local dev environment run starts.
+# RUN_PROTOCOL=""
+```
+
 * Tests configuration
 ```env
+# Backend debug local port
+# For http (default)
+# BACKEND_DEBUG_LOCAL_PORT=5001
+# For https
+# BACKEND_DEBUG_LOCAL_PORT=5002
+
 # Testing endpoint
-TEST_APP_URL=http://app.exampleapp.local:5001
+# For http
+# (defaults to "http://localhost:5001")
+# TEST_APP_URL=http://app.exampleapp.local:5001
+# For https
+# TEST_APP_URL=https://app.exampleapp.local:5002
 ```
 
 * Run methods and framework App directory and entry point
@@ -448,6 +484,16 @@ FRONTEND_LOCAL_PORT=3000
 BACKEND_LOCAL_PORT=5001
 ```
 
+* Local self-generated SSL certificate creation method (used when running the local dev environment with https)
+```env
+# Local self-generated SSL certificate creation method
+# (used by "scripts/local_ssl_certs_creation.sh", defaults to "mkcert")
+#
+# SSL_CERT_GEN_METHOD="mkcert"
+# SSL_CERT_GEN_METHOD="office-addin-dev-certs"
+# SSL_CERT_GEN_METHOD="openssl"
+```
+
 * Disable local services<BR/>
   (useful when running the local dev environment on the road, offline, over a smartphone internet connection)
 ```env
@@ -459,7 +505,10 @@ BRIDGE_PROXY_DISABLED=1
 
 * Flask configuration
 ```env
+# Flask app entry point
 FLASK_APP=__init__.py
+# Flask secret key
+FLASK_SECRET_KEY=xxxx
 ```
 
 * Localstack<BR/>

@@ -56,17 +56,51 @@ And for the configs repo called `exampleapp_configs` created in Github:
 git clone https://github.com/tomkat-cr/exampleapp_configs.git
 ```
 
+### Build tools
+
+Genericsuite supports the following build tools:
+
+* **Vite**<br/>
+  Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. For more information check [Vite documentation](https://vite.dev).<br/><br/>
+
+* **Webpack**<br/>
+  At its core, Webpack is a static module bundler for modern JavaScript applications. For more information check the [Webpack documentation](https://webpack.js.org).<br/><br/>
+
+* **Create React App**<br/>
+  Create React App (CRA) is a tool that allows you to create React applications. Its development and maintenance is abandoned so we recommend use "Vite" or "Webpack". For more information check [Create React App documentation](https://create-react-app.dev).<br/><br/>
+
+* **React-app-rewired**<br/>
+  React-app-rewired is an alternative to the default Create React App. We recommend use "Vite" or "Webpack" because nowadays it's "lightly" maintained mostly by the community. For more information check [react-app-rewired documentation](https://github.com/timarney/react-app-rewired).<br/><br/>
+
 ### Initiate your project
 
 Create the ReactJs App. E.g. `exampleapp_frontend`:
+
+* **Vite**<br/>
+
+```bash
+npm create vite@latest exampleapp_frontend -- --template react
+```
+
+It automatically performs the `npm init` and `git init`, adds the ReactJS dependencies, and creates a default ReactJS project structure.
+
+* **Webpack**<br/>
+
+```bash
+npm create webpack@latest exampleapp_frontend -- --template react
+```
+
+It automatically performs the `npm init` and `git init`, adds the ReactJS dependencies, and creates a default ReactJS project structure.
+
+* **Create React App**<br/>
 
 ```bash
 npx create-react-app exampleapp_frontend
 ```
 
-It automatically performs the `npm init` and `git init`, adds the ReactJS dependencies, and creates a default ReactJS project structure.
-
 NOTE: Check the documentation [here](https://react.dev/learn/start-a-new-react-project) for CRA (`create-react-app`) alternatives.
+
+* **React-app-rewired**<br/>
 
 Change to your frontend local development directory.<br/>
 ```bash
@@ -79,7 +113,7 @@ CRA (`create-react-app`) is outdated, so we use [react-app-rewired](https://www.
 npm install --save-dev react-app-rewired
 ```
 
-### Install the GenericSuite Library
+### Install the GenericSuite package
 
 ```bash
 npm install genericsuite
@@ -108,7 +142,6 @@ npm install --save-dev \
    babel-plugin-css-modules-transform \
    css-loader \
    file-loader \
-   html-webpack-plugin \
    interpolate-html-plugin \
    jest \
    jest-environment-jsdom \
@@ -119,9 +152,6 @@ npm install --save-dev \
    style-loader \
    tailwindcss \
    url-loader \
-   webpack \
-   webpack-cli \
-   webpack-dev-server \
    whatwg-fetch
 ```
 
@@ -132,6 +162,28 @@ Uninstall not required dependencies installed by CRA and included in the Generic
 ```bash
 npm uninstall react react-dom react-scripts web-vitals
 ```
+
+### Install the build tools alone
+
+If you have your project already initialized, e.g. with CRA, you can install the alternative build tools alone:
+
+* **Vite**<br/>
+
+```bash
+npm install --save-dev vite @vitejs/plugin-react 
+```
+<!--
+npm install --save-peer --strict-peer-deps vite @vitejs/plugin-react 
+-->
+
+* **Webpack**<br/>
+
+```bash
+npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin interpolate-html-plugin
+```
+<!--
+npm install --save-peer --strict-peer-deps webpack webpack-cli webpack-dev-server html-webpack-plugin interpolate-html-plugin
+-->
 
 ### Prepare the Configuration Files
 
@@ -150,7 +202,7 @@ Defaults to app.${REACT_APP_APP_NAME}.local (the REACT_APP_APP_NAME will be conv
 
 * Assign `FRONTEND_LOCAL_PORT` with the local development frontend port number. Defaults to 3000.
 
-* Assign `BACKEND_LOCAL_PORT` with the local development backend API port number. Defaults to 5000.
+* Assign `BACKEND_LOCAL_PORT` with the local development backend API port number. Defaults to 5001.
 
 * Assign `APP_API_URL_QA`, `APP_API_URL_STAGING`, `APP_API_URL_PROD`, and `APP_API_URL_DEMO` with the corresponding public backend API domain names for your App environments.
 
@@ -158,7 +210,9 @@ Defaults to app.${REACT_APP_APP_NAME}.local (the REACT_APP_APP_NAME will be conv
 
 * Assign `REACT_APP_URI_PREFIX` with the App URI prefix. This will be used in all environments after the domain name. E.g. https://app.exampleapp.com/exampleapp_frontend
 
-* Configure your desired `RUN_METHOD`. Available options are "webpack" and "react-scripts". Defaults to "webpack".
+* Configure your desired `RUN_METHOD`. Available options are "vite", "webpack" and "react-scripts". Defaults to "vite".
+
+* Configure `RUN_PROTOCOL` with the protocol for your local development environment. Available options are "http" and "https". Defaults to "" meaning that the user must manually set the protocol when the local dev environment run starts.
 
 * Configure `BACKEND_PATH` with the path for your backend API local development repo.
 
@@ -180,6 +234,7 @@ Copy the `Makefile` template from `node_modules/genericsuite`:
 ```bash
 cp node_modules/genericsuite/Makefile ./Makefile
 ```
+
 
 ### Change Scripts in Package.json
 
@@ -231,6 +286,7 @@ This is a suggested App development repository structure:
 ├── .env.example
 ├── .gitignore
 ├── CHANGELOG.md
+├── index.html
 ├── LICENSE
 ├── Makefile
 ├── README.md
@@ -280,6 +336,7 @@ This is a suggested App development repository structure:
 ├── tailwind.config.js
 ├── tsconfig.json
 ├── version.txt
+├── vite.config.mjs
 └── webpack.config.js
 ```
 
@@ -296,7 +353,7 @@ Babel transpiler configuration. Check the [documentation here](https://babeljs.i
 Changes documentation to this project.<br/><br/>
 
 - `config-overrides.js` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/config-overrides.js))<br/>
-react-app-rewired configuration. Check [react-app-rewired documentation](https://github.com/timarney/react-app-rewired) for more information.<br/><br/>
+React-app-rewired configuration. For more information check [react-app-rewired documentation](https://github.com/timarney/react-app-rewired).<br/><br/>
 
 - `jest.config.cjs` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/jest.config.cjs))<br/>
 JEST test configuration.<br/><br/>
@@ -334,6 +391,14 @@ module.exports = {
   plugins: [
   ],
 }
+```
+
+- `vite.config.mjs` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/vite.config.mjs))<br/>
+Vite configuration. For more information check [Vite documentation](https://vite.dev/guide).<br/><br/>
+
+**IMPORTANT**: if you have a `vite.config.js` file, rename it to `vite.config.mjs`. If you don't do it, Vite will not work giving errors like:
+```
+ERROR: [plugin: externalize-deps] Failed to resolve "@tailwindcss/vite". This package is ESM only but it was tried to load by `require`.
 ```
 
 - `webpack.config.js` ([example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/webpack.config.js))<br/>
@@ -390,7 +455,7 @@ To configure TypeScript. e.g.
 
 If you don't have a customized `public/index.html` (just the default one created by CRA):
 
-Create the `index.html` file:
+Create the `public/index.html` file:
 
 ```bash
 vi public/index.html
@@ -454,7 +519,7 @@ Copy and paste this content:
 
 If you already have a `public/index.html` file customized:
 
-Edit the `index.html` file:
+Edit the `public/index.html` file:
 
 ```bash
 vi public/index.html
@@ -500,7 +565,7 @@ Remove the footer and credits:
 Finally run this command to create the `src/output.css` file:
 
 ```bash
-npx tailwindcss -i ./src/input.css -o ./src/output.css
+npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css
 ```
 
 And copy the file generated to the `public` directory:

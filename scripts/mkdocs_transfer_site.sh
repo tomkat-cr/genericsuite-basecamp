@@ -23,6 +23,9 @@ echo "Remote host: ${REMOTE_HOST}"
 echo "Remote username: ${REMOTE_USERNAME}"
 echo "Remote password: ${FAKE_PASSWORD}"
 echo "Remote directory path: ${REMOTE_DIRECTORY_PATH}"
+echo ""
+
+# Validate required parameters
 
 if [ "${SOURCE_DIRECTORY_PATH}" = "" ]; then
     echo "ERROR: SOURCE_DIRECTORY_PATH is not defined"
@@ -45,6 +48,28 @@ if [ "${REMOTE_DIRECTORY_PATH}" = "" ]; then
     exit 1
 fi
 
+# Default values
+
+if [ "${DOCS_DIRECTORY_PATH}" = "" ]; then
+    DOCS_DIRECTORY_PATH="./docs"
+fi
+if [ "${EXAMPLEAPP_DIRECTORY_PATH}" = "" ]; then
+    EXAMPLEAPP_DIRECTORY_PATH="${DOCS_DIRECTORY_PATH}/Sample-Code/exampleapp"
+fi
+if [ "${DEBUG}" = "" ]; then
+    DEBUG="true"
+fi
+
+echo ""
+echo "Cleaning up directories..."
+echo ""
+# Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories under "docs/Sample-Code/exampleapp" and sub-directories.
+if ! sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh "${EXAMPLEAPP_DIRECTORY_PATH}" "false" "${DEBUG}"
+then
+    echo "ERROR: 'sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${EXAMPLEAPP_DIRECTORY_PATH}\" \"false\" \"${DEBUG}\"' failed"
+    exit 1
+fi
+
 echo ""
 echo "Begin 'mkdocs build' run..."
 echo ""
@@ -63,15 +88,34 @@ deactivate
 echo ""
 echo "'mkdocs build' completed"
 
-# Automate the ftp transfer of all files/directories under the `./site` directory  to a remote host, replacing all existing ones
+# Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories and `.env*` files under "./site" and sub-directories.
+if ! sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh "${SOURCE_DIRECTORY_PATH}" "true" "true"
+then
+    echo "ERROR: 'sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${SOURCE_DIRECTORY_PATH}\" \"true\" \"true\"' failed"
+    exit 1
+fi
 
+# FTP transfer of all files/directories under the "./site" directory to a remote host, replacing all existing content
 echo ""
 echo "Verifying tools..."
 echo ""
 
 if ! lftp --help > /dev/null 2>&1
 then
-    brew install lftp
+    echo ""
+    echo "lftp not found. Attempting to install..."
+    echo ""
+    if ! brew install lftp
+    then
+        if ! sudo apt install lftp
+        then
+            if ! sudo yum install lftp
+            then
+                echo "ERROR: could not install lftp"
+                exit 1
+            fi
+        fi
+    fi
 fi
 
 echo ""

@@ -1,7 +1,7 @@
 {
     "baseUrl": "ai_chatbot_conversations",
-    "title": "FynBot Conversations",
-    "name": "FynBot Conversation",
+    "title": "ExampleApp Bot Conversations",
+    "name": "ExampleApp Bot Conversation",
     "component": "",
     "dbApiUrl": "ai_chatbot_conversations",
     "mandatoryFilters": {

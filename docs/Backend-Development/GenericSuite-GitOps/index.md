@@ -22,7 +22,7 @@
 
 If you haven't done this yet, generate private key access to the server:
 
-* Copy the script [vps/generate_client_private_key.sh](https://github.com/tomkat-cr/fynapp_gitops/blob/main/vps/generate_client_private_key.sh) on your local PC
+* Copy the script [vps/generate_client_private_key.sh](https://github.com/tomkat-cr/genericsuite-gitops/blob/main/vps/generate_client_private_key.sh) on your local PC
 
 * Run the script:<BR/>
 IMPORTANT: This script must be executed on the local PC, not on the Server.

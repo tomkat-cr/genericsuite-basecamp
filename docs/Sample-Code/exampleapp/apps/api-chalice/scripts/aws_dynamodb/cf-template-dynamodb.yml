@@ -1,0 +1,87 @@
+
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: AWS CloudFormation Template to create the DynamoDBtables from the GenericSuite configuration.
+
+Metadata:
+  License: Apache-2.0
+
+Parameters:
+  ReadCapacityUnits:
+    Description: Provisioned read throughput
+    Type: Number
+    Default: "1"
+    MinValue: "1"
+    MaxValue: "10000"
+    ConstraintDescription: must be between 5 and 10000
+  WriteCapacityUnits:
+    Description: Provisioned write throughput
+    Type: Number
+    Default: "1"
+    MinValue: "1"
+    MaxValue: "10000"
+    ConstraintDescription: must be between 5 and 10000
+  AppName:
+    Description: application name
+    Type: String
+  AppStage:
+    Description: application stage (qa, prod, staging, demo, dev)
+    Type: String
+
+Resources:
+  UsersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub '${AppName}_${AppStage}_users'
+      AttributeDefinitions:
+      - AttributeName: _id
+        AttributeType: S
+      KeySchema:
+      - AttributeName: _id
+        KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: '1'
+        WriteCapacityUnits: '1'
+  AiChatbotConversationsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub '${AppName}_${AppStage}_ai_chatbot_conversations'
+      AttributeDefinitions:
+      - AttributeName: _id
+        AttributeType: S
+      KeySchema:
+      - AttributeName: _id
+        KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: '1'
+        WriteCapacityUnits: '1'
+  GeneralConfigTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub '${AppName}_${AppStage}_general_config'
+      AttributeDefinitions:
+      - AttributeName: _id
+        AttributeType: S
+      KeySchema:
+      - AttributeName: _id
+        KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: '1'
+        WriteCapacityUnits: '1'
+
+Outputs:
+  UsersTable:
+    Description: users
+    Value: !Sub '${AppName}_${AppStage}_users'
+    Export:
+      Name: !Sub 'UsersTableName'
+  AiChatbotConversationsTable:
+    Description: ai_chatbot_conversations
+    Value: !Sub '${AppName}_${AppStage}_ai_chatbot_conversations'
+    Export:
+      Name: !Sub 'AiChatbotConversationsTableName'
+  GeneralConfigTable:
+    Description: general_config
+    Value: !Sub '${AppName}_${AppStage}_general_config'
+    Export:
+      Name: !Sub 'GeneralConfigTableName'

@@ -1,0 +1,16 @@
+# File: docker-compose.yml for frontend (alone)
+# To test the build more quickly, without having to run `docker build`,
+# which takes longer to tell if there are problems with the npm install...
+# 2022-03-09 | CR
+version: "3"
+
+services:
+  app_frontend:
+    container_name: app_frontend
+    build: .
+    ports:
+      - 3001:3001
+    expose:
+      - 3001
+    environment:
+      - REACT_APP_API_URL=$REACT_APP_API_URL # http://vps.app.com:5000

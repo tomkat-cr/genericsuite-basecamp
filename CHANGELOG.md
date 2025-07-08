@@ -17,16 +17,39 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
-## Unreleased
-## 0.0.14 (2025-02-??)
+## 1.0.0 (2025-07-08)
 ---
 
 ### New
-Code example monorepos [GS-137].
+Add Code example monorepo [GS-137].
+Add "make exampleapp-run", "make exampleapp-install", "make exampleapp-update" and "make exampleapp-clean" commands to handle the example monorepo [GS-137].
+Add the EC2, KMS, Secrets Manager, and DynamoDB commands [GS-96].
+Add the "link_gs_libs_for_dev.sh" script to link LOCAL GenericSuite libraries and trigger the uvicorn/gunicorn reload without need to run "pipenv update". Add to the Makefile and run with `make link_gs_libs` [FA-84].
+Add the BASE_DEVELOPMENT_PATH envvar to specify the GS base development path (parent directory of genericsuite-be* repos) to enable "make link_gs_libs_for_dev" [FA-84].
+Add the SAM_BUILD_CONTAINER envvar to force "sam build --use-container --debug" when "make deploy_run_local_qa" is executed [GS-87].
+Add project overview document for Gemini CLI (or Claude Code).
+Implement Turborepo in the example monorepo [GS-188].
+Implement Pnpm in the example monorepo [GS-187].
+Implement RUN_PROTOCOL envvar to have the http/https protocol automatically on app local running, no user intervention [GS-188].
+Add the "TARGET_DIR" (defaults to "public") and "BASE_DIR" (defaults to ".") parameters to the "build_copy_images.sh" script to copy the images to the "public" directory [GS-188].
+Add the "run_method_build.sh" script to run the build process using the specified run method [GS-188].
+Add "make test-run-build" documentation.
+Implement Podman as an alternative to Docker [GS-215].
+Add CONTAINER_ENGINE and OPEN_CONTAINERS_ENGINE_APP envvars to GenericSuite BE Core [GS-215].
+Add the WEBSEARCH_DEFAULT_PROVIDER envvar documentation to GenericSuite AI [GS-87].
+Add configurable backend debug port using the envvar BACKEND_DEBUG_LOCAL_PORT to the "sls" (secure local server) [GS-137].
 
 ### Changes
 Add new repos to the README, repos index and general documentation index [GS-1].
-Enhance intro in the documentation index to emphasize the importance of the project [GS-1].
+Enhance intro in the documentation index to highlight the importance of the project [GS-1].
+Remove "make lock_pip_file" and replace it with "make requirements". Add "make lock" and "make npm_lock" [FA-84] [GS-15].
+Change wording and instruction fixes in the configuration guide
+Make the "mkdocs_transfer_site.sh" to be used in both macos and linux
+Change "vite.config.js" -> "vite.config.mjs"
+Change "fynapp_gitops" -> "genericsuite-gitops"
+
+### Fixes
+Fix: chalice config template file in documentation.
 
 
 ## 0.0.13 (2025-02-18)
@@ -35,7 +58,7 @@ Enhance intro in the documentation index to emphasize the importance of the proj
 ### New
 Generic CRUD Editor Configuration guide [GS-137].
 VPS Install scripts [GS-141].
-Implement ollama server [GS-139].
+Implement Ollama server [GS-139].
 Implement API keys to GS BE Core [GS-159].
 Generic Endpoint Builder for Flask [GS-15].
 Implement n8n server [GS-165].

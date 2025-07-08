@@ -55,7 +55,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Description: APP_NAME_LOWERCASE_placeholder-backend-APP_STAGE_placeholder
-      Runtime: python3.9
+      Runtime: python3.11
       Handler: app.app
       CodeUri: ./deployment.zip
       Tags:

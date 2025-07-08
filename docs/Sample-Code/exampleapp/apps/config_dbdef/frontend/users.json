@@ -1,0 +1,241 @@
+{
+    "baseUrl": "users",
+    "title": "Users",
+    "name": "User",
+    "component": "Users",
+    "dbApiUrl": "users",
+    "fieldElements": [
+        {
+            "name": "id",
+            "required": true,
+            "label": "ID",
+            "type": "_id",
+            "readonly": true
+        },
+        {
+            "name": "firstname",
+            "required": true,
+            "label": "First Name",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "lastname",
+            "required": true,
+            "label": "Last Name",
+            "type": "text",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "email",
+            "required": true,
+            "label": "Email",
+            "type": "email",
+            "readonly": false,
+            "listing": true
+        },
+        {
+            "name": "status",
+            "required": true,
+            "label": "Active",
+            "type": "select",
+            "select_elements": "TRUE_FALSE",
+            "default_value": "1",
+            "listing": true
+        },
+        {
+            "name": "plan",
+            "required": true,
+            "label": "Billing Plan",
+            "type": "select",
+            "select_elements": "BILLING_PLANS",
+            "default_value": "1",
+            "listing": true
+        }, 
+        {
+            "name": "superuser",
+            "required": true,
+            "label": "Superuser",
+            "type": "select",
+            "select_elements": "TRUE_FALSE",
+            "readonly": false,
+            "hidden": false,
+            "default_value": "0",
+            "listing": true
+        },
+        {
+            "name": "birthday",
+            "required": true,
+            "label": "Birthday",
+            "type": "date",
+            "readonly": false
+        },
+        {
+            "name": "gender",
+            "required": true,
+            "label": "Gender",
+            "type": "select",
+            "select_elements": "GENDERS",
+            "readonly": false,
+            "listing": false
+        },
+        {
+            "name": "training_days",
+            "required": true,
+            "label": "Training Days",
+            "type": "text",
+            "readonly": false
+        },
+        {
+            "name": "training_hour",
+            "required": true,
+            "label": "Training Hour",
+            "type": "text",
+            "readonly": false
+        },
+        {
+            "name": "height",
+            "required": true,
+            "label": "Height",
+            "type": "number",
+            "readonly": false,
+            "listing": false
+        },
+        {
+            "name": "height_unit",
+            "required": true,
+            "label": "Height Unit",
+            "type": "select",
+            "select_elements": "HEIGHT_UNITS",
+            "readonly": false,
+            "listing": false
+        },
+        {
+            "name": "weight",
+            "required": true,
+            "label": "Weight",
+            "type": "number",
+            "readonly": false
+        },
+        {
+            "name": "weight_unit",
+            "required": true,
+            "label": "Weight Unit",
+            "type": "select",
+            "select_elements": "WEIGHT_UNITS",
+            "readonly": false
+        },
+        {
+            "name": "minimun_daily_calories",
+            "label": "Daily Calorie Goal",
+            "type": "component",
+            "component": "UserMinimumDailyCalories",
+            "readonly": true,
+            "listing": false
+        },
+        {
+            "name": "goal_code",
+            "required": true,
+            "label": "Goal",
+            "type": "select",
+            "select_elements": "GOAL_CODES",
+            "readonly": false,
+            "listing": false
+        }, 
+        {
+            "name": "goals",
+            "required": true,
+            "label": "Goal Observation",
+            "type": "textarea",
+            "readonly": false,
+            "listing": false
+        }, 
+        {
+            "name": "language",
+            "required": true,
+            "label": "Preferred Language",
+            "type": "select",
+            "select_elements": "LANGUAGES",
+            "readonly": false,
+            "listing": false
+        }, 
+        {
+            "name": "openai_api_key",
+            "required": false,
+            "label": "OpenAI API Key",
+            "type": "text"
+        }, 
+        {
+            "name": "openai_model",
+            "required": false,
+            "label": "OpenAI Model (defaults to gpt-4o-mini)",
+            "type": "text"
+        }, 
+        {
+            "name": "creation_date",
+            "required": true,
+            "label": "Created",
+            "type": "datetime-local",
+            "readonly": true,
+            "hidden": false,
+            "default_value": "current_timestamp",
+            "listing": true
+        },
+        {
+            "name": "update_date",
+            "required": true,
+            "label": "Last update",
+            "type": "datetime-local",
+            "readonly": true,
+            "hidden": false,
+            "default_value": "current_timestamp",
+            "listing": false
+        },
+        {
+            "name": "label0",
+            "type": "hr"
+        },
+        {
+            "name": "label1",
+            "label": "PASWORD CHANGE",
+            "type": "label"
+        },
+        {
+            "name": "passcode",
+            "required": false,
+            "label": "New password",
+            "type": "password",
+            "force_value": ""
+        },
+        {
+            "name": "passcode_repeat",
+            "required": false,
+            "label": "Repeat new password",
+            "type": "password",
+            "force_value": ""
+        }
+    ],
+    "childComponents": [
+        "UsersFoodTimes",
+        "UsersUserHistory",
+        "UsersConfig",
+        "UsersApiKey"
+    ],
+    "dbListPreRead": [
+        "UsersDbListPreRead"
+    ],
+    "dbPreWrite": [
+        "UsersDbPreWrite"
+    ],
+    "dbPostWrite": [
+        "UsersDbPostWrite"
+    ],
+    "dbPreValidations": [
+        "UsersValidations"
+    ],
+    "validations": [
+        "UsersPasswordValidations"
+    ]
+}

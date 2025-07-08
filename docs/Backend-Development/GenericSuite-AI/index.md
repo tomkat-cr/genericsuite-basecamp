@@ -91,7 +91,7 @@ npm install -D genericsuite-be-scripts
 * JSON, PDF, Git and YouTube readers.
 * Language translation tools.
 * Chats stored in the Database.
-* User Plan, OpenAI API key and model name attributes in the user profile, to allow free plan users to use Models at their own expenses.
+* User Plan, OpenAI API key and model name attributes in the user profile, to allow free plan users to use Models at their own expense.
 
 ## Configuration
 
@@ -582,6 +582,17 @@ VECTARA_API_KEY=
 ```
 WEAVIATE_URL=
 WEAVIATE_API_KEY=
+```
+
+* Websearch default provider
+
+```env
+# # First DDG, if error, Google (default)
+# WEBSEARCH_DEFAULT_PROVIDER=''
+# # DuckDuckGo
+# WEBSEARCH_DEFAULT_PROVIDER='ddg'
+# # Google
+# WEBSEARCH_DEFAULT_PROVIDER='google'
 ```
 
 ## Code examples and JSON configuration files

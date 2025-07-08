@@ -12,6 +12,10 @@ install:
 transfer:
 	sh scripts/mkdocs_transfer_site.sh
 
+transfer_cicd:
+	# Set DEBUG to false to avoid blocking automation in CI environments
+	DEBUG="false" sh scripts/mkdocs_transfer_site.sh
+
 publish: transfer
 
 venv:
@@ -24,3 +28,18 @@ serve:
 	sh scripts/mkdocs_run.sh serve
 
 run: serve
+
+exampleapp-install:
+	cd docs/Sample-Code/exampleapp && make install
+
+exampleapp-update:
+	cd docs/Sample-Code/exampleapp && make update
+
+exampleapp-run:
+	cd docs/Sample-Code/exampleapp && make run
+
+exampleapp-create-ssl-certs:
+	cd docs/Sample-Code/exampleapp && make create-ssl-certs
+
+exampleapp-clean:
+	sh docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp false true

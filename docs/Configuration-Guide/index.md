@@ -9,6 +9,12 @@
 
 This documentation shows how to create the App frontend/backend configurations and data structures.
 
+## Example App
+
+The [ExampleApp](../Sample-Code/exampleapp/README.md) is a full-stack example application demonstrating how to create an App using GenericSuite. It is a web application architecture with a React-based frontend and backend services implemented in FastAPI, Flask and Chalice.
+
+Click [here](../Sample-Code/exampleapp/README.md) to know more about it.
+
 ## Creating the App
 
 Every App should have a frontend and a backend parts.<br/>
@@ -44,7 +50,7 @@ src/configs
 
 ## Frontend directory
 
-Configurations used by both the frontend App and the backend API.
+The `frontend` directory contains configurations used by both the frontend App and the backend API.
 
 * **app_constants.json**<BR/><BR/>
   App specific constants. These constants should be copied to the target App directory to change the specific values for e.g. `BILLING_PLANS`, email address in `ERROR_MESSAGES`, `APP_EMAILS` and `APP_VALID_URLS` (check `includesAppValidLinks()` and `dangerouslySetInnerHTML`).<BR/><BR/>
@@ -69,7 +75,7 @@ Configurations used by both the frontend App and the backend API.
 
 ## Backend directory
 
-Configurations only visible in the backend API.
+The `backend` directory contains configurations only visible in the backend API.
 
 This is mostly for options the menu structure and security that we don't want to be available in the frontend.
 
@@ -1066,7 +1072,7 @@ from lib.config.config import Config
 
 # Only for API Apps using GenericSuite AI backend version
 # https://github.com/tomkat-cr/genericsuite-be-ai
-# from chalicelib.endpoints import ai_fynbot as ai_chatbot_endpoint
+# from chalicelib.endpoints import ai_exampleapp_bot as ai_chatbot_endpoint
 
 settings = Config()
 app = create_app(app_name=f'{settings.APP_NAME.lower()}-backend',
@@ -1283,7 +1289,7 @@ def transcribe_audio_endpoint(
     )
 ```
 
-5. API ChatBot specific GPT functions/tools `lib/models/ai_chatbot/ai_gpt_fn_example_app.py`<br/>(only if the App has specific GPT functions)
+5. API ChatBot specific GPT functions/tools `lib/models/ai_chatbot/ai_gpt_fn_app.py`<br/>(only if the App has specific GPT functions)
 ```python
 """
 GPT functions: App specific
@@ -1412,8 +1418,8 @@ from lib.models.ai_chatbot.ai_gpt_fn_fda import (
     get_fda_food_query_func,
 )
 
-from lib.models.ai_chatbot.ai_gpt_fn_example_app import (
-    cac as cac_example_app,
+from lib.models.ai_chatbot.ai_gpt_fn_app import (
+    cac as cac_app,
     create_example_element,
     create_example_element_func,
 )
@@ -1858,7 +1864,7 @@ mkdir -p .chalice
   },
   "stages": {
     "dev": {
-      "api_gateway_stage": "API_GATEWAY_STAGE_placeholder",
+      "api_gateway_stage": "dev",
       "environment_variables": {
         "APP_DEBUG": "APP_DEBUG_placeholder",
         "APP_STAGE": "dev",
@@ -1871,14 +1877,8 @@ mkdir -p .chalice
       }
     },
     "qa": {
-      "api_gateway_stage": "API_GATEWAY_STAGE_placeholder",
+      "api_gateway_stage": "qa",
       "autogen_policy": false,
-      "iam_role_arn": "arn:aws:iam::071141316464:role/chalice-api-dev-api_handler",
-      "manage_iam_role": false,
-      "certificate_arn": "",
-      "certificate_arn_key": "",
-      "certificate_path": "./app.APP_NAME_LOWERCASE_placeholder.local.crt",
-      "private_key_path": "./app.APP_NAME_LOWERCASE_placeholder.local.key",
       "environment_variables": {
         "PORT": "5001",
         "APP_DEBUG": "APP_DEBUG_placeholder",
@@ -1892,7 +1892,7 @@ mkdir -p .chalice
       }
     },
     "prod": {
-      "api_gateway_stage": "API_GATEWAY_STAGE_placeholder",
+      "api_gateway_stage": "prod",
       "environment_variables": {
         "APP_DEBUG": "0",
         "APP_STAGE": "prod",
@@ -3164,7 +3164,7 @@ Resources:
   APIHandler:
     Type: AWS::Serverless::Function
     Properties:
-      Runtime: python3.9
+      Runtime: python3.11
       Handler: app.app
       CodeUri: ./deployment.zip
       Tags:

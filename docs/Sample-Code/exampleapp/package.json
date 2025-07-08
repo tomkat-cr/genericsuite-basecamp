@@ -1,0 +1,19 @@
+{
+  "name": "genericsuite-exampleapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ui/src/index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.4",
+  "devDependencies": {
+    "turbo": "^2.5.4"
+  },
+  "dependencies": {
+    "dotenv": "^17.1.0"
+  }
+}

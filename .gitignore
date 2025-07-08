@@ -296,3 +296,13 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 
 .idea/
+
+# config_dbdef
+docs/Sample-Code/exampleapp/apps/ui/src/config_dbdef
+docs/Sample-Code/exampleapp/apps/ui/src/configs
+docs/Sample-Code/exampleapp/apps/api-chalice/lib/config_dbdef
+docs/Sample-Code/exampleapp/apps/api-fastapi/app/config_dbdef
+docs/Sample-Code/exampleapp/apps/api-flask/flaskr/config_dbdef
+changed_files.txt
+potential_secrets.txt
+security_scan.txt
