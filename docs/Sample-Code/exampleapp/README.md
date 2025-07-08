@@ -45,7 +45,7 @@ If you plan to use MongoDB:
 
 #### AWS account and credentials
 
-If you plan to deploy the App in the AWS Cloud:
+If you plan to deploy the App in the AWS Cloud and/or use DynamoDB:
 
 * AWS account, see [free tier](https://aws.amazon.com/free).
 * AWS Token, see [Access Keys](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials?section=IAM_credentials).

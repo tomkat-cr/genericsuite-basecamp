@@ -26,10 +26,6 @@ locked_dev:
 locked_install:
 	pipenv install --ignore-pipfile
 
-# lock_pip_file:
-# 	# pipenv run pip freeze >> requirements.txt
-# 	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile
-
 requirements:
 	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile
 
@@ -173,8 +169,6 @@ generate_cf_dynamodb:
 
 ## Deployment
 
-# deploy_qa: requirements config_qa_for_deployment create_s3_bucket_qa
-# sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh deploy qa
 deploy_qa: create_s3_bucket_qa
 	sh node_modules/genericsuite-be-scripts/scripts/aws_big_lambda/big_lambdas_manager.sh sam_deploy qa
 

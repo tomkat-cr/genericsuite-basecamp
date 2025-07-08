@@ -565,7 +565,7 @@ Remove the footer and credits:
 Finally run this command to create the `src/output.css` file:
 
 ```bash
-npx tailwindcss -i ./src/input.css -o ./src/output.css
+npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css
 ```
 
 And copy the file generated to the `public` directory:

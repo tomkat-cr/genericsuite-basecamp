@@ -26,9 +26,6 @@ locked_dev:
 locked_install:
 	pipenv install --ignore-pipfile
 
-# lock_pip_file:
-# 	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile
-
 requirements:
 	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile
 

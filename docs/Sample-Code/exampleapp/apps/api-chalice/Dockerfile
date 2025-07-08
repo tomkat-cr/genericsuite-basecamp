@@ -4,7 +4,7 @@
 FROM python:3.11
 
 ARG FLASK_APP=chalicelib
-ARG APP_STAGE=chalicelib
+ARG APP_STAGE=dev
 ARG APP_DEBUG=0
 ARG APP_DB_NAME=exampleapp_dev
 ARG APP_DB_URI
