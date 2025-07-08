@@ -15,11 +15,15 @@ The application is structured as a monorepo using [TurboRepo](https://turbo.buil
 ## 🚀 Features
 
 - **Frontend**: Modern React application with Vite
+
 - **Backend Options**:
+
   - FastAPI (Python)
   - Flask (Python)
   - Chalice (Python)
+
 - **Development Tools**:
+
   - pnpm for package management
   - TurboRepo for monorepo management
   - Environment-based configuration
@@ -57,29 +61,32 @@ If you plan to deploy the App in the AWS Cloud and/or use DynamoDB:
 ### Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/tomkat-cr/genericsuite-basecamp.git
-   cd genericsuite-basecamp
-   ```
+
+```bash
+git clone https://github.com/tomkat-cr/genericsuite-basecamp.git
+cd genericsuite-basecamp
+```
 
 2. Install dependencies:
-   ```bash
-   # Install pnpm if not already installed
-   npm install -g pnpm
-   ```
+
+```bash
+# Install pnpm if not already installed
+npm install -g pnpm
+```
 
 ### Configuration
 
 1. Copy environment files:
-   ```bash
-   # Automatically copy environment files
-   make exampleapp-init-env-files
 
-   # Manually copy environment files
-   # cp apps/ui/.env.example apps/ui/.env
-   # cp apps/api-fastapi/.env.example apps/api-fastapi/.env
-   # Repeat for other services as needed (api-flask, api-chalice)
-   ```
+```bash
+# Automatically copy environment files
+make exampleapp-init-env-files
+
+# Manually copy environment files
+# cp apps/ui/.env.example apps/ui/.env
+# cp apps/api-fastapi/.env.example apps/api-fastapi/.env
+# Repeat for other services as needed (api-flask, api-chalice)
+```
 
 2. Update the environment variables in each `.env` file according to your setup.
 
@@ -88,23 +95,25 @@ If you plan to deploy the App in the AWS Cloud and/or use DynamoDB:
     * [api AI configuration](../../Backend-Development/GenericSuite-AI/index.md#configuration).
 
 3. To select the backend implementation (FastAPI, Flask, Chalice), in the `apps/ui/.env` file set the `BACKEND_LOCAL_PORT` variable to the port of the API you want to use.
-    ```bash
-    # Chalice API
-    BACKEND_LOCAL_PORT=5001
-    # FastAPI API
-    # BACKEND_LOCAL_PORT=5011
-    # Flask API
-    # BACKEND_LOCAL_PORT=5021
-    ```
+
+```bash
+# Chalice API
+BACKEND_LOCAL_PORT=5001
+# FastAPI API
+# BACKEND_LOCAL_PORT=5011
+# Flask API
+# BACKEND_LOCAL_PORT=5021
+```
 
     **Note:** Once changed the `BACKEND_LOCAL_PORT` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
 4. Use **https**: by default the application will use http (non-secure), if you want to use https:
     - Set the `RUN_PROTOCOL` variable to `https` in the `apps/ui/.env`, `apps/api-fastapi/.env`, `apps/api-flask/.env`, `apps/api-chalice/.env` files.
     - Generate a self-signed certificate and keys (only once):
-        ```bash
-        make exampleapp-create-ssl-certs
-        ```
+
+```bash
+make exampleapp-create-ssl-certs
+```
     
     **Note:** Once changed the `RUN_PROTOCOL` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
@@ -128,38 +137,43 @@ make exampleapp-run
 In the following instructions, we will create a new GenericSuite project using the GenericSuite Basecamp repository as a template. Let's say we want to create a new project called "myapp" and the base directory is "~/dev".
 
 1. Start a new project directory. E.g. "myapp":
-   ```bash
-   mkdir ~/dev/myapp
-   cd ~/dev/myapp
-   git init
-   npm init -y
-   # or pnpm init -y
-   ```
+
+```bash
+mkdir ~/dev/myapp
+cd ~/dev/myapp
+git init
+npm init -y
+# or pnpm init -y
+```
 
 2. Clone the GenericSuite Basecamp repository:
-   ```bash
-   cd ~/dev
-   git clone https://github.com/tomkat-cr/genericsuite-basecamp.git
-   cd genericsuite-basecamp
-   ```
+
+```bash
+cd ~/dev
+git clone https://github.com/tomkat-cr/genericsuite-basecamp.git
+cd genericsuite-basecamp
+```
 
 3. Copy the sample app:
-   ```bash
-   cp -r genericsuite-basecamp/docs/Sample-Code/exampleapp ~/dev/myapp
-   ```
+
+```bash
+cp -r genericsuite-basecamp/docs/Sample-Code/exampleapp ~/dev/myapp
+```
 
 4. Install dependencies:
-   ```bash
-   cd ~/dev/myapp
-   make install
-   ```
+
+```bash
+cd ~/dev/myapp
+make install
+```
 
 5. Configure the environment variables following the instructions in the [Configuration](#configuration) section.
 
 6. Run the application:
-   ```bash
-   make run
-   ```
+
+```bash
+make run
+```
 
 <!--
 
