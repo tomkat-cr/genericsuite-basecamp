@@ -434,8 +434,18 @@ RUN_METHOD="chalice_docker"
 
 * Tests configuration
 ```env
+# Backend debug local port
+# For http (default)
+# BACKEND_DEBUG_LOCAL_PORT=5001
+# For https
+# BACKEND_DEBUG_LOCAL_PORT=5002
+
 # Testing endpoint
-TEST_APP_URL=http://app.exampleapp.local:5001
+# For http
+# (defaults to "http://localhost:5001")
+# TEST_APP_URL=http://app.exampleapp.local:5001
+# For https
+# TEST_APP_URL=https://app.exampleapp.local:5002
 ```
 
 * Run methods and framework App directory and entry point

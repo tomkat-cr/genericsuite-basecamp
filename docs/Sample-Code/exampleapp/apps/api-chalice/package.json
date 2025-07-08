@@ -29,6 +29,6 @@
     "delete_stack": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh delete_stack"
   },
   "dependencies": {
-    "genericsuite-be-scripts": "github:tomkat-cr/genericsuite-be-scripts#develop"
+    "genericsuite-be-scripts": "^1.0.14"
   }
 }

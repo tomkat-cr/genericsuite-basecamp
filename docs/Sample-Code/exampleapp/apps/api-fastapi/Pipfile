@@ -9,8 +9,8 @@ uvicorn = {extras = ["standard"] }
 python-multipart = "*"
 mangum = "*"
 fastapi-cors = "*"
-genericsuite = {ref = "develop", git = "https://github.com/tomkat-cr/genericsuite-be"}
-genericsuite-ai = {ref = "develop", git = "https://github.com/tomkat-cr/genericsuite-be-ai"}
+genericsuite = "*"
+genericsuite-ai = "*"
 
 [dev-packages]
 pytest = "*"

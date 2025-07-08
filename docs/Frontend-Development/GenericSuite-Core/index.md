@@ -202,7 +202,7 @@ Defaults to app.${REACT_APP_APP_NAME}.local (the REACT_APP_APP_NAME will be conv
 
 * Assign `FRONTEND_LOCAL_PORT` with the local development frontend port number. Defaults to 3000.
 
-* Assign `BACKEND_LOCAL_PORT` with the local development backend API port number. Defaults to 5000.
+* Assign `BACKEND_LOCAL_PORT` with the local development backend API port number. Defaults to 5001.
 
 * Assign `APP_API_URL_QA`, `APP_API_URL_STAGING`, `APP_API_URL_PROD`, and `APP_API_URL_DEMO` with the corresponding public backend API domain names for your App environments.
 

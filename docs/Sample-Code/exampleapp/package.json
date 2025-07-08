@@ -12,5 +12,8 @@
   "packageManager": "pnpm@10.12.4",
   "devDependencies": {
     "turbo": "^2.5.4"
+  },
+  "dependencies": {
+    "dotenv": "^17.1.0"
   }
 }

@@ -66,10 +66,6 @@
   "browser": {
     "fs": false
   },
-  "dependencies": {
-    "genericsuite": "github:tomkat-cr/genericsuite-fe#develop",
-    "genericsuite-ai": "github:tomkat-cr/genericsuite-fe-ai#develop"
-  },
   "devDependencies": {
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.3",
@@ -99,5 +95,9 @@
     "url-loader": "^4.1.1",
     "vite": "^5.4.19",
     "vite-plugin-require": "^1.2.14"
+  },
+  "dependencies": {
+    "genericsuite": "^1.0.25",
+    "genericsuite-ai": "^1.0.23"
   }
 }

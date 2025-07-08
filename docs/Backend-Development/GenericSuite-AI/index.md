@@ -584,6 +584,17 @@ WEAVIATE_URL=
 WEAVIATE_API_KEY=
 ```
 
+* Websearch default provider
+
+```env
+# # First DDG, if error, Google (default)
+# WEBSEARCH_DEFAULT_PROVIDER=''
+# # DuckDuckGo
+# WEBSEARCH_DEFAULT_PROVIDER='ddg'
+# # Google
+# WEBSEARCH_DEFAULT_PROVIDER='google'
+```
+
 ## Code examples and JSON configuration files
 
 The main menu, API endpoints and CRUD editor configurations are defined in the JSON configuration files.

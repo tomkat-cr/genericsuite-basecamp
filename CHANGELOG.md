@@ -17,7 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
-## 0.0.14 (2025-07-07)
+## 0.0.14 (2025-07-08)
 ---
 
 ### New
@@ -36,7 +36,8 @@ Add the "run_method_build.sh" script to run the build process using the specifie
 Add "make test-run-build" documentation.
 Implement Podman as an alternative to Docker [GS-215].
 Add CONTAINER_ENGINE and OPEN_CONTAINERS_ENGINE_APP envvars to GenericSuite BE Core [GS-215].
-Add the SSL_CERT_GEN_METHOD envvar to select the SSL certificate generation method [GS-198].
+Add the WEBSEARCH_DEFAULT_PROVIDER envvar documentation to GenericSuite AI [GS-87].
+Add configurable backend debug port using the envvar BACKEND_DEBUG_LOCAL_PORT to the "sls" (secure local server) [GS-137].
 
 ### Changes
 Add new repos to the README, repos index and general documentation index [GS-1].
