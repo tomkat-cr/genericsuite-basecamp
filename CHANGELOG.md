@@ -17,6 +17,22 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 1.1.0 (2025-07-12)
+---
+
+### New
+Add the source code link in the Basecamp README.md file [GS-137].
+Add documentation for WEBSEARCH_DEFAULT_PROVIDER and WEBSEARCH_DUCKDUCKGO_METHOD [GS-223] [GS-224].
+
+### Changes
+Change "libraries" to "packages" when referring to GenericSuite frontend and backend packages.
+NodeJs default version updated to 20+ to fulfill the requirements of tailwindcss v4 and Shadcn v2+.
+
+### Fixes
+Fix the "Error: Cannot find module 'dotenv'" error by adding the exampleapp root directory to the "build_if_required.sh" script.
+Fix the "Failed to send compressed multipart ingest: langsmith.utils.LangSmithError" error running queries to the AI Assistant by commenting the "LANGCHAIN_API_KEY" and "LANGCHAIN_PROJECT" environment variables in the "exampleapp/apps/**/.env.example" files.
+
+
 ## 1.0.0 (2025-07-08)
 ---
 

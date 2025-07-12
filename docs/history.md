@@ -34,7 +34,7 @@ Between August and November 2023 I explored and included AI image and audio gene
 
 In December 2023 I decided to implement generic programming using [Langchain for Python](https://python.langchain.com/), to use any [LLM](https://en.wikipedia.org/wiki/Large_language_model) / [NLP](https://en.wikipedia.org/wiki/Natural_language_processing) / [Embeddings models](https://en.wikipedia.org/wiki/Word_embedding) and avoid being tied to a single AI provider.
 
-In February 2024 I started extracting all the generic programming from [FynApp](https://www.carlosjramirez.com/en/fynapp-an-app-to-achieve-calorie-deficit/) and then [The GenericSuite](https://genericsuite.carlosjramirez.com) was born. The first version was published at the beginning of March 2024 and the ready betty libraries were published in NPMJS and Pypi at the beginning of April 2024.
+In February 18th, 2024, [The GenericSuite](https://genericsuite.carlosjramirez.com) was born extracting all the generic programming from [FynApp](https://www.carlosjramirez.com/en/fynapp-an-app-to-achieve-calorie-deficit/). The first version was published at the beginning of March 2024 and the first packages were published in NPMJS and PyPI at the beginning of April 2024.
 
 This is my first contribution to the open source community.
 

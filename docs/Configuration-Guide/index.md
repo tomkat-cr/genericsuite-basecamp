@@ -725,7 +725,7 @@ Will have the child component backend configuration.<br/>
 }
 ```
 
-### Use bmbedded Icons library: <GsIcons>
+### Use GenericSuite Icons library: <GsIcons>
 
 There's a list of included or embedded Icons in the `node_modules/genericsuite/src/lib/helpers/IconsLib.jsx` file.
 

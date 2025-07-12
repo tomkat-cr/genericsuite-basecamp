@@ -10,7 +10,9 @@ It is inspired by the principles of Caloric Deficit. The purpose is to achieve w
 - Keep track their calorie consumption
 - AI-powered experiences to the users by letting them to communicate by voice, text, or image uploads to a specialized assistant called ExampleApp Bot, which is based on large language models, speech-to-text, text to image and image to text technologies.
 
-The application is structured as a monorepo using [TurboRepo](https://turbo.build/repo).
+You can check the [Source Code here](https://github.com/tomkat-cr/genericsuite-basecamp/tree/main/docs/Sample-Code/exampleapp).
+
+The application is structured as a monorepo using [TurboRepo](https://turborepo.com/docs) and [pnpm](https://pnpm.io).
 
 ## 🚀 Features
 
@@ -32,7 +34,7 @@ The application is structured as a monorepo using [TurboRepo](https://turbo.buil
 
 ### Software
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
-- Node version 18+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install (version specified in `.nvmrc`).
+- Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install (version specified in `.nvmrc`).
 - [pnpm](https://pnpm.io/installation) (version 10.12.4 or compatible)
 - [Python](https://www.python.org/downloads/) >= 3.9 and < 4.0 (version specified in `.python-version`)
 - [Pipenv](https://pipenv.pypa.io/en/latest/) (for Python dependency management)
@@ -105,7 +107,7 @@ BACKEND_LOCAL_PORT=5001
 # BACKEND_LOCAL_PORT=5021
 ```
 
-    **Note:** Once changed the `BACKEND_LOCAL_PORT` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
+**Note:** Once changed the `BACKEND_LOCAL_PORT` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
 4. Use **https**: by default the application will use http (non-secure), if you want to use https:
     - Set the `RUN_PROTOCOL` variable to `https` in the `apps/ui/.env`, `apps/api-fastapi/.env`, `apps/api-flask/.env`, `apps/api-chalice/.env` files.
@@ -115,12 +117,12 @@ BACKEND_LOCAL_PORT=5001
 make exampleapp-create-ssl-certs
 ```
     
-    **Note:** Once changed the `RUN_PROTOCOL` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
+**Note:** Once changed the `RUN_PROTOCOL` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
 5. Use "webpack": by default the application will use "vite", if you want to use "webpack":
     - Uncomment the line `RUN_METHOD="webpack"` in the `apps/ui/.env`.
     
-    **Note:** Once changed the `RUN_METHOD` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
+**Note:** Once changed the `RUN_METHOD` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
 ## 🏃‍♂️ Running the Application
 

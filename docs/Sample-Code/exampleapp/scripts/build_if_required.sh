@@ -6,7 +6,7 @@
 echo ""
 echo "Building ExampleApp if required..."
 echo ""
-DIRS_TO_PROCESS="./apps/ui ./apps/api-chalice ./apps/api-fastapi ./apps/api-flask"
+DIRS_TO_PROCESS=". ./apps/ui ./apps/api-chalice ./apps/api-fastapi ./apps/api-flask"
 echo "DIRS_TO_PROCESS: $DIRS_TO_PROCESS"
 for dir in $DIRS_TO_PROCESS; do
     if [ ! -d "$dir/node_modules" ]; then

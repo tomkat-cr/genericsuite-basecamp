@@ -4,10 +4,10 @@
 
 To set the default `Node` version to be used by `nvm`:
 
-1. Run the following command in your terminal, replacing `<version>` with the Node version number you want to set as the default: `nvm alias default <version>`. For example, to  use `Node 18`:
+1. Run the following command in your terminal, replacing `<version>` with the Node version number you want to set as the default: `nvm alias default <version>`. For example, to  use `Node 20`:
 
 ```sh
-nvm alias default 18
+nvm alias default 20
 ```
 
 2. Create a `.nvmrc` file in your project root directory with the Node version in its content, so the new version will be set when you run `nvm use` or when a Terminal is opened in your favorite code editor (e.g. Visual Studio Code or Cursor.sh). For example:
@@ -15,7 +15,7 @@ nvm alias default 18
 File: `.nvmrc`
 
 ```
-18
+20
 ```
 
 3. Create a `.nvmrc` file in your user's home directory with the Node version and add the commands on the shell starter script, so the new version will be set when a new Terminal window is opened. For example:
@@ -145,4 +145,4 @@ npm uninstall genericsuite-ai && npm install tomkat-cr/genericsuite-fe-ai#develo
 
 **IMPORTANT**:
 
-* When you've made changes to any of the GenericSuite frontend libraries code, perform a `make pre-publish` to rebuild the `dist` directory files before the Git `commit` and `push`, because those files are the ones used when the parent project use (installs) the libraries. Then reinstall the changed library in the parent project using the `npm install tomkat-cr/genericsuite-fe...` command.
+* When you've made changes to any of the GenericSuite frontend packages code, perform a `make pre-publish` to rebuild the `dist` directory files before the Git `commit` and `push`, because those files are required for `npm install` to work. Then re-install the changed package in the parent project (your app) using the `npm install tomkat-cr/genericsuite-fe` or `npm install tomkat-cr/genericsuite-fe-ai` command.
