@@ -174,7 +174,7 @@ Repository:
 
 ## Repositories
 
-Click [here](./repositories.md) to review the Git repositories, NPMJS and Pypi libraries.
+[Click here](./repositories.md) to review the Git repositories, NPMJS and PyPI packages.
 
 ## Documentation
 

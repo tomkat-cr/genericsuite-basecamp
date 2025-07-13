@@ -37,7 +37,7 @@ Index of the available repositories for GenericSuite.
 * Repos index: :fontawesome-brands-github:{ .github } [https://github.com/stars/tomkat-cr/lists/genericsuite](https://github.com/stars/tomkat-cr/lists/genericsuite)
 * GS Gitops (Local Development Server operations): :fontawesome-brands-linux:{ .linux } [https://github.com/tomkat-cr/genericsuite-gitops](https://github.com/tomkat-cr/genericsuite-gitops)
 
-## Published libraries
+## Published packages
 
 ### Frontend
 

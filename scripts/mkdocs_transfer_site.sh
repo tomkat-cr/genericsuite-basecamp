@@ -89,9 +89,9 @@ echo ""
 echo "'mkdocs build' completed"
 
 # Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories and `.env*` files under "./site" and sub-directories.
-if ! sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh "${SOURCE_DIRECTORY_PATH}" "true" "true"
+if ! sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh "${SOURCE_DIRECTORY_PATH}" "true" "${DEBUG}"
 then
-    echo "ERROR: 'sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${SOURCE_DIRECTORY_PATH}\" \"true\" \"true\"' failed"
+    echo "ERROR: 'sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${SOURCE_DIRECTORY_PATH}\" \"true\" \"${DEBUG}\"' failed"
     exit 1
 fi
 

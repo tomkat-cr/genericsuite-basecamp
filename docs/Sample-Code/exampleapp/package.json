@@ -4,7 +4,8 @@
   "description": "",
   "main": "ui/src/index.jsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "echo \"No build necessary for main monorepo\" && exit 0",
+    "test": "echo \"No test necessary for main monorepo\" && exit 0"
   },
   "keywords": [],
   "author": "",

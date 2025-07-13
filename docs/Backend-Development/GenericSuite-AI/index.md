@@ -18,7 +18,7 @@ The perfect companion for this backend solution is [The GenericSuite AI (fronten
 - [Python](https://www.python.org/downloads/) >= 3.9 and < 4.0
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
-- Node version 18+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
+- Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
 * [Docker and Docker Composer](https://www.docker.com/products/docker-desktop)
 
 ### AWS account and credentials
@@ -128,9 +128,11 @@ OPENAI_TEMPERATURE=0.5
 * Langchain/LangSmith configuration<BR/>
 [https://smith.langchain.com/settings](https://smith.langchain.com/settings)
 ```
-LANGCHAIN_API_KEY=langchain_api_key
-LANGCHAIN_PROJECT=langchain_project
+# LANGCHAIN_API_KEY=langchain_api_key
+# LANGCHAIN_PROJECT=langchain_project
 ```
+
+**NOTE**: Langchain/LangSmith configuration is optional. If you don't have a Langchain/LangSmith account, leave the variables commented.
 
 * Hugging Face credentials<BR/>
 [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
@@ -584,15 +586,26 @@ WEAVIATE_URL=
 WEAVIATE_API_KEY=
 ```
 
-* Websearch default provider
+* Websearch Provider
 
 ```env
-# # First DDG, if error, Google (default)
+# WebSearch tool: Provider
+# * Default: First DDG, if error, Google
 # WEBSEARCH_DEFAULT_PROVIDER=''
-# # DuckDuckGo
+# * DuckDuckGo only
 # WEBSEARCH_DEFAULT_PROVIDER='ddg'
-# # Google
+# * Google only
 # WEBSEARCH_DEFAULT_PROVIDER='google'
+```
+
+* Websearch DuckDuckGo (ddg) method
+
+```env
+# WebSearch tool: DuckDuckGo settings
+# * Default: DDGS (Dux Distributed Global Search)
+WEBSEARCH_DUCKDUCKGO_METHOD='ddg'
+# * Langchain DuckDuckGo wrapper
+# WEBSEARCH_DUCKDUCKGO_METHOD='ddg_lc'
 ```
 
 ## Code examples and JSON configuration files
