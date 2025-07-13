@@ -1,6 +1,8 @@
 # GenericSuite Example Application
 
-**ExampleApp** is a full-stack example application demonstrating a modern web application architecture with multiple backend services and a React-based frontend implementing GenericSuite.
+![ExampleApp Banner](./assets/exampleapp_banner_01.png)
+
+**ExampleApp** is a full-stack example application demonstrating a modern webapp architecture with multiple backend services and a React-based frontend implementing GenericSuite.
 
 It is inspired by the principles of Caloric Deficit. The purpose is to achieve weight loss goals and maintain a better lifestyle, based on proper nutrition. 
 
@@ -194,7 +196,7 @@ pnpm build
 
 ## 📂 Project Structure
 
-The `exampleapp` directory is located in the [./docs/Sample-Code](../../Sample-Code/exampleapp/) directory. It contains the following structure:
+The `exampleapp` directory is located in the Basecamp `docs/Sample-Code` directory. It contains the following structure:
 ```
 exampleapp/
 ├── apps/
