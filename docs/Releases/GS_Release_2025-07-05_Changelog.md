@@ -28,9 +28,9 @@ This release underscores our commitment to providing a powerful, flexible, and d
 
 ### Package, Pull Request and Tag 1.0.25
 
-* https://www.npmjs.com/package/genericsuite/v/1.0.25
-* https://github.com/tomkat-cr/genericsuite-fe/pull/7
-* https://github.com/tomkat-cr/genericsuite-fe/releases/tag/1.0.25
+* Package: [https://www.npmjs.com/package/genericsuite/v/1.0.25](https://www.npmjs.com/package/genericsuite/v/1.0.25)
+* Tag: [https://github.com/tomkat-cr/genericsuite-fe/releases/tag/1.0.25](https://github.com/tomkat-cr/genericsuite-fe/releases/tag/1.0.25)
+* PR: [https://github.com/tomkat-cr/genericsuite-fe/pull/7](https://github.com/tomkat-cr/genericsuite-fe/pull/7)
 
 ### Pull Request Overview # 1
 
@@ -56,7 +56,7 @@ This PR integrates Axios as an alternative to fetch, centralizes environment var
 - Refactors dbApiService to use gsFetch and adds optional Access-Control-Expose-Headers
 - Updates both Webpack and Vite configs for unified process.env, HTTPS support, and debugging output
 
-### CHANGELOG.md
+### Changelog
 
 #### 1.0.25 (2025-07-08)
 ---
@@ -108,15 +108,13 @@ This PR integrates Axios as an alternative to fetch, centralizes environment var
 - Fix prevent object mutation in Object.assign calls by adding empty object as first parameter
 - Update "webpack.config.js" to fix the error "Error: Can't resolve 'process/browser'" and remove NODE_TLS_REJECT_UNAUTHORIZED envvar [GS-199] [GS-198] [GS-195].
 
-...
-
 ## GenericSuite Frontend AI
 
 ### Package, Pull Request and Tag 1.0.23
 
-* https://www.npmjs.com/package/genericsuite-ai/v/1.0.23
-* https://github.com/tomkat-cr/genericsuite-fe-ai/pull/7
-* https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.0.23
+* Package: [https://www.npmjs.com/package/genericsuite-ai/v/1.0.23](https://www.npmjs.com/package/genericsuite-ai/v/1.0.23)
+* Tag: [https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.0.23](https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.0.23)
+* PR: [https://github.com/tomkat-cr/genericsuite-fe-ai/pull/7](https://github.com/tomkat-cr/genericsuite-fe-ai/pull/7)
 
 ### Pull Request Overview # 1
 
@@ -126,7 +124,7 @@ This PR prepares the v1.0.23 release by upgrading core dependencies, adding Vite
 - Integrate Vite configuration as an alternative to the existing Webpack setup.
 - Upgrade Tailwind CSS to v4.x, move environment definitions into shared objects, and fix Jest test environment.
 
-### CHANGELOG.md
+### Changelog
 
 #### 1.0.23 (2025-07-08)
 ---
@@ -150,15 +148,13 @@ This PR prepares the v1.0.23 release by upgrading core dependencies, adding Vite
 - Fix "Warning: Each child in a list should have a unique "key" prop. Check the render method of `ChatCodeBlock`" warning.
 - Update "webpack.config.js" to fix the error "Error: Can't resolve 'process/browser'" and remove NODE_TLS_REJECT_UNAUTHORIZED envvar [GS-199] [GS-198] [GS-195].
 
-...
-
 ## GenericSuite Backend Core
 
 ### Package, Pull Request and Tag 1.0.11
 
-* https://pypi.org/project/genericsuite/0.1.11/
-* https://github.com/tomkat-cr/genericsuite-be/pull/10
-* https://github.com/tomkat-cr/genericsuite-be/releases/tag/0.1.11
+* Package: [https://pypi.org/project/genericsuite/0.1.11/](https://pypi.org/project/genericsuite/0.1.11/)
+* Tag: [https://github.com/tomkat-cr/genericsuite-be/releases/tag/0.1.11](https://github.com/tomkat-cr/genericsuite-be/releases/tag/0.1.11)
+* PR: [https://github.com/tomkat-cr/genericsuite-be/pull/10](https://github.com/tomkat-cr/genericsuite-be/pull/10)
 
 ### Pull Request Overview # 1
 
@@ -168,7 +164,7 @@ This PR advances the project to v0.1.11, makes JWT expiration configurable, and 
 - Read EXPIRATION_MINUTES from environment in jwt module
 - Refactor request abstraction and query-param parsing for Flask and FastAPI
 
-### CHANGELOG.md
+### Changelog
 
 #### 0.1.11 (2025-07-08)
 
@@ -188,15 +184,13 @@ This PR advances the project to v0.1.11, makes JWT expiration configurable, and 
 - Fix the filter issue in the CRUD editor using FastAPI [GS-200].
 - Linting changes.
 
-...
-
 ## GenericSuite Backend AI
 
 ### Package, Pull Request and Tag 1.0.13
 
-* https://pypi.org/project/genericsuite-ai/0.1.13/
-* https://github.com/tomkat-cr/genericsuite-be-ai/pull/9
-* https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.1.13
+* Package: [https://pypi.org/project/genericsuite-ai/0.1.13/](https://pypi.org/project/genericsuite-ai/0.1.13/)
+* Tag: [https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.1.13](https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.1.13)
+* PR: [https://github.com/tomkat-cr/genericsuite-be-ai/pull/9](https://github.com/tomkat-cr/genericsuite-be-ai/pull/9)
 
 ### Pull Request Overview # 1
 
@@ -206,7 +200,7 @@ This release bumps to version 0.1.13, adds new AI providers (OpenRouter, Vertex 
 - Introduce new AI providers: OpenRouter and Google Vertex AI, plus Flask REST endpoints
 - Add GET_MOCKS_DEBUG for audio testing and unify IBM WatsonX environment-driven parameters
 
-### CHANGELOG.md
+### Changelog
 
 #### 0.1.13 (2025-07-08)
 ---
@@ -234,9 +228,9 @@ This release bumps to version 0.1.13, adds new AI providers (OpenRouter, Vertex 
 
 ### Package, Pull Request and Tag 1.0.14
 
-* https://pypi.org/project/genericsuite-ai/0.1.14/
-* https://github.com/tomkat-cr/genericsuite-be-ai/pull/10
-* https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.1.14
+* Package: [https://pypi.org/project/genericsuite-ai/0.1.14/](https://pypi.org/project/genericsuite-ai/0.1.14/)
+* Tag: [https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.1.14](https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.1.14)
+* PR: [https://github.com/tomkat-cr/genericsuite-be-ai/pull/10](https://github.com/tomkat-cr/genericsuite-be-ai/pull/10)
 
 ### Pull Request Overview # 2
 
@@ -247,7 +241,7 @@ This PR fixes rate-limiting issues with DuckDuckGo searches and referer-blocking
 - Adds a paginated Google search implementation, updates result sanitization, and updates changelog
 - Updates Node version in .nvmrc from 18 to 20
 
-### CHANGELOG.md
+### Changelog
 
 #### 0.1.14 (2025-07-12)
 ---
@@ -256,15 +250,13 @@ This PR fixes rate-limiting issues with DuckDuckGo searches and referer-blocking
 - Fix DuckDuckGo Search "202 Ratelimit error" [GS-224].
 - Fix Google Search API requests from referer empty are blocked error [GS-223].
 
-...
-
 ## GenericSuite Backend Scripts
 
 ### Package, Pull Request and Tag 1.0.14
 
-* https://www.npmjs.com/package/genericsuite-be-scripts/v/1.0.14
-* https://github.com/tomkat-cr/genericsuite-be-scripts/pull/8
-* https://github.com/tomkat-cr/genericsuite-be-scripts/releases/tag/1.0.14
+* Package: [https://www.npmjs.com/package/genericsuite-be-scripts/v/1.0.14](https://www.npmjs.com/package/genericsuite-be-scripts/v/1.0.14)
+* Tag: [https://github.com/tomkat-cr/genericsuite-be-scripts/releases/tag/1.0.14](https://github.com/tomkat-cr/genericsuite-be-scripts/releases/tag/1.0.14)
+* PR: [https://github.com/tomkat-cr/genericsuite-be-scripts/pull/8](https://github.com/tomkat-cr/genericsuite-be-scripts/pull/8)
 
 ### Pull Request Overview # 1
 
@@ -282,7 +274,7 @@ This PR standardizes container engine commands across scripts with a new manager
 - Default SSL cert generation to mkcert, unify nginx conf into conf.d, and improve secure local server options.
 - Add link_gs_libs_for_dev.sh and Makefile targets for live linking of GenericSuite libraries.
 
-### CHANGELOG.md
+### Changelog
 
 #### 1.0.14 (2025-07-08)
 ---
@@ -316,14 +308,12 @@ This PR standardizes container engine commands across scripts with a new manager
 - Fix "run_aws.sh" to assign the correct AWS Stack Name and avoid the error "An error occurred (ValidationError) when calling the DescribeStacks operation: 1 validation error detected: Value '${APP_NAME_LOWERCASE}-be-stack' at 'stackName' failed to satisfy constraint: Member must satisfy regular expression pattern: [a-zA-Z][-a-zA-Z0-9]*|arn:[-a-zA-Z0-9:/._+]*" [GS-137].
 - Fix ".chalice/config_example.json" to remove the API_GATEWAY_STAGE_placeholder from the "api_gateway_stage" attribute and assign the correct value, and remove unused attributes in the QA stage [FA-248].
 
-...
-
 ## GenericSuite BaseCamp
 
 ### Pull Request and Tag 1.0.0
 
-* https://github.com/tomkat-cr/genericsuite-basecamp/pull/7
-* https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.0.0
+* Tag: [https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.0.0](https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.0.0)
+* PR: [https://github.com/tomkat-cr/genericsuite-basecamp/pull/7](https://github.com/tomkat-cr/genericsuite-basecamp/pull/7)
 
 ### Pull Request Overview # 1
 
@@ -349,7 +339,7 @@ A concise update to include new repositories and strengthen the project’s intr
 - Expanded the documentation index with “Why Choose” and “Key Features” sections to emphasize project value.
 - Recorded the changes in CHANGELOG under an unreleased version.
 
-### CHANGELOG.md
+### Changelog
 
 #### 1.1.0 (2025-07-12)
 ---
@@ -371,8 +361,8 @@ A concise update to include new repositories and strengthen the project’s intr
 
 ### Pull Request and Tag 1.1.0
 
-* https://github.com/tomkat-cr/genericsuite-basecamp/pull/8
-* https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.1.0
+* Tag: [https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.1.0](https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.1.0)
+* PR: [https://github.com/tomkat-cr/genericsuite-basecamp/pull/8](https://github.com/tomkat-cr/genericsuite-basecamp/pull/8)
 
 ### Pull Request Overview # 4
 
@@ -382,7 +372,7 @@ This PR updates documentation and fixes build/runtime issues as part of the 1.1.
 - Add source code link in the example app README and enhance environment variable docs
 - Fix build script to include the root directory and comment out problematic Langchain env vars
 
-### CHANGELOG.md
+### Changelog
 
 #### 1.0.0 (2025-07-08)
 ---
@@ -418,14 +408,12 @@ This PR updates documentation and fixes build/runtime issues as part of the 1.1.
 ##### Fixes
 - Fix: chalice config template file in documentation.
 
-...
-
 ## GenericSuite Gitops
 
 ### Pull Request and Tag 0.3.0
 
-* https://github.com/tomkat-cr/genericsuite-gitops/pull/2
-* https://github.com/tomkat-cr/genericsuite-gitops/releases/tag/0.3.0
+* Tag: [https://github.com/tomkat-cr/genericsuite-gitops/releases/tag/0.3.0](https://github.com/tomkat-cr/genericsuite-gitops/releases/tag/0.3.0)
+* PR: [https://github.com/tomkat-cr/genericsuite-gitops/pull/2](https://github.com/tomkat-cr/genericsuite-gitops/pull/2)
 
 ### Pull Request Overview # 1
 
@@ -443,7 +431,7 @@ This PR adds a new update workflow for the open-webui container and switches n8n
 - Modifies n8n/docker-compose.yml to use the untagged/latest n8n image and comments out the previous pinned version.
 - Updates CHANGELOG.md to version 0.3.0, documenting the new webUI update feature and n8n version change.
 
-### CHANGELOG.md
+### Changelog
 
 #### 0.3.0 (2025-07-07)
 ---

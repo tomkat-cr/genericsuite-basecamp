@@ -185,11 +185,15 @@ Repository:
 
 ## Sample Code
 
-* [ExampleApp](./Sample-Code/exampleapp/README.md)
+We have a [ExampleApp](./Sample-Code/exampleapp/README.md) to show you how to use the GenericSuite libraries.
+
+[![ExampleApp Banner](./Sample-Code/exampleapp/assets/exampleapp_banner_01.png)](./Sample-Code/exampleapp/README.md)    
+
+[ExampleApp](./Sample-Code/exampleapp/README.md) is a full-featured example application built as a monorepo using Turborepo and pnpm. This provides a practical, real-world blueprint for developers to learn from and accelerate their own projects. There are a frontend in React and backends in Python, using the 3 main frameworks: FastAPI, Flask and Chalice.
 
 ## Releases
 
-* [Releases](./Releases/index.md)
+You can find the detailed changelog for each release [here](./Releases/index.md).
 
 ## Presentation
 

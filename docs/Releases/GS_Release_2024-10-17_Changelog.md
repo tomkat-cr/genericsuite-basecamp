@@ -18,11 +18,11 @@ Don’t miss out on this update, which takes AI management to the next level!
 
 ## GenericSuite Frontend Core:
 
-### Package, pull reuest and tag
+### Package, pull request and tag
 
-* Package: https://www.npmjs.com/package/genericsuite/v/1.0.23
-* Tag: https://github.com/tomkat-cr/genericsuite-fe/releases/tag/1.0.23
-* PR: https://github.com/tomkat-cr/genericsuite-fe/pull/5
+* Package: [https://www.npmjs.com/package/genericsuite/v/1.0.23](https://www.npmjs.com/package/genericsuite/v/1.0.23)
+* Tag: [https://github.com/tomkat-cr/genericsuite-fe/releases/tag/1.0.23](https://github.com/tomkat-cr/genericsuite-fe/releases/tag/1.0.23)
+* PR: [https://github.com/tomkat-cr/genericsuite-fe/pull/5](https://github.com/tomkat-cr/genericsuite-fe/pull/5)
 
 ### Changelog
 
@@ -30,19 +30,19 @@ Don’t miss out on this update, which takes AI management to the next level!
 ---
 
 ##### New
-Add "closeHandler" parameter to errorAndReEnter().
+- Add "closeHandler" parameter to errorAndReEnter().
 
 ##### Fixes
-Fix markdown formatting in AI Assistant conversation [GS-145].
-Fix copy button in non-secure http connection [GS-144].
+- Fix markdown formatting in AI Assistant conversation [GS-145].
+- Fix copy button in non-secure http connection [GS-144].
 
 ## GenericSuite Frontend AI:
 
-### Package, pull reuest and tag
+### Package, pull request and tag
 
-* Package: https://www.npmjs.com/package/genericsuite-ai/v/1.0.21
-* Tag: https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.0.21 
-* PR: https://github.com/tomkat-cr/genericsuite-fe-ai/pull/5
+* Package: [https://www.npmjs.com/package/genericsuite-ai/v/1.0.21](https://www.npmjs.com/package/genericsuite-ai/v/1.0.21)
+* Tag: [https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.0.21](https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.0.21) 
+* PR: [https://github.com/tomkat-cr/genericsuite-fe-ai/pull/5](https://github.com/tomkat-cr/genericsuite-fe-ai/pull/5)
 
 ### Changelog
 
@@ -50,22 +50,22 @@ Fix copy button in non-secure http connection [GS-144].
 ---
 
 ##### Changes
-GenericSuite FE core upgraded to v1.0.23.
+- GenericSuite FE core upgraded to v1.0.23.
 
 ##### Fixes
-Fix Markdown formatting in AI Assistant conversation [GS-145].
-Fix copy button in non-secure http connection [GS-144].
-Fix conversation list reload when any error occurs.
-Fix show vertical scroll bar in the chatbot input area when the content is too long.
-Fix AI Assistant in mobile devices.
+- Fix Markdown formatting in AI Assistant conversation [GS-145].
+- Fix copy button in non-secure http connection [GS-144].
+- Fix conversation list reload when any error occurs.
+- Fix show vertical scroll bar in the chatbot input area when the content is too long.
+- Fix AI Assistant in mobile devices.
 
 ## GenericSuite Backend AI:
 
-### Package, pull reuest and tag
+### Package, pull request and tag
 
-* Tag: https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.1.11
-* PR: https://github.com/tomkat-cr/genericsuite-be-ai/pull/7
-* Package: https://pypi.org/project/genericsuite-ai/0.1.11/
+* Tag: [https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.1.11](https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.1.11)
+* PR: [https://github.com/tomkat-cr/genericsuite-be-ai/pull/7](https://github.com/tomkat-cr/genericsuite-be-ai/pull/7)
+* Package: [https://pypi.org/project/genericsuite-ai/0.1.11/](https://pypi.org/project/genericsuite-ai/0.1.11/)
 
 ### Changelog
 
@@ -73,13 +73,13 @@ Fix AI Assistant in mobile devices.
 ---
 
 ##### New
-Implement preamble model to run OpenAI o1-mini/o1-preview models with Tools and System messages [GS-140].
-Add AI_PREAMBLE_MODEL_DEFAULT_TYPE, AI_PREAMBLE_MODEL_DEFAULT_MODEL, AI_PREAMBLE_MODEL_BASE_CONF, AI_PREAMBLE_MODEL_CUSTOM_CONF to customize the preamble model [GS-140].
-Implement ollama server [GS-139].
-Add AI_MODEL_ALLOW_SYSTEM_MSG, AI_MODEL_ALLOW_TOOLS, and AI_MODEL_NEED_PREAMBLE to manage models like Ollama "llava" that doesn't accept Tools [GS-140].
+- Implement preamble model to run OpenAI o1-mini/o1-preview models with Tools and System messages [GS-140].
+- Add AI_PREAMBLE_MODEL_DEFAULT_TYPE, AI_PREAMBLE_MODEL_DEFAULT_MODEL, AI_PREAMBLE_MODEL_BASE_CONF, AI_PREAMBLE_MODEL_CUSTOM_CONF to customize the preamble model [GS-140].
+- Implement ollama server [GS-139].
+- Add AI_MODEL_ALLOW_SYSTEM_MSG, AI_MODEL_ALLOW_TOOLS, and AI_MODEL_NEED_PREAMBLE to manage models like Ollama "llava" that doesn't accept Tools [GS-140].
 
 ##### Changes
-Update ChatOllama adding the "langchain-ollama" dependency [GS-139].
+- Update ChatOllama adding the "langchain-ollama" dependency [GS-139].
 
 ##### Fixes
-Fix Tools make Agent returns empty responses in LCEL chains. Now Agent returns the result when there are no more Tools to call [GS-143].
+- Fix Tools make Agent returns empty responses in LCEL chains. Now Agent returns the result when there are no more Tools to call [GS-143].
