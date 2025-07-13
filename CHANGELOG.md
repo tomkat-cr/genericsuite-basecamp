@@ -28,7 +28,7 @@ Add documentation for WEBSEARCH_DEFAULT_PROVIDER and WEBSEARCH_DUCKDUCKGO_METHOD
 Change "libraries" to "packages" when referring to GenericSuite frontend and backend packages.
 NodeJs default version updated to 20+ to fulfill the requirements of tailwindcss v4 and Shadcn v2+.
 Change "make transfer" to run in CI/CD mode by default.
-Change wording in history.
+Change wording in history.md and exampleapp's README.md.
 Change build_if_required.sh to use bash arrays.
 
 ### Fixes

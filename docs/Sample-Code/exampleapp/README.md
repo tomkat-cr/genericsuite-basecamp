@@ -10,7 +10,7 @@ It is inspired by the principles of Caloric Deficit. The purpose is to achieve w
 - Keep track their calorie consumption
 - AI-powered experiences to the users by letting them to communicate by voice, text, or image uploads to a specialized assistant called ExampleApp Bot, which is based on large language models, speech-to-text, text to image and image to text technologies.
 
-You can check the [Source Code here](https://github.com/tomkat-cr/genericsuite-basecamp/tree/main/docs/Sample-Code/exampleapp).
+You can view the [Source Code here](https://github.com/tomkat-cr/genericsuite-basecamp/tree/main/docs/Sample-Code/exampleapp).
 
 The application is structured as a monorepo using [TurboRepo](https://turborepo.com/docs) and [pnpm](https://pnpm.io).
 
