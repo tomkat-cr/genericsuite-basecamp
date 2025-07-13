@@ -73,7 +73,9 @@ Join the growing community of developers using Generic Suite to supercharge thei
 * [What is the Generic Suite for?](#what-is-the-genericsuite-for)
 * [The Generic Suite Core](#the-genericsuite-core)
 * [The Generic Suite AI](#the-genericsuite-ai)
+* [Sample Code](#sample-code)
 * [Repositories](#repositories)
+* [Releases](#releases)
 * [Presentation](#presentation)
 * [Post](#posts)
 * [Frontend Development](./Frontend-Development/index.md)
@@ -180,6 +182,14 @@ Repository:
 
 * Main: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
 * Mirror: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
+
+## Sample Code
+
+* [ExampleApp](./Sample-Code/exampleapp/README.md)
+
+## Releases
+
+* [Releases](./Releases/index.md)
 
 ## Presentation
 

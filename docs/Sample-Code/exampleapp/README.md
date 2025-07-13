@@ -194,7 +194,7 @@ pnpm build
 
 ## 📂 Project Structure
 
-The `exampleapp` directory is located in the [./docs/Sample-Code](../../Sample-Code/exampleapp/) directory. It contains the following structure:
+The `exampleapp` directory is located in the Basecamp `docs/Sample-Code` directory. It contains the following structure:
 ```
 exampleapp/
 ├── apps/

@@ -17,6 +17,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 1.2.0 (2025-07-13)
+---
+
+### New
+Add the Release page with the latest GenericSuite releases since 2024-10-07 [GS-222].
+
+
 ## 1.1.0 (2025-07-12)
 ---
 
