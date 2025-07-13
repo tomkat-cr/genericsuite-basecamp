@@ -9,12 +9,14 @@ help:
 install:
 	sh scripts/mkdocs_install.sh
 
-transfer:
+transfer_debug:
 	sh scripts/mkdocs_transfer_site.sh
 
 transfer_cicd:
 	# Set DEBUG to false to avoid blocking automation in CI environments
 	DEBUG="false" sh scripts/mkdocs_transfer_site.sh
+
+transfer: transfer_cicd
 
 publish: transfer
 

@@ -27,6 +27,9 @@ Add documentation for WEBSEARCH_DEFAULT_PROVIDER and WEBSEARCH_DUCKDUCKGO_METHOD
 ### Changes
 Change "libraries" to "packages" when referring to GenericSuite frontend and backend packages.
 NodeJs default version updated to 20+ to fulfill the requirements of tailwindcss v4 and Shadcn v2+.
+Change "make transfer" to run in CI/CD mode by default.
+Change wording in history.
+Change build_if_required.sh to use bash arrays.
 
 ### Fixes
 Fix the "Error: Cannot find module 'dotenv'" error by adding the exampleapp root directory to the "build_if_required.sh" script.

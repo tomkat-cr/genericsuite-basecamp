@@ -1,0 +1,24 @@
+{
+  "name": "config_dbdef",
+  "version": "1.0.0",
+  "description": "ExampleApp (Database definitions)",
+  "author": "Example App Author",
+  "license": "Private",
+  "homepage": "https://github.com/github-username/exampleapp_config_dbdef#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github-username/exampleapp_config_dbdef.git"
+  },
+  "bugs": {
+    "url": "https://github.com/github-username/exampleapp_config_dbdef/issues"
+  },
+  "scripts": {
+    "dev": "echo \"No dev necessary for config_dbdef\" && exit 0",
+    "install": "echo \"No install necessary for config_dbdef\" && exit 0",
+    "build": "echo \"No build necessary for config_dbdef\" && exit 0",
+    "test": "echo \"No test necessary for config_dbdef\" && exit 0",
+    "deploy": "echo \"No deploy necessary for config_dbdef\" && exit 0",
+    "clean": "echo \"No clean necessary for config_dbdef\" && exit 0",
+    "check-types": "echo \"No check-types necessary for config_dbdef\" && exit 0"
+  }
+}

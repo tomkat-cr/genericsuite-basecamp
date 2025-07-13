@@ -4,7 +4,7 @@
 
 To set the default `Node` version to be used by `nvm`:
 
-1. Run the following command in your terminal, replacing `<version>` with the Node version number you want to set as the default: `nvm alias default <version>`. For example, to  use `Node 20`:
+1. Run the following command in your terminal, replacing `<version>` with the Node version number you want to set as the default: `nvm alias default <version>`. For example, to use `Node 20`:
 
 ```sh
 nvm alias default 20
