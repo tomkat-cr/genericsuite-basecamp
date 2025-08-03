@@ -1,0 +1,9 @@
+{
+  "mcp": {
+    "servers": {
+      "exampleapp-nutrition": {
+        "command": "sh /absolute/path/to/genericsuite-basecamp/docs/Sample-Code/exampleapp/apps/mcp-server/run_mcp_server.sh"
+      }
+    }
+  }
+}

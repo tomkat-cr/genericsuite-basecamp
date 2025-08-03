@@ -185,7 +185,7 @@ Repository:
 
 ## Sample Code
 
-We have a [ExampleApp](./Sample-Code/exampleapp/README.md) to show you how to use the GenericSuite libraries.
+We have an [ExampleApp](./Sample-Code/exampleapp/README.md) to show you how to use the GenericSuite libraries.
 
 [![ExampleApp Banner](./Sample-Code/exampleapp/assets/exampleapp_banner_01.png)](./Sample-Code/exampleapp/README.md)    
 

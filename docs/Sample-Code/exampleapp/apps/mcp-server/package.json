@@ -1,0 +1,34 @@
+{
+  "name": "mcp_server",
+  "version": "1.0.0",
+  "description": "ExampleApp (MCP Server)",
+  "author": "Example App Author",
+  "license": "Private",
+  "homepage": "https://github.com/github-username/exampleapp_mcp_server#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github-username/exampleapp_mcp_server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/github-username/exampleapp_mcp_server/issues"
+  },
+  "scripts": {
+    "dev": "npm run start:qa",
+    "build": "make install_dev",
+    "test": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh test",
+"start:local123": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh",
+    "start:local": "sh ./run_mcp_server.sh",
+"start:qa123": "sh node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local qa",
+    "start:qa": "sh node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && sh ./run_mcp_server.sh",
+    "deploy": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh deploy",
+    "pipfile": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile",
+    "shell": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh shell",
+    "clean": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh clean",
+    "coverage": "pipenv run coverage run -m unittest discover tests; pipenv run coverage report",
+    "lint": "pipenv run prospector",
+    "check-types": "npm run coverage && npm run lint && npm run test"
+  },
+  "dependencies": {
+    "genericsuite-be-scripts": "^1.0.14"
+  }
+}
