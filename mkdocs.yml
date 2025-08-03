@@ -23,6 +23,7 @@ nav:
   - 'Configuration Guide': './Configuration-Guide/index.md'
   # - 'Sample Code':
   - 'Other':
+    - 'Releases': './Releases/index.md'
     - 'Special Installation': './Other/special-installs.md'
 
 theme:

@@ -73,7 +73,9 @@ Join the growing community of developers using Generic Suite to supercharge thei
 * [What is the Generic Suite for?](#what-is-the-genericsuite-for)
 * [The Generic Suite Core](#the-genericsuite-core)
 * [The Generic Suite AI](#the-genericsuite-ai)
+* [Sample Code](#sample-code)
 * [Repositories](#repositories)
+* [Releases](#releases)
 * [Presentation](#presentation)
 * [Post](#posts)
 * [Frontend Development](./Frontend-Development/index.md)
@@ -180,6 +182,18 @@ Repository:
 
 * Main: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
 * Mirror: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
+
+## Sample Code
+
+We have a [ExampleApp](./Sample-Code/exampleapp/README.md) to show you how to use the GenericSuite libraries.
+
+[![ExampleApp Banner](./Sample-Code/exampleapp/assets/exampleapp_banner_01.png)](./Sample-Code/exampleapp/README.md)    
+
+[ExampleApp](./Sample-Code/exampleapp/README.md) is a full-featured example application built as a monorepo using Turborepo and pnpm. This provides a practical, real-world blueprint for developers to learn from and accelerate their own projects. There are a frontend in React and backends in Python, using the 3 main frameworks: FastAPI, Flask and Chalice.
+
+## Releases
+
+You can find the detailed changelog for each release [here](./Releases/index.md).
 
 ## Presentation
 
