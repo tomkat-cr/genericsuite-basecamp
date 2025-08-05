@@ -62,8 +62,15 @@ Add this configuration to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "exampleapp-nutrition": {
-      "command": "sh /absolute/path/to/genericsuite-basecamp/docs/Sample-Code/exampleapp/apps/mcp-server/run_mcp_server.sh"
+    "exampleapp": {
+      "command": "sh",
+      "args": [
+        "/absolute/path/to/genericsuite-basecamp/docs/Sample-Code/exampleapp/apps/mcp-server/run_mcp_server.sh"
+      ],
+      "env": {
+        "GS_USER_ID": "xxxx",
+        "GS_API_KEY": "xxxx"
+      }
     }
   }
 }
@@ -77,8 +84,15 @@ Add to your VS Code settings or `.vscode/mcp.json`:
 {
   "mcp": {
     "servers": {
-      "exampleapp-nutrition": {
-        "command": "sh /absolute/path/to/genericsuite-basecamp/docs/Sample-Code/exampleapp/apps/mcp-server/run_mcp_server.sh"
+      "exampleapp": {
+        "command": "sh",
+        "args": [
+          "/absolute/path/to/genericsuite-basecamp/docs/Sample-Code/exampleapp/apps/mcp-server/run_mcp_server.sh"
+        ],
+        "env": {
+          "GS_USER_ID": "xxxx",
+          "GS_API_KEY": "xxxx"
+        }
       }
     }
   }
