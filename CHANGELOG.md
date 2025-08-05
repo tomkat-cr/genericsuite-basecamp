@@ -17,6 +17,22 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 1.3.0 (2025-08-02)
+---
+
+### New
+- Add new MCP server for ExampleApp with food and nutrition management tools [GS-189]. 
+- Add the `make link_gs_libs` documentation to the GS BE Scripts.
+
+### Changes
+- Update .gitignore to include IDE configurations and remove unused utility files.
+- Remove unused utility files from ExampleApp all 3 backends.
+- Update the "GEMINI.md" file to reflect the new ExampleApp and MCP server.
+
+### Fixes
+- Fix "mkdocs_install.sh" to update mkdocs dependencies to the latest version and rebuild requirements.txt file appropiately.
+
+
 ## 1.2.0 (2025-07-13)
 ---
 

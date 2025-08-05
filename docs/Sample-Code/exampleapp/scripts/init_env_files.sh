@@ -6,7 +6,7 @@
 echo ""
 echo "Initializing environment files for ExampleApp..."
 echo ""
-DIRS_TO_PROCESS="./apps/ui ./apps/api-chalice ./apps/api-fastapi ./apps/api-flask"
+DIRS_TO_PROCESS="./apps/ui ./apps/api-chalice ./apps/api-fastapi ./apps/api-flask ./apps/mcp-server"
 echo "DIRS_TO_PROCESS: $DIRS_TO_PROCESS"
 for dir in $DIRS_TO_PROCESS; do
     if [ ! -f "$dir/.env" ]; then

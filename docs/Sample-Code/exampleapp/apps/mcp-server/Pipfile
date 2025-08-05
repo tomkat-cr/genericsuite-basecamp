@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+genericsuite = {file = "../../../../../../genericsuite-be"}
+genericsuite-ai = {file = "../../../../../../genericsuite-be-ai"}
+
+[dev-packages]
+pytest = "*"
+coverage = "*"
+cfn-lint = "*"
+
+[requires]
+python_version = "3.11"

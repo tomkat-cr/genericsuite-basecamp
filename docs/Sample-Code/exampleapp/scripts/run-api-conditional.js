@@ -25,17 +25,21 @@ const uiAppPath = path.resolve(__dirname, '../apps/ui');
 const fastapiAppPath = path.resolve(__dirname, '../apps/api-fastapi');
 const flaskAppPath = path.resolve(__dirname, '../apps/api-flask');
 const chaliceAppPath = path.resolve(__dirname, '../apps/api-chalice');
+const mcpAppPath = path.resolve(__dirname, '../apps/mcp-server');
+
 
 // Load .env variables for each app
 const uiEnv = loadEnv(uiAppPath);
 const fastapiEnv = loadEnv(fastapiAppPath);
 const flaskEnv = loadEnv(flaskAppPath);
 const chaliceEnv = loadEnv(chaliceAppPath);
+const mcpEnv = loadEnv(mcpAppPath);
 
 const uiPort = uiEnv.BACKEND_LOCAL_PORT;
 const fastapiPort = fastapiEnv.BACKEND_LOCAL_PORT;
 const flaskPort = flaskEnv.BACKEND_LOCAL_PORT;
 const chalicePort = chaliceEnv.BACKEND_LOCAL_PORT;
+const mcpPort = mcpEnv.BACKEND_LOCAL_PORT;
 
 let apiToRun = null;
 
@@ -48,6 +52,7 @@ console.log(`🔍 UI's BACKEND_LOCAL_PORT: ${uiPort}`);
 console.log(`🔍 FastAPI's BACKEND_LOCAL_PORT: ${fastapiPort}`);
 console.log(`🔍 Flask's BACKEND_LOCAL_PORT: ${flaskPort}`);
 console.log(`🔍 Chalice's BACKEND_LOCAL_PORT: ${chalicePort}`);
+console.log(`🔍 MCP's BACKEND_LOCAL_PORT: ${mcpPort}`);
 
 if (uiPort === fastapiPort) {
   apiToRun = 'api-fastapi';
@@ -61,7 +66,7 @@ if (uiPort === fastapiPort) {
 }
 
 // Run the apps/ui and the apps/api-[conditional]
-const command = `${turboCommand} --filter=./apps/ui --filter=./apps/${apiToRun}`;
+const command = `${turboCommand} --filter=./apps/ui --filter=./apps/mcp-server --filter=./apps/${apiToRun}`;
 
 console.log(`🚀 Running Turborepo command: ${command}`);
 

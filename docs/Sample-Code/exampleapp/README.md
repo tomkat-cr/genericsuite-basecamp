@@ -2,7 +2,7 @@
 
 ![ExampleApp Banner](./assets/exampleapp_banner_01.png)
 
-**ExampleApp** is a full-stack example application demonstrating a modern webapp architecture with multiple backend services and a React-based frontend implementing GenericSuite.
+**ExampleApp** is a full-stack example application demonstrating a modern web app architecture with multiple backend services and a React-based frontend implementing GenericSuite.
 
 It is inspired by the principles of Caloric Deficit. The purpose is to achieve weight loss goals and maintain a better lifestyle, based on proper nutrition. 
 
@@ -25,6 +25,12 @@ The application is structured as a monorepo using [TurboRepo](https://turborepo.
   - FastAPI (Python)
   - Flask (Python)
   - Chalice (Python)
+  - MCP Server (Python)
+
+- **Database Options**:
+
+  - DynamoDB (AWS)
+  - MongoDB (MongoDB Atlas or self-hosted)
 
 - **Development Tools**:
 
