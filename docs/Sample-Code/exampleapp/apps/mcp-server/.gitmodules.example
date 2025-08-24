@@ -1,0 +1,3 @@
+[submodule "app/config_dbdef"]
+	path = app/config_dbdef
+	url = git://github.com/github-user/exampleapp_configs.git

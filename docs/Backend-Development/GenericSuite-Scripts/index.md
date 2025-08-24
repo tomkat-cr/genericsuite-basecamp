@@ -882,6 +882,21 @@ Runs `make config`, `make clean_logs`, `sh scripts/aws/run_aws.sh run`.
 make run_prod
 ```
 
+* Link the GenericSuite libraries to the project.<br/>
+Symlink the LOCAL GenericSuite libraries (repos with the source code) to have a hot-reload without need to run "pipenv update" everytime that libraries source code changes.<br/>
+Runs `sh scripts/link_gs_libs_for_dev.sh`
+
+```bash
+make link_gs_libs
+```
+
+**NOTE**: set the `BASE_DEVELOPMENT_PATH` environment variable to the base path to the GenericSuite libraries (path to the parent directory of the "genericsuite-be*" repos) in the `.env` file.
+
+```env
+# Check "genericsuite-be-scripts/scripts/link_gs_libs_for_dev.sh"
+# BASE_DEVELOPMENT_PATH="/Users/username/base_path_to_genericsuite_repos"
+```
+
 ### Common JSON config
 
 * Add the Git Submodule with the common JSON config directories.<br/>

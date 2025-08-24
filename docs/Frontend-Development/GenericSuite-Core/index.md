@@ -125,7 +125,7 @@ npm install genericsuite
 npm install --save-dev \
    @babel/cli \
    @babel/core \
-   @babel/plugin-proposal-class-properties \
+   @babel/plugin-transform-class-properties \
    @babel/plugin-proposal-private-property-in-object \
    @babel/plugin-syntax-jsx \
    @babel/preset-env \

@@ -180,71 +180,71 @@ n8n is a workflow automation and collaboration platform for teams.
 [https://n8n.com/](https://n8n.io/)
 
 * Change to the n8n directory
-    ```bash
-    cd ~/genericsuite-gitops/n8n
-    ```
+```bash
+cd ~/genericsuite-gitops/n8n
+```
 
 * Set the environment variables
-    ```bash
-    cp .env.example .env
-    vi .env
-    # Assign the necessary variables
-    ```
+```bash
+cp .env.example .env
+vi .env
+# Assign the necessary variables
+```
 
 * Runs n8n in detached mode
-    ```bash
-    make run
-    ```
+```bash
+make run
+```
 
 * Stops n8n
-    ```bash
-    make stop
-    ```
+```bash
+make stop
+```
 
 * Stops and removes n8n containers
-    ```bash
-    make down
-    ```
+```bash
+make down
+```
 
 * Shows n8n and postgres logs
-    ```bash
-    make logs
-    ```
+```bash
+make logs
+```
 
 * Upgrade n8n, postgress and pg_admin
-    ```bash
-    make update
-    ```
+```bash
+make update
+```
 
 * Restart docker containers
-    ```bash
-    make restart
-    ```
+```bash
+make restart
+```
 
 * Open n8n port (linux)
-    ```bash
-    make open
-    ```
+```bash
+make open
+```
 
 * Close n8n port (linux)
-    ```bash
-    make close
-    ```
+```bash
+make close
+```
 
 * Run n8n with force-recreate
-    ```bash
-    make force-recreate
-    ```
+```bash
+make force-recreate
+```
 
 * Enter to the n8n-postgres container
-    ```bash
-    make enter_pg
-    ```
+```bash
+make enter_pg
+```
 
 * Enter to the n8n container
-    ```bash
-    make enter_n8n
-    ```
+```bash
+make enter_n8n
+```
 
 ## License
 

@@ -267,7 +267,7 @@ APP_DB_URI_DEMO=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
 * CORS Origin
 ```env
 # DEV
-APP_CORS_ORIGIN_DEV=*
+APP_CORS_ORIGIN_DEV="*"
 ```
 ```env
 # QA

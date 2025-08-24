@@ -143,6 +143,12 @@ npm uninstall genericsuite && npm install tomkat-cr/genericsuite-fe#develop
 npm uninstall genericsuite-ai && npm install tomkat-cr/genericsuite-fe-ai#develop
 ```
 
+Or all together:
+
+```bash
+npm uninstall genericsuite genericsuite-ai && npm install tomkat-cr/genericsuite-fe#develop tomkat-cr/genericsuite-fe-ai#develop
+```
+
 **IMPORTANT**:
 
 * When you've made changes to any of the GenericSuite frontend packages code, perform a `make pre-publish` to rebuild the `dist` directory files before the Git `commit` and `push`, because those files are required for `npm install` to work. Then re-install the changed package in the parent project (your app) using the `npm install tomkat-cr/genericsuite-fe` or `npm install tomkat-cr/genericsuite-fe-ai` command.

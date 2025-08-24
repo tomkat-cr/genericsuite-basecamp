@@ -15,7 +15,9 @@ from datetime import datetime
 from uuid import uuid4
 
 from langchain.agents import tool
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
+from pydantic_core import PydanticCustomError
+
 from langchain.schema import Document
 
 from genericsuite.util.app_context import CommonAppContext
@@ -80,6 +82,31 @@ class Ingredient(BaseModel):
         default="",
         description="Ingredient observations if any. Defaults to None")
 
+    @field_validator("calories_unit", mode="after")
+    @classmethod
+    def validate_calories_unit(cls, v: str) -> str:
+        valid_units = ["kcal", "kj"]
+        if v not in valid_units:
+            raise PydanticCustomError(
+                "invalid_calories_unit",
+                "Calories unit must be one of: {valid_units}, got {unit}",
+                {"valid_units": ", ".join(valid_units), "unit": v}
+            )
+        return v
+
+    @field_validator("serving_size_unit", mode="after")
+    @classmethod
+    def validate_serving_size_unit(cls, v: str) -> str:
+        valid_units = ["g", "u", "tsp", "tablespoon", "bowl", "cup", "scup", 
+                      "ml", "mg", "ug", "oz", "lb", "iu", "mlt"]
+        if v not in valid_units:
+            raise PydanticCustomError(
+                "invalid_serving_size_unit",
+                "Serving size unit must be one of: {valid_units}, got {unit}",
+                {"valid_units": ", ".join(valid_units), "unit": v}
+            )
+        return v
+
 
 class IngredientWithQty(Ingredient):
     """
@@ -101,6 +128,19 @@ class IngredientWithQtyAndFoodMoment(IngredientWithQty):
     """
     # food_moment: str = Field(description="Food moment")
     meal_type: str = Field(description="Meal type")
+
+    @field_validator("meal_type", mode="after") 
+    @classmethod
+    def validate_meal_type(cls, v: str) -> str:
+        valid_types = ["Breakfast", "Brunch", "Elevenses", "Lunch", "Tea", 
+                      "Supper", "Dinner", "Other", "Unknown"]
+        if v not in valid_types:
+            raise PydanticCustomError(
+                "invalid_meal_type",
+                "Meal type must be one of: {valid_types}, got {meal_type}",
+                {"valid_types": ", ".join(valid_types), "meal_type": v}
+            )
+        return v
 
 
 class Dish(BaseModel):
@@ -1167,3 +1207,89 @@ def get_full_user_profile_raw() -> dict:
         result["error_message"] = 'ERROR(s) in: ' + \
             result["error_message"].strip(", ")
     return result
+
+
+def nutrition_analysis_prompt(
+    food_items: str = "apple, banana",
+    user_goal: str = "weight_loss",
+    meal_type: str = "breakfast"
+) -> str:
+    """
+    Generate a comprehensive nutrition analysis prompt.
+
+    This helps ensure consistent, professional nutrition advice based on
+    the user's goals and current eating patterns.
+    """
+    user_profile = get_user_profile_raw()
+    if user_profile["error"]:
+        return user_profile["error_message"]
+    user_data = user_profile["resultset"]
+
+    # Get user profile for personalized recommendations
+    daily_calories = user_data["minimun_daily_calories"]
+
+    return f"""
+You are a certified nutritionist and health expert providing personalized advice.
+
+User's Health Goal: {user_goal}
+Meal Type: {meal_type}
+Food Items to Analyze: {food_items}
+Recommended Daily Calories: {int(daily_calories)} kcal
+
+Guidelines for your analysis:
+- Be professional but encouraging
+- Focus on sustainable, healthy habits
+- Provide specific, actionable recommendations
+- Consider the user's caloric needs and goals
+- Highlight both positive patterns and areas for improvement
+- Suggest realistic meal improvements
+- Include portion control advice when relevant
+
+Generate a comprehensive nutrition analysis that:
+1. Evaluates current eating patterns
+2. Identifies strengths and areas for improvement
+3. Provides specific recommendations
+4. Suggests healthy alternatives
+5. Offers encouragement and motivation
+
+Keep your tone supportive and educational.
+"""
+
+
+def meal_planning_prompt(
+    dietary_restrictions: str = "none",
+    preferred_cuisines: str = "any",
+    cooking_time: str = "moderate"
+) -> str:
+    """
+    Generate a meal planning assistance prompt.
+
+    Helps create consistent meal planning advice based on user preferences.
+    """
+
+    return f"""
+You are an expert meal planner and nutritionist helping create healthy, balanced meals.
+
+User Preferences:
+- Dietary Restrictions: {dietary_restrictions}
+- Preferred Cuisines: {preferred_cuisines}  
+- Available Cooking Time: {cooking_time}
+
+Your meal planning should:
+- Create balanced meals with proper macronutrient ratios
+- Consider the user's dietary restrictions and preferences
+- Provide realistic cooking times and preparation methods
+- Include variety to prevent meal fatigue
+- Focus on whole, unprocessed foods when possible
+- Provide specific ingredient lists and quantities
+- Include preparation tips and cooking methods
+
+Generate meal suggestions that are:
+1. Nutritionally balanced
+2. Practical to prepare
+3. Aligned with user preferences
+4. Cost-effective
+5. Delicious and satisfying
+
+Include both individual meal ideas and weekly planning strategies.
+"""

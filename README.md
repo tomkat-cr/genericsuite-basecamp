@@ -21,12 +21,11 @@ The **GenericSuite Basecamp** is the starting point and documentation for [Gener
 
 [GenericSuite](https://genericsuite.carlosjramirez.com) is a comprehensive software solution designed to enhance your productivity and streamline your workflows.
 
-In this repository you will find the [instructions](https://genericsuite.carlosjramirez.com/Configuration-Guide/), [frontend](https://genericsuite.carlosjramirez.com/Configuration-Guide/#app-frontend) and [backend](https://genericsuite.carlosjramirez.com/Configuration-Guide/#app-backend) code examples for your App development.
+In this repository you will find the [instructions](https://genericsuite.carlosjramirez.com/Configuration-Guide/), [frontend](https://genericsuite.carlosjramirez.com/Configuration-Guide/#app-frontend) and [backend](https://genericsuite.carlosjramirez.com/Configuration-Guide/#app-backend) and [code examples](./docs/Sample-Code/exampleapp/README.md) for your App development.
 
 ## Documentation
 
 * Main: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
-
 * Mirror: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
 
 ## Repositories
@@ -56,17 +55,19 @@ In this repository you will find the [instructions](https://genericsuite.carlosj
 ## Published packages
 
 ### Frontend
+
 * GS FE: [https://www.npmjs.com/package/genericsuite](https://www.npmjs.com/package/genericsuite)
 * GS FE AI: [https://www.npmjs.com/package/genericsuite-ai](https://www.npmjs.com/package/genericsuite-ai)
 
 ### Backend
+
 * GS BE: [https://pypi.org/project/genericsuite](https://pypi.org/project/genericsuite)
 * GS BE AI: [https://pypi.org/project/genericsuite-ai/](https://pypi.org/project/genericsuite-ai/)
 * GS BE Scripts: [https://www.npmjs.com/package/genericsuite-be-scripts](https://www.npmjs.com/package/genericsuite-be-scripts)
 
-## Docs
+## Changelog / Releases
 
-[https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
+* [Releases](./docs/Releases/)
 
 ## Posts
 
