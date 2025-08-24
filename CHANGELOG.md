@@ -22,6 +22,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Added
 - Add new MCP server for ExampleApp with food and nutrition management tools [GS-189]. 
 - Add the `make link_gs_libs` documentation to the GS BE Scripts.
+- Add: unlinking common assets and prompting user confirmation before cleaning directories in the `make exampleapp-clean` command.
 
 ### Changed
 - Update .gitignore to include IDE configurations and remove unused utility files.
