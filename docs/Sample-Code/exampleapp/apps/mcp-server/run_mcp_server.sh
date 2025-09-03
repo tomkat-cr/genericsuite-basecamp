@@ -4,6 +4,7 @@
 
 # Get the directory of this script
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+cd "$SCRIPT_DIR"
 
 # CLI Parameters
 # APP_STAGE="${1:-qa}"
@@ -54,7 +55,6 @@ echo ""
 # export PYTHONPATH="$SCRIPT_DIR:$PYTHONPATH"
 
 # Start the server
-cd "$SCRIPT_DIR"
 
 # Default values for environment variables
 

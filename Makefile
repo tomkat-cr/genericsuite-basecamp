@@ -31,6 +31,9 @@ serve:
 
 run: serve
 
+clean:
+	npm cache clean --force && rm -rf venv .pytest_cache .cache
+
 exampleapp-install:
 	cd docs/Sample-Code/exampleapp && make install
 

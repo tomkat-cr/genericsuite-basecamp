@@ -17,12 +17,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [1.3.0](https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.3.0) (2025-08-02)
+## [1.3.0](https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.3.0) (2025-09-03)
 
 ### Added
 - Add new MCP server for ExampleApp with food and nutrition management tools [GS-189]. 
 - Add the `make link_gs_libs` documentation to the GS BE Scripts.
-- Add: unlinking common assets and prompting user confirmation before cleaning directories in the `make exampleapp-clean` command.
+- Add unlinking common assets and prompting user confirmation before cleaning directories in the `make exampleapp-clean` command.
+- Add "clean" command in Makefile for asset management.
 
 ### Changed
 - Update .gitignore to include IDE configurations and remove unused utility files.

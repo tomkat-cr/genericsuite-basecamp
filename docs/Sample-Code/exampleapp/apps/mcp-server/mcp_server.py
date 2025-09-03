@@ -18,10 +18,6 @@ Based on the ExampleApp's ai_gpt_fn_app.py and ai_gpt_fn_fda.py
 from typing import Dict, Any
 import os
 
-# from datetime import datetime
-# from pydantic import BaseModel, Field, field_validator
-# from pydantic_core import PydanticCustomError
-
 from genericsuite.mcplib.util.create_app import create_app
 from genericsuite.mcplib.util.utilities import (
     mcp_authenticate,
@@ -29,9 +25,8 @@ from genericsuite.mcplib.util.utilities import (
     tool_result,
     resource_result,
 )
-from genericsuite.util.app_logger import (
-    log_info,
-)
+from genericsuite.util.app_logger import log_info
+from genericsuite.util.utilities import get_non_empty_value
 
 from lib.config.config import Config
 from lib.models.ai_chatbot.ai_gpt_fn_fda import (
@@ -65,6 +60,13 @@ from lib.models.ai_chatbot.ai_gpt_fn_app import (
 
 
 DEBUG = False
+
+MCP_HTTP_TRANSPORT = get_non_empty_value("MCP_HTTP_TRANSPORT", "1") == "1"
+MCP_SERVER_HOST = get_non_empty_value("MCP_SERVER_HOST", "0.0.0.0")
+try:
+    MCP_SERVER_PORT = int(get_non_empty_value("MCP_SERVER_PORT", "8070"))
+except ValueError:
+    raise ValueError("MCP_SERVER_PORT must be an integer.")
 
 
 # Initialize FastMCP server
@@ -604,7 +606,14 @@ def main():
     print("\n✅ Server ready for connections!")
 
     # Run the FastMCP server
-    mcp.run()
+    mcp_run_args = {
+        "host": MCP_SERVER_HOST,
+        "port": MCP_SERVER_PORT
+    }
+    if MCP_HTTP_TRANSPORT:
+        mcp_run_args["transport"] = "http"
+    print(f"Running MCP Server on {mcp_run_args}")
+    mcp.run(**mcp_run_args)
 
 
 if __name__ == "__main__":
