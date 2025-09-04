@@ -12,6 +12,8 @@ install:
 update:
 	pnpm update
 
+update-pnpm: install
+
 build:
 	pnpx turbo build --force
 
