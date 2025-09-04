@@ -31,6 +31,9 @@ serve:
 
 run: serve
 
+clean:
+	npm cache clean --force && rm -rf venv .pytest_cache .cache
+
 exampleapp-install:
 	cd docs/Sample-Code/exampleapp && make install
 
@@ -44,4 +47,8 @@ exampleapp-create-ssl-certs:
 	cd docs/Sample-Code/exampleapp && make create-ssl-certs
 
 exampleapp-clean:
+	cd docs/Sample-Code/exampleapp && sh scripts/link_common_assets.sh unlink
+	@echo ""
+	@echo "Press Enter to continue to clean all directories (node_modules, dist, etc.)"
+	@read
 	sh docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp false true
