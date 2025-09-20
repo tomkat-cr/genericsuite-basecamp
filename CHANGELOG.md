@@ -6,7 +6,6 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 
 ## [Unreleased] - YYYY-MM-DD
----
 
 ### Added
 
@@ -39,7 +38,6 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 
 ## [1.2.0] - 2025-07-13
----
 
 ### Added
 - Add the Release page with the latest GenericSuite releases since 2024-10-07 [GS-222].
@@ -254,13 +252,13 @@ HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
 - Add "mkdocs_run.sh" to fix the error running the "mkdocs serve" the first time.
 
 
-## [0.0.3] - 2024-04-18
+## [0.0.3] - 2024-04-19
 
 ### Added
 - More details on framework installation for GS BE Core, and instructions to link the Domains to frontend and backend Apps.
 
 
-## [0.0.2] - 2024-04-19
+## [0.0.2] - 2024-04-18
 
 ### Added
 - Add: Makefile to shortcut mkdocs "install", "serve", build" and "transfer" commands.
