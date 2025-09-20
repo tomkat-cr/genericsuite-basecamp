@@ -13,6 +13,9 @@ source venv/bin/activate
 
 echo "🔍 Installing mkdocs and dependencies"
 pip install mkdocs-material
+pip install mkdocs-git-committers
+pip install mkdocs-print-site-plugin
+
 # pip install mkdocs-minify-plugin
 # pip install mkdocs-git-revision-date-localized-plugin
 # pip install mkdocs-material-extensions
