@@ -16,7 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [1.3.0] - 2025-09-04
+## [1.3.0] - 2025-10-03
 
 ### Added
 - Add new MCP server for ExampleApp with food and nutrition management tools [GS-189]. 
@@ -32,9 +32,15 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Update the "productContext.md" file to reflect the new ExampleApp and MCP server.
 - Add memory bank documents in the "specs" directory.
 - Update CHANGELOG format to be more semantic.
+- Enhance documentation for ExampleApp configuration, including: detailed directory structure and backend/frontend distinctions.
+- ExampleApp MCP server: use the GS BE MCP library changes, enhance envvars management in the run script, and update requirements.txt for compatibility with new library versions.
 
 ### Fixed
 - Fix "mkdocs_install.sh" to update mkdocs dependencies to the latest version and rebuild requirements.txt file appropiately.
+
+### Security
+- Update package dependencies in package.json and pnpm-lock.yaml to upgrade turbo and dotenv.
+- ExampleApp UI: Disable X-Powered-By header to avoid exposing framework information in server.js
 
 
 ## [1.2.0] - 2025-07-13

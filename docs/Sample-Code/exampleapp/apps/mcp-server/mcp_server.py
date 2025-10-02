@@ -26,7 +26,6 @@ from genericsuite.mcplib.util.utilities import (
     resource_result,
 )
 from genericsuite.util.app_logger import log_info
-from genericsuite.util.utilities import get_non_empty_value
 
 from lib.config.config import Config
 from lib.models.ai_chatbot.ai_gpt_fn_fda import (
@@ -57,16 +56,6 @@ from lib.models.ai_chatbot.ai_gpt_fn_app import (
     # Dish,
     # DailyMeal,
 )
-
-
-DEBUG = False
-
-MCP_HTTP_TRANSPORT = get_non_empty_value("MCP_HTTP_TRANSPORT", "1") == "1"
-MCP_SERVER_HOST = get_non_empty_value("MCP_SERVER_HOST", "0.0.0.0")
-try:
-    MCP_SERVER_PORT = int(get_non_empty_value("MCP_SERVER_PORT", "8070"))
-except ValueError:
-    raise ValueError("MCP_SERVER_PORT must be an integer.")
 
 
 # Initialize FastMCP server
@@ -600,20 +589,10 @@ def main():
     print("      - nutrition_analysis: Generate nutrition analysis")
     print("      - meal_planning: Generate meal planning advice")
 
-    print("\n🔧 Transport: STDIO (Standard Input/Output)")
-    print("💡 Connect via Claude Desktop, VS Code, or other MCP clients")
-
     print("\n✅ Server ready for connections!")
 
     # Run the FastMCP server
-    mcp_run_args = {
-        "host": MCP_SERVER_HOST,
-        "port": MCP_SERVER_PORT
-    }
-    if MCP_HTTP_TRANSPORT:
-        mcp_run_args["transport"] = "http"
-    print(f"Running MCP Server on {mcp_run_args}")
-    mcp.run(**mcp_run_args)
+    app.run()
 
 
 if __name__ == "__main__":
