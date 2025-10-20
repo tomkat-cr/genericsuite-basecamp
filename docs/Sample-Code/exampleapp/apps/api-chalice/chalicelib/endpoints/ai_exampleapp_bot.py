@@ -16,7 +16,7 @@ from genericsuite_ai.lib.ai_chatbot_endpoint import (
 )
 
 from lib.models.ai_chatbot.ai_gpt_fn_index import (
-    assign_exampleapp_gpt_functions
+    assign_app_specific_gpt_functions
 )
 
 DEBUG = False
@@ -47,7 +47,7 @@ def ai_chatbot_endpoint(
         request=request,
         blueprint=bp,
         other_params=other_params,
-        additional_callable=assign_exampleapp_gpt_functions,
+        additional_callable=assign_app_specific_gpt_functions,
     )
 
 
@@ -73,7 +73,7 @@ def vision_image_analyzer_endpoint(
         request=request,
         blueprint=bp,
         other_params=other_params,
-        additional_callable=assign_exampleapp_gpt_functions,
+        additional_callable=assign_app_specific_gpt_functions,
     )
 
 
@@ -99,5 +99,5 @@ def transcribe_audio_endpoint(
         request=request,
         blueprint=bp,
         other_params=other_params,
-        additional_callable=assign_exampleapp_gpt_functions,
+        additional_callable=assign_app_specific_gpt_functions,
     )

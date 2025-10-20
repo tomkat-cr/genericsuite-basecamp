@@ -31,7 +31,7 @@ from genericsuite_ai.lib.ai_chatbot_endpoint import (
 )
 
 from lib.models.ai_chatbot.ai_gpt_fn_index import (
-    assign_exampleapp_gpt_functions as assign_app_gpt_functions,
+    assign_app_specific_gpt_functions as assign_app_gpt_functions,
 )
 
 
