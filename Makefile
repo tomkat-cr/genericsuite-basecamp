@@ -37,8 +37,24 @@ clean:
 exampleapp-install:
 	cd docs/Sample-Code/exampleapp && make install
 
+exampleapp-install-all:
+	cd docs/Sample-Code/exampleapp && make install
+	cd docs/Sample-Code/exampleapp/apps/mcp-server && make install
+	cd docs/Sample-Code/exampleapp/apps/api-chalice && make install
+	cd docs/Sample-Code/exampleapp/apps/api-fastapi && make install
+	cd docs/Sample-Code/exampleapp/apps/api-flask && make install
+	cd docs/Sample-Code/exampleapp/apps/ui && make install
+
 exampleapp-update:
 	cd docs/Sample-Code/exampleapp && make update
+
+exampleapp-update-all:
+	cd docs/Sample-Code/exampleapp && make update
+	cd docs/Sample-Code/exampleapp/apps/mcp-server && make update
+	cd docs/Sample-Code/exampleapp/apps/api-chalice && make update
+	cd docs/Sample-Code/exampleapp/apps/api-fastapi && make update
+	cd docs/Sample-Code/exampleapp/apps/api-flask && make update
+	cd docs/Sample-Code/exampleapp/apps/ui && make update
 
 exampleapp-run:
 	cd docs/Sample-Code/exampleapp && make run

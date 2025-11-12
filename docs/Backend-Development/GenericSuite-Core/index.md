@@ -87,9 +87,17 @@ Poetry
 poetry add genericsuite
 ```
 
+Uv
+```bash
+uv add genericsuite
+```
+
 **NOTE**: in the following instructions we'll only show `pip install ...`.<BR/>
-If you'll use `Pipenv`, change it with `pipenv install ...`.<BR/>
-If you'll use `Poetry`, change it with `poetry add ...`.<BR/>
+If you'll use `pipenv`, change it with `pipenv install ...`.<BR/>
+If you'll use `poetry`, change it with `poetry add ...`.<BR/>
+If you'll use `uv`, change it with `uv add ...`.<BR/>
+
+Check [this documentation](../../Other/python-package-managers.md) to use the different Python package and dependency management tools.
 
 ### From Git or Local Directory
 
@@ -167,19 +175,19 @@ DEFAULT_LANG=en
 
 * Stage and Debug flag
 ```env
-# DEV
-# Application debug (0,1)
+# Application debug APP_DEBUG (0,1)
+# Application environment APP_STAGE: dev, qa, staging, prod
+# # DEV
 APP_DEBUG=1
-# Application environment: dev, qa, staging, prod
 # APP_STAGE=dev
 ```
 ```env
-# QA
+# # QA
 APP_DEBUG=1
 # APP_STAGE=qa
 ```
 ```env
-# PROD
+# # PROD
 APP_DEBUG=0
 # APP_STAGE=prod
 ```
@@ -288,9 +296,79 @@ APP_CORS_ORIGIN_PROD=https://app.exampleapp.com
 APP_CORS_ORIGIN_DEMO=https://app-demo.exampleapp.com
 ```
 
+* Python package and dependency management tool
+
+```env
+# Python package and dependency management tool (uv, pipenv, and poetry), default to "uv"
+# PEM_TOOL=pipenv
+# PEM_TOOL=uv
+# PEM_TOOL=poetry
+```
+
 * Current framework options: chalice, flask, fastapi
 ```env
-CURRENT_FRAMEWORK=chalice
+CURRENT_FRAMEWORK=fastapi
+# CURRENT_FRAMEWORK=flask
+# CURRENT_FRAMEWORK=chalice
+```
+
+* Local development environment run configuration
+```env
+# Options are: uvicorn, gunicorn, chalice, chalice_docker
+# FastAPI case:
+RUN_METHOD=uvicorn
+# Flask case:
+# RUN_METHOD=gunicorn
+# Chalice case: "chalice" to use http (running without docker) or "chalice_docker" to use https (with docker)
+# http:
+# RUN_METHOD=chalice
+# https:
+# RUN_METHOD=chalice_docker
+```
+
+* Run methods and framework App directory and entry point
+```env
+#
+# Default App main code directory
+# for Chalice:
+# https://aws.github.io/chalice/topics/packaging.html
+# APP_DIR="."
+# for FastAPI:
+# https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure
+# APP_DIR=app
+# for Flask:
+# https://flask.palletsprojects.com/en/2.3.x/tutorial/layout/
+# APP_DIR=flaskr
+#
+# Default App entry point code file
+# for Chalice:
+# https://aws.github.io/chalice/topics/packaging.html
+# APP_MAIN_FILE=app
+# for FastAPI:
+# https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure
+# APP_MAIN_FILE=main
+# for Flask:
+# https://flask.palletsprojects.com/en/2.3.x/tutorial/factory/
+# APP_MAIN_FILE="__init__"
+#
+```
+
+* Local run http/https protocol, to have it automatically on the application local running, no user intervention.
+```env
+# RUN_PROTOCOL=http
+# RUN_PROTOCOL=https
+#
+# Leave blank to let the user select the protocol when the local dev environment run starts.
+# RUN_PROTOCOL=""
+```
+
+* Auto-reload configuration: some times the auto-reload feature doesn't work correctly, for example running Chalice with Turborepo and the "uv" package manager. In this case, set `AUTO_RELOAD=0` to disable the auto-reload feature and make it work.
+```env
+# Auto-reload configuration for the local development environment.
+# Available options: `1` to enable, `0` to disable, and `-` to remove the auto-reload parameter from the command line. Defaults to: 1
+# AUTO_RELOAD=1
+# AUTO_RELOAD=0
+# AUTO_RELOAD="-"
 ```
 
 * JSON configuration files location and git URL
@@ -411,27 +489,6 @@ DOCKER_ACCOUNT=docker_account_username
 
 **NOTE**: `podman` engine has some issues with the `podman composer` command. It's recommended to use `docker` engine instead.
 
-* Local development environment run configuration
-```env
-# Options are: uvicorn, gunicorn, chalice, chalice_docker
-# RUN_METHOD="uvicorn"
-# RUN_METHOD="gunicorn"
-# Chalice case: "chalice" to use http (running without docker) or "chalice_docker" to use https (with docker)
-# http:
-# RUN_METHOD="chalice"
-# https:
-RUN_METHOD="chalice_docker"
-```
-
-* Local run http/https protocol, to have it automatically on the application local running, no user intervention.
-```env
-# RUN_PROTOCOL="http"
-# RUN_PROTOCOL="https"
-#
-# Leave blank to let the user select the protocol when the local dev environment run starts.
-# RUN_PROTOCOL=""
-```
-
 * Tests configuration
 ```env
 # Backend debug local port
@@ -447,33 +504,6 @@ RUN_METHOD="chalice_docker"
 # For https
 # TEST_APP_URL=https://app.exampleapp.local:5002
 ```
-
-* Run methods and framework App directory and entry point
-```env
-#
-# Default App main code directory
-# for Chalice:
-# https://aws.github.io/chalice/topics/packaging.html
-# APP_DIR='.'
-# for FastAPI:
-# https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure
-# APP_DIR='app'
-# for Flask:
-# https://flask.palletsprojects.com/en/2.3.x/tutorial/layout/
-# APP_DIR='flaskr'
-#
-# Default App entry point code file
-# for Chalice:
-# https://aws.github.io/chalice/topics/packaging.html
-# APP_MAIN_FILE='app'
-# for FastAPI:
-# https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure
-# APP_MAIN_FILE='main'
-# for Flask:
-# https://flask.palletsprojects.com/en/2.3.x/tutorial/factory/
-# APP_MAIN_FILE='__init__'
-#
-```env
 
 * App local ports
 ```env

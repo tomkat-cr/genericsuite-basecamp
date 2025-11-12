@@ -51,9 +51,17 @@ Poetry
 poetry add genericsuite genericsuite-ai
 ```
 
+Uv
+```bash
+uv add genericsuite genericsuite-ai
+```
+
 **NOTE**: in the following instructions we'll only show `pip install ...`.<BR/>
-If you'll use `Pipenv`, change it with `pipenv install ...`.<BR/>
-If you'll use `Poetry`, change it with `poetry add ...`.<BR/>
+If you'll use `pipenv`, change it with `pipenv install ...`.<BR/>
+If you'll use `poetry`, change it with `poetry add ...`.<BR/>
+If you'll use `uv`, change it with `uv add ...`.<BR/>
+
+Check [this documentation](../../Other/python-package-managers.md) to use the different Python package and dependency management tools.
 
 ### From Git or Local Directory
 

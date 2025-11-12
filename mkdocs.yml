@@ -25,6 +25,7 @@ nav:
   - 'Other':
     - 'Releases': './Releases/index.md'
     - 'Special Installation': './Other/special-installs.md'
+    - 'Python Package Managers': './Other/python-package-managers.md'
 
 theme:
   name: material

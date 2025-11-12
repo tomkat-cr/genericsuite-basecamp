@@ -10,31 +10,39 @@ help:
 ## Install dependecies
 
 install:
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
 	npm install
-	pipenv install
 
 install_dev:
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install_dev
 	npm install
-	pipenv install --dev
 
-lock:
-	pipenv lock
+update:
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh update
+	npm update
+
+update_dev:
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh update_dev
+	npm update
 
 locked_dev:
-	pipenv install --dev --ignore-pipfile
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh locked_dev
 
 locked_install:
-	pipenv install --ignore-pipfile
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh locked_install
+
+lock:
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh lock
 
 requirements:
-	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile
+	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh requirements
 
 ## Cleaning
 
 clean: clean_rm clean_temp_dir clean_logs
 
 clean_rm:
-	pipenv --rm
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh clean_rm
 
 clean_temp_dir:
 	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh clean
@@ -63,21 +71,20 @@ test_only:
 ## Linting
 
 lint:
-	pipenv run prospector
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh lint
 
 types:
-	pipenv run mypy .
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh types
 
 coverage:
-	pipenv run coverage run -m unittest discover tests;
-	pipenv run coverage report
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh coverage
 
 format:
-	pipenv run yapf -i *.py **/*.py **/**/*.py
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh format
 	pycodestyle
 
 format_check:
-	pipenv run yapf --diff *.py **/*.py **/**/*.py
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh format_check
 	pycodestyle
 
 ## Development Commands

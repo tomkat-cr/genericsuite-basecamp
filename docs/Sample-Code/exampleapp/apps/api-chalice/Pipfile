@@ -4,12 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-wheel = "==0.41.3"
-setuptools = "==75.1.0"
-chalice = "==1.30.0"
-pymongo = "==4.6.3"
-genericsuite = "*"
-genericsuite-ai = "*"
+genericsuite = {file = "../../../../../../genericsuite-be"}
+genericsuite-ai = {file = "../../../../../../genericsuite-be-ai"}
+chalice = "==1.32.0"
 
 [dev-packages]
 pytest = "*"

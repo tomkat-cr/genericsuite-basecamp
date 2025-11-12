@@ -1,5 +1,5 @@
 # .DEFAULT_GOAL := local
-.PHONY:  help install install_dev locked_dev locked_install lock_pip_file requirements clean clean_rm clean_temp_dir clean_logs fresh install_tools lsof test test_only lint types coverage format format_check qa mongo_docker mongo_docker_down mongo_backup mongo_restore config config_dev config_local config_qa config_qa_for_deployment config_staging build build_local build_check unbuild unbuild_qa unbuild_staging delete_stack create_s3_bucket_dev create_s3_bucket_qa create_s3_bucket_staging create_s3_bucket_prod create_s3_bucket_demo create_aws_config generate_sam_dynamodb deploy_qa deploy_run_local_qa deploy_validate_qa deploy_package_qa deploy_staging deploy_prod deploy_demo deploy run run_qa down_qa restart_qa run_local_docker run_prod add_submodules init_submodules local_dns local_dns_restart local_dns_rebuild local_dns_down local_dns_test copy_ssl_certs create_ssl_certs_only create_ssl_certs init_sam init_chalice generate_seed lock pre-publish publish pypi-build pypi-publish-test pypi-publish
+.PHONY:  help install install_dev locked_dev locked_install lock_pip_file requirements clean clean_rm clean_temp_dir clean_logs fresh install_tools lsof test test_only lint types coverage format format_check qa mongo_docker mongo_docker_down mongo_backup mongo_restore config config_dev config_local config_qa config_qa_for_deployment config_staging build build_local build_check unbuild unbuild_qa unbuild_staging delete_stack create_s3_bucket_dev create_s3_bucket_qa create_s3_bucket_staging create_s3_bucket_prod create_s3_bucket_demo create_aws_config generate_sam_dynamodb deploy_qa deploy_run_local_qa deploy_validate_qa deploy_package_qa deploy_staging deploy_prod deploy_demo deploy run run_qa down_qa restart_qa run_local_docker run_prod add_submodules init_submodules local_dns local_dns_restart local_dns_rebuild local_dns_down local_dns_test copy_ssl_certs create_ssl_certs_only create_ssl_certs init_sam init_chalice generate_seed lock pre-publish publish pypi-build pypi-publish-test pypi-publish update
 SHELL := /bin/bash
 
 ## General Commands
@@ -10,31 +10,39 @@ help:
 ## Install dependecies
 
 install:
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
 	npm install
-	pipenv install
 
 install_dev:
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install_dev
 	npm install
-	pipenv install --dev
 
-lock:
-	pipenv lock
+update:
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh update
+	npm update
+
+update_dev:
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh update_dev
+	npm update
 
 locked_dev:
-	pipenv install --dev --ignore-pipfile
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh locked_dev
 
 locked_install:
-	pipenv install --ignore-pipfile
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh locked_install
+
+lock:
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh lock
 
 requirements:
-	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile
+	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh requirements
 
 ## Cleaning
 
 clean: clean_rm clean_temp_dir clean_logs
 
 clean_rm:
-	pipenv --rm
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh clean_rm
 
 clean_temp_dir:
 	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh clean
@@ -63,21 +71,20 @@ test_only:
 ## Linting
 
 lint:
-	pipenv run prospector
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh lint
 
 types:
-	pipenv run mypy .
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh types
 
 coverage:
-	pipenv run coverage run -m unittest discover tests;
-	pipenv run coverage report
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh coverage
 
 format:
-	pipenv run yapf -i *.py **/*.py **/**/*.py
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh format
 	pycodestyle
 
 format_check:
-	pipenv run yapf --diff *.py **/*.py **/**/*.py
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh format_check
 	pycodestyle
 
 ## Development Commands

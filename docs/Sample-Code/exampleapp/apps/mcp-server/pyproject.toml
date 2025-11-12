@@ -1,0 +1,21 @@
+[project]
+name = "api-chalice"
+version = "1.0.0"
+description = "ExampleApp MCP Server"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "genericsuite",
+    "genericsuite-ai",
+]
+
+[tool.uv.sources]
+genericsuite = { path = "../../../../../../genericsuite-be" }
+genericsuite-ai = { path = "../../../../../../genericsuite-be-ai" }
+
+[dependency-groups]
+dev = [
+    "cfn-lint>=1.40.4",
+    "coverage>=7.11.2",
+    "pytest>=9.0.0",
+]

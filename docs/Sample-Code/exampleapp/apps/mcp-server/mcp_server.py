@@ -57,11 +57,10 @@ from lib.models.ai_chatbot.ai_gpt_fn_app import (
     # DailyMeal,
 )
 
-
 # Initialize FastMCP server
 settings = Config()
 app = create_app(app_name=f'{settings.APP_NAME.lower()}-mcp-server',
-                 settings=settings)
+                 settings=settings, log_file='mcp_server.log')
 mcp = app.mcp
 cac_object_list = [cac_gpt_tools, cac_fda_tools]
 

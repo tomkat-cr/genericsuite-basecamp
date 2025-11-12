@@ -16,14 +16,19 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [1.3.0] - 2025-10-03
+## [1.3.0] - 2025-11-12
 
 ### Added
 - Add new MCP server for ExampleApp with food and nutrition management tools [GS-189]. 
+- Add PEM_TOOL envvar to select the Python package and dependency management tool (uv, pipenv, and poetry), default to "uv" [GS-77].
+- Add AUTO_RELOAD envvar to fix some issues with the "--auto-reload" / "--reload" option running the app in "run_aws.sh", Turborepo and "uv", default to "1" [GS-77].
+- Add the `make exampleapp-update-all` and `make exampleapp-install-all` commands to update and install all ExampleApp apps.
 - Add the `make link_gs_libs` documentation to the GS BE Scripts.
 - Add unlinking common assets and prompting user confirmation before cleaning directories in the `make exampleapp-clean` command.
 - Add "clean" command in Makefile for asset management.
 - Add: new `update-pnpm` command in ExampleApp Makefile for streamlined installation.
+- Add the MCP_SERVER_PORT, MCP_SERVER_HOST, MCP_TRANSPORT, GS_USER_NAME, GS_USER_ID, and GS_API_KEY envvars to the ExampleApp MCP server .env.example file [GS-189].
+- Add the "mcp_server.log" file to the ExampleApp MCP server directory so it can be debbugged more easily.
 
 ### Changed
 - Update .gitignore to include IDE configurations and remove unused utility files.
@@ -39,8 +44,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Fix "mkdocs_install.sh" to update mkdocs dependencies to the latest version and rebuild requirements.txt file appropiately.
 
 ### Security
-- Update package dependencies in package.json and pnpm-lock.yaml to upgrade turbo and dotenv.
-- ExampleApp UI: Disable X-Powered-By header to avoid exposing framework information in server.js
+- Update package dependencies in package.json and pnpm-lock.yaml to upgrade turbo and dotenv [GS-219].
+- ExampleApp UI: Disable X-Powered-By header to avoid exposing framework information in server.js [GS-219].
+- Update GS BE Core and AI libraries in ExampleApp to fix dependabot alerts [GS-219].
 
 
 ## [1.2.0] - 2025-07-13
