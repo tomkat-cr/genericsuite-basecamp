@@ -57,6 +57,8 @@ from lib.models.ai_chatbot.ai_gpt_fn_app import (
     # DailyMeal,
 )
 
+DEBUG = False
+
 # Initialize FastMCP server
 settings = Config()
 app = create_app(app_name=f'{settings.APP_NAME.lower()}-mcp-server',
@@ -103,7 +105,7 @@ async def get_api_keys() -> Dict[str, Any]:
     """
     Get API keys
     """
-    log_info("Getting API keys")
+    _ = DEBUG and log_info("Getting API keys")
     result = {
         "resultset": {
             "GS_USER_ID": os.environ.get("GS_USER_ID"),
@@ -122,7 +124,7 @@ async def authentication_tool(
     """
     Authenticate user
     """
-    log_info("Authenticating user")
+    _ = DEBUG and log_info("Authenticating user")
     if not username and not password:
         if verify_app_context(app, cac_object_list):
             return tool_result("User already authenticated with API key")
@@ -145,7 +147,7 @@ async def get_fda_food_query(
     Returns name, description, calories, serving size and unit for the
     ingredient.
     """
-    log_info(f"FDA food query: {food_name}")
+    _ = DEBUG and log_info(f"FDA food query: {food_name}")
     verify_app_context(app, cac_object_list)
     result = get_fda_food_query_func({
         "food_name": food_name,
@@ -175,7 +177,7 @@ async def create_user_ingredient(
     The ingredient will be stored with nutritional information and can be
     used later when creating dishes or daily meals.
     """
-    log_info(f"Creating user ingredient: {name}")
+    _ = DEBUG and log_info(f"Creating user ingredient: {name}")
     verify_app_context(app, cac_object_list)
     result = create_user_ingredient_func({
         "name": name,
@@ -197,7 +199,7 @@ async def search_user_ingredient(name: str) -> Dict[str, Any]:
     Returns all ingredients whose names contain the search term
     (case-insensitive).
     """
-    log_info(f"Searching user ingredients: {name}")
+    _ = DEBUG and log_info(f"Searching user ingredients: {name}")
     verify_app_context(app, cac_object_list)
     result = search_user_ingredient_func({
         "name": name
@@ -212,7 +214,7 @@ async def get_user_ingredient_list() -> Dict[str, Any]:
 
     Returns the complete list of ingredients the user has saved.
     """
-    log_info("Getting complete user ingredient list")
+    _ = DEBUG and log_info("Getting complete user ingredient list")
     verify_app_context(app, cac_object_list)
     result = get_user_ingredient_list_func()
     return tool_result(result)
@@ -240,7 +242,7 @@ async def create_dish(
     The dish is a collection of ingredients that can be reused in daily meals.
     Total calories are automatically calculated from all ingredients.
     """
-    log_info(f"Creating dish: {name}")
+    _ = DEBUG and log_info(f"Creating dish: {name}")
     verify_app_context(app, cac_object_list)
     result = create_dish_func({
         "name": name,
@@ -255,28 +257,6 @@ async def create_dish(
     return tool_result(result)
 
 
-# @mcp.tool()
-# async def create_dish(dish: Dish) -> Dict[str, Any]:
-#     """
-#     Create a new user dish with a list of ingredients and quantities.
-#     The dish is a collection of ingredients that can be reused in daily
-#     meals.
-#     Total calories are automatically calculated from all ingredients.
-#     """
-#     log_info(f"Creating dish: {dish.name}")
-#     verify_app_context(app, cac_object_list)
-#     return tool_result(create_dish_func({
-#         "name": dish.name,
-#         "ingredients": dish.ingredients,
-#         "calories_value": dish.calories_value,
-#         "calories_unit": dish.calories_unit,
-#         "serving_size": dish.serving_size,
-#         "serving_size_unit": dish.serving_size_unit,
-#         "brand_name": dish.brand_name,
-#         "observations": dish.observations
-#     }))
-
-
 @mcp.tool()
 async def search_dishes(name: str) -> Dict[str, Any]:
     """
@@ -284,27 +264,12 @@ async def search_dishes(name: str) -> Dict[str, Any]:
 
     Returns all dishes whose names contain the search term (case-insensitive).
     """
-    log_info(f"Searching dishes: {name}")
+    _ = DEBUG and log_info(f"Searching dishes: {name}")
     verify_app_context(app, cac_object_list)
     result = search_dishes_func({
         "name": name
     })
     return tool_result(result)
-
-
-# @mcp.tool()
-# async def search_dishes(search: NameSearch) -> Dict[str, Any]:
-#     """
-#     Search user's dishes by name.
-
-#     Returns all dishes whose names contain the search term
-#     (case-insensitive).
-#     """
-#     log_info(f"Searching dishes: {search.name}")
-#     verify_app_context(app, cac_object_list)
-#     return tool_result(search_dishes_func({
-#         "name": search.name
-#     }))
 
 
 @mcp.tool()
@@ -314,7 +279,7 @@ async def get_dishes_list() -> Dict[str, Any]:
 
     Returns the complete list of dishes the user has created.
     """
-    log_info("Getting complete dishes list")
+    _ = DEBUG and log_info("Getting complete dishes list")
     verify_app_context(app, cac_object_list)
     result = get_dishes_list_func()
     return tool_result(result)
@@ -338,7 +303,7 @@ async def create_daily_meal(
     (breakfast, lunch, dinner, etc.). If a meal for this date already exists,
     the ingredients will be added to it.
     """
-    log_info(f"Creating daily meal for date: {meal_date}")
+    _ = DEBUG and log_info(f"Creating daily meal for date: {meal_date}")
     verify_app_context(app, cac_object_list)
     result = create_daily_meal_func({
         "meal_date": meal_date,
@@ -346,24 +311,6 @@ async def create_daily_meal(
         "ingredients": ingredients
     })
     return tool_result(result)
-
-
-# @mcp.tool()
-# async def create_daily_meal(meal: DailyMeal) -> Dict[str, Any]:
-#     """
-#     Add a new daily meal for a specific date.
-
-#     This tracks what the user ate on a particular day, organized by
-#     meal types (breakfast, lunch, dinner, etc.). If a meal for this date
-#     already exists, the ingredients will be added to it.
-#     """
-#     log_info(f"Creating daily meal for date: {meal.meal_date}")
-#     verify_app_context(app, cac_object_list)
-#     return tool_result(create_daily_meal_func({
-#         "meal_date": meal.meal_date,
-#         "observations": meal.observations,
-#         "ingredients": meal.ingredients
-#     }))
 
 
 @mcp.tool()
@@ -374,27 +321,12 @@ async def search_daily_meals(find_date: str) -> Dict[str, Any]:
     Useful for questions like "what did I eat yesterday?" or
     "how many calories did I consume today?"
     """
-    log_info(f"Searching daily meals for date: {find_date}")
+    _ = DEBUG and log_info(f"Searching daily meals for date: {find_date}")
     verify_app_context(app, cac_object_list)
     result = search_daily_meals_func({
         "find_date": find_date
     })
     return tool_result(result)
-
-
-# @mcp.tool()
-# async def search_daily_meals(search: DateSearch) -> Dict[str, Any]:
-#     """
-#     Search user's daily meals by date.
-
-#     Useful for questions like "what did I eat yesterday?" or
-#     "how many calories did I consume today?"
-#     """
-#     log_info(f"Searching daily meals for date: {search.find_date}")
-#     verify_app_context(app, cac_object_list)
-#     return tool_result(search_daily_meals_func({
-#         "find_date": search.find_date
-#     }))
 
 
 @mcp.tool()
@@ -404,7 +336,7 @@ async def get_daily_meal_list() -> Dict[str, Any]:
 
     Useful to understand the user's eating habits and meal history.
     """
-    log_info("Getting complete daily meal list")
+    _ = DEBUG and log_info("Getting complete daily meal list")
     verify_app_context(app, cac_object_list)
     result = get_daily_meal_list_func()
     return tool_result(result)
@@ -423,7 +355,7 @@ async def get_user_profile() -> Dict[str, Any]:
     The profile contains health data like gender, weight, height, age,
     physical goals, training days, and calculated minimum daily calories.
     """
-    log_info("Getting user summary profile")
+    _ = DEBUG and log_info("Getting user summary profile")
     verify_app_context(app, cac_object_list)
     result = get_user_profile_func({})
     return tool_result(result)
@@ -438,7 +370,7 @@ async def get_full_user_profile() -> Dict[str, Any]:
     Useful for comprehensive analysis of the user's nutrition and health
     patterns.
     """
-    log_info("Getting complete user profile with eating habits")
+    _ = DEBUG and log_info("Getting complete user profile with eating habits")
     verify_app_context(app, cac_object_list)
     result = get_full_user_profile_func({})
     return tool_result(result)
@@ -458,7 +390,7 @@ async def authenticate(
     """
     Get user login as a resource
     """
-    log_info("Getting user login for resource")
+    _ = DEBUG and log_info("Getting user login for resource")
     return mcp_authenticate(app, cac_object_list, username, password)
 
 
@@ -468,7 +400,7 @@ async def user_profile_resource() -> str:
     Get user profile as a resource
     """
     # Call the underlying function logic directly
-    log_info("Getting user summary profile for resource")
+    _ = DEBUG and log_info("Getting user summary profile for resource")
     verify_app_context(app, cac_object_list)
     return resource_result(get_user_profile_raw())
 
@@ -479,7 +411,8 @@ async def user_ingredients_resource() -> str:
     Get user ingredients as a resource
     """
     # Call the underlying function logic directly
-    log_info("Getting complete user ingredient list for resource")
+    _ = DEBUG and log_info(
+        "Getting complete user ingredient list for resource")
     verify_app_context(app, cac_object_list)
     return resource_result(get_user_ingredient_list_raw())
 
@@ -489,7 +422,7 @@ async def user_dishes_resource() -> str:
     """
     Get user dishes as a resource
     """
-    log_info("Getting complete dishes list for resource")
+    _ = DEBUG and log_info("Getting complete dishes list for resource")
     verify_app_context(app, cac_object_list)
     return resource_result(get_dishes_list_raw())
 
@@ -499,7 +432,7 @@ async def user_meals_resource() -> str:
     """
     Get user daily meals as a resource
     """
-    log_info("Getting complete daily meal list for resource")
+    _ = DEBUG and log_info("Getting complete daily meal list for resource")
     verify_app_context(app, cac_object_list)
     return resource_result(get_daily_meal_list_raw())
 

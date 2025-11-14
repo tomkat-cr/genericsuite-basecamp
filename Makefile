@@ -1,6 +1,8 @@
 # .DEFAULT_GOAL := local
-.PHONY: tests venv
+.PHONY: help install transfer_debug transfer_cicd transfer publish venv build serve run clean exampleapp-install exampleapp-install-all exampleapp-update exampleapp-update-all exampleapp-run exampleapp-create-ssl-certs exampleapp-clean
 SHELL := /bin/bash
+
+EXAMPLEAPP_SERVICES = mcp-server api-chalice api-fastapi api-flask ui
 
 # General Commands
 help:
@@ -38,23 +40,15 @@ exampleapp-install:
 	cd docs/Sample-Code/exampleapp && make install
 
 exampleapp-install-all:
-	cd docs/Sample-Code/exampleapp && make install
-	cd docs/Sample-Code/exampleapp/apps/mcp-server && make install
-	cd docs/Sample-Code/exampleapp/apps/api-chalice && make install
-	cd docs/Sample-Code/exampleapp/apps/api-fastapi && make install
-	cd docs/Sample-Code/exampleapp/apps/api-flask && make install
-	cd docs/Sample-Code/exampleapp/apps/ui && make install
+	cd docs/Sample-Code/exampleapp && make install && cd ../../../;
+	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/Sample-Code/exampleapp/apps/$(service) && make install && cd ../../../../../;)
 
 exampleapp-update:
 	cd docs/Sample-Code/exampleapp && make update
 
 exampleapp-update-all:
 	cd docs/Sample-Code/exampleapp && make update
-	cd docs/Sample-Code/exampleapp/apps/mcp-server && make update
-	cd docs/Sample-Code/exampleapp/apps/api-chalice && make update
-	cd docs/Sample-Code/exampleapp/apps/api-fastapi && make update
-	cd docs/Sample-Code/exampleapp/apps/api-flask && make update
-	cd docs/Sample-Code/exampleapp/apps/ui && make update
+	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/Sample-Code/exampleapp/apps/$(service) && make update && cd ../../../../../;)
 
 exampleapp-run:
 	cd docs/Sample-Code/exampleapp && make run

@@ -16,7 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [1.3.0] - 2025-11-12
+## [1.3.0] - 2025-11-14
 
 ### Added
 - Add new MCP server for ExampleApp with food and nutrition management tools [GS-189]. 
@@ -26,9 +26,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Add the `make link_gs_libs` documentation to the GS BE Scripts.
 - Add unlinking common assets and prompting user confirmation before cleaning directories in the `make exampleapp-clean` command.
 - Add "clean" command in Makefile for asset management.
-- Add: new `update-pnpm` command in ExampleApp Makefile for streamlined installation.
+- Add new `update-pnpm` command in ExampleApp Makefile for streamlined installation.
 - Add the MCP_SERVER_PORT, MCP_SERVER_HOST, MCP_TRANSPORT, GS_USER_NAME, GS_USER_ID, and GS_API_KEY envvars to the ExampleApp MCP server .env.example file [GS-189].
-- Add the "mcp_server.log" file to the ExampleApp MCP server directory so it can be debbugged more easily.
+- Add the "mcp_server.log" file to the ExampleApp MCP server directory so it can be debugged more easily.
 
 ### Changed
 - Update .gitignore to include IDE configurations and remove unused utility files.

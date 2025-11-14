@@ -362,7 +362,7 @@ RUN_METHOD=uvicorn
 # RUN_PROTOCOL=""
 ```
 
-* Auto-reload configuration: some times the auto-reload feature doesn't work correctly, for example running Chalice with Turborepo and the "uv" package manager. In this case, set `AUTO_RELOAD=0` to disable the auto-reload feature and make it work.
+* Auto-reload configuration: sometimes the auto-reload feature doesn't work correctly, for example running Chalice with Turborepo and the "uv" package manager. In this case, set `AUTO_RELOAD=0` to disable the auto-reload feature and make it work.
 ```env
 # Auto-reload configuration for the local development environment.
 # Available options: `1` to enable, `0` to disable, and `-` to remove the auto-reload parameter from the command line. Defaults to: 1

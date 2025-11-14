@@ -34,7 +34,7 @@ For `poetry`:
 
 
 ```bash
-# Initialize "uv" and add GenericSuite dependencies
+# Initialize "poetry" and add GenericSuite dependencies
 
 poetry init
 poetry add ../genericsuite-be
