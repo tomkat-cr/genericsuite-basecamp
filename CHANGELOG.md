@@ -29,6 +29,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Add new `update-pnpm` command in ExampleApp Makefile for streamlined installation.
 - Add the MCP_SERVER_PORT, MCP_SERVER_HOST, MCP_TRANSPORT, GS_USER_NAME, GS_USER_ID, and GS_API_KEY envvars to the ExampleApp MCP server .env.example file [GS-189].
 - Add the "mcp_server.log" file to the ExampleApp MCP server directory so it can be debugged more easily.
+- Add HUGGINGFACE_PROVIDER envvar to configure the Hugging Face inference provider, default to "auto" [GS-241].
+- Add LANGCHAIN_AGENT_TYPE=lcel option to the GenericSuite AI documentation.
 
 ### Changed
 - Update .gitignore to include IDE configurations and remove unused utility files.
@@ -39,6 +41,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Update CHANGELOG format to be more semantic.
 - Enhance documentation for ExampleApp configuration, including: detailed directory structure and backend/frontend distinctions.
 - ExampleApp MCP server: use the GS BE MCP library changes, enhance envvars management in the run script, and update requirements.txt for compatibility with new library versions.
+- Replace HUGGINGFACE_ENDPOINT_URL envvar by HUGGINGFACE_DEFAULT_CHAT_MODEL and HUGGINGFACE_DEFAULT_IMG_GEN_MODEL envvars in the ExampleApp .env.example template files.
+
 
 ### Fixed
 - Fix "mkdocs_install.sh" to update mkdocs dependencies to the latest version and rebuild requirements.txt file appropiately.
@@ -47,7 +51,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Update package dependencies in package.json and pnpm-lock.yaml to upgrade turbo and dotenv [GS-219].
 - ExampleApp UI: Disable X-Powered-By header to avoid exposing framework information in server.js [GS-219].
 - Update GS BE Core and AI libraries in ExampleApp to fix dependabot alerts [GS-219].
-
+- Add USER_PARAMS_FILE_ENABLED envvar to enable/disable user's parameters file "/tmp/params_[user_id].json", default to "0" to avoid security risks when running in a production environment [GS-240].
 
 ## [1.2.0] - 2025-07-13
 

@@ -1,5 +1,5 @@
 [project]
-name = "api-chalice"
+name = "mcp-server"
 version = "1.0.0"
 description = "ExampleApp MCP Server"
 readme = "README.md"

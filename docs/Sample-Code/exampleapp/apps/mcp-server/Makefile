@@ -10,12 +10,12 @@ help:
 ## Install dependecies
 
 install:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
 	npm install
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
 
 install_dev:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install_dev
 	npm install
+	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install_dev
 
 update:
 	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh update

@@ -1,5 +1,5 @@
 [project]
-name = "api-chalice"
+name = "api-fastapi"
 version = "1.0.0"
 description = "ExampleApp backend (FastAPI)"
 readme = "README.md"

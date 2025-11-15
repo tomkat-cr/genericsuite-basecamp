@@ -129,7 +129,7 @@ GOOGLE_CSE_ID=google_console_cse_key
 [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 ```
 OPENAI_API_KEY=openai_api_key
-OPENAI_MODEL=gpt-4o-mini
+OPENAI_MODEL=gpt-4o-mini  # other options: gpt-5-nano, gpt-5-mini, gpt-5, gpt-4o, gpt-3.5-turbo
 OPENAI_TEMPERATURE=0.5
 ```
 
@@ -254,7 +254,8 @@ LANGCHAIN_TRACING_V2=true
 ```
 ```
 # Agent configuration
-LANGCHAIN_AGENT_TYPE=react_chat_agent
+LANGCHAIN_AGENT_TYPE=lcel
+# LANGCHAIN_AGENT_TYPE=react_chat_agent
 # LANGCHAIN_AGENT_TYPE=react_agent
 # LANGCHAIN_AGENT_TYPE=structured_chat_agent
 # LANGCHAIN_AGENT_TYPE=LLMSingleActionAgent
@@ -297,7 +298,7 @@ GOOGLE_IMG_GEN_MODEL=imagegeneration@005
 ```
 ```
 # Addicional NLP model
-OPENAI_MODEL_PREMIUM=gpt-4-turbo-preview
+OPENAI_MODEL_PREMIUM=gpt-4o   # other options: gpt-5, o1-mini, o1-preview, gpt-4
 OPENAI_MODEL_INSTRUCT=gpt-3.5-turbo-instruct
 ```
 ```
@@ -476,6 +477,26 @@ HUGGINGFACE_EMBEDDINGS_MODEL="BAAI/bge-base-en-v1.5"
 
 HUGGINGFACE_EMBEDDINGS_MODEL_KWARGS='{"device":"cpu"}'
 HUGGINGFACE_EMBEDDINGS_ENCODE_KWARGS='{"normalize_embeddings": true}'
+```
+
+```
+# Hugging Face inference provider:
+# Available options: `auto`, `cerebras`, `groq`, `hyperbolic`, `nebius`, `together`, `hf-inference`, etc.
+# Check the available providers in: https://hf.co/settings/inference-providers
+# "auto" is the default provider and it will use the best provider available.
+# HUGGINGFACE_PROVIDER=auto
+# https://huggingface.co/models?inference_provider=groq
+# HUGGINGFACE_PROVIDER=groq
+# https://huggingface.co/models?inference_provider=cerebras
+# HUGGINGFACE_PROVIDER=cerebras
+# https://huggingface.co/models?inference_provider=hyperbolic
+# HUGGINGFACE_PROVIDER=hyperbolic
+# https://huggingface.co/models?inference_provider=nebius
+# HUGGINGFACE_PROVIDER=nebius
+# https://huggingface.co/models?inference_provider=together
+# HUGGINGFACE_PROVIDER=together
+# https://huggingface.co/models?inference_provider=hf-inference
+# HUGGINGFACE_PROVIDER=hf-inference
 ```
 
 * Clarifai credentials and other parameters<BR/>

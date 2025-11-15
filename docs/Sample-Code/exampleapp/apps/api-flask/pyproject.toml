@@ -1,5 +1,5 @@
 [project]
-name = "api-chalice"
+name = "api-flask"
 version = "1.0.0"
 description = "ExampleApp backend (Flask)"
 readme = "README.md"

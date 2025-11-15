@@ -384,9 +384,9 @@ FRONTEND_PATH=../exampleapp_frontend
 
 * Local python version
 ```env
-PYTHON_VERSION=3.11.5
+PYTHON_VERSION=3.12
+# PYTHON_VERSION=3.11.5
 # PYTHON_VERSION=3.10.12
-# PYTHON_VERSION=3.9.17
 ```
 
 * IAAS Cloud provider
@@ -533,14 +533,6 @@ LOCAL_DNS_DISABLED=1
 BRIDGE_PROXY_DISABLED=1
 ```
 
-* Flask configuration
-```env
-# Flask app entry point
-FLASK_APP=__init__.py
-# Flask secret key
-FLASK_SECRET_KEY=xxxx
-```
-
 * Localstack<BR/>
 [https://www.localstack.cloud/](https://www.localstack.cloud/)
 
@@ -548,6 +540,32 @@ FLASK_SECRET_KEY=xxxx
 # Localstack configuration
 # LOCALSTACK_AUTH_TOKEN=""
 # (Set LOCALSTACK_AUTH_TOKEN empty when working offline, and assign the Auth Token to make services like EC2 to work correctly)
+```
+
+* General parameters file
+```env
+# Enable/disable general parameters file creation in "/tmp/params_general.json"
+# Available options: `1` to enable, `0` to disable. Defaults to: 1
+# PARAMS_FILE_ENABLED=0
+# PARAMS_FILE_ENABLED=1
+```
+
+* User's parameters file
+```env
+# Enable/disable user's parameters file creation in "/tmp/params_[user_id].json"
+# Recommended to enable it in local development environment to make it run faster
+# Defaults to "0" to avoid security risks when running in a production environment
+# Available options: `1` to enable, `0` to disable.
+# USER_PARAMS_FILE_ENABLED=0
+# USER_PARAMS_FILE_ENABLED=1
+```
+
+* Flask configuration
+```env
+# Flask app entry point
+FLASK_APP=__init__.py
+# Flask secret key
+FLASK_SECRET_KEY=xxxx
 ```
 
 ## App structure

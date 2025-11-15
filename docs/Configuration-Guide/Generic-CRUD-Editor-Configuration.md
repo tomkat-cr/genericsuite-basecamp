@@ -1447,7 +1447,7 @@ Clarifai AI models
         {
             "name": "model_url",
             "required": false,
-            "label": "Model urL",
+            "label": "Model URL",
             "type": "text",
             "readonly": false,
             "listing": true
