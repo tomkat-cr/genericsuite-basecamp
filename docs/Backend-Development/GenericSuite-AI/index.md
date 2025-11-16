@@ -15,11 +15,12 @@ The perfect companion for this backend solution is [The GenericSuite AI (fronten
 
 ## Pre-requisites
 
-- [Python](https://www.python.org/downloads/) >= 3.9 and < 4.0
+- Python version >= 3.10 and < 4.0 (version specified in `.python-version` files and installable with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 - Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
-* [Docker and Docker Composer](https://www.docker.com/products/docker-desktop)
+- [Docker and Docker Composer](https://www.docker.com/products/docker-desktop)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/), [pipenv](https://pipenv.pypa.io/en/latest/), or [poetry](https://python-poetry.org/docs/) (for Python dependency management)
 
 ### AWS account and credentials
 
@@ -635,6 +636,36 @@ WEAVIATE_API_KEY=
 WEBSEARCH_DUCKDUCKGO_METHOD='ddg'
 # * Langchain DuckDuckGo wrapper
 # WEBSEARCH_DUCKDUCKGO_METHOD='ddg_lc'
+```
+
+* AI Debug Flags
+
+```env
+# AI_AUDIO_PROCESSING_DEBUG=1
+# AI_CHATBOT_COMMONS_DEBUG=1
+# AI_CHATBOT_DEBUG=1
+# AI_CONVERSATIONS_DEBUG=1
+# AI_EMBEDDINGS_DEBUG=1
+# AI_GPT_FN_CONVERSATIONS_DEBUG=1
+# AI_GPT_FUNCTIONS_DEBUG=1
+# AI_IMAGE_GENERATOR_DEBUG=1
+# AI_MODELS_DEBUG=1
+# AI_TOOLS_DEBUG=1
+# AI_SUB_BOTS_DEBUG=1
+# AI_UTILITIES_DEBUG=1
+# AI_VISION_DEBUG=1
+# AI_AMAZON_BEDROCK_DEBUG=1
+# AI_CLARIFAI_DEBUG=1
+# AI_HUGGINGFACE_DEBUG=1
+# AI_GIT_READER_DEBUG=1
+# AI_IBM_DEBUG=1
+# AI_JSON_READER_DEBUG=1
+# AI_TRANSLATOR_DEBUG=1
+# AI_VECTOR_INDEX_DEBUG=1
+# AI_WEB_SCRAPPING_DEBUG=1
+# AI_WEBSEARCH_DEBUG=1
+# AI_YOUTUBE_READER_DEBUG=1
+# GCP_DEBUG=1
 ```
 
 ## Code examples and JSON configuration files

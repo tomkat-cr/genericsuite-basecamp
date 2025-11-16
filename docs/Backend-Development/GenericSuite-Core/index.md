@@ -21,11 +21,12 @@
 
 ## Pre-requisites
 
-- [Python](https://www.python.org/downloads/) >= 3.9 and < 4.0
+- Python version >= 3.10 and < 4.0 (version specified in `.python-version` files and installable with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 - Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
-* [Docker and Docker Composer](https://www.docker.com/products/docker-desktop)
+- [Docker and Docker Composer](https://www.docker.com/products/docker-desktop)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/), [pipenv](https://pipenv.pypa.io/en/latest/), or [poetry](https://python-poetry.org/docs/) (for Python dependency management)
 
 ### AWS account and credentials
 

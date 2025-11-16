@@ -27,7 +27,7 @@ echo "📂 Server directory: $SCRIPT_DIR"
 # Check if Python is available
 if ! command -v python3 &> /dev/null; then
     if ! command -v python &> /dev/null; then
-        echo "❌ Python not found. Please install Python 3.9 or later."
+        echo "❌ Python not found. Please install Python 3.10 or later."
         exit 1
     else
         PYTHON_CMD="python"

@@ -3164,6 +3164,7 @@ Resources:
   APIHandler:
     Type: AWS::Serverless::Function
     Properties:
+      # Runtime: python3.12
       Runtime: python3.11
       Handler: app.app
       CodeUri: ./deployment.zip

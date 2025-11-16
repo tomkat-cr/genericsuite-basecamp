@@ -4,6 +4,7 @@ SHELL := /bin/bash
 
 EXAMPLEAPP_SERVICES = mcp-server api-chalice api-fastapi api-flask ui
 
+
 # General Commands
 help:
 	cat Makefile
@@ -22,8 +23,11 @@ transfer: transfer_cicd
 
 publish: transfer
 
+nvm_use:
+	export NVM_DIR="${HOME}/.nvm" && [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh" && if ! nvm use; then echo "❌ NVM use failed. Please install it."; fi
+
 venv:
-	. scripts/mkdocs_run.sh
+	if ! . scripts/mkdocs_run.sh; then if ! source scripts/mkdocs_run.sh; then @echo "❌ scripts/mkdocs_run.sh failed..."; fi; fi
 
 build:
 	bash scripts/mkdocs_run.sh build
@@ -36,17 +40,17 @@ run: serve
 clean:
 	npm cache clean --force && rm -rf venv .pytest_cache .cache
 
-exampleapp-install:
+exampleapp-install: nvm_use
 	cd docs/Sample-Code/exampleapp && make install
 
-exampleapp-install-all:
+exampleapp-install-all: nvm_use
 	cd docs/Sample-Code/exampleapp && make install && cd ../../../;
 	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/Sample-Code/exampleapp/apps/$(service) && make install && cd ../../../../../;)
 
-exampleapp-update:
+exampleapp-update: nvm_use
 	cd docs/Sample-Code/exampleapp && make update
 
-exampleapp-update-all:
+exampleapp-update-all: nvm_use
 	cd docs/Sample-Code/exampleapp && make update
 	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/Sample-Code/exampleapp/apps/$(service) && make update && cd ../../../../../;)
 

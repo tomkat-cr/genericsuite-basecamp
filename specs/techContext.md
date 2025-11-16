@@ -98,7 +98,7 @@
 
 #### Development Environment
 - **Node.js 20+**: JavaScript runtime (version specified in `.nvmrc`)
-- **Python 3.9+**: Python runtime (version specified in `.python-version`)
+- **Python 3.10+**: Python runtime (version specified in `.python-version`)
 - **Make**: Build automation and task runner
 - **Shell Scripts**: Bash scripts for common development tasks
 
@@ -115,8 +115,8 @@ nvm use 20
 
 # Python via pyenv (recommended)
 curl https://pyenv.run | bash
-pyenv install 3.11.0
-pyenv global 3.11.0
+pyenv install 3.12
+pyenv global 3.12
 
 # Package managers
 npm install -g pnpm
@@ -203,7 +203,7 @@ make exampleapp-create-ssl-certs
 ### Platform Constraints
 - **Operating System**: Primarily developed on macOS, compatible with Linux
 - **Node.js Version**: Requires Node.js 20+ for Tailwind CSS v4 and Shadcn v2+ compatibility
-- **Python Version**: Requires Python 3.9+ and < 4.0 for GenericSuite compatibility
+- **Python Version**: Requires Python 3.10+ and < 4.0 for GenericSuite compatibility
 - **Browser Support**: Modern browsers with ES6+ support
 
 ### Performance Constraints

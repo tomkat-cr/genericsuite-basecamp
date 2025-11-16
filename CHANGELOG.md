@@ -20,6 +20,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### Added
 - Add new MCP server for ExampleApp with food and nutrition management tools [GS-189]. 
+- Add Linux compatibility: replace "sh" by "bash" in Makefile and package.json files to run on Linux [GS-230].
 - Add PEM_TOOL envvar to select the Python package and dependency management tool (uv, pipenv, and poetry), default to "uv" [GS-77].
 - Add AUTO_RELOAD envvar to fix some issues with the "--auto-reload" / "--reload" option running the app in "run_aws.sh", Turborepo and "uv", default to "1" [GS-77].
 - Add the `make exampleapp-update-all` and `make exampleapp-install-all` commands to update and install all ExampleApp apps.
@@ -31,6 +32,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Add the "mcp_server.log" file to the ExampleApp MCP server directory so it can be debugged more easily.
 - Add HUGGINGFACE_PROVIDER envvar to configure the Hugging Face inference provider, default to "auto" [GS-241].
 - Add LANGCHAIN_AGENT_TYPE=lcel option to the GenericSuite AI documentation.
+- Add DEBUG envvars to all AI modules to enable debug logging, default to "0" (they must be set on the .env file) [GS-230].
 
 ### Changed
 - Update .gitignore to include IDE configurations and remove unused utility files.
@@ -42,10 +44,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Enhance documentation for ExampleApp configuration, including: detailed directory structure and backend/frontend distinctions.
 - ExampleApp MCP server: use the GS BE MCP library changes, enhance envvars management in the run script, and update requirements.txt for compatibility with new library versions.
 - Replace HUGGINGFACE_ENDPOINT_URL envvar by HUGGINGFACE_DEFAULT_CHAT_MODEL and HUGGINGFACE_DEFAULT_IMG_GEN_MODEL envvars in the ExampleApp .env.example template files.
+- Update Python default version to 3.12 in the documentation and ExampleApp .python-version files [GS-230].
+- Update Python minimum version to 3.10 in the documentation [GS-230].
 
 ### Fixed
 - Fix "mkdocs_install.sh" to update mkdocs dependencies to the latest version and rebuild requirements.txt file appropiately.
-- Fix Make scripts to run on Linux: replace "sh" by "bash" in all Makefiles.
 
 ### Security
 - Update package dependencies in package.json and pnpm-lock.yaml to upgrade turbo and dotenv [GS-219].

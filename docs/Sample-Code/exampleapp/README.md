@@ -44,9 +44,9 @@ The application is structured as a monorepo using [TurboRepo](https://turborepo.
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install (version specified in `.nvmrc`).
 - [pnpm](https://pnpm.io/installation) (version 10.12.4 or compatible)
-- [Python](https://www.python.org/downloads/) >= 3.9 and < 4.0 (version specified in `.python-version`)
-- [Pipenv](https://pipenv.pypa.io/en/latest/) (for Python dependency management)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
+- Python version >= 3.10 and < 4.0 (version specified in `.python-version` files and installable with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/), [pipenv](https://pipenv.pypa.io/en/latest/), or [poetry](https://python-poetry.org/docs/) (for Python dependency management)
 
 ### Services
 
