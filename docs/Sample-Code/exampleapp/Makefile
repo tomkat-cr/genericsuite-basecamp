@@ -39,7 +39,7 @@ init-env-files:
 	sh scripts/init_env_files.sh
 
 build-if-required:
-	sh scripts/build_if_required.sh
+	bash scripts/build_if_required.sh
 
 dev: link build-if-required
 	# pnpx turbo dev; (exit_code=$$?; make shut_down; exit $$exit_code)

@@ -111,22 +111,22 @@ link_gs_libs:
 ## Chalice Specific Commands
 
 config:
-	sh node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh prod
+	bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh prod
 
 config_dev:
-	sh node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh
+	bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh
 
 config_local:
-	sh node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh mongo_docker
+	bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh mongo_docker
 
 config_qa:
-	sh node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa
+	bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa
 
 config_qa_for_deployment:
-	sh node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa deploy
+	bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa deploy
 
 config_staging:
-	sh node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh staging
+	bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh staging
 
 build:
 	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh create_stack
