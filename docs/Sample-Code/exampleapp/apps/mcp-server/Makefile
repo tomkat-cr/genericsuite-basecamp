@@ -221,12 +221,10 @@ aws_secrets:
 
 run: config_local clean_logs
 	bash node_modules/genericsuite-be-scripts/scripts/mongo/run_mongo_docker.sh run "0" dev
-	# bash node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local
-	sh ./run_mcp_server.sh
+	bash ./run_mcp_server.sh
 
 run_qa: config_qa clean_logs
-	# bash node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local qa
-	sh ./run_mcp_server.sh
+	bash ./run_mcp_server.sh
 
 down_qa: config_qa clean_logs
 	bash node_modules/genericsuite-be-scripts/scripts/secure_local_server/run.sh "down" ""
@@ -236,12 +234,9 @@ restart_qa: config_qa clean_logs
 	bash node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local qa
 
 run_local_docker: run
-# run_local_docker: config_local clean_logs
-# 	bash node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local dev
 
 run_prod: config clean_logs
-	# bash node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run
-	sh ./run_mcp_server.sh
+	bash ./run_mcp_server.sh
 
 ## Common JSON config
 

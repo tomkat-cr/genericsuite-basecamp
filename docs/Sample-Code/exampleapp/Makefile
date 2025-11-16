@@ -24,10 +24,10 @@ check-build:
 	pnpx turbo check-types build
 
 link:
-	sh scripts/link_common_assets.sh link
+	bash scripts/link_common_assets.sh link
 
 unlink:
-	sh scripts/link_common_assets.sh unlink
+	bash scripts/link_common_assets.sh unlink
 	cd apps/ui && bash node_modules/genericsuite/scripts/run_symlinks_handler.sh remove
 
 down_docker:
@@ -36,7 +36,7 @@ down_docker:
 shut_down: down_docker unlink
 
 init-env-files:
-	sh scripts/init_env_files.sh
+	bash scripts/init_env_files.sh
 
 build-if-required:
 	bash scripts/build_if_required.sh

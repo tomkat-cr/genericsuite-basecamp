@@ -9,10 +9,10 @@ help:
 	cat Makefile
 
 install:
-	sh scripts/mkdocs_install.sh
+	bash scripts/mkdocs_install.sh
 
 transfer_debug:
-	sh scripts/mkdocs_transfer_site.sh
+	bash scripts/mkdocs_transfer_site.sh
 
 transfer_cicd:
 	# Set DEBUG to false to avoid blocking automation in CI environments
@@ -26,10 +26,10 @@ venv:
 	. scripts/mkdocs_run.sh
 
 build:
-	sh scripts/mkdocs_run.sh build
+	bash scripts/mkdocs_run.sh build
 
 serve:
-	sh scripts/mkdocs_run.sh serve
+	bash scripts/mkdocs_run.sh serve
 
 run: serve
 
@@ -61,4 +61,4 @@ exampleapp-clean:
 	@echo ""
 	@echo "Press Enter to continue to clean all directories (node_modules, dist, etc.)"
 	@read
-	sh docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp false true
+	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp false true
