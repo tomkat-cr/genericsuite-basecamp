@@ -16,7 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [1.3.0] - 2025-11-14
+## [1.3.0] - 2025-11-16
 
 ### Added
 - Add new MCP server for ExampleApp with food and nutrition management tools [GS-189]. 
@@ -43,15 +43,16 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - ExampleApp MCP server: use the GS BE MCP library changes, enhance envvars management in the run script, and update requirements.txt for compatibility with new library versions.
 - Replace HUGGINGFACE_ENDPOINT_URL envvar by HUGGINGFACE_DEFAULT_CHAT_MODEL and HUGGINGFACE_DEFAULT_IMG_GEN_MODEL envvars in the ExampleApp .env.example template files.
 
-
 ### Fixed
 - Fix "mkdocs_install.sh" to update mkdocs dependencies to the latest version and rebuild requirements.txt file appropiately.
+- Fix Make scripts to run on Linux: replace "sh" by "bash" in all Makefiles.
 
 ### Security
 - Update package dependencies in package.json and pnpm-lock.yaml to upgrade turbo and dotenv [GS-219].
 - ExampleApp UI: Disable X-Powered-By header to avoid exposing framework information in server.js [GS-219].
 - Update GS BE Core and AI libraries in ExampleApp to fix dependabot alerts [GS-219].
 - Add USER_PARAMS_FILE_ENABLED envvar to enable/disable user's parameters file "/tmp/params_[user_id].json", default to "0" to avoid security risks when running in a production environment [GS-240].
+
 
 ## [1.2.0] - 2025-07-13
 

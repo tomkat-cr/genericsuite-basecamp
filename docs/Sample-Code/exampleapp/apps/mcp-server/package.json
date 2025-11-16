@@ -20,7 +20,7 @@
     "start:local:gs_be_scripts": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh",
     "start:qa": "bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && sh ./run_mcp_server.sh",
     "start:qa:gs_be_scripts": "bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && bash node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local qa",
-    "start:qa:debug": "bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && DEBUG_MODE=1 sh ./run_mcp_server.sh",
+    "start:qa:debug": "bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && DEBUG_MODE=1 bash ./run_mcp_server.sh",
     "deploy": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh deploy",
     "pipfile": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile",
     "shell": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh shell",
