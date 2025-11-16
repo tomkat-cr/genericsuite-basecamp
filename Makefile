@@ -45,14 +45,14 @@ exampleapp-install: nvm_use
 
 exampleapp-install-all: nvm_use
 	cd docs/Sample-Code/exampleapp && make install && cd ../../../;
-	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/Sample-Code/exampleapp/apps/$(service) && make install && cd ../../../../../;)
+	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/Sample-Code/exampleapp/apps/$(service) && pwd && make install && cd ../../../../../;)
 
 exampleapp-update: nvm_use
 	cd docs/Sample-Code/exampleapp && make update
 
 exampleapp-update-all: nvm_use
-	cd docs/Sample-Code/exampleapp && make update
-	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/Sample-Code/exampleapp/apps/$(service) && make update && cd ../../../../../;)
+	cd docs/Sample-Code/exampleapp && make update && cd ../../../;
+	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/Sample-Code/exampleapp/apps/$(service) && pwd && make update && cd ../../../../../;)
 
 exampleapp-run:
 	cd docs/Sample-Code/exampleapp && make run
