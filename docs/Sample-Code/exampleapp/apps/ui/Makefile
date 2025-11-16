@@ -51,42 +51,42 @@ eject-dev:
 	npm run eject-dev
 
 config:
-	sh node_modules/genericsuite/scripts/change_env_be_endpoint.sh dev
+	bash node_modules/genericsuite/scripts/change_env_be_endpoint.sh dev
 
 config_qa:
-	sh node_modules/genericsuite/scripts/change_env_be_endpoint.sh qa
+	bash node_modules/genericsuite/scripts/change_env_be_endpoint.sh qa
 
 config_demo:
-	sh node_modules/genericsuite/scripts/change_env_be_endpoint.sh demo
+	bash node_modules/genericsuite/scripts/change_env_be_endpoint.sh demo
 
 deploy: config
-	sh node_modules/genericsuite/scripts/aws_deploy_to_s3.sh
+	bash node_modules/genericsuite/scripts/aws_deploy_to_s3.sh
 
 deploy_qa: config_qa
-	sh node_modules/genericsuite/scripts/aws_deploy_to_s3.sh
+	bash node_modules/genericsuite/scripts/aws_deploy_to_s3.sh
 
 deploy_demo: config_demo
-	sh node_modules/genericsuite/scripts/aws_deploy_to_s3.sh
+	bash node_modules/genericsuite/scripts/aws_deploy_to_s3.sh
 
 run: config
-	sh node_modules/genericsuite/scripts/run_app_frontend.sh dev
+	bash node_modules/genericsuite/scripts/run_app_frontend.sh dev
 
 run_qa: config_qa
-	sh node_modules/genericsuite/scripts/run_app_frontend.sh qa
+	bash node_modules/genericsuite/scripts/run_app_frontend.sh qa
 
 server: run
 start: run
 local: run
 
 run_prod: build-prod
-	# sh node_modules/genericsuite/scripts/run_app_frontend.sh prod
+	# bash node_modules/genericsuite/scripts/run_app_frontend.sh prod
 	npm start
 
 tailwind:
 	npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css --watch
 
 add_submodules:
-	sh node_modules/genericsuite/scripts/add_github_submodules.sh
+	bash node_modules/genericsuite/scripts/add_github_submodules.sh
 
 create_ssl_certs:
-	sh node_modules/genericsuite/scripts/create_ssl_certs.sh
+	bash node_modules/genericsuite/scripts/create_ssl_certs.sh

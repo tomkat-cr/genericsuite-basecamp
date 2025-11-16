@@ -59,7 +59,7 @@ poetry add --dev pytest coverage cfn-lint
 npm install genericsuite-be-scripts@latest
 ```
 
-3. Update the `Makefile` file changing every `pipenv` reference to `sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh` + the Makefile tag:
+3. Update the `Makefile` file changing every `pipenv` reference to `bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh` + the Makefile tag:
 
 For example:
 
@@ -70,66 +70,66 @@ Replace:
 
 With:
     ```
-    sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
+    bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
     ```
 
 Here's the complete example:
 
 ```makefile
 install:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
 	npm install
 
 install_dev:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install_dev
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh install_dev
 	npm install
 
 update:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh update
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh update
 	npm update
 
 update_dev:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh update_dev
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh update_dev
 	npm update
 
 locked_dev:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh locked_dev
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh locked_dev
 
 locked_install:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh locked_install
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh locked_install
 
 lock:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh lock
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh lock
 
 requirements:
-	sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh requirements
+	bash node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh requirements
 
 			.
 			.
 			.
 
 clean_rm:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh clean_rm
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh clean_rm
 
 			.
 			.
 			.
 
 lint:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh lint
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh lint
 
 types:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh types
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh types
 
 coverage:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh coverage
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh coverage
 
 format:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh format
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh format
 	pycodestyle
 
 format_check:
-	sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh format_check
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh format_check
 	pycodestyle
 ```
 

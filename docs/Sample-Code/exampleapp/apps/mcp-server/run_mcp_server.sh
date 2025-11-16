@@ -43,7 +43,7 @@ echo "📦 Checking dependencies..."
 echo "Running: ${PEM_TOOL} run $PYTHON_CMD -c \"import fastmcp\""
 if ! ${PEM_TOOL} run $PYTHON_CMD -c "import fastmcp" &> /dev/null; then
     echo "📥 Installing dependencies..."
-    sh node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
+    bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
     if [ $? -ne 0 ]; then
         echo "❌ Failed to install dependencies. Please check requirements.txt"
         exit 1
