@@ -16,7 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [1.3.0] - 2025-11-16
+## [1.3.0] - 2025-11-17
 
 ### Added
 - Add new MCP server for ExampleApp with food and nutrition management tools [GS-189]. 
@@ -46,6 +46,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Replace HUGGINGFACE_ENDPOINT_URL envvar by HUGGINGFACE_DEFAULT_CHAT_MODEL and HUGGINGFACE_DEFAULT_IMG_GEN_MODEL envvars in the ExampleApp .env.example template files.
 - Update Python default version to 3.12 in the documentation and ExampleApp .python-version files [GS-230].
 - Update Python minimum version to 3.10 in the documentation [GS-230].
+- Update all GenericSuite dependencies to the latest versions (npm, uv, pipenv) on the ExampleApp [GS-230].
 
 ### Fixed
 - Fix "mkdocs_install.sh" to update mkdocs dependencies to the latest version and rebuild requirements.txt file appropiately.

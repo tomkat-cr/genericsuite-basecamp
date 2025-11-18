@@ -93,11 +93,11 @@
     "react-error-overlay": "6.0.9",
     "tailwindcss": "^3.4.13",
     "url-loader": "^4.1.1",
-    "vite": "^5.4.21",
-    "vite-plugin-require": "^1.2.14"
+    "vite": "^7.2.2",
+    "vite-plugin-require": "^1.0.1"
   },
   "dependencies": {
-    "genericsuite": "github:tomkat-cr/genericsuite-fe#develop",
-    "genericsuite-ai": "github:tomkat-cr/genericsuite-fe-ai#develop"
+    "genericsuite": "^1.1.0",
+    "genericsuite-ai": "^1.1.0"
   }
 }

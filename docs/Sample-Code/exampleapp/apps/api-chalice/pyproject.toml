@@ -6,13 +6,9 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "chalice>=1.32.0",
-    "genericsuite",
-    "genericsuite-ai",
+    "genericsuite>=0.2.0",
+    "genericsuite-ai>=0.2.0",
 ]
-
-[tool.uv.sources]
-genericsuite = { path = "../../../../../../genericsuite-be" }
-genericsuite-ai = { path = "../../../../../../genericsuite-be-ai" }
 
 [dependency-groups]
 dev = [

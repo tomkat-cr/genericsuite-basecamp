@@ -27,6 +27,6 @@
     "check-types": "npm run coverage && npm run lint && npm run test"
   },
   "dependencies": {
-    "genericsuite-be-scripts": "file:../../../../../../genericsuite-be-scripts"
+    "genericsuite-be-scripts": "^1.2.0"
   }
 }

@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-genericsuite = {file = "../../../../../../genericsuite-be"}
-genericsuite-ai = {file = "../../../../../../genericsuite-be-ai"}
+genericsuite = "*"
+genericsuite-ai = "*"
 
 [dev-packages]
 pytest = "*"
