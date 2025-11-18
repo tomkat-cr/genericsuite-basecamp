@@ -15,11 +15,12 @@ The perfect companion for this backend solution is [The GenericSuite AI (fronten
 
 ## Pre-requisites
 
-- [Python](https://www.python.org/downloads/) >= 3.9 and < 4.0
+- Python version >= 3.10 and < 4.0 (version specified in `.python-version` files and installable with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 - Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
-* [Docker and Docker Composer](https://www.docker.com/products/docker-desktop)
+- [Docker and Docker Composer](https://www.docker.com/products/docker-desktop)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/), [pipenv](https://pipenv.pypa.io/en/latest/), or [poetry](https://python-poetry.org/docs/) (for Python dependency management)
 
 ### AWS account and credentials
 
@@ -51,9 +52,17 @@ Poetry
 poetry add genericsuite genericsuite-ai
 ```
 
+Uv
+```bash
+uv add genericsuite genericsuite-ai
+```
+
 **NOTE**: in the following instructions we'll only show `pip install ...`.<BR/>
-If you'll use `Pipenv`, change it with `pipenv install ...`.<BR/>
-If you'll use `Poetry`, change it with `poetry add ...`.<BR/>
+If you'll use `pipenv`, change it with `pipenv install ...`.<BR/>
+If you'll use `poetry`, change it with `poetry add ...`.<BR/>
+If you'll use `uv`, change it with `uv add ...`.<BR/>
+
+Check [this documentation](../../Other/python-package-managers.md) to use the different Python package and dependency management tools.
 
 ### From Git or Local Directory
 
@@ -121,7 +130,7 @@ GOOGLE_CSE_ID=google_console_cse_key
 [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 ```
 OPENAI_API_KEY=openai_api_key
-OPENAI_MODEL=gpt-4o-mini
+OPENAI_MODEL=gpt-4o-mini  # other options: gpt-5-nano, gpt-5-mini, gpt-5, gpt-4o, gpt-3.5-turbo
 OPENAI_TEMPERATURE=0.5
 ```
 
@@ -246,7 +255,8 @@ LANGCHAIN_TRACING_V2=true
 ```
 ```
 # Agent configuration
-LANGCHAIN_AGENT_TYPE=react_chat_agent
+LANGCHAIN_AGENT_TYPE=lcel
+# LANGCHAIN_AGENT_TYPE=react_chat_agent
 # LANGCHAIN_AGENT_TYPE=react_agent
 # LANGCHAIN_AGENT_TYPE=structured_chat_agent
 # LANGCHAIN_AGENT_TYPE=LLMSingleActionAgent
@@ -289,7 +299,7 @@ GOOGLE_IMG_GEN_MODEL=imagegeneration@005
 ```
 ```
 # Addicional NLP model
-OPENAI_MODEL_PREMIUM=gpt-4-turbo-preview
+OPENAI_MODEL_PREMIUM=gpt-4o   # other options: gpt-5, o1-mini, o1-preview, gpt-4
 OPENAI_MODEL_INSTRUCT=gpt-3.5-turbo-instruct
 ```
 ```
@@ -470,6 +480,26 @@ HUGGINGFACE_EMBEDDINGS_MODEL_KWARGS='{"device":"cpu"}'
 HUGGINGFACE_EMBEDDINGS_ENCODE_KWARGS='{"normalize_embeddings": true}'
 ```
 
+```
+# Hugging Face inference provider:
+# Available options: `auto`, `cerebras`, `groq`, `hyperbolic`, `nebius`, `together`, `hf-inference`, etc.
+# Check the available providers in: https://hf.co/settings/inference-providers
+# "auto" is the default provider and it will use the best provider available.
+# HUGGINGFACE_PROVIDER=auto
+# https://huggingface.co/models?inference_provider=groq
+# HUGGINGFACE_PROVIDER=groq
+# https://huggingface.co/models?inference_provider=cerebras
+# HUGGINGFACE_PROVIDER=cerebras
+# https://huggingface.co/models?inference_provider=hyperbolic
+# HUGGINGFACE_PROVIDER=hyperbolic
+# https://huggingface.co/models?inference_provider=nebius
+# HUGGINGFACE_PROVIDER=nebius
+# https://huggingface.co/models?inference_provider=together
+# HUGGINGFACE_PROVIDER=together
+# https://huggingface.co/models?inference_provider=hf-inference
+# HUGGINGFACE_PROVIDER=hf-inference
+```
+
 * Clarifai credentials and other parameters<BR/>
 [https://clarifai.com](https://clarifai.com) > UserId > ProjectId > Settings
 
@@ -606,6 +636,36 @@ WEAVIATE_API_KEY=
 WEBSEARCH_DUCKDUCKGO_METHOD='ddg'
 # * Langchain DuckDuckGo wrapper
 # WEBSEARCH_DUCKDUCKGO_METHOD='ddg_lc'
+```
+
+* AI Debug Flags
+
+```env
+# AI_AUDIO_PROCESSING_DEBUG=1
+# AI_CHATBOT_COMMONS_DEBUG=1
+# AI_CHATBOT_DEBUG=1
+# AI_CONVERSATIONS_DEBUG=1
+# AI_EMBEDDINGS_DEBUG=1
+# AI_GPT_FN_CONVERSATIONS_DEBUG=1
+# AI_GPT_FUNCTIONS_DEBUG=1
+# AI_IMAGE_GENERATOR_DEBUG=1
+# AI_MODELS_DEBUG=1
+# AI_TOOLS_DEBUG=1
+# AI_SUB_BOTS_DEBUG=1
+# AI_UTILITIES_DEBUG=1
+# AI_VISION_DEBUG=1
+# AI_AMAZON_BEDROCK_DEBUG=1
+# AI_CLARIFAI_DEBUG=1
+# AI_HUGGINGFACE_DEBUG=1
+# AI_GIT_READER_DEBUG=1
+# AI_IBM_DEBUG=1
+# AI_JSON_READER_DEBUG=1
+# AI_TRANSLATOR_DEBUG=1
+# AI_VECTOR_INDEX_DEBUG=1
+# AI_WEB_SCRAPPING_DEBUG=1
+# AI_WEBSEARCH_DEBUG=1
+# AI_YOUTUBE_READER_DEBUG=1
+# GCP_DEBUG=1
 ```
 
 ## Code examples and JSON configuration files

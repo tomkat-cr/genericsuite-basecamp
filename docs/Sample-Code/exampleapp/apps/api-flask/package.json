@@ -17,7 +17,7 @@
     "build": "make install_dev",
     "test": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh test",
     "start:local": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh",
-    "start:qa": "sh node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && sh node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local qa",
+    "start:qa": "bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && bash node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local qa",
     "deploy": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh deploy",
     "pipfile": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile",
     "shell": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh shell",
@@ -27,6 +27,6 @@
     "check-types": "npm run coverage && npm run lint && npm run test"
   },
   "dependencies": {
-    "genericsuite-be-scripts": "^1.0.14"
+    "genericsuite-be-scripts": "^1.2.0"
   }
 }

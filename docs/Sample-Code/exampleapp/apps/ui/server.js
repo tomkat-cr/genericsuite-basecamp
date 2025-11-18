@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express()
+
+// Disable X-Powered-By header to avoid exposing framework information
+app.disable('x-powered-by')
 const path = require('path')
-const port = process.env.FRONTEND_LOCAL_PORT || 3000
+const port = process.env.FRONTEND_LOCAL_PORT || 3005
 
 // Basic rate limiting to mitigate DoS via expensive FS operations
 const rateLimit = require('express-rate-limit')

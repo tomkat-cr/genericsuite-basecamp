@@ -14,11 +14,11 @@ from datetime import datetime
 # from uuid import UUID, uuid4
 from uuid import uuid4
 
-from langchain.agents import tool
-from pydantic import BaseModel, Field, field_validator
 from pydantic_core import PydanticCustomError
+from pydantic import BaseModel, Field, field_validator
 
-from langchain.schema import Document
+from langchain.tools import tool
+from langchain_classic.schema import Document
 
 from genericsuite.util.app_context import CommonAppContext
 from genericsuite.util.app_logger import log_debug
@@ -97,8 +97,8 @@ class Ingredient(BaseModel):
     @field_validator("serving_size_unit", mode="after")
     @classmethod
     def validate_serving_size_unit(cls, v: str) -> str:
-        valid_units = ["g", "u", "tsp", "tablespoon", "bowl", "cup", "scup", 
-                      "ml", "mg", "ug", "oz", "lb", "iu", "mlt"]
+        valid_units = ["g", "u", "tsp", "tablespoon", "bowl", "cup", "scup",
+                       "ml", "mg", "ug", "oz", "lb", "iu", "mlt"]
         if v not in valid_units:
             raise PydanticCustomError(
                 "invalid_serving_size_unit",
@@ -129,11 +129,11 @@ class IngredientWithQtyAndFoodMoment(IngredientWithQty):
     # food_moment: str = Field(description="Food moment")
     meal_type: str = Field(description="Meal type")
 
-    @field_validator("meal_type", mode="after") 
+    @field_validator("meal_type", mode="after")
     @classmethod
     def validate_meal_type(cls, v: str) -> str:
-        valid_types = ["Breakfast", "Brunch", "Elevenses", "Lunch", "Tea", 
-                      "Supper", "Dinner", "Other", "Unknown"]
+        valid_types = ["Breakfast", "Brunch", "Elevenses", "Lunch", "Tea",
+                       "Supper", "Dinner", "Other", "Unknown"]
         if v not in valid_types:
             raise PydanticCustomError(
                 "invalid_meal_type",
@@ -271,7 +271,7 @@ def food_moment_id_from_ai(food_moment: str, food_moments: dict) -> dict:
 
     # Power prompt
     prompt = f"What is the the meal type '{food_moment}'" + \
-             " in english? if you find it, return the code."
+        " in english? if you find it, return the code."
 
     if self_debug:
         log_debug('AI_FMIFA-1) FOOD_MOMENT_ID_FROM_AI' +
@@ -800,7 +800,7 @@ def create_daily_meal_func(params: Any) -> str:
     )
     if existing_meal["error"]:
         return f"Failed to get daily meal for {meal_date}" + \
-               str({existing_meal["error_message"]})
+            str({existing_meal["error_message"]})
 
     meal_ingredients = []
     if existing_meal["resultset"]:
@@ -894,15 +894,15 @@ def search_daily_meals_func(params: Any) -> str:
     date_range_list = find_date.split(",")
     # Convert find_date to timestamp
     date_range_list = [str(datetime.strptime(
-            v, '%Y-%m-%d'
-        ).replace(
-            hour=0, minute=0, second=0, microsecond=0
-        ).timestamp())
+        v, '%Y-%m-%d'
+    ).replace(
+        hour=0, minute=0, second=0, microsecond=0
+    ).timestamp())
         for v in date_range_list
     ]
     if DEBUG:
         log_debug('AI_SDM-1) search_daily_meals' +
-                  f' | find_date: {find_date}' + 
+                  f' | find_date: {find_date}' +
                   f' | date_range_list: {date_range_list}'
                   )
     resultset = fetch_all_from_db(
@@ -1104,8 +1104,8 @@ def get_full_user_profile_func(params: Any) -> str:
 
     # Build the prompt
     prompt = f"You are {get_assistant_you_are(cac.app_context)}" + \
-             "\n" + \
-             f"Answer this question (in english please): {question}"
+        "\n" + \
+        f"Answer this question (in english please): {question}"
 
     # Get profile data
     result = get_full_user_profile_raw()

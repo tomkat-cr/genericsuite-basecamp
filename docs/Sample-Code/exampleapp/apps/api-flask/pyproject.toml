@@ -1,0 +1,21 @@
+[project]
+name = "api-flask"
+version = "1.0.0"
+description = "ExampleApp backend (Flask)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "flask>=3.1.2",
+    "flask-cors>=6.0.1",
+    "genericsuite>=0.2.0",
+    "genericsuite-ai>=0.2.0",
+    "gunicorn>=23.0.0",
+    "python-multipart>=0.0.20",
+]
+
+[dependency-groups]
+dev = [
+    "cfn-lint>=1.40.4",
+    "coverage>=7.11.2",
+    "pytest>=9.0.0",
+]

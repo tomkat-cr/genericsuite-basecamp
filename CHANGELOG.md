@@ -5,8 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 
 
-## [Unreleased]
----
+## [Unreleased] - YYYY-MM-DD
 
 ### Added
 
@@ -17,14 +16,23 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [1.3.0] (2025-09-03)
+## [1.3.0] - 2025-11-17
 
 ### Added
 - Add new MCP server for ExampleApp with food and nutrition management tools [GS-189]. 
+- Add Linux compatibility: replace "sh" by "bash" in Makefile and package.json files to run on Linux [GS-230].
+- Add PEM_TOOL envvar to select the Python package and dependency management tool (uv, pipenv, and poetry), default to "uv" [GS-77].
+- Add AUTO_RELOAD envvar to fix some issues with the "--auto-reload" / "--reload" option running the app in "run_aws.sh", Turborepo and "uv", default to "1" [GS-77].
+- Add the `make exampleapp-update-all` and `make exampleapp-install-all` commands to update and install all ExampleApp apps.
 - Add the `make link_gs_libs` documentation to the GS BE Scripts.
 - Add unlinking common assets and prompting user confirmation before cleaning directories in the `make exampleapp-clean` command.
 - Add "clean" command in Makefile for asset management.
-- Add: new `update-pnpm` command in ExampleApp Makefile for streamlined installation.
+- Add new `update-pnpm` command in ExampleApp Makefile for streamlined installation.
+- Add the MCP_SERVER_PORT, MCP_SERVER_HOST, MCP_TRANSPORT, GS_USER_NAME, GS_USER_ID, and GS_API_KEY envvars to the ExampleApp MCP server .env.example file [GS-189].
+- Add the "mcp_server.log" file to the ExampleApp MCP server directory so it can be debugged more easily.
+- Add HUGGINGFACE_PROVIDER envvar to configure the Hugging Face inference provider, default to "auto" [GS-241].
+- Add LANGCHAIN_AGENT_TYPE=lcel option to the GenericSuite AI documentation.
+- Add DEBUG envvars to all AI modules to enable debug logging, default to "0" (they must be set on the .env file) [GS-230].
 
 ### Changed
 - Update .gitignore to include IDE configurations and remove unused utility files.
@@ -33,19 +41,30 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Update the "productContext.md" file to reflect the new ExampleApp and MCP server.
 - Add memory bank documents in the "specs" directory.
 - Update CHANGELOG format to be more semantic.
+- Enhance documentation for ExampleApp configuration, including: detailed directory structure and backend/frontend distinctions.
+- ExampleApp MCP server: use the GS BE MCP library changes, enhance envvars management in the run script, and update requirements.txt for compatibility with new library versions.
+- Replace HUGGINGFACE_ENDPOINT_URL envvar by HUGGINGFACE_DEFAULT_CHAT_MODEL and HUGGINGFACE_DEFAULT_IMG_GEN_MODEL envvars in the ExampleApp .env.example template files.
+- Update Python default version to 3.12 in the documentation and ExampleApp .python-version files [GS-230].
+- Update Python minimum version to 3.10 in the documentation [GS-230].
+- Update all GenericSuite dependencies to the latest versions (npm, uv, pipenv) on the ExampleApp [GS-230].
 
 ### Fixed
 - Fix "mkdocs_install.sh" to update mkdocs dependencies to the latest version and rebuild requirements.txt file appropiately.
 
+### Security
+- Update package dependencies in package.json and pnpm-lock.yaml to upgrade turbo and dotenv [GS-219].
+- ExampleApp UI: Disable X-Powered-By header to avoid exposing framework information in server.js [GS-219].
+- Update GS BE Core and AI libraries in ExampleApp to fix dependabot alerts [GS-219].
+- Add USER_PARAMS_FILE_ENABLED envvar to enable/disable user's parameters file "/tmp/params_[user_id].json", default to "0" to avoid security risks when running in a production environment [GS-240].
 
-## [1.2.0] (2025-07-13)
----
+
+## [1.2.0] - 2025-07-13
 
 ### Added
 - Add the Release page with the latest GenericSuite releases since 2024-10-07 [GS-222].
 
 
-## [1.1.0] (2025-07-12)
+## [1.1.0] - 2025-07-12
 
 ### Added
 - Add the source code link in the Basecamp README.md file [GS-137].
@@ -63,7 +82,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Fix the "Failed to send compressed multipart ingest: langsmith.utils.LangSmithError" error running queries to the AI Assistant by commenting the "LANGCHAIN_API_KEY" and "LANGCHAIN_PROJECT" environment variables in the "exampleapp/apps/**/.env.example" files.
 
 
-## [1.0.0] (2025-07-08)
+## [1.0.0] - 2025-07-08
 
 ### Added
 - Add Code example monorepo [GS-137].
@@ -97,7 +116,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Fix: chalice config template file in documentation.
 
 
-## [0.0.13] (2025-02-18)
+## [0.0.13] - 2025-02-18
 
 ### Added
 - Generic CRUD Editor Configuration guide [GS-137].
@@ -124,7 +143,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Change "grok-beta" changed to "grok-2" as default model for xAI [GS-157].
 
 
-## [0.0.12] (2024-10-07)
+## [0.0.12] - 2024-10-07
 
 ### Added
 - Make DynamoDb tables with prefix work with the GS DB Abstraction [GS-102].
@@ -158,7 +177,7 @@ HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
 - Get rid of eval() in the GS FrontEnd [GS-127].
 
 
-## [0.0.11] (2024-07-27)
+## [0.0.11] - 2024-07-27
 
 ### Added
 - Add "mkdocs-print-site-plugin" to create the "site/print_page/index.html" file and be able to generate a .pdf documentation.
@@ -176,14 +195,14 @@ HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
 - Add: GET_SECRETS_ENVVARS and GET_SECRETS_CRITICAL envvars to the GS BE Core documentation to fine-grained disabling of cloud secrets manager for critical secrets and plain envvars [GS-41].
 
 
-## [0.0.10] (2024-06-06)
+## [0.0.10] - 2024-06-06
 
 ### Added
 - Add REACT_APP_USE_AXIOS env. var. to GenericSuite FE AI [GS-95].
 - Add "Presentations" section to main page.
 
 
-## [0.0.9] (2024-06-02)
+## [0.0.9] - 2024-06-02
 
 ### Added
 - Add GenericSuite presentations in both PDF and PPTx formats [GS-1].
@@ -194,7 +213,7 @@ HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
 - Publish error handling to cath mkdocs not installed [GS-85].
 
 
-## [0.0.8] (2024-05-20)
+## [0.0.8] - 2024-05-20
 
 ### Added
 - Add: GS FE special install from a git repo.
@@ -203,7 +222,7 @@ HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
 - Fix: automatic FTP transfer.
 
 
-## [0.0.7] (2024-05-09)
+## [0.0.7] - 2024-05-09
 
 ### Added
 - Add STORAGE_URL_SEED env. vars. [GS-72].
@@ -214,7 +233,7 @@ HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
 - Change special instructions to remove the fronend install from git/local directory (until find a way to make it work).
 
 
-## [0.0.6] (2024-05-07)
+## [0.0.6] - 2024-05-07
 
 ### Added
 - Add special install instructions.
@@ -228,7 +247,7 @@ HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
 - History and repositories pages revised.
 
 
-## [0.0.5] (2024-05-05)
+## [0.0.5] - 2024-05-05
 
 ### Added
 - Create a documentation mirror in readthedocs.org [GS-75].
@@ -245,7 +264,7 @@ HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
 - Fix homepage section's image paths.
 
 
-## [0.0.4] (2024-04-28)
+## [0.0.4] - 2024-04-28
 
 ### Changed
 - Change: document the API Keys URLs for each configuration.
@@ -254,13 +273,13 @@ HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
 - Add "mkdocs_run.sh" to fix the error running the "mkdocs serve" the first time.
 
 
-## [0.0.3] (2024-04-18)
+## [0.0.3] - 2024-04-19
 
 ### Added
 - More details on framework installation for GS BE Core, and instructions to link the Domains to frontend and backend Apps.
 
 
-## [0.0.2] (2024-04-19)
+## [0.0.2] - 2024-04-18
 
 ### Added
 - Add: Makefile to shortcut mkdocs "install", "serve", build" and "transfer" commands.
@@ -275,7 +294,7 @@ HUGGINGFACE_ENDPOINT_URL replaced by HUGGINGFACE_DEFAULT_CHAT_MODEL [GS-59].
 - Fix: Configuration Guide index at the right side.
 
 
-## [0.0.1] (2024-04-16)
+## [0.0.1] - 2024-04-16
 
 ### Added
 - Initial commits [FA-257] [GS-19].

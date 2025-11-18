@@ -2,6 +2,8 @@
 # mkdocs_install.sh
 # 2024-04-17 | CR
 
+set -e
+
 if [ -d "venv" ]; then
     echo "🔍 venv directory already exists, removing it"
     rm -rf venv
@@ -12,7 +14,8 @@ python3 -m venv venv
 source venv/bin/activate
 
 echo "🔍 Installing mkdocs and dependencies"
-pip install mkdocs-material
+pip install mkdocs-material mkdocs-print-site-plugin mkdocs-git-committers-plugin
+
 # pip install mkdocs-minify-plugin
 # pip install mkdocs-git-revision-date-localized-plugin
 # pip install mkdocs-material-extensions

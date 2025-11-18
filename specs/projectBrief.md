@@ -85,7 +85,7 @@ This repository serves as:
 ## Key Constraints
 
 ### Technical Constraints
-- Must maintain compatibility with Python 3.9+ and Node.js 20+
+- Must maintain compatibility with Python 3.10+ and Node.js 20+
 - Documentation must be accessible both online and offline
 - Example applications must work across multiple backend frameworks (FastAPI, Flask, Chalice)
 - Must support both MongoDB and DynamoDB database options

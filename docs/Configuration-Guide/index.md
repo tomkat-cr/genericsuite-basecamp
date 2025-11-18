@@ -1305,9 +1305,9 @@ import re
 from datetime import datetime
 from uuid import uuid4
 
-from langchain.agents import tool
 from pydantic import BaseModel, Field
-from langchain.schema import Document
+from langchain.tools import tool
+from langchain_classic.schema import Document
 
 from genericsuite.util.app_context import CommonAppContext
 from genericsuite.util.app_logger import log_debug
@@ -3164,6 +3164,7 @@ Resources:
   APIHandler:
     Type: AWS::Serverless::Function
     Properties:
+      # Runtime: python3.12
       Runtime: python3.11
       Handler: app.app
       CodeUri: ./deployment.zip

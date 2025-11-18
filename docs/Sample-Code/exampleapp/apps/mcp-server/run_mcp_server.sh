@@ -6,6 +6,8 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 cd "$SCRIPT_DIR"
 
+PEM_TOOL=uv
+
 # CLI Parameters
 # APP_STAGE="${1:-qa}"
 # DEBUG_MODE="${2:-0}"
@@ -25,7 +27,7 @@ echo "📂 Server directory: $SCRIPT_DIR"
 # Check if Python is available
 if ! command -v python3 &> /dev/null; then
     if ! command -v python &> /dev/null; then
-        echo "❌ Python not found. Please install Python 3.9 or later."
+        echo "❌ Python not found. Please install Python 3.10 or later."
         exit 1
     else
         PYTHON_CMD="python"
@@ -38,9 +40,10 @@ echo "🐍 Using Python: $PYTHON_CMD"
 
 # Check if requirements are installed
 echo "📦 Checking dependencies..."
-if ! pipenv run python -c "import fastmcp" &> /dev/null; then
+echo "Running: ${PEM_TOOL} run $PYTHON_CMD -c \"import fastmcp\""
+if ! ${PEM_TOOL} run $PYTHON_CMD -c "import fastmcp" &> /dev/null; then
     echo "📥 Installing dependencies..."
-    pipenv install
+    bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh install
     if [ $? -ne 0 ]; then
         echo "❌ Failed to install dependencies. Please check requirements.txt"
         exit 1
@@ -75,7 +78,13 @@ fi
 
 # MCP server host
 if [ -z "$MCP_SERVER_HOST" ]; then
-    export MCP_SERVER_HOST=0.0.0.0
+    export MCP_SERVER_HOST="0.0.0.0"
+fi
+
+if [ "$DEBUG_MODE" = "1" ]; then
+    export MCP_TRANSPORT="stdio"
+else
+    export MCP_TRANSPORT="http"
 fi
 
 STAGE_UPPERCASE=$(echo $APP_STAGE | tr '[:lower:]' '[:upper:]')
@@ -90,18 +99,18 @@ fi
 export APP_CORS_ORIGIN="$(eval echo \"\$APP_CORS_ORIGIN_${STAGE_UPPERCASE}\")"
 export AWS_S3_CHATBOT_ATTACHMENTS_BUCKET=$(eval echo \$AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_${STAGE_UPPERCASE})
 
-PIPENV_ARGS="APP_STAGE=$APP_STAGE MCP_SERVER_PORT=$MCP_SERVER_PORT MCP_SERVER_HOST=$MCP_SERVER_HOST APP_DB_ENGINE=$APP_DB_ENGINE APP_DB_NAME=$APP_DB_NAME APP_CORS_ORIGIN=$APP_CORS_ORIGIN AWS_S3_CHATBOT_ATTACHMENTS_BUCKET=$AWS_S3_CHATBOT_ATTACHMENTS_BUCKET APP_HOST_NAME=$APP_HOST_NAME"
+PIPENV_ARGS="APP_STAGE=\"$APP_STAGE\" MCP_SERVER_PORT=$MCP_SERVER_PORT MCP_SERVER_HOST=\"$MCP_SERVER_HOST\" MCP_TRANSPORT=\"$MCP_TRANSPORT\" APP_DB_ENGINE=\"$APP_DB_ENGINE\" APP_DB_NAME=\"$APP_DB_NAME\" APP_CORS_ORIGIN=\"$APP_CORS_ORIGIN\" AWS_S3_CHATBOT_ATTACHMENTS_BUCKET=\"$AWS_S3_CHATBOT_ATTACHMENTS_BUCKET\" APP_HOST_NAME=\"$APP_HOST_NAME\""
 
 if [ "${GS_USER_NAME}" != '' ]; then
-    PIPENV_ARGS="${PIPENV_ARGS} GS_USER_NAME=${GS_USER_NAME}"
+    PIPENV_ARGS="${PIPENV_ARGS} GS_USER_NAME=\"${GS_USER_NAME}\""
 fi
 
 if [ "${GS_USER_ID}" != '' ]; then
-    PIPENV_ARGS="${PIPENV_ARGS} GS_USER_ID=${GS_USER_ID}"
+    PIPENV_ARGS="${PIPENV_ARGS} GS_USER_ID=\"${GS_USER_ID}\""
 fi
 
 if [ "${GS_API_KEY}" != '' ]; then
-    PIPENV_ARGS="${PIPENV_ARGS} GS_API_KEY=${GS_API_KEY}"
+    PIPENV_ARGS="${PIPENV_ARGS} GS_API_KEY=\"${GS_API_KEY}\""
 fi
 
 if [ "$DEBUG_MODE" = "1" ]; then
@@ -110,5 +119,5 @@ if [ "$DEBUG_MODE" = "1" ]; then
         run \
         env $PIPENV_ARGS $PYTHON_CMD mcp_server.py
 else
-    pipenv run env $PIPENV_ARGS $PYTHON_CMD mcp_server.py
+    ${PEM_TOOL} run env $PIPENV_ARGS $PYTHON_CMD mcp_server.py
 fi

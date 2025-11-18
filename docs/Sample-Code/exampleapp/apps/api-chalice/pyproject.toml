@@ -1,0 +1,18 @@
+[project]
+name = "api-chalice"
+version = "1.0.0"
+description = "ExampleApp backend (Chalice)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "chalice>=1.32.0",
+    "genericsuite>=0.2.0",
+    "genericsuite-ai>=0.2.0",
+]
+
+[dependency-groups]
+dev = [
+    "cfn-lint>=1.40.4",
+    "coverage>=7.11.2",
+    "pytest>=9.0.0",
+]

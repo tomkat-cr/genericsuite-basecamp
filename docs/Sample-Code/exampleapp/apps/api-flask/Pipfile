@@ -5,8 +5,6 @@ name = "pypi"
 
 [packages]
 python-multipart = "*"
-mangum = "*"
-fastapi-cors = "*"
 gunicorn = "*"
 flask = "*"
 flask-cors = "*"

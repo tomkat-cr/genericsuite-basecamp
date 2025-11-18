@@ -5,7 +5,6 @@ FastAPI ExampleApp main
 from mangum import Mangum
 
 from genericsuite.fastapilib.util.create_app import create_app
-# from genericsuite.util.app_logger import log_debug
 
 from lib.config.config import Config
 
@@ -39,15 +38,5 @@ app.include_router(
 
 # Register AI endpoints
 app.include_router(ai_chatbot_endpoint.router, prefix='/ai')
-
-
-# @app.get("/")
-# def read_root():
-#     return {"Hello": "World"}
-
-
-# @app.get("/items/{item_id}")
-# def read_item(item_id: int, q: Union[str, None] = None):
-#     return {"item_id": item_id, "q": q}
 
 handler = create_handler(app)

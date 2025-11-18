@@ -64,7 +64,7 @@ make init_sam
 Or...
 
 ```bash
-sh node_modules/genericsuite-be-scripts/scripts/aws_big_lambda/init_sam.sh
+bash node_modules/genericsuite-be-scripts/scripts/aws_big_lambda/init_sam.sh
 ```
 
 <br/>
@@ -80,7 +80,7 @@ make init_chalice
 Or...
 
 ```bash
-sh node_modules/genericsuite-be-scripts/scripts/aws/init_chalice.sh
+bash node_modules/genericsuite-be-scripts/scripts/aws/init_chalice.sh
 ```
 
 <br/>
@@ -1041,7 +1041,7 @@ Fix it with these commands:
 
 ```bash   
 # Set the project Python version with pyenv
-pyenv local 3.11
+pyenv local 3.12
 ```
 ```bash
 # Set the Python path with pipenv

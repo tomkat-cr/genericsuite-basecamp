@@ -4,7 +4,7 @@ GPT functions
 from typing import Optional, Any
 import json
 
-from langchain.agents import tool
+from langchain.tools import tool
 from pydantic import BaseModel, Field
 
 from genericsuite.util.app_context import CommonAppContext
@@ -58,7 +58,8 @@ def get_fda_food_query_func(params: Any) -> str:
     source_lang = params.source_lang
 
     # Get user's preferred language
-    source_lang = get_user_lang_code(cac.get()) if not source_lang else source_lang
+    source_lang = get_user_lang_code(
+        cac.get()) if not source_lang else source_lang
 
     _ = DEBUG and \
         log_debug(f'GFFQ-1) GET_FDA_FOOD_QUERY | food_name: {food_name}' +

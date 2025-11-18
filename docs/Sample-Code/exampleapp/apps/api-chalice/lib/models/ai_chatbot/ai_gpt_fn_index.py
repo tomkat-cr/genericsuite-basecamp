@@ -45,14 +45,14 @@ DEBUG = False
 EXTRA_DEBUG = False
 
 
-def assign_exampleapp_gpt_functions(
+def assign_app_specific_gpt_functions(
     app_context: AppContext,
 ) -> None:
     """
     Assign specific ExampleApp GPT functions
     """
-    _ = DEBUG and log_debug('ASSIGN_EXAMPLEAPP_GPT_FUNCTIONS |'
-                            ' Assigning ExampleApp GPT functions')
+    _ = DEBUG and log_debug('ASSIGN_APP_SPECIFIC_GPT_FUNCTIONS |'
+                            ' Assigning App-specific GPT functions')
     app_context.set_other_data(
         'additional_function_dict',
         get_additional_functions_dict)
@@ -78,7 +78,7 @@ def get_additional_functions_dict(
         and its callable.
     """
     _ = DEBUG and log_debug('GET_ADDITIONAL_FUNCTIONS_DICT |'
-                            ' Assigning ExampleApp GPT functions dict')
+                            ' Assigning App-specific GPT functions dict')
     settings = Config(app_context)
     is_lc = settings.AI_TECHNOLOGY == 'langchain'
     if is_lc:
@@ -130,7 +130,8 @@ def additional_gpt_func_appcontexts(
     """
     _ = DEBUG and \
         log_debug('ADDITIONAL_GPT_FUNC_APPCONTEXTS |' +
-                  ' Assigning ExampleApp additional GPT function AppContexts')
+                  ' Assigning App-specific additional GPT function' +
+                  ' AppContexts')
     available_func_context = [
         cac_fda,
         cac_app,
@@ -156,7 +157,7 @@ def additional_run_one_function(
         The result of the function execution.
     """
     _ = DEBUG and log_debug('ADDITIONAL_RUN_ONE_FUNCTION |' +
-                            ' ExampleApp-specific run_one_function')
+                            ' App-specific run_one_function')
     user_lang = app_context.get_user_data().get('language', 'auto')
     available_functions = get_functions_dict(app_context)
     fuction_to_call = available_functions[function_name]
@@ -267,7 +268,7 @@ def get_additional_function_specs(
         ChatGPT functions.
     """
     _ = DEBUG and log_debug('GET_ADDITIONAL_FUNCTION_SPECS |' +
-                            ' ExampleApp additional GPT function specs')
+                            ' App-specific additional GPT function specs')
     _ = DEBUG and \
         log_debug("AI_FA_GFS-1) get_function_specs")
     result = [{
@@ -543,9 +544,9 @@ def get_additional_function_specs(
     }, {
         "name": "create_daily_meal",
         "description": "Add a new daily meal for a specific date." +
-        " Useful when the user ask to e.g. 'add a meat soup to my" + 
-        " yesterday's meals', or' add a hamburger to my meal of" + 
-        " november 14th, 2023', or 'add 2 broiled eggs to today's" + 
+        " Useful when the user ask to e.g. 'add a meat soup to my" +
+        " yesterday's meals', or' add a hamburger to my meal of" +
+        " november 14th, 2023', or 'add 2 broiled eggs to today's" +
         " breakfast'",
         "parameters": {
             "type": "object",

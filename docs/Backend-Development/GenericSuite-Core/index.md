@@ -21,11 +21,12 @@
 
 ## Pre-requisites
 
-- [Python](https://www.python.org/downloads/) >= 3.9 and < 4.0
+- Python version >= 3.10 and < 4.0 (version specified in `.python-version` files and installable with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 - Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
-* [Docker and Docker Composer](https://www.docker.com/products/docker-desktop)
+- [Docker and Docker Composer](https://www.docker.com/products/docker-desktop)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/), [pipenv](https://pipenv.pypa.io/en/latest/), or [poetry](https://python-poetry.org/docs/) (for Python dependency management)
 
 ### AWS account and credentials
 
@@ -87,9 +88,17 @@ Poetry
 poetry add genericsuite
 ```
 
+Uv
+```bash
+uv add genericsuite
+```
+
 **NOTE**: in the following instructions we'll only show `pip install ...`.<BR/>
-If you'll use `Pipenv`, change it with `pipenv install ...`.<BR/>
-If you'll use `Poetry`, change it with `poetry add ...`.<BR/>
+If you'll use `pipenv`, change it with `pipenv install ...`.<BR/>
+If you'll use `poetry`, change it with `poetry add ...`.<BR/>
+If you'll use `uv`, change it with `uv add ...`.<BR/>
+
+Check [this documentation](../../Other/python-package-managers.md) to use the different Python package and dependency management tools.
 
 ### From Git or Local Directory
 
@@ -167,19 +176,19 @@ DEFAULT_LANG=en
 
 * Stage and Debug flag
 ```env
-# DEV
-# Application debug (0,1)
+# Application debug APP_DEBUG (0,1)
+# Application environment APP_STAGE: dev, qa, staging, prod
+# # DEV
 APP_DEBUG=1
-# Application environment: dev, qa, staging, prod
 # APP_STAGE=dev
 ```
 ```env
-# QA
+# # QA
 APP_DEBUG=1
 # APP_STAGE=qa
 ```
 ```env
-# PROD
+# # PROD
 APP_DEBUG=0
 # APP_STAGE=prod
 ```
@@ -288,9 +297,79 @@ APP_CORS_ORIGIN_PROD=https://app.exampleapp.com
 APP_CORS_ORIGIN_DEMO=https://app-demo.exampleapp.com
 ```
 
+* Python package and dependency management tool
+
+```env
+# Python package and dependency management tool (uv, pipenv, and poetry), default to "uv"
+# PEM_TOOL=pipenv
+# PEM_TOOL=uv
+# PEM_TOOL=poetry
+```
+
 * Current framework options: chalice, flask, fastapi
 ```env
-CURRENT_FRAMEWORK=chalice
+CURRENT_FRAMEWORK=fastapi
+# CURRENT_FRAMEWORK=flask
+# CURRENT_FRAMEWORK=chalice
+```
+
+* Local development environment run configuration
+```env
+# Options are: uvicorn, gunicorn, chalice, chalice_docker
+# FastAPI case:
+RUN_METHOD=uvicorn
+# Flask case:
+# RUN_METHOD=gunicorn
+# Chalice case: "chalice" to use http (running without docker) or "chalice_docker" to use https (with docker)
+# http:
+# RUN_METHOD=chalice
+# https:
+# RUN_METHOD=chalice_docker
+```
+
+* Run methods and framework App directory and entry point
+```env
+#
+# Default App main code directory
+# for Chalice:
+# https://aws.github.io/chalice/topics/packaging.html
+# APP_DIR="."
+# for FastAPI:
+# https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure
+# APP_DIR=app
+# for Flask:
+# https://flask.palletsprojects.com/en/2.3.x/tutorial/layout/
+# APP_DIR=flaskr
+#
+# Default App entry point code file
+# for Chalice:
+# https://aws.github.io/chalice/topics/packaging.html
+# APP_MAIN_FILE=app
+# for FastAPI:
+# https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure
+# APP_MAIN_FILE=main
+# for Flask:
+# https://flask.palletsprojects.com/en/2.3.x/tutorial/factory/
+# APP_MAIN_FILE="__init__"
+#
+```
+
+* Local run http/https protocol, to have it automatically on the application local running, no user intervention.
+```env
+# RUN_PROTOCOL=http
+# RUN_PROTOCOL=https
+#
+# Leave blank to let the user select the protocol when the local dev environment run starts.
+# RUN_PROTOCOL=""
+```
+
+* Auto-reload configuration: sometimes the auto-reload feature doesn't work correctly, for example running Chalice with Turborepo and the "uv" package manager. In this case, set `AUTO_RELOAD=0` to disable the auto-reload feature and make it work.
+```env
+# Auto-reload configuration for the local development environment.
+# Available options: `1` to enable, `0` to disable, and `-` to remove the auto-reload parameter from the command line. Defaults to: 1
+# AUTO_RELOAD=1
+# AUTO_RELOAD=0
+# AUTO_RELOAD="-"
 ```
 
 * JSON configuration files location and git URL
@@ -306,9 +385,9 @@ FRONTEND_PATH=../exampleapp_frontend
 
 * Local python version
 ```env
-PYTHON_VERSION=3.11.5
+PYTHON_VERSION=3.12
+# PYTHON_VERSION=3.11.5
 # PYTHON_VERSION=3.10.12
-# PYTHON_VERSION=3.9.17
 ```
 
 * IAAS Cloud provider
@@ -411,27 +490,6 @@ DOCKER_ACCOUNT=docker_account_username
 
 **NOTE**: `podman` engine has some issues with the `podman composer` command. It's recommended to use `docker` engine instead.
 
-* Local development environment run configuration
-```env
-# Options are: uvicorn, gunicorn, chalice, chalice_docker
-# RUN_METHOD="uvicorn"
-# RUN_METHOD="gunicorn"
-# Chalice case: "chalice" to use http (running without docker) or "chalice_docker" to use https (with docker)
-# http:
-# RUN_METHOD="chalice"
-# https:
-RUN_METHOD="chalice_docker"
-```
-
-* Local run http/https protocol, to have it automatically on the application local running, no user intervention.
-```env
-# RUN_PROTOCOL="http"
-# RUN_PROTOCOL="https"
-#
-# Leave blank to let the user select the protocol when the local dev environment run starts.
-# RUN_PROTOCOL=""
-```
-
 * Tests configuration
 ```env
 # Backend debug local port
@@ -447,33 +505,6 @@ RUN_METHOD="chalice_docker"
 # For https
 # TEST_APP_URL=https://app.exampleapp.local:5002
 ```
-
-* Run methods and framework App directory and entry point
-```env
-#
-# Default App main code directory
-# for Chalice:
-# https://aws.github.io/chalice/topics/packaging.html
-# APP_DIR='.'
-# for FastAPI:
-# https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure
-# APP_DIR='app'
-# for Flask:
-# https://flask.palletsprojects.com/en/2.3.x/tutorial/layout/
-# APP_DIR='flaskr'
-#
-# Default App entry point code file
-# for Chalice:
-# https://aws.github.io/chalice/topics/packaging.html
-# APP_MAIN_FILE='app'
-# for FastAPI:
-# https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure
-# APP_MAIN_FILE='main'
-# for Flask:
-# https://flask.palletsprojects.com/en/2.3.x/tutorial/factory/
-# APP_MAIN_FILE='__init__'
-#
-```env
 
 * App local ports
 ```env
@@ -503,14 +534,6 @@ LOCAL_DNS_DISABLED=1
 BRIDGE_PROXY_DISABLED=1
 ```
 
-* Flask configuration
-```env
-# Flask app entry point
-FLASK_APP=__init__.py
-# Flask secret key
-FLASK_SECRET_KEY=xxxx
-```
-
 * Localstack<BR/>
 [https://www.localstack.cloud/](https://www.localstack.cloud/)
 
@@ -518,6 +541,32 @@ FLASK_SECRET_KEY=xxxx
 # Localstack configuration
 # LOCALSTACK_AUTH_TOKEN=""
 # (Set LOCALSTACK_AUTH_TOKEN empty when working offline, and assign the Auth Token to make services like EC2 to work correctly)
+```
+
+* General parameters file
+```env
+# Enable/disable general parameters file creation in "/tmp/params_general.json"
+# Available options: `1` to enable, `0` to disable. Defaults to: 1
+# PARAMS_FILE_ENABLED=0
+# PARAMS_FILE_ENABLED=1
+```
+
+* User's parameters file
+```env
+# Enable/disable user's parameters file creation in "/tmp/params_[user_id].json"
+# Recommended to enable it in local development environment to make it run faster
+# Defaults to "0" to avoid security risks when running in a production environment
+# Available options: `1` to enable, `0` to disable.
+# USER_PARAMS_FILE_ENABLED=0
+# USER_PARAMS_FILE_ENABLED=1
+```
+
+* Flask configuration
+```env
+# Flask app entry point
+FLASK_APP=__init__.py
+# Flask secret key
+FLASK_SECRET_KEY=xxxx
 ```
 
 ## App structure
