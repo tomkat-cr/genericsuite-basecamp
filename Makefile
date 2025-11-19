@@ -64,3 +64,6 @@ exampleapp-clean:
 	@echo "Press Enter to continue to clean all directories (node_modules, dist, etc.)"
 	@read
 	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp false true
+
+lsof:
+	sudo lsof -PiTCP -sTCP:LISTEN

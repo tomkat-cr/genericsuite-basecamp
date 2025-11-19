@@ -52,7 +52,7 @@ clean_directory() {
         if [ "${remove_envs}" = "true" ]; then
             echo ""
             echo ".env files to remove:"
-            find "${directory_path_to_clean}" -type f \( -name ".env" -o -name "*.bak" \) -exec bash -c 'show_file "$0"' {} \;
+            find "${directory_path_to_clean}" -type f \( -name ".env" -o -name "*.bak" -o -name "*.log" \) -exec bash -c 'show_file "$0"' {} \;
         fi
         echo ""
         echo "Press [Enter] key to confirm the directories/files to remove [FTP-010]"
@@ -67,7 +67,7 @@ clean_directory() {
     if [ "${remove_envs}" = "true" ]; then
         echo ""
         echo "Removing .env files..."
-        find "${directory_path_to_clean}" -type f \( -name ".env" -o -name "*.bak" \) -exec bash -c 'remove_item "$0"' {} \;
+        find "${directory_path_to_clean}" -type f \( -name ".env" -o -name "*.bak" -o -name "*.log" \) -exec bash -c 'remove_item "$0"' {} \;
     fi
     if [ "${debug}" = "true" ]; then
         echo ""

@@ -16,6 +16,20 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
+## [1.3.2] - 2025-11-19
+
+### Added
+- New "lsof" command to Makefile for listing open TCP ports.
+
+### Changed
+- Update "build_if_required.sh" to use "make install" instead of npm commands.
+- Enhance "clean_directory.sh" to also find and remove ".log" files for removal.
+- Update ExampleApp "README.md" file to add MCP Server section and improve documentation.
+
+### Fixed
+- Fix the "build_if_required.sh" script failure to install and build all ExampleApp apps if any of them does not have node_modules directory.
+
+
 ## [1.3.1] - 2025-11-19
 
 ### Added
