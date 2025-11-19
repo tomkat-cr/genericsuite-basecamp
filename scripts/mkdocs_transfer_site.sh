@@ -69,6 +69,10 @@ then
     echo "ERROR: 'sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${EXAMPLEAPP_DIRECTORY_PATH}\" \"false\" \"${DEBUG}\"' failed"
     exit 1
 fi
+if ! rm -rf ./docs/Sample-Code/exampleapp/apps/ui/public/static
+then
+    echo "ERROR: 'Symlink ./docs/Sample-Code/exampleapp/apps/ui/public/static' does not exist Skipping..."
+fi
 
 echo ""
 echo "Begin 'mkdocs build' run..."

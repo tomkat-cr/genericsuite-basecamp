@@ -16,6 +16,22 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
+## [1.3.1] - 2025-11-19
+
+### Added
+- Release note for the MCP Server Edition (2025-11-17) [GS-230].
+- Enhance main documentation index with a new Release Notes section [GS-230].
+- Add detailed directory structure in genericsuite-configs README [GS-230].
+
+### Changed
+- Update dependencies in requirements.txt and package-lock.json to latest versions, including backrefs, certifi, and turbo [GS-230].
+
+### Fixed
+- Fix the "npm error code ERR_INVALID_ARG_TYPE npm error The 'from' argument must be of type string. Received undefined" on "make exampleapp-install-all" and "make exampleapp-update-all" commands [GS-230].
+- Fix the "docs/Sample-Code/exampleapp/apps/ui/public/static not found" error on "make publish" command [GS-230].
+- Fix minor formatting issues in JSON files and scripts [GS-230].
+
+
 ## [1.3.0] - 2025-11-17
 
 ### Added
