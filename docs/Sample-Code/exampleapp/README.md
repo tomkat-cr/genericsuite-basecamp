@@ -2,7 +2,7 @@
 
 ![ExampleApp Banner](./assets/exampleapp_banner_01.png)
 
-**ExampleApp** is a full-stack example application demonstrating a modern web app architecture with multiple backend services and a React-based frontend implementing GenericSuite.
+**ExampleApp** is a full-stack example application demonstrating a modern web app architecture with multiple Python-based backend services and a React-based frontend implementing GenericSuite.
 
 It is inspired by the principles of Caloric Deficit. The purpose is to achieve weight loss goals and maintain a better lifestyle, based on proper nutrition. 
 
@@ -18,34 +18,43 @@ The application is structured as a monorepo using [TurboRepo](https://turborepo.
 
 ## 🚀 Features
 
-- **Frontend**: Modern React application with Vite
+### Frontend
 
-- **Backend Options**:
+- A Modern React application with Vite.
 
-  - FastAPI (Python)
-  - Flask (Python)
-  - Chalice (Python)
-  - MCP Server (Python)
+### Backend Options
 
-- **Database Options**:
+- FastAPI (Python)
+- Flask (Python)
+- Chalice (Python)
+- MCP Server (Python)
 
-  - DynamoDB (AWS)
-  - MongoDB (MongoDB Atlas or self-hosted)
+### MCP Server
 
-- **Development Tools**:
+- A Model Context Protocol (MCP) server for nutrition management.
 
-  - pnpm for package management
-  - TurboRepo for monorepo management
-  - Environment-based configuration
+### Database Options
+
+- DynamoDB (AWS)
+- MongoDB (MongoDB Atlas or self-hosted)
+
+### Development Tools
+
+- Environment-based configuration
+- TurboRepo for monorepo management
+- Vite, Webpack, and Create React App for frontend development
+- uv, pipenv, or poetry for Python dependency management
+- pnpm for Node.js package management
 
 ## 🛠️ Prerequisites
 
 ### Software
+
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
-- Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install (version specified in `.nvmrc`).
+- [Node.js](https://nodejs.org/en/download/package-manager) version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install (version specified in `.nvmrc`).
 - [pnpm](https://pnpm.io/installation) (version 10.12.4 or compatible)
-- Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
-- Python version >= 3.10 and < 4.0 (version specified in `.python-version` files and installable with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably)
+- [Make](https://formulae.brew.sh/formula/make): [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
+- [Python](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably) version >= 3.10 and < 4.0 (version specified in `.python-version` files and installable with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/), [pipenv](https://pipenv.pypa.io/en/latest/), or [poetry](https://python-poetry.org/docs/) (for Python dependency management)
 
 ### Services
@@ -79,10 +88,7 @@ cd genericsuite-basecamp
 
 2. Install dependencies:
 
-```bash
-# Install pnpm if not already installed
-npm install -g pnpm
-```
+Install git, pnpm, make, python, and other dependencies as specified in the [Prerequisites](#-prerequisites) section.
 
 ### Configuration
 
@@ -115,22 +121,22 @@ BACKEND_LOCAL_PORT=5001
 # BACKEND_LOCAL_PORT=5021
 ```
 
-**Note:** Once changed the `BACKEND_LOCAL_PORT` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
+**Note:** If `BACKEND_LOCAL_PORT` variable is changed, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
-4. Use **https**: by default the application will use http (non-secure), if you want to use https:
+4. Use **https**: by default the application will use `http` (non-secure), if you want to use `https`:
     - Set the `RUN_PROTOCOL` variable to `https` in the `apps/ui/.env`, `apps/api-fastapi/.env`, `apps/api-flask/.env`, `apps/api-chalice/.env` files.
-    - Generate a self-signed certificate and keys (only once):
 
+    - Generate a self-signed certificate and keys (only once) using the following command:
 ```bash
 make exampleapp-create-ssl-certs
 ```
     
-**Note:** Once changed the `RUN_PROTOCOL` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
+**Note:** If `RUN_PROTOCOL` variable is changed, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
 5. Use "webpack": by default the application will use "vite", if you want to use "webpack":
     - Uncomment the line `RUN_METHOD="webpack"` in the `apps/ui/.env`.
     
-**Note:** Once changed the `RUN_METHOD` variable, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
+**Note:** If `RUN_METHOD` variable is changed, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
 ## 🏃‍♂️ Running the Application
 
@@ -140,6 +146,18 @@ Start the development servers:
 
 ```bash
 make exampleapp-run
+```
+
+Install all dependencies:
+
+```bash
+make exampleapp-install-all
+```
+
+Update all dependencies:
+
+```bash
+make exampleapp-update-all
 ```
 
 ### Start a new GenericSuite project
@@ -210,6 +228,7 @@ exampleapp/
 │   ├── api-fastapi/      # FastAPI backend API
 │   ├── api-flask/        # Flask backend API
 │   ├── config_dbdef/     # Database configuration
+│   ├── mcp-server/       # MCP Server
 │   └── ui/               # React frontend application
 ├── packages/             # Shared packages
 ├── scripts/              # Utility scripts
