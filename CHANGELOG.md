@@ -16,6 +16,19 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
+## [Unreleased] - YYYY-MM-DD
+
+### Added
+- Add additional release tags to 20251117 release changelog.
+
+### Changed
+- Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.
+
+### Fixed
+- Fix uv and poetry installation instructions on Python Package Managers documentation.
+- Fix "npm clean" for main and all workspaces.
+
+
 ## [1.3.2] - 2025-11-19
 
 ### Added

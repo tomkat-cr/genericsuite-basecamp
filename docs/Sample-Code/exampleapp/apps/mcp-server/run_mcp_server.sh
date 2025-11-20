@@ -1,28 +1,28 @@
 #!/bin/bash
+# MCP Server Startup Script
 
-# ExampleApp MCP Server Startup Script
+# Get the MCP Server directory
+BASE_DIR="$( pwd )"
 
-# Get the directory of this script
+# Get the script directory
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-cd "$SCRIPT_DIR"
+
+cd "$BASE_DIR"
 
 PEM_TOOL=uv
 
-# CLI Parameters
-# APP_STAGE="${1:-qa}"
-# DEBUG_MODE="${2:-0}"
-
 # .env file read
-if [ -f "$SCRIPT_DIR/.env" ]; then
+if [ -f "$BASE_DIR/.env" ]; then
     echo "🔍 Reading .env file..."
-    set -o allexport; . "${SCRIPT_DIR}/.env"; set +o allexport ;
+    set -o allexport; . "${BASE_DIR}/.env"; set +o allexport ;
 else
     echo "❌ .env file not found. Please create one."
     exit 1
 fi
 
-echo "🥗 Starting ExampleApp MCP Server..."
-echo "📂 Server directory: $SCRIPT_DIR"
+echo "🥗 Starting MCP Server..."
+echo "📂 Base directory: $BASE_DIR"
+echo "📂 Script directory: $SCRIPT_DIR"
 
 # Check if Python is available
 if ! command -v python3 &> /dev/null; then
@@ -54,11 +54,6 @@ echo "✅ Dependencies verified"
 echo "🚀 Starting MCP server..."
 echo ""
 
-# Set PYTHONPATH to include the server directory
-# export PYTHONPATH="$SCRIPT_DIR:$PYTHONPATH"
-
-# Start the server
-
 # Default values for environment variables
 
 # Application stage (qa, stage, prod, demo) to run MCP server
@@ -80,6 +75,8 @@ fi
 if [ -z "$MCP_SERVER_HOST" ]; then
     export MCP_SERVER_HOST="0.0.0.0"
 fi
+
+# Set working variables
 
 if [ "$DEBUG_MODE" = "1" ]; then
     export MCP_TRANSPORT="stdio"
@@ -112,6 +109,8 @@ fi
 if [ "${GS_API_KEY}" != '' ]; then
     PIPENV_ARGS="${PIPENV_ARGS} GS_API_KEY=\"${GS_API_KEY}\""
 fi
+
+# Start the server
 
 if [ "$DEBUG_MODE" = "1" ]; then
     npx @modelcontextprotocol/inspector \

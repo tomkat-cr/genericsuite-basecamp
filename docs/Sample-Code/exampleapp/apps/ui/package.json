@@ -31,6 +31,7 @@
     "build:cra": "react-app-rewired build",
     "start:cra": "react-app-rewired start",
     "start:cra-node-server": "./node_modules/react-app-rewired/bin/react-app-rewired.js build && node server.js",
+    "clean": "npm cache clean --force && rm -rf build",
     "eject:cra": "react-scripts eject",
     "test:cra": "react-app-rewired test",
     "start:webpack": "npx webpack-dev-server --config webpack.config.js",

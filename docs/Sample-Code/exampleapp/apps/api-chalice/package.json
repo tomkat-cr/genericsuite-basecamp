@@ -21,7 +21,7 @@
     "deploy": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh deploy",
     "pipfile": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile",
     "shell": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh shell",
-    "clean": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh clean",
+    "clean": "rm -rf __pycache__ bin pyvenv.cfg .venv node_modules",
     "coverage": "pipenv run coverage run -m unittest discover tests; pipenv run coverage report",
     "lint": "pipenv run prospector",
     "check-types": "npm run coverage && npm run lint && npm run test",
