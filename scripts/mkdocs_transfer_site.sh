@@ -12,7 +12,7 @@
 
 set -o allexport; . .env ; set +o allexport ;
 
-FAKE_PASSWORD=$(echo ${REMOTE_PASSWORD} | perl -i -pe's/./*/g')
+MASKED_PASSWORD=$(echo ${REMOTE_PASSWORD} | perl -i -pe's/./*/g')
 
 echo ""
 echo "MKDOCS TRANSFER"
@@ -21,7 +21,7 @@ echo "Source directory path: ${SOURCE_DIRECTORY_PATH}"
 echo ""
 echo "Remote host: ${REMOTE_HOST}"
 echo "Remote username: ${REMOTE_USERNAME}"
-echo "Remote password: ${FAKE_PASSWORD}"
+echo "Remote password: ${MASKED_PASSWORD}"
 echo "Remote directory path: ${REMOTE_DIRECTORY_PATH}"
 echo ""
 

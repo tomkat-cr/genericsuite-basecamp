@@ -134,9 +134,9 @@ make exampleapp-create-ssl-certs
 **Note:** If `RUN_PROTOCOL` variable is changed, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
 5. Use "webpack": by default the application will use "vite", if you want to use "webpack":
-    - Uncomment the line `RUN_METHOD="webpack"` in the `apps/ui/.env`.
+    - Uncomment the line `RUN_BUNDLER="webpack"` in the `apps/ui/.env`.
     
-**Note:** If `RUN_METHOD` variable is changed, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
+**Note:** If `RUN_BUNDLER` variable is changed, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
 ## 🏃‍♂️ Running the Application
 

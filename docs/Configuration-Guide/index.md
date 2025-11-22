@@ -125,7 +125,7 @@ git clone https://github.com/tomkat-cr/exampleapp_configs.git
 
 ### Define git submodule parameters
 
-* Define the `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` parametes in the frontend [.env](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example) file.
+* Define the `GIT_SUBMODULE_LOCAL_PATH_FRONTEND` and `GIT_SUBMODULE_URL` parametes in the frontend [.env](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example) file.
 
 * Define the `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` parametes in the backend [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) file.
 

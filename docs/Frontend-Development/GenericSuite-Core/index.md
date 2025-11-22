@@ -210,13 +210,13 @@ Defaults to app.${REACT_APP_APP_NAME}.local (the REACT_APP_APP_NAME will be conv
 
 * Assign `REACT_APP_URI_PREFIX` with the App URI prefix. This will be used in all environments after the domain name. E.g. https://app.exampleapp.com/exampleapp_frontend
 
-* Configure your desired `RUN_METHOD`. Available options are "vite", "webpack" and "react-scripts". Defaults to "vite".
+* Configure your desired `RUN_BUNDLER`. Available options are "vite", "webpack" and "react-scripts". Defaults to "vite".
 
 * Configure `RUN_PROTOCOL` with the protocol for your local development environment. Available options are "http" and "https". Defaults to "" meaning that the user must manually set the protocol when the local dev environment run starts.
 
 * Configure `BACKEND_PATH` with the path for your backend API local development repo.
 
-* Configure `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` with the JSON files submodule parameters to stablish a common configuration place for both frontend and backend (used by add_github_submodules.sh).<BR/>For example files, visit: [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs)
+* Configure `GIT_SUBMODULE_LOCAL_PATH_FRONTEND` and `GIT_SUBMODULE_URL` with the JSON files submodule parameters to stablish a common configuration place for both frontend and backend (used by add_github_submodules.sh).<BR/>For example files, visit: [Generic Suite Configuration Guide](./../../Configuration-Guide/index.md)
 
 * Configure the `AWS_*` parameters with your AWS data (used by aws_deploy_to_s3.sh and change_env_be_endpoint.sh). You'll need an AWS account.
 

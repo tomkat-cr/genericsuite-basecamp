@@ -23,10 +23,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### Changed
 - Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.
+- Rename the frontend envvars to avoid conflicts with the same envvar used in the backend and be able to merge the ".env" files in a monorepo: GIT_SUBMODULE_LOCAL_PATH to GIT_SUBMODULE_LOCAL_PATH_FRONTEND, and RUN_METHOD to RUN_BUNDLER [GS-243].
 
 ### Fixed
 - Fix uv and poetry installation instructions on Python Package Managers documentation.
 - Fix "npm clean" for main and all workspaces.
+- Fix the configuration guide links on the documentation, because it was pointing to "https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs".
 
 
 ## [1.3.2] - 2025-11-19
