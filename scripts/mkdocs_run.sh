@@ -6,8 +6,8 @@
 # mkdocs_run.sh serve
 # mkdocs_run.sh build
 #
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 if [ "$1" != "" ]; then
     mkdocs $1

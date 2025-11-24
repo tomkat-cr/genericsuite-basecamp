@@ -86,10 +86,36 @@ clean_directory() {
     fi
 }
 
+remove_ui_public_static() {
+    local directory_path_to_clean="$1"
+    local debug="$2"
+    if [ -d "${directory_path_to_clean}/apps" ]; then
+        directory_path_to_clean="${directory_path_to_clean}/apps"
+    fi
+    if [ "${debug}" = "true" ]; then
+        echo ""
+        echo "remove_ui_public_static()"
+        echo "directory_path_to_clean: ${directory_path_to_clean}/ui/public/static"
+        echo "debug: ${debug}"
+        echo ""
+        echo "Press [Enter] key to remove other files [FTP-040]"
+        read
+    fi
+    if rm -rf "${directory_path_to_clean}/ui/public/static"
+    then
+        echo "Removed 'Symlink ${directory_path_to_clean}/ui/public/static'"
+    else
+        echo "ERROR: 'Symlink ${directory_path_to_clean}/ui/public/static' does not exist Skipping..."
+    fi
+}
+
+# Validate required parameters
+
 if [ "$1" = "" ] || [ "$2" = "" ]; then
     show_help
 fi
 
+# Default values
 debug="$3"
 if [ "$debug" = "" ]; then
     debug="true"
@@ -100,4 +126,8 @@ export -f show_dir
 export -f show_file
 export -f remove_item
 
+# Perform remove other files (e.g. ui/public/static)
+remove_ui_public_static "$1" "$debug"
+
+# Perform clean directory
 clean_directory "$1" "$2" "$debug"

@@ -65,5 +65,29 @@ exampleapp-clean:
 	@read
 	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp false true
 
+fastapitemplate-install: nvm_use
+	cd docs/Sample-Code/fastapitemplate && make install
+
+fastapitemplate-install-all: nvm_use
+	cd docs/Sample-Code/fastapitemplate && make install-all
+
+fastapitemplate-update: nvm_use
+	cd docs/Sample-Code/fastapitemplate && make update
+
+fastapitemplate-update-all: fastapitemplate-update
+
+fastapitemplate-run:
+	cd docs/Sample-Code/fastapitemplate && make run
+
+fastapitemplate-create-ssl-certs:
+	cd docs/Sample-Code/exampleapp && make create-ssl-certs
+
+fastapitemplate-clean:
+	cd docs/Sample-Code/fastapitemplate && make unlink-config-dirs && cd ../..
+	@echo ""
+	@echo "Press Enter to continue to clean all directories (node_modules, dist, etc.)"
+	@read
+	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/fastapitemplate false true
+
 lsof:
 	sudo lsof -PiTCP -sTCP:LISTEN

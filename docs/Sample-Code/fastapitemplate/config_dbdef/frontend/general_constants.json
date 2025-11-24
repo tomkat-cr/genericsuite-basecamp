@@ -1,0 +1,18 @@
+{
+    "TRUE_FALSE": {
+        "1": "Yes",
+        "0": "No"
+    },
+    "YES_NO": {
+        "y": "Yes",
+        "n": "No"
+    },
+    "LANGUAGES": {
+        "en": "English",
+        "es": "Español"
+    },
+    "GENDERS": {
+        "m": "Male",
+        "f": "Female"
+    }
+}

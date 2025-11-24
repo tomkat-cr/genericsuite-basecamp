@@ -1,0 +1,33 @@
+{
+    "name": "fastapitemplate",
+    "version": "1.0.0",
+    "description": "FastAPI Template (fastapitemplate)",
+    "author": "Carlos J. Ramirez",
+    "license": "Private",
+    "private": true,
+    "workspaces": [
+        "server",
+        "mcp-server",
+        "ui"
+    ],
+    "scripts": {
+        "dev": "concurrently -k \"npm:dev:*\"",
+        "dev:server": "npm --workspace server run dev",
+        "dev:ui": "npm --workspace ui run dev",
+        "dev:mcp-server": "npm --workspace mcp-server run dev",
+        "build": "npm -w ui run build:from_root",
+        "build:all": "npm -w ui run build:from_root && npm -w server run build && npm -w mcp-server run build",
+        "start": "npm -w server run start:from_root",
+        "install:all": "npm install && npm -w mcp-server run api:install && npm -w server run api:install && npm -w ui install",
+        "clean": "rm -rf ./node_modules && npm -w server run clean && npm -w mcp-server run clean && npm -w ui run clean && npm run unlink-config-dirs && rm -rf ./deploy/docker_images/Dockerfile-Python.backup_????????_??????",
+        "unlink-config-dirs": "rm -rf mcp-server/lib && rm -rf server/lib/config_dbdef && rm -rf ui/src/configs"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2",
+        "genericsuite-be-scripts": "github:tomkat-cr/genericsuite-be-scripts#develop"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=8.0.0"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "table_name": "users",
+    "creation_pk_name": "email",
+    "projection_exclusion": [
+        "passcode"
+    ],
+    "email_verification": [
+        "email"
+    ],
+    "passwords": [
+        "passcode"
+    ],
+    "mandatory_fields": [
+        "firstname",
+        "lastname",
+        "creation_date",
+        "gender",
+        "birthday",
+        "email"
+    ],
+    "additional_query_params": [
+        "email"
+    ],
+    "specific_function": "delete_params_file"
+}

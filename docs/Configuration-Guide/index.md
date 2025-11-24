@@ -360,22 +360,19 @@ export const AppFooter = () => {
 
    Define the Home Page content.
 ```js
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import * as gs from "genericsuite";
-const authenticationService = gs.authenticationService.authenticationService;
+
+const useUser = gs.UserContext.useUser;
+
 export const HomePage = () => {
-    // Get the current logged user data
-    const [currentUser, setCurrentUser] = useState(authenticationService.currentUserValue);
-    useEffect(() => {
-        const subscription = authenticationService.currentUser.subscribe(
-            x => setCurrentUser(x)
-        );
-        return () => subscription.unsubscribe();
-    }, []);
+    const { currentUser } = useUser();
     return (
         <gs.HomePage>
-            <h1>Hi {currentUser.firstName}!</h1>
-            <OtherComponents ... />
+            <>
+                <h2>Hi {currentUser.firstName}!</h2>
+                <p>Here you can add your custom content, widgets or other components for the Home Page</p>
+            </>
         </gs.HomePage>
     );
 }

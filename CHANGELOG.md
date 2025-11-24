@@ -19,16 +19,23 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ## [Unreleased] - YYYY-MM-DD
 
 ### Added
-- Add additional release tags to 20251117 release changelog.
+- FastAPI Template app [GS-243].
+- Sample-Code main documentation page.
+- GenericSuite Release 20251117 changelog file: "docs/Releases/GS_Release_2025-11-17_Changelog.md".
 
 ### Changed
 - Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.
 - Rename the frontend envvars to avoid conflicts with the same envvar used in the backend and be able to merge the ".env" files in a monorepo: GIT_SUBMODULE_LOCAL_PATH to GIT_SUBMODULE_LOCAL_PATH_FRONTEND, and RUN_METHOD to RUN_BUNDLER [GS-243].
+- Clean documentation and exampleapp code related with old "authenticationService".
+- Add "-PRESENT" to all LICENSE files.
+- Change documentation top bar options order.
 
 ### Fixed
 - Fix uv and poetry installation instructions on Python Package Managers documentation.
 - Fix "npm clean" for main and all workspaces.
 - Fix the configuration guide links on the documentation, because it was pointing to "https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs".
+- Fix "FileNotFoundError: [Errno 2] No such file or directory: 'docs/Sample-Code/exampleapp/ui/public/static'" by adding "remove_ui_public_static" to clean_directory.sh.
+- "create-ssl-certs" label in exampleapp Makefile was defined in a wrong way.
 
 
 ## [1.3.2] - 2025-11-19

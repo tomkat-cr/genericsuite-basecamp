@@ -1,14 +1,16 @@
 site_name: The Generic Suite
 site_url: https://genericsuite.carlosjramirez.com
-copyright: Copyright &copy; 2024-2025 <a href="https://www.carlosjramirez.com">Carlos J. Ramirez</a>
+copyright: Copyright &copy; 2024-PRESENT <a href="https://www.carlosjramirez.com">Carlos J. Ramirez</a>
 
 repo_url: https://github.com/tomkat-cr/genericsuite-basecamp
 repo_name: tomkat-cr/genericsuite
 
 nav:
   - 'Introduction': './index.md'
-  - 'History': './history.md'
   - 'Repositories': 'repositories.md'
+  - 'Configuration Guide': './Configuration-Guide/index.md'
+  - 'Sample Code': 'Sample-Code/index.md'
+  - 'Releases': './Releases/index.md'
   - 'The GenericSuite Core': 'genericsuite-core.md'
   - 'The GenericSuite AI': 'genericsuite-ai.md'
   - 'Frontend Development':
@@ -20,12 +22,11 @@ nav:
     - 'GenericSuite AI': './Backend-Development/GenericSuite-AI/index.md'
     - 'Backend Scripts': './Backend-Development/GenericSuite-Scripts/index.md'
     - 'Deployment': './Backend-Development/deployment.md'
-  - 'Configuration Guide': './Configuration-Guide/index.md'
-  # - 'Sample Code':
   - 'Other':
-    - 'Releases': './Releases/index.md'
     - 'Special Installation': './Other/special-installs.md'
     - 'Python Package Managers': './Other/python-package-managers.md'
+    - 'History': './history.md'
+
 
 theme:
   name: material
@@ -76,6 +77,10 @@ plugins:
       branch: main
   - search
   - print-site
+  - exclude-search:
+      exclude:
+        - Sample-Code/fastapitemplate/*
+        - Sample-Code/exampleapp/*
 
 markdown_extensions:
   - attr_list

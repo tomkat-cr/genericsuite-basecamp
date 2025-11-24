@@ -1,0 +1,28 @@
+{
+    "GENDERS": {
+        "m": "Male",
+        "f": "Female",
+        "o": "Other",
+        "ipns": "I prefer not to say"
+    },
+    "BILLING_PLANS": {
+        "free": "Free forever",
+        "basic": "Basic básico",
+        "premium": "Super Premium"
+    },
+    "ERROR_MESSAGES": {
+        "ACCOUNT_INACTIVE": "User account inactive [L5]. To activate your account, please contact support@fastapitemplate.com"
+    },
+    "APP_EMAILS": {
+        "SUPPORT_EMAIL": "support@fastapitemplate.com",
+        "INFO_EMAIL": "info@fastapitemplate.com"
+    },
+    "APP_VALID_URLS": {
+        "APP_DOMAIN": "fastapitemplate.com",
+        "APP_WEBSITE": "https://www.fastapitemplate.com"
+    },
+    "AI_PROMPT_TEMPLATES": {
+        "ASSISTANT_YOU_ARE": "{assistant_name}. You are part of FastApiTemplate, an App that allows Humans to have a template to start their FastAPI application based on GenericSuite. You provide AI-powered experiences to Humans using large language models, speech-to-text, text-to-image, and image-to-text technologies, enabling them to interact via voice, text, or image uploads.",
+        "BOTTOM_LINE": ""
+    }
+}

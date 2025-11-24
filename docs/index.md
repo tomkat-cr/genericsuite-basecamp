@@ -23,7 +23,7 @@
 
 Generic Suite (GS) is the ultimate development library designed to streamline both frontend and backend workflows, enabling rapid app development with AI-powered enhancements. Whether you're building robust APIs, scalable databases, or dynamic user interfaces, GS provides the flexibility and efficiency needed to accelerate your projects.
 
-[Release Notes](./Releases/index.md) | [ExampleApp](./Sample-Code/exampleapp/README.md)
+[Release Notes](./Releases/index.md) | [Sample Code](./Sample-Code/index.md) | [Repositories](./Repositories/index.md)
 
 ## Why Choose Generic Suite?
 
@@ -192,6 +192,10 @@ We have an [ExampleApp](./Sample-Code/exampleapp/README.md) to show you how to u
 [![ExampleApp Banner](./Sample-Code/exampleapp/assets/exampleapp_banner_01.png)](./Sample-Code/exampleapp/README.md)    
 
 [ExampleApp](./Sample-Code/exampleapp/README.md) is a full-featured example application built as a monorepo using Turborepo and pnpm. This provides a practical, real-world blueprint for developers to learn from and accelerate their own projects. There are a frontend in React and backends in Python, using the 3 main frameworks: FastAPI, Flask and Chalice.
+
+Also we have a [FastAPI Template](./Sample-Code/fastapitemplate/README.md) to help you get started with FastAPI based backends.
+
+Check the [Sample Code](./Sample-Code/index.md) section for more information.
 
 ## Releases
 
