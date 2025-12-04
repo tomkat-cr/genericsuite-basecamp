@@ -28,6 +28,9 @@ locked_install:
 requirements:
 	@echo "No requirements needed for MCP server"
 
+update:
+	@echo "No update needed for MCP server"
+
 ## Cleaning
 
 clean:

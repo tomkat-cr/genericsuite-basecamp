@@ -1,4 +1,4 @@
-# Special Installations
+# GenericSuite Installation
 
 ## Node global version
 
@@ -42,6 +42,46 @@ And create the `.nvmrc` file mentioned earlier in the user's home directory: `/U
 
 ## Backend
 
+### Install from PyPi
+
+Pip
+```bash
+pip install genericsuite
+```
+```bash
+pip install genericsuite-ai
+```
+
+Uv
+```bash
+uv add genericsuite
+```
+```bash
+uv add genericsuite-ai
+```
+
+Poetry
+```bash
+poetry add genericsuite
+```
+```bash
+poetry add genericsuite-ai
+```
+
+Pipenv
+```bash
+pipenv install genericsuite
+```
+```bash
+pipenv install genericsuite-ai
+```
+
+To install the GenericSuite backend scripts:
+
+```bash
+npm install genericsuite-be-scripts
+```
+
 ### Install from Git repositories
 
 To install any of the the backend solutions (Core, AI, etc) from a specific branch in the Git repositories, e.g. "branch_x":
@@ -54,12 +94,12 @@ pip install git+https://github.com/tomkat-cr/genericsuite-be@branch_x
 pip install git+https://github.com/tomkat-cr/genericsuite-be-ai@branch_x
 ```
 
-Pipenv
+Uv
 ```bash
-pipenv install git+https://github.com/tomkat-cr/genericsuite-be@branch_x
+uv add git+https://github.com/tomkat-cr/genericsuite-be@branch_x
 ```
 ```bash
-pipenv install git+https://github.com/tomkat-cr/genericsuite-be-ai@branch_x
+uv add git+https://github.com/tomkat-cr/genericsuite-be-ai@branch_x
 ```
 
 Poetry
@@ -68,6 +108,14 @@ poetry add git+https://github.com/tomkat-cr/genericsuite-be@branch_x
 ```
 ```bash
 poetry add git+https://github.com/tomkat-cr/genericsuite-be-ai@branch_x
+```
+
+Pipenv
+```bash
+pipenv install git+https://github.com/tomkat-cr/genericsuite-be@branch_x
+```
+```bash
+pipenv install git+https://github.com/tomkat-cr/genericsuite-be-ai@branch_x
 ```
 
 To install the backend scripts from a specific branch in the Git repositories, e.g. "branch_x":

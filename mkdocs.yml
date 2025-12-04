@@ -8,6 +8,7 @@ repo_name: tomkat-cr/genericsuite
 nav:
   - 'Introduction': './index.md'
   - 'Repositories': 'repositories.md'
+  - 'Installation': './Other/installation.md'
   - 'Configuration Guide': './Configuration-Guide/index.md'
   - 'Sample Code': 'Sample-Code/index.md'
   - 'Releases': './Releases/index.md'
@@ -23,7 +24,6 @@ nav:
     - 'Backend Scripts': './Backend-Development/GenericSuite-Scripts/index.md'
     - 'Deployment': './Backend-Development/deployment.md'
   - 'Other':
-    - 'Special Installation': './Other/special-installs.md'
     - 'Python Package Managers': './Other/python-package-managers.md'
     - 'History': './history.md'
 

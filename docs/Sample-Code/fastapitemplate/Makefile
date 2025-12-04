@@ -75,6 +75,11 @@ lock:
 update:
 	npm update
 
+update-all: update
+	npm run update:all
+	@echo ""
+	@echo "Done updating dependencies for all workspaces"
+
 build:
 	npm run build
 	@echo ""

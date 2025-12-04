@@ -14,6 +14,7 @@
   },
   "scripts": {
     "api:install": "make install",
+    "api:update": "make update",
     "dev": "make run_qa",
     "dev:start": "npm run start:qa:debug",
     "build": "make install_dev",

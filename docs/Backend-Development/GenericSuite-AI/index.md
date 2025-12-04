@@ -66,7 +66,7 @@ Check [this documentation](../../Other/python-package-managers.md) to use the di
 
 ### From Git or Local Directory
 
-Check [this documentation](../../Other/special-installs.md) to install from a Git repository/branch or a Local Directory.
+Check [this documentation](../../Other/installation.md) to install from a Git repository/branch or a Local Directory.
 
 ### Test dependencies
 

@@ -35,6 +35,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Add "-PRESENT" to all LICENSE files.
 - Change documentation top bar options order.
 - Enhance documentation for STORAGE_URL_ENCRYPTION and STORAGE_URL_SEED.
+- STORAGE_URL_SEED envvar is only required when STORAGE_URL_ENCRYPTION is set to 1 [GS-72].
+- 'Special Installation' and './Other/special-installs.md' renamed to 'Installation' and './Other/installation.md' respectively.
 
 ### Fixed
 - Fix uv and poetry installation instructions on Python Package Managers documentation.
