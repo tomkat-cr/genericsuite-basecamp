@@ -20,8 +20,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### Added
 - FastAPI Template app [GS-243].
+- Add Postgres database support [GS-194].
+- Add API_VERSION envvar to set the API version, default to "v1" [GS-245].
 - Sample-Code main documentation page.
 - GenericSuite Release 20251117 changelog file: "docs/Releases/GS_Release_2025-11-17_Changelog.md".
+- Add "specific_function": "ai_conversation_masking" to "frontend/ai_chatbot_conversations.json" on genericsuite_configs, ExampleApp and FastAPI Template.
+- Add documentation for field type "array" and "specific_function" examples in Generic CRUD Editor Configuration Documentation.
+- Add documentation and examples for Preamble Models (usually needed to configure AI thinking LLMs) in GenericSuite AI documentation.
 
 ### Changed
 - Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.
@@ -29,6 +34,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Clean documentation and exampleapp code related with old "authenticationService".
 - Add "-PRESENT" to all LICENSE files.
 - Change documentation top bar options order.
+- Enhance documentation for STORAGE_URL_ENCRYPTION and STORAGE_URL_SEED.
 
 ### Fixed
 - Fix uv and poetry installation instructions on Python Package Managers documentation.

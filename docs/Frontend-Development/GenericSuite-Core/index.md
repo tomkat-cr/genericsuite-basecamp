@@ -197,6 +197,8 @@ And configure the variables according your needs:
 
 * Assign `REACT_APP_APP_NAME` with your App's name.
 
+* Assign `API_VERSION` with the API version. Defaults to "v1".
+
 * Assign `APP_LOCAL_DOMAIN_NAME` with the local development environment backend API domain name. E.g. app.exampleapp.local or localhost.<BR/>
 Defaults to app.${REACT_APP_APP_NAME}.local (the REACT_APP_APP_NAME will be converted to all lowercase).
 

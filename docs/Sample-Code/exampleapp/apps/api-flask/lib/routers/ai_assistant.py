@@ -27,9 +27,13 @@ from lib.models.ai_chatbot.ai_gpt_fn_index import (
     assign_app_specific_gpt_functions as assign_app_gpt_functions
 )
 
+from lib.config.config import Config
+
+settings = Config()
+
 DEBUG = False
 
-bp = BlueprintOne('ai', __name__, url_prefix='/ai')
+bp = BlueprintOne('ai', __name__, url_prefix=f'/{settings.API_VERSION}/ai')
 
 
 @bp.route('/chatbot', methods=['POST'])

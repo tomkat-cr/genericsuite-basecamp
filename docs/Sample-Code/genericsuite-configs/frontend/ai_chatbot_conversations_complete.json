@@ -1,37 +1,35 @@
 {
+    "table_name": "ai_chatbot_conversations",
+    "creation_pk_name": "_id",
+    "additional_query_params": [
+        "_id"
+    ],
     "baseUrl": "ai_chatbot_conversations",
-    "title": "ExampleApp Bot Conversations",
-    "name": "ExampleApp Bot Conversation",
-    "component": "",
+    "title": "AI Assistant Conversations",
+    "name": "AI Assistant Conversation",
+    "component": "AI Assistant Conversations",
     "dbApiUrl": "ai_chatbot_conversations",
     "mandatoryFilters": {
         "user_id": "{CurrentUserId}"
     },
     "defaultOrder": "update_date|desc",
-    "specific_function": "ai_conversation_masking",
     "fieldElements": [
         {
             "name": "id",
-            "required": true,
             "label": "ID",
             "type": "_id",
-            "readonly": true,
-            "hidden": true
+            "listing": true
         },
         {
             "name": "user_id",
-            "required": true,
             "label": "User ID",
             "type": "text",
-            "readonly": true,
-            "hidden": true
+            "listing": true
         },
         {
             "name": "title",
-            "required": true,
             "label": "Title",
             "type": "text",
-            "readonly": true,
             "listing": true
         },
         {
@@ -39,9 +37,6 @@
             "required": true,
             "label": "Created",
             "type": "datetime-local",
-            "readonly": true,
-            "hidden": false,
-            "default_value": "current_timestamp",
             "listing": true
         },
         {
@@ -49,9 +44,6 @@
             "required": true,
             "label": "Last update",
             "type": "datetime-local",
-            "readonly": true,
-            "hidden": false,
-            "default_value": "current_timestamp",
             "listing": true
         },
         {
@@ -59,8 +51,7 @@
             "required": true,
             "label": "Messages",
             "type": "array",
-            "readonly": true,
-            "listing": false
+            "listing": true
         }
     ]
 }

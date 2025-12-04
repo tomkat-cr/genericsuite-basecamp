@@ -1,7 +1,7 @@
 """
 Flask ExampleApp main
 """
-from genericsuite.flasklib.util.create_app import create_app
+from genericsuite_ai.flasklib.util.create_app import create_app
 # from genericsuite.util.app_logger import log_debug
 
 from lib.config.config import Config

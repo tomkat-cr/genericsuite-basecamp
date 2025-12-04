@@ -69,6 +69,9 @@ install-all: install
 	@echo ""
 	@echo "Done installing dependencies for all workspaces"
 
+lock:
+	npm install --package-lock-only && npm install --package-lock-only -w ui
+
 update:
 	npm update
 

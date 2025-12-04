@@ -13,9 +13,17 @@ from lib.models.admin_food.food_moments import (
     food_moment_in_user as food_moment_in_user_model,
 )
 
+from lib.config.config import Config
+
+settings = Config()
+
+
 DEBUG = False
 
-bp = BlueprintOne('food_moments', __name__, url_prefix='/food_moments')
+
+bp = BlueprintOne(
+    'food_moments', __name__,
+    url_prefix=f'/{settings.API_VERSION}/food_moments')
 
 
 @bp.route('/food_moment_in_user', methods=['GET'])

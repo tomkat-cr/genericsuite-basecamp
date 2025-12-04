@@ -163,6 +163,24 @@ Field elements define the individual fields used in the CRUD editor.
 
 * **datetime-local**: generates a datetime-local input field (date and time).
 
+* **array**: generates an multidimensional array field, like the `dict` type in Python.
+    + Examples: 
+```json
+"array": [
+    {
+        "key1": "value1",
+        "key2": "value2"
+    }
+]
+```
+```json
+"array": {
+    "key1": {
+        "key2": "value2"
+    }
+}
+```
+
 * **email**: generates an email input field (and validates it during the input).
 
 * **label**: generates a label with no input field.
@@ -464,10 +482,37 @@ This configuration is used by the backend exclusively.
     ],
 ```
 
-* **specific_function**: specific function to be executed before and after  database operations.
-    + Example:
+* **specific_function**: specific function to be executed before and after database operations.
+    + Examples:
 ```json
     "specific_function": "delete_params_file"
+```
+```json
+    "specific_function": "app_other_specific_function"
+```
+
+**IMPORTANT**: for non-standard specific functions like "delete_params_file", the function must be implemented in the backend:
+
+```python
+from genericsuite_ai.fastapilib.util.create_app import (
+    create_app,
+    create_handler
+)
+
+from app.config.config import Config
+
+# Import the specific function
+from app.specific_functions import app_other_specific_function
+
+
+settings = Config()
+app = create_app(
+    app_name=f"{settings.APP_NAME.lower()}-backend", settings=settings)
+
+# Register the specific function
+app.custom_data['app_other_specific_function'] = app_other_specific_function
+
+handler = create_handler(app)
 ```
 
 ## Examples

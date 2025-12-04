@@ -174,6 +174,11 @@ APP_DOMAIN_NAME=exampleapp.com
 DEFAULT_LANG=en
 ```
 
+* API version (default to "v1")
+```env
+API_VERSION=v1
+```
+
 * Stage and Debug flag
 ```env
 # Application debug APP_DEBUG (0,1)
@@ -198,11 +203,6 @@ APP_DEBUG=0
 # Application secret key (to be used in password encryption)
 APP_SECRET_KEY=xxxx
 ```
-```env
-# Storage seed: to be used in storage URL encryption -e.g. AWS S3-
-# Generate a new one with: `make generate_seed`
-STORAGE_URL_SEED="yyyy"
-```
 
 * Application super administrator Email
 ```env
@@ -211,67 +211,103 @@ APP_SUPERADMIN_EMAIL=xxxx
 
 * Database configuration
 
-1. For AWS DynamoDB<BR/>
+1. For MongoDB<BR/>
+[https://www.mongodb.com/](https://www.mongodb.com/)
+```env
+# DEV: Docker container
+APP_DB_ENGINE_DEV=MONGODB
+APP_DB_NAME_DEV=mongo
+APP_DB_URI_DEV=mongodb://root:example@app.exampleapp.local:27017/
+```
+```env
+# QA: MongoDB Atlas
+APP_DB_ENGINE_QA=MONGODB
+APP_DB_NAME_QA=xxxx
+APP_DB_URI_QA=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+```
+```env
+# Staging: MongoDB Atlas
+APP_DB_ENGINE_STAGING=MONGODB
+APP_DB_NAME_STAGING=xxxx
+APP_DB_URI_STAGING=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+```
+```env
+# PROD: MongoDB Atlas
+APP_DB_ENGINE_PROD=MONGODB
+APP_DB_NAME_PROD=xxxx
+APP_DB_URI_PROD=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+```
+```env
+# DEMO: MongoDB Atlas
+APP_DB_ENGINE_DEMO=MONGODB
+APP_DB_NAME_DEMO=xxxx
+APP_DB_URI_DEMO=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+```
+
+2. For AWS DynamoDB<BR/>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```env
 # DEV: docker
-APP_DB_ENGINE_DEV=DYNAMO_DB
+APP_DB_ENGINE_DEV=DYNAMODB
 DYNAMDB_PREFIX_DEV=
 APP_DB_URI_DEV=http://127.0.0.1:8000
 ```
 ```env
 # QA: AWS DynamoDB
-APP_DB_ENGINE_QA=DYNAMO_DB
+APP_DB_ENGINE_QA=DYNAMODB
 DYNAMDB_PREFIX_QA=
 APP_DB_URI_QA=
 ```
 ```env
 # PROD: AWS DynamoDB
-APP_DB_ENGINE_PROD=DYNAMO_DB
+APP_DB_ENGINE_PROD=DYNAMODB
 DYNAMDB_PREFIX_PROD=
 APP_DB_URI_PROD=
 ```
 ```env
 # # DEMO: AWS DynamoDB
-# APP_DB_ENGINE_DEMO=DYNAMO_DB
+# APP_DB_ENGINE_DEMO=DYNAMODB
 # DYNAMDB_PREFIX_DEMO=
 # APP_DB_URI_DEMO=
 ```
 
 **NOTE**: set `DYNAMDB_PREFIX_*` empty and it'll be defaulted to `<APP_NAME_LOWERCASE>_<STAGE>_`.
 
-2. For MongoDB<BR/>
-[https://www.mongodb.com/](https://www.mongodb.com/)
+3. For PostgreSQL / Supabase<BR/>
+[https://www.postgresql.org/](https://www.postgresql.org/)<BR/>
+[https://www.supabase.com/](https://www.supabase.com/)<BR/>
+[https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```env
-# DEV: Docker container
-APP_DB_ENGINE_DEV=MONGO_DB
-APP_DB_NAME_DEV=mongo
-APP_DB_URI_DEV=mongodb://root:example@app.exampleapp.local:27017/
+# # DEV: docker
+# APP_DB_ENGINE_DEV=POSTGRES
+# APP_DB_URI_DEV=postgresql://user:pass@localhost:5432
+# APP_DB_NAME_DEV=db
+
+# # QA:
+# APP_DB_ENGINE_QA=POSTGRES
+# APP_DB_URI_QA=postgresql://user:pass@hostname:5432
+# APP_DB_NAME_QA=db
+
+# # PROD:
+# APP_DB_ENGINE_PROD=POSTGRES
+# APP_DB_URI_PROD=postgresql://user:pass@hostname:5432
+# APP_DB_NAME_PROD=db
+
+# # DEMO:
+# APP_DB_ENGINE_DEMO=POSTGRES
+# APP_DB_URI_DEMO=postgresql://user:pass@hostname:5432
+# APP_DB_NAME_DEMO=db
 ```
+
+**NOTES**:
+- To configure Supabase on the QA environment, set:
 ```env
-# QA: MongoDB Atlas
-APP_DB_ENGINE_QA=MONGO_DB
-APP_DB_NAME_QA=xxxx
-APP_DB_URI_QA=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+APP_DB_ENGINE_QA=POSTGRES
+APP_DB_URI_QA=postgresql://postgres:[YOUR_PASSWORD]@db.[SUPABASE_SERVER_SUBDOMAIN].supabase.co:5432
+APP_DB_NAME_QA=postgres
 ```
-```env
-# Staging: MongoDB Atlas
-APP_DB_ENGINE_STAGING=MONGO_DB
-APP_DB_NAME_STAGING=xxxx
-APP_DB_URI_STAGING=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
-```
-```env
-# PROD: MongoDB Atlas
-APP_DB_ENGINE_PROD=MONGO_DB
-APP_DB_NAME_PROD=xxxx
-APP_DB_URI_PROD=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
-```
-```env
-# DEMO: MongoDB Atlas
-APP_DB_ENGINE_DEMO=MONGO_DB
-APP_DB_NAME_DEMO=xxxx
-APP_DB_URI_DEMO=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
-```
+- `YOUR_PASSWORD` is not the supabase user password, it is a password requested when the Supabase account was created. In case you need to reset that password, go to "Database > Settings > Database password > [Reset database password]".
+- `SUPABASE_SERVER_SUBDOMAIN` is the subdomain of the Supabase server. You can find it in the "Supabase Dashboard > Connect > Connection string" option.
 
 * CORS Origin
 ```env
@@ -452,12 +488,26 @@ AWS_SSL_CERTIFICATE_ARN=arn:aws:acm:AWS-REGION:AWS-ACCOUNT:certificate/AWS-CERTI
 AWS_DEPLOYMENT_TYPE=lambda
 ```
 
-* Assests URL masking external hostname
+* Storage URL encryption (to mask the AWS S3 bucket name and key)
 ```env
-# For features like AI Vision, only in development environment, used by the storage URL encryption.
-# E.g. app-dev.exampleapp.com
-# Leave blank to use the same URL stored, for example in the AI Assistant conversarions.
-URL_MASK_EXTERNAL_HOSTNAME=
+# Storage URL encryption
+#
+# Storage URL encryption (default to 0)
+# STORAGE_URL_ENCRYPTION=1
+#
+# Storage seed (to set storage URL encryption -e.g. AWS S3-)
+# Generate a new one with: `make generate_seed`
+# STORAGE_URL_SEED=yyy
+#
+# Development URL masking external hostname
+#   For features like AI Vision, to send the image URL masked.
+#   It's recommended to set only in development environment.
+#   E.g. URL_MASK_EXTERNAL_HOSTNAME=app-dev.exampleapp.com
+#   Leave blank to use the same URL stored -for example- in the AI Assistant conversarions.
+# URL_MASK_EXTERNAL_HOSTNAME=
+#
+# URL masking external protocol (http or https, defaults to RUN_PROTOCOL or https)
+# URL_MASK_EXTERNAL_PROTOCOL=http
 ```
 
 * SMTP Mail configuration

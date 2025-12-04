@@ -9,6 +9,10 @@
 
 This documentation shows how to create the App frontend/backend configurations and data structures.
 
+## Generic CRUD Editor Configuration
+
+Follow the instructions to build the `.json` files in the [Generic CRUD Editor Configuration Documentation](./Generic-CRUD-Editor-Configuration.md).
+
 ## Example App
 
 The [ExampleApp](../Sample-Code/exampleapp/README.md) is a full-stack example application demonstrating how to create an App using GenericSuite. It is a web application architecture with a React-based frontend and backend services implemented in FastAPI, Flask and Chalice.
@@ -166,7 +170,7 @@ git push
 
 ## Build the .json files
 
-Follow the instructions to build the .json files [here](./Generic-CRUD-Editor-Configuration.md).
+Follow the instructions to build the `.json` files in the [Generic CRUD Editor Configuration Documentation](./Generic-CRUD-Editor-Configuration.md).
 
 
 ## App frontend

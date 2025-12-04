@@ -8,6 +8,7 @@
         "user_id": "{CurrentUserId}"
     },
     "defaultOrder": "update_date|desc",
+    "specific_function": "ai_conversation_masking",
     "fieldElements": [
         {
             "name": "id",

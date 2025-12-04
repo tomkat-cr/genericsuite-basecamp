@@ -23,7 +23,7 @@
         "unlink-config-dirs": "rm -rf mcp-server/lib && rm -rf server/lib/config_dbdef && rm -rf ui/src/configs"
     },
     "devDependencies": {
-        "concurrently": "^8.2.2",
+        "concurrently": "^9.2.1",
         "genericsuite-be-scripts": "github:tomkat-cr/genericsuite-be-scripts#develop"
     },
     "engines": {

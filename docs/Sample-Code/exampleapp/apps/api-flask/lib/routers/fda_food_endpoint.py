@@ -13,9 +13,16 @@ from lib.models.external_apis.fda_food_endpoint import (
     fda_food_endpoint as fda_food_endpoint_model
 )
 
+from lib.config.config import Config
+
+settings = Config()
+
+
 DEBUG = False
 
-bp = BlueprintOne('fda_food_query', __name__, url_prefix='/fda_food_query')
+bp = BlueprintOne(
+    'fda_food_query', __name__,
+    url_prefix=f'/{settings.API_VERSION}/fda_food_query')
 
 
 @bp.route('/', methods=['POST'])
