@@ -15,7 +15,7 @@ The perfect companion for this backend solution is [The GenericSuite AI (fronten
 
 ## Pre-requisites
 
-- Python version >= 3.10 and < 4.0 (version specified in `.python-version` files and installable with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably)
+- Python version >= 3.10 and < 4.0 (install with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably. Versions specified in `.python-version` files)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 - Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
