@@ -42,32 +42,69 @@ To get started with [GenericSuite](../../index.md), follow these steps:
 
 ### Initiate your project
 
-To create the project directory for the App's backend API. E.g. `exampleapp_backend`, instrctions will depend on the dependency management of your preference:
+To create the project directory for the App's backend API. E.g. `your_app_name_backend` when you want to have separated the backend and frontend code. For a project strture as follows:
+
+```
+your_app_name_backend/
+└── src/                 # API application
+    └── config_dbdef/    # Configuration database definitions
+```
+
+Create the project directory for the App's backend API as follows:
+
+```bash
+mkdir -p your_app_name_backend/src
+cd your_app_name_backend/src
+```
+
+For a monorepo (e.g. [exampleapp](../../Sample-Code/exampleapp/README.md) and [fastapitemplate](../../Sample-Code/fastapitemplate/README.md)), you can have a directory structure as follows:
+
+```
+your_app_name/
+├── config_dbdef/                 # Configuration database definitions
+├── server/                       # Server application
+├── ui/                           # User interface
+└── mcp-server/                   # MCP server
+```
+
+Create the project directory for the App's backend API as follows:
+
+```bash
+mkdir -p your_app_name/server
+cd your_app_name/server
+```
+
+### Dependency manager setup
+
+The following instructions will depend on the dependency management of your preference:
 
 ```bash
 # Pip
-mkdir -p exampleapp_backend/exampleapp_backend
-cd exampleapp_backend
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 ```bash
-# Pipenv
-# https://docs.pipenv.org/basics/
-mkdir -p exampleapp_backend/exampleapp_backend
-cd exampleapp_backend
-pipenv install
+# Uv
+# https://docs.astral.sh/uv/getting-started
+uv init
+uv venv
 ```
 
 ```bash
 # Poetry
 # https://python-poetry.org/docs/basic-usage/
-poetry start exampleapp_backend
-cd exampleapp_backend
+poetry init
 ```
 
-## Installation
+```bash
+# Pipenv
+# https://docs.pipenv.org/basics/
+pipenv install
+pipenv shell
+```
+
+## GenericSuite installation
 
 To use [GenericSuite](../../index.md) in your project, install it with the following command(s):
 
@@ -105,7 +142,7 @@ Check [this documentation](../../Other/python-package-managers.md) to use the di
 Check [this documentation](../../Other/installation.md) to install from a Git repository/branch or a Local Directory.
 
 
-## Framework installation
+### Framework installation
 
 Install the desired framework: [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) or [Chalice](https://aws.github.io/chalice/quickstart.html):
 
@@ -130,20 +167,48 @@ For more information:
 * [Flask installation](https://flask.palletsprojects.com/en/2.3.x/installation/)
 * [Chalice installation](https://aws.github.io/chalice/quickstart.html)
 
-### Test dependencies
-
-To execute the unit and integration test, install `pytest` and `coverage`:
-
-```bash
-pip install pytest coverage
-```
-
 ### Development scripts installation
 
 [The GenericSuite backend development scripts](https://github.com/tomkat-cr/genericsuite-be-scripts?tab=readme-ov-file#the-genericsuite-scripts-backend-version) contains utilities to build and deploy APIs made by The GenericSuite.
 
 ```bash
 npm install -D genericsuite-be-scripts
+```
+
+### Database installation
+
+Depending on the database you'll use, install the required dependencies:
+
+#### MongoDB
+```bash
+pip install pymongo
+```
+
+#### DynamoDB
+```bash
+pip install boto3
+```
+
+#### PostgreSQL or Supabase
+```bash
+pip install psycopg2-binary
+```
+
+### Cloud services
+
+Depending on the cloud service you'll use, install the required dependencies:
+
+#### AWS
+```bash
+pip install boto3
+```
+
+### Test dependencies
+
+To execute the unit and integration test, install `pytest` and `coverage`:
+
+```bash
+pip install pytest coverage
 ```
 
 ## Available options

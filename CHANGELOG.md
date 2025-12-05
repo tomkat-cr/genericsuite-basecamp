@@ -37,6 +37,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Enhance documentation for STORAGE_URL_ENCRYPTION and STORAGE_URL_SEED.
 - STORAGE_URL_SEED envvar is only required when STORAGE_URL_ENCRYPTION is set to 1 [GS-72].
 - 'Special Installation' and './Other/special-installs.md' renamed to 'Installation' and './Other/installation.md' respectively.
+- docs: Enhance backend project setup guide with monorepo structures, detailed dependency management, and new database/cloud service installation sections, adding `psycopg2-binary`.
 
 ### Fixed
 - Fix uv and poetry installation instructions on Python Package Managers documentation.

@@ -12,7 +12,7 @@ fastapitemplate/
 ├── config_dbdef/                 # Configuration database definitions
 ├── server/                       # Server application
 ├── ui/                           # User interface
-├── mcp-server/                   # MCP server
+└── mcp-server/                   # MCP server
 ```
 
 ## Installation
