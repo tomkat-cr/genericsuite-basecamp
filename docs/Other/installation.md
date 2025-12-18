@@ -160,6 +160,15 @@ npm install ../genericsuite-be-scripts
 
 ## Frontend
 
+### Install from NPMJS
+
+```bash
+npm install genericsuite
+```
+```bash
+npm install genericsuite-ai
+```
+
 ### Install from Git repositories
 
 From the `main` branch:

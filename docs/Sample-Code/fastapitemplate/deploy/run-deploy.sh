@@ -157,9 +157,9 @@ fi
 
 if [ "$USE_LOCAL_MONGODB" != "0" ]; then
     #
-    # Use USE_LOCAL_MONGODB=1 to enable only local mongodb on thee docker compose
+    # Use USE_LOCAL_MONGODB=1 to enable only local database on thee docker compose
     # E.g. to use the 'make dev' command (running frontend and backend without
-    # docker compose) with local mongodb in docker compose
+    # docker compose) with local database in docker compose
     #
     export MONGODB_HOST_NAME=fastapitemplate-mongo
     export MONGODB_HOST_PORT=27017

@@ -93,10 +93,10 @@ pycodestyle:
 qa: lint types tests format_check pycodestyle
 
 mongo_docker:
-	bash ../node_modules/genericsuite-be-scripts/scripts/mongo/run_mongo_docker.sh run "0"
+	bash ../node_modules/genericsuite-be-scripts/scripts/local_db/run_local_db_docker.sh run "0"
 
 mongo_docker_down:
-	bash ../node_modules/genericsuite-be-scripts/scripts/mongo/run_mongo_docker.sh down
+	bash ../node_modules/genericsuite-be-scripts/scripts/local_db/run_local_db_docker.sh down
 
 mongo_backup:
 	# E.g. STAGE=qa BACKUP_DIR=/tmp/fastapitemplate make mongo_backup
@@ -127,7 +127,7 @@ config_dev: link_config_dirs
 	bash ../node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh
 
 config_local: link_config_dirs
-	bash ../node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh mongo_docker
+	bash ../node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh local_db_docker
 
 config_qa: link_config_dirs
 	bash ../node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa
@@ -230,7 +230,7 @@ aws_secrets:
 ## Application Specific Commands
 
 run: config_local clean_logs
-	bash ../node_modules/genericsuite-be-scripts/scripts/mongo/run_mongo_docker.sh run "0" dev
+	bash ../node_modules/genericsuite-be-scripts/scripts/local_db/run_local_db_docker.sh run "0" dev
 	bash ../node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local
 
 run_qa: config_qa clean_logs

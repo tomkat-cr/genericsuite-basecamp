@@ -57,7 +57,7 @@ if [ "${EXAMPLEAPP_DIRECTORY_PATH}" = "" ]; then
     EXAMPLEAPP_DIRECTORY_PATH="${DOCS_DIRECTORY_PATH}/Sample-Code/exampleapp"
 fi
 if [ "${DEBUG}" = "" ]; then
-    DEBUG="true"
+    DEBUG="false"
 fi
 
 echo ""

@@ -118,7 +118,7 @@ fi
 # Default values
 debug="$3"
 if [ "$debug" = "" ]; then
-    debug="true"
+    debug="false"
 fi
 
 # Export functions to be used in find --exec commands

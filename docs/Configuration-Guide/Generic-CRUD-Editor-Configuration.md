@@ -130,7 +130,7 @@ Field elements define the individual fields used in the CRUD editor.
 
 * **label**: The label displayed for the field.
 
-* **type**: The data type of the field. Check [Field data types](#field-data-types) for more details.
+* **type**: The data type of the field or `field type` for the field element. Check [Field data types](#field-data-types) for more details.
 
 * **required**: Whether the field is required for submission.
 	+ Example: `true`, `false`
@@ -184,6 +184,8 @@ Field elements define the individual fields used in the CRUD editor.
 * **email**: generates an email input field (and validates it during the input).
 
 * **label**: generates a label with no input field.
+
+* **h1, h2, h3, h4, h5, h6**: generates a heading with the specified level.
 
 * **hr**: generates a horizontal rule.
 

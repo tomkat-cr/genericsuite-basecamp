@@ -5,11 +5,13 @@ description = "ExampleApp backend (Flask)"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "boto3>=1.40.75",
     "flask>=3.1.2",
     "flask-cors>=6.0.1",
     "genericsuite>=0.2.0",
     "genericsuite-ai>=0.2.0",
     "gunicorn>=23.0.0",
+    "pymongo>=4.15.4",
     "python-multipart>=0.0.20",
 ]
 
@@ -19,3 +21,7 @@ dev = [
     "coverage>=7.11.2",
     "pytest>=9.0.0",
 ]
+
+[tool.uv.sources]
+genericsuite = { git = "https://github.com/tomkat-cr/genericsuite-be", rev = "develop" }
+genericsuite-ai = { git = "https://github.com/tomkat-cr/genericsuite-be-ai", rev = "develop" }

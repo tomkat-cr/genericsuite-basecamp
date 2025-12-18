@@ -31,7 +31,7 @@ Generic Suite (GS) is the ultimate development library designed to streamline bo
 * AI-Driven Efficiency – Leverage built-in AI capabilities to enhance automation, generate content, and optimize software development.
 * Customizable & Scalable – Adapt the framework to your specific needs, with support for multiple programming frameworks, databases, and deployment platforms.
 * Accelerated Development Workflow – Pre-built utilities and automation tools save time, letting you focus on innovation instead of repetitive tasks.
-* Cross-Platform Compatibility – Whether you're working with FastAPI, Flask, Chalice, DynamoDB, or MongoDB, GS adapts to your tech stack effortlessly.
+* Cross-Platform Compatibility – Whether you're working with FastAPI, Flask, Chalice, MongoDB, DynamoDB, Postgres, MySQL, Supabase, GS adapts to your tech stack effortlessly.
 
 ## Key Features
 
@@ -40,7 +40,7 @@ Generic Suite (GS) is the ultimate development library designed to streamline bo
 * Customizable CRUD editor, menu generator, and login interface.
 * Generic database and API endpoint builder to eliminate redundant coding.
 * Backend framework abstraction supporting FastAPI, Flask, and Chalice.
-* Database abstraction for MongoDB and DynamoDB with a unified query syntax.
+* Database abstraction for MongoDB, DynamoDB, Postgres, MySQL, and Supabase with a unified query syntax.
 * Easy deployment with AWS and other cloud services.
 
 ### AI-Powered Development
@@ -106,7 +106,7 @@ Features:
 * Customizable CRUD editor, menu generator, customizable login interface, deploy to AWS and a suite of tools to kickstart your frontend development process.
 * Generic CRUD database and API endpoints: by having a core Create-Read-Update-Delete code that can be parametrized & extended, there’s no need to rewrite code for each table editor.
 * Generic menu and API endpoints builder.
-* Database abstractor: The backend can use DynamoDB or MongoDB as the persistent storage. ImplementS DynamoDB access by a MongoDB-styled syntax.
+* Database abstractor: The backend can use MongoDB, DynamoDB, Postgres, MySQL, or Supabase as the persistent storage, implementing as MongoDB-styled syntax.
 * Framework abstractor: supports various frameworks including FastAPI, Flask and Chalice, making it adaptable to a range of projects.
 * [Utilities](./Backend-Development/GenericSuite-Scripts/index.md), and [Configurations](./Configuration-Guide/index.md) necessary to build and deploy scalable and maintainable applications.
 

@@ -12,10 +12,19 @@ help:
 install:
 	bash scripts/mkdocs_install.sh
 
-transfer_debug:
+prepare_docs:
+	make exampleapp-clean
+	make fastapitemplate-clean
+
+generate_openapi: fastapitemplate-install
+	cd docs/Sample-Code/fastapitemplate/server && \
+	RUN_PROTOCOL=http PATH_TO_SAVE_OPENAPI="." make run_qa && \
+	cd -
+
+transfer_debug: generate_openapi prepare_docs
 	bash scripts/mkdocs_transfer_site.sh
 
-transfer_cicd:
+transfer_cicd: generate_openapi prepare_docs
 	# Set DEBUG to false to avoid blocking automation in CI environments
 	DEBUG="false" sh scripts/mkdocs_transfer_site.sh
 
@@ -29,10 +38,10 @@ nvm_use:
 venv:
 	if ! . scripts/mkdocs_run.sh; then if ! source scripts/mkdocs_run.sh; then @echo "❌ scripts/mkdocs_run.sh failed..."; fi; fi
 
-build:
+build: generate_openapi prepare_docs
 	bash scripts/mkdocs_run.sh build
 
-serve:
+serve: generate_openapi prepare_docs
 	bash scripts/mkdocs_run.sh serve
 
 run: serve
@@ -60,10 +69,10 @@ exampleapp-create-ssl-certs:
 
 exampleapp-clean:
 	cd docs/Sample-Code/exampleapp && sh scripts/link_common_assets.sh unlink
-	@echo ""
-	@echo "Press Enter to continue to clean all directories (node_modules, dist, etc.)"
-	@read
-	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp false true
+	if [ "${DEBUG}" = "true" ]; then @echo "" && \
+	@echo "Press Enter to continue to clean all directories (node_modules, dist, etc.)" && \
+	@read; fi
+	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp false "${DEBUG}"
 
 fastapitemplate-install: nvm_use
 	cd docs/Sample-Code/fastapitemplate && make install
@@ -77,17 +86,17 @@ fastapitemplate-update: nvm_use
 fastapitemplate-update-all: fastapitemplate-update
 
 fastapitemplate-run:
-	cd docs/Sample-Code/fastapitemplate && make run
+	cd docs/Sample-Code/fastapitemplate && make dev
 
 fastapitemplate-create-ssl-certs:
 	cd docs/Sample-Code/exampleapp && make create-ssl-certs
 
 fastapitemplate-clean:
 	cd docs/Sample-Code/fastapitemplate && make unlink-config-dirs && cd ../..
-	@echo ""
-	@echo "Press Enter to continue to clean all directories (node_modules, dist, etc.)"
-	@read
-	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/fastapitemplate false true
+	if [ "${DEBUG}" = "true" ]; then @echo "" && \
+	@echo "Press Enter to continue to clean all directories (node_modules, dist, etc.)" && \
+	@read; fi
+	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/fastapitemplate false "${DEBUG}"
 
 lsof:
 	sudo lsof -PiTCP -sTCP:LISTEN

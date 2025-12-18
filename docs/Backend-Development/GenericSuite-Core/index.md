@@ -12,7 +12,7 @@
 ## Features
 
 - **Framework Agnostic**: Supports FastAPI, Flask, and Chalice frameworks.
-- **Database Support**: Includes abstracted database operations for both MongoDB and DynamoDB, offering flexibility in choosing the database.
+- **Database Support**: Includes abstracted database operations for MongoDB, DynamoDB, Postgres, MySQL, or Supabase, offering flexibility in choosing the database.
 - **Authentication**: Implements JWT-based authentication, providing secure access to endpoints.
 - **Dynamic Endpoint Creation**: Allows for defining endpoints dynamically through JSON configurations.
 - **Utilities**: A collection of utilities for tasks such as sending emails, parsing multipart data, handling passwords, and more.
@@ -30,11 +30,45 @@
 
 ### AWS account and credentials
 
-If you plan to deploy the App in the AWS Cloud and/or use DynamoDB:
+If you plan to deploy the App in the AWS Cloud, use DynamoDB or RDS for the database:
 
 * AWS account, see [free tier](https://aws.amazon.com/free).
 * AWS Token, see [Access Keys](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials?section=IAM_credentials).
 * AWS Command-line interface, see [awscli](https://formulae.brew.sh/formula/awscli).
+
+### MongoDB
+
+If you plan to use MongoDB for the database:
+
+* Install de python package `pymongo`
+* See [Community MongoDB](https://www.mongodb.com/try/download/community) or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+
+### Postgres
+
+If you plan to use Postgres for the database:
+
+* Install de python package `psycopg2-binary`
+* See [Postgres](https://www.postgresql.org/).
+
+### Supabase
+
+If you plan to use Supabase for the database:
+
+* Install de python package `supabase`
+* Go to [Supabase](https://supabase.com/), create an account and a project.
+
+### MySQL
+
+If you plan to use MySQL for the database:
+
+* Install de python package `mysql-connector-python`
+* See [MySQL](https://www.mysql.com/).
+
+### MCP Server
+
+If you plan to develop an MCP Server:
+
+* Install python packages `mcp` and `fastmcp`
 
 ## Getting Started
 
@@ -189,9 +223,19 @@ pip install pymongo
 pip install boto3
 ```
 
-#### PostgreSQL or Supabase
+#### PostgreSQL
 ```bash
 pip install psycopg2-binary
+```
+
+#### Supabase
+```bash
+pip install supabase
+```
+
+#### MySQL
+```bash
+pip install mysql-connector-python
 ```
 
 ### Cloud services
@@ -214,7 +258,7 @@ pip install pytest coverage
 ## Available options
 
 1. **Select Your Framework**: Depending on your project, choose between [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) or [Chalice](https://aws.github.io/chalice/quickstart.html).
-2. **Select Your Database of choice**: Implement database operations using the provided abstracted functions for [MongoDB](https://www.mongodb.com/) and [DynamoDB](https://aws.amazon.com/pm/dynamodb/).
+2. **Select Your Database of choice**: Implement database operations using the provided abstracted functions for [MongoDB](https://www.mongodb.com/), [Postgres](https://www.postgresql.org/), [MySQL](https://www.mysql.com/), [Supabase](https://supabase.com/), and [DynamoDB](https://aws.amazon.com/pm/dynamodb/).
 3. **Included Authentication**: Your endpoints will be secured with [JWT](https://jwt.io/libraries)-based authentication.
 4. **Define Endpoints**: Utilize the dynamic endpoint creation feature by defining your endpoints in a JSON configuration file. Visit the [Generic Suite Configuration Guide](./../../Configuration-Guide/index.md) for more information.
 5. **Define Menu Options**: Utilize the dynamic menu creation feature by defining your menu and option access security in a JSON configuration file. Visit the [Generic Suite Configuration Guide](./../../Configuration-Guide/index.md) for guidance.
@@ -338,7 +382,7 @@ APP_DB_URI_PROD=
 
 **NOTE**: set `DYNAMDB_PREFIX_*` empty and it'll be defaulted to `<APP_NAME_LOWERCASE>_<STAGE>_`.
 
-3. For PostgreSQL / Supabase<BR/>
+3. For PostgreSQL<BR/>
 [https://www.postgresql.org/](https://www.postgresql.org/)<BR/>
 [https://www.supabase.com/](https://www.supabase.com/)<BR/>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
@@ -364,8 +408,38 @@ APP_DB_URI_PROD=
 # APP_DB_NAME_DEMO=db
 ```
 
+
+4. For Supabase<BR/>
+[https://www.supabase.com/](https://www.supabase.com/)
+
+```env
+SUPABASE_KEY=
+```
+
+```env
+# # DEV: docker
+# APP_DB_ENGINE_DEV=SUPABASE
+# APP_DB_URI_DEV=https://xxxx.supabase.co
+# APP_DB_NAME_DEV=db
+#
+# # QA:
+# APP_DB_ENGINE_QA=SUPABASE
+# APP_DB_URI_QA=https://xxxx.supabase.co
+# APP_DB_NAME_QA=db
+#
+# # PROD:
+# APP_DB_ENGINE_PROD=SUPABASE
+# APP_DB_URI_PROD=https://xxxx.supabase.co
+# APP_DB_NAME_PROD=db
+#
+# # DEMO:
+# APP_DB_ENGINE_DEMO=SUPABASE
+# APP_DB_URI_DEMO=https://xxxx.supabase.co
+# APP_DB_NAME_DEMO=db
+```
+
 **NOTES**:
-- To configure Supabase on the QA environment, set:
+- To configure Supabase with Postgres, form example on the QA environment, set:
 ```env
 APP_DB_ENGINE_QA=POSTGRES
 APP_DB_URI_QA=postgresql://postgres:[YOUR_PASSWORD]@db.[SUPABASE_SERVER_SUBDOMAIN].supabase.co:5432
@@ -373,6 +447,35 @@ APP_DB_NAME_QA=postgres
 ```
 - `YOUR_PASSWORD` is not the supabase user password, it is a password requested when the Supabase account was created. In case you need to reset that password, go to "Database > Settings > Database password > [Reset database password]".
 - `SUPABASE_SERVER_SUBDOMAIN` is the subdomain of the Supabase server. You can find it in the "Supabase Dashboard > Connect > Connection string" option.
+- For this to work, you must purchase the **IPv4 add-on** in the Supabase dashboard, otherwise you will get a connection error:
+```
+Could not translate host name "db.xxxxxx.supabase.co" to address: Name or service not known
+```
+
+5. For MySQL<BR/>
+[https://www.mysql.com](https://www.mysql.com)
+
+```env
+# # DEV: docker
+# APP_DB_ENGINE_DEV=MYSQL
+# APP_DB_URI_DEV=mysql://user:pass@localhost:3306
+# APP_DB_NAME_DEV=db
+#
+# # QA:
+# APP_DB_ENGINE_QA=MYSQL
+# APP_DB_URI_QA=mysql://user:pass@hostname:3306
+# APP_DB_NAME_QA=db
+#
+# # PROD:
+# APP_DB_ENGINE_PROD=MYSQL
+# APP_DB_URI_PROD=mysql://user:pass@hostname:3306
+# APP_DB_NAME_PROD=db
+#
+# # DEMO:
+# APP_DB_ENGINE_DEMO=MYSQL
+# APP_DB_URI_DEMO=mysql://user:pass@hostname:3306
+# APP_DB_NAME_DEMO=db
+```
 
 * CORS Origin
 ```env
@@ -547,10 +650,18 @@ AWS_LAMBDA_FUNCTION_ROLE_PROD=exampleapp-api_handler-role-prod
 AWS_SSL_CERTIFICATE_ARN=arn:aws:acm:AWS-REGION:AWS-ACCOUNT:certificate/AWS-CERTIFICATE-UUID
 ```
 
+* Deployment options
+
 ```env
 # AWS Deployment type
-# Available options: `lambda`, `fargate`, `ec2`. Defaults to: lambda
+# Available options: `lambda`, `ec2`, `fargate`. Defaults to: lambda
 AWS_DEPLOYMENT_TYPE=lambda
+```
+
+```env
+# AWS Lambda Deployment type
+# Available options: `zip`, `container`. Defaults to: zip
+AWS_LAMBDA_DEPLOYMENT_TYPE=zip
 ```
 
 * Storage URL encryption (to mask the AWS S3 bucket name and key)
@@ -611,6 +722,8 @@ DOCKER_ACCOUNT=docker_account_username
 # For http (default)
 # BACKEND_DEBUG_LOCAL_PORT=5001
 # For https
+# WARNING: this port must be different than the BACKEND_LOCAL_PORT, otherwise it will throw
+# the "Port already in use" error trying to start the sls-nginx container.
 # BACKEND_DEBUG_LOCAL_PORT=5002
 
 # Testing endpoint
@@ -839,6 +952,13 @@ You can find examples about configurations and how to code an App in the [Generi
 ## Usage
 
 Check the [The GenericSuite backend development scripts](../GenericSuite-Scripts/index.md) for more details.
+
+## API Specification
+
+The API specification is available in the [FastApiTemplate/server](../../Sample-Code/fastapitemplate/server/) directory:
+
+* Swagger JSON: [fastapitemplate-backend_openapi.json](../../Sample-Code/fastapitemplate/server/fastapitemplate-backend_openapi.json) 
+* Swagger YAML: [fastapitemplate-backend_openapi.yaml](../../Sample-Code/fastapitemplate/server/fastapitemplate-backend_openapi.yaml) 
 
 ## License
 

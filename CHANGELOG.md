@@ -20,13 +20,22 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### Added
 - FastAPI Template app [GS-243].
-- Add Postgres database support [GS-194].
-- Add API_VERSION envvar to set the API version, default to "v1" [GS-245].
+- Postgres database support [GS-194].
+- MySQL database support [GS-249].
+- Supabase support [GS-161].
+- API_VERSION envvar to set the API version, default to "v1" [GS-245].
 - Sample-Code main documentation page.
 - GenericSuite Release 20251117 changelog file: "docs/Releases/GS_Release_2025-11-17_Changelog.md".
-- Add "specific_function": "ai_conversation_masking" to "frontend/ai_chatbot_conversations.json" on genericsuite_configs, ExampleApp and FastAPI Template.
-- Add documentation for field type "array" and "specific_function" examples in Generic CRUD Editor Configuration Documentation.
-- Add documentation and examples for Preamble Models (usually needed to configure AI thinking LLMs) in GenericSuite AI documentation.
+- "specific_function": "ai_conversation_masking" to "frontend/ai_chatbot_conversations.json" on genericsuite_configs, ExampleApp and FastAPI Template.
+- Documentation for field type "array" and "specific_function" examples in Generic CRUD Editor Configuration Documentation.
+- Documentation and examples for Preamble Models (usually needed to configure AI thinking LLMs) in GenericSuite AI documentation.
+- Field types h1 to h6 to JSON files [GS-250].
+- AWS_LAMBDA_DEPLOYMENT_TYPE envvar to select the deployment type for AWS Lambda functions (zip or container, default zip) [GS-248].
+- "make generate_openapi" command to save OpenAPI schema files (JSON and YAML) and included in the transfer and build process (make build, make serve, make transfer_debug, make transfer_cicd) [GS-245].
+- Documentation for the new databases supported.
+- Optional dependencies to example projects (boto3, pymongo).
+- Create Super Admin user documentation.
+- Local database stack and operations documentation.
 
 ### Changed
 - Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.
@@ -38,6 +47,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - STORAGE_URL_SEED envvar is only required when STORAGE_URL_ENCRYPTION is set to 1 [GS-72].
 - 'Special Installation' and './Other/special-installs.md' renamed to 'Installation' and './Other/installation.md' respectively.
 - docs: Enhance backend project setup guide with monorepo structures, detailed dependency management, and new database/cloud service installation sections, adding `psycopg2-binary`.
+- Update all .env.example with new supported databases.
+- Replace "/mongo" with "/local_db" and "mongo_docker" with "local_db_docker" in Makefile files. 
+- Due to the "fastmcp" and "mcp" dependencies removal, run_mcp_server.sh now verifies both are installed [GS-248].
+- Avoid asking confirmations when cleaning directories during the build process of "make publish".
+- Update "mkdocs_transfer_site.sh" to turn debug mode off unless specified.
 
 ### Fixed
 - Fix uv and poetry installation instructions on Python Package Managers documentation.
@@ -45,6 +59,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Fix the configuration guide links on the documentation, because it was pointing to "https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs".
 - Fix "FileNotFoundError: [Errno 2] No such file or directory: 'docs/Sample-Code/exampleapp/ui/public/static'" by adding "remove_ui_public_static" to clean_directory.sh.
 - "create-ssl-certs" label in exampleapp Makefile was defined in a wrong way.
+
+### Removed
+- AWS_API_GATEWAY_STAGE envvar removed from all .env.example files.
+- boto3 and pymongo dependencies, so each project can have its own dependencies depending on the selected database and cloud storage provider [GS-245].
 
 
 ## [1.3.2] - 2025-11-19

@@ -53,7 +53,7 @@ config_dev:
 	cd ../server && bash ../node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh
 
 config_local:
-	cd ../server && bash ../node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh mongo_docker
+	cd ../server && bash ../node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh local_db_docker
 
 config_qa:
 	cd ../server && bash ../node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa
@@ -67,7 +67,7 @@ config_staging:
 ## Application Specific Commands
 
 run: 
-	if [ ${MCP_SERVER_ENABLED} = "true" ]; then make config_local && cd ../server && bash ../node_modules/genericsuite-be-scripts/scripts/mongo/run_mongo_docker.sh run "0" dev && cd ../mcp-server && bash ./run_mcp_server.sh; else @echo "MCP Server (local) is DISABLED temporarily..." && read; fi
+	if [ ${MCP_SERVER_ENABLED} = "true" ]; then make config_local && cd ../server && bash ../node_modules/genericsuite-be-scripts/scripts/local_db/run_local_db_docker.sh run "0" dev && cd ../mcp-server && bash ./run_mcp_server.sh; else @echo "MCP Server (local) is DISABLED temporarily..." && read; fi
 
 run_qa:
 	if [ ${MCP_SERVER_ENABLED} = "true" ]; then make config_qa && cd ../mcp-server && bash ./run_mcp_server.sh; else @echo "MCP Server (qa) is DISABLED temporarily..." && read; fi

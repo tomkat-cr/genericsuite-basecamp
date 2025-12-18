@@ -49,7 +49,7 @@ make dev
 Start the application and its docker containers:
 
 ```bash
-# With a local MongoDB database
+# With a local database database
 make run
 
 # With a remote MongoDB database
@@ -74,7 +74,7 @@ Hard restart (down and up):
 make hard-restart
 ```
 
-Run the local MongoDB database only:
+Run the local database only:
 
 ```bash
 make run-db-only

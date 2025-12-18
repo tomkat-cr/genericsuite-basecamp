@@ -129,7 +129,7 @@
         {
             "name": "label1",
             "label": "PASWORD CHANGE",
-            "type": "label"
+            "type": "h2"
         },
         {
             "name": "passcode",

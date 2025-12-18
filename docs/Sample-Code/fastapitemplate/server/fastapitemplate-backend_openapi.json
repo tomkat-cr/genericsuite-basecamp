@@ -1,0 +1,1651 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "fastapitemplate-backend",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/v1/menu_options": {
+      "get": {
+        "summary": "Menu Options Get",
+        "description": "Get authorized menu options",
+        "operationId": "menu_options_get_v1_menu_options_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/menu_options/element": {
+      "post": {
+        "tags": [
+          "element"
+        ],
+        "summary": "Menu Options Element",
+        "description": "Get menu element configuration",
+        "operationId": "menu_options_element_v1_menu_options_element_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuElementRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/test": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "summary": "Test Connection Handler",
+        "description": "Connection handler test",
+        "operationId": "test_connection_handler_v1_users_test_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/login": {
+      "post": {
+        "tags": [
+          "login"
+        ],
+        "summary": "Login User",
+        "description": "User login",
+        "operationId": "login_user_v1_users_login_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ]
+      }
+    },
+    "/v1/users/supad-create": {
+      "post": {
+        "tags": [
+          "super-admin"
+        ],
+        "summary": "Super Admin Create",
+        "description": "Super admin user creation",
+        "operationId": "super_admin_create_v1_users_supad_create_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ]
+      }
+    },
+    "/v1/users/current_user_d": {
+      "get": {
+        "summary": "Current User D",
+        "description": "Current user data read",
+        "operationId": "current_user_d_v1_users_current_user_d_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/assets/": {
+      "get": {
+        "summary": "Storage Retrieval No Item Id Endpoint",
+        "description": "Get authorized menu options",
+        "operationId": "storage_retrieval_no_item_id_endpoint_v1_assets__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Storage Retrieval No Item Id Endpoint V1 Assets  Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/assets/{item_id}": {
+      "get": {
+        "summary": "Storage Retrieval Endpoint",
+        "description": "Get authorized menu options",
+        "operationId": "storage_retrieval_endpoint_v1_assets__item_id__get",
+        "parameters": [
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Item Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Storage Retrieval Endpoint V1 Assets  Item Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/assets/{item_id}/{response_type}": {
+      "get": {
+        "summary": "Storage Retrieval With Response Type Endpoint",
+        "description": "Get authorized menu options",
+        "operationId": "storage_retrieval_with_response_type_endpoint_v1_assets__item_id___response_type__get",
+        "parameters": [
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Item Id"
+            }
+          },
+          {
+            "name": "response_type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Response Type"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Storage Retrieval With Response Type Endpoint V1 Assets  Item Id   Response Type  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/ai_chatbot_conversations": {
+      "get": {
+        "tags": [
+          "ai_chatbot_conversations"
+        ],
+        "summary": "Generic Get",
+        "description": "Handles generic GET requests, to get one row by id, a Like Search,\nget one row by additional_query_params, or fetch the\npaginated-limited-filtered list.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n    limit (int): The maximum number of records to retrieve.\n    page (int): The page number to retrieve.\n    like_param (str): The parameter to search for records.\n    comb_param (str): The parameter to combine with the like_param.\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_get_v1_ai_chatbot_conversations_get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 50,
+              "title": "Id"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User Id"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Page"
+            }
+          },
+          {
+            "name": "like_param",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Like Param"
+            }
+          },
+          {
+            "name": "comb_param",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Comb Param"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ai_chatbot_conversations"
+        ],
+        "summary": "Generic Post",
+        "description": "Handles generic POST requests, to create one item.\n\nArgs:\n    json_body (dict) = data for the item to be created\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_post_v1_ai_chatbot_conversations_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ai_chatbot_conversations"
+        ],
+        "summary": "Generic Put",
+        "description": "Handles generic PUT requests, to update one item.\n\nArgs:\n    json_body (dict) = data to be updated\n    update_item (str): \"1\" apply update_one() instead\n            of replace_one(). Defaults to \"0\"\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_put_v1_ai_chatbot_conversations_put",
+        "parameters": [
+          {
+            "name": "update_item",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Update Item"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ai_chatbot_conversations"
+        ],
+        "summary": "Generic Delete",
+        "description": "Handles generic DELETE requests, to delete one row by id.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_delete_v1_ai_chatbot_conversations_delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 50,
+              "title": "Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/general_config": {
+      "get": {
+        "tags": [
+          "general_config"
+        ],
+        "summary": "Generic Get",
+        "description": "Handles generic GET requests, to get one row by id, a Like Search,\nget one row by additional_query_params, or fetch the\npaginated-limited-filtered list.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n    limit (int): The maximum number of records to retrieve.\n    page (int): The page number to retrieve.\n    like_param (str): The parameter to search for records.\n    comb_param (str): The parameter to combine with the like_param.\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_get_v1_general_config_get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 50,
+              "title": "Id"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User Id"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Page"
+            }
+          },
+          {
+            "name": "like_param",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Like Param"
+            }
+          },
+          {
+            "name": "comb_param",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Comb Param"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "general_config"
+        ],
+        "summary": "Generic Post",
+        "description": "Handles generic POST requests, to create one item.\n\nArgs:\n    json_body (dict) = data for the item to be created\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_post_v1_general_config_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "general_config"
+        ],
+        "summary": "Generic Put",
+        "description": "Handles generic PUT requests, to update one item.\n\nArgs:\n    json_body (dict) = data to be updated\n    update_item (str): \"1\" apply update_one() instead\n            of replace_one(). Defaults to \"0\"\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_put_v1_general_config_put",
+        "parameters": [
+          {
+            "name": "update_item",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Update Item"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "general_config"
+        ],
+        "summary": "Generic Delete",
+        "description": "Handles generic DELETE requests, to delete one row by id.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_delete_v1_general_config_delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 50,
+              "title": "Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Generic Get",
+        "description": "Handles generic GET requests, to get one row by id, a Like Search,\nget one row by additional_query_params, or fetch the\npaginated-limited-filtered list.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n    limit (int): The maximum number of records to retrieve.\n    page (int): The page number to retrieve.\n    like_param (str): The parameter to search for records.\n    comb_param (str): The parameter to combine with the like_param.\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_get_v1_users_get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 50,
+              "title": "Id"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User Id"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Page"
+            }
+          },
+          {
+            "name": "like_param",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Like Param"
+            }
+          },
+          {
+            "name": "comb_param",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Comb Param"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Generic Post",
+        "description": "Handles generic POST requests, to create one item.\n\nArgs:\n    json_body (dict) = data for the item to be created\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_post_v1_users_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Generic Put",
+        "description": "Handles generic PUT requests, to update one item.\n\nArgs:\n    json_body (dict) = data to be updated\n    update_item (str): \"1\" apply update_one() instead\n            of replace_one(). Defaults to \"0\"\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_put_v1_users_put",
+        "parameters": [
+          {
+            "name": "update_item",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Update Item"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Generic Delete",
+        "description": "Handles generic DELETE requests, to delete one row by id.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_delete_v1_users_delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 50,
+              "title": "Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users_config": {
+      "get": {
+        "tags": [
+          "users_config"
+        ],
+        "summary": "Generic Get",
+        "description": "Handles generic GET requests, to get one row by id, a Like Search,\nget one row by additional_query_params, or fetch the\npaginated-limited-filtered list.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n    limit (int): The maximum number of records to retrieve.\n    page (int): The page number to retrieve.\n    like_param (str): The parameter to search for records.\n    comb_param (str): The parameter to combine with the like_param.\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_get_v1_users_config_get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 50,
+              "title": "Id"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User Id"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Page"
+            }
+          },
+          {
+            "name": "like_param",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Like Param"
+            }
+          },
+          {
+            "name": "comb_param",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Comb Param"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "users_config"
+        ],
+        "summary": "Generic Post",
+        "description": "Handles generic POST requests, to create one item.\n\nArgs:\n    json_body (dict) = data for the item to be created\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_post_v1_users_config_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "users_config"
+        ],
+        "summary": "Generic Put",
+        "description": "Handles generic PUT requests, to update one item.\n\nArgs:\n    json_body (dict) = data to be updated\n    update_item (str): \"1\" apply update_one() instead\n            of replace_one(). Defaults to \"0\"\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_put_v1_users_config_put",
+        "parameters": [
+          {
+            "name": "update_item",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Update Item"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "users_config"
+        ],
+        "summary": "Generic Delete",
+        "description": "Handles generic DELETE requests, to delete one row by id.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_delete_v1_users_config_delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 50,
+              "title": "Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users_api_keys": {
+      "get": {
+        "tags": [
+          "users_api_keys"
+        ],
+        "summary": "Generic Get",
+        "description": "Handles generic GET requests, to get one row by id, a Like Search,\nget one row by additional_query_params, or fetch the\npaginated-limited-filtered list.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n    limit (int): The maximum number of records to retrieve.\n    page (int): The page number to retrieve.\n    like_param (str): The parameter to search for records.\n    comb_param (str): The parameter to combine with the like_param.\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_get_v1_users_api_keys_get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 50,
+              "title": "Id"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User Id"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Page"
+            }
+          },
+          {
+            "name": "like_param",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Like Param"
+            }
+          },
+          {
+            "name": "comb_param",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Comb Param"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "users_api_keys"
+        ],
+        "summary": "Generic Post",
+        "description": "Handles generic POST requests, to create one item.\n\nArgs:\n    json_body (dict) = data for the item to be created\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_post_v1_users_api_keys_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "users_api_keys"
+        ],
+        "summary": "Generic Put",
+        "description": "Handles generic PUT requests, to update one item.\n\nArgs:\n    json_body (dict) = data to be updated\n    update_item (str): \"1\" apply update_one() instead\n            of replace_one(). Defaults to \"0\"\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_put_v1_users_api_keys_put",
+        "parameters": [
+          {
+            "name": "update_item",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Update Item"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "users_api_keys"
+        ],
+        "summary": "Generic Delete",
+        "description": "Handles generic DELETE requests, to delete one row by id.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n\nReturns:\n    Response: The response from the GET operation.",
+        "operationId": "generic_delete_v1_users_api_keys_delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 50,
+              "title": "Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Json Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "MenuElementRequest": {
+        "properties": {
+          "element": {
+            "type": "string",
+            "title": "Element"
+          }
+        },
+        "type": "object",
+        "required": [
+          "element"
+        ],
+        "title": "MenuElementRequest",
+        "description": "Menu element request "
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBasic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}

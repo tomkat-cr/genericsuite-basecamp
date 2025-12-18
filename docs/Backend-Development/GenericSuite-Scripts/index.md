@@ -11,7 +11,7 @@ This repository contains the backend scripts necessary to build and deploy APIs 
 - **Local DNS Server**: to allow https API access with a domain name like `app.exampleapp.local` and allow access from another devices locally (e.g. smartphones) to test your App.
 - **Self-signed SSL certificates creation**: to allow local development frontend and backend environments run over secure https connections.
 - **Common JSON config management**: to add the Git Submodule with the common JSON config directories.
-- **Local MongoDB Docker conntainer**: used by the test site and allows to have an offline local development environment.
+- **Local database Docker container**: used by the test site and allows to have an offline local development environment.
 
 ## Pre-requisites
 
@@ -67,11 +67,11 @@ Or...
 bash node_modules/genericsuite-be-scripts/scripts/aws_big_lambda/init_sam.sh
 ```
 
-<br/>
+<BR/>
 
 If you're going to develop with the Chalice framework:
 
-Create the `.chalice` directory and copy the `.chalice/config-example.json` template:<br/>
+Create the `.chalice` directory and copy the `.chalice/config-example.json` template:<BR/>
 
 ```bash
 make init_chalice
@@ -83,13 +83,13 @@ Or...
 bash node_modules/genericsuite-be-scripts/scripts/aws/init_chalice.sh
 ```
 
-<br/>
+<BR/>
 
 #### Customize SAM Templates
 
 If you need to do any customization to the `samconfig.toml`:
 
-Edit the `template-samconfig.toml` file:<br/>
+Edit the `template-samconfig.toml` file:<BR/>
 
 ```bash
 vi scripts/aws_big_lambda/template-samconfig.toml
@@ -101,13 +101,13 @@ Check for some customization needed.
 
 NOTE: The deployment script [big_lambdas_manager.sh](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/aws_big_lambda/big_lambdas_manager.sh) will replace `APP_NAME_LOWERCASE_placeholder` with the Application name defined in the `APP_NAME` variable in `.env` file.
 
-<br/>
+<BR/>
 
 #### Add new Endpoints to SAM Template
 
 When you need to add new endpoints to your App:
 
-Edit the `template-sam.yml`:<br/>
+Edit the `template-sam.yml`:<BR/>
 
 ```bash
 vi scripts/aws_big_lambda/template-sam.yml
@@ -121,13 +121,13 @@ There's an endpoint definition template in the file [node_modules/genericsuite-b
 
 Be careful about elements ending with `_placeholder` because they are replaced by the deployment script `big_lambdas_manager.sh` with the corresponding values.
 
-<br/>
+<BR/>
 
 #### Add new Environment Variables
 
 If you need to add additional environment variables to your App:
 
-Edit the `update_additional_envvars.sh` file:<br/>
+Edit the `update_additional_envvars.sh` file:<BR/>
 
 ```bash
 vi scripts/aws/update_additional_envvars.sh
@@ -135,7 +135,7 @@ vi scripts/aws/update_additional_envvars.sh
 # code scripts/aws/update_additional_envvars.sh
 ```
 
-Add your additional environment variables replacements in `scripts/aws/update_additional_envvars.sh` as:<br/>
+Add your additional environment variables replacements in `scripts/aws/update_additional_envvars.sh` as:<BR/>
 
 ```bash
 perl -i -pe"s|ENVVAR_NAME_placeholder|${ENVVAR_NAME}|g" "${CONFIG_FILE}"
@@ -148,7 +148,7 @@ ENVVAR_NAME=ENVVAR_VALUE
 ```
 ... replacing "ENVVAR_NAME" with the name of the environment variable and ENVVAR_VALUE with its value.
 
-Add the additional environment variables to the `scripts/aws_big_lambda/template-sam.yml` file, in the `APIHandler > Properties > Environment > Variables` section. E.g.<br/>
+Add the additional environment variables to the `scripts/aws_big_lambda/template-sam.yml` file, in the `APIHandler > Properties > Environment > Variables` section. E.g.<BR/>
 
 ```yaml
       .
@@ -167,7 +167,7 @@ Add the additional environment variables to the `scripts/aws_big_lambda/template
 ```
 ... replacing "ENVVAR_NAME" with the name of the environment variable and ENVVAR_VALUE with its value.
 
-If you're using the Chalice framework, add the additional environment variables to the `.chalice/config-example.json` file, in the main `environment_variables` section. E.g.<br/>
+If you're using the Chalice framework, add the additional environment variables to the `.chalice/config-example.json` file, in the main `environment_variables` section. E.g.<BR/>
 
    ```
    {
@@ -207,6 +207,14 @@ When there are changes to the dependencies or `.env` file, restart the local dev
    make restart_qa
    ```
 
+### Create Super Admin user
+
+To create the initial Super Administrator user for local development, lower and production environments:
+
+```bash
+make create-supad
+```
+
 ### Deploy QA
 
 To perform a QA deployment as an AWS Lambda Function and AWS API Gateway:
@@ -229,50 +237,50 @@ To link backend API to the App domain:
 
 ### Install dependencies
 
-* Install default package categories from Pipfile.<br/>
-Runs `pipenv install`.<br/>
+* Install default package categories from Pipfile.<BR/>
+Runs `pipenv install`.<BR/>
 Reference: https://pipenv.pypa.io/en/latest/commands.html#install
 
 ```bash
 make install
 ```
 
-* Install both develop and default package categories from Pipfile.<br/>
+* Install both develop and default package categories from Pipfile.<BR/>
 Runs `pipenv install --dev`.
 
 ```bash
 make install_dev
 ```
 
-* Install from the Pipfile.lock and completely ignore Pipfile information.<br/>
+* Install from the Pipfile.lock and completely ignore Pipfile information.<BR/>
 Runs `pipenv install --ignore-pipfile`.
 
 ```bash
 make locked_install
 ```
 
-* Install both develop and default package categories from the Pipfile.lock and completely ignore Pipfile information.<br/>
+* Install both develop and default package categories from the Pipfile.lock and completely ignore Pipfile information.<BR/>
 Runs `pipenv install --dev --ignore-pipfile`.
 
 ```bash
 make locked_dev
 ```
 
-* Re-create the Pipenv lock file.<br/>
+* Re-create the Pipenv lock file.<BR/>
 Runs `pipenv lock`.
 
 ```bash
 make lock
 ```
 
-* Generates the `requirements.txt` file.<br/>
+* Generates the `requirements.txt` file.<BR/>
 Runs `sh scripts/aws/run_aws.sh pipfile`.
 
 ```bash
 make requirements
 ```
 
-* Clean install.<br/>
+* Clean install.<BR/>
 Alias that runs `make clean_rm` and `make install`.
 
 ```bash
@@ -287,21 +295,21 @@ make fresh
 make clean
 ```
 
-* Remove a virtual environment created by "pipenv run".<br/>
+* Remove a virtual environment created by "pipenv run".<BR/>
 Runs `pipenv --rm`.
 
 ```bash
 make clean_rm
 ```
 
-* Clean logs (in /logs directory).<br/>
+* Clean logs (in /logs directory).<BR/>
 Runs sh `scripts/clean_logs.sh`.
 
 ```bash
 make clean_logs
 ```
 
-* Clean logs, cache and temporary files.<br/>
+* Clean logs, cache and temporary files.<BR/>
 Runs `sh scripts/aws/run_aws.sh clean`.
 
 ```bash
@@ -310,14 +318,14 @@ make clean_temp_dir
 
 ### CLI Utilities
 
-* Install development tools (pyenv, pipenv, make, and optionally: poetry, saml2aws).<br/>
+* Install development tools (pyenv, pipenv, make, and optionally: poetry, saml2aws).<BR/>
 Check [node_modules/genericsuite-be-scripts/scripts/install_dev_tools.sh](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/install_dev_tools.sh) for more details about how to configure via `.env` file.
 
 ```bash
 make install_tools
 ```
 
-* Show ports in use.<br/>
+* Show ports in use.<BR/>
 Runs `sh scripts/run_lsof.sh`.
 
 ```bash
@@ -326,14 +334,14 @@ make lsof
 
 ### Automated Testing
 
-* Start the local MongoDB docker container and run the tests.<br/>
+* Start the local database docker container and run the tests.<BR/>
 Runs `sh scripts/run_app_tests.sh`.
 
 ```bash
 make test
 ```
 
-* Execute the test without starting the local MongoDB docker container.<br/>
+* Execute the test without starting the local database docker container.<BR/>
 Runs `sh scripts/aws/run_tests.sh`.
 
 ```bash
@@ -342,38 +350,38 @@ make test_only
 
 ### Linting
 
-* Execute Prospector.<br/>
+* Execute Prospector.<BR/>
 Runs `pipenv run prospector`.
 
 ```bash
 make lint
 ```
 
-* Execute MyPy.<br/>
+* Execute MyPy.<BR/>
 Runs `pipenv run mypy .`.
 
 ```bash
 make types
 ```
 
-* Execute Coverage.<br/>
+* Execute Coverage.<BR/>
 Runs `pipenv run coverage run -m unittest discover tests` and `pipenv run coverage report`.
 
 ```bash
 make coverage
 ```
 
-* Execute Yapf Formatter and PyCodeStyle.<br/>
-Runs `pipenv run yapf -i *.py **/*.py **/**/*.py` and `pycodestyle`.<br/>
-References:<br/>
-   * [https://github.com/google/yapf](https://github.com/google/yapf)<br/>
-   * [https://pycodestyle.pycqa.org/en/latest/](https://pycodestyle.pycqa.org/en/latest/)<br/>
+* Execute Yapf Formatter and PyCodeStyle.<BR/>
+Runs `pipenv run yapf -i *.py **/*.py **/**/*.py` and `pycodestyle`.<BR/>
+References:<BR/>
+   * [https://github.com/google/yapf](https://github.com/google/yapf)<BR/>
+   * [https://pycodestyle.pycqa.org/en/latest/](https://pycodestyle.pycqa.org/en/latest/)<BR/>
 
 ```bash
 make format
 ```
 
-* Execute Yapf (in "print the diff for the fixed source" mode) and PyCodeStyle.<br/>
+* Execute Yapf (in "print the diff for the fixed source" mode) and PyCodeStyle.<BR/>
 Runs `pipenv run yapf --diff *.py **/*.py **/**/*.py` and `pycodestyle`.
 
 ```bash
@@ -382,34 +390,83 @@ make format_check
 
 ### Development Commands
 
-* Perform a complete Lint, Type check, unit and integration test, format check, and styling before deployments.<br/>
+* Perform a complete Lint, Type check, unit and integration test, format check, and styling before deployments.<BR/>
 Alias to run `make lint`, `make types`, `make tests`, `make format_check`, and `make pycodestyle`.
 
 ```bash
 make qa
 ```
 
-* Start the local MongoDB docker container (used for testing and `dev` stage run).<br/>
-Runs `sh scripts/mongo/run_mongo_docker.sh run`.
+* Start the local database docker container (used for testing and `dev` stage run).<BR/>
+Runs `sh scripts/local_db/run_local_db_docker.sh run`.
 
 ```bash
-make mongo_docker
+make local-db-up
 ```
 
 NOTES:<BR/>
+
+**_Local MongoDB stack_**:
+
 Use `mongodb://root:example@mongo:27017/` as URL to connect to the local MongoDb database.<BR/>
+<BR/>
 Use [http://localhost:8081](http://localhost:8081) to access the MongoDb Admin UI.<BR/>
 Use user: `admin` and password: `pass` as credentials to access the Admin UI.<BR/>
 
-* Stop the local MongoDB docker container.<br/>
-Runs `sh scripts/mongo/run_mongo_docker.sh down`
+**_Local DynamoDB stack_**:
+
+The database port is 8000.<BR/>
+      * dynamodb.endpoint = 'http://127.0.0.1:8000'<BR/>
+      * dynamodb.endpoint = 'http://dynamodb-local:8000'<BR/>
+<BR/>
+Use http://localhost:8095 to access the DynamoDB Manager UI.<BR/>
+Configure it to connect to the local DynamoDB:<BR/>
+<BR/>
+     [Add connection]<BR/>
+       * Alias: Local<BR/>
+       * Endpoint: http://127.0.0.1:8000<BR/>
+       * Region: us-east-1<BR/>
+       * Access Key: test<BR/>
+       * Secret Key: test<BR/>
+
+**_Local Postgres stack_**:
+
+The database port is 5432.<BR/>
+Use "postgresql://user:pass@postgres-local:5432/db" as URL to connect to the local Postgres database.<BR/>
+<BR/>
+Use http://localhost:8080 to access the pgAdmin UI.<BR/>
+Use user: "admin@admin.com" and password: "admin" as credentials to access the pgAdmin UI.<BR/>
+
+**_Local MySQL stack_**:
+
+Use http://localhost:8082 to access the phpMyAdmin UI.<BR/>
+Use user: "root" and password: "pass" as credentials to access the phpMyAdmin UI.<BR/>
+<BR/>
+The database port is 3306.<BR/>
+Use "mysql://root:pass@mysql-local:3306/db" as URL to connect to the local MySQL database.<BR/>
+
+**_Local Supabase stack_**:
+
+There's no local implementation for Supabase.
+
+For more information about the local database stack, check the [local_db_stack.yml](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/local_db/local_db_stack.yml) file.
+
+* Show logs of the local database docker container.<BR/>
+Runs `sh scripts/local_db/run_local_db_docker.sh logs`
 
 ```bash
-make mongo_docker_down
+make local-db-logs
 ```
 
-* Backup a mongoDB database.<br/>
-Runs `sh scripts/mongo/db_mongo_backup.sh ${STAGE} ${BACKUP_DIR}`<br/>
+* Stop the local database docker container.<BR/>
+Runs `sh scripts/local_db/run_local_db_docker.sh down`
+
+```bash
+make local-db-down
+```
+
+* Backup a mongoDB database.<BR/>
+Runs `sh scripts/mongo/db_mongo_backup.sh ${STAGE} ${BACKUP_DIR}`<BR/>
 
 ```bash
 make mongo_backup
@@ -420,7 +477,7 @@ E.g.
 STAGE=qa BACKUP_DIR=./dumps make mongo_backup
 ```
 
-* Restore a mongoDB database.<br/>
+* Restore a mongoDB database.<BR/>
 Run `sh scripts/mongo/db_mongo_restore.sh ${STAGE} ${RESTORE_DIR}`
 
 ```bash
@@ -432,68 +489,67 @@ E.g.
 STAGE=qa RESTORE_DIR=./dumps/bkp-mongodb-[exampleapp]_[stage]-[date]_[time].zip make mongo_restore
 ```
 
-
 ### Chalice Specific Commands
 
-* Set parameters on `.chalice/config.json` as the production stage.<br/>
+* Set parameters on `.chalice/config.json` as the production stage.<BR/>
 Runs `sh scripts/aws/set_chalice_cnf.sh prod`.
 
 ```bash
 make config
 ```
 
-* Set parameters on `.chalice/config.json` with no specific stage.<br/>
+* Set parameters on `.chalice/config.json` with no specific stage.<BR/>
 Runs `sh scripts/aws/set_chalice_cnf.sh`.
 
 ```bash
 make config_dev
 ```
 
-* Set parameters on `.chalice/config.json` as the Development stage.<br/>
-Runs `sh scripts/aws/set_chalice_cnf.sh mongo_docker`.
+* Set parameters on `.chalice/config.json` as the Development stage.<BR/>
+Runs `sh scripts/aws/set_chalice_cnf.sh local_db_docker`.
 
 ```bash
 make config_local
 ```
 
-* Set parameters on `.chalice/config.json` as the QA stage with CORS specific variables replacement, to allow use the QA live database from the local development environment.<br/>
-Runs `sh scripts/aws/set_chalice_cnf.sh qa`.<br/>
+* Set parameters on `.chalice/config.json` as the QA stage with CORS specific variables replacement, to allow use the QA live database from the local development environment.<BR/>
+Runs `sh scripts/aws/set_chalice_cnf.sh qa`.<BR/>
 References: 
-   * `APP_CORS_ORIGIN_QA_CLOUD` and `APP_CORS_ORIGIN_QA_LOCAL` in the [.env.example file](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example).<br/>
+   * `APP_CORS_ORIGIN_QA_CLOUD` and `APP_CORS_ORIGIN_QA_LOCAL` in the [.env.example file](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example).<BR/>
 
 ```bash
 make config_qa
 ```
 
-* Set parameters on `.chalice/config.json` to prepare the QA deployment.<br/>
+* Set parameters on `.chalice/config.json` to prepare the QA deployment.<BR/>
 Runs `sh scripts/aws/set_chalice_cnf.sh qa deploy`,
 
 ```bash
 make config_qa_for_deployment
 ```
 
-* Set parameters on `.chalice/config.json` as the Staging stage.<br/>
+* Set parameters on `.chalice/config.json` as the Staging stage.<BR/>
 Runs `sh scripts/aws/set_chalice_cnf.sh staging`.
 
 ```bash
 make config_staging
 ```
 
-* Create the AWS Stack via Chalice command.<br/>
+* Create the AWS Stack via Chalice command.<BR/>
 Runs `sh scripts/aws/run_aws.sh create_stack`.
 
 ```bash
 make build
 ```
 
-* Generates the `requirements.txt`.<br/>
+* Generates the `requirements.txt`.<BR/>
 Runs `sh scripts/aws/run_aws.sh pipfile`.
 
 ```bash
 make build_local
 ```
 
-* Describe the AWS stack with the Chalice command.<br/>
+* Describe the AWS stack with the Chalice command.<BR/>
 Runs `sh scripts/aws/run_aws.sh describe_stack`.
 
 ```bash
@@ -506,32 +562,32 @@ make build_check
 make unbuild
 ```
 
-* Delete the Chalice QA App.<br/>
+* Delete the Chalice QA App.<BR/>
 Runs `sh scripts/aws/run_aws.sh delete_app qa`.
 
 ```bash
 make unbuild_qa
 ```
 
-* Delete the Chalice Staging App.<br/>
+* Delete the Chalice Staging App.<BR/>
 Runs `sh scripts/aws/run_aws.sh delete_app staging`
 
 ```bash
 make unbuild_staging
 ```
 
-* Delete the AWS stack created by Chalice.<br/>
+* Delete the AWS stack created by Chalice.<BR/>
 Runs `sh scripts/aws/run_aws.sh delete_stack`
 
 ```bash
 make delete_stack
 ```
 
-### AWS S3 and other
+### AWS S3
 
 Create the AWS S3 Buckets for different environments and other AWS utilities.
 
-* Create S3 bucket for development.<br/>
+* Create S3 bucket for development.<BR/>
 Runs `sh scripts/aws/create_chatbot_s3_bucket.sh dev`.
 
 ```bash
@@ -550,28 +606,30 @@ make create_s3_bucket_dev
          ```
 
 
-* Create S3 bucket for QA.<br/>
+* Create S3 bucket for QA.<BR/>
 Runs `sh scripts/aws/create_chatbot_s3_bucket.sh qa`.
 
 ```bash
 make create_s3_bucket_qa
 ```
 
-* Create S3 bucket for Staging.<br/>
+* Create S3 bucket for Staging.<BR/>
 Runs `sh scripts/aws/create_chatbot_s3_bucket.sh staging`.
 
 ```bash
 make create_s3_bucket_staging
 ```
 
-* Create the Production S3 buckets.<br/>
+* Create the Production S3 buckets.<BR/>
 Runs `sh scripts/aws/create_chatbot_s3_bucket.sh prod`.
 
 ```bash
 make create_s3_bucket_prod
 ```
 
-* Generate DynamoDB table definitions<br/>
+### DynamoDB
+
+* Generate DynamoDB table definitions<BR/>
 
 For CF (CloudFormation) deployment:
 
@@ -589,12 +647,66 @@ Read all table definitions from the JSON configuration directory and generates a
 make generate_sam_dynamodb
 ```
 
-* Create a default `${HOME}/.aws/config` AWS configuration.<br/>
+* Create a default `${HOME}/.aws/config` AWS configuration.<BR/>
 Runs `sh scripts/aws/create_aws_config.sh`.
 
 ```bash
 make create_aws_config
 ```
+
+### SQL Databases
+
+#### Postgres
+
+```bash
+make generate_postgres_dev_sql
+```
+
+Generates the Postgres SQL file to create the tables for any environment.
+
+```bash
+make create_postgres_dev_tables
+```
+
+Creates the Postgres tables for any environment.
+
+```bash
+make generate_cf_postgres
+```
+
+Generates the Postgres CloudFormation template to create the tables on AWS RDS.
+
+```bash
+make deploy_postgres
+```
+
+Deploys the Postgres tables on AWS RDS.
+
+#### MySQL
+
+```bash
+make generate_mysql_dev_sql
+```
+
+Generates the MySQL SQL file to create the tables for any environment.
+
+```bash
+make create_mysql_dev_tables
+```
+
+Creates the MySQL tables for any environment.
+
+```bash
+make generate_cf_mysql
+```
+
+Generates the MySQL CloudFormation template to create the tables on AWS RDS.
+
+```bash
+make deploy_mysql
+```
+
+Deploys the MySQL tables on AWS RDS.
 
 ### Secrets
 
@@ -612,14 +724,14 @@ make generate_seed
 
 Perform the application deployment with AWS Lambda Functions and API Gateway, using SAM (Serverless Application Model).
 
-* Deploy the App on QA.<br/>
+* Deploy the App on QA.<BR/>
 Runs `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh sam_deploy qa`
 
 ```bash
 make deploy_qa
 ```
 
-* Test the API Gateway and AWS Lambda function locally, using SAM local. It runs the `sam build` to test eventual issues with packages and dependencies conflicts, and then runs `sam run local`.<br/>
+* Test the API Gateway and AWS Lambda function locally, using SAM local. It runs the `sam build` to test eventual issues with packages and dependencies conflicts, and then runs `sam run local`.<BR/>
 Runs `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/aws_big_lambda/big_lambdas_manager.sh sam_run_local qa`
 
 ```bash
@@ -629,36 +741,36 @@ make deploy_run_local_qa
 **NOTE**: set `SAM_BUILD_CONTAINER=1` environment variable in `.env` to force `sam build --use-container --debug`.
 
 
-* Validate the SAM deployment templates on QA.<br/>
+* Validate the SAM deployment templates on QA.<BR/>
 Runs `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh sam_validate qa`
 
 ```bash
 make deploy_validate_qa
 ```
 
-* Create the deployment QA package only.<br/>
-Useful to check the package size and test the image by a local Docker run.<br/>
+* Create the deployment QA package only.<BR/>
+Useful to check the package size and test the image by a local Docker run.<BR/>
 Runs `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh package qa`.
 
 ```bash
 make deploy_package_qa
 ```
 
-* Deploy the App on Staging.<br/>
+* Deploy the App on Staging.<BR/>
 Runs `make create_s3_bucket_staging`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh sam_deploy staging` 
 
 ```bash
 make deploy_staging
 ```
 
-* Deploy the App on Demo.<br/>
+* Deploy the App on Demo.<BR/>
 Runs `make create_s3_bucket_demo`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh sam_deploy demo` 
 
 ```bash
 make deploy_demo
 ```
 
-* Deploy the App on Production.<br/>
+* Deploy the App on Production.<BR/>
 Runs `make create_s3_bucket_prod`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh sam_deploy prod`
 
 ```bash
@@ -671,7 +783,7 @@ make deploy_prod
 make deploy
 ```
 
-* Preview the QA/Staging/Prod live environments behavior.<br/>
+* Preview the QA/Staging/Prod live environments behavior.<BR/>
 Runs the `scripts/build_prod_test.sh` bash script.
 
 ```bash
@@ -734,7 +846,7 @@ ACTION=run STAGE=qa TARGET=secrets make aws_secrets
 
 Perform the application deployment with AWS EC2 instances, ALB (Application Load Balancer), ECR (Elastic Container Registry), AWS Secrets Manager and CloudFormation.
 
-* Prepare the ECR image for a given stage (e.g. QA, staging, Demo, Prod).<br/>
+* Prepare the ECR image for a given stage (e.g. QA, staging, Demo, Prod).<BR/>
 Runs `sh scripts/aws_ec2_elb/run-fastapi-ecr-creation.sh`
 
 ```bash
@@ -747,7 +859,7 @@ Usage:
 ECR_IMAGE_TAG="0.0.16" STAGE=qa make deploy_ecr_creation
 ```
 
-* Manages EC2 deployments on the different stages (e.g. QA, staging, Demo, Prod).<br/>
+* Manages EC2 deployments on the different stages (e.g. QA, staging, Demo, Prod).<BR/>
 Runs `sh scripts/aws_ec2_elb/run-ec2-cloud-deploy.sh`
 
 ```bash
@@ -801,7 +913,7 @@ ACTION=run STAGE=qa TARGET=ec2 ECR_DOCKER_IMAGE_TAG=0.0.16 ENGINE=localstack mak
 
 #### AWS DynamoDB deployment
 
-* Manages DynamoDB deployments on the different stages (e.g. QA, staging, Demo, Prod).<br/>
+* Manages DynamoDB deployments on the different stages (e.g. QA, staging, Demo, Prod).<BR/>
 Runs `sh scripts/aws_dynamodb/run-dynamodb-deploy.sh`.
 
 ```bash
@@ -838,7 +950,7 @@ ACTION=run STAGE=qa TARGET=dynamodb make deploy_dynamodb
 
 ### Application Specific Commands
 
-* Execute the App locally using the development database, asking to run it over `http` or `https`.<br/>
+* Execute the App locally using the development database, asking to run it over `http` or `https`.<BR/>
 Runs `make config_qa`, `make clean_logs`, and `sh scripts/aws/run_aws.sh run_local`.
 [???]
 
@@ -846,7 +958,7 @@ Runs `make config_qa`, `make clean_logs`, and `sh scripts/aws/run_aws.sh run_loc
 make run
 ```
 
-* Execute the App locally using the QA database, asking to run it over `http` or `https`.<br/>
+* Execute the App locally using the QA database, asking to run it over `http` or `https`.<BR/>
 Runs `make config_qa`, `make clean_logs`, and `sh scripts/aws/run_aws.sh run_local qa`.
 
 ```bash
@@ -854,20 +966,20 @@ make run_qa
 ```
 
 * Runs `make config_qa`, `make clean_logs`, and `sh scripts/secure_local_server/run.sh "down" ""`
-Stop and destroy the App local Docker container (for any running stage).<br/>
+Stop and destroy the App local Docker container (for any running stage).<BR/>
 
 ```bash
 make down_qa
 ```
 
-* Restart the App local Docker container running over QA.<br/>
+* Restart the App local Docker container running over QA.<BR/>
 Runs `make config_qa`, `make clean_logs`, `sh scripts/secure_local_server/run.sh "down" ""` and `sh scripts/aws/run_aws.sh run_local qa`.
 
 ```bash
 make restart_qa
 ```
 
-* Execute the App locally using the development database (in a local Docker container), asking to execute it over `http` or `https`.<br/>
+* Execute the App locally using the development database (in a local Docker container), asking to execute it over `http` or `https`.<BR/>
 Runs `make config_local`, `make clean_logs`, `sh scripts/aws/run_aws.sh run_local dev`.
 [???]
 
@@ -875,15 +987,15 @@ Runs `make config_local`, `make clean_logs`, `sh scripts/aws/run_aws.sh run_loca
 make run_local_docker
 ```
 
-* Execute `chalice local --port \$PORT --stage PROD`<br/>
+* Execute `chalice local --port \$PORT --stage PROD`<BR/>
 Runs `make config`, `make clean_logs`, `sh scripts/aws/run_aws.sh run`.
 
 ```bash
 make run_prod
 ```
 
-* Link the GenericSuite libraries to the project.<br/>
-Symlink the LOCAL GenericSuite libraries (repos with the source code) to have a hot-reload without need to run "pipenv update" everytime that libraries source code changes.<br/>
+* Link the GenericSuite libraries to the project.<BR/>
+Symlink the LOCAL GenericSuite libraries (repos with the source code) to have a hot-reload without need to run "pipenv update" everytime that libraries source code changes.<BR/>
 Runs `sh scripts/link_gs_libs_for_dev.sh`
 
 ```bash
@@ -899,7 +1011,7 @@ make link_gs_libs
 
 ### Common JSON config
 
-* Add the Git Submodule with the common JSON config directories.<br/>
+* Add the Git Submodule with the common JSON config directories.<BR/>
 Runs `sh scripts/add_github_submodules.sh`.
 
 ```bash
@@ -908,34 +1020,34 @@ make add_submodules
 
 ### Local DNS Server
 
-* Start the local DNS Server.<br/>
+* Start the local DNS Server.<BR/>
 Runs `sh scripts/dns/run_local_dns.sh`
 
 ```bash
 make local_dns
 ```
 
-* Runs `sh scripts/dns/run_local_dns.sh restart` to restart the local DNS Server.<br/>
+* Runs `sh scripts/dns/run_local_dns.sh restart` to restart the local DNS Server.<BR/>
 
 ```bash
 make local_dns_restart
 ```
 
-* Restart and rebuild the local DNS Server configuration when the local IP or any DNS parameters has been changed.<br/>
+* Restart and rebuild the local DNS Server configuration when the local IP or any DNS parameters has been changed.<BR/>
 Runs `sh scripts/dns/run_local_dns.sh rebuild`
 
 ```bash
 make local_dns_rebuild
 ```
 
-* Stop and destroy the local DNS Server.<br/>
+* Stop and destroy the local DNS Server.<BR/>
 Runs `sh scripts/dns/run_local_dns.sh down`.
 
 ```bash
 make local_dns_down
 ```
 
-* Test the local DNS Server.<br/>
+* Test the local DNS Server.<BR/>
 Runs `sh scripts/dns/run_local_dns.sh test`.
 
 ```bash
@@ -944,21 +1056,21 @@ make local_dns_test
 
 ### Self-signed SSL certificates
 
-* Create the self-signed local SSL certificates (required to run the local development frontend and backend over https).<br/>
+* Create the self-signed local SSL certificates (required to run the local development frontend and backend over https).<BR/>
 Runs `sh scripts/local_ssl_certs_creation.sh`.
 
 ```bash
 make create_ssl_certs_only
 ```
 
-* Copy the self-signed local SSL certificates to the frontend directory/local repository.<br/>
+* Copy the self-signed local SSL certificates to the frontend directory/local repository.<BR/>
 Runs `sh scripts/local_ssl_certs_copy.sh`.
 
 ```bash
 make copy_ssl_certs
 ```
 
-* Alias to run `make create_ssl_certs_only` and `make copy_ssl_certs`.<br/>
+* Alias to run `make create_ssl_certs_only` and `make copy_ssl_certs`.<BR/>
 
 ```bash
 make create_ssl_certs
@@ -966,23 +1078,23 @@ make create_ssl_certs
 
 ### NPM package scripts
 
-* Update the package.json file with the version and all other parameters except dependencies.<br/>
+* Update the package.json file with the version and all other parameters except dependencies.<BR/>
 Runs `npm install --package-lock-only`.
 
 ```bash
 make npm_lock
 ```
 
-* Test the publish to NPMJS without actually publishing.<br/>
+* Test the publish to NPMJS without actually publishing.<BR/>
 Runs `sh scripts/npm_publish.sh pre-publish`.
 
 ```bash
 make pre-publish
 ```
 
-* Publish the scripts package to NPMJS.<br/>
-Runs `sh scripts/npm_publish.sh publish`.<br/>
-Requirements:<br/>
+* Publish the scripts package to NPMJS.<BR/>
+Runs `sh scripts/npm_publish.sh publish`.<BR/>
+Requirements:<BR/>
    * [NpmJS Account](https://www.npmjs.com/signup).
 
 ```bash
@@ -991,29 +1103,29 @@ make publish
 
 ### Pypi package scripts
 
-* Build 'dist' directory needed for the Pypi publish.<br/>
-Runs `poetry lock --no-update`, `rm -rf dist` and `python3 -m build`.<br/>
-Requirements:<br/>
+* Build 'dist' directory needed for the Pypi publish.<BR/>
+Runs `poetry lock --no-update`, `rm -rf dist` and `python3 -m build`.<BR/>
+Requirements:<BR/>
    * [poetry](https://python-poetry.org/).
 
 ```bash
 make pypi-build
 ```
 
-* Pypi Test publish.<br/>
-Runs `make pypi-build`, and `python3 -m twine upload --repository testpypi dist/*`.<br/>
-Requirements:<br/>
-   * [twine](https://pypi.org/project/twine/).<br/>
+* Pypi Test publish.<BR/>
+Runs `make pypi-build`, and `python3 -m twine upload --repository testpypi dist/*`.<BR/>
+Requirements:<BR/>
+   * [twine](https://pypi.org/project/twine/).<BR/>
    * [TestPypi Account](https://test.pypi.org/account/register/).
 
 ```bash
 make pypi-publish-test
 ```
 
-* Pypi Production publish<br/>
-Runs `make pypi-build`, and `python3 -m twine upload dist/*`.<br/>
-Requirements:<br/>
-   * [twine](https://pypi.org/project/twine/).<br/>
+* Pypi Production publish<BR/>
+Runs `make pypi-build`, and `python3 -m twine upload dist/*`.<BR/>
+Requirements:<BR/>
+   * [twine](https://pypi.org/project/twine/).<BR/>
    * [Pypi Account](https://www.pypi.org/account/register/).
 
 ```bash
@@ -1099,7 +1211,7 @@ APP_CORS_ORIGIN_QA_LOCAL=https://app.exampleapp.local:3000
 ```
 **NOTE**: replace `exampleapp` with your App name, all lowercased.
 
-And `make run` both frontend and backend with the `https` option.<br/>
+And `make run` both frontend and backend with the `https` option.<BR/>
 
 - If the local DNS Server seems to be unreachable or not working:
 
@@ -1110,11 +1222,11 @@ make local_dns_restart
 ```
 
 If the local IP changes, make sure to:
-  1) Run `make local_dns_rebuild`.<br/><br/>
-  2) Copy the `IP address` reported by the previous command.<br/>E.g.<br/>
-     `Local DNS domain 'app.exampleapp.local' is pointing to IP address '192.168.1.158'`.<br/><br/>
-  3) Run `make restart_qa`<br/><br/>
-  4) Add the `IP address` to the DNS Servers in your computer's `Network > DNS servers` settings. The new DNS Server `IP address` must be the first one in the list of DNS servers.<br/><br/>
+  1) Run `make local_dns_rebuild`.<BR/><BR/>
+  2) Copy the `IP address` reported by the previous command.<BR/>E.g.<BR/>
+     `Local DNS domain 'app.exampleapp.local' is pointing to IP address '192.168.1.158'`.<BR/><BR/>
+  3) Run `make restart_qa`<BR/><BR/>
+  4) Add the `IP address` to the DNS Servers in your computer's `Network > DNS servers` settings. The new DNS Server `IP address` must be the first one in the list of DNS servers.<BR/><BR/>
   5) Restart the computer's WiFi or LAN network connection.
 
 ## License
