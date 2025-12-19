@@ -16,7 +16,7 @@ Check the comments on each file for more information.
 genericsuite-be-scripts/<br>
 `├── `scripts/<br>
 `.    ├── `aws/<br>
-`.    |   └── `[update_additional_envvars.sh](./scripts/update_additional_envvars.sh)<br>
+`.    |   └── `[update_additional_envvars.sh](./scripts/aws/update_additional_envvars.sh)<br>
 `.    └── `aws_big_lambda/<br>
 `.        ├── `[template-sam.yml](./scripts/aws_big_lambda/template-sam.yml)<br>
 `.        └── `[template-samconfig.toml](./scripts/aws_big_lambda/template-samconfig.toml)<br>

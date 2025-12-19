@@ -13,6 +13,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### Fixed
 
+### Security
+
 ### Removed
 
 
@@ -52,13 +54,23 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Due to the "fastmcp" and "mcp" dependencies removal, run_mcp_server.sh now verifies both are installed [GS-248].
 - Avoid asking confirmations when cleaning directories during the build process of "make publish".
 - Update "mkdocs_transfer_site.sh" to turn debug mode off unless specified.
+- Remove Podman warning in Backend Development documentation.
+- MkDocs install scripts removes the .venv to include latest dependencies version.
+- Serve and run in main Makefile changed so "make run" makes a complete clean, regeneration and "make serve", and "make serve" only runs "mkdocs serve".
 
 ### Fixed
+- Fix "podman" engine issues with the `podman composer` command.
 - Fix uv and poetry installation instructions on Python Package Managers documentation.
 - Fix "npm clean" for main and all workspaces.
 - Fix the configuration guide links on the documentation, because it was pointing to "https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs".
 - Fix "FileNotFoundError: [Errno 2] No such file or directory: 'docs/Sample-Code/exampleapp/ui/public/static'" by adding "remove_ui_public_static" to clean_directory.sh.
 - "create-ssl-certs" label in exampleapp Makefile was defined in a wrong way.
+- Refine documentation broken links.
+
+### Security
+- Update "urllib3" to "^2.6.2" in main requirements.txt to fix security vulnerabilities [GS-219]:
+    * "Allocation of Resources Without Limits or Throttling": "CWE-770", "CVE-2025-66418", "CVSS 8.9", "SNYK-PYTHON-URLLIB3-14192443"
+    * "Improper Handling of Highly Compressed Data (Data Amplification)": "CWE-409", "CVSS 8.9", "CVE-2025-66471", "SNYK-PYTHON-URLLIB3-14192442".
 
 ### Removed
 - AWS_API_GATEWAY_STAGE envvar removed from all .env.example files.

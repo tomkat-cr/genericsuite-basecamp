@@ -41,10 +41,10 @@ venv:
 build: generate_openapi prepare_docs
 	bash scripts/mkdocs_run.sh build
 
-serve: generate_openapi prepare_docs
+serve:
 	bash scripts/mkdocs_run.sh serve
 
-run: serve
+run: generate_openapi prepare_docs serve
 
 clean:
 	npm cache clean --force && rm -rf venv .pytest_cache .cache

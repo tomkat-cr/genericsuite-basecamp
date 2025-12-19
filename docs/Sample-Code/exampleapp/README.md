@@ -46,7 +46,7 @@ The application is structured as a monorepo using [TurboRepo](https://turborepo.
 - uv, pipenv, or poetry for Python dependency management
 - pnpm for Node.js package management
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 ### Software
 
@@ -88,7 +88,7 @@ cd genericsuite-basecamp
 
 2. Install dependencies:
 
-Install git, pnpm, make, python, and other dependencies as specified in the [Prerequisites](#-prerequisites) section.
+Install git, pnpm, make, python, and other dependencies as specified in the [Prerequisites](#prerequisites) section.
 
 ### Configuration
 

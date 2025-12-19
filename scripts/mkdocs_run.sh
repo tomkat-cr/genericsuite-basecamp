@@ -10,7 +10,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 if [ "$1" != "" ]; then
-    mkdocs $1
+    mkdocs $1 $2 $3 $4 $5 $6 $7 $8 $9
     deactivate
 else
     bash

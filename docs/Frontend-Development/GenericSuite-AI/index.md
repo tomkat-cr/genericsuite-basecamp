@@ -35,7 +35,7 @@ To get started with GenericSuite AI, follow these simple steps:
 
 ### Create Git repositories
 
-Same steps described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#create-git-repositories) `Getting started > Create Git repositories` section.
+Same steps described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#create-the-git-repositories) `Getting started > Create Git repositories` section.
 
 ### Initiate your project
 

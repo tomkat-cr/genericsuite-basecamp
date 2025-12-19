@@ -76,14 +76,33 @@ plugins:
       repository: tomkat-cr/genericsuite-basecamp
       branch: main
   - search
-  - print-site
   - exclude-search:
       exclude:
         - Sample-Code/fastapitemplate/*
         - Sample-Code/exampleapp/*
+  - print-site
 
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+exclude_docs: |
+  node_modules
+  .env
+  .venv
+  Sample-Code/fastapitemplate/ui/index.html
+  Sample-Code/exampleapp/apps/ui/index.html
+
+watch:
+  - docs
+  - docs/Backend-Development
+  - docs/Configuration-Guide
+  - docs/documents
+  - docs/Frontend-Development
+  - docs/images
+  - docs/Other
+  - docs/Releases
+  - docs/Sample-Code
+  - docs/stylesheets

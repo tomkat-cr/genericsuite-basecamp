@@ -714,8 +714,6 @@ DOCKER_ACCOUNT=docker_account_username
 # OPEN_CONTAINERS_ENGINE_APP=0
 ```
 
-**NOTE**: `podman` engine has some issues with the `podman composer` command. It's recommended to use `docker` engine instead.
-
 * Tests configuration
 ```env
 # Backend debug local port
@@ -955,7 +953,7 @@ Check the [The GenericSuite backend development scripts](../GenericSuite-Scripts
 
 ## API Specification
 
-The API specification is available in the [FastApiTemplate/server](../../Sample-Code/fastapitemplate/server/) directory:
+The API specification is available in the [FastApiTemplate/server](../../Sample-Code/fastapitemplate/server/README.md) directory:
 
 * Swagger JSON: [fastapitemplate-backend_openapi.json](../../Sample-Code/fastapitemplate/server/fastapitemplate-backend_openapi.json) 
 * Swagger YAML: [fastapitemplate-backend_openapi.yaml](../../Sample-Code/fastapitemplate/server/fastapitemplate-backend_openapi.yaml) 

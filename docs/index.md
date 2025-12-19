@@ -23,7 +23,7 @@
 
 Generic Suite (GS) is the ultimate development library designed to streamline both frontend and backend workflows, enabling rapid app development with AI-powered enhancements. Whether you're building robust APIs, scalable databases, or dynamic user interfaces, GS provides the flexibility and efficiency needed to accelerate your projects.
 
-[Release Notes](./Releases/index.md) | [Sample Code](./Sample-Code/index.md) | [Repositories](./Repositories/index.md)
+[Release Notes](./Releases/index.md) | [Sample Code](./Sample-Code/index.md) | [Repositories](./repositories.md)
 
 ## Why Choose Generic Suite?
 
@@ -72,9 +72,9 @@ Join the growing community of developers using Generic Suite to supercharge thei
 
 * [Why choose Generic Suite?](#why-choose-generic-suite)
 * [Key Features](#key-features)
-* [What is the Generic Suite for?](#what-is-the-genericsuite-for)
-* [The Generic Suite Core](#the-genericsuite-core)
-* [The Generic Suite AI](#the-genericsuite-ai)
+* [What is the Generic Suite for?](#what-is-the-generic-suite-for)
+* [The Generic Suite Core](#the-generic-suite-core)
+* [The Generic Suite AI](#the-generic-suite-ai)
 * [Sample Code](#sample-code)
 * [Repositories](#repositories)
 * [Releases](#releases)

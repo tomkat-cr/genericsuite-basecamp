@@ -10,6 +10,9 @@ if [ -d "venv" ]; then
 fi
 
 echo "🔍 Creating venv directory"
+if [ -d .venv ]; then
+    rm -rf .venv
+fi
 python3 -m venv .venv
 source .venv/bin/activate
 
