@@ -57,6 +57,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Remove Podman warning in Backend Development documentation.
 - MkDocs install scripts removes the .venv to include latest dependencies version.
 - Serve and run in main Makefile changed so "make run" makes a complete clean, regeneration and "make serve", and "make serve" only runs "mkdocs serve".
+- Upgrade Lambda runtime to Python 3.12, update API Gateway to OpenAPI 3.0.1 with CORS, and refactor endpoint definitions in "aws_big_lambda/template-sam.yml" [GS-245].
 
 ### Fixed
 - Fix "podman" engine issues with the `podman composer` command.
@@ -66,6 +67,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Fix "FileNotFoundError: [Errno 2] No such file or directory: 'docs/Sample-Code/exampleapp/ui/public/static'" by adding "remove_ui_public_static" to clean_directory.sh.
 - "create-ssl-certs" label in exampleapp Makefile was defined in a wrong way.
 - Refine documentation broken links.
+- APP_VERSION removed from CORE_ENVS in "aws_secrets/aws_secrets_manager.sh" separated from the rest of the environment variables that are pushed to AWS Secrets Manager and included in the AWS Lambda Function CloudFormation template "aws_big_lambda/template-sam.yml".
 
 ### Security
 - Update "urllib3" to "^2.6.2" in main requirements.txt to fix security vulnerabilities [GS-219]:
