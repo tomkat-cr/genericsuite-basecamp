@@ -7,10 +7,10 @@
     "type": "child_listing",
     "subType": "array",
     "array_name": "users_api_keys",
+    "parentUrl": "users",
     "parentKeyNames": [
         {
             "parameterName": "user_id",
-            "parentUrl": "users",
             "parentElementName": "id"
         }
     ],

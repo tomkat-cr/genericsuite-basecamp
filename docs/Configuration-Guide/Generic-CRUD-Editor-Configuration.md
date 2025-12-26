@@ -39,6 +39,14 @@ In the frontend configuration directory, there are several JSON files, most of t
 
 Check the [Frontend directory](./index.md#frontend-directory) section in the [GenericSuite App Creation and Configuration guide](./index.md) for more details.
 
+### Validation
+
+The validation configuration defines the validation rules for the CRUD editor.
+
+The TypeScript interfaces to validate the frontend JSON configurations are defined in the [CrudEditorConfigInterface.ts](./CrudEditorConfigInterface.ts) file (`FrontendCrudEditorConfig`, `ParentKeyName`, `FieldElement`, `FieldType`).
+
+The Python classes to validate the frontend JSON configurations are defined in the [CrudEditorConfigInterface.py](./CrudEditorConfigInterface.py) file (`FrontendCrudEditorConfig`, `ParentKeyName`, `FieldElement`, `FieldType`).
+
 ### General Configuration
 
 The JSON files for each table or CRUD editor in the example are `users.json`, `users_config.json`, and `users_profile.json`.
@@ -102,7 +110,7 @@ The following attributes are used in the general configuration section:
     + Example: `table_x_lines`
 
 * **parentKeyNames**: Parent Key Names, to stabllish the relationship between the parent and child tables. It's used for the child editors (1-to-many relationship). It must have the following attributes:
-    + `parentUrl`: the parent table URL to be used in the backend API call.
+    + `parentUrl`: the parent table URL to be used on certain specific functions (because the parent table name is defined in the backend JSON file `table_name` attribute and frontend does not have access to it).
     + `parameterName`: the name of the parameter to be used in the backend API call to identify the parent table Primary Key.
     + `parentElementName`: the name of the parent table's primary key column/attribute.<BR/><BR/>
     + Example:
@@ -110,9 +118,9 @@ The following attributes are used in the general configuration section:
 "type": "child_listing",
 "subType": "array",
 "array_name": "users_config",
+"parentUrl": "users",
 "parentKeyNames": [
 {
-    "parentUrl": "users",
     "parameterName": "user_id",
     "parentElementName": "id"
 }
@@ -141,13 +149,16 @@ Field elements define the individual fields used in the CRUD editor.
 * **readonly**: Whether the field should be read-only.
 	+ Example: `true`, `false`
 
+* **primaryKey**: Whether the field is the primary key of the table.
+	+ Example: `true`, `false`
+
 * **default_value**: The default value to use for the field when the form data page is loaded.
 	+ Example: `0` or `current_timestamp`. `current_timestamp` will be replaced by the current date/time.
 
 * **hidden**: Whether the field should be hidden from display.
 	+ Example: `true`, `false`
 
-* **formula**: to get the fields's value from a ReactJS component. Check the [Formulas](#formulas) section for more details.
+* **formula**: to get the field value from a ReactJS component. Check the [Formulas](#formulas) section for more details.
 
 #### Field data types
 
@@ -426,6 +437,14 @@ export const granTotalFromOrderLines = ({
 ## Backend Configuration
 
 This configuration is used by the backend exclusively.
+
+### Validation
+
+The TypeScript interfaces to validate the backend JSON configurations are defined in the [CrudEditorConfigInterface.ts](./CrudEditorConfigInterface.ts) file (`BackendCrudEditorConfig`).
+
+The Python classes to validate the backend JSON configurations are defined in the [CrudEditorConfigInterface.py](./CrudEditorConfigInterface.py) file (`BackendCrudEditorConfig`).
+
+### Backend Configuration Attributes
 
 * **table_name**: physical table name in the database.
     + Example:
@@ -2467,10 +2486,10 @@ User's API keys
     "type": "child_listing",
     "subType": "array",
     "array_name": "users_api_keys",
+    "parentUrl": "users",
     "parentKeyNames": [
         {
             "parameterName": "user_id",
-            "parentUrl": "users",
             "parentElementName": "id"
         }
     ],
@@ -2526,10 +2545,10 @@ User's configuration parameters
   "type": "child_listing",
   "subType": "array",
   "array_name": "users_config",
+  "parentUrl": "users",
   "parentKeyNames": [
     {
       "parameterName": "user_id",
-      "parentUrl": "users",
       "parentElementName": "id"
     }
   ],
@@ -2580,10 +2599,10 @@ User's typical meal ingestion times
   "type": "child_listing",
   "subType": "array",
   "array_name": "food_times",
+  "parentUrl": "users",
   "parentKeyNames": [
     {
       "parameterName": "user_id",
-      "parentUrl": "users",
       "parentElementName": "id"
     }
   ],
