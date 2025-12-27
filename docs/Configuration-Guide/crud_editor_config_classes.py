@@ -1,5 +1,5 @@
 """
-CrudEditorConfigInterface.py
+crud_editor_config_classes.py
 2025-12-26 | CR
 
 This file defines the Python classes to validate the frontend and backend JSON

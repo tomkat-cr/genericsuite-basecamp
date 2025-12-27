@@ -1,17 +1,14 @@
 """
-GPT functions: App specific
+AI Tools: App specific
 """
-# C0301: | Disable "line-too-long"
-# pylint: disable=C0301
-# W0718 | broad-exception-caught Catching too general exception Exception
-# pylint: disable=W0718
+# Ignore large lines
+# pylint: disable=line-too-long
+# flake8: noqa: E501
 
 from typing import Union, Any, List, Optional
 import json
 import re
-# from datetime import timezone
 from datetime import datetime
-# from uuid import UUID, uuid4
 from uuid import uuid4
 
 from pydantic_core import PydanticCustomError

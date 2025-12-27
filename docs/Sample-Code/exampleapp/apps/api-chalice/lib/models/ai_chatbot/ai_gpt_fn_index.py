@@ -1,5 +1,5 @@
 """
-ChatGPT functions management
+AI Langchain Tools and GPT functions management
 """
 from genericsuite.util.app_logger import log_debug
 from genericsuite.util.app_context import AppContext

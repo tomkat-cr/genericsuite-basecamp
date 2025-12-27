@@ -1,5 +1,5 @@
 """
-GPT functions
+FDA food data API AI Tools
 """
 from typing import Optional, Any
 import json
@@ -42,7 +42,7 @@ def get_fda_food_query(params: Any) -> str:
     """
 Useful when you need to get the calories of a given food from the FDA API.
 Args: params (dict): Tool parameters. Must have: "food_name" (str): food or ingredient name.
-    """
+    """  # noqa: E501
     return get_fda_food_query_func(params)
 
 

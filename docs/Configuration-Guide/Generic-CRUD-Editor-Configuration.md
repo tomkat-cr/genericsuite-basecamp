@@ -45,7 +45,7 @@ The validation configuration defines the validation rules for the CRUD editor.
 
 The TypeScript interfaces to validate the frontend JSON configurations are defined in the [CrudEditorConfigInterface.ts](./CrudEditorConfigInterface.ts) file (`FrontendCrudEditorConfig`, `ParentKeyName`, `FieldElement`, `FieldType`).
 
-The Python classes to validate the frontend JSON configurations are defined in the [CrudEditorConfigInterface.py](./CrudEditorConfigInterface.py) file (`FrontendCrudEditorConfig`, `ParentKeyName`, `FieldElement`, `FieldType`).
+The Python classes to validate the frontend JSON configurations are defined in the [crud_editor_config_classes.py](./crud_editor_config_classes.py) file (`FrontendCrudEditorConfig`, `ParentKeyName`, `FieldElement`, `FieldType`).
 
 ### General Configuration
 
@@ -442,7 +442,7 @@ This configuration is used by the backend exclusively.
 
 The TypeScript interfaces to validate the backend JSON configurations are defined in the [CrudEditorConfigInterface.ts](./CrudEditorConfigInterface.ts) file (`BackendCrudEditorConfig`).
 
-The Python classes to validate the backend JSON configurations are defined in the [CrudEditorConfigInterface.py](./CrudEditorConfigInterface.py) file (`BackendCrudEditorConfig`).
+The Python classes to validate the backend JSON configurations are defined in the [crud_editor_config_classes.py](./crud_editor_config_classes.py) file (`BackendCrudEditorConfig`).
 
 ### Backend Configuration Attributes
 

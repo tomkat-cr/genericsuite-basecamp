@@ -60,6 +60,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Serve and run in main Makefile changed so "make run" makes a complete clean, regeneration and "make serve", and "make serve" only runs "mkdocs serve".
 - Upgrade Lambda runtime to Python 3.12, update API Gateway to OpenAPI 3.0.1 with CORS, and refactor endpoint definitions in "aws_big_lambda/template-sam.yml" [GS-245].
 - Move "parentUrl" attribute from "parentKeyNames" to the root of the JSON config files [GS-172].
+- Rename AI chatbot "GPT functions" to "AI Tools" in exampleapp comments.
 
 ### Fixed
 - Fix "podman" engine issues with the `podman composer` command.
