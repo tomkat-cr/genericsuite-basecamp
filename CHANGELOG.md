@@ -39,6 +39,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Create Super Admin user documentation.
 - Local database stack and operations documentation.
 - Python classes and TypeScript interfaces for CRUD editor JSON config files validation and update the corresponding guide [GS-172].
+- How to create tables and forms documentation [GS-172].
 
 ### Changed
 - Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.
@@ -61,6 +62,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Upgrade Lambda runtime to Python 3.12, update API Gateway to OpenAPI 3.0.1 with CORS, and refactor endpoint definitions in "aws_big_lambda/template-sam.yml" [GS-245].
 - Move "parentUrl" attribute from "parentKeyNames" to the root of the JSON config files [GS-172].
 - Rename AI chatbot "GPT functions" to "AI Tools" in exampleapp comments.
+- Bind mkdocs serve to localhost:8015 to avoid conflicts with other GS APIs [GS-172].
 
 ### Fixed
 - Fix "podman" engine issues with the `podman composer` command.

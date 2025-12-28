@@ -42,7 +42,7 @@ build: generate_openapi prepare_docs
 	bash scripts/mkdocs_run.sh build
 
 serve:
-	bash scripts/mkdocs_run.sh serve
+	bash scripts/mkdocs_run.sh serve -a localhost:8015
 
 run: generate_openapi prepare_docs serve
 

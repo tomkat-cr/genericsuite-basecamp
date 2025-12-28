@@ -31,7 +31,9 @@ In the GenericSuite context there's a third element, the "Configuration director
 
 ## Configuration directory
 
-Here's where the App configuration lives. The suggested structure is:
+The Configuration directory stores the App configuration, allowing to define table structures, input forms, menu structure, security configuration, configuration parameters, etc.
+
+The suggested structure is:
 
 ```
 src/configs
@@ -168,9 +170,33 @@ git commit -m "Initial JSON config files"
 git push
 ```
 
-## Build the .json files
+## How to create a table
+
+To create a new database table, there most be a `.json` file in the `backend/` directory with the table definition (e.g. `table_name`, `mandatory_fields`, `projection_exclusion`, `email_verification`, `passwords`,  `additional_query_params`, etc, and the backend specific functions `specific_function`), and a `.json` file in the `frontend/` directory with the table structure (e.g. with columns/attributes defined in `fieldElements`).
+
+For example, the `users` table has the following files:
+
+* [backend/users.json](../Sample-Code/genericsuite-configs/backend/users.json)
+* [frontend/users.json](../Sample-Code/genericsuite-configs/frontend/users.json)
 
 Follow the instructions to build the `.json` files in the [Generic CRUD Editor Configuration Documentation](./Generic-CRUD-Editor-Configuration.md).
+
+## How to create a form
+
+The forms share the same frontend and backend `.json` files as the database tables. For each form there should be a pair of files: one for the frontend and one for the backend.
+
+To create a new form, there should be a `.json` file in the `frontend/` directory with the form structure (e.g. with input fields defined in `fieldElements`, and the form attributes in `baseUrl`, `title`, `name`, `component`, `dbApiUrl`, 1-to-many relationships in `childComponents`, specific functions in `dbListPreRead`, `dbPreWrite`, `dbPreValidations`, `validations`, etc), and a `.json` file in the `backend/` directory with the table used by the form (to specify the `table_name`).
+
+For example, the `users` form has the following files:
+
+* [frontend/users.json](../Sample-Code/genericsuite-configs/frontend/users.json)
+* [backend/users.json](../Sample-Code/genericsuite-configs/backend/users.json)
+
+Follow the instructions to build the `.json` files in the [Generic CRUD Editor Configuration Documentation](./Generic-CRUD-Editor-Configuration.md).
+
+## How to build the JSON configuration files
+
+Follow the instructions to build the JSON configuration files in the [Generic CRUD Editor Configuration Documentation](./Generic-CRUD-Editor-Configuration.md).
 
 
 ## App frontend
