@@ -13,6 +13,7 @@ from genericsuite.mcplib.util.utilities import (
     mcp_authenticate,
     verify_app_context,
     tool_result,
+    get_access_token,
     # resource_result,
 )
 
@@ -44,6 +45,7 @@ async def get_api_keys() -> Dict[str, Any]:
     _ = DEBUG and log_info("Getting API keys")
     result = {
         "resultset": {
+            "access_token": get_access_token(),
             "GS_USER_ID": os.environ.get("GS_USER_ID"),
             "GS_USER_NAME": os.environ.get("GS_USER_NAME"),
             "GS_API_KEY": os.environ.get("GS_API_KEY")
@@ -101,8 +103,7 @@ def main():
     """
     Main entry point for the MCP Server
     """
-    print("🥗 Starting fastapitemplate MCP Server...")
-    # Run the FastMCP server
+    print(f"🥗 Starting {settings.APP_NAME} MCP Server...")
     app.run()
 
 

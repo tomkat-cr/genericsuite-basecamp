@@ -8,7 +8,7 @@
     "subType": "array",
     "array_name": "dish_ingredients",
     "parentUrl": "dishes",
-    "parentKeyNames": [
+    "endpointKeyNames": [
         {
             "parameterName": "dish_id",
             "parentElementName": "id"

@@ -201,7 +201,8 @@
     ],
     "childComponents": [
         "UsersFoodTimes",
-        "UsersUserHistory"
+        "UsersUserHistory",
+        "UsersApiKey"
     ],
     "dbListPreRead": [
         "UsersDbListPreRead"

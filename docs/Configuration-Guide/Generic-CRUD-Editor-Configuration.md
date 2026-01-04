@@ -109,21 +109,23 @@ The following attributes are used in the general configuration section:
 * **array_name**: attribute name for the `array` type child listing. For example, if the parent table is "table_x_header" and the child table is "table_x_lines", the `array_name` could be "table_x_lines".
     + Example: `table_x_lines`
 
-* **parentKeyNames**: Parent Key Names, to stabllish the relationship between the parent and child tables. It's used for the child editors (1-to-many relationship). It must have the following attributes:
-    + `parentUrl`: the parent table URL to be used on certain specific functions (because the parent table name is defined in the backend JSON file `table_name` attribute and frontend does not have access to it).
-    + `parameterName`: the name of the parameter to be used in the backend API call to identify the parent table Primary Key.
-    + `parentElementName`: the name of the parent table's primary key column/attribute.<BR/><BR/>
+* **parentUrl**: the parent table URL to be used on certain specific functions (because the parent table name is defined in the backend JSON file `table_name` attribute and frontend does not have access to it).
+    + Example: `users` for the `/v1/users` endpoint.
+
+* **endpointKeyNames**: Key Names array used when making API calls to the backend to get the child listing items. This is used to stabllish the relationship between the parent and child tables (1-to-many relationship). Each element of the array must have the following attributes:
+    + `parameterName`: the name of the parameter to be used in the backend API call (endpoint) to identify the parent table Primary/Sort Key.
+    + `parentElementName`: the name of the parent table's attribute which value will be used to identify the parent table Primary/Sort Key.<BR/><BR/>
     + Example:
 ```json
 "type": "child_listing",
 "subType": "array",
 "array_name": "users_config",
 "parentUrl": "users",
-"parentKeyNames": [
-{
-    "parameterName": "user_id",
-    "parentElementName": "id"
-}
+"endpointKeyNames": [
+    {
+        "parameterName": "user_id",
+        "parentElementName": "id"
+    }
 ],
 ```
 
@@ -367,9 +369,9 @@ export const granTotalFromOrderLines = ({
     return new Promise((resolve, reject) => {
         let resp = genericFuncArrayDefaultValue(data);
         let grand_total = 0;
-        const parentId = editor.parentData[editor.parentKeyNames[0].parentElementName];
+        const parentId = editor.parentData[editor.endpointKeyNames[0].parentElementName];
         let childFilter = {};
-        childFilter[editor.parentKeyNames[0].parameterName] = parentId;
+        childFilter[editor.endpointKeyNames[0].parameterName] = parentId;
         switch(action) {
             case ACTION_CREATE:
             case ACTION_UPDATE:
@@ -1545,7 +1547,7 @@ User's daily meal ingredients
     "subType": "array",
     "array_name": "meal_ingredients",
     "parentUrl": "daily_meals",
-    "parentKeyNames": [
+    "endpointKeyNames": [
         {
             "parameterName": "daily_meal_id",
             "parentElementName": "id"
@@ -1773,7 +1775,7 @@ User's dish ingredients
     "subType": "array",
     "array_name": "dish_ingredients",
     "parentUrl": "dishes",
-    "parentKeyNames": [
+    "endpointKeyNames": [
         {
             "parameterName": "dish_id",
             "parentElementName": "id"
@@ -2487,7 +2489,7 @@ User's API keys
     "subType": "array",
     "array_name": "users_api_keys",
     "parentUrl": "users",
-    "parentKeyNames": [
+    "endpointKeyNames": [
         {
             "parameterName": "user_id",
             "parentElementName": "id"
@@ -2546,7 +2548,7 @@ User's configuration parameters
   "subType": "array",
   "array_name": "users_config",
   "parentUrl": "users",
-  "parentKeyNames": [
+  "endpointKeyNames": [
     {
       "parameterName": "user_id",
       "parentElementName": "id"
@@ -2600,7 +2602,7 @@ User's typical meal ingestion times
   "subType": "array",
   "array_name": "food_times",
   "parentUrl": "users",
-  "parentKeyNames": [
+  "endpointKeyNames": [
     {
       "parameterName": "user_id",
       "parentElementName": "id"
@@ -2843,7 +2845,8 @@ User's profile page
     ],
     "childComponents": [
         "UsersFoodTimes",
-        "UsersUserHistory"
+        "UsersUserHistory",
+        "UsersApiKey"
     ],
     "dbListPreRead": [
         "UsersDbListPreRead"
@@ -2879,7 +2882,7 @@ User's data history (goals, weight, etc.)
     "subType": "array",
     "array_name": "user_history",
     "parentUrl": "users",
-    "parentKeyNames": [
+    "endpointKeyNames": [
         {
             "parameterName": "user_id",
             "parentElementName": "id"

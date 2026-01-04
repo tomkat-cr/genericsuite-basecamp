@@ -124,8 +124,8 @@ export interface FrontendCrudEditorConfig {
     subType?: 'array' | 'table'
     /** Attribute name for the 'array' type child listing */
     array_name?: string
-    /** Parent Key Names to establish relationship between parent and child tables */
-    parentKeyNames?: ParentKeyName[]
+    /** Endpoint Key Names to establish relationship between parent and child tables */
+    endpointKeyNames?: ParentKeyName[]
     /** The parent table URL, to be used in certain frontend specific functions */
     parentUrl?: string
     /** Allow duplicates in the child listing items creation */

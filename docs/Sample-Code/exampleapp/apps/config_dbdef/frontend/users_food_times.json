@@ -8,7 +8,7 @@
   "subType": "array",
   "array_name": "food_times",
   "parentUrl": "users",
-  "parentKeyNames": [
+  "endpointKeyNames": [
     {
       "parameterName": "user_id",
       "parentElementName": "id"

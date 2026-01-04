@@ -5,10 +5,8 @@
     "dbApiUrl": "users_api_keys",
     "component": "UsersApiKey",
     "type": "child_listing",
-    "subType": "array",
-    "array_name": "users_api_keys",
-    "parentUrl": "users",
-    "parentKeyNames": [
+    "subType": "table",
+    "endpointKeyNames": [
         {
             "parameterName": "user_id",
             "parentElementName": "id"

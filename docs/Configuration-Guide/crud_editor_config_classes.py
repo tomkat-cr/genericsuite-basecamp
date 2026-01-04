@@ -163,9 +163,9 @@ class FrontendCrudEditorConfig(BaseModel):
         None,
         description="Attribute name for the 'array' type child listing"
     )
-    parentKeyNames: Optional[List[ParentKeyName]] = Field(
+    endpointKeyNames: Optional[List[ParentKeyName]] = Field(
         None,
-        description="Parent Key Names to establish relationship between"
+        description="Endpoint Key Names to establish relationship between"
         " parent and child tables"
     )
     parentUrl: Optional[str] = Field(

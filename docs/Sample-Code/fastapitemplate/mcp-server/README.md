@@ -27,6 +27,8 @@ TODO: Add fastapitemplate's tools here
 
 Add this configuration to your `claude_desktop_config.json`:
 
+For a local STDIO connection:
+
 ```json
 {
   "mcpServers": {
@@ -44,9 +46,26 @@ Add this configuration to your `claude_desktop_config.json`:
 }
 ```
 
+For a remote HTTP connection:
+
+```json
+{
+  "mcpServers": {
+    "fastapitemplate": {
+      "url": "http://localhost:8070/mcp",
+      "headers": {
+        "Authorization": "Bearer sk-gsu-..."
+      }
+    }
+  }
+}
+```
+
 ### VS Code MCP Extension
 
 Add to your VS Code settings or `.vscode/mcp.json`:
+
+For a local STDIO connection:
 
 ```json
 {
@@ -60,6 +79,23 @@ Add to your VS Code settings or `.vscode/mcp.json`:
         "env": {
           "GS_USER_ID": "xxxx",
           "GS_API_KEY": "xxxx"
+        }
+      }
+    }
+  }
+}
+```
+
+For a remote HTTP connection:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "fastapitemplate": {
+        "url": "http://localhost:8070/mcp",
+        "headers": {
+          "Authorization": "Bearer sk-gsu-..."
         }
       }
     }
