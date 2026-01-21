@@ -235,4 +235,8 @@ Generic Suite is open-sourced software licensed under the [ISC](https://github.c
 
 This project is developed and maintained by [Carlos J. Ramirez](https://www.carlosjramirez.com). For more information or to contribute to the project, visit [GenericSuite on GitHub](https://github.com/stars/tomkat-cr/lists/genericsuite).
 
+## Privacy Policy
+
+[Click here](./privacy-policy.md) to review the privacy policy.
+
 Happy Coding!

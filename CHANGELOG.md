@@ -42,6 +42,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - How to create tables and forms documentation [GS-172].
 - How to stablish 1-to-many relationships between tables documentation [GS-172].
 - Api Keys to User Profile on exampleapp and fastapitemplate [GS-251].
+- Privacy policy [GS-252].
 
 ### Changed
 - Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.

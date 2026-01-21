@@ -7,13 +7,13 @@ repo_name: tomkat-cr/genericsuite
 
 nav:
   - 'Introduction': './index.md'
-  - 'Repositories': 'repositories.md'
+  - 'Repositories': './repositories.md'
   - 'Installation': './Other/installation.md'
   - 'Configuration Guide': './Configuration-Guide/index.md'
-  - 'Sample Code': 'Sample-Code/index.md'
+  - 'Sample Code': './Sample-Code/index.md'
   - 'Releases': './Releases/index.md'
-  - 'The GenericSuite Core': 'genericsuite-core.md'
-  - 'The GenericSuite AI': 'genericsuite-ai.md'
+  - 'The GenericSuite Core': './genericsuite-core.md'
+  - 'The GenericSuite AI': './genericsuite-ai.md'
   - 'Frontend Development':
     - 'GenericSuite Core': './Frontend-Development/GenericSuite-Core/index.md'
     - 'GenericSuite AI': './Frontend-Development/GenericSuite-AI/index.md'
@@ -26,6 +26,7 @@ nav:
   - 'Other':
     - 'Python Package Managers': './Other/python-package-managers.md'
     - 'History': './history.md'
+  - 'Privacy Policy': './privacy-policy.md'
 
 
 theme:
