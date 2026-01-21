@@ -1,11 +1,13 @@
 # GenericSuite App Backend Scripts
-<img 
+
+![gs_logo_circle.png](../../images/gs_logo_circle.png)
+<!-- <img 
     align="right"
     width="100"
     height="100"
     src="../../images/gs_logo_circle.svg"
     title="GenericSuite logo by Carlos J. Ramirez"
-/>
+/> -->
 
 The GenericSuite App Backend Scripts are intended to be used to expand the AWS deployments of the GenericSuite App Backend.
 

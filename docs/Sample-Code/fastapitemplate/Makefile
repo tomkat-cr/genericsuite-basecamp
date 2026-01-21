@@ -5,11 +5,11 @@ help:
 	cat Makefile
 
 ui-build:
-	cd ui && export REACT_APP_API_URL_FOR_BUILD="http://localhost:3000/api" && npm run build && cd ..
+	cd ui && export REACT_APP_API_URL_FOR_BUILD="http://localhost:3000/api" && npm run build && cd -
 
 dbdef-copy:
-	cd ui && make link_config_dirs && cd ..
-	cd server && make link_config_dirs && cd ..
+	cd ui && make link_config_dirs && cd -
+	cd server && make link_config_dirs && cd -
 
 # Start all services
 up: build-if-required copy-env-files dbdef-copy ui-build
@@ -88,7 +88,7 @@ build:
 start:
 	npm run start
 
-dev: build-if-required copy-env-files
+dev: build-if-required copy-env-files dbdef-copy
 	npm run dev
 
 clean:

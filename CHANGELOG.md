@@ -40,6 +40,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Local database stack and operations documentation.
 - Python classes and TypeScript interfaces for CRUD editor JSON config files validation and update the corresponding guide [GS-172].
 - How to create tables and forms documentation [GS-172].
+- How to stablish 1-to-many relationships between tables documentation [GS-172].
 - Api Keys to User Profile on exampleapp and fastapitemplate [GS-251].
 
 ### Changed
@@ -65,6 +66,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Move "parentUrl" attribute from "endpointKeyNames" to the root of the JSON config files [GS-159].
 - Rename AI chatbot "GPT functions" to "AI Tools" in exampleapp comments.
 - Bind mkdocs serve to localhost:8015 to avoid conflicts with other GS APIs [GS-172].
+- All .svg logos are now embedded as .png in all .md files, so it can be displayed in GitHub and the documentation mobile app [GS-252].
+- ExampleApp: common "lib" files moved from "exampleapp/apps/api-chalice" to "exampleapp/apps/api-fastapi".
 
 ### Fixed
 - Fix "podman" engine issues with the `podman composer` command.
@@ -75,6 +78,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - "create-ssl-certs" label in exampleapp Makefile was defined in a wrong way.
 - Refine documentation broken links.
 - APP_VERSION removed from CORE_ENVS in "aws_secrets/aws_secrets_manager.sh" separated from the rest of the environment variables that are pushed to AWS Secrets Manager and included in the AWS Lambda Function CloudFormation template "aws_big_lambda/template-sam.yml".
+- Rename "CONTAINER_ENGINE" to "CONTAINERS_ENGINE" in .env.example files [GS-252].
+- Fix: add ".venv" to the clean bash scripts.
 
 ### Security
 - Update "urllib3" to "^2.6.2" in main requirements.txt to fix security vulnerabilities [GS-219]:

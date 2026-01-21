@@ -1,11 +1,13 @@
 # The GenericSuite for Python
-<img 
+
+![gs_logo_circle.png](../../images/gs_logo_circle.png)
+<!-- <img 
     align="right"
     width="100"
     height="100"
     src="../../images/gs_logo_circle.svg"
     title="GenericSuite logo by Carlos J. Ramirez"
-/>
+/> -->
 
 [GenericSuite (backend version)](https://github.com/tomkat-cr/genericsuite-be) is a versatile backend solution, designed to provide a comprehensive suite of features for Python APIs. It supports various frameworks including FastAPI, Flask and Chalice, making it adaptable to a range of projects. This repository contains the backend logic, utilities, and configurations necessary to build and deploy scalable and maintainable applications.
 
@@ -705,8 +707,8 @@ DOCKER_ACCOUNT=docker_account_username
 ```env
 # Container engine: used by the docker run command to run the container
 # Available options: `docker`, `podman`. Defaults to: docker
-# CONTAINER_ENGINE=docker
-# CONTAINER_ENGINE=podman
+# CONTAINERS_ENGINE=docker
+# CONTAINERS_ENGINE=podman
 
 # Open containers engine app
 # Available options: `1` to enable, `0` to disable. Defaults to: 1

@@ -1,6 +1,8 @@
 # Unlock Full-Stack Power with Generic Suite (GS)
 
-<table cellpadding="0" cellspacing="0" style="border: 0px white;">
+![gs_logo_circle.png](images/gs_logo_circle.png)
+
+<!-- <table cellpadding="0" cellspacing="0" style="border: 0px white;">
     <tr>
         <td>
             <a href="./genericsuite-core/">
@@ -19,7 +21,7 @@
             </a>
         </td>
     </tr>
-</table>
+</table> -->
 
 Generic Suite (GS) is the ultimate development library designed to streamline frontend and backend workflows, enabling rapid app development with AI-powered enhancements. Whether you're building robust APIs, scalable databases, or dynamic user interfaces, GS provides the flexibility and efficiency needed to accelerate your projects.
 
@@ -91,13 +93,14 @@ The Generic Suite is a frontend and backend set of utilities made with ReactJS a
 
 It's composed by a **Generic Suite Core**, which is the core for all the suite elements, and extensions like the Generic Suite AI.
 
-<img 
+![gs_logo_circle.png](images/gs_logo_circle.png)
+<!-- <img 
     align="right"
     width="100"
     height="100"
     src="images/gs_logo_circle.svg"
     title="Generic Suite logo by Carlos J. Ramirez"
-/>
+/> -->
 
 ## The Generic Suite Core
 
@@ -116,13 +119,14 @@ Packages:
 * :fontawesome-brands-python:{ .python } [GenericSuite Core (backend version) for Python](./Backend-Development/GenericSuite-Core/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
 
-<img 
+![gs_ai_logo_circle.png](images/gs_ai_logo_circle.png)
+<!-- <img 
     align="right"
     width="100"
     height="100"
     src="images/gs_ai_logo_circle.svg"
     title="Generic Suite AI logo by Carlos J. Ramirez"
-/>
+/-->
 
 ## The Generic Suite AI
 

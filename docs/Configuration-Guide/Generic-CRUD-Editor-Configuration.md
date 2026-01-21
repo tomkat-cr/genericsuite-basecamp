@@ -560,7 +560,7 @@ exampleapp/apps/config_dbdef/
 |   ├── general_ingredients.json                # Global ingredients
 |   ├── user_ingredients_all.json               # All user's ingredients
 |   ├── user_ingredients.json                   # User's ingredients
-|   ├── user_api_keys.json                      # User's API keys
+|   ├── users_api_keys.json                     # User's API keys
 |   ├── users_config.json                       # User's configuration parameters
 |   ├── users_food_times.json                   # User's typical meal ingestion times
 |   ├── users_profile.json                      # User's profile page
@@ -581,7 +581,7 @@ exampleapp/apps/config_dbdef/
 |   ├── general_ingredients.json                # Global ingredients
 |   ├── user_ingredients_all.json               # All user's ingredients
 |   ├── user_ingredients.json                   # User's ingredients
-|   ├── user_api_keys.json                      # User's API keys
+|   ├── users_api_keys.json                     # User's API keys
 |   ├── users_config.json                       # User's configuration parameters
 |   ├── users_food_times.json                   # User's typical meal ingestion times
 |   ├── users_profile.json                      # User's profile page
@@ -1119,13 +1119,13 @@ User's ingredients
 }
 ```
 
-### backend/user_api_keys.json
+### backend/users_api_keys.json
 
 User's API keys
 
 ```json
 {
-    "table_name": "users",
+    "table_name": "users_api_keys",
     "specific_function": "delete_params_file"
 }
 ```
@@ -2474,7 +2474,7 @@ User's ingredients
 }
 ```
 
-### frontend/user_api_keys.json
+### frontend/users_api_keys.json
 
 User's API keys
 
@@ -2486,9 +2486,7 @@ User's API keys
     "dbApiUrl": "users_api_keys",
     "component": "UsersApiKey",
     "type": "child_listing",
-    "subType": "array",
-    "array_name": "users_api_keys",
-    "parentUrl": "users",
+    "subType": "table",
     "endpointKeyNames": [
         {
             "parameterName": "user_id",

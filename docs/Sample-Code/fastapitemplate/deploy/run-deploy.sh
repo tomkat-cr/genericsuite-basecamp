@@ -1,6 +1,6 @@
 #!/bin/bash
 # deploy/run-deploy.sh
-# Run the GenericSuite monorepo app on docker containers
+# Run the GenericSuite monorepo app on docker/podman containers
 # 2025-11-22 CR
 
 get_version_from_package_json() {
@@ -9,6 +9,35 @@ get_version_from_package_json() {
         exit 1
     fi
     export APP_VERSION=$(cat ../package.json | grep version | cut -d '"' -f 4)
+}
+
+docker_dependencies() {
+    echo ""
+    echo "Configured containers engine (CONTAINERS_ENGINE): ${CONTAINERS_ENGINE}"
+
+    if ! source ${SCRIPTS_DIR}/container_engine_manager.sh start "${CONTAINERS_ENGINE}" "${OPEN_CONTAINERS_ENGINE_APP}"; then
+        echo "Error running ${SCRIPTS_DIR}/container_engine_manager.sh start \"${CONTAINERS_ENGINE}\" \"${OPEN_CONTAINERS_ENGINE_APP}\""
+        exit 1
+    fi
+
+    echo "Selected containers engine (DOCKER_CMD): ${DOCKER_CMD}"
+    echo "Selected containers engine (DOCKER_COMPOSE_CMD): ${DOCKER_COMPOSE_CMD}"
+
+    if [ -z "${DOCKER_CMD}" ];then
+        echo "ERROR: missing DOCKER_CMD"
+        exit 1
+    fi
+
+    if [ -z "${DOCKER_COMPOSE_CMD}" ];then
+        echo "ERROR: missing DOCKER_COMPOSE_CMD"
+        exit 1
+    fi
+
+    if ! ${DOCKER_CMD} ps > /dev/null 2>&1;
+    then
+        echo "${DOCKER_CMD} is not running"
+        exit 1
+    fi
 }
 
 set_docker_env_vars() {
@@ -26,8 +55,8 @@ set_docker_env_vars() {
     export APP_DB_ENGINE=$(eval echo \$APP_DB_ENGINE_${STAGE_UPPERCASE})
     export APP_DB_NAME=$(eval echo \$APP_DB_NAME_${STAGE_UPPERCASE})
     if [[ "${GET_SECRETS_ENABLED}" = "0" || "${GET_SECRETS_CRITICAL}" = "0" ]]; then
-        APP_DB_URI_DEV="mongodb://root:example@fastapitemplate-mongo:27017"
-        # APP_DB_URI_DEV="mongodb://fastapitemplate-mongo:27017/?directConnection=true"
+        APP_DB_URI_DEV="mongodb://root:example@fynapp-mongo:27017"
+        # APP_DB_URI_DEV="mongodb://fynapp-mongo:27017/?directConnection=true"
         export APP_DB_URI=$(eval echo \$APP_DB_URI_${STAGE_UPPERCASE})
     else
         export APP_DB_URI=""
@@ -54,6 +83,8 @@ set_docker_env_vars() {
 }
 
 load_envs() {
+    echo ""
+    echo "Current directory: $(pwd)"
     if [ ! -f ../.env ]; then
         echo "Error: .env file not found in 'root' directory"
         exit 1
@@ -76,11 +107,11 @@ clean_up_function() {
 }
 
 create_docker_images() {
-    echo "Creating docker images..."
+    echo "Creating ${DOCKER_CMD} images..."
     cd docker_images
-    if ! bash ./build_docker_images.sh
+    if ! DOCKER_CMD=${DOCKER_CMD} bash ./build_docker_images.sh
     then
-        echo "Error creating docker images"
+        echo "Error creating ${DOCKER_CMD} images"
         exit 1
     fi
     cd ..
@@ -89,8 +120,8 @@ create_docker_images() {
 cleanup_when_specific_container_is_specified() {
     if [ "${CONTAINER_TO_RUN}" != "" ]; then
         echo "Running only ${CONTAINER_TO_RUN}"
-        docker compose --project-name deploy down
-        docker compose --project-name ${APP_NAME_LOWERCASE} down
+        ${DOCKER_COMPOSE_CMD} --project-name deploy down
+        ${DOCKER_COMPOSE_CMD} --project-name ${APP_NAME_LOWERCASE} down
     fi
 }
 
@@ -101,7 +132,13 @@ is_docker_port_in_use() {
     local container_name="$2"
 
     # Check if the port is used by any running Docker container
-    local running_container=$(docker ps --filter "publish=$port" --format "{{.Names}}" | head -n 1)
+    local running_container=""
+    echo "Checking if port $port is in use by any running ${DOCKER_CMD} container..."
+    if [ "${CONTAINERS_ENGINE}" = "podman" ]; then
+        running_container=$(podman ps --all | grep "${port}->")
+    else
+        running_container=$(${DOCKER_CMD} ps --filter "publish=$port" --format "{{.Names}}" | head -n 1)
+    fi
 
     if [ -n "$running_container" ]; then
         if [ "$running_container" = "$container_name" ]; then
@@ -115,6 +152,9 @@ is_docker_port_in_use() {
 }
 
 load_envs
+
+SCRIPTS_DIR="../node_modules/genericsuite-be-scripts/scripts"
+docker_dependencies
 
 APP_NAME_LOWERCASE=$(echo "$APP_NAME" | tr '[:upper:]' '[:lower:]')
 APP_NAME_LOWERCASE=$(echo "$APP_NAME_LOWERCASE" | tr '[:blank:]' '_')
@@ -133,23 +173,23 @@ fi
 OTHER_DOCKER_COMPOSE_PARAMS=""
 # Check if the port 27017 (MongoDb) is already taken by any running docker container
 # For example by GSAM, GS BE or other services that use MongoDb
-if [ $(is_docker_port_in_use 27017 fastapitemplate-mongo) = "0" ]; then
+if [ "$(is_docker_port_in_use 27017 fynapp-mongo)" = "0" ]; then
     if [ "$USE_LOCAL_MONGODB" != "0" ]; then
         OTHER_DOCKER_COMPOSE_PARAMS="${OTHER_DOCKER_COMPOSE_PARAMS} --profile use_local_mongodb"
     else
         echo ""
-        echo "WARNING: Port 27017 is in use by any running docker container different than 'fastapitemplate-mongo'"
+        echo "WARNING: Port 27017 is in use by any running ${DOCKER_CMD} container different than 'fynapp-mongo'"
     fi
 fi
 
 # Check if the port 8081 (MongoDb Express) is already taken by any running docker container
 # For example by GSAM, GS BE or other services that use MongoDb
-if [ $(is_docker_port_in_use 8081 fastapitemplate-mongo-express) = "0" ]; then
+if [ "$(is_docker_port_in_use 8081 fynapp-mongo-express)" = "0" ]; then
     if [ "$USE_LOCAL_MONGODB" != "0" ]; then
         OTHER_DOCKER_COMPOSE_PARAMS="${OTHER_DOCKER_COMPOSE_PARAMS} --profile use_local_mongodb_express"
     else
         echo ""
-        echo "WARNING: Port 8081 is in use by any running docker container different than 'fastapitemplate-mongo-express'"
+        echo "WARNING: Port 8081 is in use by any running ${DOCKER_CMD} container different than 'fynapp-mongo-express'"
     fi
 fi
 
@@ -157,11 +197,11 @@ fi
 
 if [ "$USE_LOCAL_MONGODB" != "0" ]; then
     #
-    # Use USE_LOCAL_MONGODB=1 to enable only local database on thee docker compose
+    # Use USE_LOCAL_MONGODB=1 to enable only local database on the docker compose
     # E.g. to use the 'make dev' command (running frontend and backend without
     # docker compose) with local database in docker compose
     #
-    export MONGODB_HOST_NAME=fastapitemplate-mongo
+    export MONGODB_HOST_NAME=fynapp-mongo
     export MONGODB_HOST_PORT=27017
     export MONGODB_USER=root
     export MONGODB_PASSWORD=example
@@ -171,24 +211,24 @@ fi
 
 if [ "$ACTION" = "restart" ]; then
     echo "Restarting services..."
-    docker compose --project-name ${APP_NAME_LOWERCASE} restart ${CONTAINER_TO_RUN}
+    ${DOCKER_COMPOSE_CMD} --project-name ${APP_NAME_LOWERCASE} restart ${CONTAINER_TO_RUN}
     exit 0
 elif [ "$ACTION" = "run" ]; then
     set_docker_env_vars
     start_up_function
     create_docker_images
     echo "Starting services..."
-    if ! docker network create my_shared_network 2>/dev/null; then
+    if ! ${DOCKER_CMD} network create my_shared_network 2>/dev/null; then
         echo "my_shared_network already exists"
     fi
     cleanup_when_specific_container_is_specified
-    echo "docker compose  ${OTHER_DOCKER_COMPOSE_PARAMS} --project-name ${APP_NAME_LOWERCASE} up -d ${CONTAINER_TO_RUN}"
-    docker compose  ${OTHER_DOCKER_COMPOSE_PARAMS} --project-name ${APP_NAME_LOWERCASE} up -d ${CONTAINER_TO_RUN}
+    echo "${DOCKER_COMPOSE_CMD} ${OTHER_DOCKER_COMPOSE_PARAMS} --project-name ${APP_NAME_LOWERCASE} up -d ${CONTAINER_TO_RUN}"
+    ${DOCKER_COMPOSE_CMD}  ${OTHER_DOCKER_COMPOSE_PARAMS} --project-name ${APP_NAME_LOWERCASE} up -d ${CONTAINER_TO_RUN}
     exit 0
 elif [ "$ACTION" = "down" ]; then
     echo "Stopping services..."
     cleanup_when_specific_container_is_specified
-    if ! docker compose --project-name ${APP_NAME_LOWERCASE} down
+    if ! ${DOCKER_COMPOSE_CMD} --project-name ${APP_NAME_LOWERCASE} down
     then
         echo "Error stopping services... skipping clean up function"
     fi
@@ -196,17 +236,17 @@ elif [ "$ACTION" = "down" ]; then
     exit 0
 elif [ "$ACTION" = "logs" ]; then
     echo "Showing logs..."
-    docker compose --project-name ${APP_NAME_LOWERCASE} logs
+    ${DOCKER_COMPOSE_CMD} --project-name ${APP_NAME_LOWERCASE} logs
     exit 0
 elif [ "$ACTION" = "logs-f" ]; then
     echo "Showing logs..."
-    docker compose --project-name ${APP_NAME_LOWERCASE} logs -f
+    ${DOCKER_COMPOSE_CMD} --project-name ${APP_NAME_LOWERCASE} logs -f
     exit 0
 elif [ "$ACTION" = "logs-f-server-client" ]; then
     echo "Showing logs..."
-    docker compose --project-name ${APP_NAME_LOWERCASE} logs -f fastapitemplate-server fastapitemplate-client
+    ${DOCKER_COMPOSE_CMD} --project-name ${APP_NAME_LOWERCASE} logs -f fynapp-server fynapp-client
     exit 0
 else
-    echo "Error: Invalid action specified"
+    echo "Error: Invalid action specified: $ACTION"
     exit 1
 fi

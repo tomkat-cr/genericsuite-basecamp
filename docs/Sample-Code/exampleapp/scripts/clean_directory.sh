@@ -45,7 +45,7 @@ clean_directory() {
         echo "debug: ${debug}"
         echo ""
         echo "Directories to remove:"
-        find "${directory_path_to_clean}" -type d \( -name "node_modules" -o -name "dist" -o -name "build" -o -name ".turbo" -o -name "logs" -o -name "__pycache__" -o -name "venv" -o -name ".DS_Store" \) -exec bash -c 'show_dir "$0"' {} \;
+        find "${directory_path_to_clean}" -type d \( -name "node_modules" -o -name "dist" -o -name "build" -o -name ".turbo" -o -name "logs" -o -name "__pycache__" -o -name "venv" -o -name ".venv" -o -name ".DS_Store" \) -exec bash -c 'show_dir "$0"' {} \;
         echo ""
         echo "Files to remove:"
         find "${directory_path_to_clean}" -type f \( -name ".DS_Store" \) -exec bash -c 'show_file "$0"' {} \;
@@ -60,7 +60,7 @@ clean_directory() {
     fi
     echo ""
     echo "Removing directories..."
-    find "${directory_path_to_clean}" -type d \( -name "node_modules" -o -name "dist" -o -name "build" -o -name ".turbo" -o -name "logs" -o -name "__pycache__" -o -name "venv" -o -name ".DS_Store" \) -exec bash -c 'remove_item "$0"' {} \;
+    find "${directory_path_to_clean}" -type d \( -name "node_modules" -o -name "dist" -o -name "build" -o -name ".turbo" -o -name "logs" -o -name "__pycache__" -o -name "venv" -o -name ".venv" -o -name ".DS_Store" \) -exec bash -c 'remove_item "$0"' {} \;
     echo ""
     echo "Removing files..."
     find "${directory_path_to_clean}" -type f \( -name ".DS_Store" \) -exec bash -c 'remove_item "$0"' {} \;

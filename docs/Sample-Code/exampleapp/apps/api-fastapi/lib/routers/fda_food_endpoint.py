@@ -9,7 +9,7 @@ from fastapi.security import HTTPBasic
 from genericsuite.fastapilib.framework_abstraction import (
     BlueprintOne,
 )
-# from genericsuite.util.app_logger import log_debug
+from genericsuite.util.app_logger import log_debug
 
 from genericsuite.fastapilib.util.dependencies import (
     get_current_user,
@@ -29,7 +29,7 @@ router = BlueprintOne()
 security = HTTPBasic()
 
 
-@router.post('/', tags='fda_food_endpoint')
+@router.post('', tags='fda')
 async def fda_food_endpoint(
     request: FaRequest,
     current_user: str = Depends(get_current_user),
@@ -42,8 +42,30 @@ async def fda_food_endpoint(
     :param other_params: Any other parameters that may be needed.
     :return: A response object containing the response data.
     """
+    # Parse JSON body
+    try:
+        # Used await request.json() to correctly parse the JSON body and
+        # passed it to the model layer via
+        # get_default_fa_request(..., json_body=params).
+        params = await request.json()
+    except Exception:
+        params = {}
+
+    food_name = params.get('food_name', '')
+    if DEBUG:
+        log_debug(f'GFFQ-1) GET_FDA_FOOD_QUERY | food_name: {food_name}' +
+                  f' | current_user: {current_user} | params: {params}')
+    if food_name == '':
+        return {
+            'error': True,
+            'error_message': 'Food name is required',
+            'status_code': 400,
+            'resultset': {}
+        }
     gs_request, other_params = get_default_fa_request(
-        current_user=current_user)
+        current_user=current_user,
+        json_body=params
+    )
     router.set_current_request(request, gs_request)
     return fda_food_endpoint_model(
         request=gs_request,

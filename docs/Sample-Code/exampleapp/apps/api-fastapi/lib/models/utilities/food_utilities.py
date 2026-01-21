@@ -34,7 +34,8 @@ class FoodUtilities:
 
         Args:
             calories_value (float): ingredient calories
-            serving_size (float): ingredient serving size for the given calories
+            serving_size (float): ingredient serving size for the given
+                calories
             quantity (float): ingredient quantity
 
         Returns:
@@ -43,7 +44,7 @@ class FoodUtilities:
         """
         return round(
             ((calories_value * quantity) /
-              serving_size)
+             serving_size)
             if serving_size > 0 else 0,
             2
         )
@@ -93,8 +94,8 @@ class FoodUtilities:
         calories_value: float,
     ):
         """
-        Calculate the ingredient quantity given the serving size, total calories
-        and calories value.
+        Calculate the ingredient quantity given the serving size, total
+        calories and calories value.
         Formula: quantity = (serving_size * total_calories) / calories_value
         """
         if calories_value > 0:
@@ -268,8 +269,9 @@ class FoodUtilities:
         perc = float(goal_code) if goal_code else -20
         result = calories + ((calories * perc) / 100)
         if DEBUG:
-            log_debug(f"apply_goal: calories={calories}, goal_code={goal_code}," +
-                  f" perc={perc}, result={result}")
+            log_debug(f"apply_goal: calories={calories},"
+                      f" goal_code={goal_code}, "
+                      f" perc={perc}, result={result}")
         return result
 
     def interpret_string(self, text: str) -> int:

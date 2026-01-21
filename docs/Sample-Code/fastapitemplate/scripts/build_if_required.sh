@@ -33,6 +33,7 @@ for dir in "${DIRS_TO_CHECK[@]}"; do
 done
 echo "RUN_INSTALL: $RUN_INSTALL"
 if [ "$RUN_INSTALL" = "true" ]; then
+    make install
     if [ "$ONLY_ONE_INSTALL" = "true" ]; then
         echo ""
         echo "Installing dependencies for all workspaces"

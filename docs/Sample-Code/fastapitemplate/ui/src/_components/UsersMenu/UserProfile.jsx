@@ -29,6 +29,7 @@ const UsersDbListPreRead = gs.UsersDbListPreRead;
 const UsersDbPreWrite = gs.UsersDbPreWrite;
 const UsersValidations = gs.UsersValidations;
 const UsersPasswordValidations = gs.UsersPasswordValidations;
+const UsersApiKey = gs.UsersApiKey;
 
 export function UsersProfile_EditorData() {
     const registry = {
@@ -44,6 +45,7 @@ export function UsersProfile_EditorData() {
         "UsersDbPreWrite": UsersDbPreWrite,
         "UsersValidations": UsersValidations,
         "UsersPasswordValidations": UsersPasswordValidations,
+        "UsersApiKey": UsersApiKey,
     }
     return GetFormData(users_profile, registry, 'UserProfileEditor');
 }

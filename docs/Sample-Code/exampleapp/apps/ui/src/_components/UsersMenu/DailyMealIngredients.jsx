@@ -82,7 +82,6 @@ export const CalorieTotalSaveDbPostWrite = ({
             console_debug_log("CalorieTotalSaveDbPostWrite - editor.parentData");
             console_debug_log(editor.parentData);
         }
-        // const daily_meal_id = editor.parentData["id"]
         const parentId = editor.parentData[editor.endpointKeyNames[0].parentElementName];
         let childFilter = {};
         childFilter[editor.endpointKeyNames[0].parameterName] = parentId;
@@ -91,21 +90,17 @@ export const CalorieTotalSaveDbPostWrite = ({
             case ACTION_UPDATE:
             case ACTION_DELETE:
                 const db = new dbApiService({ url: editor.parentUrl });
-                // db.getOne({id: daily_meal_id}).then( 
                 db.getOne({ id: parentId }).then(
                     data => {
                         if (!data['resultset']) {
                             resp.error = true;
                             resp.errorMsg = (resp.errorMsg === '' ? '' : '<BR/>') +
-                                // `Cannot read Parent Table ID: ${daily_meal_id}`;
                                 `Cannot read Parent Table ID: ${parentId}`;
                         }
                         if (resp.error) {
                             reject(resp);
                         } else {
-                            // const db2 = new dbApiService({ url: `daily_meal_ingredients` });
                             const db2 = new dbApiService({ url: editor.dbApiUrl });
-                            // db2.getAll({daily_meal_id: daily_meal_id}).then( 
                             db2.getAll(childFilter).then(
                                 data2 => {
                                     total_calories = data2['resultset'].reduce((total, row) => {
@@ -123,10 +118,9 @@ export const CalorieTotalSaveDbPostWrite = ({
                                         console_debug_log("CalorieTotalSaveDbPostWrite - itemToSave:");
                                         console_debug_log(itemToSave);
                                     }
-                                    // db.updateRow(daily_meal_id, itemToSave).then(
+                                    // To refresh parent component and show the new calorie total
                                     db.updateRow(parentId, itemToSave).then(
                                         _ => {
-                                            // To refresh parent component and show the new calorie total
                                             resp['otherData']['refresh'] = true;
                                             if (debug) {
                                                 console_debug_log(`CalorieTotalSaveDbPostWrite | resp:`, resp);

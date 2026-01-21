@@ -11,7 +11,7 @@ fastapitemplate/config_dbdef/
 |   ├── app_main_menu.json                      # App main menu configuration
 |   ├── endpoints.json                          # App backend API endpoints configuration
 |   ├── general_config.json                     # App dynamic configuration parameters
-|   ├── user_api_keys.json                      # User's API keys
+|   ├── users_api_keys.json                     # User's API keys
 |   ├── users_config.json                       # User's configuration parameters
 |   ├── users_profile.json                      # User's profile page
 |   ├── users.json                              # Users
@@ -21,7 +21,7 @@ fastapitemplate/config_dbdef/
 |   ├── app_constants.json                      # App general constants (billing plans, units, types, codes, gender, emails, urls, etc.)
 |   ├── general_config.json                     # App dynamic configuration parameters
 |   ├── general_constants.json                  # App general constants (true/false, yes/no, languages, genders, etc.)
-|   ├── user_api_keys.json                      # User's API keys
+|   ├── users_api_keys.json                     # User's API keys
 |   ├── users_config.json                       # User's configuration parameters
 |   ├── users_profile.json                      # User's profile page
 |   ├── users.json                              # Users

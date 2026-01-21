@@ -1,7 +1,12 @@
 #!/bin/bash
 # deploy/docker_images/build_docker_images.sh
 
-echo "Building Docker image for GenericSuite CodeGen..."
+if [ -z "${DOCKER_CMD}" ];then
+    echo "Error: missing DOCKER_CMD"
+    exit 1
+fi
+
+echo "Building ${DOCKER_CMD} image for GenericSuite CodeGen..."
 
 # Synchronize dependencies from pyproject.toml files to Dockerfile
 echo "Synchronizing dependencies from pyproject.toml files..."
@@ -21,20 +26,20 @@ build_image() {
     local dockerfile=$2
     local src_path=$3
 
-    echo "Building Docker image: $image_name"
+    echo "Building ${DOCKER_CMD} image: $image_name"
     pwd
-    docker build -t "$image_name" -f "$dockerfile" "$src_path"
+    ${DOCKER_CMD} build -t "$image_name" -f "$dockerfile" "$src_path"
 
     if [ $? -eq 0 ]; then
-        echo "Docker image built successfully: $image_name"
+        echo "${DOCKER_CMD} image built successfully: $image_name"
     else
-        echo "Error building Docker image: $image_name"
+        echo "Error building ${DOCKER_CMD} image: $image_name"
         exit 1
     fi
 }
 
 # Build the base image
-build_image "fastapitemplate_python" "Dockerfile-Python" "."
+build_image "fynapp_python" "Dockerfile-Python" "."
 
 # Build the MongoDB Atlas image
-build_image "fastapitemplate_mongo_db_atlas" "Dockerfile-MongoDb-Atlas" "."
+build_image "fynapp_mongo_db_atlas" "Dockerfile-MongoDb-Atlas" "."
