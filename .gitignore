@@ -274,6 +274,7 @@ venv.bak/
 
 # mkdocs documentation
 /site
+/docs_for_ftp
 
 # mypy
 .mypy_cache/

@@ -64,9 +64,18 @@ echo ""
 echo "Cleaning up directories..."
 echo ""
 # Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories under "docs/Sample-Code/exampleapp" and sub-directories.
-if ! sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh "${EXAMPLEAPP_DIRECTORY_PATH}" "false" "${DEBUG}"
+if ! bash ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh "${EXAMPLEAPP_DIRECTORY_PATH}" "false" "${DEBUG}"
 then
-    echo "ERROR: 'sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${EXAMPLEAPP_DIRECTORY_PATH}\" \"false\" \"${DEBUG}\"' failed"
+    echo "ERROR: 'bash ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${EXAMPLEAPP_DIRECTORY_PATH}\" \"false\" \"${DEBUG}\"' failed"
+    exit 1
+fi
+
+echo ""
+echo "Preparing docs..."
+echo ""
+if ! bash scripts/run_docs_prepare.sh
+then
+    echo "ERROR: 'bash scripts/run_docs_prepare.sh' failed"
     exit 1
 fi
 

@@ -5,6 +5,9 @@ copyright: Copyright &copy; 2024-PRESENT <a href="https://www.carlosjramirez.com
 repo_url: https://github.com/tomkat-cr/genericsuite-basecamp
 repo_name: tomkat-cr/genericsuite
 
+docs_dir: docs_for_ftp
+site_dir: site
+
 nav:
   - 'Introduction': './index.md'
   - 'Repositories': './repositories.md'
@@ -97,13 +100,13 @@ exclude_docs: |
   Sample-Code/exampleapp/apps/ui/index.html
 
 watch:
-  - docs
-  - docs/Backend-Development
-  - docs/Configuration-Guide
-  - docs/documents
-  - docs/Frontend-Development
-  - docs/images
-  - docs/Other
-  - docs/Releases
-  - docs/Sample-Code
-  - docs/stylesheets
+  - docs/index.md
+  - docs/Backend-Development/
+  - docs/Configuration-Guide/
+  - docs/documents/
+  - docs/Frontend-Development/
+  - docs/images/
+  - docs/Other/
+  - docs/Releases/
+  - docs/Sample-Code/
+  - docs/stylesheets/

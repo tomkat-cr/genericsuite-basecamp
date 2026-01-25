@@ -18,7 +18,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [Unreleased] - YYYY-MM-DD
+## [1.4.0] - 2026-01-21
 
 ### Added
 - FastAPI Template app [GS-243].
@@ -43,6 +43,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - How to stablish 1-to-many relationships between tables documentation [GS-172].
 - Api Keys to User Profile on exampleapp and fastapitemplate [GS-251].
 - Privacy policy [GS-252].
+- Introduce documentation preparation scripts, to reduce the FTP transfer time [GS-252].
 
 ### Changed
 - Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.
@@ -81,6 +82,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - APP_VERSION removed from CORE_ENVS in "aws_secrets/aws_secrets_manager.sh" separated from the rest of the environment variables that are pushed to AWS Secrets Manager and included in the AWS Lambda Function CloudFormation template "aws_big_lambda/template-sam.yml".
 - Rename "CONTAINER_ENGINE" to "CONTAINERS_ENGINE" in .env.example files [GS-252].
 - Fix: add ".venv" to the clean bash scripts.
+- Reduce the FTP transfer time by build a temporary directory "docs_for_ftp", copying there only the necessary files and use it as a source for MkDocs. 
 
 ### Security
 - Update "urllib3" to "^2.6.2" in main requirements.txt to fix security vulnerabilities [GS-219]:
@@ -90,6 +92,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 - AWS_API_GATEWAY_STAGE envvar removed from all .env.example files.
 - boto3 and pymongo dependencies, so each project can have its own dependencies depending on the selected database and cloud storage provider [GS-245].
+- Unused generic API endpoints from OpenAPI specification.
 
 
 ## [1.3.2] - 2025-11-19
