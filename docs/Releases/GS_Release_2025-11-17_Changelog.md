@@ -385,10 +385,15 @@ Highlights
 ### Pull Request and Tag
 
 * Pull Request: 
-  - https://github.com/tomkat-cr/genericsuite-basecamp/pull/10
-  - https://github.com/tomkat-cr/genericsuite-basecamp/pull/11
-  - https://github.com/tomkat-cr/genericsuite-basecamp/pull/12
-* Tag: https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.3.0
+    - https://github.com/tomkat-cr/genericsuite-basecamp/pull/10
+    - https://github.com/tomkat-cr/genericsuite-basecamp/pull/11
+    - https://github.com/tomkat-cr/genericsuite-basecamp/pull/12
+    - https://github.com/tomkat-cr/genericsuite-basecamp/pull/13
+    - https://github.com/tomkat-cr/genericsuite-basecamp/pull/14
+* Tags:
+    - https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.3.0
+    - https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.3.1
+    - https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.3.2
 
 ### Pull Request Overview (Summary)
 
@@ -423,6 +428,34 @@ Highlights
 * Security Improvements: Key security enhancements have been implemented, such as updating critical package dependencies (e.g., turbo, dotenv, GS BE Core/AI libraries) and disabling the 'X-Powered-By' header in the UI to prevent exposure of framework information.
 
 ### CHANGELOG.md
+
+#### [1.3.2] - 2025-11-19
+
+##### Added
+- New "lsof" command to Makefile for listing open TCP ports.
+
+##### Changed
+- Update "build_if_required.sh" to use "make install" instead of npm commands.
+- Enhance "clean_directory.sh" to also find and remove ".log" files for removal.
+- Update ExampleApp "README.md" file to add MCP Server section and improve documentation.
+
+##### Fixed
+- Fix the "build_if_required.sh" script failure to install and build all ExampleApp apps if any of them does not have node_modules directory.
+
+#### [1.3.1] - 2025-11-19
+
+##### Added
+- Release note for the MCP Server Edition (2025-11-17) [GS-230].
+- Enhance main documentation index with a new Release Notes section [GS-230].
+- Add detailed directory structure in genericsuite-configs README [GS-230].
+
+##### Changed
+- Update dependencies in requirements.txt and package-lock.json to latest versions, including backrefs, certifi, and turbo [GS-230].
+
+##### Fixed
+- Fix the "npm error code ERR_INVALID_ARG_TYPE npm error The 'from' argument must be of type string. Received undefined" on "make exampleapp-install-all" and "make exampleapp-update-all" commands [GS-230].
+- Fix the "docs/Sample-Code/exampleapp/apps/ui/public/static not found" error on "make publish" command [GS-230].
+- Fix minor formatting issues in JSON files and scripts [GS-230].
 
 #### [1.3.0] - 2025-11-17
 

@@ -46,7 +46,7 @@ The application is structured as a monorepo using [TurboRepo](https://turborepo.
 - uv, pipenv, or poetry for Python dependency management
 - pnpm for Node.js package management
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 ### Software
 
@@ -54,7 +54,7 @@ The application is structured as a monorepo using [TurboRepo](https://turborepo.
 - [Node.js](https://nodejs.org/en/download/package-manager) version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install (version specified in `.nvmrc`).
 - [pnpm](https://pnpm.io/installation) (version 10.12.4 or compatible)
 - [Make](https://formulae.brew.sh/formula/make): [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
-- [Python](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably) version >= 3.10 and < 4.0 (version specified in `.python-version` files and installable with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably)
+- [Python](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably) version >= 3.10 and < 4.0 (install with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably. Versions specified in `.python-version` files)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/), [pipenv](https://pipenv.pypa.io/en/latest/), or [poetry](https://python-poetry.org/docs/) (for Python dependency management)
 
 ### Services
@@ -88,7 +88,7 @@ cd genericsuite-basecamp
 
 2. Install dependencies:
 
-Install git, pnpm, make, python, and other dependencies as specified in the [Prerequisites](#-prerequisites) section.
+Install git, pnpm, make, python, and other dependencies as specified in the [Prerequisites](#prerequisites) section.
 
 ### Configuration
 
@@ -134,9 +134,9 @@ make exampleapp-create-ssl-certs
 **Note:** If `RUN_PROTOCOL` variable is changed, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
 5. Use "webpack": by default the application will use "vite", if you want to use "webpack":
-    - Uncomment the line `RUN_METHOD="webpack"` in the `apps/ui/.env`.
+    - Uncomment the line `RUN_BUNDLER="webpack"` in the `apps/ui/.env`.
     
-**Note:** If `RUN_METHOD` variable is changed, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
+**Note:** If `RUN_BUNDLER` variable is changed, press Ctrl-C to stop the development servers and run `make exampleapp-run` again.
 
 ## 🏃‍♂️ Running the Application
 

@@ -9,7 +9,6 @@ import {
 } from '../Health/MinimumDailyCalories.jsx';
 
 const getUserData = gs.authenticationService.getUserData;
-// const authenticationService = gs.authenticationService.authenticationService;
 
 const useUser = gs.UserContext.useUser;
 const MainSectionContext = gs.genericEditorRfcProvider.MainSectionContext;
@@ -78,7 +77,7 @@ export const getUserDataOrCache = (
         setUserData(getCachedData(userDataCacheName));
     } else {
         // getUserData(currentUserValue.id).then( 
-        getUserData(currentUser.id).then( 
+        getUserData(currentUser.id).then(
             data => {
                 const preparedData = prepareUserDataForMDC(data.resultset);
                 putCachedData(userDataCacheName, preparedData);
@@ -91,22 +90,22 @@ export const getUserDataOrCache = (
     }
 }
 
-export const UserDailyCaloriesAndCondition = ( {
+export const UserDailyCaloriesAndCondition = ({
     value,
     name,
     className = '',
     showAsField = '0',
-} ) => {
+}) => {
     const {
         getCachedData,
         putCachedData,
         typeofCachedData,
     } = useContext(MainSectionContext);
     const { currentUser } = useUser();
-    
+
     const [userData, setUserData] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
-    
+
     useEffect(() => {
         if (typeofCachedData(userDataCacheName) !== 'undefined') {
             setUserData(getCachedData(userDataCacheName));
@@ -176,10 +175,10 @@ export const UserDailyCaloriesAndCondition = ( {
 
 }
 
-export const UserMinimumDailyCalories = ( {
+export const UserMinimumDailyCalories = ({
     className,
     showAsField = '1',
-} ) => {
+}) => {
     const {
         getCachedData,
         putCachedData,
@@ -188,7 +187,7 @@ export const UserMinimumDailyCalories = ( {
     const { currentUser } = useUser();
     const [userData, setUserData] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
-    
+
     useEffect(() => {
         if (debug) console_debug_log("UserMinimumDailyCalories | calls getUserDataOrCache()");
         getUserDataOrCache(
@@ -201,7 +200,7 @@ export const UserMinimumDailyCalories = ( {
             setErrorMsg,
         );
     }, [typeofCachedData, getCachedData, putCachedData, currentUser]);
-    
+
     if (debug) {
         console_debug_log(
             "UserMinimumDailyCalories | userData:", userData,
@@ -233,7 +232,7 @@ export const UserMinimumDailyCalories = ( {
         console_debug_log("UserMinimumDailyCalories | SHOWING MinimumDailyCalories...");
     }
 
-    let userDataToSend = {...userData};
+    let userDataToSend = { ...userData };
     const goalCodeElement = document.getElementById('goal_code');
     if (goalCodeElement) {
         userDataToSend["goal_code"] = goalCodeElement.value;

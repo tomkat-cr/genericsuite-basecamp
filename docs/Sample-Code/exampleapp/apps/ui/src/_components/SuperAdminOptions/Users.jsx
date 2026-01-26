@@ -19,7 +19,6 @@ const GenericCrudEditor = gs.genericEditorRfcService.GenericCrudEditor;
 const genericFuncArrayDefaultValue = gs.genericEditorRfcSpecificFunc.genericFuncArrayDefaultValue;
 const GetFormData = gs.genericEditorRfcService.GetFormData;
 const dbApiService = gs.dbService.dbApiService;
-const authenticationService = gs.authenticationService.authenticationService;
 const console_debug_log = gs.loggingService.console_debug_log;
 const processDateToTimestamp = gs.dateTimestamp.processDateToTimestamp;
 
@@ -37,13 +36,13 @@ const LANGUAGES = gs.generalConstants.LANGUAGES;
 
 const debug = true;
 
-export function Users_EditorData(calleeName='Users_EditorData') {
+export function Users_EditorData(calleeName = 'Users_EditorData') {
     const registry = {
-        "WEIGHT_UNITS": WEIGHT_UNITS, 
-        "HEIGHT_UNITS": HEIGHT_UNITS, 
+        "WEIGHT_UNITS": WEIGHT_UNITS,
+        "HEIGHT_UNITS": HEIGHT_UNITS,
         "GENDERS": GENDERS,
-        "GOAL_CODES": GOAL_CODES, 
-        "LANGUAGES": LANGUAGES, 
+        "GOAL_CODES": GOAL_CODES,
+        "LANGUAGES": LANGUAGES,
         "TRUE_FALSE": TRUE_FALSE,
         "BILLING_PLANS": BILLING_PLANS,
         "UserMinimumDailyCalories": UserMinimumDailyCalories,
@@ -86,7 +85,7 @@ export const UsersDbPostWrite = (data, editor, action) => {
         if (debug) {
             console_debug_log('UsersDbPostWrite - parentId: ' + String(parentId) + ' | data:', data);
         }
-        switch(action) {
+        switch (action) {
             case ACTION_CREATE:
             case ACTION_UPDATE:
                 const db = new dbApiService({ url: 'users_user_history' });

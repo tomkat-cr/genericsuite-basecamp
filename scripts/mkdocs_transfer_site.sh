@@ -12,7 +12,7 @@
 
 set -o allexport; . .env ; set +o allexport ;
 
-FAKE_PASSWORD=$(echo ${REMOTE_PASSWORD} | perl -i -pe's/./*/g')
+MASKED_PASSWORD=$(echo ${REMOTE_PASSWORD} | perl -i -pe's/./*/g')
 
 echo ""
 echo "MKDOCS TRANSFER"
@@ -21,7 +21,7 @@ echo "Source directory path: ${SOURCE_DIRECTORY_PATH}"
 echo ""
 echo "Remote host: ${REMOTE_HOST}"
 echo "Remote username: ${REMOTE_USERNAME}"
-echo "Remote password: ${FAKE_PASSWORD}"
+echo "Remote password: ${MASKED_PASSWORD}"
 echo "Remote directory path: ${REMOTE_DIRECTORY_PATH}"
 echo ""
 
@@ -57,21 +57,26 @@ if [ "${EXAMPLEAPP_DIRECTORY_PATH}" = "" ]; then
     EXAMPLEAPP_DIRECTORY_PATH="${DOCS_DIRECTORY_PATH}/Sample-Code/exampleapp"
 fi
 if [ "${DEBUG}" = "" ]; then
-    DEBUG="true"
+    DEBUG="false"
 fi
 
 echo ""
 echo "Cleaning up directories..."
 echo ""
 # Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories under "docs/Sample-Code/exampleapp" and sub-directories.
-if ! sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh "${EXAMPLEAPP_DIRECTORY_PATH}" "false" "${DEBUG}"
+if ! bash ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh "${EXAMPLEAPP_DIRECTORY_PATH}" "false" "${DEBUG}"
 then
-    echo "ERROR: 'sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${EXAMPLEAPP_DIRECTORY_PATH}\" \"false\" \"${DEBUG}\"' failed"
+    echo "ERROR: 'bash ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${EXAMPLEAPP_DIRECTORY_PATH}\" \"false\" \"${DEBUG}\"' failed"
     exit 1
 fi
-if ! rm -rf ./docs/Sample-Code/exampleapp/apps/ui/public/static
+
+echo ""
+echo "Preparing docs..."
+echo ""
+if ! bash scripts/run_docs_prepare.sh
 then
-    echo "ERROR: 'Symlink ./docs/Sample-Code/exampleapp/apps/ui/public/static' does not exist Skipping..."
+    echo "ERROR: 'bash scripts/run_docs_prepare.sh' failed"
+    exit 1
 fi
 
 echo ""

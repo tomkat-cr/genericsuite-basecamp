@@ -1,13 +1,19 @@
 # GenericSuite App Creation and Configuration guide
-<img 
+
+![gs_logo_circle.png](../../images/gs_logo_circle.png)
+<!-- <img 
     align="right"
     width="100"
     height="100"
     src="../images/gs_logo_circle.svg"
     title="GenericSuite logo by Carlos J. Ramirez"
-/>
+/> -->
 
 This documentation shows how to create the App frontend/backend configurations and data structures.
+
+## Generic CRUD Editor Configuration
+
+Follow the instructions to build the `.json` files in the [Generic CRUD Editor Configuration Documentation](./Generic-CRUD-Editor-Configuration.md).
 
 ## Example App
 
@@ -27,7 +33,9 @@ In the GenericSuite context there's a third element, the "Configuration director
 
 ## Configuration directory
 
-Here's where the App configuration lives. The suggested structure is:
+The Configuration directory stores the App configuration, allowing to define table structures, input forms, menu structure, security configuration, configuration parameters, etc.
+
+The suggested structure is:
 
 ```
 src/configs
@@ -125,7 +133,7 @@ git clone https://github.com/tomkat-cr/exampleapp_configs.git
 
 ### Define git submodule parameters
 
-* Define the `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` parametes in the frontend [.env](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example) file.
+* Define the `GIT_SUBMODULE_LOCAL_PATH_FRONTEND` and `GIT_SUBMODULE_URL` parametes in the frontend [.env](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example) file.
 
 * Define the `GIT_SUBMODULE_LOCAL_PATH` and `GIT_SUBMODULE_URL` parametes in the backend [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) file.
 
@@ -164,9 +172,56 @@ git commit -m "Initial JSON config files"
 git push
 ```
 
-## Build the .json files
+## How to create database tables
 
-Follow the instructions to build the .json files [here](./Generic-CRUD-Editor-Configuration.md).
+To create a new database table, there must be a `.json` file in the `backend/` directory with the table definition (e.g. `table_name`, `mandatory_fields`, `projection_exclusion`, `email_verification`, `passwords`,  `additional_query_params`, etc, and the backend specific functions `specific_function`), and a `.json` file in the `frontend/` directory with the table structure (e.g. with columns/attributes defined in `fieldElements`).
+
+For example, the **users** table has the following files:
+
+* [backend/users.json](../Sample-Code/genericsuite-configs/backend/users.json)
+* [frontend/users.json](../Sample-Code/genericsuite-configs/frontend/users.json)
+
+The **users** table can have more than one `.json` files in the `backend/` and `frontend/` directories, each of them with different views or with additional properties (or columns) for one table.
+
+For example:
+
+1. The **user profile** has a different view than the **users** with less attributes, because it is not a form to edit the user (only admin users can edit users), but a profile view (intended for the user to see their own profile):
+
+* [backend/users_profile.json](../Sample-Code/genericsuite-configs/backend/users_profile.json)
+* [frontend/users_profile.json](../Sample-Code/genericsuite-configs/frontend/users_profile.json)
+
+2. To define a 1-to-many relationship with two tables, for example between **users** and **users_api_keys** tables:
+
+* [backend/users_api_keys.json](../Sample-Code/genericsuite-configs/backend/users_api_keys.json), where the `table_name` is "users_api_keys" defining the related table physical table name in the database
+* [frontend/users_api_keys.json](../Sample-Code/genericsuite-configs/frontend/users_api_keys.json), where `type` is "child_listing" (meaning it is a 1-to-many relationship), `subType` is "table" (meaning the property is another table), `endpointKeyNames` is an array with one or more objects with `parameterName` as "user_id" (the parameter to be send to the backend to retrieve the child table items), and `parentElementName` as "user_id" (the name of the parent table property value to establish the relationship with the child table)
+
+3. To define a 1-to-many relationship in the same table, for example the **users** table with an array-type property (or JSON-type column) called `users_config`:
+
+* [backend/users_config.json](../Sample-Code/genericsuite-configs/backend/users_config.json), where the `table_name` is "users" defining the parent table physical table name in the database
+* [frontend/users_config.json](../Sample-Code/genericsuite-configs/frontend/users_config.json), where `type` is "child_listing" (meaning it is a 1-to-many relationship), `subType` is "array" (meaning the property is an array in the table), `array_name` is "users_config" (the name of the array property), `primaryKeyName` is "id" (the primary key of the array table), `parentUrl` is "users" (the endpoint name to retrieve the parent table item -or row-), `endpointKeyNames` has: `parameterName` as "user_id" (the parameter to be send to the backend to retrieve the parent table item), and `parentElementName` as "id" (the name of the parent table primary key)
+
+Follow the instructions to build the `.json` files in the [Generic CRUD Editor Configuration Documentation](./Generic-CRUD-Editor Configuration.md).
+
+## How to create forms
+
+Forms share the same frontend and backend `.json` files as the database tables, giving the ability to create forms with different views.
+
+For each form there should be a pair of files: one for the frontend and one for the backend.
+
+To create a new form, there should be a `.json` file in the `frontend/` directory with the form structure (e.g. with input fields defined in `fieldElements`, and the form attributes in `baseUrl`, `title`, `name`, `component`, `dbApiUrl`, 1-to-many relationships in `childComponents`, specific functions in `dbListPreRead`, `dbPreWrite`, `dbPreValidations`, `validations`, etc), and a `.json` file in the `backend/` directory with the table used by the form (to specify the `table_name`).
+
+For example, the `users` table may have a form to edit the user, and another form to edit the user profile:
+
+* [frontend/users.json](../Sample-Code/genericsuite-configs/frontend/users.json)
+* [backend/users.json](../Sample-Code/genericsuite-configs/backend/users.json)
+* [frontend/users_profile.json](../Sample-Code/genericsuite-configs/frontend/users_profile.json)
+* [backend/users_profile.json](../Sample-Code/genericsuite-configs/backend/users_profile.json)
+
+Follow the instructions to build the `.json` files in the [Generic CRUD Editor Configuration Documentation](./Generic-CRUD-Editor-Configuration.md).
+
+## How to build the JSON configuration files
+
+Follow the instructions to build the JSON configuration files in the [Generic CRUD Editor Configuration Documentation](./Generic-CRUD-Editor-Configuration.md).
 
 
 ## App frontend
@@ -360,22 +415,19 @@ export const AppFooter = () => {
 
    Define the Home Page content.
 ```js
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import * as gs from "genericsuite";
-const authenticationService = gs.authenticationService.authenticationService;
+
+const useUser = gs.UserContext.useUser;
+
 export const HomePage = () => {
-    // Get the current logged user data
-    const [currentUser, setCurrentUser] = useState(authenticationService.currentUserValue);
-    useEffect(() => {
-        const subscription = authenticationService.currentUser.subscribe(
-            x => setCurrentUser(x)
-        );
-        return () => subscription.unsubscribe();
-    }, []);
+    const { currentUser } = useUser();
     return (
         <gs.HomePage>
-            <h1>Hi {currentUser.firstName}!</h1>
-            <OtherComponents ... />
+            <>
+                <h2>Hi {currentUser.firstName}!</h2>
+                <p>Here you can add your custom content, widgets or other components for the Home Page</p>
+            </>
         </gs.HomePage>
     );
 }
@@ -657,7 +709,7 @@ Will have the child component configuration for both backend and frontend.<br/>
     "subType": "array",
     "array_name": "child_array",
     "parentUrl": "example_table",
-    "parentKeyNames": [
+    "endpointKeyNames": [
         {
             "parameterName": "child_id",
             "parentElementName": "id"

@@ -1,9 +1,7 @@
 import React from 'react';
-// import { useState, useEffect } from 'react';
 
 import * as gs from "genericsuite";
 
-// const authenticationService = gs.authenticationService.authenticationService;
 const useUser = gs.UserContext.useUser;
 const console_debug_log = gs.loggingService.console_debug_log;
 

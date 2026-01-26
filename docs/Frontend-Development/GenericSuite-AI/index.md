@@ -1,12 +1,13 @@
 # GenericSuite AI for ReactJS
 
-<img 
+![gs_ai_logo_circle.png](../../images/gs_ai_logo_circle.png)
+<!-- <img 
     align="right"
     width="100"
     height="100"
     src="../../images/gs_ai_logo_circle.svg"
     title="GenericSuite AI logo by Carlos J. Ramirez"
-/>
+/> -->
 
 GenericSuite AI (frontend version) has AI ChatBot tools, a customizable CRUD editor, login interface and a suite of tools to kickstart your AI App development process.
 
@@ -35,7 +36,7 @@ To get started with GenericSuite AI, follow these simple steps:
 
 ### Create Git repositories
 
-Same steps described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#create-git-repositories) `Getting started > Create Git repositories` section.
+Same steps described in [GenericSuite for ReactJS (frontend version)](../GenericSuite-Core/index.md#create-the-git-repositories) `Getting started > Create Git repositories` section.
 
 ### Initiate your project
 

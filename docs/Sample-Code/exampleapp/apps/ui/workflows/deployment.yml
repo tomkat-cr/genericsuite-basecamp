@@ -38,7 +38,7 @@ jobs:
           GIT_CONFIG_PARAMETERS: ${{ secrets.GIT_CONFIG_PARAMETERS }}
           GIT_SUBMODULE_UPDATE_CMD: ${{ vars.GIT_SUBMODULE_UPDATE_CMD }}
           GIT_SUBMODULE_URL: ${{ vars.GIT_SUBMODULE_URL }}
-          GIT_SUBMODULE_LOCAL_PATH: ${{ vars.GIT_SUBMODULE_LOCAL_PATH }}
+          GIT_SUBMODULE_LOCAL_PATH_FRONTEND: ${{ vars.GIT_SUBMODULE_LOCAL_PATH_FRONTEND }}
         run: |
           # GIT_CONFIG_PARAMETERS="'url.git@github.com:.insteadof=git://github.com/'"
           # GIT_SUBMODULE_UPDATE_CMD="git submodule update --init --recursive"

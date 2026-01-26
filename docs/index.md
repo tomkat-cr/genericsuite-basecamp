@@ -1,6 +1,8 @@
 # Unlock Full-Stack Power with Generic Suite (GS)
 
-<table cellpadding="0" cellspacing="0" style="border: 0px white;">
+![gs_logo_circle.png](images/gs_logo_circle.png)
+
+<!-- <table cellpadding="0" cellspacing="0" style="border: 0px white;">
     <tr>
         <td>
             <a href="./genericsuite-core/">
@@ -19,11 +21,11 @@
             </a>
         </td>
     </tr>
-</table>
+</table> -->
 
-Generic Suite (GS) is the ultimate development library designed to streamline both frontend and backend workflows, enabling rapid app development with AI-powered enhancements. Whether you're building robust APIs, scalable databases, or dynamic user interfaces, GS provides the flexibility and efficiency needed to accelerate your projects.
+Generic Suite (GS) is the ultimate development library designed to streamline frontend and backend workflows, enabling rapid app development with AI-powered enhancements. Whether you're building robust APIs, scalable databases, or dynamic user interfaces, GS provides the flexibility and efficiency needed to accelerate your projects.
 
-[Release Notes](./Releases/index.md) | [ExampleApp](./Sample-Code/exampleapp/README.md)
+[Release Notes](./Releases/index.md) | [Sample Code](./Sample-Code/index.md) | [Repositories](./repositories.md)
 
 ## Why Choose Generic Suite?
 
@@ -31,7 +33,7 @@ Generic Suite (GS) is the ultimate development library designed to streamline bo
 * AI-Driven Efficiency – Leverage built-in AI capabilities to enhance automation, generate content, and optimize software development.
 * Customizable & Scalable – Adapt the framework to your specific needs, with support for multiple programming frameworks, databases, and deployment platforms.
 * Accelerated Development Workflow – Pre-built utilities and automation tools save time, letting you focus on innovation instead of repetitive tasks.
-* Cross-Platform Compatibility – Whether you're working with FastAPI, Flask, Chalice, DynamoDB, or MongoDB, GS adapts to your tech stack effortlessly.
+* Cross-Platform Compatibility – Whether you're working with FastAPI, Flask, Chalice, MongoDB, DynamoDB, Postgres, MySQL, Supabase, GS adapts to your tech stack effortlessly.
 
 ## Key Features
 
@@ -40,7 +42,7 @@ Generic Suite (GS) is the ultimate development library designed to streamline bo
 * Customizable CRUD editor, menu generator, and login interface.
 * Generic database and API endpoint builder to eliminate redundant coding.
 * Backend framework abstraction supporting FastAPI, Flask, and Chalice.
-* Database abstraction for MongoDB and DynamoDB with a unified query syntax.
+* Database abstraction for MongoDB, DynamoDB, Postgres, MySQL, and Supabase with a unified query syntax.
 * Easy deployment with AWS and other cloud services.
 
 ### AI-Powered Development
@@ -72,9 +74,9 @@ Join the growing community of developers using Generic Suite to supercharge thei
 
 * [Why choose Generic Suite?](#why-choose-generic-suite)
 * [Key Features](#key-features)
-* [What is the Generic Suite for?](#what-is-the-genericsuite-for)
-* [The Generic Suite Core](#the-genericsuite-core)
-* [The Generic Suite AI](#the-genericsuite-ai)
+* [What is the Generic Suite for?](#what-is-the-generic-suite-for)
+* [The Generic Suite Core](#the-generic-suite-core)
+* [The Generic Suite AI](#the-generic-suite-ai)
 * [Sample Code](#sample-code)
 * [Repositories](#repositories)
 * [Releases](#releases)
@@ -91,13 +93,14 @@ The Generic Suite is a frontend and backend set of utilities made with ReactJS a
 
 It's composed by a **Generic Suite Core**, which is the core for all the suite elements, and extensions like the Generic Suite AI.
 
-<img 
+![gs_logo_circle.png](images/gs_logo_circle.png)
+<!-- <img 
     align="right"
     width="100"
     height="100"
     src="images/gs_logo_circle.svg"
     title="Generic Suite logo by Carlos J. Ramirez"
-/>
+/> -->
 
 ## The Generic Suite Core
 
@@ -106,7 +109,7 @@ Features:
 * Customizable CRUD editor, menu generator, customizable login interface, deploy to AWS and a suite of tools to kickstart your frontend development process.
 * Generic CRUD database and API endpoints: by having a core Create-Read-Update-Delete code that can be parametrized & extended, there’s no need to rewrite code for each table editor.
 * Generic menu and API endpoints builder.
-* Database abstractor: The backend can use DynamoDB or MongoDB as the persistent storage. ImplementS DynamoDB access by a MongoDB-styled syntax.
+* Database abstractor: The backend can use MongoDB, DynamoDB, Postgres, MySQL, or Supabase as the persistent storage, implementing as MongoDB-styled syntax.
 * Framework abstractor: supports various frameworks including FastAPI, Flask and Chalice, making it adaptable to a range of projects.
 * [Utilities](./Backend-Development/GenericSuite-Scripts/index.md), and [Configurations](./Configuration-Guide/index.md) necessary to build and deploy scalable and maintainable applications.
 
@@ -116,13 +119,14 @@ Packages:
 * :fontawesome-brands-python:{ .python } [GenericSuite Core (backend version) for Python](./Backend-Development/GenericSuite-Core/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
 
-<img 
+![gs_ai_logo_circle.png](images/gs_ai_logo_circle.png)
+<!-- <img 
     align="right"
     width="100"
     height="100"
     src="images/gs_ai_logo_circle.svg"
     title="Generic Suite AI logo by Carlos J. Ramirez"
-/>
+/-->
 
 ## The Generic Suite AI
 
@@ -168,7 +172,7 @@ Repository:
 
 * :fontawesome-brands-python:{ .python } [GenericSuite Agentic Software Development Team](https://github.com/tomkat-cr/genericsuite-asdt-be)
 
-### Git and Server Operations
+## Server Operations
 
 The **Generic Suite Gitops** provides the scripts and configurations needed to deploy on various platforms (local development servers, VPS) using orchestration technologies like Kubernetes, and manage artifacts and repositories with Docker and GitHub.
 
@@ -192,6 +196,10 @@ We have an [ExampleApp](./Sample-Code/exampleapp/README.md) to show you how to u
 [![ExampleApp Banner](./Sample-Code/exampleapp/assets/exampleapp_banner_01.png)](./Sample-Code/exampleapp/README.md)    
 
 [ExampleApp](./Sample-Code/exampleapp/README.md) is a full-featured example application built as a monorepo using Turborepo and pnpm. This provides a practical, real-world blueprint for developers to learn from and accelerate their own projects. There are a frontend in React and backends in Python, using the 3 main frameworks: FastAPI, Flask and Chalice.
+
+Also we have a [FastAPI Template](./Sample-Code/fastapitemplate/README.md) to help you get started with FastAPI based backends.
+
+Check the [Sample Code](./Sample-Code/index.md) section for more information.
 
 ## Releases
 
@@ -226,5 +234,9 @@ Generic Suite is open-sourced software licensed under the [ISC](https://github.c
 ## Credits
 
 This project is developed and maintained by [Carlos J. Ramirez](https://www.carlosjramirez.com). For more information or to contribute to the project, visit [GenericSuite on GitHub](https://github.com/stars/tomkat-cr/lists/genericsuite).
+
+## Privacy Policy
+
+[Click here](./privacy-policy.md) to review the privacy policy.
 
 Happy Coding!

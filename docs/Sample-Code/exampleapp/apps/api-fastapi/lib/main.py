@@ -4,7 +4,7 @@ FastAPI ExampleApp main
 # import os
 from mangum import Mangum
 
-from genericsuite.fastapilib.util.create_app import create_app
+from genericsuite_ai.fastapilib.util.create_app import create_app
 
 from lib.config.config import Config
 
@@ -31,12 +31,16 @@ app = create_app(app_name=f'{settings.APP_NAME.lower()}-backend',
                  settings=settings)
 
 # Register application specific endpoints
-app.include_router(food_moments.router, prefix='/food_moments')
 app.include_router(
-    fda_food_endpoint.router, prefix='/fda_food_query'
+    food_moments.router,
+    prefix=f'/{settings.API_VERSION}/food_moments')
+app.include_router(
+    fda_food_endpoint.router, prefix=f'/{settings.API_VERSION}/fda_food_query'
 )
 
 # Register AI endpoints
-app.include_router(ai_chatbot_endpoint.router, prefix='/ai')
+app.include_router(
+    ai_chatbot_endpoint.router,
+    prefix=f'/{settings.API_VERSION}/ai')
 
 handler = create_handler(app)

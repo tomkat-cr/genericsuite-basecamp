@@ -1,18 +1,20 @@
 # The GenericSuite for Python
-<img 
+
+![gs_logo_circle.png](../../images/gs_logo_circle.png)
+<!-- <img 
     align="right"
     width="100"
     height="100"
     src="../../images/gs_logo_circle.svg"
     title="GenericSuite logo by Carlos J. Ramirez"
-/>
+/> -->
 
 [GenericSuite (backend version)](https://github.com/tomkat-cr/genericsuite-be) is a versatile backend solution, designed to provide a comprehensive suite of features for Python APIs. It supports various frameworks including FastAPI, Flask and Chalice, making it adaptable to a range of projects. This repository contains the backend logic, utilities, and configurations necessary to build and deploy scalable and maintainable applications.
 
 ## Features
 
 - **Framework Agnostic**: Supports FastAPI, Flask, and Chalice frameworks.
-- **Database Support**: Includes abstracted database operations for both MongoDB and DynamoDB, offering flexibility in choosing the database.
+- **Database Support**: Includes abstracted database operations for MongoDB, DynamoDB, Postgres, MySQL, or Supabase, offering flexibility in choosing the database.
 - **Authentication**: Implements JWT-based authentication, providing secure access to endpoints.
 - **Dynamic Endpoint Creation**: Allows for defining endpoints dynamically through JSON configurations.
 - **Utilities**: A collection of utilities for tasks such as sending emails, parsing multipart data, handling passwords, and more.
@@ -21,7 +23,7 @@
 
 ## Pre-requisites
 
-- Python version >= 3.10 and < 4.0 (version specified in `.python-version` files and installable with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably)
+- Python version >= 3.10 and < 4.0 (install with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably. Versions specified in `.python-version` files)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 - Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
@@ -30,11 +32,45 @@
 
 ### AWS account and credentials
 
-If you plan to deploy the App in the AWS Cloud and/or use DynamoDB:
+If you plan to deploy the App in the AWS Cloud, use DynamoDB or RDS for the database:
 
 * AWS account, see [free tier](https://aws.amazon.com/free).
 * AWS Token, see [Access Keys](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials?section=IAM_credentials).
 * AWS Command-line interface, see [awscli](https://formulae.brew.sh/formula/awscli).
+
+### MongoDB
+
+If you plan to use MongoDB for the database:
+
+* Install de python package `pymongo`
+* See [Community MongoDB](https://www.mongodb.com/try/download/community) or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+
+### Postgres
+
+If you plan to use Postgres for the database:
+
+* Install de python package `psycopg2-binary`
+* See [Postgres](https://www.postgresql.org/).
+
+### Supabase
+
+If you plan to use Supabase for the database:
+
+* Install de python package `supabase`
+* Go to [Supabase](https://supabase.com/), create an account and a project.
+
+### MySQL
+
+If you plan to use MySQL for the database:
+
+* Install de python package `mysql-connector-python`
+* See [MySQL](https://www.mysql.com/).
+
+### MCP Server
+
+If you plan to develop an MCP Server:
+
+* Install python packages `mcp` and `fastmcp`
 
 ## Getting Started
 
@@ -42,32 +78,69 @@ To get started with [GenericSuite](../../index.md), follow these steps:
 
 ### Initiate your project
 
-To create the project directory for the App's backend API. E.g. `exampleapp_backend`, instrctions will depend on the dependency management of your preference:
+To create the project directory for the App's backend API. E.g. `your_app_name_backend` when you want to have separated the backend and frontend code. For a project strture as follows:
+
+```
+your_app_name_backend/
+└── src/                 # API application
+    └── config_dbdef/    # Configuration database definitions
+```
+
+Create the project directory for the App's backend API as follows:
+
+```bash
+mkdir -p your_app_name_backend/src
+cd your_app_name_backend/src
+```
+
+For a monorepo (e.g. [exampleapp](../../Sample-Code/exampleapp/README.md) and [fastapitemplate](../../Sample-Code/fastapitemplate/README.md)), you can have a directory structure as follows:
+
+```
+your_app_name/
+├── config_dbdef/                 # Configuration database definitions
+├── server/                       # Server application
+├── ui/                           # User interface
+└── mcp-server/                   # MCP server
+```
+
+Create the project directory for the App's backend API as follows:
+
+```bash
+mkdir -p your_app_name/server
+cd your_app_name/server
+```
+
+### Dependency manager setup
+
+The following instructions will depend on the dependency management of your preference:
 
 ```bash
 # Pip
-mkdir -p exampleapp_backend/exampleapp_backend
-cd exampleapp_backend
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 ```bash
-# Pipenv
-# https://docs.pipenv.org/basics/
-mkdir -p exampleapp_backend/exampleapp_backend
-cd exampleapp_backend
-pipenv install
+# Uv
+# https://docs.astral.sh/uv/getting-started
+uv init
+uv venv
 ```
 
 ```bash
 # Poetry
 # https://python-poetry.org/docs/basic-usage/
-poetry start exampleapp_backend
-cd exampleapp_backend
+poetry init
 ```
 
-## Installation
+```bash
+# Pipenv
+# https://docs.pipenv.org/basics/
+pipenv install
+pipenv shell
+```
+
+## GenericSuite installation
 
 To use [GenericSuite](../../index.md) in your project, install it with the following command(s):
 
@@ -102,10 +175,10 @@ Check [this documentation](../../Other/python-package-managers.md) to use the di
 
 ### From Git or Local Directory
 
-Check [this documentation](../../Other/special-installs.md) to install from a Git repository/branch or a Local Directory.
+Check [this documentation](../../Other/installation.md) to install from a Git repository/branch or a Local Directory.
 
 
-## Framework installation
+### Framework installation
 
 Install the desired framework: [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) or [Chalice](https://aws.github.io/chalice/quickstart.html):
 
@@ -130,14 +203,6 @@ For more information:
 * [Flask installation](https://flask.palletsprojects.com/en/2.3.x/installation/)
 * [Chalice installation](https://aws.github.io/chalice/quickstart.html)
 
-### Test dependencies
-
-To execute the unit and integration test, install `pytest` and `coverage`:
-
-```bash
-pip install pytest coverage
-```
-
 ### Development scripts installation
 
 [The GenericSuite backend development scripts](https://github.com/tomkat-cr/genericsuite-be-scripts?tab=readme-ov-file#the-genericsuite-scripts-backend-version) contains utilities to build and deploy APIs made by The GenericSuite.
@@ -146,14 +211,60 @@ pip install pytest coverage
 npm install -D genericsuite-be-scripts
 ```
 
+### Database installation
+
+Depending on the database you'll use, install the required dependencies:
+
+#### MongoDB
+```bash
+pip install pymongo
+```
+
+#### DynamoDB
+```bash
+pip install boto3
+```
+
+#### PostgreSQL
+```bash
+pip install psycopg2-binary
+```
+
+#### Supabase
+```bash
+pip install supabase
+```
+
+#### MySQL
+```bash
+pip install mysql-connector-python
+```
+
+### Cloud services
+
+Depending on the cloud service you'll use, install the required dependencies:
+
+#### AWS
+```bash
+pip install boto3
+```
+
+### Test dependencies
+
+To execute the unit and integration test, install `pytest` and `coverage`:
+
+```bash
+pip install pytest coverage
+```
+
 ## Available options
 
 1. **Select Your Framework**: Depending on your project, choose between [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) or [Chalice](https://aws.github.io/chalice/quickstart.html).
-2. **Select Your Database of choice**: Implement database operations using the provided abstracted functions for [MongoDB](https://www.mongodb.com/) and [DynamoDB](https://aws.amazon.com/pm/dynamodb/).
+2. **Select Your Database of choice**: Implement database operations using the provided abstracted functions for [MongoDB](https://www.mongodb.com/), [Postgres](https://www.postgresql.org/), [MySQL](https://www.mysql.com/), [Supabase](https://supabase.com/), and [DynamoDB](https://aws.amazon.com/pm/dynamodb/).
 3. **Included Authentication**: Your endpoints will be secured with [JWT](https://jwt.io/libraries)-based authentication.
-4. **Define Endpoints**: Utilize the dynamic endpoint creation feature by defining your endpoints in a JSON configuration file. Visit the [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs) for more information.
-5. **Define Menu Options**: Utilize the dynamic menu creation feature by defining your menu and option access security in a JSON configuration file. Visit the [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs) for guidance.
-6. **Define Table structures**: Utilize the dynamic table creation feature by defining your CRUD editors in JSON configuration files. Visit the [Generic Suite Configuration Guide](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs) for sample code and files.
+4. **Define Endpoints**: Utilize the dynamic endpoint creation feature by defining your endpoints in a JSON configuration file. Visit the [Generic Suite Configuration Guide](./../../Configuration-Guide/index.md) for more information.
+5. **Define Menu Options**: Utilize the dynamic menu creation feature by defining your menu and option access security in a JSON configuration file. Visit the [Generic Suite Configuration Guide](./../../Configuration-Guide/index.md) for guidance.
+6. **Define Table structures**: Utilize the dynamic table creation feature by defining your CRUD editors in JSON configuration files. Visit the [Generic Suite Configuration Guide](./../../Configuration-Guide/index.md) for sample code and files.
 
 ## Configuration
 
@@ -172,6 +283,11 @@ APP_DOMAIN_NAME=exampleapp.com
 * Application default language
 ```env
 DEFAULT_LANG=en
+```
+
+* API version (default to "v1")
+```env
+API_VERSION=v1
 ```
 
 * Stage and Debug flag
@@ -198,11 +314,6 @@ APP_DEBUG=0
 # Application secret key (to be used in password encryption)
 APP_SECRET_KEY=xxxx
 ```
-```env
-# Storage seed: to be used in storage URL encryption -e.g. AWS S3-
-# Generate a new one with: `make generate_seed`
-STORAGE_URL_SEED="yyyy"
-```
 
 * Application super administrator Email
 ```env
@@ -211,66 +322,161 @@ APP_SUPERADMIN_EMAIL=xxxx
 
 * Database configuration
 
-1. For AWS DynamoDB<BR/>
+1. For MongoDB<BR/>
+[https://www.mongodb.com/](https://www.mongodb.com/)
+```env
+# DEV: Docker container
+APP_DB_ENGINE_DEV=MONGODB
+APP_DB_NAME_DEV=mongo
+APP_DB_URI_DEV=mongodb://root:example@app.exampleapp.local:27017/
+```
+```env
+# QA: MongoDB Atlas
+APP_DB_ENGINE_QA=MONGODB
+APP_DB_NAME_QA=xxxx
+APP_DB_URI_QA=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+```
+```env
+# Staging: MongoDB Atlas
+APP_DB_ENGINE_STAGING=MONGODB
+APP_DB_NAME_STAGING=xxxx
+APP_DB_URI_STAGING=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+```
+```env
+# PROD: MongoDB Atlas
+APP_DB_ENGINE_PROD=MONGODB
+APP_DB_NAME_PROD=xxxx
+APP_DB_URI_PROD=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+```
+```env
+# DEMO: MongoDB Atlas
+APP_DB_ENGINE_DEMO=MONGODB
+APP_DB_NAME_DEMO=xxxx
+APP_DB_URI_DEMO=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+```
+
+2. For AWS DynamoDB<BR/>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```env
 # DEV: docker
-APP_DB_ENGINE_DEV=DYNAMO_DB
+APP_DB_ENGINE_DEV=DYNAMODB
 DYNAMDB_PREFIX_DEV=
 APP_DB_URI_DEV=http://127.0.0.1:8000
 ```
 ```env
 # QA: AWS DynamoDB
-APP_DB_ENGINE_QA=DYNAMO_DB
+APP_DB_ENGINE_QA=DYNAMODB
 DYNAMDB_PREFIX_QA=
 APP_DB_URI_QA=
 ```
 ```env
 # PROD: AWS DynamoDB
-APP_DB_ENGINE_PROD=DYNAMO_DB
+APP_DB_ENGINE_PROD=DYNAMODB
 DYNAMDB_PREFIX_PROD=
 APP_DB_URI_PROD=
 ```
 ```env
 # # DEMO: AWS DynamoDB
-# APP_DB_ENGINE_DEMO=DYNAMO_DB
+# APP_DB_ENGINE_DEMO=DYNAMODB
 # DYNAMDB_PREFIX_DEMO=
 # APP_DB_URI_DEMO=
 ```
 
 **NOTE**: set `DYNAMDB_PREFIX_*` empty and it'll be defaulted to `<APP_NAME_LOWERCASE>_<STAGE>_`.
 
-2. For MongoDB<BR/>
-[https://www.mongodb.com/](https://www.mongodb.com/)
+3. For PostgreSQL<BR/>
+[https://www.postgresql.org/](https://www.postgresql.org/)<BR/>
+[https://www.supabase.com/](https://www.supabase.com/)<BR/>
+[https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```env
-# DEV: Docker container
-APP_DB_ENGINE_DEV=MONGO_DB
-APP_DB_NAME_DEV=mongo
-APP_DB_URI_DEV=mongodb://root:example@app.exampleapp.local:27017/
+# # DEV: docker
+# APP_DB_ENGINE_DEV=POSTGRES
+# APP_DB_URI_DEV=postgresql://user:pass@localhost:5432
+# APP_DB_NAME_DEV=db
+
+# # QA:
+# APP_DB_ENGINE_QA=POSTGRES
+# APP_DB_URI_QA=postgresql://user:pass@hostname:5432
+# APP_DB_NAME_QA=db
+
+# # PROD:
+# APP_DB_ENGINE_PROD=POSTGRES
+# APP_DB_URI_PROD=postgresql://user:pass@hostname:5432
+# APP_DB_NAME_PROD=db
+
+# # DEMO:
+# APP_DB_ENGINE_DEMO=POSTGRES
+# APP_DB_URI_DEMO=postgresql://user:pass@hostname:5432
+# APP_DB_NAME_DEMO=db
 ```
+
+
+4. For Supabase<BR/>
+[https://www.supabase.com/](https://www.supabase.com/)
+
 ```env
-# QA: MongoDB Atlas
-APP_DB_ENGINE_QA=MONGO_DB
-APP_DB_NAME_QA=xxxx
-APP_DB_URI_QA=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+SUPABASE_KEY=
 ```
+
 ```env
-# Staging: MongoDB Atlas
-APP_DB_ENGINE_STAGING=MONGO_DB
-APP_DB_NAME_STAGING=xxxx
-APP_DB_URI_STAGING=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+# # DEV: docker
+# APP_DB_ENGINE_DEV=SUPABASE
+# APP_DB_URI_DEV=https://xxxx.supabase.co
+# APP_DB_NAME_DEV=db
+#
+# # QA:
+# APP_DB_ENGINE_QA=SUPABASE
+# APP_DB_URI_QA=https://xxxx.supabase.co
+# APP_DB_NAME_QA=db
+#
+# # PROD:
+# APP_DB_ENGINE_PROD=SUPABASE
+# APP_DB_URI_PROD=https://xxxx.supabase.co
+# APP_DB_NAME_PROD=db
+#
+# # DEMO:
+# APP_DB_ENGINE_DEMO=SUPABASE
+# APP_DB_URI_DEMO=https://xxxx.supabase.co
+# APP_DB_NAME_DEMO=db
 ```
+
+**NOTES**:
+- To configure Supabase with Postgres, form example on the QA environment, set:
 ```env
-# PROD: MongoDB Atlas
-APP_DB_ENGINE_PROD=MONGO_DB
-APP_DB_NAME_PROD=xxxx
-APP_DB_URI_PROD=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+APP_DB_ENGINE_QA=POSTGRES
+APP_DB_URI_QA=postgresql://postgres:[YOUR_PASSWORD]@db.[SUPABASE_SERVER_SUBDOMAIN].supabase.co:5432
+APP_DB_NAME_QA=postgres
 ```
+- `YOUR_PASSWORD` is not the supabase user password, it is a password requested when the Supabase account was created. In case you need to reset that password, go to "Database > Settings > Database password > [Reset database password]".
+- `SUPABASE_SERVER_SUBDOMAIN` is the subdomain of the Supabase server. You can find it in the "Supabase Dashboard > Connect > Connection string" option.
+- For this to work, you must purchase the **IPv4 add-on** in the Supabase dashboard, otherwise you will get a connection error:
+```
+Could not translate host name "db.xxxxxx.supabase.co" to address: Name or service not known
+```
+
+5. For MySQL<BR/>
+[https://www.mysql.com](https://www.mysql.com)
+
 ```env
-# DEMO: MongoDB Atlas
-APP_DB_ENGINE_DEMO=MONGO_DB
-APP_DB_NAME_DEMO=xxxx
-APP_DB_URI_DEMO=mongodb+srv://<user>:<password>@<cluster>.mongodb.net
+# # DEV: docker
+# APP_DB_ENGINE_DEV=MYSQL
+# APP_DB_URI_DEV=mysql://user:pass@localhost:3306
+# APP_DB_NAME_DEV=db
+#
+# # QA:
+# APP_DB_ENGINE_QA=MYSQL
+# APP_DB_URI_QA=mysql://user:pass@hostname:3306
+# APP_DB_NAME_QA=db
+#
+# # PROD:
+# APP_DB_ENGINE_PROD=MYSQL
+# APP_DB_URI_PROD=mysql://user:pass@hostname:3306
+# APP_DB_NAME_PROD=db
+#
+# # DEMO:
+# APP_DB_ENGINE_DEMO=MYSQL
+# APP_DB_URI_DEMO=mysql://user:pass@hostname:3306
+# APP_DB_NAME_DEMO=db
 ```
 
 * CORS Origin
@@ -446,18 +652,40 @@ AWS_LAMBDA_FUNCTION_ROLE_PROD=exampleapp-api_handler-role-prod
 AWS_SSL_CERTIFICATE_ARN=arn:aws:acm:AWS-REGION:AWS-ACCOUNT:certificate/AWS-CERTIFICATE-UUID
 ```
 
+* Deployment options
+
 ```env
 # AWS Deployment type
-# Available options: `lambda`, `fargate`, `ec2`. Defaults to: lambda
+# Available options: `lambda`, `ec2`, `fargate`. Defaults to: lambda
 AWS_DEPLOYMENT_TYPE=lambda
 ```
 
-* Assests URL masking external hostname
 ```env
-# For features like AI Vision, only in development environment, used by the storage URL encryption.
-# E.g. app-dev.exampleapp.com
-# Leave blank to use the same URL stored, for example in the AI Assistant conversarions.
-URL_MASK_EXTERNAL_HOSTNAME=
+# AWS Lambda Deployment type
+# Available options: `zip`, `container`. Defaults to: zip
+AWS_LAMBDA_DEPLOYMENT_TYPE=zip
+```
+
+* Storage URL encryption (to mask the AWS S3 bucket name and key)
+```env
+# Storage URL encryption
+#
+# Storage URL encryption (default to 0)
+# STORAGE_URL_ENCRYPTION=1
+#
+# Storage seed (to set storage URL encryption -e.g. AWS S3-)
+# Generate a new one with: `make generate_seed`
+# STORAGE_URL_SEED=yyy
+#
+# Development URL masking external hostname
+#   For features like AI Vision, to send the image URL masked.
+#   It's recommended to set only in development environment.
+#   E.g. URL_MASK_EXTERNAL_HOSTNAME=app-dev.exampleapp.com
+#   Leave blank to use the same URL stored -for example- in the AI Assistant conversarions.
+# URL_MASK_EXTERNAL_HOSTNAME=
+#
+# URL masking external protocol (http or https, defaults to RUN_PROTOCOL or https)
+# URL_MASK_EXTERNAL_PROTOCOL=http
 ```
 
 * SMTP Mail configuration
@@ -479,8 +707,8 @@ DOCKER_ACCOUNT=docker_account_username
 ```env
 # Container engine: used by the docker run command to run the container
 # Available options: `docker`, `podman`. Defaults to: docker
-# CONTAINER_ENGINE=docker
-# CONTAINER_ENGINE=podman
+# CONTAINERS_ENGINE=docker
+# CONTAINERS_ENGINE=podman
 
 # Open containers engine app
 # Available options: `1` to enable, `0` to disable. Defaults to: 1
@@ -488,14 +716,14 @@ DOCKER_ACCOUNT=docker_account_username
 # OPEN_CONTAINERS_ENGINE_APP=0
 ```
 
-**NOTE**: `podman` engine has some issues with the `podman composer` command. It's recommended to use `docker` engine instead.
-
 * Tests configuration
 ```env
 # Backend debug local port
 # For http (default)
 # BACKEND_DEBUG_LOCAL_PORT=5001
 # For https
+# WARNING: this port must be different than the BACKEND_LOCAL_PORT, otherwise it will throw
+# the "Port already in use" error trying to start the sls-nginx container.
 # BACKEND_DEBUG_LOCAL_PORT=5002
 
 # Testing endpoint
@@ -724,6 +952,13 @@ You can find examples about configurations and how to code an App in the [Generi
 ## Usage
 
 Check the [The GenericSuite backend development scripts](../GenericSuite-Scripts/index.md) for more details.
+
+## API Specification
+
+The API specification is available in the [FastApiTemplate/server](../../Sample-Code/fastapitemplate/server/README.md) directory:
+
+* Swagger JSON: [fastapitemplate-backend_openapi.json](../../Sample-Code/fastapitemplate/server/fastapitemplate-backend_openapi.json) 
+* Swagger YAML: [fastapitemplate-backend_openapi.yaml](../../Sample-Code/fastapitemplate/server/fastapitemplate-backend_openapi.yaml) 
 
 ## License
 

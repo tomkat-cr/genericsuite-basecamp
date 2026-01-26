@@ -49,7 +49,7 @@ dev: link build-if-required
 run: dev
 	# pnpx turbo start --force
 
-make create-ssl-certs:
+create-ssl-certs:
 	cd apps/api-chalice && make create_ssl_certs
 	cp apps/api-chalice/*.crt apps/api-fastapi
 	cp apps/api-chalice/*.key apps/api-fastapi

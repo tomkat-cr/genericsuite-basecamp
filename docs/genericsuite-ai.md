@@ -1,10 +1,11 @@
 # The GenericSuite AI
 
-<img
+![gs_ai_logo_circle.png](../images/gs_ai_logo_circle.png)
+<!-- <img
     src="../images/gs_ai_logo_circle.svg"
     style="margin-top: -50px; display: block; margin-left: auto; margin-right: auto; width: 50%;"
     title="GenericSuite AI logo by Carlos J. Ramirez"
-/>
+/> -->
 
 The **GenericSuite AI** is an extension of the [GenericSuite Core](./genericsuite-core.md) focused on AI Apps development.
 

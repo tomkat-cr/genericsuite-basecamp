@@ -14,8 +14,13 @@ For `uv`:
 # Initialize "uv" and add GenericSuite dependencies
 
 uv init
-uv add ../genericsuite-be
-uv add ../genericsuite-be-ai
+
+# NOTE: modify the pyproject.toml file to add the "name", "version", and "description" fields.
+nano pyproject.toml
+
+# Add the GenericSuite backend and AI dependencies
+
+uv add genericsuite-be genericsuite-be-ai
 
 # Add the backend framework dependencies
 
@@ -37,8 +42,13 @@ For `poetry`:
 # Initialize "poetry" and add GenericSuite dependencies
 
 poetry init
-poetry add ../genericsuite-be
-poetry add ../genericsuite-be-ai
+
+# NOTE: modify the pyproject.toml file to add the "name", "version", and "description" fields.
+nano pyproject.toml
+
+# Add the GenericSuite backend and AI dependencies
+
+poetry add genericsuite-be genericsuite-be-ai
 
 # Add the backend framework dependencies
 
@@ -126,11 +136,12 @@ coverage:
 
 format:
 	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh format
-	pycodestyle
 
 format_check:
 	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh format_check
-	pycodestyle
+
+pycodestyle:
+	bash node_modules/genericsuite-be-scripts/scripts/run_pem.sh pycodestyle
 ```
 
 4. Search for every non-implemented reference to `pipenv` in the `Makefile` file and replace it with `uv` or `poetry`. The non-implemented references are those different from: `install`, `install_dev`, `update`, `update_dev`, `locked_dev`, `locked_install`, `lock`, `requirements`, `clean_rm`, `lint`, `types`, `coverage`, `format`, `format_check`, 

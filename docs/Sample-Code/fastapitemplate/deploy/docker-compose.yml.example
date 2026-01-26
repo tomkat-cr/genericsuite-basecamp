@@ -1,0 +1,141 @@
+# deploy/docker-compose.yml
+
+services:
+  fastapitemplate-server:
+    container_name: fastapitemplate-server
+    image: fastapitemplate_python
+    command: sh -c "bash /var/scripts/server-entrypoint.sh"
+    volumes:
+      - ../server:/code/server
+      - ../mcp-server:/code/mcp-server
+      - ./server-entrypoint.sh:/var/scripts/server-entrypoint.sh
+      - ../.env:/var/scripts/.env
+    environment:
+      # Common environment variables
+      - APP_NAME=${APP_NAME}
+      - APP_DOMAIN_NAME=${APP_DOMAIN_NAME}
+      - AI_ASSISTANT_NAME=${AI_ASSISTANT_NAME}
+      - DEFAULT_LANG=${DEFAULT_LANG}
+      - APP_DEBUG=${APP_DEBUG}
+      - APP_SECRET_KEY=${APP_SECRET_KEY}
+      - APP_SUPERADMIN_EMAIL=${APP_SUPERADMIN_EMAIL}
+      - STORAGE_URL_ENCRYPTION=${STORAGE_URL_ENCRYPTION}
+      - STORAGE_URL_SEED=${STORAGE_URL_SEED}
+      - APP_STAGE=${APP_STAGE}
+      - APP_VERSION=${APP_VERSION}
+      - APP_HOST_NAME=${APP_HOST_NAME}
+      - APP_DB_ENGINE=${APP_DB_ENGINE}
+      - APP_DB_NAME=${APP_DB_NAME}
+      - APP_DB_URI=${APP_DB_URI}
+      - APP_CORS_ORIGIN=${APP_CORS_ORIGIN}
+      - RUN_PROTOCOL=${RUN_PROTOCOL}
+      - AWS_REGION=${AWS_REGION}
+      - AWS_S3_CHATBOT_ATTACHMENTS_BUCKET=${AWS_S3_CHATBOT_ATTACHMENTS_BUCKET}
+      - DYNAMDB_PREFIX=${DYNAMDB_PREFIX}
+      - CURRENT_FRAMEWORK=${CURRENT_FRAMEWORK}
+      - GIT_SUBMODULE_LOCAL_PATH=${GIT_SUBMODULE_LOCAL_PATH}
+      # Optional environment variables
+      - FLASK_APP=${FLASK_APP:-}
+      - FLASK_SECRET_KEY=${FLASK_SECRET_KEY:-}
+      - CLOUD_PROVIDER=${CLOUD_PROVIDER:-aws}
+      - GET_SECRETS_ENABLED=${GET_SECRETS_ENABLED:-0}
+      - GET_SECRETS_ENVVARS=${GET_SECRETS_ENVVARS:-0}
+      - GET_SECRETS_CRITICAL=${GET_SECRETS_CRITICAL:-0}
+      - AI_TECHNOLOGY=${AI_TECHNOLOGY:-langchain}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY:-}
+      - GOOGLE_CSE_ID=${GOOGLE_CSE_ID:-}
+      - OPENAI_MODEL=${OPENAI_MODEL:-}
+      - OPENAI_TEMPERATURE=${OPENAI_TEMPERATURE:-}
+      - LANGCHAIN_API_KEY=${LANGCHAIN_API_KEY:-}
+      - LANGCHAIN_PROJECT=${LANGCHAIN_PROJECT:-}
+      - HUGGINGFACE_API_KEY=${HUGGINGFACE_API_KEY:-}
+      - HUGGINGFACE_ENDPOINT_URL=${HUGGINGFACE_ENDPOINT_URL:-}
+      - SMTP_SERVER=${SMTP_SERVER:-}
+      - SMTP_PORT=${SMTP_PORT:-}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASSWORD=${SMTP_PASSWORD:-}
+      - SMTP_DEFAULT_SENDER=${SMTP_DEFAULT_SENDER:-}
+      # MCP Server environment variables
+      - MCP_SERVER_PORT=${MCP_SERVER_PORT:-}
+      - MCP_SERVER_HOST=${MCP_SERVER_HOST:-}
+      - MCP_TRANSPORT=${MCP_TRANSPORT:-}
+    ports: ["8000:8000", "8070:8070"]
+    networks:
+      - my_shared_network
+    restart: unless-stopped
+
+  fastapitemplate-client:
+    container_name: fastapitemplate-client
+    image: nginx:alpine
+    volumes:
+      - ../ui/dist:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    environment:
+      - REACT_APP_APP_NAME=${REACT_APP_APP_NAME}
+      - REACT_APP_URI_PREFIX=${REACT_APP_URI_PREFIX}
+      - REACT_APP_DEBUG=${REACT_APP_DEBUG}
+      - REACT_APP_API_URL=${REACT_APP_API_URL_FOR_DOCKER:-http://localhost:3000/api}
+    ports: ["3000:80", "3001:443"]
+    depends_on: [fastapitemplate-server]
+    networks:
+      - my_shared_network
+    restart: unless-stopped
+
+  fastapitemplate-mongo:
+    hostname: fastapitemplate-mongo
+    container_name: fastapitemplate-mongo-db
+
+    # https://hub.docker.com/r/mongodb/mongodb-atlas-local
+    # image: mongodb/mongodb-atlas-local
+    #        or    
+    # image: fastapitemplate_mongo_db_atlas
+    # environment:
+    #  - MONGODB_INITDB_ROOT_USERNAME=root
+    #  - MONGODB_INITDB_ROOT_PASSWORD=example
+
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+
+    restart: unless-stopped
+    # Un-comment the following lines to persist data locally
+    # (consider that MongoDB Atlas generates a lot of logs)
+    # volumes:
+    #   - ../local_mongodb_data/data:/data/db
+    #   - ../local_mongodb_data/config:/data/configdb
+    ports:
+      - 27017:27017
+    expose:
+      - 27017
+    networks:
+      - my_shared_network
+    profiles:
+      - use_local_mongodb
+
+  fastapitemplate-mongo-express:
+    container_name: fastapitemplate-mongo-express
+    image: mongo-express
+    restart: unless-stopped
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_URL=mongodb://root:example@fastapitemplate-mongo:27017/
+      - ME_CONFIG_BASICAUTH_ENABLED=true
+      - ME_CONFIG_BASICAUTH_USERNAME=mongoexpressuser
+      - ME_CONFIG_BASICAUTH_PASSWORD=mongoexpresspass
+      # 
+      # To access the MongoDB Express UI: http://localhost:8081
+      # User: mongoexpressuser
+      # Password: mongoexpresspass
+      #
+    depends_on: [fastapitemplate-mongo]
+    networks:
+      - my_shared_network
+    profiles:
+      - use_local_mongodb_express
+
+networks:
+  my_shared_network:
+    external: true

@@ -274,6 +274,7 @@ venv.bak/
 
 # mkdocs documentation
 /site
+/docs_for_ftp
 
 # mypy
 .mypy_cache/
@@ -311,21 +312,23 @@ potential_secrets.txt
 security_scan.txt
 
 # Exampleapp apps/ on basecamp
-docs/Sample-Code/exampleapp/apps/api-fastapi/lib/config_dbdef
+docs/Sample-Code/exampleapp/apps/api-chalice/lib/config_dbdef
 docs/Sample-Code/exampleapp/apps/api-flask/lib/config_dbdef
 docs/Sample-Code/exampleapp/apps/mcp-server/lib/config_dbdef
 
-docs/Sample-Code/exampleapp/apps/api-fastapi/lib/config
+docs/Sample-Code/exampleapp/apps/api-chalice/lib/config
 docs/Sample-Code/exampleapp/apps/api-flask/lib/config
 docs/Sample-Code/exampleapp/apps/mcp-server/lib/config
 
-docs/Sample-Code/exampleapp/apps/api-fastapi/lib/models
+docs/Sample-Code/exampleapp/apps/api-chalice/lib/models
 docs/Sample-Code/exampleapp/apps/api-flask/lib/models
 docs/Sample-Code/exampleapp/apps/mcp-server/lib/models
 
-docs/Sample-Code/exampleapp/apps/api-fastapi/scripts
+docs/Sample-Code/exampleapp/apps/api-chalice/scripts
 docs/Sample-Code/exampleapp/apps/api-flask/scripts
 docs/Sample-Code/exampleapp/apps/mcp-server/scripts
 
 docs/Sample-Code/exampleapp/apps/ui/public/static
 docs/Sample-Code/exampleapp/apps/mcp-server/lib
+
+docs/Sample-Code/fastapitemplate/ui/public/static

@@ -116,7 +116,7 @@
             "select_elements": "GOAL_CODES",
             "readonly": false,
             "listing": false
-        }, 
+        },
         {
             "name": "goals",
             "required": true,
@@ -124,7 +124,7 @@
             "type": "textarea",
             "readonly": false,
             "listing": false
-        }, 
+        },
         {
             "name": "language",
             "required": true,
@@ -133,7 +133,7 @@
             "select_elements": "LANGUAGES",
             "readonly": false,
             "listing": false
-        }, 
+        },
         {
             "name": "plan",
             "required": true,
@@ -143,7 +143,7 @@
             "default_value": "free",
             "readonly": true,
             "listing": true
-        }, 
+        },
         {
             "name": "status",
             "required": true,
@@ -158,13 +158,13 @@
             "required": false,
             "label": "OpenAI API Key",
             "type": "text"
-        }, 
+        },
         {
             "name": "openai_model",
             "required": false,
             "label": "OpenAI Model (defaults to gpt-4o-mini)",
             "type": "text"
-        }, 
+        },
         {
             "name": "creation_date",
             "required": true,
@@ -182,7 +182,7 @@
         {
             "name": "label1",
             "label": "PASWORD CHANGE",
-            "type": "label"
+            "type": "h2"
         },
         {
             "name": "passcode",
@@ -201,7 +201,8 @@
     ],
     "childComponents": [
         "UsersFoodTimes",
-        "UsersUserHistory"
+        "UsersUserHistory",
+        "UsersApiKey"
     ],
     "dbListPreRead": [
         "UsersDbListPreRead"

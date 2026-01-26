@@ -1,16 +1,22 @@
 site_name: The Generic Suite
 site_url: https://genericsuite.carlosjramirez.com
-copyright: Copyright &copy; 2024-2025 <a href="https://www.carlosjramirez.com">Carlos J. Ramirez</a>
+copyright: Copyright &copy; 2024-PRESENT <a href="https://www.carlosjramirez.com">Carlos J. Ramirez</a>
 
 repo_url: https://github.com/tomkat-cr/genericsuite-basecamp
 repo_name: tomkat-cr/genericsuite
 
+docs_dir: docs_for_ftp
+site_dir: site
+
 nav:
   - 'Introduction': './index.md'
-  - 'History': './history.md'
-  - 'Repositories': 'repositories.md'
-  - 'The GenericSuite Core': 'genericsuite-core.md'
-  - 'The GenericSuite AI': 'genericsuite-ai.md'
+  - 'Repositories': './repositories.md'
+  - 'Installation': './Other/installation.md'
+  - 'Configuration Guide': './Configuration-Guide/index.md'
+  - 'Sample Code': './Sample-Code/index.md'
+  - 'Releases': './Releases/index.md'
+  - 'The GenericSuite Core': './genericsuite-core.md'
+  - 'The GenericSuite AI': './genericsuite-ai.md'
   - 'Frontend Development':
     - 'GenericSuite Core': './Frontend-Development/GenericSuite-Core/index.md'
     - 'GenericSuite AI': './Frontend-Development/GenericSuite-AI/index.md'
@@ -20,12 +26,11 @@ nav:
     - 'GenericSuite AI': './Backend-Development/GenericSuite-AI/index.md'
     - 'Backend Scripts': './Backend-Development/GenericSuite-Scripts/index.md'
     - 'Deployment': './Backend-Development/deployment.md'
-  - 'Configuration Guide': './Configuration-Guide/index.md'
-  # - 'Sample Code':
   - 'Other':
-    - 'Releases': './Releases/index.md'
-    - 'Special Installation': './Other/special-installs.md'
     - 'Python Package Managers': './Other/python-package-managers.md'
+    - 'History': './history.md'
+  - 'Privacy Policy': './privacy-policy.md'
+
 
 theme:
   name: material
@@ -75,6 +80,10 @@ plugins:
       repository: tomkat-cr/genericsuite-basecamp
       branch: main
   - search
+  - exclude-search:
+      exclude:
+        - Sample-Code/fastapitemplate/*
+        - Sample-Code/exampleapp/*
   - print-site
 
 markdown_extensions:
@@ -82,3 +91,22 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+exclude_docs: |
+  node_modules
+  .env
+  .venv
+  Sample-Code/fastapitemplate/ui/index.html
+  Sample-Code/exampleapp/apps/ui/index.html
+
+watch:
+  - docs/index.md
+  - docs/Backend-Development/
+  - docs/Configuration-Guide/
+  - docs/documents/
+  - docs/Frontend-Development/
+  - docs/images/
+  - docs/Other/
+  - docs/Releases/
+  - docs/Sample-Code/
+  - docs/stylesheets/

@@ -13,7 +13,86 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### Fixed
 
+### Security
+
 ### Removed
+
+
+## [1.4.0] - 2026-01-21
+
+### Added
+- FastAPI Template app [GS-243].
+- Postgres database support [GS-194].
+- MySQL database support [GS-249].
+- Supabase support [GS-161].
+- API_VERSION envvar to set the API version, default to "v1" [GS-245].
+- Sample-Code main documentation page.
+- GenericSuite Release 20251117 changelog file: "docs/Releases/GS_Release_2025-11-17_Changelog.md".
+- "specific_function": "ai_conversation_masking" to "frontend/ai_chatbot_conversations.json" on genericsuite_configs, ExampleApp and FastAPI Template.
+- Documentation for field type "array" and "specific_function" examples in Generic CRUD Editor Configuration Documentation.
+- Documentation and examples for Preamble Models (usually needed to configure AI thinking LLMs) in GenericSuite AI documentation.
+- Field types h1 to h6 to JSON files [GS-250].
+- AWS_LAMBDA_DEPLOYMENT_TYPE envvar to select the deployment type for AWS Lambda functions (zip or container, default zip) [GS-248].
+- "make generate_openapi" command to save OpenAPI schema files (JSON and YAML) and included in the transfer and build process (make build, make serve, make transfer_debug, make transfer_cicd) [GS-245].
+- Documentation for the new databases supported.
+- Optional dependencies to example projects (boto3, pymongo).
+- Create Super Admin user documentation.
+- Local database stack and operations documentation.
+- Python classes and TypeScript interfaces for CRUD editor JSON config files validation and update the corresponding guide [GS-172].
+- How to create tables and forms documentation [GS-172].
+- How to stablish 1-to-many relationships between tables documentation [GS-172].
+- Api Keys to User Profile on exampleapp and fastapitemplate [GS-251].
+- Privacy policy [GS-252].
+- Introduce documentation preparation scripts, to reduce the FTP transfer time [GS-252].
+
+### Changed
+- Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.
+- Rename the frontend envvars to avoid conflicts with the same envvar used in the backend and be able to merge the ".env" files in a monorepo: GIT_SUBMODULE_LOCAL_PATH to GIT_SUBMODULE_LOCAL_PATH_FRONTEND, and RUN_METHOD to RUN_BUNDLER [GS-243].
+- Clean documentation and exampleapp code related with old "authenticationService".
+- Add "-PRESENT" to all LICENSE files.
+- Change documentation top bar options order.
+- Enhance documentation for STORAGE_URL_ENCRYPTION and STORAGE_URL_SEED.
+- STORAGE_URL_SEED envvar is only required when STORAGE_URL_ENCRYPTION is set to 1 [GS-72].
+- 'Special Installation' and './Other/special-installs.md' renamed to 'Installation' and './Other/installation.md' respectively.
+- docs: Enhance backend project setup guide with monorepo structures, detailed dependency management, and new database/cloud service installation sections, adding `psycopg2-binary`.
+- Update all .env.example with new supported databases.
+- Replace "/mongo" with "/local_db" and "mongo_docker" with "local_db_docker" in Makefile files. 
+- Due to the "fastmcp" and "mcp" dependencies removal, run_mcp_server.sh now verifies both are installed [GS-248].
+- Avoid asking confirmations when cleaning directories during the build process of "make publish".
+- Update "mkdocs_transfer_site.sh" to turn debug mode off unless specified.
+- Remove Podman warning in Backend Development documentation.
+- MkDocs install scripts removes the .venv to include latest dependencies version.
+- Serve and run in main Makefile changed so "make run" makes a complete clean, regeneration and "make serve", and "make serve" only runs "mkdocs serve".
+- Upgrade Lambda runtime to Python 3.12, update API Gateway to OpenAPI 3.0.1 with CORS, and refactor endpoint definitions in "aws_big_lambda/template-sam.yml" [GS-245].
+- Rename "parentKeyNames" to "endpointKeyNames" in JSON config files [GS-159].
+- Move "parentUrl" attribute from "endpointKeyNames" to the root of the JSON config files [GS-159].
+- Rename AI chatbot "GPT functions" to "AI Tools" in exampleapp comments.
+- Bind mkdocs serve to localhost:8015 to avoid conflicts with other GS APIs [GS-172].
+- All .svg logos are now embedded as .png in all .md files, so it can be displayed in GitHub and the documentation mobile app [GS-252].
+- ExampleApp: common "lib" files moved from "exampleapp/apps/api-chalice" to "exampleapp/apps/api-fastapi".
+
+### Fixed
+- Fix "podman" engine issues with the `podman composer` command.
+- Fix uv and poetry installation instructions on Python Package Managers documentation.
+- Fix "npm clean" for main and all workspaces.
+- Fix the configuration guide links on the documentation, because it was pointing to "https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/configs".
+- Fix "FileNotFoundError: [Errno 2] No such file or directory: 'docs/Sample-Code/exampleapp/ui/public/static'" by adding "remove_ui_public_static" to clean_directory.sh.
+- "create-ssl-certs" label in exampleapp Makefile was defined in a wrong way.
+- Refine documentation broken links.
+- APP_VERSION removed from CORE_ENVS in "aws_secrets/aws_secrets_manager.sh" separated from the rest of the environment variables that are pushed to AWS Secrets Manager and included in the AWS Lambda Function CloudFormation template "aws_big_lambda/template-sam.yml".
+- Rename "CONTAINER_ENGINE" to "CONTAINERS_ENGINE" in .env.example files [GS-252].
+- Fix: add ".venv" to the clean bash scripts.
+- Reduce the FTP transfer time by build a temporary directory "docs_for_ftp", copying there only the necessary files and use it as a source for MkDocs. 
+
+### Security
+- Update "urllib3" to "^2.6.2" in main requirements.txt to fix security vulnerabilities [GS-219]:
+    * "Allocation of Resources Without Limits or Throttling": "CWE-770", "CVE-2025-66418", "CVSS 8.9", "SNYK-PYTHON-URLLIB3-14192443"
+    * "Improper Handling of Highly Compressed Data (Data Amplification)": "CWE-409", "CVSS 8.9", "CVE-2025-66471", "SNYK-PYTHON-URLLIB3-14192442".
+
+### Removed
+- AWS_API_GATEWAY_STAGE envvar removed from all .env.example files.
+- boto3 and pymongo dependencies, so each project can have its own dependencies depending on the selected database and cloud storage provider [GS-245].
+- Unused generic API endpoints from OpenAPI specification.
 
 
 ## [1.3.2] - 2025-11-19

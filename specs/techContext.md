@@ -339,7 +339,7 @@ MKDOCS_SERVE_PORT=8000       # Port for local documentation server
 # Example Application - UI
 REACT_APP_API_URL=http://localhost:5011  # Backend API URL
 REACT_APP_USE_HTTPS=false    # Enable HTTPS in development
-RUN_METHOD=vite              # Build tool (vite or webpack)
+RUN_BUNDLER=vite              # Build tool (vite or webpack)
 RUN_PROTOCOL=http            # Protocol (http or https)
 
 # Example Application - Backend

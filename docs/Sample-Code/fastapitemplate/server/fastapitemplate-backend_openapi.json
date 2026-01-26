@@ -1,0 +1,331 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "fastapitemplate-backend",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/v1/menu_options": {
+      "get": {
+        "summary": "Menu Options Get",
+        "description": "Get authorized menu options",
+        "operationId": "menu_options_get_v1_menu_options_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/menu_options/element": {
+      "post": {
+        "tags": [
+          "element"
+        ],
+        "summary": "Menu Options Element",
+        "description": "Get menu element configuration",
+        "operationId": "menu_options_element_v1_menu_options_element_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuElementRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/test": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "summary": "Test Connection Handler",
+        "description": "Connection handler test",
+        "operationId": "test_connection_handler_v1_users_test_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/login": {
+      "post": {
+        "tags": [
+          "login"
+        ],
+        "summary": "Login User",
+        "description": "User login",
+        "operationId": "login_user_v1_users_login_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ]
+      }
+    },
+    "/v1/users/supad-create": {
+      "post": {
+        "tags": [
+          "super-admin"
+        ],
+        "summary": "Super Admin Create",
+        "description": "Super admin user creation",
+        "operationId": "super_admin_create_v1_users_supad_create_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBasic": []
+          }
+        ]
+      }
+    },
+    "/v1/users/current_user_d": {
+      "get": {
+        "summary": "Current User D",
+        "description": "Current user data read",
+        "operationId": "current_user_d_v1_users_current_user_d_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/assets/": {
+      "get": {
+        "summary": "Storage Retrieval No Item Id Endpoint",
+        "description": "Get authorized menu options",
+        "operationId": "storage_retrieval_no_item_id_endpoint_v1_assets__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Storage Retrieval No Item Id Endpoint V1 Assets  Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/assets/{item_id}": {
+      "get": {
+        "summary": "Storage Retrieval Endpoint",
+        "description": "Get authorized menu options",
+        "operationId": "storage_retrieval_endpoint_v1_assets__item_id__get",
+        "parameters": [
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Item Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Storage Retrieval Endpoint V1 Assets  Item Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/assets/{item_id}/{response_type}": {
+      "get": {
+        "summary": "Storage Retrieval With Response Type Endpoint",
+        "description": "Get authorized menu options",
+        "operationId": "storage_retrieval_with_response_type_endpoint_v1_assets__item_id___response_type__get",
+        "parameters": [
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Item Id"
+            }
+          },
+          {
+            "name": "response_type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Response Type"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Storage Retrieval With Response Type Endpoint V1 Assets  Item Id   Response Type  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "MenuElementRequest": {
+        "properties": {
+          "element": {
+            "type": "string",
+            "title": "Element"
+          }
+        },
+        "type": "object",
+        "required": [
+          "element"
+        ],
+        "title": "MenuElementRequest",
+        "description": "Menu element request "
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBasic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}

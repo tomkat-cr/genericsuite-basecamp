@@ -1,7 +1,7 @@
 """
 Chalice ExampleApp main file.
 """
-from genericsuite.chalicelib.util.create_app import create_app
+from genericsuite_ai.chalicelib.util.create_app import create_app
 
 # Temporal - BEGIN
 from genericsuite_ai.chalicelib.endpoints import ai_conversations_conversion
@@ -18,14 +18,19 @@ app = create_app(app_name=f'{settings.APP_NAME.lower()}-backend',
                  settings=settings)
 
 # Register application specific endpoints
-app.register_blueprint(food_moments.bp, url_prefix='/food_moments')
 app.register_blueprint(
-    fda_food_endpoint.bp, url_prefix='/fda_food_query'
+    food_moments.bp, url_prefix=f'/{settings.API_VERSION}/food_moments')
+app.register_blueprint(
+    fda_food_endpoint.bp, url_prefix=f'/{settings.API_VERSION}/fda_food_query'
 )
 
 # Register AI endpoints
-app.register_blueprint(ai_chatbot_endpoint.bp, url_prefix='/ai')
+app.register_blueprint(
+    ai_chatbot_endpoint.bp,
+    url_prefix=f'/{settings.API_VERSION}/ai')
 
 # Temporal - BEGIN
-app.register_blueprint(ai_conversations_conversion.bp, url_prefix='/ai_temp')
+app.register_blueprint(
+    ai_conversations_conversion.bp,
+    url_prefix=f'/{settings.API_VERSION}/ai_temp')
 # Temporal - END

@@ -45,7 +45,7 @@ clean_directory() {
         echo "debug: ${debug}"
         echo ""
         echo "Directories to remove:"
-        find "${directory_path_to_clean}" -type d \( -name "node_modules" -o -name "dist" -o -name "build" -o -name ".turbo" -o -name "logs" -o -name "__pycache__" -o -name "venv" -o -name ".DS_Store" \) -exec bash -c 'show_dir "$0"' {} \;
+        find "${directory_path_to_clean}" -type d \( -name "node_modules" -o -name "dist" -o -name "build" -o -name ".turbo" -o -name "logs" -o -name "__pycache__" -o -name "venv" -o -name ".venv" -o -name ".DS_Store" \) -exec bash -c 'show_dir "$0"' {} \;
         echo ""
         echo "Files to remove:"
         find "${directory_path_to_clean}" -type f \( -name ".DS_Store" \) -exec bash -c 'show_file "$0"' {} \;
@@ -60,7 +60,7 @@ clean_directory() {
     fi
     echo ""
     echo "Removing directories..."
-    find "${directory_path_to_clean}" -type d \( -name "node_modules" -o -name "dist" -o -name "build" -o -name ".turbo" -o -name "logs" -o -name "__pycache__" -o -name "venv" -o -name ".DS_Store" \) -exec bash -c 'remove_item "$0"' {} \;
+    find "${directory_path_to_clean}" -type d \( -name "node_modules" -o -name "dist" -o -name "build" -o -name ".turbo" -o -name "logs" -o -name "__pycache__" -o -name "venv" -o -name ".venv" -o -name ".DS_Store" \) -exec bash -c 'remove_item "$0"' {} \;
     echo ""
     echo "Removing files..."
     find "${directory_path_to_clean}" -type f \( -name ".DS_Store" \) -exec bash -c 'remove_item "$0"' {} \;
@@ -86,13 +86,39 @@ clean_directory() {
     fi
 }
 
+remove_ui_public_static() {
+    local directory_path_to_clean="$1"
+    local debug="$2"
+    if [ -d "${directory_path_to_clean}/apps" ]; then
+        directory_path_to_clean="${directory_path_to_clean}/apps"
+    fi
+    if [ "${debug}" = "true" ]; then
+        echo ""
+        echo "remove_ui_public_static()"
+        echo "directory_path_to_clean: ${directory_path_to_clean}/ui/public/static"
+        echo "debug: ${debug}"
+        echo ""
+        echo "Press [Enter] key to remove other files [FTP-040]"
+        read
+    fi
+    if rm -rf "${directory_path_to_clean}/ui/public/static"
+    then
+        echo "Removed 'Symlink ${directory_path_to_clean}/ui/public/static'"
+    else
+        echo "ERROR: 'Symlink ${directory_path_to_clean}/ui/public/static' does not exist Skipping..."
+    fi
+}
+
+# Validate required parameters
+
 if [ "$1" = "" ] || [ "$2" = "" ]; then
     show_help
 fi
 
+# Default values
 debug="$3"
 if [ "$debug" = "" ]; then
-    debug="true"
+    debug="false"
 fi
 
 # Export functions to be used in find --exec commands
@@ -100,4 +126,8 @@ export -f show_dir
 export -f show_file
 export -f remove_item
 
+# Perform remove other files (e.g. ui/public/static)
+remove_ui_public_static "$1" "$debug"
+
+# Perform clean directory
 clean_directory "$1" "$2" "$debug"

@@ -39,6 +39,14 @@ In the frontend configuration directory, there are several JSON files, most of t
 
 Check the [Frontend directory](./index.md#frontend-directory) section in the [GenericSuite App Creation and Configuration guide](./index.md) for more details.
 
+### Validation
+
+The validation configuration defines the validation rules for the CRUD editor.
+
+The TypeScript interfaces to validate the frontend JSON configurations are defined in the [CrudEditorConfigInterface.ts](./CrudEditorConfigInterface.ts) file (`FrontendCrudEditorConfig`, `ParentKeyName`, `FieldElement`, `FieldType`).
+
+The Python classes to validate the frontend JSON configurations are defined in the [crud_editor_config_classes.py](./crud_editor_config_classes.py) file (`FrontendCrudEditorConfig`, `ParentKeyName`, `FieldElement`, `FieldType`).
+
 ### General Configuration
 
 The JSON files for each table or CRUD editor in the example are `users.json`, `users_config.json`, and `users_profile.json`.
@@ -101,21 +109,23 @@ The following attributes are used in the general configuration section:
 * **array_name**: attribute name for the `array` type child listing. For example, if the parent table is "table_x_header" and the child table is "table_x_lines", the `array_name` could be "table_x_lines".
     + Example: `table_x_lines`
 
-* **parentKeyNames**: Parent Key Names, to stabllish the relationship between the parent and child tables. It's used for the child editors (1-to-many relationship). It must have the following attributes:
-    + `parentUrl`: the parent table URL to be used in the backend API call.
-    + `parameterName`: the name of the parameter to be used in the backend API call to identify the parent table Primary Key.
-    + `parentElementName`: the name of the parent table's primary key column/attribute.<BR/><BR/>
+* **parentUrl**: the parent table URL to be used on certain specific functions (because the parent table name is defined in the backend JSON file `table_name` attribute and frontend does not have access to it).
+    + Example: `users` for the `/v1/users` endpoint.
+
+* **endpointKeyNames**: Key Names array used when making API calls to the backend to get the child listing items. This is used to stabllish the relationship between the parent and child tables (1-to-many relationship). Each element of the array must have the following attributes:
+    + `parameterName`: the name of the parameter to be used in the backend API call (endpoint) to identify the parent table Primary/Sort Key.
+    + `parentElementName`: the name of the parent table's attribute which value will be used to identify the parent table Primary/Sort Key.<BR/><BR/>
     + Example:
 ```json
 "type": "child_listing",
 "subType": "array",
 "array_name": "users_config",
-"parentKeyNames": [
-{
-    "parentUrl": "users",
-    "parameterName": "user_id",
-    "parentElementName": "id"
-}
+"parentUrl": "users",
+"endpointKeyNames": [
+    {
+        "parameterName": "user_id",
+        "parentElementName": "id"
+    }
 ],
 ```
 
@@ -130,7 +140,7 @@ Field elements define the individual fields used in the CRUD editor.
 
 * **label**: The label displayed for the field.
 
-* **type**: The data type of the field. Check [Field data types](#field-data-types) for more details.
+* **type**: The data type of the field or `field type` for the field element. Check [Field data types](#field-data-types) for more details.
 
 * **required**: Whether the field is required for submission.
 	+ Example: `true`, `false`
@@ -141,13 +151,16 @@ Field elements define the individual fields used in the CRUD editor.
 * **readonly**: Whether the field should be read-only.
 	+ Example: `true`, `false`
 
+* **primaryKey**: Whether the field is the primary key of the table.
+	+ Example: `true`, `false`
+
 * **default_value**: The default value to use for the field when the form data page is loaded.
 	+ Example: `0` or `current_timestamp`. `current_timestamp` will be replaced by the current date/time.
 
 * **hidden**: Whether the field should be hidden from display.
 	+ Example: `true`, `false`
 
-* **formula**: to get the fields's value from a ReactJS component. Check the [Formulas](#formulas) section for more details.
+* **formula**: to get the field value from a ReactJS component. Check the [Formulas](#formulas) section for more details.
 
 #### Field data types
 
@@ -163,9 +176,29 @@ Field elements define the individual fields used in the CRUD editor.
 
 * **datetime-local**: generates a datetime-local input field (date and time).
 
+* **array**: generates an multidimensional array field, like the `dict` type in Python.
+    + Examples: 
+```json
+"array": [
+    {
+        "key1": "value1",
+        "key2": "value2"
+    }
+]
+```
+```json
+"array": {
+    "key1": {
+        "key2": "value2"
+    }
+}
+```
+
 * **email**: generates an email input field (and validates it during the input).
 
 * **label**: generates a label with no input field.
+
+* **h1, h2, h3, h4, h5, h6**: generates a heading with the specified level.
 
 * **hr**: generates a horizontal rule.
 
@@ -336,9 +369,9 @@ export const granTotalFromOrderLines = ({
     return new Promise((resolve, reject) => {
         let resp = genericFuncArrayDefaultValue(data);
         let grand_total = 0;
-        const parentId = editor.parentData[editor.parentKeyNames[0].parentElementName];
+        const parentId = editor.parentData[editor.endpointKeyNames[0].parentElementName];
         let childFilter = {};
-        childFilter[editor.parentKeyNames[0].parameterName] = parentId;
+        childFilter[editor.endpointKeyNames[0].parameterName] = parentId;
         switch(action) {
             case ACTION_CREATE:
             case ACTION_UPDATE:
@@ -407,6 +440,14 @@ export const granTotalFromOrderLines = ({
 
 This configuration is used by the backend exclusively.
 
+### Validation
+
+The TypeScript interfaces to validate the backend JSON configurations are defined in the [CrudEditorConfigInterface.ts](./CrudEditorConfigInterface.ts) file (`BackendCrudEditorConfig`).
+
+The Python classes to validate the backend JSON configurations are defined in the [crud_editor_config_classes.py](./crud_editor_config_classes.py) file (`BackendCrudEditorConfig`).
+
+### Backend Configuration Attributes
+
 * **table_name**: physical table name in the database.
     + Example:
 ```json
@@ -464,10 +505,37 @@ This configuration is used by the backend exclusively.
     ],
 ```
 
-* **specific_function**: specific function to be executed before and after  database operations.
-    + Example:
+* **specific_function**: specific function to be executed before and after database operations.
+    + Examples:
 ```json
     "specific_function": "delete_params_file"
+```
+```json
+    "specific_function": "app_other_specific_function"
+```
+
+**IMPORTANT**: for non-standard specific functions like "delete_params_file", the function must be implemented in the backend:
+
+```python
+from genericsuite_ai.fastapilib.util.create_app import (
+    create_app,
+    create_handler
+)
+
+from app.config.config import Config
+
+# Import the specific function
+from app.specific_functions import app_other_specific_function
+
+
+settings = Config()
+app = create_app(
+    app_name=f"{settings.APP_NAME.lower()}-backend", settings=settings)
+
+# Register the specific function
+app.custom_data['app_other_specific_function'] = app_other_specific_function
+
+handler = create_handler(app)
 ```
 
 ## Examples
@@ -492,7 +560,7 @@ exampleapp/apps/config_dbdef/
 |   ├── general_ingredients.json                # Global ingredients
 |   ├── user_ingredients_all.json               # All user's ingredients
 |   ├── user_ingredients.json                   # User's ingredients
-|   ├── user_api_keys.json                      # User's API keys
+|   ├── users_api_keys.json                     # User's API keys
 |   ├── users_config.json                       # User's configuration parameters
 |   ├── users_food_times.json                   # User's typical meal ingestion times
 |   ├── users_profile.json                      # User's profile page
@@ -513,7 +581,7 @@ exampleapp/apps/config_dbdef/
 |   ├── general_ingredients.json                # Global ingredients
 |   ├── user_ingredients_all.json               # All user's ingredients
 |   ├── user_ingredients.json                   # User's ingredients
-|   ├── user_api_keys.json                      # User's API keys
+|   ├── users_api_keys.json                     # User's API keys
 |   ├── users_config.json                       # User's configuration parameters
 |   ├── users_food_times.json                   # User's typical meal ingestion times
 |   ├── users_profile.json                      # User's profile page
@@ -1051,13 +1119,13 @@ User's ingredients
 }
 ```
 
-### backend/user_api_keys.json
+### backend/users_api_keys.json
 
 User's API keys
 
 ```json
 {
-    "table_name": "users",
+    "table_name": "users_api_keys",
     "specific_function": "delete_params_file"
 }
 ```
@@ -1479,7 +1547,7 @@ User's daily meal ingredients
     "subType": "array",
     "array_name": "meal_ingredients",
     "parentUrl": "daily_meals",
-    "parentKeyNames": [
+    "endpointKeyNames": [
         {
             "parameterName": "daily_meal_id",
             "parentElementName": "id"
@@ -1707,7 +1775,7 @@ User's dish ingredients
     "subType": "array",
     "array_name": "dish_ingredients",
     "parentUrl": "dishes",
-    "parentKeyNames": [
+    "endpointKeyNames": [
         {
             "parameterName": "dish_id",
             "parentElementName": "id"
@@ -2406,7 +2474,7 @@ User's ingredients
 }
 ```
 
-### frontend/user_api_keys.json
+### frontend/users_api_keys.json
 
 User's API keys
 
@@ -2418,12 +2486,10 @@ User's API keys
     "dbApiUrl": "users_api_keys",
     "component": "UsersApiKey",
     "type": "child_listing",
-    "subType": "array",
-    "array_name": "users_api_keys",
-    "parentKeyNames": [
+    "subType": "table",
+    "endpointKeyNames": [
         {
             "parameterName": "user_id",
-            "parentUrl": "users",
             "parentElementName": "id"
         }
     ],
@@ -2479,10 +2545,10 @@ User's configuration parameters
   "type": "child_listing",
   "subType": "array",
   "array_name": "users_config",
-  "parentKeyNames": [
+  "parentUrl": "users",
+  "endpointKeyNames": [
     {
       "parameterName": "user_id",
-      "parentUrl": "users",
       "parentElementName": "id"
     }
   ],
@@ -2533,10 +2599,10 @@ User's typical meal ingestion times
   "type": "child_listing",
   "subType": "array",
   "array_name": "food_times",
-  "parentKeyNames": [
+  "parentUrl": "users",
+  "endpointKeyNames": [
     {
       "parameterName": "user_id",
-      "parentUrl": "users",
       "parentElementName": "id"
     }
   ],
@@ -2777,7 +2843,8 @@ User's profile page
     ],
     "childComponents": [
         "UsersFoodTimes",
-        "UsersUserHistory"
+        "UsersUserHistory",
+        "UsersApiKey"
     ],
     "dbListPreRead": [
         "UsersDbListPreRead"
@@ -2813,7 +2880,7 @@ User's data history (goals, weight, etc.)
     "subType": "array",
     "array_name": "user_history",
     "parentUrl": "users",
-    "parentKeyNames": [
+    "endpointKeyNames": [
         {
             "parameterName": "user_id",
             "parentElementName": "id"

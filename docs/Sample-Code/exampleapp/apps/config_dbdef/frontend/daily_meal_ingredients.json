@@ -8,7 +8,7 @@
     "subType": "array",
     "array_name": "meal_ingredients",
     "parentUrl": "daily_meals",
-    "parentKeyNames": [
+    "endpointKeyNames": [
         {
             "parameterName": "daily_meal_id",
             "parentElementName": "id"
@@ -41,7 +41,7 @@
             "filter_search_other_param": {
                 "like": "1"
             }
-        },            
+        },
         {
             "name": "name",
             "required": true,

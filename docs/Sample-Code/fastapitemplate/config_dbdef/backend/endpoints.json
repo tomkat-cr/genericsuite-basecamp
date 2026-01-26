@@ -1,0 +1,102 @@
+[
+    {
+        "name": "ai_chatbot_conversations",
+        "url_prefix": "ai_chatbot_conversations",
+        "routes": [
+            {
+                "endpoint": "/",
+                "methods": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE"
+                ],
+                "handler_type": "GenericEndpointHelper",
+                "view_func": "lib.util.generic_endpoint_builder.generic_route_handler",
+                "params": {
+                    "json_file": "ai_chatbot_conversations"
+                }
+            }
+        ]
+    },
+    {
+        "name": "general_config",
+        "url_prefix": "general_config",
+        "routes": [
+            {
+                "endpoint": "/",
+                "methods": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE"
+                ],
+                "handler_type": "GenericEndpointHelper",
+                "view_func": "lib.util.generic_endpoint_builder.generic_route_handler",
+                "params": {
+                    "json_file": "general_config"
+                }
+            }
+        ]
+    },
+    {
+        "name": "users",
+        "url_prefix": "users",
+        "routes": [
+            {
+                "endpoint": "/",
+                "methods": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE"
+                ],
+                "handler_type": "GenericEndpointHelper",
+                "view_func": "lib.util.generic_endpoint_builder.generic_route_handler",
+                "params": {
+                    "json_file": "users"
+                }
+            }
+        ]
+    },
+    {
+        "name": "users_config",
+        "url_prefix": "users_config",
+        "routes": [
+            {
+                "endpoint": "/",
+                "methods": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE"
+                ],
+                "handler_type": "GenericEndpointHelper",
+                "view_func": "lib.util.generic_endpoint_builder.generic_route_handler",
+                "params": {
+                    "json_file": "users_config"
+                }
+            }
+        ]
+    },
+    {
+        "name": "users_api_keys",
+        "url_prefix": "users_api_keys",
+        "routes": [
+            {
+                "endpoint": "/",
+                "methods": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE"
+                ],
+                "handler_type": "GenericEndpointHelper",
+                "view_func": "lib.util.generic_endpoint_builder.generic_route_handler",
+                "params": {
+                    "json_file": "users_api_keys"
+                }
+            }
+        ]
+    }
+]
