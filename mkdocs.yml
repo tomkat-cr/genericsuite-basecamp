@@ -31,11 +31,12 @@ nav:
     - 'History': './history.md'
   - 'Privacy Policy': './privacy-policy.md'
 
-
 theme:
   name: material
-  favicon: images/gs_logo_circle.png
-  logo: images/gs_logo_circle.png
+  favicon: assets/images/gs_logo_circle.png
+  logo: assets/images/gs_logo_circle.png
+  # Set the default locale for theme-specific translations (e.g., "Next", "Previous" labels)
+  locale: en 
   features:
     - content.code.copy
     - search.suggest
@@ -80,10 +81,48 @@ plugins:
       repository: tomkat-cr/genericsuite-basecamp
       branch: main
   - search
+  - i18n:
+      # Reference:
+      # https://ultrabug.github.io/mkdocs-static-i18n/setup/localizing-navigation/
+      docs_structure: folder
+      languages:
+        - locale: en
+          name: English
+          # Optional: point to a custom config file for this language
+          # configuration_path: mkdocs.en.yml 
+          build: true
+          default: true
+        - locale: es
+          name: Español
+          # configuration_path: mkdocs.es.yml
+          build: true
+          site_name: La Generic Suite
+          copyright: Copyright &copy; 2024-PRESENTE <a href="https://www.carlosjramirez.com">Carlos J. Ramirez</a>
+          nav_translations:
+            'Introduction': 'Introducción'
+            'Repositories': 'Repositorios'
+            'Installation': 'Instalación'
+            'Configuration Guide': 'Guía de Configuración'
+            'Sample Code': 'Código de Ejemplo'
+            'Releases': 'Releases'
+            'The GenericSuite Core': 'GenericSuite Core'
+            'The GenericSuite AI': 'GenericSuite AI'
+            'Frontend Development': 'Desarrollo Frontend'
+            'GenericSuite Core': 'Desarrollo Frontend con GenericSuite Core'
+            'GenericSuite AI': 'Desarrollo Frontend con GenericSuite AI'
+            'Deployment': 'Despliegue'
+            'Backend Development': 'Desarrollo Backend'
+            'Backend Scripts': 'Scripts del Backend'
+            'Other': 'Otros'
+            'Python Package Managers': 'Gestores de Paquetes de Python'
+            'History': 'Historia'
+            'Privacy Policy': 'Política de Privacidad'
+      # Use folder-based structure (optional, as it's the default behavior when language folders are present)
+      # folder_based_locale: true 
   - exclude-search:
       exclude:
-        - Sample-Code/fastapitemplate/*
-        - Sample-Code/exampleapp/*
+        - code/fastapitemplate/*
+        - code/exampleapp/*
   - print-site
 
 markdown_extensions:
@@ -100,13 +139,4 @@ exclude_docs: |
   Sample-Code/exampleapp/apps/ui/index.html
 
 watch:
-  - docs/index.md
-  - docs/Backend-Development/
-  - docs/Configuration-Guide/
-  - docs/documents/
-  - docs/Frontend-Development/
-  - docs/images/
-  - docs/Other/
-  - docs/Releases/
-  - docs/Sample-Code/
-  - docs/stylesheets/
+  - docs/

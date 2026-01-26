@@ -7,6 +7,11 @@ import argparse
 allowed_extensions = [
     ".md",
     ".pdf",
+    ".json",
+    ".yml",
+    ".yaml",
+    ".toml",
+    ".sh",
     ".ico",
     ".png",
     ".jpg",

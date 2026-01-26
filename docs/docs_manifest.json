@@ -1,0 +1,834 @@
+[
+  {
+    "title": "Introduction",
+    "path": "index.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "Repositories",
+    "path": "repositories.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "Installation",
+    "path": "Other/installation.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "Configuration Guide",
+    "path": "Configuration-Guide/index.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "Sample Code",
+    "path": "Sample-Code/index.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "Releases",
+    "path": "Releases/index.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "The GenericSuite Core",
+    "path": "genericsuite-core.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "The GenericSuite AI",
+    "path": "genericsuite-ai.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "Frontend Development",
+    "children": [
+      {
+        "title": "GenericSuite Core",
+        "path": "Frontend-Development/GenericSuite-Core/index.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "en"
+      },
+      {
+        "title": "GenericSuite AI",
+        "path": "Frontend-Development/GenericSuite-AI/index.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "en"
+      },
+      {
+        "title": "Deployment",
+        "path": "Frontend-Development/deployment.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "en"
+      }
+    ],
+    "type": "section",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "Backend Development",
+    "children": [
+      {
+        "title": "GenericSuite Core",
+        "path": "Backend-Development/GenericSuite-Core/index.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "en"
+      },
+      {
+        "title": "GenericSuite AI",
+        "path": "Backend-Development/GenericSuite-AI/index.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "en"
+      },
+      {
+        "title": "Backend Scripts",
+        "path": "Backend-Development/GenericSuite-Scripts/index.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "en"
+      },
+      {
+        "title": "Deployment",
+        "path": "Backend-Development/deployment.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "en"
+      }
+    ],
+    "type": "section",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "Other",
+    "children": [
+      {
+        "title": "Python Package Managers",
+        "path": "Other/python-package-managers.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "en"
+      },
+      {
+        "title": "History",
+        "path": "history.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "en"
+      }
+    ],
+    "type": "section",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "Privacy Policy",
+    "path": "privacy-policy.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "en"
+  },
+  {
+    "title": "Desbloquea el Poder Full-Stack con Generic Suite (GS)",
+    "path": "index.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "Repositorios",
+    "path": "repositories.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "Instalaci\u00f3n de GenericSuite",
+    "path": "Other/installation.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "Gu\u00eda de creaci\u00f3n y configuraci\u00f3n de la aplicaci\u00f3n GenericSuite",
+    "path": "Configuration-Guide/index.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "C\u00f3digo de ejemplo",
+    "path": "Sample-Code/index.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "Notas de cambios de lanzamientos de Generic Suite",
+    "path": "Releases/index.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "El N\u00facleo de GenericSuite",
+    "path": "genericsuite-core.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "La IA de GenericSuite",
+    "path": "genericsuite-ai.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "Desarrollo Frontend",
+    "children": [
+      {
+        "title": "GenericSuite para ReactJS",
+        "path": "Frontend-Development/GenericSuite-Core/index.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "es"
+      },
+      {
+        "title": "GenericSuite AI para ReactJS",
+        "path": "Frontend-Development/GenericSuite-AI/index.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "es"
+      },
+      {
+        "title": "Despliegue del Frontend",
+        "path": "Frontend-Development/deployment.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "es"
+      }
+    ],
+    "type": "section",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "Desarrollo de Backend",
+    "children": [
+      {
+        "title": "GenericSuite para Python",
+        "path": "Backend-Development/GenericSuite-Core/index.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "es"
+      },
+      {
+        "title": "GenericSuite AI para Python",
+        "path": "Backend-Development/GenericSuite-AI/index.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "es"
+      },
+      {
+        "title": "Los Scripts de GenericSuite",
+        "path": "Backend-Development/GenericSuite-Scripts/index.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "es"
+      },
+      {
+        "title": "Despliegue del Backend",
+        "path": "Backend-Development/deployment.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "es"
+      }
+    ],
+    "type": "section",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "Otro",
+    "children": [
+      {
+        "title": "Gestores de Paquetes de Python",
+        "path": "Other/python-package-managers.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "es"
+      },
+      {
+        "title": "Historia",
+        "path": "history.md",
+        "type": "page",
+        "source": "nav",
+        "lang": "es"
+      }
+    ],
+    "type": "section",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "Pol\u00edtica de Privacidad",
+    "path": "privacy-policy.md",
+    "type": "page",
+    "source": "nav",
+    "lang": "es"
+  },
+  {
+    "title": "Backend Deployment",
+    "path": "Backend-Development/deployment.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Despliegue del Backend",
+    "path": "Backend-Development/deployment.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "20241007 - GenericSuite debut presentation at the UPB Medellin",
+    "path": "Releases/GS_Release_2024-10-07_Changelog.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "20241007 - Presentaci\u00f3n de estreno de GenericSuite en la UPB Medell\u00edn",
+    "path": "Releases/GS_Release_2024-10-07_Changelog.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "20251117 - The MCP Server Edition",
+    "path": "Releases/GS_Release_2025-11-17_Changelog.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "20251117 - La Edici\u00f3n del Servidor MCP",
+    "path": "Releases/GS_Release_2025-11-17_Changelog.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "20250705 - The ExampleApp Monorepo Edition",
+    "path": "Releases/GS_Release_2025-07-05_Changelog.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "20250705 - La Edici\u00f3n Monorepo de ExampleApp",
+    "path": "Releases/GS_Release_2025-07-05_Changelog.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "20250220 - The 1st Anniversary Release",
+    "path": "Releases/GS_Release_2025-02-20_Changelog.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "20250220 - El Lanzamiento del 1er Aniversario",
+    "path": "Releases/GS_Release_2025-02-20_Changelog.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "20241017 - AI Assistant enhanced, Preamble Models and OpenAI o1",
+    "path": "Releases/GS_Release_2024-10-17_Changelog.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "20241017 - Asistente de IA mejorado, Modelos de pre\u00e1mbulo y OpenAI o1",
+    "path": "Releases/GS_Release_2024-10-17_Changelog.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "GenericSuite App Backend Scripts",
+    "path": "Sample-Code/genericsuite-be-scripts/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Scripts del Backend de la Aplicaci\u00f3n GenericSuite",
+    "path": "Sample-Code/genericsuite-be-scripts/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/fastapitemplate/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "REGISTRO DE CAMBIOS",
+    "path": "Sample-Code/fastapitemplate/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "FastAPITemplate",
+    "path": "Sample-Code/fastapitemplate/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "FastAPITemplate",
+    "path": "Sample-Code/fastapitemplate/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/fastapitemplate/ui/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "REGISTRO DE CAMBIOS",
+    "path": "Sample-Code/fastapitemplate/ui/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "fastapitemplate UI (Frontend)",
+    "path": "Sample-Code/fastapitemplate/ui/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "fastapitemplate Interfaz de Usuario (Frontend)",
+    "path": "Sample-Code/fastapitemplate/ui/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/fastapitemplate/config_dbdef/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/fastapitemplate/config_dbdef/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "fastapitemplate_configs",
+    "path": "Sample-Code/fastapitemplate/config_dbdef/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "fastapitemplate_configs",
+    "path": "Sample-Code/fastapitemplate/config_dbdef/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/fastapitemplate/mcp-server/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "REGISTRO DE CAMBIOS",
+    "path": "Sample-Code/fastapitemplate/mcp-server/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "fastapitemplate MCP Server",
+    "path": "Sample-Code/fastapitemplate/mcp-server/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Servidor MCP de fastapitemplate",
+    "path": "Sample-Code/fastapitemplate/mcp-server/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/fastapitemplate/server/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Registro de cambios",
+    "path": "Sample-Code/fastapitemplate/server/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "fastapitemplate backend (FastAPI)",
+    "path": "Sample-Code/fastapitemplate/server/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "backend de fastapitemplate (FastAPI)",
+    "path": "Sample-Code/fastapitemplate/server/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/exampleapp/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "REGISTRO DE CAMBIOS",
+    "path": "Sample-Code/exampleapp/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "GenericSuite Example Application",
+    "path": "Sample-Code/exampleapp/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Aplicaci\u00f3n de Ejemplo GenericSuite",
+    "path": "Sample-Code/exampleapp/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "`@turbo/eslint-config`",
+    "path": "Sample-Code/exampleapp/packages/eslint-config/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "`@turbo/eslint-config`",
+    "path": "Sample-Code/exampleapp/packages/eslint-config/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/exampleapp/apps/ui/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Registro de cambios",
+    "path": "Sample-Code/exampleapp/apps/ui/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "ExampleApp UI (Frontend)",
+    "path": "Sample-Code/exampleapp/apps/ui/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Interfaz de ExampleApp (Frontend)",
+    "path": "Sample-Code/exampleapp/apps/ui/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/exampleapp/apps/config_dbdef/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "REGISTRO DE CAMBIOS",
+    "path": "Sample-Code/exampleapp/apps/config_dbdef/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "exampleapp_configs",
+    "path": "Sample-Code/exampleapp/apps/config_dbdef/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "exampleapp_configs",
+    "path": "Sample-Code/exampleapp/apps/config_dbdef/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/exampleapp/apps/api-chalice/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Registro de cambios",
+    "path": "Sample-Code/exampleapp/apps/api-chalice/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "ExampleApp backend (Chalice)",
+    "path": "Sample-Code/exampleapp/apps/api-chalice/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Backend de ExampleApp (Chalice)",
+    "path": "Sample-Code/exampleapp/apps/api-chalice/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/exampleapp/apps/mcp-server/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "REGISTRO DE CAMBIOS",
+    "path": "Sample-Code/exampleapp/apps/mcp-server/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "ExampleApp MCP Server",
+    "path": "Sample-Code/exampleapp/apps/mcp-server/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Servidor MCP de ExampleApp",
+    "path": "Sample-Code/exampleapp/apps/mcp-server/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/exampleapp/apps/api-fastapi/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Registro de cambios",
+    "path": "Sample-Code/exampleapp/apps/api-fastapi/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "ExampleApp backend (FastAPI)",
+    "path": "Sample-Code/exampleapp/apps/api-fastapi/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Backend de ExampleApp (FastAPI)",
+    "path": "Sample-Code/exampleapp/apps/api-fastapi/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/exampleapp/apps/api-flask/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "REGISTRO DE CAMBIOS",
+    "path": "Sample-Code/exampleapp/apps/api-flask/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "ExampleApp backend (Flask)",
+    "path": "Sample-Code/exampleapp/apps/api-flask/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Backend de ExampleApp (Flask)",
+    "path": "Sample-Code/exampleapp/apps/api-flask/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "CHANGELOG",
+    "path": "Sample-Code/genericsuite-configs/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "REGISTRO DE CAMBIOS",
+    "path": "Sample-Code/genericsuite-configs/CHANGELOG.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "GenericSuite App Creation and Configuration guide",
+    "path": "Sample-Code/genericsuite-configs/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Gu\u00eda de creaci\u00f3n y configuraci\u00f3n de la aplicaci\u00f3n GenericSuite",
+    "path": "Sample-Code/genericsuite-configs/README.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "Frontend Deployment",
+    "path": "Frontend-Development/deployment.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Despliegue de Frontend",
+    "path": "Frontend-Development/deployment.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "Python Package Managers",
+    "path": "Other/python-package-managers.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Gestores de paquetes de Python",
+    "path": "Other/python-package-managers.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "GenericSuite Installation",
+    "path": "Other/installation.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Instalaci\u00f3n de GenericSuite",
+    "path": "Other/installation.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  },
+  {
+    "title": "Generic CRUD Editor Configuration Documentation",
+    "path": "Configuration-Guide/Generic-CRUD-Editor-Configuration.md",
+    "type": "page",
+    "source": "external",
+    "lang": "en"
+  },
+  {
+    "title": "Documentaci\u00f3n de Configuraci\u00f3n del Editor Gen\u00e9rico CRUD",
+    "path": "Configuration-Guide/Generic-CRUD-Editor-Configuration.md",
+    "type": "page",
+    "source": "external",
+    "lang": "es"
+  }
+]

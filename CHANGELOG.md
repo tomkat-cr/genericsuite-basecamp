@@ -18,6 +18,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
+## [Unreleased] - YYYY-MM-DD
+
+### Added
+- Multi-language documentation (thanks to @otobonh for the idea) [GS-252].
+- Spanish docs, using Google Translate and OpenAI gpt-5-nano [GS-252].
+
+
 ## [1.4.0] - 2026-01-21
 
 ### Added

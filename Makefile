@@ -90,7 +90,7 @@ fastapitemplate-run:
 	cd docs/Sample-Code/fastapitemplate && make dev
 
 fastapitemplate-create-ssl-certs:
-	cd docs/Sample-Code/exampleapp && make create-ssl-certs
+	cd docs/Sample-Code/fastapitemplate && make create-ssl-certs
 
 fastapitemplate-clean:
 	cd docs/Sample-Code/fastapitemplate && make unlink-config-dirs && cd ../..
