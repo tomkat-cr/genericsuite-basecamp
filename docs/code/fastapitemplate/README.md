@@ -4,6 +4,9 @@
 
 **FastAPITemplate** is a full-stack application that allows you to have a template to start your FastAPI application based on GenericSuite.
 
+You can view the [Source Code here](https://github.com/tomkat-cr/genericsuite-basecamp/tree/main/docs/code/fastapitemplate).
+
+
 ![FastAPITemplate Logo](./ui/src/_images/app_logo_horizontal.svg)
 ![FastAPITemplate Bots Logo](./ui/src/_images/hack_team_logo_horizontal.svg)
 

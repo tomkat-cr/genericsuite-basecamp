@@ -176,11 +176,11 @@ You can find the detailed changelog for each release [here](./Releases/index.md)
 
 English:
 
-* [Introduction to Generic Suite](../en/documents/GS_Presentation_EN_V2.pdf)
+* [Introduction to Generic Suite](https://raw.githubusercontent.com/tomkat-cr/genericsuite-basecamp/main/docs/en/documents/GS_Presentation_EN_V2.pdf)
 
 Spanish:
 
-* [Introducción a Generic Suite](../es/documents/GS_Presentation_SP_V2.pdf)
+* [Introducción a Generic Suite](https://raw.githubusercontent.com/tomkat-cr/genericsuite-basecamp/main/docs/es/documents/GS_Presentation_SP_V2.pdf)
 
 ## Posts
 

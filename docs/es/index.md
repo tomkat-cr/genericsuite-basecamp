@@ -176,11 +176,11 @@ Puedes encontrar el registro detallado de cambios de cada versión [aquí](./Rel
 
 Inglés:
 
-* [Introducción a Generic Suite](../en/documents/GS_Presentation_EN_V2.pdf)
+* [Introducción a Generic Suite](https://raw.githubusercontent.com/tomkat-cr/genericsuite-basecamp/main/docs/en/documents/GS_Presentation_EN_V2.pdf)
 
 Español:
 
-* [Introducción a Generic Suite](../es/documents/GS_Presentation_SP_V2.pdf)
+* [Introducción a Generic Suite](https://raw.githubusercontent.com/tomkat-cr/genericsuite-basecamp/main/docs/es/documents/GS_Presentation_SP_V2.pdf)
 
 ## Publicaciones
 
