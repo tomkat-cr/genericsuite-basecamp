@@ -1,32 +1,32 @@
-# Guía de creación y configuración de la aplicación GenericSuite
+# Guía de Creación y Configuración de la App de GenericSuite
 
 ![gs_logo_circle.png](../../assets/images/gs_logo_circle.png)
 
-Esta documentación muestra cómo crear las configuraciones de la App frontend/backend y las estructuras de datos.
+Esta documentación muestra cómo crear las configuraciones de la App (frontend/backend) y las estructuras de datos.
 
-## Configuración del Editor Genérico CRUD
+## Configuración del Editor CRUD Genérico
 
-Siga las instrucciones para construir los archivos `.json` en la [Documentación de Configuración del Editor CRUD Genérico](./Generic-CRUD-Editor-Configuration.md).
+Sigue las instrucciones para construir los archivos `.json` en la [Documentación de Configuración del Editor CRUD Genérico](./Generic-CRUD-Editor-Configuration.md).
 
 ## App de ejemplo
 
-La [ExampleApp](../../code/exampleapp/README.md) es una aplicación de ejemplo de pila completa que demuestra cómo crear una App usando GenericSuite. Es una arquitectura de aplicación web con un frontend basado en React y servicios de backend implementados en FastAPI, Flask y Chalice.
+La [ExampleApp](../../code/exampleapp/README.md) es una aplicación de ejemplo de pila completa que demuestra cómo crear una App utilizando GenericSuite. Es una arquitectura de aplicación web con un frontend basado en React y servicios de backend implementados en FastAPI, Flask y Chalice.
 
-Haz clic [aquí](../../code/exampleapp/README.md) para saber más sobre ello.
+Haz clic [aquí](../../code/exampleapp/README.md) para saber más.
 
 ## Creación de la App
 
 Cada App debería tener una parte de frontend y una de backend.<br>
 
-El frontend es el elemento con el que el usuario interactúa, la parte visible. Puede ser un sitio web hecho con React.JS o una App móvil hecha con Flutter o React Native.<br>
+El frontend es el elemento con el que interactúa el usuario, la parte visible. Puede ser un sitio web hecho con React.JS o una App móvil hecha con Flutter o React Native.<br>
 
-El backend es la API que interactúa con la Base de Datos y otros elementos invisibles para el usuario. Puede hacerse en Python o GoLang.<br>
+El backend es la API que interactúa con la Base de Datos y otros elementos invisibles para el usuario. Puede estar hecho en Python o GoLang.<br>
 
-En el contexto de GenericSuite hay un tercer elemento, el "Directorio de configuración".
+En el contexto de GenericSuite hay un tercer elemento, el "Directorio de Configuración".
 
-## Directorio de configuración
+## Directorio de Configuración
 
-El Directorio de configuración almacena la configuración de la App, permitiendo definir estructuras de tablas, formularios de entrada, estructura de menús, configuración de seguridad, parámetros de configuración, etc.
+El Directorio de Configuración almacena la configuración de la App, permitiendo definir estructuras de tablas, formularios de entrada, estructura de menús, configuración de seguridad, parámetros de configuración, etc.
 
 La estructura sugerida es:
 
@@ -54,37 +54,37 @@ src/configs
 El directorio `frontend` contiene configuraciones utilizadas tanto por la App frontend como por la API backend.
 
 - **app_constants.json**<br><br>
-  Constantes específicas de la App. Estas constantes deben copiarse al directorio de la App objetivo para cambiar valores específicos por ejemplo `BILLING_PLANS`, dirección de correo en `ERROR_MESSAGES`, `APP_EMAILS` y `APP_VALID_URLS` (ver `includesAppValidLinks()` y `dangerouslySetInnerHTML`).<br><br>
+  Constantes específicas de la App. Estas constantes deben copiarse al directorio de la App objetivo para cambiar valores específicos, p. ej. `BILLING_PLANS`, la dirección de correo en `ERROR_MESSAGES`, `APP_EMAILS` y `APP_VALID_URLS` (ver `includesAppValidLinks()` y `dangerouslySetInnerHTML`).<br><br>
 
 - **general_constants.json**<br><br>
-  Constantes generales de la App, principalmente para desplegados `<select/>`. Por ejemplo `TRUE_FALSE`, `YES_NO`, `LANGUAGES`.<br><br>
+  Constantes generales de la App, principalmente para los desplegables `<select/>`. Por ejemplo `TRUE_FALSE`, `YES_NO`, `LANGUAGES`.<br><br>
 
 - **general_config.json**<br><br>
-  Definiciones del editor de Parámetros de Configuración generales de la App.<br>
-  Todos los parámetros en la clase backend Config() que pueden leerse desde variables de entorno pueden sobrescribirse dinámicamente mediante los Parámetros de Configuración.<br>
-  Esto se usa para la opción de menú frontend `Admin > Configuration Parameters`.<br><br>
+  Definiciones del editor de Parámetros de Configuración Generales de la App.<br>
+  Todos los parámetros de la clase Config() del backend que pueden leerse desde variables de entorno pueden sobrescribirse dinámicamente mediante los Parámetros de Configuración.<br>
+  Esto se usa para la opción de menú `Admin > Configuration Parameters` del frontend.<br><br>
 
 - **users.json**<br><br>
-  Definiciones del editor CRUD de Usuarios y de la tabla. Esto se usa para la opción de menú frontend `Admin > Users`.<br><br>
+  Definiciones del editor CRUD de Usuarios y de la tabla. Esto se usa para la opción de menú `Admin > Users` del frontend.<br><br>
 
 - **users_config.json**<br><br>
-  Parámetros de configuración específicos de usuarios (CRUD) y definiciones de la tabla.<br>
-  Esto se usa para `Configuration parameters` en la opción de menú frontend `Admin > Users`.<br><br>
+  Parámetros de configuración específicos de los usuarios para CRUD y definiciones de tablas.<br>
+  Esto se usa para `Configuration parameters` en la opción de menú `Admin > Users` del frontend.<br><br>
 
 - **users_profile.json**<br><br>
-  Configuración del perfil de usuarios. Esto se usa para la opción de menú frontend `Hamburger Menu > Profile`.
+  Configuración de perfil de usuarios. Esto se usa para la opción de menú `Hamburger Menu > Profile` del frontend.
 
-## Directorio Backend
+## Directorio backend
 
-El directorio `backend` contiene configuraciones visibles únicamente en la API backend.
+El directorio `backend` contiene configuraciones visibles solo en la API Backend.
 
-Esto es principalmente para opciones de la estructura del menú y seguridad que no queremos que estén disponibles en el frontend.
+Esto es principalmente para opciones como la estructura del menú y la seguridad que no queremos que estén disponibles en el frontend.
 
 - **app_main_menu.json**<br><br>
   Estructura del menú y configuraciones de seguridad.<br><br>
 
 - **endpoints.json**<br><br>
-  Definición y configuración de Endpoints.<br><br>
+  Definición y configuración de endpoints.<br><br>
 
 - **general_config.json**<br><br>
   Definiciones del editor de Parámetros de Configuración Generales de la App.<br><br>
@@ -93,16 +93,16 @@ Esto es principalmente para opciones de la estructura del menú y seguridad que 
   Definiciones del editor de Usuarios.<br><br>
 
 - **users_config.json**<br><br>
-  Definiciones del editor de parámetros de configuración específicos de usuario.<br>
-  Estos parámetros de configuración sobrescriben los Parámetros Generales de Configuración, por usuario.
+  Definiciones del editor de Parámetros de configuración específicos de los usuarios.<br>
+  Estos parámetros de configuración sobrescriben los Parámetros de Configuración Generales, por usuario.
 
 ## Compartir archivos JSON entre los repositorios de desarrollo
 
-Para compartir los archivos JSON entre los repositorios de desarrollo de frontend y backend, se puede crear un repositorio separado y enlazar a ambos repos con un Submódulo de Git:
+Para compartir los archivos JSON entre los repos de desarrollo del frontend y del backend, se puede crear un repositorio separado y enlazar a ambos repos con un Submódulo de Git:
 
 ### Crear un repositorio solo para los archivos JSON
 
-  Crear el repositorio de archivos JSON en tu plataforma Git favorita ([GitHub](https://github.com/), [GitLab](https://gitlab.com/), [Bitbucket](https://bitbucket.org/)).
+  Crea el repositorio git para los archivos JSON en tu plataforma Git preferida ([GitHub](https://github.com/), [GitLab](https://gitlab.com/), [Bitbucket](https://bitbucket.org/)).
 
   Una vez creado, abre una ventana de Terminal y cambia al directorio raíz de tus repos.
 
@@ -124,31 +124,31 @@ git clone https://github.com/tomkat-cr/exampleapp_configs.git
 └── frontend
 ```
 
-### Definir parámetros del submódulo de Git
+### Definir parámetros de submódulo de Git
 
 - Define los parámetros `GIT_SUBMODULE_LOCAL_PATH_FRONTEND` y `GIT_SUBMODULE_URL` en el archivo frontend [.env](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example).
 
 - Define los parámetros `GIT_SUBMODULE_LOCAL_PATH` y `GIT_SUBMODULE_URL` en el archivo backend [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example).
 
-- En el directorio frontend ejecuta esto para inicializar el submódulo de Git:
+- En el directorio frontend ejecute este comando para inicializar el submódulo de Git:
 
 ```bash
 make add_submodules
 ```
 
-- En el directorio backend, ejecuta esto para inicializar el submódulo de Git:
+- En el directorio backend, ejecute este comando para inicializar el submódulo de Git:
 
 ```bash
 make add_submodules
 ```
 
-- En el directorio backend, ejecuta esto para copiar los archivos básicos de configuración JSON:
+- En el directorio backend, ejecute este comando para copiar los archivos básicos de configuración JSON:
 
 ```bash
 make init_submodules
 ```
 
-- Haz commit y push de los cambios para hacerlos disponibles para el frontend:
+- Haz commit y push de los cambios para que esté disponible para el frontend:
 
 ```bash
 # FastAPI
@@ -167,41 +167,41 @@ git push
 
 ## Cómo crear tablas de base de datos
 
-Para crear una nueva tabla de base de datos, debe existir un archivo `.json` en el directorio `backend/` con la definición de la tabla (p. ej. `table_name`, `mandatory_fields`, `projection_exclusion`, `email_verification`, `passwords`,  `additional_query_params`, etc., y las funciones específicas del backend `specific_function`), y un archivo `.json` en el directorio `frontend/` con la estructura de la tabla (p. ej. con columnas/atributos definidos en `fieldElements`).
+Para crear una nueva tabla de base de datos, debe existir un archivo `.json` en el directorio `backend/` con la definición de la tabla (p. ej. `table_name`, `mandatory_fields`, `projection_exclusion`, `email_verification`, `passwords`,  `additional_query_params`, etc., y las funciones específicas del backend `specific_function`), y un archivo `.json` en el directorio `frontend/` con la estructura de la tabla (p. ej. con columnas/atributos definidas en `fieldElements`).
 
 Por ejemplo, la tabla **users** tiene los siguientes archivos:
 
 * [backend/users.json](../../code/genericsuite-configs/backend/users.json)
 * [frontend/users.json](../../code/genericsuite-configs/frontend/users.json)
 
-La tabla **users** puede tener más de un archivo `.json` en los directorios `backend/` y `frontend/`, cada uno con vistas diferentes o con propiedades adicionales (o columnas) para una tabla.
+La tabla **users** puede tener más de un archivo `.json` en los directorios `backend/` y `frontend/`, cada uno con vistas diferentes o con propiedades (o columnas) adicionales para una misma tabla.
 
 Por ejemplo:
 
-1. El **perfil de usuario** tiene una vista diferente a la de los **usuarios** con menos atributos, porque no es un formulario para editar al usuario (solo los usuarios administradores pueden editar usuarios), sino una vista de perfil (destinada a que el usuario vea su propio perfil):
+1. El **perfil de usuario** tiene una vista distinta a la de **users** con menos atributos, porque no es un formulario para editar al usuario (solo los usuarios admin pueden editar usuarios), sino una vista de perfil (destinada a que el usuario vea su propio perfil):
 
 * [backend/users_profile.json](../../code/genericsuite-configs/backend/users_profile.json)
 * [frontend/users_profile.json](../../code/genericsuite-configs/frontend/users_profile.json)
 
-2. Para definir una relación 1 a muchos entre dos tablas, por ejemplo entre las tablas **usuarios** y **users_api_keys**:
+2. Para definir una relación 1 a muchos entre dos tablas, por ejemplo entre las tablas **users** y **users_api_keys**:
 
-* [backend/users_api_keys.json](../../code/genericsuite-configs/backend/users_api_keys.json), donde `table_name` es "users_api_keys" definiendo el nombre físico de la tabla relacionada en la base de datos
-* [frontend/users_api_keys.json](../../code/genericsuite-configs/frontend/users_api_keys.json), donde `type` es "child_listing" (lo que significa que es una relación 1 a muchos), `subType` es "table" (lo que significa que la propiedad es otra tabla), `endpointKeyNames` es un array con uno o más objetos con `parameterName` como "user_id" (el parámetro que se enviará al backend para recuperar los ítems de la tabla hija), y `parentElementName` como "user_id" (el nombre de la propiedad de la tabla padre para establecer la relación con la tabla hija)
+* [backend/users_api_keys.json](../../code/genericsuite-configs/backend/users_api_keys.json), donde `table_name` es "users_api_keys" definiendo el nombre de la tabla física relacionada en la base de datos
+* [frontend/users_api_keys.json](../../code/genericsuite-configs/frontend/users_api_keys.json), donde `type` es "child_listing" (lo que significa que es una relación 1 a muchos), `subType` es "table" (lo que significa que la propiedad es otra tabla), `endpointKeyNames` es un arreglo con uno o más objetos con `parameterName` como "user_id" (el parámetro que se enviará al backend para recuperar los ítems de la tabla hija), y `parentElementName` como "user_id" (el nombre del valor de la clave primaria de la tabla padre para establecer la relación con la tabla hija)
 
-3. Para definir una relación 1 a muchos en la misma tabla, por ejemplo la tabla **users** con una propiedad tipo array (o columna tipo JSON) llamada `users_config`:
+3. Para definir una relación 1 a muchos en la misma tabla, por ejemplo la tabla **users** con una propiedad de tipo array (o columna de tipo JSON) llamada `users_config`:
 
-* [backend/users_config.json](../../code/genericsuite-configs/backend/users_config.json), donde `table_name` es "users" definiendo la tabla padre físico en la base de datos
-* [frontend/users_config.json](../../code/genericsuite-configs/frontend/users_config.json), donde `type` es "child_listing" (lo que significa que es una relación 1 a muchos), `subType` es "array" (lo que significa que la propiedad es un array en la tabla), `array_name` es "users_config" (el nombre de la propiedad de array), `primaryKeyName` es "id" (la clave primaria de la tabla de array), `parentUrl` es "users" (el nombre del endpoint para recuperar el elemento de la tabla padre -ó fila-), `endpointKeyNames` tiene: `parameterName` como "user_id" (el parámetro que se enviará al backend para recuperar el ítem de la tabla padre), y `parentElementName` como "id" (el nombre de la clave primaria de la tabla padre)
+* [backend/users_config.json](../../code/genericsuite-configs/backend/users_config.json), donde `table_name` es "users" definiendo la tabla padre en la base de datos
+* [frontend/users_config.json](../../code/genericsuite-configs/frontend/users_config.json), donde `type` es "child_listing" (lo que significa que es una relación 1 a muchos), `subType` es "array" (lo que significa que la propiedad es un array en la tabla), `array_name` es "users_config" (el nombre de la propiedad de tipo array), `primaryKeyName` es "id" (la clave primaria de la tabla de arrays), `parentUrl` es "users" (el nombre del endpoint para recuperar el ítem de la tabla padre), `endpointKeyNames` tiene: `parameterName` como "user_id" (el parámetro para enviar al backend para recuperar el ítem de la tabla padre) y `parentElementName` como "id" (el nombre de la clave primaria de la tabla padre)
 
-Siga las instrucciones para construir los archivos `.json` en la [Documentación de Configuración del Editor CRUD Genérico](./Generic-CRUD-Editor-Configuration.md).
+Sigue las instrucciones para construir los archivos `.json` en la [Documentación de Configuración del Editor CRUD Genérico](./Generic-CRUD-Editor-Configuration.md).
 
 ## Cómo crear formularios
 
-Los formularios comparten los mismos archivos `.json` de frontend y backend que las tablas de la base de datos, dando la posibilidad de crear formularios con diferentes vistas.
+Los formularios comparten los mismos archivos `.json` de frontend y backend que las tablas de la base de datos, lo que permite crear formularios con distintas vistas.
 
-Para cada formulario debe haber un par de archivos: uno para el frontend y otro para el backend.
+Por cada formulario debe existir un par de archivos: uno para el frontend y otro para el backend.
 
-Para crear un nuevo formulario, debe existir un archivo `.json` en el directorio `frontend/` con la estructura del formulario (por ejemplo con campos de entrada definidos en `fieldElements`, y los atributos del formulario en `baseUrl`, `title`, `name`, `component`, `dbApiUrl`,  relaciones 1 a muchos en `childComponents`, funciones específicas en `dbListPreRead`, `dbPreWrite`, `dbPreValidations`, `validations`, etc.), y un archivo `.json` en el directorio `backend/` con la tabla utilizada por el formulario (para especificar `table_name`).
+Para crear un nuevo formulario, debe haber un archivo `.json` en el directorio `frontend/` con la estructura del formulario (p. ej. con campos de entrada definidos en `fieldElements`, y los atributos del formulario en `baseUrl`, `title`, `name`, `component`, `dbApiUrl`, 1-a-muchos en `childComponents`, funciones específicas en `dbListPreRead`, `dbPreWrite`, `dbPreValidations`, `validations`, etc.), y un archivo `.json` en el directorio `backend/` con la tabla utilizada por el formulario (para especificar `table_name`).
 
 Por ejemplo, la tabla **users** puede tener un formulario para editar al usuario, y otro formulario para editar el perfil del usuario:
 
@@ -210,18 +210,18 @@ Por ejemplo, la tabla **users** puede tener un formulario para editar al usuario
 * [frontend/users_profile.json](../../code/genericsuite-configs/frontend/users_profile.json)
 * [backend/users_profile.json](../../code/genericsuite-configs/backend/users_profile.json)
 
-Siga las instrucciones para construir los archivos `.json` en la [Documentación de Configuración del Editor CRUD Genérico](./Generic-CRUD-Editor-Configuration.md).
+Sigue las instrucciones para construir los archivos `.json` en la [Documentación de Configuración del Editor CRUD Genérico](./Generic-CRUD-Editor-Configuration.md).
 
 ## Cómo construir los archivos de configuración JSON
 
-Siga las instrucciones para construir los archivos de configuración JSON en la [Documentación de Configuración del Editor CRUD Genérico](./Generic-CRUD-Editor-Configuration.md).
+Sigue las instrucciones para construir los archivos de configuración JSON en la [Documentación de Configuración del Editor CRUD Genérico](./Generic-CRUD-Editor-Configuration.md).
 
 
 ## App frontend
 
-Siga las instrucciones para crear el frontend de la App en ReactJS [aquí](../Configuration-Guide/index.md).
+Sigue las instrucciones para crear el frontend de la App en ReactJS [aquí](../Configuration-Guide/index.md).
 
-Si la App incluirá funciones de IA, haga clic [aquí](../Frontend-Development/GenericSuite-AI/index.md).<br>
+Si la App incluirá funciones de IA, haz clic [aquí](../Frontend-Development/GenericSuite-AI/index.md).<br>
 
 ### Crear el código inicial
 
@@ -254,7 +254,7 @@ Configuración general de CSS y Tailwind.
 ```
 
 - `d.ts` ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/d.ts))<br>
-Para permitir la importación de archivos JSON.
+Para permitir la importación de los archivos JSON.
 
 ```ts
 declare module "*.json"
@@ -266,11 +266,11 @@ declare module "*.json"
 
 - Crear los directorios `src/components/About`, `src/components/App`, `src/components/HomePage`:
 
-- Crear el directorio `src.constants`.
+- Crear el directorio `src/constants`.
 
-- `About/About.jsx` componente ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe-ai/blob/main/src/lib/components/About/About.jsx)).<br>
+- El componente `About/About.jsx` ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe-ai/blob/main/src/lib/components/About/About.jsx)).<br>
 
-   En el pop-up Acerca de estará la descripción de tu App :
+   En el pop-up de About estará la descripción de tu App:
 ```js
 import React from 'react'
 import * as gs from "genericsuite";
@@ -279,14 +279,14 @@ export const AboutBody = () => {
     return (
         <GsAboutBody>
             <p>
-                ExampeApp is an application to ...
+                ExampeApp es una aplicación para ...
             </p>
         </GsAboutBody>
     )
 }
 ```
 
-- `App/App.jsx` componente ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe-ai/blob/main/src/lib/components/App/App.jsx)).<br>
+- El componente `App/App.jsx` ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe-ai/blob/main/src/lib/components/App/App.jsx)).<br>
 
    Configura el logo de la App (p. ej. `app_logo_circle.svg`) y los componentes del menú principal (p. ej. `ExampleMainElement` y `ExampleChildElement`).
 
@@ -311,9 +311,9 @@ const componentMap = {
 export const App = () => {
     return (
         <gs.App
-            // Logo for login page (circled)
+            // Logo para la página de inicio de sesión (círculo)
             appLogo="app_logo_circle.svg"
-            // Logo for the header (landscape)
+            // Logo para el encabezado (horizontal)
             // appLogoHeader={"app_logo_landscape.svg"}
             componentMap={componentMap}
         />
@@ -404,7 +404,7 @@ export const AppFooter = () => {
 }
 ```
 
-- **`HomePage/HomePage.jsx`** componente ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe-ai/blob/main/src/lib/components/HomePage/HomePage.jsx)).<br>
+- `HomePage/HomePage.jsx` componente ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe-ai/blob/main/src/lib/components/HomePage/HomePage.jsx)).<br>
 
    Define el contenido de la Página de Inicio.
 ```js
@@ -419,7 +419,7 @@ export const HomePage = () => {
         <gs.HomePage>
             <>
                 <h2>Hi {currentUser.firstName}!</h2>
-                <p>Here you can add your custom content, widgets or other components for the Home Page</p>
+                <p>Aquí puedes añadir tu contenido personalizado, widgets u otros componentes para la Página de Inicio</p>
             </>
         </gs.HomePage>
     );
@@ -456,7 +456,7 @@ export const HomePage = () => {
     }
 }
 ```
-NOTA: reemplace `exampleapp.com`, `info@exampleapp.com` y `support@exampleapp.com` con los dominios y correos de su App.
+NOTA: reemplece `exampleapp.com`, `info@exampleapp.com` y `support@exampleapp.com` con los dominios y correos reales de su App.
 
 - `src/constants/app_constants.jsx` ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/lib/constants/app_constants.jsx))
 
@@ -475,11 +475,11 @@ export const APP_VALID_URLS = constants.APP_VALID_URLS;
 
 ### Definir editores CRUD
 
-Ahora definiremos dos componentes: `ExampleMainElement`, que es el componente principal accesible desde el menú principal y permitirá realizar las operaciones CRUD (crear, leer, actualizar, eliminar) sobre una `example_table`.
+Ahora vamos a definir dos componentes: `ExampleMainElement`, que es el componente principal accesible desde el menú principal y permitirá realizar las operaciones CRUD (crear, leer, actualizar, eliminar) sobre una `example_table`.
 
-El `ExampleMainElement` tendrá un componente hijo `ExampleChildElement` con una relación `1 a N` y se almacenará en la misma `example_table` como un elemento de la lista.
+`ExampleMainElement` tendrá un componente hijo `ExampleChildElement` con una relación 1 a muchos y se almacenará en la misma `example_table` como un elemento de arreglo.
 
-- Crea estos directorios:
+- Crear estos directorios:
 ```
 src/components/ExampleMenu
 src/images
@@ -488,13 +488,13 @@ src/configs/backend
 src/configs/frontend
 ```
 
-- En el directorio `src/components/ExampleMenu` crea estos archivos:
+- En el directorio `src/components/ExampleMenu` crear estos archivos:
 ```
 src/components/ExampleMenu/ExampleMainElement.jsx
 src/components/ExampleMenu/ExampleChildElement.jsx
 ```
 
-- En el directorio `src/configs` crea estos archivos:
+- En el directorio `src/configs` crear estos archivos:
 ```
 src/configs/backend/example_main_element.json
 src/configs/backend/example_child_element.json
@@ -502,7 +502,7 @@ src/configs/frontend/example_main_element.json
 src/configs/frontend/example_child_element.json
 ```
 
-Tendrás una estructura de directorios/archivos como la siguiente:
+Tendrás una estructura de directorios/archivos como esta:
 ```
 .
 └── src
@@ -521,7 +521,7 @@ Tendrás una estructura de directorios/archivos como la siguiente:
         └── app_logo_circle.svg
 ```
 
-- `src/components/ExampleMenu/ExampleMainElement.jsx` archivo:<br>
+- Archivo `src/components/ExampleMenu/ExampleMainElement.jsx`:<br>
 Tendrá el componente principal que permite operaciones CRUD sobre la `example_table`.<br>
 ```js
 import React from 'react';
@@ -540,7 +540,7 @@ import {
 const GenericCrudEditor = gs.genericEditorRfcService.GenericCrudEditor;
 const GetFormData = gs.genericEditorRfcService.GetFormData;
 
-// To show debug data in the Browser's developer tools console
+// Para mostrar datos de depuración en la consola de herramientas del navegador
 const console_debug_log = gs.loggingService.console_debug_log;
 
 export function ExampleMainElement_EditorData() {
@@ -645,9 +645,9 @@ Tendrá la configuración del componente principal para backend y frontend.<br>
 ```
 
 - `src/configs/backend/example_main_element.json` archivo:<br>
-Tendrá la configuración backend del componente principal.<br>
-`creation_pk_name` define el nombre del atributo utilizado para verificar duplicados en la creación. En este caso, no permitirá nombres repetidos.<br>
-`additional_query_params` permite tener consultas de claves secundarias.<br><br>
+Tendrá la configuración principal del componente para backend.<br>
+`creation_pk_name` define el nombre del atributo utilizado para verificar duplicados en la creación. En este caso, no permitirá repetir `name`.<br>
+`additional_query_params` permite tener consultas con claves secundarias.<br><br>
 ```json
 {
     "table_name": "example_table",
@@ -762,7 +762,7 @@ Tendrá la configuración del componente hijo para backend y frontend.<br>
 ```
 
 - `src/configs/backend/example_child_element.json` archivo:<br>
-Tendrá la configuración backend del componente hijo.<br>
+Tendrá la configuración del componente hijo para backend.<br>
 ```json
 {
     "table_name": "example_table",
@@ -770,11 +770,11 @@ Tendrá la configuración backend del componente hijo.<br>
 }
 ```
 
-### Usa la librería de iconos de GenericSuite: <GsIcons>
+### Usa la biblioteca de íconos de GenericSuite: <GsIcons>
 
-Hay una lista de Iconos incluidos o integrados en el archivo `node_modules/genericsuite/src/lib/helpers/IconsLib.jsx`.
+Hay una lista de íconos incluidos o incrustados en el archivo `node_modules/genericsuite/src/lib/helpers/IconsLib.jsx`.
 
-Para usarlos, importa el componente `GsIcons` y usa la propiedad `icon` para seleccionar el icono a mostrar.
+Para usarlos, importa el componente `GsIcons` y usa la propiedad `icon` para seleccionar el ícono que se mostrará.
 
 ```js
 import * as gs from "genericsuite";
@@ -788,17 +788,17 @@ const GsIcons = gs.IconsLib.GsIcons;
   />
 ```
 
-Para definir un conjunto específico de iconos:
+Para definir un conjunto específico de Íconos:
 
-- Crea un nuevo directorio Helpers, por ejemplo `src/helpers`, y crea un nuevo archivo para los nuevos Iconos. Por ejemplo `src/helpers/iconsLibAiExtras.jsx`
+- Crea un nuevo directorio de Helpers, por ejemplo `src/helpers`, y crea un nuevo archivo para los nuevos Íconos. Ej. `src/helpers/iconsLibAiExtras.jsx`
 
-- Importa los iconos que quieres usar en el archivo. Por ejemplo
+- Importa los íconos que quieras usar en el archivo. Por ejemplo,
 
 ```js
 import { iconsLibAiExtras } from '../../helpers/iconsLibAiExtras.jsx';
 ```
 
-- Usa los iconos en el archivo. Por ejemplo
+- Usa los íconos en el archivo. Por ejemplo,
 
 ```js
 <GsIcons
@@ -812,7 +812,7 @@ import { iconsLibAiExtras } from '../../helpers/iconsLibAiExtras.jsx';
 
 - Crea el directorio `src/images` y copia las imágenes de la App allí.
 
-- Para referenciar las imágenes, usa el nombre de la imagen en una etiqueta `<img src="..." />`. Revisa un ejemplo [aquí](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/lib/services/generic.editor.rfc.service.jsx#L333). Por ejemplo,
+- Para hacer referencia a las imágenes, usa el nombre de la imagen en una etiqueta `<img src="..." />`. Consulta un ejemplo [aquí](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/lib/services/generic.editor.rfc.service.jsx#L333). Por ejemplo:
 
 ```js
 import React from 'react';
@@ -830,13 +830,13 @@ const exampleButton = () => {
 }
 ```
 
-IMPORTANTE: todas las imágenes se copiarán al directorio `build/static/media` durante la ejecución de desarrollo local y la implementación en QA/staging/producción.
+IMPORTANTE: todas las imágenes se copiarán al directorio `build/static/media` durante la ejecución local de desarrollo y la implementación en QA/staging/producción.
 
 Hay algunas imágenes precargadas utilizadas por la biblioteca GenericSuite. Consulta [aquí](https://github.com/tomkat-cr/genericsuite-fe/tree/main/src/lib/images) para más detalles.
 
 ### Definir opciones de menú para los editores CRUD
 
-- `src/configs/backend/app_main_menu.json` archivo ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/configs/backend/app_main_menu.json)):
+- archivo `src/configs/backend/app_main_menu.json` (ejemplo): 
 
 ```json
 [
@@ -928,9 +928,9 @@ Hay algunas imágenes precargadas utilizadas por la biblioteca GenericSuite. Con
 ]
 ```
 
-### Definir editores CRUD de API endpoints
+### Definir editores CRUD de endpoints de API
 
-- `src/configs/backend/endpoints.json` archivo ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/configs/backend/endpoints.json))
+- archivo `src/configs/backend/endpoints.json` (ejemplo):
 
 ```json
 [
@@ -984,12 +984,13 @@ Hay algunas imágenes precargadas utilizadas por la biblioteca GenericSuite. Con
 
 ### Usa el User Context
 
-Existen algunos casos en los que se requiere obtener datos del usuario actual. Por ello, se proporciona el `UserContext`. Este contexto se usa para obtener los datos del usuario actualmente conectado.
+Hay casos en los que es necesario obtener datos del usuario actual. Por ello se proporciona el `UserContext`. Este contexto se usa para obtener los datos del usuario actualmente autenticado.
 
 Para usar el `UserContext`, importa el hook `useUser` desde el `UserContext` y úsalo en tu componente:
 
 ```js
-// Componente de ejemplo que usa el UserContext para obtener el nombre de pila del usuario
+// Componente de ejemplo que usa el UserContext para obtener el nombre
+// de pila del usuario
 import React, { useState, useEffect } from 'react';
 import * as gs from "genericsuite";
 const useUser = gs.UserContext.useUser;
@@ -1005,31 +1006,31 @@ export const HomePage = () => {
 }
 ```
 
-La lista completa de atributos disponibles del UserContext se puede encontrar en la documentación de [GenericSuite UserContext].(https://github.com/tomkat-cr/genericsuite-fe/blob/master/src/lib/helpers/UserContext.jsx)
+La lista completa de atributos disponibles de UserContext se puede encontrar en la documentación de [GenericSuite Contexto de Usuario]({URL}) — reemplaza el texto entre paréntesis por la ruta correspondiente.
 
-### Usar el App Context
+### Usar el Contexto de la App
 
-El App Context se usa para compartir atributos, variables y funciones entre los componentes de la App. Por ejemplo:
+El Contexto de la App se usa para compartir atributos, variables y funciones a través de los componentes de la App. Ej.:
 
 - `appLogo`
 - `appLogoHeader`
 - `componentMap`
-- `state` (para almacenar los posibles mensajes de error en el componente principal de la App)
+- `state` (para almacenar posibles mensajes de error en el componente principal de la App)
 - `menuOptions`
 - `sideMenu` (bandera que indica si el menú lateral izquierdo está activo)
 - `isDarkMode`
 - `isMobileMenuOpen`
 - `expandedMenus` (contiene una lista de submenús expandidos)
-- `isWide` (verdadero si la ventana tiene más de 640 píxeles de ancho)
-- `theme` (atributos de color para modos claro y oscuro, dependiendo de cuál esté activo)
+- `isWide` (true si la ventana tiene más de 640 píxeles de ancho)
+- `theme` (atributos de color para modos claro y oscuro, dependiendo de cuál está activo)
 - `toggleDarkMode()`
 - `toggleSideMenu()`
 - `toggleMobileMenu()`
 - `toggleSubmenu()`
-- `isComponent()` (para comprobar si un objeto es un componente de React)
+- `isComponent()` (para verificar si un objeto es un componente de React)
 - `setExpanded()`
 
-Por ejemplo, para usar el App Context, el directorio de imágenes, constantes de clases y elementos NavLib (como el ToggleSideBar, GsButton y CenteredBoxContainer):
+Por ejemplo, para usar el App Context, el directorio de imágenes, constantes de clases y elementos de NavLib (como ToggleSideBar, GsButton y CenteredBoxContainer):
 
 ```js
 import React, { useState, useEffect } from 'react';
@@ -1090,12 +1091,12 @@ export const SomeComponent = () => {
 }
 ```
 
-La lista completa de atributos disponibles del AppContext se puede encontrar en la documentación de [GenericSuite AppContext](https://github.com/tomkat-cr/genericsuite-fe/blob/master/src/lib/helpers/AppContext.jsx).
+La lista completa de atributos disponibles de AppContext se puede encontrar en la documentación de [GenericSuite AppContext]({URL}) — reemplaza el texto entre paréntesis por la ruta correspondiente.
 
 ## App backend
 
-Siga las instrucciones para crear el backend de la App en Python [aquí](https://github.com/tomkat-cr/genericsuite-be/blob/main/README.md).<br>
-Si la App incluirá funciones de IA, haga clic [aquí](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/README.md)<br>
+Sigue las instrucciones para crear el backend de la App en Python [aquí](https://github.com/tomkat-cr/genericsuite-be/blob/main/README.md).<br>
+Si la App incluirá funciones de IA, haz clic [aquí](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/README.md)<br>
 
 ### Crear el código inicial de la API
 
@@ -1111,10 +1112,10 @@ from genericsuite.chalicelib.util.create_app import create_app
 
 from lib.config.config import Config
 
-# exampleapp specific endpoint definition
+# definición de endpoint específica de exampleapp
 # from chalicelib.endpoints import exampleapp_specific_endpoint
 
-# Only for API Apps using GenericSuite AI backend version
+# Solo para Apps API que usan la versión de backend con GenericSuite AI
 # https://github.com/tomkat-cr/genericsuite-be-ai
 # from chalicelib.endpoints import ai_exampleapp_bot as ai_chatbot_endpoint
 
@@ -1122,10 +1123,10 @@ settings = Config()
 app = create_app(app_name=f'{settings.APP_NAME.lower()}-backend',
     settings=settings)
 
-# Register application specific endpoints
+# Registrar endpoints específicos de la aplicación
 # app.register_blueprint(food_moments.bp, url_prefix='/exampleapp_specific_endpoint')
 
-# Register AI endpoints
+# Registrar endpoints de IA
 # app.register_blueprint(ai_chatbot_endpoint.bp, url_prefix='/ai')
 ```
 
@@ -1135,7 +1136,7 @@ app = create_app(app_name=f'{settings.APP_NAME.lower()}-backend',
 """
 General configuration module
 """
-# C0103 | Disable "name doesn't conform to naming rules..." (snake_case)
+# C0103 | Desactivar "name doesn't conform to naming rules..." (snake_case)
 # pylint: disable=C0103
 
 from typing import Any
@@ -1164,7 +1165,7 @@ Los elementos de IA están disponibles en la versión frontend de GenericSuite A
 
 ### Elementos de IA: la opción de menú ChatBot
 
-Para implementar un Asistente ChaBot similar a ChatGPT en tu App:
+Para implementar un asistente ChaBot similar a ChatGPT en su App:
 
 1. Opción de menú ChatBot `src/configs/backend/app_main_menu.json`
 
@@ -1224,11 +1225,11 @@ settings = Config()
 app = create_app(app_name=f'{settings.APP_NAME.lower()}-backend',
     settings=settings)
 
-# Register AI endpoints
+# Registrar endpoints de IA
 app.register_blueprint(ai_chatbot_endpoint.bp, url_prefix='/ai')
 ```
 
-4. Endpoint API de ChatBot `chalicelib/endpoints/ai_chatbot.py`
+4. Endpoint de IA ChatBot `chalicelib/endpoints/ai_chatbot.py`
 ```python
 """
 AI Endpoints
@@ -1333,12 +1334,12 @@ def transcribe_audio_endpoint(
     )
 ```
 
-5. GPT functions/tools específicas de IA ChatBot `lib/models/ai_chatbot/ai_gpt_fn_app.py`<br>(solo si la App tiene funciones GPT específicas)
+5. API ChatBot específico de GPT (funciones/herramientas) `lib/models/ai_chatbot/ai_gpt_fn_app.py`<br>(solo si la App tiene funciones GPT específicas)
 ```python
 """
 GPT functions: App specific
 """
-# C0301: | Disable "line-too-long"
+# C0301: | Desactivar "line-too-long"
 # pylint: disable=C0301
 # W0718 | broad-exception-caught Catching too general exception Exception
 # pylint: disable=W0718
@@ -1385,7 +1386,7 @@ from genericsuite_ai.lib.json_reader import (
 DEBUG = False
 cac = CommonAppContext()
 
-# Structures
+# Estructuras
 
 
 class ExampleFuncElement(BaseModel):
@@ -1399,25 +1400,25 @@ class ExampleFuncElement(BaseModel):
     observations: Optional[str] = Field(default="",
         description="example_element observations if any. Defaults to None")
 
-# Funcions called by ChatGPT
+# Funciones llamadas por ChatGPT
 
 
 @tool
 def create_example_element(params: Any) -> str:
     """
-Useful when you need to add a new example_element to the database.
-Args: params (dict): Tool parameters. It must contain:
-"name" (str): ingredient name.
+Util útil cuando necesitas añadir un nuevo example_element a la base de datos.
+Args: params (dict): Parámetros de la herramienta. Debe contener:
+"name" (str): nombre del ingrediente.
     .
     .
-"observations" (str): additional observations about the ingredient if any.
+"observations" (str): observaciones adicionales sobre el ingrediente si las hay.
     """
     return create_example_element_func(params)
 
 
 def create_example_element_func(params: Any) -> str:
     """
-    Add a example_element to the database.
+    Añadir un example_element a la base de datos.
     """
     params = interpret_tool_params(tool_params=params, schema=ExampleFuncElement)
 
@@ -1442,7 +1443,7 @@ def create_example_element_func(params: Any) -> str:
 #      .
 ```
 
-6. Gestión de funciones/herramientas GPT específicas de IA ChatBot `lib/models/ai_chatbot/ai_gpt_fn_index.py`<br>(solo si la App tiene funciones GPT específicas)
+6. Gestión de funciones/herramientas GPT específicas de la IA ChatBot `lib/models/ai_chatbot/ai_gpt_fn_index.py`<br>(solo si la App tiene funciones GPT específicas)
 
 ```python
 """
@@ -1476,7 +1477,7 @@ def assign_example_app_gpt_functions(
     app_context: AppContext,
 ) -> None:
     """
-    Assign specific example_app GPT functions
+    Asignar funciones GPT específicas de example_app
     """
     _ = DEBUG and log_debug('ASSIGN_EXAMPLE_APP_GPT_FUNCTIONS | Assigning example_app GPT functions')
     app_context.set_other_data('additional_function_dict', get_additional_functions_dict)
@@ -1489,11 +1490,11 @@ def get_additional_functions_dict(
     app_context: AppContext,
 ) -> dict:
     """
-    Get the available ChatGPT functions and its callables (app-specific).
+    Obtener las funciones de ChatGPT disponibles y sus llamadas (propias de la app).
 
     Returns:
-        dict: A dictionary containing the available ChatGPT functions
-        and its callable.
+        dict: Un diccionario que contiene las funciones disponibles de ChatGPT
+        y su callable.
     """
     _ = DEBUG and log_debug('GET_ADDITIONAL_FUNCTIONS_DICT | Assigning example_app GPT functions dict')
     settings = Config(app_context)
@@ -1517,14 +1518,15 @@ def additional_gpt_func_appcontexts(
     app_context: AppContext,
 ) -> list:
     """
-    Assign the app_context to the ChatGPT functions.
+    Asignar el app_context a las funciones de ChatGPT.
 
     Args:
-        app_context (AppContext): GPT Context
+        app_context (AppContext): Contexto de GPT
     """
-    _ = DEBUG and \
-        log_debug('ADDITIONAL_GPT_FUNC_APPCONTEXTS | Assigning' + \
-        ' example_app additional GPT function AppContexts')
+    _
+    = DEBUG and \
+        log_debug('ADDITIONAL_GPT_FUNC_APPCONTEXTS | Asignando' + \
+        ' contextos de App para funciones GPT adicionales de example_app')
     available_func_context = [
         cac_example_app,
     ]
@@ -1537,13 +1539,12 @@ def additional_run_one_function(
     function_args: dict,
 ) -> dict:
     """
-    Execute a function based on the given function_name
-    and function_args.
+    Ejecutar una función basada en el nombre de la función y sus argumentos.
 
     Args:
-        app_context (AppContext): GPT Context
-        function_name (str): function name
-        function_args (dict): function args
+        app_context (AppContext): Contexto de GPT
+        function_name (str): nombre de la función
+        function_args (dict): argumentos de la función
 
     Returns:
         The result of the function execution.
@@ -1590,11 +1591,11 @@ def get_additional_function_specs(
     app_context: AppContext,
 ) -> list:
     """
-    Get the ChatGPT function specifications (parameters, documentation).
+    Obtener las especificaciones de las funciones de ChatGPT (parámetros, documentación).
 
     Returns:
-        list[dict]: A list of dictionaries containing the available
-        ChatGPT functions.
+        list[dict]: Una lista de diccionarios que contiene las funciones disponibles
+        de ChatGPT.
     """
     _ = DEBUG and log_debug('GET_ADDITIONAL_FUNCTION_SPECS | example_app additional GPT function specs')
     _ = DEBUG and \
@@ -1640,9 +1641,9 @@ def get_additional_function_specs(
 
 ```
 
-### Elementos de IA: el botón de ChatBot
+### Elementos de IA: el botón ChatBot
 
-Para implementar un botón que abra un pop-up de ChaBot:
+Para implementar un Botón que abra un pop-up de ChaBot:
 
 1. Configuración del editor CRUD `src/configs/frontend/example_element.json`
 
@@ -1692,7 +1693,7 @@ Para implementar un botón que abra un pop-up de ChaBot:
 }
 ```
 
-2. Frontend CRUD editor component `src/components/UsersMenu/ExampleElement.jsx`
+2. Componente frontend CRUD editor `src/components/UsersMenu/ExampleElement.jsx`
 
 ```js
 import React from 'react';
@@ -1730,7 +1731,7 @@ Puedes crear una base de datos MongoDB en MongoDB Atlas:
 
 4. Crea una nueva Base de Datos / Despliegue.
 
-5. Asigna un usuario y una contraseña de base de datos.
+5. Asigna un usuario de base de datos y una contraseña.
 
 6. Copia o anota la contraseña del usuario.
 
@@ -1738,42 +1739,42 @@ Puedes crear una base de datos MongoDB en MongoDB Atlas:
 
 8. Haz clic en la opción `Drivers`.
 
-9. En la sección `3. Add your connection string into your application code`: copia la cadena de conexión.
+9. En la sección `3. Add your connection string into your application code` copia la cadena de conexión.
 
-10. Reemplaza `<password>` con la contraseña del usuario copiada en los pasos anteriores. Asegúrate de que cualquier parámetro de opción esté URL codificado ([ver la documentación aquí](https://www.mongodb.com/docs/atlas/troubleshoot-connection/#special-characters-in-connection-string-password)).
+10. Reemplaza `<password>` con la contraseña del usuario copiada en los pasos anteriores. Asegúrate de codificar en URL cualquier parámetro opcional (consulta la documentación aquí https://www.mongodb.com/docs/atlas/troubleshoot-connection/#special-characters-in-connection-string-password).
 
-11. Asigna la cadena de conexión en las variables `.env` `APP_DB_URI_QA`, `APP_DB_URI_STAGING`, `APP_DB_URI_PROD` y `APP_DB_URI_DEMO`.
+11. Asigna la cadena de conexión en las variables de entorno `APP_DB_URI_QA`, `APP_DB_URI_STAGING`, `APP_DB_URI_PROD` y `APP_DB_URI_DEMO` [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example).
 
 ## Crear el usuario Super Admin
 
-Para crear el Usuario de Administración, ejecuta esto:
+Para crear el usuario de Administración, ejecuta esto:
 
 ```bash
-# Run the backend API with the QA Database
+# Ejecutar la API de backend con la base de datos QA
 make run_qa
-# Or using the local Docker MongoDB
+# O usando MongoDB con Docker local
 # make run
 ```
 
-Cuando se te solicite, elige `1` para la opción `http`.
+Cuando se solicite, selecciona `1` para la opción `http`.
 
 Usando [Postman](https://www.postman.com/home) (o tu aplicación favorita para enviar solicitudes API):
 
 1. Crea una nueva pestaña de Solicitud.
 
-2. En el campo `URL`, selecciona `POST` y asigna la URL `http://127.0.0.1:5001/users/supad-create`
+2. En el campo `URL`, selecciona POST y asigna la URL `http://127.0.0.1:5001/users/supad-create`
 
 3. Ve a la pestaña `Authorization`.
 
 4. Selecciona `Type: Basic Auth`.
 
-5. En el campo `Username`, coloca el valor asignado en la variable `APP_SUPERADMIN_EMAIL` del [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example).
+5. En el campo `Username`, coloca el valor asignado en la variable `APP_SUPERADMIN_EMAIL` [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) .
 
-6. En el campo `Password`, coloca el valor asignado en la variable `APP_SECRET_KEY` del [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example).
+6. En el campo `Password`, coloca el valor asignado en la variable `APP_SECRET_KEY` [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) .
 
 7. Envía la Solicitud.
 
-8. Si la respuesta se parece al siguiente JSON, el usuario Super Admin fue creado con éxito:
+8. Si la respuesta se parece al siguiente JSON, el usuario Super Admin se creó con éxito:
 
 ```json
 {
@@ -1784,7 +1785,7 @@ Usando [Postman](https://www.postman.com/home) (o tu aplicación favorita para e
 }
 ```
 
-9. Si la respuesta se parece al siguiente JSON, las credenciales son incorrectas. Verifica que los valores de los campos `Username` y `Password` deben ser iguales a las variables `APP_SUPERADMIN_EMAIL` y `APP_SUPERADMIN_EMAIL` del [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example):
+9. Si la respuesta se parece al siguiente JSON, las credenciales están incorrectas. Verifica que los valores de los campos `Username` y `Password` deben ser iguales a las variables `APP_SUPERADMIN_EMAIL` y `APP_SUPERADMIN_EMAIL` [.env](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example):
 
 ```json
 {
@@ -1796,7 +1797,7 @@ Usando [Postman](https://www.postman.com/home) (o tu aplicación favorita para e
 }
 ```
 
-10. Si la respuesta se parece al siguiente JSON, el usuario Super Admin ya fue creado:
+10. Si la respuesta se parece al siguiente JSON, el usuario Super Admin ya ha sido creado:
 
 ```json
 {
@@ -1810,11 +1811,11 @@ Usando [Postman](https://www.postman.com/home) (o tu aplicación favorita para e
 
 ## Backend de AWS App
 
-Este apéndice es para el Backend de la App que usa AWS Lambda Function, API Gateway, buckets S3, DynamoDB y Chalice.
+Este apéndice es para el Backend de la App que usa AWS Lambda, API Gateway, buckets S3, DynamoDB y Chalice.
 
 ### Definir el rol de la función Lambda
 
-Ve a AWS Console > IAM > Roles y crea el `<exampleapp>-api_handler-role-<stage>` para cada etapa:
+Ve a la Consola de AWS > IAM > Roles y crea el `<exampleapp>-api_handler-role-<stage>` para cada etapa:
 
 ```json
 {
@@ -1863,7 +1864,7 @@ Ve a AWS Console > IAM > Roles y crea el `<exampleapp>-api_handler-role-<stage>`
 }
 ```
 
-### Definir plantilla de configuración Chalice
+### Definir la plantilla de Chalice
 
 1. Crea el directorio `.chalice` en el directorio raíz del proyecto.
 
@@ -1951,11 +1952,11 @@ mkdir -p .chalice
 }
 ```
 
-### Define plantilla para tablas DynamoDB
+### Definir plantilla para tablas DynamoDB
 
-Si planeas usar DynamoDB como tecnología de base de datos, necesitarás crear las tablas.
+Si planeas usar DynamoDB como base de datos, necesitarás crear las tablas.
 
-Este es un archivo inicial de ejemplo de `dynamodb_cf_template.yaml` para automatizar el proceso:
+Este es un archivo inicial `dynamodb_cf_template.yaml` de ejemplo para automatizar el proceso:
 
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
@@ -2134,7 +2135,7 @@ Resources:
                   default:
                     statusCode: '200'
                     responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
                       method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
                       method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
                       method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
@@ -2310,7 +2311,7 @@ Resources:
                       type: string
                     Access-Control-Allow-Headers:
                       type: string
-                    Access-Control-Allow-Headers:
+                    Access-Control-Expose-Headers:
                       type: string
                     Access-Control-Max-Age:
                       type: string
@@ -2331,8 +2332,424 @@ Resources:
                   application/json: '{"statusCode": 200}'
                 passthroughBehavior: when_no_match
                 type: mock
+                contentHandling: CONVERT_TO_TEXT
 
-          /general_config:
+          /users/test:
+            get:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Connection handler test
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''GET,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /users/login:
+            get:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: User login
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passtrhoughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: User login
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passtrhoughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /users/supad-create:
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Super admin user emergency creation
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /ai/chatbot:
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              - audio/mpeg
+              - application/octet-stream
+              - text/csv
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                responseTemplates:
+                  application/json: '{"statusCode": 200}'
+                  audio/mpeg: '{"statusCode": 200}'
+                  application/octet-stream: '{"statusCode": 200}' 
+                  text/csv: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                # Content type conversions in API Gateway
+                # https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-payload-encodings-workflow.html
+                # contentHandling: CONVERT_TO_TEXT
+                # contentHandling: CONVERT_TO_BINARY
+                type: aws_proxy
+              summary: Este función es el endpoint para el IA Chatbot.
+              description: 'Recibe los datos del usuario (pregunta), ejecuta la conversación con el IA Chatbot y devuelve la respuesta del IA Chatbot.'
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /ai/image_to_text:
+            post:
+              consumes:
+              - multipart/form-data
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Este endpoint recibe un archivo de imagen, lo guarda en un directorio temporal
+                y llama @vision_image_analyzer con la ruta del archivo
+              description: 'con un nombre de archivo .jpg | .png UUID4, y devuelve el resultado.
+
+
+                :param request: La solicitud que contiene el archivo de imagen.
+
+                :return: El resultado de la transcripción.'
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /ai/voice_to_text:
+            post:
+              consumes:
+              - multipart/form-data
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                contentHandling: CONVERT_TO_TEXT
+                type: aws_proxy
+              summary: Este endpoint recibe un archivo de audio, lo guarda en un directorio temporal
+              description: 'con un nombre de archivo .mp3 UUID4, llama @audio_to_text_transcript
+                con
+
+                la ruta del archivo, y devuelve el resultado.
+
+
+                :param request: La solicitud que contiene el archivo de audio.
+
+                :return: El resultado de la transcripción.'
+            options:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Methods:
+                      type: string
+                    Access-Control-Allow-Origin:
+                      type: string
+                    Access-Control-Allow-Headers:
+                      type: string
+                    Access-Control-Expose-Headers:
+                      type: string
+                    Access-Control-Max-Age:
+                      type: string
+                    Access-Control-Allow-Credentials:
+                      type: string
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
+                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
+                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
+                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
+                      method.response.header.Access-Control-Max-Age: '''600'''
+                      method.response.header.Access-Control-Allow-Credentials: '''true'''
+                requestTemplates:
+                  application/json: '{"statusCode": 200}'
+                passthroughBehavior: when_no_match
+                type: mock
+                contentHandling: CONVERT_TO_TEXT
+
+          /ai_chatbot_conversations:
             get:
               consumes:
               - application/json
@@ -2471,6 +2888,7 @@ Resources:
                   application/json: '{"statusCode": 200}'
                 passthroughBehavior: when_no_match
                 type: mock
+                contentHandling: CONVERT_TO_TEXT
 
         definitions:
           Empty:
@@ -2568,7 +2986,7 @@ Resources:
 ```toml
 # samconfig.toml
 
-# More information about the configuration file can be found here:
+# Más información sobre el archivo de configuración se puede encontrar aquí:
 # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
 version = 0.1
 
@@ -2606,3 +3024,97 @@ warm_containers = "EAGER"
 [default.local_start_lambda.parameters]
 warm_containers = "EAGER"
 ```
+
+## Problemas
+
+### Componente inválido en la página de índice
+
+Entrar en una opción de editor CRUD del menú, la página queda vacía y al abrir la Consola de herramientas de Desarrollo se muestra este error:
+
+`Warning: React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports. Error Component Stack`
+
+#### EJEMPLO
+
+Dichos archivos:
+
+* Archivo `src/configs/frontend/some_name.json`
+
+```json
+{
+    "baseUrl": "some-base-url",
+    "title": "Some Name (many)",
+    "name": "Some Name (one)",
+    "component": "SomeComponentInvalid",
+    "dbApiUrl": "some-db-api-url",
+    "defaultOrder": "_id|asc",
+    "fieldElements": [
+        ...
+    ]
+}
+```
+
+* Archivo `src/_components/SomeComponentGroup/SomeComponent.jsx`
+
+```jsx
+import React from 'react';
+import * as gs from "genericsuite";
+import onboarding_admin from "../../configs/frontend/some_name.json";
+
+const GenericCrudEditor = gs.genericEditorRfcService.GenericCrudEditor;
+const GetFormData = gs.genericEditorRfcService.GetFormData;
+
+export function SomeComponent_EditorData() {
+    const registry = {
+        "SomeComponent": SomeComponent,
+    }
+    return GetFormData(onboarding_admin, registry, 'SomeComponent_EditorData');
+}
+
+export const SomeComponent = () => {
+    return <GenericCrudEditor editorConfig={SomeComponent_EditorData()} />
+}
+```
+
+* Archivo `src/_components/App/App.jsx`
+
+```jsx
+import React from 'react';
+
+import { App as GsAiApp } from "genericsuite-ai";
+
+import { SomeComponent_EditorData } from '../SomeComponentGroup/SomeComponent.jsx';
+import { Users_EditorData } from '../SuperAdminOptions/Users.jsx';
+import { UserProfileEditor } from '../UsersMenu/UserProfile.jsx';
+
+import { AboutBody } from '../About/About.jsx';
+import { HomePage } from '../HomePage/HomePage.jsx';
+
+const AppLogo = 'app_logo_circle.svg';
+const AppLogoHeader = 'app_logo_horizontal.svg';
+
+const componentMap = {
+    "SomeComponent_EditorData": SomeComponent_EditorData,
+    "UserProfileEditor": UserProfileEditor,
+    "Users_EditorData": Users_EditorData,
+    "AboutBody": AboutBody,
+    "HomePage": HomePage,
+};
+
+export const App = () => {
+    return (
+        <GsAiApp
+            appLogo={AppLogo}
+            appLogoHeader={AppLogoHeader}
+            componentMap={componentMap}
+        />
+    );
+}
+```
+
+#### ANÁLISIS
+
+El nombre del componente en el archivo de configuración JSON `"component": "SomeComponentInvalid"` no coincide con el nombre del componente en el código `export const SomeComponent = () => { ... }`.
+
+#### SOLUCIÓN
+
+Cambiar el nombre del componente en el archivo de configuración JSON `"component": "SomeComponentInvalid"` a `"component": "SomeComponent"`.

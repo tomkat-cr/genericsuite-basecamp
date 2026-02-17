@@ -3315,3 +3315,97 @@ warm_containers = "EAGER"
 [default.local_start_lambda.parameters]
 warm_containers = "EAGER"
 ```
+
+## Troubleshooting
+
+### Invalid component in index page
+
+Entering a CRUD editor menu option, the page is empty and opening the Developers Tools Console, this error is displayed:
+
+`Warning: React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports. Error Component Stack`
+
+#### EXAMPLE
+
+Given the following files:
+
+* File `src/configs/frontend/some_name.json`
+
+```json
+{
+    "baseUrl": "some-base-url",
+    "title": "Some Name (many)",
+    "name": "Some Name (one)",
+    "component": "SomeComponentInvalid",
+    "dbApiUrl": "some-db-api-url",
+    "defaultOrder": "_id|asc",
+    "fieldElements": [
+        ...
+    ]
+}
+```
+
+* File `src/_components/SomeComponentGroup/SomeComponent.jsx`
+
+```jsx
+import React from 'react';
+import * as gs from "genericsuite";
+import onboarding_admin from "../../configs/frontend/some_name.json";
+
+const GenericCrudEditor = gs.genericEditorRfcService.GenericCrudEditor;
+const GetFormData = gs.genericEditorRfcService.GetFormData;
+
+export function SomeComponent_EditorData() {
+    const registry = {
+        "SomeComponent": SomeComponent,
+    }
+    return GetFormData(onboarding_admin, registry, 'SomeComponent_EditorData');
+}
+
+export const SomeComponent = () => {
+    return <GenericCrudEditor editorConfig={SomeComponent_EditorData()} />
+}
+```
+
+* File `src/_components/App/App.jsx`
+
+```jsx
+import React from 'react';
+
+import { App as GsAiApp } from "genericsuite-ai";
+
+import { SomeComponent_EditorData } from '../SomeComponentGroup/SomeComponent.jsx';
+import { Users_EditorData } from '../SuperAdminOptions/Users.jsx';
+import { UserProfileEditor } from '../UsersMenu/UserProfile.jsx';
+
+import { AboutBody } from '../About/About.jsx';
+import { HomePage } from '../HomePage/HomePage.jsx';
+
+const AppLogo = 'app_logo_circle.svg';
+const AppLogoHeader = 'app_logo_horizontal.svg';
+
+const componentMap = {
+    "SomeComponent_EditorData": SomeComponent_EditorData,
+    "UserProfileEditor": UserProfileEditor,
+    "Users_EditorData": Users_EditorData,
+    "AboutBody": AboutBody,
+    "HomePage": HomePage,
+};
+
+export const App = () => {
+    return (
+        <GsAiApp
+            appLogo={AppLogo}
+            appLogoHeader={AppLogoHeader}
+            componentMap={componentMap}
+        />
+    );
+}
+```
+
+#### ANALYSIS
+
+The component name in the JSON configuration file `"component": "SomeComponentInvalid"` does not match the component name in the code `export const SomeComponent = () => { ...`.
+
+#### SOLUTION
+
+Change the name of the component in the JSON configuration file `"component": "SomeComponentInvalid"` to `"component": "SomeComponent"`.

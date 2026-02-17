@@ -181,10 +181,10 @@ npm install --save-peer --strict-peer-deps webpack webpack-cli webpack-dev-serve
 
 ### Prepare the Configuration Files
 
-Copy the `.env` file template from `node_modules/genericsuite`:
+Copy the [.env.example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example) file template from `node_modules/genericsuite` to your `.env` file:
 
 ```bash
-cp node_modules/genericsuite/.env.example ./.env
+cp node_modules/genericsuite/.env.example .env`
 ```
 
 And configure the variables according your needs:

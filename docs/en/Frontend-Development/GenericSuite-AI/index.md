@@ -47,10 +47,10 @@ Same steps described in [GenericSuite for ReactJS (frontend version)](../Generic
 
 ### Prepare the Configuration Files
 
-Copy the template from `node_modules/genericsuite-ai`:
+Copy the [.env.example](https://github.com/tomkat-cr/genericsuite-fe-ai/blob/main/.env.example) template from `node_modules/genericsuite-ai` to your `.env` file:
 
 ```bash
-cp node_modules/genericsuite-ai/.env.example ./.env
+cp node_modules/genericsuite-ai/.env.example .env
 ```
 
 And configure the variables according your needs:

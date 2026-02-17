@@ -125,3 +125,23 @@ rebuild-ui:
 
 create-ssl-certs:
 	cd server && make create_ssl_certs && cd -
+
+# Cloudfared tunnel manager
+
+cf-tunnel-login:
+	ACTION=login bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+cf-tunnel-create:
+	ACTION=create bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+cf-tunnel-run:
+	ACTION=run bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+cf-tunnel-list:
+	ACTION=list bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+cf-tunnel-check:
+	ACTION=check bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+cf-tunnel-delete:
+	ACTION=delete bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh

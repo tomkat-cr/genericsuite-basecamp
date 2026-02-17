@@ -91,10 +91,13 @@ For a monorepo (e.g. [exampleapp](../../../code/exampleapp/README.md) and [fasta
 ```
 your_app_name/
 ├── config_dbdef/                 # Configuration database definitions
+├── deployment/                   # App deployment files (Docker/Podman)
 ├── server/                       # Server application
 ├── ui/                           # User interface
 └── mcp-server/                   # MCP server
 ```
+
+Check the [App Structure](#app-structure) section to have the frontend and backend in differenten repos.
 
 Create the project directory for the App's backend API as follows:
 
@@ -261,7 +264,21 @@ pip install pytest coverage
 
 ## Configuration
 
-Configure your application by setting up the necessary environment variables. Refer to the [.env.example](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) and [config.py](https://github.com/tomkat-cr/genericsuite-be/blob/main/genericsuite/config/config.py) files for the available options.
+Configure your application by setting up the necessary environment variables.
+
+Refer to the [.env.example](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) and [config.py](https://github.com/tomkat-cr/genericsuite-be/blob/main/genericsuite/config/config.py) files for the available options.
+
+First copy the `.env.example` template to your `.env` file:
+
+```bash
+curl https://raw.githubusercontent.com/tomkat-cr/genericsuite-be/main/.env.example > .env
+```
+
+Then, edit the `.env` file to set the desired values:
+
+```bash
+vi .env
+```
 
 * Aplicacion name
 ```env
@@ -736,7 +753,7 @@ FRONTEND_LOCAL_PORT=3000
 BACKEND_LOCAL_PORT=5001
 ```
 
-* Local self-generated SSL certificate creation method (used when running the local dev environment with https)
+* Local self-generated SSL certificate creation method (used when running the local dev environment with https or SLS-Secure Local Server)
 ```env
 # Local self-generated SSL certificate creation method
 # (used by "scripts/local_ssl_certs_creation.sh", defaults to "mkcert")
@@ -790,9 +807,204 @@ FLASK_APP=__init__.py
 FLASK_SECRET_KEY=xxxx
 ```
 
+## SLS-Secure Local Server
+
+To use resources that only work using the secure socket layer protocol in the browser (e.g. the camera) in the local development environment, the https protocol is required in both the bacjend and frontend servers. There are two options:
+
+1. Using Docker/Podman
+2. Using Cloudflare Tunnel
+
+### Using Docker/Podman
+
+With this method, a secure local server is created using local Docker/Podman containers and self-generated SSL certificates.
+
+To implement SLS-Secure Local Server using Docker/Podman, set the following variables in the ".env" files (backend and frontend, or monorepo):
+
+1. `RUN_PROTOCOL="https"` (to turn on https mode)
+
+2. `USE_CONTAINERS_ENGINE_APP=1` (to turn on Docker/Podman completely, so it starts the SLS-Secure Local Server when `RUN_PROTOCOL="https"`)
+
+3. `RUN_PROTOCOL_AND_PORT_REPLACEMENT=1` (to turn on automatic protocol and port replacement for local development environment variables `APP_CORS_ORIGIN` (taken from `APP_CORS_ORIGIN_{STAGE}`), and `REACT_APP_API_URL` (taken from `APP_API_URL_{STAGE}`) depending on `RUN_PROTOCOL` value)
+
+4. Set the following envvars:
+
+* Backend:
+  `APP_CORS_ORIGIN_DEV`: the local https hostname for the frontend using local DEV database
+  `APP_CORS_ORIGIN_QA_LOCAL`: the local https hostname for the frontend using QA database
+
+* Frontend:
+  `APP_API_URL_DEV`: the local https hostname for the backend API
+  `APP_FE_URL_DEV`: the local https hostname for the frontend
+
+* Both:
+  `APP_NAME`: The name of the app
+  `FRONTEND_LOCAL_PORT`: The port of the frontend
+  `BACKEND_LOCAL_PORT`: The port of the backend
+
+Example:
+
+For an app called "ExampleApp" and local domain "app.exampleapp.local":
+
+- The frontend hostname will be: `https://app.exampleapp.local:3000`
+- The backend API hostname will be: `https://app.exampleapp.local:5000`
+
+There must be an entry in the `/etc/hosts` file for `app.exampleapp.local` pointing to `127.0.0.1`.
+
+```
+127.0.0.1      app.exampleapp.local
+```
+
+Then the backend and frontend (or monorepo) ".env" files should have the following variables and values:
+
+* Backend:
+
+```env
+APP_CORS_ORIGIN_DEV=https://app.exampleapp.local:3000
+APP_CORS_ORIGIN_QA_LOCAL=https://app.exampleapp.local:3000
+```
+
+* Frontend:
+
+```env
+APP_API_URL_DEV=https://app.exampleapp.local:5000
+APP_FE_URL_DEV=https://app.exampleapp.local:3000
+```
+
+* Both:
+
+```env
+APP_NAME="ExampleApp"
+FRONTEND_LOCAL_PORT=3000
+BACKEND_LOCAL_PORT=5000
+RUN_PROTOCOL=https
+USE_CONTAINERS_ENGINE_APP=1
+RUN_PROTOCOL_AND_PORT_REPLACEMENT=1
+```
+
+#### Run the containers and app
+
+Running the app with the following command(s) will automatically start the containers (backend app, nginx and local DNS) and create the SSL self-signed certificates:
+
+```bash
+# Monorepoo:
+make dev
+
+# Or separate repos:
+# make run
+# make run_qa
+```
+
+
+### Using Cloudflare Tunnel
+
+Cloudflare Tunnel provides you with a secure way to connect your local resources to Cloudflare without a publicly routable IP address. With Tunnel, you do not send traffic to an external IP — instead, a lightweight daemon in your infrastructure (`cloudflared`) creates outbound-only connections to Cloudflare's global network. Cloudflare Tunnel can connect HTTP web servers, SSH servers, remote desktops, and other protocols safely to Cloudflare. This way, your origins can serve traffic through Cloudflare without being vulnerable to attacks that bypass Cloudflare.
+
+[Official Cloudflare Documentation](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/create-local-tunnel/)
+
+To implement Cloudflare Tunnel, set the following variables in the ".env" files (backend and frontend, or monorepo):
+
+1. `RUN_PROTOCOL="https"` (to turn on https mode)
+
+2. `USE_CONTAINERS_ENGINE_APP=0` (to turn off Docker/Podman completely, so it doesn't start the SLS-Secure Local Server when `RUN_PROTOCOL="https"`)
+
+3. `RUN_PROTOCOL_AND_PORT_REPLACEMENT=0` (to turn off automatic protocol and port replacement for local development environment variables `APP_CORS_ORIGIN` (taken from `APP_CORS_ORIGIN_{STAGE}`), and `REACT_APP_API_URL` (taken from `APP_API_URL_{STAGE}`) depending on `RUN_PROTOCOL` value)
+
+4. Set the following envvars:
+  `APP_NAME`: The name of the app
+  `FRONTEND_LOCAL_PORT`: The port of the frontend
+  `BACKEND_LOCAL_PORT`: The port of the backend
+  `CF_HOSTING_DOMAIN`: The domain of the Cloudflare account
+  `CF_CONFIG_FILE` (optional): The path to the config file. Default: `${HOME}/.cloudflared/config-${CF_FRONTEND_SUBDOMAIN}.yml`
+
+The subdomains will be:
+  `${APP_NAME in lowercase}-dev`
+  `${APP_NAME in lowercase}-dev-api`
+
+Example: 
+
+For an app called "ExampleApp" and the Cloudflare domain "exampledomain.com":
+
+- The frontend hostname will be: `https://exampleapp-dev.exampledomain.com`
+- The backend API hostname will be: `https://exampleapp-dev-api.exampledomain.com`
+
+The backend and frontend (or monorepo) ".env" files should have the following variables and values:
+
+* Backend:
+
+```env
+APP_CORS_ORIGIN_DEV=https://exampleapp-dev.exampledomain.com
+APP_CORS_ORIGIN_QA_LOCAL=https://exampleapp-dev.exampledomain.com
+CF_HOSTING_DOMAIN=exampledomain.com
+```
+
+* Frontend:
+
+```env
+APP_API_URL_DEV=https://exampleapp-dev-api.exampledomain.com
+APP_FE_URL_DEV=https://exampleapp-dev.exampledomain.com
+```
+
+* Both:
+
+```env
+APP_NAME="ExampleApp"
+FRONTEND_LOCAL_PORT=3000
+BACKEND_LOCAL_PORT=5000
+RUN_PROTOCOL=https
+USE_CONTAINERS_ENGINE_APP=0
+RUN_PROTOCOL_AND_PORT_REPLACEMENT=0
+```
+
+#### Create the tunnel
+
+To install the `cloudfared` CLI and create the Cloudfare tunnel:
+```bash
+make cf-tunnel-create
+```
+
+#### Run the tunnel and app
+
+To run the Cloudfare tunnel (must be in a different terminal than backend and frontend servers):
+```bash
+make cf-tunnel-run
+```
+
+To stop the Cloudfare tunnel, press `Ctrl-C`.
+
+Then the app can be run locally:
+
+```bash
+# Monorepoo:
+make dev
+
+# Or separate repos:
+# make run
+# make run_qa
+```
+
+#### Other tunnel commands
+
+To list the installed Cloudfare tunnel:
+```bash
+make cf-tunnel-list
+```
+
+To check the Cloudfare tunnel (it must be running):
+```bash
+make cf-tunnel-check
+```
+
+To remove the Cloudfare tunnel:
+```bash
+make cf-tunnel-delete
+```
+
+
 ## App structure
 
-Suggested directory structure by framework:
+You can have the frontend and backend in differentent repos or in the same repo.
+
+In case you need to have the frontend and backend in differenten repos, here are some suggested directory structures by framework:
 
 * [FastAPI directory structure](https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure)
 * [Flask directory structure](https://flask.palletsprojects.com/en/2.3.x/tutorial/layout/)

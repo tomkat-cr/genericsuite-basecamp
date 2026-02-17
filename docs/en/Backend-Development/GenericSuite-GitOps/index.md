@@ -184,9 +184,13 @@ n8n is a workflow automation and collaboration platform for teams.
 cd ~/genericsuite-gitops/n8n
 ```
 
-* Set the environment variables
+* Copy the [.env.example](https://github.com/tomkat-cr/genericsuite-gitops/blob/main/n8n/.env.example) template to your `.env` file:
 ```bash
 cp .env.example .env
+```
+
+* Set the environment variables
+```bash
 vi .env
 # Assign the necessary variables
 ```

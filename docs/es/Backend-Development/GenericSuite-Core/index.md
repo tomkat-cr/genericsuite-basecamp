@@ -1,77 +1,77 @@
-# GenericSuite para Python
+# El GenericSuite para Python
 
 ![gs_logo_circle.png](../../../assets/images/gs_logo_circle.png)
 
-[GenericSuite (versión de backend)](https://github.com/tomkat-cr/genericsuite-be) es una solución de backend versátil, diseñada para proporcionar un conjunto completo de características para APIs de Python. Soporta varios frameworks incluyendo FastAPI, Flask y Chalice, haciéndola adaptable a una variedad de proyectos. Este repositorio contiene la lógica de backend, utilidades y configuraciones necesarias para construir y desplegar aplicaciones escalables y mantenibles.
+[GenericSuite (versión de backend)](https://github.com/tomkat-cr/genericsuite-be) es una solución de backend versátil, diseñada para proporcionar un conjunto completo de características para APIs de Python. Soporta varios frameworks, incluyendo FastAPI, Flask y Chalice, haciéndola adaptable a una variedad de proyectos. Este repositorio contiene la lógica de backend, utilidades y configuraciones necesarias para construir e implementar aplicaciones escalables y mantenibles.
 
 ## Características
 
-- **Independiente del framework**: Soporta FastAPI, Flask y Chalice.
-- **Soporte de base de datos**: Incluye operaciones de base de datos abstraídas para MongoDB, DynamoDB, Postgres, MySQL o Supabase, ofreciendo flexibilidad en la elección de la base de datos.
-- **Autenticación**: Implementa autenticación basada en JWT, proporcionando acceso seguro a endpoints.
-- **Creación dinámica de endpoints**: Permite definir endpoints de forma dinámica mediante configuraciones en JSON.
-- **Utilidades**: Una colección de utilidades para tareas como enviar correos, analizar datos multipart, manejar contraseñas, y más.
+- **Independiente del framework**: Soporta los frameworks FastAPI, Flask y Chalice.
+- **Soporte de base de datos**: Incluye operaciones de base de datos abstractas para MongoDB, DynamoDB, Postgres, MySQL o Supabase, ofreciendo flexibilidad al elegir la base de datos.
+- **Autenticación**: Implementa autenticación basada en JWT, proporcionando acceso seguro a los endpoints.
+- **Creación dinámica de endpoints**: Permite definir endpoints dinámicamente mediante configuraciones JSON.
+- **Utilidades**: Colección de utilidades para tareas como enviar correos electrónicos, analizar datos multipart, manejar contraseñas y más.
 - **Utilidades de facturación**: Herramientas para gestionar planes de facturación y suscripciones de usuarios.
-- **Opciones de menú**: Funcionalidad para gestionar y recuperar opciones de menú autorizadas según roles de usuario.
+- **Opciones de menú**: Funcionalidad para gestionar y recuperar opciones de menú autorizadas según los roles de usuario.
 
 ## Requisitos previos
 
-- Versión de Python >= 3.10 y < 4.0 (instalar con [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferiblemente. Las versiones se especifican en los archivos `.python-version`)
+- Versión de Python >= 3.10 y < 4.0 (instalar preferentemente con [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation); las versiones se especifican en los archivos `.python-version`)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
-- Node version 20+, instalado vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o [NPM y Node](https://nodejs.org/en/download) instalación.
+- Versión de Node 20+, instalada vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o [NPM y Node](https://nodejs.org/en/download)
 - [Docker y Docker Composer](https://www.docker.com/products/docker-desktop)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/), [pipenv](https://pipenv.pypa.io/en/latest/), o [poetry](https://python-poetry.org/docs/) (para la gestión de dependencias de Python)
 
 ### Cuenta de AWS y credenciales
 
-Si planeas desplegar la App en la nube de AWS, usa DynamoDB o RDS para la base de datos:
+Si planeas desplegar la App en la Nube de AWS, usa DynamoDB o RDS para la base de datos:
 
 * Cuenta de AWS, ver [nivel gratuito](https://aws.amazon.com/free).
 * Token de AWS, ver [Claves de acceso](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials?section=IAM_credentials).
-* Interfaz de línea de comandos de AWS, ver [AWS CLI](https://formulae.brew.sh/formula/awscli).
+* Interfaz de línea de comandos de AWS, ver [awscli](https://formulae.brew.sh/formula/awscli).
 
 ### MongoDB
 
 Si planeas usar MongoDB para la base de datos:
 
-* Instalar el paquete de Python `pymongo`
-* Ver [MongoDB Comunidad](https://www.mongodb.com/try/download/community) o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+* Instala el paquete de Python `pymongo`
+* Ver [Community MongoDB](https://www.mongodb.com/try/download/community) o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 
-### Postgres
+### PostgreSQL
 
-Si planeas usar Postgres para la base de datos:
+Si planeas usar PostgreSQL para la base de datos:
 
-* Instalar el paquete de Python `psycopg2-binary`
+* Instala el paquete de Python `psycopg2-binary`
 * Ver [PostgreSQL](https://www.postgresql.org/).
 
 ### Supabase
 
 Si planeas usar Supabase para la base de datos:
 
-* Instalar el paquete de Python `supabase`
-* Ir a [Supabase](https://www.supabase.com/), crear una cuenta y un proyecto.
+* Instala el paquete de Python `supabase`
+* Ve a [Supabase](https://supabase.com/), crea una cuenta y un proyecto.
 
 ### MySQL
 
 Si planeas usar MySQL para la base de datos:
 
-* Instalar el paquete de Python `mysql-connector-python`
+* Instala el paquete de Python `mysql-connector-python`
 * Ver [MySQL](https://www.mysql.com/).
 
 ### MCP Server
 
 Si planeas desarrollar un MCP Server:
 
-* Instalar paquetes de Python `mcp` y `fastmcp`
+* Instala los paquetes Python `mcp` y `fastmcp`
 
-## Cómo empezar
+## Empezar
 
 Para empezar con [GenericSuite](../../index.md), sigue estos pasos:
 
-### Iniciar tu proyecto
+### Inicia tu proyecto
 
-Para crear el directorio del proyecto para la API de backend de la App. Por ejemplo, `your_app_name_backend` cuando quieras separar el backend y el frontend. Para una estructura de proyecto como la siguiente:
+Para crear el directorio del proyecto para la API backend de la App. Por ejemplo, `your_app_name_backend` cuando quieras tener separadas las code del backend y del frontend. Para una estructura de proyecto como la siguiente:
 
 ```
 your_app_name_backend/
@@ -79,24 +79,27 @@ your_app_name_backend/
     └── config_dbdef/    # Configuration database definitions
 ```
 
-Crea el directorio del proyecto para la API de backend de la App como sigue:
+Crea el directorio del proyecto para la API del backend de la App de la siguiente manera:
 
 ```bash
 mkdir -p your_app_name_backend/src
 cd your_app_name_backend/src
 ```
 
-Para un monorepo (p. ej. [exampleapp](../../../code/exampleapp/README.md) y [fastapitemplate](../../../code/fastapitemplate/README.md)), puedes tener una estructura de directorios como la siguiente:
+Para un monorepo (p. ej. [exampleapp](../../../code/exampleapp/README.md) y [fastapitemplate](../../../code/fastapitemplate/README.md)), puede tener una estructura de directorios como la siguiente:
 
 ```
 your_app_name/
 ├── config_dbdef/                 # Configuration database definitions
+├── deployment/                   # App deployment files (Docker/Podman)
 ├── server/                       # Server application
 ├── ui/                           # User interface
 └── mcp-server/                   # MCP server
 ```
 
-Crea el directorio del proyecto para la API de backend de la App como sigue:
+Consulta la sección App Structure para tener el frontend y el backend en repos separados.
+
+Crea el directorio del proyecto para la API del backend de la App de la siguiente manera:
 
 ```bash
 mkdir -p your_app_name/server
@@ -137,7 +140,7 @@ pipenv shell
 
 Para usar [GenericSuite](../../index.md) en tu proyecto, instálalo con los siguientes comandos:
 
-### Desde PyPi
+### From PyPi
 
 Pip
 ```bash
@@ -164,11 +167,11 @@ Si usarás `pipenv`, cámbialo por `pipenv install ...`.<br>
 Si usarás `poetry`, cámbialo por `poetry add ...`.<br>
 Si usarás `uv`, cámbialo por `uv add ...`.<br>
 
-Consulta [esta documentación](../../Other/python-package-managers.md) para usar las distintas herramientas de gestión de paquetes y dependencias de Python.
+Consulta [esta documentación](../../Other/python-package-managers.md) para usar las diferentes herramientas de gestión de paquetes y dependencias de Python.
 
-### Desde Git o Directorio Local
+### From Git or Local Directory
 
-Consulta [esta documentación](../../Other/installation.md) para instalar desde un repositorio/branch de Git o desde un Directorio Local.
+Consulta [esta documentación](../../Other/installation.md) para instalar desde un repositorio/branch de Git o un Directorio Local.
 
 
 ### Instalación del framework
@@ -233,18 +236,18 @@ pip install supabase
 pip install mysql-connector-python
 ```
 
-### Servicios en la nube
+### Servicios en la Nube
 
-Dependiendo del servicio de nube que uses, instala las dependencias requeridas:
+Dependiendo del servicio en la nube que uses, instala las dependencias necesarias:
 
 #### AWS
 ```bash
 pip install boto3
 ```
 
-### Dependencias de pruebas
+### Dependencias de prueba
 
-Para ejecutar las pruebas unitarias e de integración, instala `pytest` y `coverage`:
+Para ejecutar las pruebas unitarias y de integración, instala `pytest` y `coverage`:
 
 ```bash
 pip install pytest coverage
@@ -252,16 +255,30 @@ pip install pytest coverage
 
 ## Opciones disponibles
 
-1. **Selecciona tu Framework**: Dependiendo de tu proyecto, elige entre [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) o [Chalice](https://aws.github.io/chalice/quickstart.html).
-2. **Selecciona tu base de datos**: Implementa operaciones de base de datos usando las funciones abstraídas proporcionadas para [MongoDB](https://www.mongodb.com/), [Postgres](https://www.postgresql.org/), [MySQL](https://www.mysql.com/), [Supabase](https://supabase.com/), y [DynamoDB](https://aws.amazon.com/pm/dynamodb/).
+1. **Selecciona tu Framework**: Según tu proyecto, elige entre [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/) o [Chalice](https://aws.github.io/chalice/quickstart.html).
+2. **Selecciona tu base de datos** de tu preferencia: Implementa operaciones de base de datos utilizando las funciones abstraídas proporcionadas para [MongoDB](https://www.mongodb.com/), [PostgreSQL](https://www.postgresql.org/), [MySQL](https://www.mysql.com/), [Supabase](https://supabase.com/), y [DynamoDB](https://aws.amazon.com/pm/dynamodb/).
 3. **Autenticación incluida**: Tus endpoints estarán asegurados con autenticación basada en [JWT](https://jwt.io/libraries).
-4. **Define Endpoints**: Utiliza la característica de creación dinámica de endpoints definiendo tus endpoints en un archivo de configuración JSON. Consulta la [Guía de Configuración de Generic Suite](./../../Configuration-Guide/index.md) para más información.
-5. **Define Opciones de Menú**: Utiliza la característica de creación dinámica de menús definiendo tu menú y el acceso a opciones en un archivo de configuración JSON. Consulta la [Guía de Configuración de Generic Suite](./../../Configuration-Guide/index.md) para orientación.
-6. **Define estructuras de tablas**: Utiliza la característica de creación dinámica de tablas definiendo tus editores CRUD en archivos de configuración JSON. Consulta la [Guía de Configuración de Generic Suite](./../../Configuration-Guide/index.md) para código de ejemplo y archivos.
+4. **Define Endpoints**: Utiliza la función de creación dinámica de endpoints definiendo tus endpoints en un archivo de configuración JSON. Consulta la [Guía de Configuración de Generic Suite](./../../Configuration-Guide/index.md) para más información.
+5. **Define Opciones de Menú**: Utiliza la función de creación dinámica de menú definiendo tu menú y la seguridad de acceso a opciones en un archivo de configuración JSON. Consulta la [Guía de Configuración de Generic Suite](./../../Configuration-Guide/index.md) para orientación.
+6. **Define Estructuras de Tabla**: Utiliza la función de creación dinámica de tablas definiendo tus editores CRUD en archivos de configuración JSON. Consulta la [Guía de Configuración de Generic Suite](./../../Configuration-Guide/index.md) para código de ejemplo y archivos.
 
 ## Configuración
 
-Configura tu aplicación configurando las variables de entorno necesarias. Consulta los archivos [.env.example](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) y [config.py](https://github.com/tomkat-cr/genericsuite-be/blob/main/genericsuite/config/config.py) para las opciones disponibles.
+Configura tu aplicación creando las variables de entorno necesarias.
+
+Consulta los archivos [.env.example](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example) y [config.py](https://github.com/tomkat-cr/genericsuite-be/blob/main/genericsuite/config/config.py) para las opciones disponibles.
+
+Primero copia la plantilla `.env.example` a tu archivo `.env`:
+
+```bash
+curl https://raw.githubusercontent.com/tomkat-cr/genericsuite-be/main/.env.example > .env
+```
+
+Luego, edita el archivo `.env` para establecer los valores deseados:
+
+```bash
+vi .env
+```
 
 * Nombre de la aplicación
 ```env
@@ -273,7 +290,7 @@ APP_NAME=ExampleApp
 APP_DOMAIN_NAME=exampleapp.com
 ```
 
-* Idioma predeterminado de la aplicación
+* Idioma por defecto de la aplicación
 ```env
 DEFAULT_LANG=en
 ```
@@ -285,7 +302,7 @@ API_VERSION=v1
 
 * Bandera de Stage y Debug
 ```env
-# Aplicación en modo debug APP_DEBUG (0,1)
+# Depuración de la aplicación APP_DEBUG (0,1)
 # Entorno de la aplicación APP_STAGE: dev, qa, staging, prod
 # # DEV
 APP_DEBUG=1
@@ -302,9 +319,9 @@ APP_DEBUG=0
 # APP_STAGE=prod
 ```
 
-* Claves secretas de la aplicación
+* Clave secreta de la aplicación (para uso en cifrado de contraseñas)
 ```env
-# Application secret key (to be used in password encryption)
+# Clave secreta de la aplicación (para usar en el cifrado de contraseñas)
 APP_SECRET_KEY=xxxx
 ```
 
@@ -318,7 +335,7 @@ APP_SUPERADMIN_EMAIL=xxxx
 1. Para MongoDB<br>
 [https://www.mongodb.com/](https://www.mongodb.com/)
 ```env
-# DEV: Docker container
+# DEV: Contenedor Docker
 APP_DB_ENGINE_DEV=MONGODB
 APP_DB_NAME_DEV=mongo
 APP_DB_URI_DEV=mongodb://root:example@app.exampleapp.local:27017/
@@ -375,7 +392,7 @@ APP_DB_URI_PROD=
 # APP_DB_URI_DEMO=
 ```
 
-**NOTA**: pon `DYNAMDB_PREFIX_*` vacío y se dejará por defecto a `<NOMBRE_APP_MINÚSCULAS>_<ETAPA>`.
+**NOTA**: deja `DYNAMDB_PREFIX_*` vacío y se establecerá por defecto a `<APP_NAME_LOWERCASE>_<STAGE>`.
 
 3. Para PostgreSQL<br>
 [https://www.postgresql.org/](https://www.postgresql.org/)<br>
@@ -402,6 +419,7 @@ APP_DB_URI_PROD=
 # APP_DB_URI_DEMO=postgresql://user:pass@hostname:5432
 # APP_DB_NAME_DEMO=db
 ```
+
 
 4. Para Supabase<br>
 [https://www.supabase.com/](https://www.supabase.com/)
@@ -433,15 +451,15 @@ SUPABASE_KEY=
 ```
 
 **NOTAS**:
-- Para configurar Supabase con Postgres, como ejemplo en el entorno QA, establece:
+- Para configurar Supabase con PostgreSQL, form example en el entorno QA, estable:
 ```env
 APP_DB_ENGINE_QA=POSTGRES
 APP_DB_URI_QA=postgresql://postgres:[YOUR_PASSWORD]@db.[SUPABASE_SERVER_SUBDOMAIN].supabase.co:5432
 APP_DB_NAME_QA=postgres
 ```
-- `YOUR_PASSWORD` no es la contraseña del usuario de Supabase, es una contraseña solicitada cuando se creó la cuenta de Supabase. Si necesitas restablecerla, ve a "Base de datos > Configuración > Contraseña de base de datos > [Restablecer contraseña de base de datos]".
-- `SUPABASE_SERVER_SUBDOMAIN` es el subdominio del servidor Supabase. Puedes encontrarlo en la opción "Panel de Supabase > Conectar > Cadena de conexión".
-- Para que esto funcione, debes adquirir el complemento **IPv4** en el panel de Supabase; de lo contrario recibirás un error de conexión:
+- `YOUR_PASSWORD` no es la contraseña del usuario de Supabase, es una contraseña solicitada cuando se creó la cuenta de Supabase. Si necesitas restablecer esa contraseña, ve a "Database > Settings > Database password > [Reset database password]".
+- `SUPABASE_SERVER_SUBDOMAIN` es el subdominio del servidor de Supabase. Puedes encontrarlo en la opción "Supabase Dashboard > Connect > Connection string".
+- Para que esto funcione, debes adquirir el complemento de IPv4 en el panel de Supabase; de lo contrario obtendrás un error de conexión:
 ```
 Could not translate host name "db.xxxxxx.supabase.co" to address: Name or service not known
 ```
@@ -495,9 +513,9 @@ APP_CORS_ORIGIN_PROD=https://app.exampleapp.com
 APP_CORS_ORIGIN_DEMO=https://app-demo.exampleapp.com
 ```
 
-* Herramienta de gestión de paquetes y dependencias de Python (uv, pipenv y poetry), por defecto a "uv"
+* Herramienta de gestión de paquetes y dependencias de Python (uv, pipenv y poetry), por defecto "uv"
 ```env
-# Python package and dependency management tool (uv, pipenv, and poetry), default to "uv"
+# Herramienta de gestión de paquetes y dependencias de Python (uv, pipenv y poetry), por defecto "uv"
 # PEM_TOOL=pipenv
 # PEM_TOOL=uv
 # PEM_TOOL=poetry
@@ -510,72 +528,72 @@ CURRENT_FRAMEWORK=fastapi
 # CURRENT_FRAMEWORK=chalice
 ```
 
-* Configuración de ejecución del entorno de desarrollo local
+* Configuración de ejecución local
 ```env
-# Options are: uvicorn, gunicorn, chalice, chalice_docker
-# FastAPI case:
+# Opciones: uvicorn, gunicorn, chalice, chalice_docker
+# Caso FastAPI:
 RUN_METHOD=uvicorn
-# Flask case:
+# Caso Flask:
 # RUN_METHOD=gunicorn
-# Chalice case: "chalice" to use http (running without docker) or "chalice_docker" to use https (with docker)
+# Caso Chalice: "chalice" para usar http (ejecución sin docker) o "chalice_docker" para usar https (con docker)
 # http:
 # RUN_METHOD=chalice
 # https:
 # RUN_METHOD=chalice_docker
 ```
 
-* Métodos de ejecución y directorio de la App y punto de entrada
+* Rutas y punto de entrada de la App
 ```env
 #
-# Default App main code directory
-# for Chalice:
+# Directorio por defecto del código de la App
+# para Chalice:
 # https://aws.github.io/chalice/topics/packaging.html
 # APP_DIR="."
-# for FastAPI:
+# para FastAPI:
 # https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure
 # APP_DIR=app
-# for Flask:
+# para Flask:
 # https://flask.palletsprojects.com/en/2.3.x/tutorial/layout/
 # APP_DIR=flaskr
 #
-# Default App entry point code file
-# for Chalice:
+# Archivo principal de la App
+# para Chalice:
 # https://aws.github.io/chalice/topics/packaging.html
 # APP_MAIN_FILE=app
-# for FastAPI:
+# para FastAPI:
 # https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure
 # APP_MAIN_FILE=main
-# for Flask:
+# para Flask:
 # https://flask.palletsprojects.com/en/2.3.x/tutorial/factory/
 # APP_MAIN_FILE="__init__"
 #
 ```
 
-* Protocolo de ejecución local http/https para que aparezca automáticamente en la ejecución local de la aplicación, sin intervención del usuario.
+* Protocolo de ejecución local http/https, para que se active automáticamente en la ejecución local de la aplicación, sin intervención del usuario.
 ```env
 # RUN_PROTOCOL=http
 # RUN_PROTOCOL=https
 #
-# Deja vacío para permitir que el usuario seleccione el protocolo cuando inicie el entorno de desarrollo local.
+# Deja en blanco para que el usuario seleccione el protocolo cuando inicie la ejecución del entorno de desarrollo local.
 # RUN_PROTOCOL=""
 ```
 
-* Configuración de recarga automática: a veces la característica de recarga automática no funciona correctamente, por ejemplo al ejecutar Chalice con Turborepo y la gestión de paquetes "uv". En este caso, pon `AUTO_RELOAD=0` para deshabilitar la recarga automática y hacer que funcione.
+* Configuración de recarga automática: a veces la recarga automática no funciona correctamente, por ejemplo al ejecutar Chalice con Turborepo y el gestor de paquetes "uv". En este caso, establece `AUTO_RELOAD=0` para desactivar la recarga automática y hacer que funcione.
 ```env
 # Configuración de recarga automática para el entorno de desarrollo local.
-# Opciones disponibles: `1` para habilitar, `0` para deshabilitar, y `-` para eliminar el parámetro de recarga de la línea de comandos. Por defecto es: 1
+# Opciones disponibles: `1` para activar, `0` para desactivar, y `-` para eliminar el parámetro de recarga automática de la línea de comandos. Por defecto: 1
 # AUTO_RELOAD=1
 # AUTO_RELOAD=0
 # AUTO_RELOAD="-"
 ```
 
-* Ubicación de archivos de configuración JSON y URL de git
+* Ubicación de archivos de configuración JSON y URL de Git
 ```env
 GIT_SUBMODULE_LOCAL_PATH=lib/config_dbdef
 GIT_SUBMODULE_URL=git://github.com/username/exampleapp_configs.git
 ```
 
-* Ruta de la aplicación frontend (para copiar el archivo de versión durante el despliegue de grandes lambdas)
+* Ruta de la aplicación frontend (para copiar el archivo de versión durante el despliegue de lambdas grandes)
 ```env
 FRONTEND_PATH=../exampleapp_frontend
 ```
@@ -589,33 +607,33 @@ PYTHON_VERSION=3.12
 
 * Proveedor de nube IAAS
 ```env
-# IAAS Cloud provider
+# Proveedor de nube IAAS
 # Available options: `aws`, `gcp`, `azure`
 CLOUD_PROVIDER=aws
 ```
 
 * Habilitar/deshabilitar secretos del Proveedor de Nube (en lugar de variables de entorno).
 ```env
-# Enable/disable Cloud Provider secrets (instead of environment variables).
-# Available options: `1` to enable, `0` to disable. Defaults to: 1
+# Habilitar/deshabilitar secretos del Proveedor de Nube (en lugar de variables de entorno).
+# Opciones disponibles: `1` para habilitar, `0` para deshabilitar. Por defecto: 1
 # GET_SECRETS_ENABLED=0
 #
-# Fine grained Cloud Provider secrets management:
+# Gestión de secretos del Proveedor de Nube con granularidad fina:
 #
-# Enable/disable Cloud Provider envvars.
-# Available options: `1` to enable, `0` to disable. Defaults to: 1
-# Set to "0" in local development environment so envvars like APP_CORS_ORIGIN can be
-# set by the scripts and .env file and access QA resources from DEV.
+# Habilitar/deshabilitar variables de entorno del Proveedor de Nube.
+# Opciones disponibles: `1` para habilitar, `0` para deshabilitar. Por defecto: 1
+# Configurar a "0" en el entorno de desarrollo local para que las variables de entorno como APP_CORS_ORIGIN puedan ser
+# establecidas por los scripts y el archivo .env y acceder a recursos de QA desde DEV.
 # GET_SECRETS_ENVVARS=0
 #
-# Enable/disable Cloud Provider critical secrets.
-# Available options: `1` to enable, `0` to disable. Defaults to: 1
-# Set to "0" in local development environment so envvars like APP_DB_URI can be
-# set by the scripts and .env file and access QA resources from DEV.
+# Habilitar/deshabilitar secretos críticos del Proveedor de Nube.
+# Opciones disponibles: `1` para habilitar, `0` para deshabilitar. Por defecto: 1
+# Configurar a "0" en el entorno de desarrollo local para que variables de entorno como APP_DB_URI puedan ser
+# establecidas por los scripts y el archivo .env y acceder a recursos de QA desde DEV.
 # GET_SECRETS_CRITICAL=0
 ```
 
-* AWS Configuration<br>
+* Configuración de AWS<br>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
 
 ```env
@@ -623,59 +641,59 @@ CLOUD_PROVIDER=aws
 AWS_S3_BUCKET_NAME_FE=exampleapp-frontend-website-[STAGE]
 ```
 ```env
-# Region for this App all AWS services
+# Región para todos los servicios de AWS de esta App
 AWS_REGION=aws-region
 ```
 ```env
-# AWS base name for Lambda Functions, API Gateway, EC2, ELB, etc.
+# Nombre base de AWS para Lambda Functions, API Gateway, EC2, ELB, etc.
 AWS_LAMBDA_FUNCTION_NAME=exampleapp-backend
 ```
 ```env
-# AWS Lambda function role:
-# These variables are used only if deploy without AWS SAM (deploy_without_sam) in big_lambdas_manager.sh. SAM generates this role automatically
+# Rol de la función Lambda de AWS:
+# Estas variables se usan solo si despliegas sin AWS SAM (deploy_without_sam) en big_lambdas_manager.sh. SAM genera este rol automáticamente
 AWS_LAMBDA_FUNCTION_ROLE_QA=exampleapp-api_handler-role-qa
 AWS_LAMBDA_FUNCTION_ROLE_STAGING=exampleapp-api_handler-role-staging
 AWS_LAMBDA_FUNCTION_ROLE_DEMO=exampleapp-api_handler-role-demo
 AWS_LAMBDA_FUNCTION_ROLE_PROD=exampleapp-api_handler-role-prod
 ```
 ```env
-# AWS SSL certificate ARN (used by big_lambdas_manager.sh)
+# ARN del certificado SSL de AWS (utilizado por big_lambdas_manager.sh)
 AWS_SSL_CERTIFICATE_ARN=arn:aws:acm:AWS-REGION:AWS-ACCOUNT:certificate/AWS-CERTIFICATE-UUID
 ```
 
-* Deployment options
+* Opciones de despliegue
 
 ```env
-# AWS Deployment type
+# Tipo de despliegue de AWS
 # Available options: `lambda`, `ec2`, `fargate`. Defaults to: lambda
 AWS_DEPLOYMENT_TYPE=lambda
 ```
 
 ```env
-# AWS Lambda Deployment type
+# Tipo de Despliegue de Lambda de AWS
 # Available options: `zip`, `container`. Defaults to: zip
 AWS_LAMBDA_DEPLOYMENT_TYPE=zip
 ```
 
-* Storage URL encryption (to mask the AWS S3 bucket name and key)
+* Cifrado de URL de almacenamiento (para enmascarar el nombre del bucket de AWS S3 y la clave)
 ```env
-# Storage URL encryption
+# Cifrado de URL de almacenamiento
 #
 # Storage URL encryption (default to 0)
 # STORAGE_URL_ENCRYPTION=1
 #
-# Storage seed (to set storage URL encryption -e.g. AWS S3-)
-# Generate a new one with: `make generate_seed`
+# Semilla de almacenamiento (para establecer el cifrado de URL de almacenamiento -e.g. AWS S3-)
+# Genera una nueva con: `make generate_seed`
 # STORAGE_URL_SEED=yyy
 #
-# Development URL masking external hostname
-#   For features like AI Vision, to send the image URL masked.
-#   It's recommended to set only in development environment.
-#   E.g. URL_MASK_EXTERNAL_HOSTNAME=app-dev.exampleapp.com
-#   Leave blank to use the same URL stored -for example- in the AI Assistant conversarions.
+# Enmascaramiento de hostname externo en desarrollo
+#   Para características como AI Vision, para enviar la URL de la imagen enmascarada.
+#   Se recomienda configurarlo solo en el entorno de desarrollo.
+#   Por ejemplo URL_MASK_EXTERNAL_HOSTNAME=app-dev.exampleapp.com
+#   Deja en blanco para usar la misma URL almacenada -por ejemplo- en las conversaciones de AI Assistant.
 # URL_MASK_EXTERNAL_HOSTNAME=
 #
-# URL masking external protocol (http or https, defaults to RUN_PROTOCOL or https)
+# Enmascaramiento de protocolo externo (http o https, por defecto RUN_PROTOCOL o https)
 # URL_MASK_EXTERNAL_PROTOCOL=http
 ```
 
@@ -690,66 +708,66 @@ SMTP_DEFAULT_SENDER=sender_email
 
 * Configuración de Docker
 ```env
-# Docker account username: used by the docker login command to push images (e.g. when using Kubernetes)
+# Nombre de usuario de la cuenta de Docker: usado por el comando docker login para subir imágenes (p. ej. cuando se usa Kubernetes)
 DOCKER_ACCOUNT=docker_account_username
 ```
 
 * Configuración del motor de contenedores
 ```env
-# Container engine: used by the docker run command to run the container
+# Motor de contenedores: usado por el comando docker run para ejecutar el contenedor
 # Available options: `docker`, `podman`. Defaults to: docker
 # CONTAINERS_ENGINE=docker
 # CONTAINERS_ENGINE=podman
 
-# Open containers engine app
-# Available options: `1` to enable, `0` to disable. Defaults to: 1
+# Aplicación del motor de contenedores
+# Available options: `1` para habilitar, `0` para deshabilitar. Defaults to: 1
 # OPEN_CONTAINERS_ENGINE_APP=1
 # OPEN_CONTAINERS_ENGINE_APP=0
 ```
 
 * Configuración de pruebas
 ```env
-# Backend debug local port
-# For http (default)
+# Puerto de depuración local del backend
+# Para http (predeterminado)
 # BACKEND_DEBUG_LOCAL_PORT=5001
-# For https
-# WARNING: this port must be different than the BACKEND_LOCAL_PORT, otherwise it will throw
-# the "Port already in use" error trying to start the sls-nginx container.
+# Para https
+# ADVERTENCIA: este puerto debe ser diferente al BACKEND_LOCAL_PORT, de lo contrario lanzará
+# el error "Port already in use" al intentar iniciar el contenedor sls-nginx.
 # BACKEND_DEBUG_LOCAL_PORT=5002
 
-# Testing endpoint
-# For http
-# (defaults to "http://localhost:5001")
+# Endpoint de pruebas
+# Para http
+# (por defecto "http://localhost:5001")
 # TEST_APP_URL=http://app.exampleapp.local:5001
-# For https
+# Para https
 # TEST_APP_URL=https://app.exampleapp.local:5002
 ```
 
 * Puertos locales de la App
 ```env
-# Local frontend port (defaults to 3000)
+# Puerto local del frontend (por defecto 3000)
 FRONTEND_LOCAL_PORT=3000
 #
-# Local backend API port (defaults to 5001)
+# Puerto local de la API backend (por defecto 5001)
 BACKEND_LOCAL_PORT=5001
 ```
 
-* Método de creación de certificado SSL auto-generado local (utilizado cuando se ejecuta el entorno de desarrollo local con https)
+* Método de creación de certificado SSL autogenerado local (utilizado cuando se ejecuta el entorno de desarrollo local con https o SLS-Secure Local Server)
 ```env
-# Local self-generated SSL certificate creation method
-# (used by "scripts/local_ssl_certs_creation.sh", defaults to "mkcert")
+# Método de creación de certificado SSL autogenerado local
+# (utilizado por "scripts/local_ssl_certs_creation.sh", por defecto "mkcert")
 #
 # SSL_CERT_GEN_METHOD="mkcert"
 # SSL_CERT_GEN_METHOD="office-addin-dev-certs"
 # SSL_CERT_GEN_METHOD="openssl"
 ```
 
-* Desactivar servicios locales
-  (útil cuando se ejecuta el entorno de desarrollo local en la carretera, sin conexión, mediante la internet de un teléfono)
+* Deshabilitar servicios locales
+  (útil cuando se ejecuta el entorno de desarrollo local sobre la marcha, offline, con internet móvil)
 ```env
-# Disable local DNS server startup during app run
+# Deshabilitar el inicio del servidor DNS local durante la ejecución de la app
 LOCAL_DNS_DISABLED=1
-# Disable bridge proxy startup during app run
+# Deshabilitar el inicio del proxy puente durante la ejecución de la app
 BRIDGE_PROXY_DISABLED=1
 ```
 
@@ -757,46 +775,245 @@ BRIDGE_PROXY_DISABLED=1
 [https://www.localstack.cloud/](https://www.localstack.cloud/)
 
 ```env
-# Localstack configuration
+# Configuración de Localstack
 # LOCALSTACK_AUTH_TOKEN=""
-# (Set LOCALSTACK_AUTH_TOKEN empty when working offline, and assign the Auth Token to make services like EC2 to work correctly)
+# (Configura LOCALSTACK_AUTH_TOKEN en blanco cuando trabajes sin conexión, y asigna el Token de Autenticación para que servicios como EC2 funcionen correctamente)
 ```
 
 * Archivo de parámetros general
 ```env
-# Enable/disable general parameters file creation in "/tmp/params_general.json"
-# Available options: `1` to enable, `0` to disable. Defaults to: 1
+# Activar/desactivar la creación de un archivo de parámetros general en "/tmp/params_general.json"
+# Opciones disponibles: `1` para activar, `0` para desactivar. Por defecto: 1
 # PARAMS_FILE_ENABLED=0
 # PARAMS_FILE_ENABLED=1
 ```
 
 * Archivo de parámetros del usuario
 ```env
-# Enable/disable user's parameters file creation in "/tmp/params_[user_id].json"
-# Recommended to enable it in local development environment to make it run faster
-# Defaults to "0" to avoid security risks when running in a production environment
-# Available options: `1` to enable, `0` to disable.
+# Activar/desactivar la creación del archivo de parámetros del usuario en "/tmp/params_[user_id].json"
+# Se recomienda activarlo en el entorno de desarrollo local para que funcione más rápido
+# Por defecto es "0" para evitar riesgos de seguridad cuando se ejecuta en un entorno de producción
+# Opciones disponibles: `1` para activar, `0` para desactivar.
 # USER_PARAMS_FILE_ENABLED=0
 # USER_PARAMS_FILE_ENABLED=1
 ```
 
 * Configuración de Flask
 ```env
-# Flask app entry point
+# Punto de entrada de la app Flask
 FLASK_APP=__init__.py
-# Flask secret key
+# Clave secreta de Flask
 FLASK_SECRET_KEY=xxxx
+```
+
+## Servidor Local SLS-Secure
+
+Para usar recursos que solo funcionan usando el protocolo de capa de sockets seguros en el navegador (p. ej. la cámara) en el entorno de desarrollo local, se requiere el protocolo https en ambos servidores, backend y frontend. Hay dos opciones:
+
+1. Usando Docker/Podman
+2. Usando Cloudflare Tunnel
+
+### Using Docker/Podman
+
+Con este método, se crea un servidor local seguro utilizando contenedores Docker/Podman locales y certificados SSL autogenerados.
+
+Para implementar SLS-Secure Local Server usando Docker/Podman, configura las siguientes variables en los archivos ".env" (backend y frontend, o monorepo):
+
+1. `RUN_PROTOCOL="https"` (para activar el modo https)
+
+2. `USE_CONTAINERS_ENGINE_APP=1` (para activar Docker/Podman por completo, de modo que arranque el SLS-Secure Local Server cuando `RUN_PROTOCOL="https"`)
+
+3. `RUN_PROTOCOL_AND_PORT_REPLACEMENT=1` (para activar la sustitución automática de protocolo y puerto para las variables de entorno de desarrollo local `APP_CORS_ORIGIN` (tomadas de `APP_CORS_ORIGIN_{STAGE}`), y `REACT_APP_API_URL` (tomadas de `APP_API_URL_{STAGE}`) dependiendo del valor de `RUN_PROTOCOL`)
+
+4. Define las siguientes variables de entorno:
+
+* Backend:
+  `APP_CORS_ORIGIN_DEV`: el hostname https local para el frontend usando la base de datos DEV
+  `APP_CORS_ORIGIN_QA_LOCAL`: el hostname https local para el frontend usando la base de datos QA
+
+* Frontend:
+  `APP_API_URL_DEV`: el hostname https local para la API backend
+  `APP_FE_URL_DEV`: el hostname https local para el frontend
+
+* Ambos:
+  `APP_NAME`: El nombre de la app
+  `FRONTEND_LOCAL_PORT`: El puerto del frontend
+  `BACKEND_LOCAL_PORT`: El puerto del backend
+
+Ejemplo:
+
+Para una app llamada "ExampleApp" y el dominio local "app.exampleapp.local":
+
+- El hostname del frontend será: `https://app.exampleapp.local:3000`
+- El hostname de la API backend será: `https://app.exampleapp.local:5000`
+
+Debe haber una entrada en el archivo `/etc/hosts` para `app.exampleapp.local` que apunte a `127.0.0.1`.
+
+```
+127.0.0.1      app.exampleapp.local
+```
+
+Entonces los archivos ".env" del backend y frontend (o del monorepo) deberían tener las siguientes variables y valores:
+
+* Backend:
+
+```env
+APP_CORS_ORIGIN_DEV=https://app.exampleapp.local:3000
+APP_CORS_ORIGIN_QA_LOCAL=https://app.exampleapp.local:3000
+```
+
+* Frontend:
+
+```env
+APP_API_URL_DEV=https://app.exampleapp.local:5000
+APP_FE_URL_DEV=https://app.exampleapp.local:3000
+```
+
+* Ambos:
+
+```env
+APP_NAME="ExampleApp"
+FRONTEND_LOCAL_PORT=3000
+BACKEND_LOCAL_PORT=5000
+RUN_PROTOCOL=https
+USE_CONTAINERS_ENGINE_APP=1
+RUN_PROTOCOL_AND_PORT_REPLACEMENT=1
+```
+
+#### Ejecutar los contenedores y la app
+
+Ejecutar la app con los siguientes comandos iniciará automáticamente los contenedores (aplicación del backend, nginx y DNS local) y creará certificados SSL autofirmados:
+
+```bash
+# Monorepo
+make dev
+
+# O repos separados:
+# make run
+# make run_qa
+```
+
+### Usando Cloudflare Tunnel
+
+Cloudflare Tunnel te ofrece una forma segura de conectar tus recursos locales a Cloudflare sin una dirección IP pública alcanzable. Con Tunnel, no envías tráfico a una IP externa: en su lugar, un demonio ligero en tu infraestructura (`cloudflared`) crea conexiones de salida hacia la red global de Cloudflare. Cloudflare Tunnel puede conectar servidores web HTTP, servidores SSH, escritorios remotos y otros protocolos de forma segura a Cloudflare. De esta manera, tus orígenes pueden servir tráfico a través de Cloudflare sin quedar expuestos a ataques que eviten Cloudflare.
+
+[Documentación oficial de Cloudflare](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/create-local-tunnel/)
+
+Para implementar Cloudflare Tunnel, configura las siguientes variables en los archivos ".env" (backend y frontend, o monorepo):
+
+1. `RUN_PROTOCOL="https"` (para activar el modo https)
+
+2. `USE_CONTAINERS_ENGINE_APP=0` (para desactivar Docker/Podman por completo, de modo que no inicie el SLS-Secure Local Server cuando `RUN_PROTOCOL="https"`)
+
+3. `RUN_PROTOCOL_AND_PORT_REPLACEMENT=0` (para desactivar la sustitución automática de protocolo y puerto para las variables de desarrollo local `APP_CORS_ORIGIN` (tomadas de `APP_CORS_ORIGIN_{STAGE}`), y `REACT_APP_API_URL` (tomadas de `APP_API_URL_{STAGE}`) dependiendo del valor de `RUN_PROTOCOL`)
+
+4. Define las siguientes variables de entorno:
+  `APP_NAME`: El nombre de la app
+  `FRONTEND_LOCAL_PORT`: El puerto del frontend
+  `BACKEND_LOCAL_PORT`: El puerto del backend
+  `CF_HOSTING_DOMAIN`: El dominio de la cuenta de Cloudflare
+  `CF_CONFIG_FILE` (opcional): La ruta al archivo de configuración. Por defecto: `${HOME}/.cloudflared/config-${CF_FRONTEND_SUBDOMAIN}.yml`
+
+Los subdominios serán:
+  `${APP_NAME en minúsculas}-dev`
+  `${APP_NAME en minúsculas}-dev-api`
+
+Ejemplo:
+
+Para una app llamada "ExampleApp" y el dominio de Cloudflare "exampledomain.com":
+
+- El hostname del frontend será: `https://exampleapp-dev.exampledomain.com`
+- El hostname de la API backend será: `https://exampleapp-dev-api.exampledomain.com`
+
+El backend y el frontend (o monorepo) deben tener una entrada en el archivo `/etc/hosts` para `exampleapp-dev.exampledomain.com` que apunte a `127.0.0.1`.
+
+```
+127.0.0.1      exampleapp-dev.exampledomain.com
+```
+
+Entonces los archivos ".env" del backend y frontend (o monorepo) deberían contener las siguientes variables y valores:
+
+* Backend:
+
+```env
+APP_CORS_ORIGIN_DEV=https://exampleapp-dev.exampledomain.com
+APP_CORS_ORIGIN_QA_LOCAL=https://exampleapp-dev.exampledomain.com
+CF_HOSTING_DOMAIN=exampledomain.com
+```
+
+* Frontend:
+
+```env
+APP_API_URL_DEV=https://exampleapp-dev-api.exampledomain.com
+APP_FE_URL_DEV=https://exampleapp-dev.exampledomain.com
+```
+
+* Ambos:
+
+```env
+APP_NAME="ExampleApp"
+FRONTEND_LOCAL_PORT=3000
+BACKEND_LOCAL_PORT=5000
+RUN_PROTOCOL=https
+USE_CONTAINERS_ENGINE_APP=0
+RUN_PROTOCOL_AND_PORT_REPLACEMENT=0
+```
+
+#### Crear el túnel
+
+Para instalar la CLI `cloudfared` y crear el túnel de Cloudflare:
+```bash
+make cf-tunnel-create
+```
+
+#### Ejecutar el túnel y la app
+
+Para ejecutar el túnel de Cloudflare (debe estar en una terminal distinta a las de los servidores de backend y frontend):
+```bash
+make cf-tunnel-run
+```
+
+Para detener el túnel de Cloudflare, pulsa `Ctrl-C`.
+
+Luego la app puede ejecutarse localmente:
+
+```bash
+# Monorepo
+make dev
+
+# O repos separados:
+# make run
+# make run_qa
+```
+
+#### Otros comandos de túnel
+
+Para listar el túnel de Cloudflare instalado:
+```bash
+make cf-tunnel-list
+```
+
+Para comprobar el túnel de Cloudflare (debe estar en ejecución):
+```bash
+make cf-tunnel-check
+```
+
+Para eliminar el túnel de Cloudflare:
+```bash
+make cf-tunnel-delete
 ```
 
 ## Estructura de la App
 
-Estructura de directorios sugerida por framework:
+Puedes tener el frontend y el backend en repos diferentes o en el mismo repositorio.
+
+En caso de necesitar que el frontend y el backend estén en repositorios diferentes, aquí tienes algunas estructuras de directorios sugeridas por framework:
 
 * [Estructura de directorio de FastAPI](https://fastapi.tiangolo.com/tutorial/bigger-applications/?h=directory+structure#an-example-file-structure)
 * [Estructura de directorio de Flask](https://flask.palletsprojects.com/en/2.3.x/tutorial/layout/)
-* [Estructura de directorio de Chalice](https://aws.github.io/chalice/topics/packaging.html)
+* [Estructura de directorio de Chalice](https://aws.github.io/chalice/)
 
-Este es un repositorio de desarrollo de la App sugerido para un proyecto FastAPI:
+Este es un repositorio de desarrollo de App sugerido para un proyecto FastAPI:
 
 ```
 .
@@ -834,16 +1051,16 @@ Este es un repositorio de desarrollo de la App sugerido para un proyecto FastAPI
 └── version.txt
 ```
 
-Este es un repositorio de desarrollo de la App sugerido para un proyecto Flask:
+Este es un repositorio de desarrollo de App sugerido para un proyecto Flask:
 
 ```
 .
 ├── flaskr/
-│   ├── __init__.py
-│   ├── items.py
-│   ├── users.py
-│   ├── admin.py
-│   └── index.py
+│   ├── __init__.py
+│   ├── items.py
+│   ├── users.py
+│   ├── admin.py
+│   └── index.py
 ├── logs
 │   └── .gitignore
 ├── package-lock.json
@@ -867,7 +1084,7 @@ Este es un repositorio de desarrollo de la App sugerido para un proyecto Flask:
 └── version.txt
 ```
 
-Este es un repositorio de desarrollo de la App sugerido para un proyecto Chalice:
+Este es un repositorio de desarrollo de App sugerido para un proyecto Chalice:
 
 ```
 .
@@ -889,7 +1106,7 @@ Este es un repositorio de desarrollo de la App sugerido para un proyecto Chalice
 │       ├── items.py
 │       ├── users.py
 │       ├── admin.py
-│       └── __init__.py
+│     └── __init__.py
 ├── lib
 │   ├── .gitignore
 │   ├── config
@@ -931,18 +1148,17 @@ Este es un repositorio de desarrollo de la App sugerido para un proyecto Chalice
 ├── README.md
 ├── requirements.txt
 └── version.txt
-
 ```
 
 ## Ejemplos de código y archivos de configuración JSON
 
 El menú principal, los endpoints de la API y las configuraciones del editor CRUD se definen en los archivos de configuración JSON.
 
-Puedes encontrar ejemplos sobre configuraciones y cómo codificar una App en la [Guía de Creación y Configuración de GenericSuite](../../Configuration-Guide/index.md).
+Puedes encontrar ejemplos sobre configuraciones y cómo codificar una App en la [Guía de creación y configuración de GenericSuite](../../Configuration-Guide/index.md).
 
 ## Uso
 
-Consulta los [Scripts de desarrollo del backend de GenericSuite](../GenericSuite-Scripts/index.md) para más detalles.
+Consulta [los scripts de desarrollo del backend de GenericSuite](../GenericSuite-Scripts/index.md) para más detalles.
 
 ## Especificación de la API
 
@@ -953,10 +1169,10 @@ La especificación de la API está disponible en el directorio [FastApiTemplate/
 
 ## Licencia
 
-Este proyecto está licenciado bajo la Licencia ISC - vea el archivo [LICENSE](https://github.com/tomkat-cr/genericsuite-be/blob/main/LICENSE) para más detalles.
+Este proyecto está licenciado bajo la Licencia ISC - vea el archivo LICENSE para más detalles.
 
 ## Créditos
 
 Este proyecto es desarrollado y mantenido por Carlos J. Ramirez. Para más información o para contribuir al proyecto, visita [GenericSuite en GitHub](https://github.com/tomkat-cr/genericsuite-be).
 
-¡Feliz codificación!
+¡Feliz Codificación!

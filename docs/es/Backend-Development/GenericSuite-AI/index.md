@@ -8,27 +8,27 @@ Está basado en [The Generic Suite (backend version)](../GenericSuite-Core/index
 
 El compañero perfecto para esta solución de backend es [The GenericSuite AI (frontend version)](../../Frontend-Development/GenericSuite-AI/index.md)
 
-## Pre-requisitos
+## Requisitos
 
-- Versión de Python >= 3.10 y < 4.0 (preferiblemente instalar con [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation). Las versiones se especifican en archivos `.python-version`)
+- Versión de Python >= 3.10 y < 4.0 (recomendado instalar con [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation); las versiones se especifican en los archivos `.python-version`)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
-- Versión de Node 20+, instalada vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o [NPM y Node](https://nodejs.org/en/download) instalación.
+- Versión de Node 20+, instalada vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o [NPM y Node](https://nodejs.org/en/download)
 - [Docker y Docker Composer](https://www.docker.com/products/docker-desktop)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/), [pipenv](https://pipenv.pypa.io/en/latest/), o [poetry](https://python-poetry.org/docs/) (para la gestión de dependencias de Python)
 
 ### Cuenta de AWS y credenciales
 
-* Cuenta AWS, ver [nivel gratuito].(https://aws.amazon.com/free)
-* Token AWS, ver [Claves de acceso](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials?section=IAM_credentials)
-* Interfaz de línea de comandos de AWS, ver [awscli](https://formulae.brew.sh/formula/awscli)
-* API Framework y Despliegue Serverless, ver [Chalice](https://github.com/aws/chalice)
+* Cuenta de AWS, ver [free tier](https://aws.amazon.com/free).
+* Token de AWS, ver [Access Keys](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials?section=IAM_credentials).
+* Interfaz de línea de comandos de AWS, ver [awscli](https://formulae.brew.sh/formula/awscli).
+* Framework de API y Despliegue sin servidor, ver [Chalice](https://github.com/aws/chalice).
 
 ## Instalación
 
-Primero revisa la sección [Guía de Inicio] en la [documentación de la versión backend de GenericSuite].
+Primero verifique la sección de [Getting Started](https://github.com/tomkat-cr/genericsuite-be/blob/main/README.md#getting-started) en la [documentación de la versión backend de GenericSuite](https://github.com/tomkat-cr/genericsuite-be/blob/main/README.md#getting-started).
 
-Para usar GenericSuite AI en tu proyecto, instálalo con los siguientes comandos:
+Para usar GenericSuite AI en su proyecto, instálelo con el/los siguientes comandos:
 
 ### Desde PyPi
 
@@ -53,19 +53,19 @@ uv add genericsuite genericsuite-ai
 ```
 
 **NOTA**: en las siguientes instrucciones solo mostraremos `pip install ...`.<br>
-Si usarás `pipenv`, cámbialo por `pipenv install ...`.<br>
-Si utilizarás `poetry`, cámbialo por `poetry add ...`.<br>
-Si usarás `uv`, cámbialo por `uv add ...`.<br>
+Si usa `pipenv`, reemplácelo por `pipenv install ...`.<br>
+Si usa `poetry`, reemplácelo por `poetry add ...`.<br>
+Si usa `uv`, reemplácelo por `uv add ...`.<br>
 
-Consulta [esta documentación](../../Other/python-package-managers.md) para usar las diferentes herramientas de gestión de paquetes y dependencias de Python.
+Consulte [esta documentación](../../Other/python-package-managers.md) para usar las diferentes herramientas de gestión de paquetes y dependencias de Python.
 
 ### Desde Git o Directorio Local
 
-Consulta [esta documentación](../../Other/installation.md) para instalar desde un repositorio/branch de Git o desde un Directorio Local.
+Consulte [esta documentación](../../Other/installation.md) para instalar desde un repositorio/ rama de Git o desde un Directorio Local.
 
 ### Dependencias de prueba
 
-Para ejecutar las pruebas unitarias y de integración, instala `pytest` y `coverage`:
+Para ejecutar las pruebas unitarias y de integración, instale `pytest` y `coverage`:
 
 ```bash
 pip install pytest coverage
@@ -73,17 +73,17 @@ pip install pytest coverage
 
 ### Instalación de scripts de desarrollo
 
-[The GenericSuite backend development scripts](../GenericSuite-Scripts/index.md) contiene utilidades para construir y desplegar APIs creadas por The GenericSuite.
+[Los scripts de desarrollo del backend de GenericSuite](../GenericSuite-Scripts/index.md) contienen utilidades para construir y desplegar APIs creadas por The GenericSuite.
 
 ```bash
 npm install -D genericsuite-be-scripts
 ```
 
-## Características
+## Funcionalidades
 
-* Endpoint de IA para implementar conversaciones tipo chatbot NLP.
-* OpenAI GPT, Google Gemini, Anthropic Claude, Meta Llama, Hugging Face, xAI, IBM WatsonX, y muchos otros modelos soportados.
-* API de OpenAI, Google API, Anthropic API, Hugging Face, Together AI, OpenRuter, API de AI/ML, Ollama, Clarifai y otros proveedores de LLM.
+* Endpoint de AI Agent para implementar conversaciones tipo chatbot NLP.
+* OpenAI GPT, Google Gemini, Anthropic Claude, Meta Llama, Hugging Face, xAI, IBM WatsonX y muchos otros modelos.
+* OpenAI API, Google API, Anthropic API, Hugging Face, Together AI, OpenRuter, API de IA/ML, Ollama, Clarifai y otros proveedores de LLM.
 * Visión por computadora (OpenAI GPT4 Vision, Google Gemini Vision, Clarifai Vision).
 * Procesamiento de voz a texto (OpenAI Whisper, Clarifai Audio Models).
 * Texto a voz (OpenAI TTS-1, Clarifai Audio Models).
@@ -91,23 +91,37 @@ npm install -D genericsuite-be-scripts
 * Indexadores vectoriales (FAISS, Chroma, Clarifai, Vectara, Weaviate, MongoDBAtlasVectorSearch).
 * Embeddings (OpenAI, Hugging Face, Bedrock, Cohere, Ollama, Clarifai).
 * Herramienta de búsqueda en la web.
-* Raspado y análisis de páginas web.
-* Lectores JSON, PDF, Git y YouTube.
+* Raspeo y análisis de páginas web.
+* Lectores de JSON, PDF, Git y YouTube.
 * Herramientas de traducción de idiomas.
 * Chats almacenados en la base de datos.
-* Plan de usuario, clave de API de OpenAI y atributos del nombre del modelo en el perfil de usuario, para permitir que los usuarios del plan gratuito utilicen los modelos a su cargo.
+* Plan de usuario, clave API de OpenAI y nombre de modelo en el perfil del usuario, para permitir que usuarios con plan gratuito utilicen modelos a su propio costo.
 
 ## Configuración
 
-Configura tu aplicación configurando las variables de entorno necesarias. Consulta los archivos [.env.example](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/.env.example) y [config.py](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/genericsuite_ai/config/config.py) para las opciones disponibles.
+Configure su aplicación configurando las variables de entorno necesarias.
 
-Por favor, consulta la sección de configuración de la versión backend de GenericSuite para obtener más detalles sobre variables de entorno generales.
+Consulte los archivos [.env.example](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/.env.example) y [config.py](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/genericsuite_ai/config/config.py) para las opciones disponibles.
+
+Primero copie la plantilla `.env.example` a su archivo `.env`:
+
+```bash
+curl https://raw.githubusercontent.com/tomkat-cr/genericsuite-be-ai/main/.env.example > .env
+```
+
+Luego, edite el archivo `.env` para establecer los valores deseados:
+
+```bash
+vi .env
+```
+
+Por favor, consulte la sección de configuración de la versión backend de GenericSuite para más detalles sobre variables de entorno generales.
 
 Para GenericSuite AI, existen estas variables de entorno adicionales:
 
 * Configuración de chatbot
 ```env
-# Nombre de la aplicación AI assistant
+# Nombre del asistente de IA
 AI_ASSISTANT_NAME=ExampleBot
 ```
 
@@ -136,7 +150,7 @@ OPENAI_TEMPERATURE=0.5
 # LANGCHAIN_PROJECT=langchain_project
 ```
 
-**NOTA**: La configuración de Langchain/LangSmith es opcional. Si no tienes una cuenta de Langchain/LangSmith, deja las variables comentadas.
+**NOTA**: La configuración de Langchain/LangSmith es opcional. Si no tiene una cuenta de Langchain/LangSmith, deje las variables comentadas.
 
 * Credenciales de Hugging Face<br>
 [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
@@ -166,7 +180,7 @@ HUGGINGFACE_DEFAULT_IMG_GEN_MODEL=huggingface_default_img_gen_model
 # HUGGINGFACE_DEFAULT_IMG_GEN_MODEL=black-forest-labs/FLUX.1-schnell
 ```
 
-* Configuración de AWS<br>
+* AWS Configuración<br>
 [https://console.aws.amazon.com](https://console.aws.amazon.com)
 ```env
 AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_DEV=exampleapp-chatbot-attachments-dev
@@ -175,11 +189,11 @@ AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_STAGING=exampleapp-chatbot-attachments-staging
 AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_PROD=exampleapp-chatbot-attachments-prod
 ```
 
-Dinámicas AI configurables<br>
+Configuraciones dinámicas de IA<br>
 
-Configurable via frontend `Admin > Configuration Parameters` menu option, porque no están incluidos como variables de entorno de AWS Lambda en los scripts de despliegue.
+Configurable via frontend `Admin > Configuration Parameters` menu option, because they're not included as AWS Lambda environment variables in the deployment scripts.
 
-* Configuraciones generales del motor AI
+* Configuraciones generales del motor de IA
 
 ```env
 LANGCHAIN_DEFAULT_MODEL=chat_openai
@@ -193,12 +207,12 @@ LANGCHAIN_DEFAULT_MODEL=chat_openai
 # LANGCHAIN_DEFAULT_MODEL=huggingface_pipeline
 ```
 
-**IMPORTANTE**: El tipo de modelo "huggingface_pipeline" usa la dependencia "langchain_hugginface" que puede requerir "sentence-transformers", lo que podría impedir desplegar las funciones Lambda de AWS. La alternativa es GS Huggingface ligero identificado por los tipos de modelo "huggingface_remote" o "gs_huggingface".
+**IMPORTANTE**: El tipo de modelo "huggingface_pipeline" utiliza la dependencia "langchain_hugginface" que puede requerir "sentence-transformers", haciendo imposible desplegar las funciones Lambda de AWS. La alternativa es el GS Huggingface ligero identificado por los tipos de modelo "huggingface_remote" o "gs_huggingface".
 
 ```env
 # Método de respuesta de IA:
 #
-# Wait-until-finished response method (default)
+# Método de respuesta que espera a finalizar (predeterminado)
 AI_STREAMING=0
 # Método de respuesta en streaming
 # AI_STREAMING=1
@@ -235,36 +249,36 @@ VECTOR_STORE_ENGINE=FAISS
 # VECTOR_STORE_ENGINE=vectara
 ```
 ```env
-# Añadir modelos adicionales a la LLM
+# Añadir modelos adicionales al LLM
 AI_ADDITIONAL_MODELS=0
 # AI_ADDITIONAL_MODELS=1
 ```
 
-* Modelos preámbulo: se usan principalmente con modelos Thinking AI como OpenAI o1 y o3, o DeepSeek
+* Modelos de preámbulo: se usan principalmente con modelos de Thinking AI como OpenAI o1 y o3, o DeepSeek
 ```env
-# Permitir el mensaje del sistema (0/1). Por defecto 1. Configurar a 0 para la mayoría de los modelos Thinking AI
-AI_MODEL_ALLOW_SYSTEM_MSG=
+# Permitir mensaje del sistema (0/1). Por defecto 1. Ponga a 0 para la mayoría de los modelos Thinking AI
+# AI_MODEL_ALLOW_SYSTEM_MSG=0
 
-# Permitir herramientas (0/1). Por defecto 1. Configurar a 0 para la mayoría de los modelos Thinking AI
-AI_MODEL_ALLOW_TOOLS=
+# Permitir herramientas (0/1). Por defecto 1. Ponga a 0 para la mayoría de los modelos Thinking AI
+# AI_MODEL_ALLOW_TOOLS=0
 
-# Necesita preámbulo (0/1). Por defecto 0. Configurar a 1 para la mayoría de los modelos Thinking AI
-AI_MODEL_NEED_PREAMBLE=
+# ¿Se necesita preámbulo (0/1). Por defecto 0. Ponga a 1 para la mayoría de modelos Thinking AI
+# AI_MODEL_NEED_PREAMBLE=1
 
-# Tipo de modelo preámbulo (chat_openai, huggingface, etc.). Por defecto "chat_openai". Debe configurarse para la mayoría de modelos Thinking AI cuando AI_MODEL_NEED_PREAMBLE=1
-AI_PREAMBLE_MODEL_DEFAULT_TYPE=chat_openai
+# Tipo de modelo de preámbulo (chat_openai, huggingface, etc.). Por defecto "chat_openai". Debe configurarse para la mayoría de modelos Thinking AI cuando AI_MODEL_NEED_PREAMBLE=1
+# AI_PREAMBLE_MODEL_DEFAULT_TYPE=chat_openai
 
-# Modelo preámbulo por defecto. Por defecto "gpt-4o-mini". Debe configurarse para la mayoría de los modelos Thinking AI cuando AI_MODEL_NEED_PREAMBLE=1
-AI_PREAMBLE_MODEL_DEFAULT_MODEL=gpt-4o-mini
+# Nombre del modelo de preámbulo. Por defecto "gpt-4o-mini". Debe configurarse para la mayoría de modelos Thinking AI cuando #AI_MODEL_NEED_PREAMBLE=1
+# AI_PREAMBLE_MODEL_DEFAULT_MODEL=gpt-4o-mini
 
-# Configuración base del modelo preámbulo, para establecer valores predeterminados para algunos modelos Thinking AI si es necesario.
+# Configuración base del modelo de preámbulo, para establecer valores por defecto para algunos modelos de Thinking AI si es necesario.
 # AI_PREAMBLE_MODEL_BASE_CONF='{"o1-mini": {"model_type": "chat_openai", "model_name": "gpt-4o-mini"}, "o1-preview": {"model_type": "chat_openai", "model_name": "gpt-4o-mini"}}'
 
-# Configuración personalizada del modelo preámbulo, para establecer valores por defecto para algunos modelos Thinking AI si es necesario.
+# Configuración de modelo de preámbulo personalizada, para establecer valores por defecto para algunos modelos de Thinking AI si es necesario.
 # AI_PREAMBLE_MODEL_CUSTOM_CONF=''
 ```
 
-Por ejemplo, para usar "DeepSeek-V3.2" alojado en Hugging Face, puedes configurar las siguientes variables de entorno:
+Por ejemplo, para usar "DeepSeek-V3.2" alojado en Hugging Face, puede establecer las siguientes variables de entorno:
 ```env
 LANGCHAIN_DEFAULT_MODEL=huggingface
 HUGGINGFACE_API_KEY=hf_xxxxxx
@@ -278,7 +292,7 @@ AI_PREAMBLE_MODEL_DEFAULT_MODEL=moonshotai/Kimi-K2-Instruct-0905
 # AI_PREAMBLE_MODEL_CUSTOM_CONF=
 ```
 
-* Credenciales y otros parámetros de Langchain
+* Credenciales de Langchain y otros parámetros
 
 ```env
 # Langsmith
@@ -286,7 +300,7 @@ LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
 LANGCHAIN_TRACING_V2=true
 ```
 ```env
-# Configuración de agente
+# Configuración de Agente
 LANGCHAIN_AGENT_TYPE=lcel
 # LANGCHAIN_AGENT_TYPE=react_chat_agent
 # LANGCHAIN_AGENT_TYPE=react_agent
@@ -358,12 +372,12 @@ OPENAI_TEXT_TO_AUDIO_VOICE=onyx
 # Modelo de embeddings
 OPENAI_EMBEDDINGS_MODEL=text-embedding-ada-002
 # OPENAI_EMBEDDINGS_MODEL=text-embedding-3-small
-# Modelo premium de embeddings
+# Modelo de embeddings premium
 OPENAI_EMBEDDINGS_MODEL_PREMIUM=text-embedding-3-large'
 ```
 
-* Credenciales y otros parámetros de Anthropik<br>
-[https://console.anthropic.com/settings/keys]
+* Credenciales y otros parámetros de Anthropique<br>
+[https://console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys)
 
 ```env
 ANTHROPIC_API_KEY=
@@ -371,17 +385,17 @@ ANTHROPIC_MODEL=claude-3-5-sonnet-20240620
 ```
 
 * Credenciales y otros parámetros de Groq<br>
-[https://console.groq.com/keys]<br>
-[https://console.groq.com/docs/models]
+[https://console.groq.com/keys](https://console.groq.com/keys)<br>
+[https://console.groq.com/docs/models](https://console.groq.com/docs/models)
 
 ```env
 GROQ_API_KEY=groq_api_key
 #
 # https://console.groq.com/docs/models
 GROQ_MODEL=mixtral-8x7b-32768
-````
+```
 
-* Credenciales de AWS Amazon Bedrock y otros parámetros<br>
+* Credenciales y otros parámetros de AWS Amazon Bedrock<br>
 [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock)
 
 ```env
@@ -407,7 +421,7 @@ AWS_BEDROCK_EMBEDDINGS_PROFILE=
 # AWS_BEDROCK_EMBEDDINGS_PROFILE=bedrock-admin
 ```
 
-* Plataforma AI/ML API (una API, 200+ modelos AI)<br>
+* Plataforma de API de IA/ML (una API, 200+ modelos de IA)<br>
 [https://aimlapi.com/app/keys](https://aimlapi.com/app/keys)
 
 ```env
@@ -420,7 +434,7 @@ AIMLAPI_API_KEY=aimlapi_api_key
 # AIMLAPI_MAX_TOKENS=""
 # AIMLAPI_TOP_P="1"
 ```
-
+```env
 * Together.ai<br>
   [https://api.together.xyz/settings/api-keys](https://api.together.xyz/settings/api-keys)
 
@@ -491,18 +505,20 @@ HUGGINGFACE_TOP_K=50
 HUGGINGFACE_TEMPERATURE=1
 HUGGINGFACE_REPETITION_PENALTY=03
 #
-# Para el modelo_type "huggingface_pipeline":
-# device (`int` or `str` or `torch.device`):
-#   Define el dispositivo (*p.ej.*, `"cpu"`, `"cuda:1"`, `"mps"`, o un rango ordinal de GPU
-#   como `1`) en el que se asignará este pipeline.
+# Para el tipo de modelo "huggingface_pipeline":
+# dispositivo (int, str o torch.device):
+#   Define el dispositivo (p. ej., `"cpu"`, `"cuda:1"`, `"mps"`, o un rango de GPU
+#   como `1`) al que se asignará este pipeline.
 # HUGGINGFACE_PIPELINE_DEVICE=0
 # HUGGINGFACE_PIPELINE_DEVICE=cuda
 ```
 
 ```env
-# IMPORTANTE: sobre la librería "sentence-transformers". Ten cuidado, porque
-# cuando está incluida, el tamaño del paquete aumenta en ~5 Gb y si la
-# app se ejecuta en una función AWS Lambda, excede el límite de tamaño del paquete
+# IMPORTANTE: sobre la librería "sentence-transformers". Ten en cuenta que
+# cuando está incluida, el tamaño del paquete aumenta en ~5 Gb. y si la
+# aplicación se ejecuta en una función AWS Lambda, supera el límite de tamaño
+# de despliegue.
+
 HUGGINGFACE_EMBEDDINGS_MODEL="BAAI/bge-base-en-v1.5"
 # HUGGINGFACE_EMBEDDINGS_MODEL="sentence-transformers/all-mpnet-base-v2"
 
@@ -513,8 +529,8 @@ HUGGINGFACE_EMBEDDINGS_ENCODE_KWARGS='{"normalize_embeddings": true}'
 ```env
 # Proveedor de inferencia de Hugging Face:
 # Opciones disponibles: `auto`, `cerebras`, `groq`, `hyperbolic`, `nebius`, `together`, `hf-inference`, etc.
-# Ver los proveedores disponibles en: https://hf.co/settings/inference-providers
-# "auto" es el proveedor por defecto y utilizará el mejor proveedor disponible.
+# Ver proveedores disponibles en: https://hf.co/settings/inference-providers
+# "auto" es el proveedor predeterminado y utilizará el mejor proveedor disponible.
 # HUGGINGFACE_PROVIDER=auto
 # https://huggingface.co/models?inference_provider=groq
 # HUGGINGFACE_PROVIDER=groq
@@ -534,7 +550,7 @@ HUGGINGFACE_EMBEDDINGS_ENCODE_KWARGS='{"normalize_embeddings": true}'
 [https://clarifai.com](https://clarifai.com) > UserId > ProjectId > Settings
 
 ```env
-# PAT (Token de API personal): https://clarifai.com/settings/security
+# PAT (Personal API Token): https://clarifai.com/settings/security
 CLARIFAI_PAT=
 CLARIFAI_USER_ID=
 CLARIFAI_APP_ID=
@@ -594,7 +610,7 @@ ELEVENLABS_STYLE=0
 ELEVENLABS_USE_SPEAKER_BOOST=1
 ```
 
-* Credenciales de Cohere y otros parámetros<br>
+* Credenciales y otros parámetros de Cohere<br>
 [https://dashboard.cohere.com/api-keys](https://dashboard.cohere.com/api-keys)
 
 ```env
@@ -646,11 +662,11 @@ WEAVIATE_URL=
 WEAVIATE_API_KEY=
 ```
 
-* Proveedor de Websearch
+* Proveedor de WebSearch
 
 ```env
-# Proveedor de la herramienta de WebSearch
-# * Predeterminado: DDG primero, si hay error, Google
+# Proveedor del WebSearch: Proveedor
+# * Predeterminado: primero DDG, si hay error, Google
 # WEBSEARCH_DEFAULT_PROVIDER=''
 # * Solo DuckDuckGo
 # WEBSEARCH_DEFAULT_PROVIDER='ddg'
@@ -658,17 +674,17 @@ WEAVIATE_API_KEY=
 # WEBSEARCH_DEFAULT_PROVIDER='google'
 ```
 
-* Método de DuckDuckGo de WebSearch (ddg)
+* Método DuckDuckGo (ddg) de WebSearch
 
 ```env
-# Configuración de DuckDuckGo de WebSearch
-# * Predeterminado: DDGS (Dux Distributed Global Search)
+# WebSearch tool: DuckDuckGo settings
+# * Default: DDGS (Dux Distributed Global Search)
 WEBSEARCH_DUCKDUCKGO_METHOD='ddg'
-# * envoltorio Langchain DuckDuckGo
+# * Envoltorio de DuckDuckGo de Langchain
 # WEBSEARCH_DUCKDUCKGO_METHOD='ddg_lc'
 ```
 
-* Banderas de depuración de IA
+* Banderas de Depuración de IA
 
 ```env
 # AI_AUDIO_PROCESSING_DEBUG=1
@@ -700,20 +716,20 @@ WEBSEARCH_DUCKDUCKGO_METHOD='ddg'
 
 ## Ejemplos de código y archivos de configuración JSON
 
-El menú principal, los endpoints de API y las configuraciones del editor CRUD se definen en los archivos de configuración JSON.
+El menú principal, los endpoints de la API y las configuraciones del editor CRUD se definen en los archivos de configuración JSON.
 
-Puedes encontrar ejemplos sobre configuraciones y cómo codificar una App en la guía [Guía de Creación y Configuración de Aplicaciones de GenericSuite].
+Puede encontrar ejemplos de configuraciones y cómo codificar una Aplicación en la guía [Guía de creación y configuración de Aplicaciones de GenericSuite](../../Configuration-Guide/index.md).
 
 ## Uso
 
-Consulta [los scripts de desarrollo del backend de GenericSuite] para más detalles.
+Consulte [los scripts de desarrollo del backend de GenericSuite](https://github.com/tomkat-cr/genericsuite-be-scripts?tab=readme-ov-file#the-genericsuite-scripts-backend-version) para más detalles.
 
 ## Licencia
 
-Este proyecto está licenciado bajo la Licencia ISC - consulta el archivo [LICENSE](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/LICENSE) para más detalles.
+Este proyecto está licenciado bajo la ISC License; vea el archivo [LICENSE](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/LICENSE) para más detalles.
 
 ## Créditos
 
-Este proyecto es desarrollado y mantenido por Carlos J. Ramirez. Para más información o para contribuir al proyecto, visita [GenericSuite AI en GitHub](https://github.com/tomkat-cr/genericsuite-be-ai).
+Este proyecto es desarrollado y mantenido por Carlos J. Ramirez. Para más información o para contribuir al proyecto, visite [GenericSuite AI en GitHub](https://github.com/tomkat-cr/genericsuite-be-ai).
 
 ¡Feliz codificación!

@@ -55,3 +55,23 @@ create-ssl-certs:
 	cp apps/api-chalice/*.key apps/api-fastapi
 	cp apps/api-chalice/*.crt apps/api-flask
 	cp apps/api-chalice/*.key apps/api-flask
+
+# Cloudfared tunnel manager
+
+cf-tunnel-login:
+	ACTION=login bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+cf-tunnel-create:
+	ACTION=create bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+cf-tunnel-run:
+	ACTION=run bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+cf-tunnel-list:
+	ACTION=list bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+cf-tunnel-check:
+	ACTION=check bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+cf-tunnel-delete:
+	ACTION=delete bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh

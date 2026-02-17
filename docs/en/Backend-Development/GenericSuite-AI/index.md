@@ -99,7 +99,21 @@ npm install -D genericsuite-be-scripts
 
 ## Configuration
 
-Configure your application by setting up the necessary environment variables. Refer to the [.env.example](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/.env.example) and [config.py](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/genericsuite_ai/config/config.py) files for the available options.
+Configure your application by setting up the necessary environment variables.
+
+Refer to the [.env.example](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/.env.example) and [config.py](https://github.com/tomkat-cr/genericsuite-be-ai/blob/main/genericsuite_ai/config/config.py) files for the available options.
+
+First copy the `.env.example` template to your `.env` file:
+
+```bash
+curl https://raw.githubusercontent.com/tomkat-cr/genericsuite-be-ai/main/.env.example > .env
+```
+
+Then, edit the `.env` file to set the desired values:
+
+```bash
+vi .env
+```
 
 Please check the [GenericSuite backend version configuration section](https://github.com/tomkat-cr/genericsuite-be/blob/main/README.md#configuration) for more details about general environment variables.
 
