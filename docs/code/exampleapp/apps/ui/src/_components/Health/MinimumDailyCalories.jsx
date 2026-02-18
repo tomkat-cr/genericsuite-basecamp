@@ -10,14 +10,14 @@ const console_debug_log = gs.loggingService.console_debug_log;
 const ShowAsDisabledField = gs.genericEditorRfcUi.ShowAsDisabledField;
 const calculateAge = gs.conversions.calculateAge;
 
-const debug = false;    
+const debug = false;
 
 export const getCalorieCondition = (minimumDailyCalories, totalCalories) => {
     const calorieDeficit = (minimumDailyCalories > totalCalories);
     const conditionDescription = (calorieDeficit ? 'Deficit' : 'Surplus');
     const message = (
-        totalCalories === null ? '' : 
-        `Calorie ${conditionDescription}`
+        totalCalories === null ? '' :
+            `Calorie ${conditionDescription}`
     );
     const result = {
         calorieDeficit: calorieDeficit,
@@ -71,24 +71,24 @@ const formulaMethod = "ck"; // Christian Kosmos formula
 export const getBMR = (weight, height, gender, dateOfBirth) => {
     const age = calculateAge(dateOfBirth);
     let BMR;
-        if (['male', 'm', 'M'].includes(gender)) {
-            switch(formulaMethod) {
-                case "hb":
-                    BMR = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age); // Harris-Benedict formula
-                    break;
-                case "msj":
-                    BMR = (10 * weight) + (6.25 * height) - (5 * age) + 5; // Mifflin - St Jeor formula
-                    break;
-                case "ck":
-                default:
-                    BMR = (22 * weight); // Christian Kosmos
-                    break;
-            }
+    if (['male', 'm', 'M'].includes(gender)) {
+        switch (formulaMethod) {
+            case "hb":
+                BMR = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age); // Harris-Benedict formula
+                break;
+            case "msj":
+                BMR = (10 * weight) + (6.25 * height) - (5 * age) + 5; // Mifflin - St Jeor formula
+                break;
+            case "ck":
+            default:
+                BMR = (22 * weight); // Christian Kosmos
+                break;
+        }
         if (debug) {
             console_debug_log(`getBMR - male (${gender}), age: ${age}, BMR: ${BMR}`);
         }
     } else {
-        switch(formulaMethod) {
+        switch (formulaMethod) {
             case "hb":
                 BMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age); // Harris-Benedict formula
                 break;
@@ -151,7 +151,7 @@ export const applyGoal = (calories, goal_code) => {
         typeof goal_code !== "undefined" && goal_code ?
             parseFloat(goal_code) : -20
     );
-    const result = calories + ((calories * perc)/100);
+    const result = calories + ((calories * perc) / 100);
     if (debug) {
         console_debug_log(
             `applyGoal | calories: ${calories}, goal_code: ${goal_code}, perc: ${perc} | result = ${result}`,
@@ -163,11 +163,11 @@ export const applyGoal = (calories, goal_code) => {
 
 // Minimun daily calories according to Mifflin - St Jeor formula.
 // Parameters `data` with JSON structure: weight in kg, height in cm, age, gender, and number of days exercised.
-export const MinimumDailyCalories = ( {
+export const MinimumDailyCalories = ({
     data,
     className = '',
     showAsField = '1',
-} ) => {
+}) => {
     const { weight, height, dateOfBirth, gender, exerciseDays, goal_code } = data;
     const minimumDailyCalories = getMinimumDailyCalories(
         weight, height, dateOfBirth, gender, exerciseDays, goal_code
@@ -199,7 +199,7 @@ export const CalorieCondition = ({
     const calorieCondition = getCalorieCondition(minimumDailyCalories, totalCalories);
     const output = (
         <>
-            <span 
+            <span
                 className={calorieCondition.calorieDeficit ? CALORIE_DEFICIT_CLASS : CALORIE_SURPLUS_CLASS}
             >
                 {calorieCondition.message}
@@ -227,14 +227,12 @@ export const CalorieCondition = ({
 }
 
 export const totalCaloriesCalcInDailyMealIngredients = () => {
-    const debug = true;
     const response = (parseFloat(document.getElementsByName('serving_size')[0].value) <= 0 ? 0 : ((parseFloat(document.getElementsByName('calories_value')[0].value) * parseFloat(document.getElementsByName('quantity')[0].value)) / parseFloat(document.getElementsByName('serving_size')[0].value)).toFixed(2));
     if (debug) console_debug_log('totalCaloriesCalcInDailyMealIngredients | response:', response);
     return response;
 }
 
 export const totalCaloriesCalcInDishesIngredients = () => {
-    const debug = true;
     const response = (parseFloat(document.getElementsByName('serving_size')[1].value) <= 0 ? 0 : ((parseFloat(document.getElementsByName('calories_value')[1].value) * parseFloat(document.getElementsByName('quantity')[0].value)) / parseFloat(document.getElementsByName('serving_size')[1].value)).toFixed(2));
     if (debug) console_debug_log('totalCaloriesCalcInDishesIngredients | response:', response);
     return response;

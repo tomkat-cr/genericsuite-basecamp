@@ -37,7 +37,7 @@ const ACTION_UPDATE = gs.generalConstants.ACTION_UPDATE;
 const TRUE_FALSE = gs.generalConstants.TRUE_FALSE;
 const LANGUAGES = gs.generalConstants.LANGUAGES;
 
-const debug = true;
+const debug = false;
 
 export function Users_EditorData(calleeName = 'Users_EditorData') {
     const registry = {

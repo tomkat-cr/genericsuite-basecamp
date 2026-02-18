@@ -21,7 +21,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ## [1.5.0] - 2026-02-18
 
 ### Added
-- Multi-language documentation (thanks to @otobonh for the idea) [GS-252].
+- Multi-language documentation, starting with spanish and english (thanks to @otobonh for the idea) [GS-252].
 - Spanish docs, using Google Translate and OpenAI gpt-5-nano [GS-252].
 - Cloudflare tunnel Makefile targets to exampleapp and fastapitemplate [GS-257].
 - PATH_TO_SAVE_OPENAPI envvar to main Makefile to save the OpenAPI schema files [GS-245].

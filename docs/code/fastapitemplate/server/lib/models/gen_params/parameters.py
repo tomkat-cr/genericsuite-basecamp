@@ -14,7 +14,7 @@ from genericsuite.util.utilities import (
 )
 from genericsuite.config.config_from_db import app_context_and_set_env
 
-DEBUG = True
+DEBUG = False
 
 
 def get_param_by_name(

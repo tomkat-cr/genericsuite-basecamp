@@ -3,15 +3,15 @@ import React from 'react';
 import * as gs from "genericsuite";
 
 import {
-    WEIGHT_UNITS,
-    HEIGHT_UNITS,
+    BILLING_PLANS,
     GENDERS,
     GOAL_CODES,
-    BILLING_PLANS,
+    HEIGHT_UNITS,
+    WEIGHT_UNITS,
 } from '../../_constants/app_constants';
+import { UserMinimumDailyCalories } from '../Health/UserDailyCaloriesAndCondition';
 import { UsersFoodTimes } from '../UsersMenu/UsersFoodTimes';
 import { UsersUserHistory } from '../UsersMenu/UsersUserHistory';
-import { UserMinimumDailyCalories } from '../Health/UserDailyCaloriesAndCondition';
 
 import users from "../../configs/frontend/users.json";
 
@@ -34,7 +34,7 @@ const ACTION_UPDATE = gs.generalConstants.ACTION_UPDATE;
 const TRUE_FALSE = gs.generalConstants.TRUE_FALSE;
 const LANGUAGES = gs.generalConstants.LANGUAGES;
 
-const debug = true;
+const debug = false;
 
 export function Users_EditorData(calleeName = 'Users_EditorData') {
     const registry = {
