@@ -302,33 +302,33 @@ cython_debug/
 .vscode
 
 # config_dbdef
-docs/Sample-Code/exampleapp/apps/ui/src/config_dbdef
-docs/Sample-Code/exampleapp/apps/ui/src/configs
-docs/Sample-Code/exampleapp/apps/api-chalice/lib/config_dbdef
-docs/Sample-Code/exampleapp/apps/api-fastapi/app/config_dbdef
-docs/Sample-Code/exampleapp/apps/api-flask/flaskr/config_dbdef
+docs/code/exampleapp/apps/ui/src/config_dbdef
+docs/code/exampleapp/apps/ui/src/configs
+docs/code/exampleapp/apps/api-chalice/lib/config_dbdef
+docs/code/exampleapp/apps/api-fastapi/app/config_dbdef
+docs/code/exampleapp/apps/api-flask/flaskr/config_dbdef
 changed_files.txt
 potential_secrets.txt
 security_scan.txt
 
 # Exampleapp apps/ on basecamp
-docs/Sample-Code/exampleapp/apps/api-chalice/lib/config_dbdef
-docs/Sample-Code/exampleapp/apps/api-flask/lib/config_dbdef
-docs/Sample-Code/exampleapp/apps/mcp-server/lib/config_dbdef
+docs/code/exampleapp/apps/api-chalice/lib/config_dbdef
+docs/code/exampleapp/apps/api-flask/lib/config_dbdef
+docs/code/exampleapp/apps/mcp-server/lib/config_dbdef
 
-docs/Sample-Code/exampleapp/apps/api-chalice/lib/config
-docs/Sample-Code/exampleapp/apps/api-flask/lib/config
-docs/Sample-Code/exampleapp/apps/mcp-server/lib/config
+docs/code/exampleapp/apps/api-chalice/lib/config
+docs/code/exampleapp/apps/api-flask/lib/config
+docs/code/exampleapp/apps/mcp-server/lib/config
 
-docs/Sample-Code/exampleapp/apps/api-chalice/lib/models
-docs/Sample-Code/exampleapp/apps/api-flask/lib/models
-docs/Sample-Code/exampleapp/apps/mcp-server/lib/models
+docs/code/exampleapp/apps/api-chalice/lib/models
+docs/code/exampleapp/apps/api-flask/lib/models
+docs/code/exampleapp/apps/mcp-server/lib/models
 
-docs/Sample-Code/exampleapp/apps/api-chalice/scripts
-docs/Sample-Code/exampleapp/apps/api-flask/scripts
-docs/Sample-Code/exampleapp/apps/mcp-server/scripts
+docs/code/exampleapp/apps/api-chalice/scripts
+docs/code/exampleapp/apps/api-flask/scripts
+docs/code/exampleapp/apps/mcp-server/scripts
 
-docs/Sample-Code/exampleapp/apps/ui/public/static
-docs/Sample-Code/exampleapp/apps/mcp-server/lib
+docs/code/exampleapp/apps/ui/public/static
+docs/code/exampleapp/apps/mcp-server/lib
 
-docs/Sample-Code/fastapitemplate/ui/public/static
+docs/code/fastapitemplate/ui/public/static

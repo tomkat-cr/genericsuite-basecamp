@@ -8,7 +8,7 @@ In this repository you will find:
 - The [Generic CRUD Editor Configuration](./docs/Configuration-Guide/Generic-CRUD-Editor-Configuration.md)
 - The [App Frontend](./docs/Frontend-Development/index.md)
 - The [App Backend](./docs/Backend-Development/index.md)
-- The [Code examples](./docs/Sample-Code/exampleapp/README.md) for your App development.
+- The [Code examples](./docs/code/exampleapp/README.md) for your App development.
 - The [Releases](./docs/Releases/index.md) of the GenericSuite library.
 - The [Basecamp Changelog](./CHANGELOG.md) for the GenericSuite Basecamp repository.
 - The [GenericSuite Core](./docs/Backend-Development/GenericSuite-Core/index.md)
@@ -55,7 +55,7 @@ The GenericSuite Basecamp project is organized into the following main directori
 ## Getting Started
 
 1. **Explore the documentation:** The `docs/` directory contains detailed information about the GenericSuite ecosystem.
-2. **Review the sample code:** The `docs/Sample-Code/` directory provides examples for different backend and frontend frameworks.
+2. **Review the sample code:** The `docs/code/` directory provides examples for different backend and frontend frameworks.
 3. **Use the scripts:** The `scripts/` directory contains useful scripts for managing the documentation site.
 
 ## Example Application

@@ -28,14 +28,20 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - USE_CONTAINERS_ENGINE_APP envvar to turn on/off use containers engine app for local development environment when RUN_PROTOCOL="https" [GS-257].
 - Documentation for RUN_PROTOCOL_AND_PORT_REPLACEMENT envvar to turn on/off automatic protocol and port replacement for local development environment variables APP_CORS_ORIGIN (assigned from APP_CORS_ORIGIN_{STAGE}), APP_FE_URL (assigned from APP_FE_URL_{STAGE}), and REACT_APP_API_URL (assigned from APP_API_URL_{STAGE}), depending on RUN_PROTOCOL value [GS-257].
 - OPENAI_API_KEY, OPENAI_MODEL, OPENAI_TEMPERATURE envvars to prepare future automatic documentation translation [GS-252].
+- Add 2nd anniversary release changelog [GS-262].
 
 ### Changed
-- Replace .pdf files relative links with Github GS Basecamp raw content links.
-- Replace exampleapp and fastapitemplate source code relative links with Github GS Basecamp URLs.
-- "docs_prepare.py" filter certain unneeded filenames.
+- Replace `.pdf` files relative links with Github GS Basecamp raw content links [GS-252].
+- Replace exampleapp and fastapitemplate source code relative links with Github GS Basecamp URLs [GS-252].
+- "docs_prepare.py" filter certain unneeded filenames [GS-252].
 - Implement Cloudflare Tunnel documentation [GS-257].
-- Refactor `.env.example` files for common variables and enhance documentation on fastapitemplate and exampleapp.
-- docs: Update environment setup documentation.
+- Refactor `.env.example` files for common variables and enhance documentation on fastapitemplate and exampleapp [GS-252].
+- Update environment setup documentation [GS-252].
+- Rename "docs/Sample-Code" to "docs/code" [GS-252].
+
+### Fixed
+- Add PyGithub to `mkdocs_install.sh` script because `mkdocs-git-committers-plugin` requires it [GS-262].
+- Fix users_api_keys primary key (_id) definition.
 
 
 ## [1.4.0] - 2026-01-21

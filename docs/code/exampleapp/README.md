@@ -185,7 +185,7 @@ cd genericsuite-basecamp
 3. Copy the sample app:
 
 ```bash
-cp -r genericsuite-basecamp/docs/Sample-Code/exampleapp ~/dev/myapp
+cp -r genericsuite-basecamp/docs/code/exampleapp ~/dev/myapp
 ```
 
 4. Install dependencies:

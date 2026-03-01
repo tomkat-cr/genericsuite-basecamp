@@ -2501,13 +2501,10 @@ Claves API del usuario
     "fieldElements": [
         {
             "name": "id",
-            "required": false,
+            "required": true,
             "label": "ID",
-            "type": "text",
-            "readonly": true,
-            "hidden": true,
-            "listing": false,
-            "uuid_generator": true
+            "type": "_id",
+            "readonly": true
         },
         {
             "name": "access_token",

@@ -1,6 +1,6 @@
 #!/bin/bash
 # clean_directory.sh
-# Clean up all `node_modules`, `dist`, `build`, `.env*`, `.turbo`, `logs` directories under `docs/Sample-Code/exampleapp` (or ./site) and sub-directories.
+# Clean up all `node_modules`, `dist`, `build`, `.env*`, `.turbo`, `logs` directories under `docs/code/exampleapp` (or ./site) and sub-directories.
 # 2025-07-05 | CR
 
 remove_item() {
@@ -28,7 +28,7 @@ show_help() {
     echo "Usage: clean_directory.sh <directory_path_to_clean> <remove_envs> <debug>"
     echo ""
     echo "Example:"
-    echo "clean_directory.sh ./docs/Sample-Code/exampleapp true true"
+    echo "clean_directory.sh ./docs/code/exampleapp true true"
     echo ""
     exit 1
 }

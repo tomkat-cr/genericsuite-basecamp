@@ -24,7 +24,7 @@ fastapitemplate/
 
 ```bash
 git clone https://github.com/tomkat-cr/genericsuite-basecamp.git
-cd genericsuite-basecamp/docs/Sample-Code/fastapitemplate
+cd genericsuite-basecamp/docs/code/fastapitemplate
 ```
 
 ## Configuration

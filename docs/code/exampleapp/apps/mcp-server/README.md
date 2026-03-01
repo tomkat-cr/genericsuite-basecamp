@@ -65,7 +65,7 @@ Add this configuration to your `claude_desktop_config.json`:
     "exampleapp": {
       "command": "sh",
       "args": [
-        "/absolute/path/to/genericsuite-basecamp/docs/Sample-Code/exampleapp/apps/mcp-server/run_mcp_server.sh"
+        "/absolute/path/to/genericsuite-basecamp/docs/code/exampleapp/apps/mcp-server/run_mcp_server.sh"
       ],
       "env": {
         "GS_USER_ID": "xxxx",
@@ -87,7 +87,7 @@ Add to your VS Code settings or `.vscode/mcp.json`:
       "exampleapp": {
         "command": "sh",
         "args": [
-          "/absolute/path/to/genericsuite-basecamp/docs/Sample-Code/exampleapp/apps/mcp-server/run_mcp_server.sh"
+          "/absolute/path/to/genericsuite-basecamp/docs/code/exampleapp/apps/mcp-server/run_mcp_server.sh"
         ],
         "env": {
           "GS_USER_ID": "xxxx",

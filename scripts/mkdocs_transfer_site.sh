@@ -63,10 +63,10 @@ fi
 echo ""
 echo "Cleaning up directories..."
 echo ""
-# Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories under "docs/Sample-Code/exampleapp" and sub-directories.
-if ! bash ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh "${EXAMPLEAPP_DIRECTORY_PATH}" "false" "${DEBUG}"
+# Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories under "docs/code/exampleapp" and sub-directories.
+if ! bash ./docs/code/exampleapp/scripts/clean_directory.sh "${EXAMPLEAPP_DIRECTORY_PATH}" "false" "${DEBUG}"
 then
-    echo "ERROR: 'bash ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${EXAMPLEAPP_DIRECTORY_PATH}\" \"false\" \"${DEBUG}\"' failed"
+    echo "ERROR: 'bash ./docs/code/exampleapp/scripts/clean_directory.sh \"${EXAMPLEAPP_DIRECTORY_PATH}\" \"false\" \"${DEBUG}\"' failed"
     exit 1
 fi
 
@@ -98,9 +98,9 @@ echo ""
 echo "'mkdocs build' completed"
 
 # Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories and `.env*` files under "./site" and sub-directories.
-if ! sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh "${SOURCE_DIRECTORY_PATH}" "true" "${DEBUG}"
+if ! sh ./docs/code/exampleapp/scripts/clean_directory.sh "${SOURCE_DIRECTORY_PATH}" "true" "${DEBUG}"
 then
-    echo "ERROR: 'sh ./docs/Sample-Code/exampleapp/scripts/clean_directory.sh \"${SOURCE_DIRECTORY_PATH}\" \"true\" \"${DEBUG}\"' failed"
+    echo "ERROR: 'sh ./docs/code/exampleapp/scripts/clean_directory.sh \"${SOURCE_DIRECTORY_PATH}\" \"true\" \"${DEBUG}\"' failed"
     exit 1
 fi
 
