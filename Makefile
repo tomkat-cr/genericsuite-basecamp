@@ -17,14 +17,20 @@ prepare_docs:
 	make fastapitemplate-clean
 
 generate_openapi: fastapitemplate-install
-	cd docs/Sample-Code/fastapitemplate/server && \
+	cd docs/code/fastapitemplate/server && \
 	RUN_PROTOCOL=http PATH_TO_SAVE_OPENAPI="." make run_qa && \
 	cd -
 
-transfer_debug: generate_openapi prepare_docs
+translate_uncommitted:
+	sh scripts/translation/run_translate_uncommitted.sh
+
+sample_code_prepare:
+	sh scripts/sample_code_prepare.sh
+
+transfer_debug: generate_openapi translate_uncommitted sample_code_prepare prepare_docs
 	bash scripts/mkdocs_transfer_site.sh
 
-transfer_cicd: generate_openapi prepare_docs
+transfer_cicd: generate_openapi translate_uncommitted sample_code_prepare prepare_docs
 	# Set DEBUG to false to avoid blocking automation in CI environments
 	DEBUG="false" sh scripts/mkdocs_transfer_site.sh
 
@@ -44,61 +50,61 @@ build: generate_openapi prepare_docs
 serve:
 	bash scripts/mkdocs_run.sh serve -a localhost:8015
 
-run: generate_openapi prepare_docs serve
+run: generate_openapi translate_uncommitted sample_code_prepare prepare_docs serve
 
 exampleapp-install: nvm_use
-	cd docs/Sample-Code/exampleapp && make install
+	cd docs/code/exampleapp && make install
 
 exampleapp-install-all: nvm_use
-	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/Sample-Code/exampleapp/apps/$(service) && pwd && make install && cd ../../../../../;)
+	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/code/exampleapp/apps/$(service) && pwd && make install && cd ../../../../../;)
 
 exampleapp-update: nvm_use
-	cd docs/Sample-Code/exampleapp && make update
+	cd docs/code/exampleapp && make update
 
 exampleapp-update-all: nvm_use
-	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/Sample-Code/exampleapp/apps/$(service) && pwd && make update && cd ../../../../../;)
+	$(foreach service,$(EXAMPLEAPP_SERVICES),cd docs/code/exampleapp/apps/$(service) && pwd && make update && cd ../../../../../;)
 
 exampleapp-run:
-	cd docs/Sample-Code/exampleapp && make run
+	cd docs/code/exampleapp && make run
 
 exampleapp-create-ssl-certs:
-	cd docs/Sample-Code/exampleapp && make create-ssl-certs
+	cd docs/code/exampleapp && make create-ssl-certs
 
 exampleapp-clean:
-	cd docs/Sample-Code/exampleapp && sh scripts/link_common_assets.sh unlink
+	cd docs/code/exampleapp && sh scripts/link_common_assets.sh unlink
 	if [ "${DEBUG}" = "true" ]; then @echo "" && \
 	@echo "Press Enter to continue to clean all directories (node_modules, dist, etc.)" && \
 	@read; fi
-	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp false "${DEBUG}"
-	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp/apps/mcp-server false "${DEBUG}"
-	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp/apps/api-chalice false "${DEBUG}"
-	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp/apps/api-fastapi false "${DEBUG}"
-	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/exampleapp/apps/api-flask false "${DEBUG}"
+	bash docs/code/exampleapp/scripts/clean_directory.sh ./docs/code/exampleapp false "${DEBUG}"
+	bash docs/code/exampleapp/scripts/clean_directory.sh ./docs/code/exampleapp/apps/mcp-server false "${DEBUG}"
+	bash docs/code/exampleapp/scripts/clean_directory.sh ./docs/code/exampleapp/apps/api-chalice false "${DEBUG}"
+	bash docs/code/exampleapp/scripts/clean_directory.sh ./docs/code/exampleapp/apps/api-fastapi false "${DEBUG}"
+	bash docs/code/exampleapp/scripts/clean_directory.sh ./docs/code/exampleapp/apps/api-flask false "${DEBUG}"
 
 fastapitemplate-install: nvm_use
-	cd docs/Sample-Code/fastapitemplate && make install
+	cd docs/code/fastapitemplate && make install
 
 fastapitemplate-install-all: nvm_use
-	cd docs/Sample-Code/fastapitemplate && make install-all
+	cd docs/code/fastapitemplate && make install-all
 
 fastapitemplate-update: nvm_use
-	cd docs/Sample-Code/fastapitemplate && make update
+	cd docs/code/fastapitemplate && make update
 
 fastapitemplate-update-all: fastapitemplate-update
 
 fastapitemplate-run:
-	cd docs/Sample-Code/fastapitemplate && make dev
+	cd docs/code/fastapitemplate && make dev
 
 fastapitemplate-create-ssl-certs:
-	cd docs/Sample-Code/exampleapp && make create-ssl-certs
+	cd docs/code/fastapitemplate && make create-ssl-certs
 
 fastapitemplate-clean:
-	cd docs/Sample-Code/fastapitemplate && make unlink-config-dirs && cd ../..
+	cd docs/code/fastapitemplate && make unlink-config-dirs && cd ../..
 	if [ "${DEBUG}" = "true" ]; then @echo "" && \
 	@echo "Press Enter to continue to clean all directories (node_modules, dist, etc.)" && \
 	@read; fi
-	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/fastapitemplate false "${DEBUG}"
-	bash docs/Sample-Code/exampleapp/scripts/clean_directory.sh ./docs/Sample-Code/fastapitemplate/server false "${DEBUG}"
+	bash docs/code/exampleapp/scripts/clean_directory.sh ./docs/code/fastapitemplate false "${DEBUG}"
+	bash docs/code/exampleapp/scripts/clean_directory.sh ./docs/code/fastapitemplate/server false "${DEBUG}"
 
 clean:
 	npm cache clean --force && rm -rf venv .pytest_cache .cache

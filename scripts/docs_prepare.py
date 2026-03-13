@@ -6,7 +6,12 @@ import argparse
 # Flutter does not support .svg files... yet
 allowed_extensions = [
     ".md",
-    ".pdf",
+    # ".pdf",
+    ".json",
+    ".yml",
+    ".yaml",
+    ".toml",
+    ".sh",
     ".ico",
     ".png",
     ".jpg",
@@ -16,6 +21,42 @@ allowed_extensions = [
     ".bmp",
     ".wbmp",
     ".svg",
+]
+
+ignore_files = [
+    "package.json",
+    "package-lock.json",
+    "pyproject.toml",
+    "CHANGELOG.md",
+    "manifest.json",
+    "config-example.json",
+    "dynamodb_cf_template.yaml",
+    "run_mcp_server.sh",
+    "claude_desktop_config.json",
+    "vscode_mcp_config.json",
+    "deployment.yml",
+    "docker-compose.yml",
+    "tsconfig.json",
+    "base.json",
+    "nextjs.json",
+    "react-library.json",
+    "pnpm-lock.yaml",
+    "pnpm-workspace.yaml",
+    "turbo.json",
+    "build_if_required.sh",
+    "clean_directory.sh",
+    "init_env_files.sh",
+    "link_common_assets.sh",
+    "run-deploy.sh",
+    "build_docker_images.sh",
+    "server-entrypoint.sh",
+    "claude_desktop_http_config.json",
+    "claude_desktop_stdio_config.json",
+    "vscode_mcp_http_config.json",
+    "vscode_mcp_stdio_config.json",
+    "copy_env_files.sh",
+    "init_app_environment.sh",
+    "docs_manifest.json",
 ]
 
 
@@ -53,6 +94,7 @@ def main():
     for root, dirs, files in os.walk(docs_dir):
         for file in files:
             if file.endswith(tuple(allowed_extensions)) and \
+                    os.path.basename(file) not in ignore_files and \
                     file not in files_processed:
 
                 rel_path = os.path.relpath(os.path.join(root, file), docs_dir)

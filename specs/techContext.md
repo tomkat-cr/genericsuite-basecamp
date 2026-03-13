@@ -158,8 +158,8 @@ make exampleapp-install
 #### Environment Configuration
 ```bash
 # Copy environment templates
-cp docs/Sample-Code/exampleapp/apps/ui/.env.example docs/Sample-Code/exampleapp/apps/ui/.env
-cp docs/Sample-Code/exampleapp/apps/api-fastapi/.env.example docs/Sample-Code/exampleapp/apps/api-fastapi/.env
+cp docs/code/exampleapp/apps/ui/.env.example docs/code/exampleapp/apps/ui/.env
+cp docs/code/exampleapp/apps/api-fastapi/.env.example docs/code/exampleapp/apps/api-fastapi/.env
 # Repeat for other backend options as needed
 
 # Edit environment variables

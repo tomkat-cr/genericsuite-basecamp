@@ -9,18 +9,32 @@
 # Run this script from the root directory of the repository
 
 echo ""
-echo "Creating and activating virtual environment..."
+echo "Installing mkdocs..."
 echo ""
-if ! python3 -m venv .venv
+
+if [ ! -d .venv ]
 then
-    echo "ERROR: 'python3 -m venv .venv' failed"
-    exit 1
+    if ! bash scripts/mkdocs_install.sh
+    then
+        echo "ERROR: 'bash scripts/mkdocs_install.sh' failed"
+        exit 1
+    fi
 fi
+
+echo ""
+echo "Activating virtual environment..."
+echo ""
+
 if ! source .venv/bin/activate
 then
     echo "ERROR: 'source .venv/bin/activate' failed"
     exit 1
 fi
+
+echo ""
+echo "Installing requirements..."
+echo ""
+
 if ! pip install -r requirements.txt
 then
     echo "ERROR: 'pip install -r requirements.txt' failed"
@@ -30,6 +44,7 @@ fi
 echo ""
 echo "Preparing docs..."
 echo ""
+
 if ! bash scripts/run_docs_prepare.sh
 then
     echo "ERROR: 'bash scripts/run_docs_prepare.sh' failed"
@@ -37,9 +52,10 @@ then
 fi
 
 echo ""
-echo "Running mkdocs..."
-echo ""
 if [ "$1" != "" ]; then
+    echo "Running mkdocs $1 $2 $3 $4 $5 $6 $7 $8 $9"
+    echo "In: $(pwd)"
+    echo ""
     if ! mkdocs $1 $2 $3 $4 $5 $6 $7 $8 $9
     then
         echo "ERROR: 'mkdocs $1 $2 $3 $4 $5 $6 $7 $8 $9' failed"

@@ -17,7 +17,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 echo "🔍 Installing mkdocs and dependencies"
-pip install mkdocs-material mkdocs-print-site-plugin mkdocs-git-committers-plugin mkdocs-exclude-search
+pip install mkdocs-material mkdocs-print-site-plugin mkdocs-git-committers-plugin PyGithub mkdocs-exclude-search mkdocs-static-i18n
 
 # pip install mkdocs-minify-plugin
 # pip install mkdocs-git-revision-date-localized-plugin

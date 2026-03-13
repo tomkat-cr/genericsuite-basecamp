@@ -1,0 +1,1137 @@
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          title: Detail
+          type: array
+      title: HTTPValidationError
+      type: object
+    LogRequest:
+      description: 'Log request '
+      properties:
+        log_type:
+          title: Log Type
+          type: string
+        message:
+          title: Message
+          type: string
+        timestamp:
+          title: Timestamp
+          type: integer
+      required:
+      - message
+      - log_type
+      - timestamp
+      title: LogRequest
+      type: object
+    MenuElementRequest:
+      description: 'Menu element request '
+      properties:
+        element:
+          title: Element
+          type: string
+      required:
+      - element
+      title: MenuElementRequest
+      type: object
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          title: Location
+          type: array
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+      type: object
+  securitySchemes:
+    HTTPBasic:
+      scheme: basic
+      type: http
+info:
+  title: fastapitemplate-backend
+  version: 0.1.0
+openapi: 3.1.0
+paths:
+  /v1/ai_chatbot_conversations:
+    delete:
+      description: "Handles generic DELETE requests, to delete one row by id.\n\n\
+        Args:\n    id (str): The ID of the record to retrieve.\n\nReturns:\n    Response:\
+        \ The response from the GET operation."
+      operationId: generic_delete_v1_ai_chatbot_conversations_delete
+      parameters:
+      - in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 50
+          minLength: 3
+          title: Id
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              anyOf:
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+              title: Json Body
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Delete
+      tags:
+      - ai_chatbot_conversations
+    get:
+      description: "Handles generic GET requests, to get one row by id, a Like Search,\n\
+        get one row by additional_query_params, or fetch the\npaginated-limited-filtered\
+        \ list.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n    limit\
+        \ (int): The maximum number of records to retrieve.\n    page (int): The page\
+        \ number to retrieve.\n    like_param (str): The parameter to search for records.\n\
+        \    comb_param (str): The parameter to combine with the like_param.\n\nReturns:\n\
+        \    Response: The response from the GET operation."
+      operationId: generic_get_v1_ai_chatbot_conversations_get
+      parameters:
+      - in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 50
+          minLength: 3
+          title: Id
+          type: string
+      - in: query
+        name: user_id
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User Id
+      - in: query
+        name: limit
+        required: false
+        schema:
+          anyOf:
+          - maximum: 100000
+            minimum: 1
+            type: integer
+          - type: 'null'
+          title: Limit
+      - in: query
+        name: page
+        required: false
+        schema:
+          anyOf:
+          - maximum: 100000
+            minimum: 1
+            type: integer
+          - type: 'null'
+          title: Page
+      - in: query
+        name: like_param
+        required: false
+        schema:
+          title: Like Param
+          type: string
+      - in: query
+        name: comb_param
+        required: false
+        schema:
+          title: Comb Param
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Get
+      tags:
+      - ai_chatbot_conversations
+    post:
+      description: "Handles generic POST requests, to create one item.\n\nArgs:\n\
+        \    json_body (dict) = data for the item to be created\n\nReturns:\n    Response:\
+        \ The response from the GET operation."
+      operationId: generic_post_v1_ai_chatbot_conversations_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              title: Json Body
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Post
+      tags:
+      - ai_chatbot_conversations
+    put:
+      description: "Handles generic PUT requests, to update one item.\n\nArgs:\n \
+        \   json_body (dict) = data to be updated\n    update_item (str): \"1\" apply\
+        \ update_one() instead\n            of replace_one(). Defaults to \"0\"\n\n\
+        Returns:\n    Response: The response from the GET operation."
+      operationId: generic_put_v1_ai_chatbot_conversations_put
+      parameters:
+      - in: query
+        name: update_item
+        required: false
+        schema:
+          title: Update Item
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              title: Json Body
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Put
+      tags:
+      - ai_chatbot_conversations
+  /v1/assets/:
+    get:
+      description: Get authorized menu options
+      operationId: storage_retrieval_no_item_id_endpoint_v1_assets__get
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: Response Storage Retrieval No Item Id Endpoint V1 Assets  Get
+          description: Successful Response
+      summary: Storage Retrieval No Item Id Endpoint
+  /v1/assets/{item_id}:
+    get:
+      description: Get authorized menu options
+      operationId: storage_retrieval_endpoint_v1_assets__item_id__get
+      parameters:
+      - in: path
+        name: item_id
+        required: true
+        schema:
+          title: Item Id
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: Response Storage Retrieval Endpoint V1 Assets  Item Id  Get
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Storage Retrieval Endpoint
+  /v1/assets/{item_id}/{response_type}:
+    get:
+      description: Get authorized menu options
+      operationId: storage_retrieval_with_response_type_endpoint_v1_assets__item_id___response_type__get
+      parameters:
+      - in: path
+        name: item_id
+        required: true
+        schema:
+          title: Item Id
+          type: string
+      - in: path
+        name: response_type
+        required: true
+        schema:
+          title: Response Type
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: Response Storage Retrieval With Response Type Endpoint V1 Assets  Item
+                  Id   Response Type  Get
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Storage Retrieval With Response Type Endpoint
+  /v1/general_config:
+    delete:
+      description: "Handles generic DELETE requests, to delete one row by id.\n\n\
+        Args:\n    id (str): The ID of the record to retrieve.\n\nReturns:\n    Response:\
+        \ The response from the GET operation."
+      operationId: generic_delete_v1_general_config_delete
+      parameters:
+      - in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 50
+          minLength: 3
+          title: Id
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              anyOf:
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+              title: Json Body
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Delete
+      tags:
+      - general_config
+    get:
+      description: "Handles generic GET requests, to get one row by id, a Like Search,\n\
+        get one row by additional_query_params, or fetch the\npaginated-limited-filtered\
+        \ list.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n    limit\
+        \ (int): The maximum number of records to retrieve.\n    page (int): The page\
+        \ number to retrieve.\n    like_param (str): The parameter to search for records.\n\
+        \    comb_param (str): The parameter to combine with the like_param.\n\nReturns:\n\
+        \    Response: The response from the GET operation."
+      operationId: generic_get_v1_general_config_get
+      parameters:
+      - in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 50
+          minLength: 3
+          title: Id
+          type: string
+      - in: query
+        name: user_id
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User Id
+      - in: query
+        name: limit
+        required: false
+        schema:
+          anyOf:
+          - maximum: 100000
+            minimum: 1
+            type: integer
+          - type: 'null'
+          title: Limit
+      - in: query
+        name: page
+        required: false
+        schema:
+          anyOf:
+          - maximum: 100000
+            minimum: 1
+            type: integer
+          - type: 'null'
+          title: Page
+      - in: query
+        name: like_param
+        required: false
+        schema:
+          title: Like Param
+          type: string
+      - in: query
+        name: comb_param
+        required: false
+        schema:
+          title: Comb Param
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Get
+      tags:
+      - general_config
+    post:
+      description: "Handles generic POST requests, to create one item.\n\nArgs:\n\
+        \    json_body (dict) = data for the item to be created\n\nReturns:\n    Response:\
+        \ The response from the GET operation."
+      operationId: generic_post_v1_general_config_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              title: Json Body
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Post
+      tags:
+      - general_config
+    put:
+      description: "Handles generic PUT requests, to update one item.\n\nArgs:\n \
+        \   json_body (dict) = data to be updated\n    update_item (str): \"1\" apply\
+        \ update_one() instead\n            of replace_one(). Defaults to \"0\"\n\n\
+        Returns:\n    Response: The response from the GET operation."
+      operationId: generic_put_v1_general_config_put
+      parameters:
+      - in: query
+        name: update_item
+        required: false
+        schema:
+          title: Update Item
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              title: Json Body
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Put
+      tags:
+      - general_config
+  /v1/logs:
+    post:
+      operationId: logs_creation_v1_logs_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Logs Creation
+      tags:
+      - logs
+  /v1/menu_options:
+    get:
+      description: Get authorized menu options
+      operationId: menu_options_get_v1_menu_options_get
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      summary: Menu Options Get
+  /v1/menu_options/element:
+    post:
+      description: Get menu element configuration
+      operationId: menu_options_element_v1_menu_options_element_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenuElementRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Menu Options Element
+      tags:
+      - element
+  /v1/users:
+    delete:
+      description: "Handles generic DELETE requests, to delete one row by id.\n\n\
+        Args:\n    id (str): The ID of the record to retrieve.\n\nReturns:\n    Response:\
+        \ The response from the GET operation."
+      operationId: generic_delete_v1_users_delete
+      parameters:
+      - in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 50
+          minLength: 3
+          title: Id
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              anyOf:
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+              title: Json Body
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Delete
+      tags:
+      - users
+    get:
+      description: "Handles generic GET requests, to get one row by id, a Like Search,\n\
+        get one row by additional_query_params, or fetch the\npaginated-limited-filtered\
+        \ list.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n    limit\
+        \ (int): The maximum number of records to retrieve.\n    page (int): The page\
+        \ number to retrieve.\n    like_param (str): The parameter to search for records.\n\
+        \    comb_param (str): The parameter to combine with the like_param.\n\nReturns:\n\
+        \    Response: The response from the GET operation."
+      operationId: generic_get_v1_users_get
+      parameters:
+      - in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 50
+          minLength: 3
+          title: Id
+          type: string
+      - in: query
+        name: user_id
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User Id
+      - in: query
+        name: limit
+        required: false
+        schema:
+          anyOf:
+          - maximum: 100000
+            minimum: 1
+            type: integer
+          - type: 'null'
+          title: Limit
+      - in: query
+        name: page
+        required: false
+        schema:
+          anyOf:
+          - maximum: 100000
+            minimum: 1
+            type: integer
+          - type: 'null'
+          title: Page
+      - in: query
+        name: like_param
+        required: false
+        schema:
+          title: Like Param
+          type: string
+      - in: query
+        name: comb_param
+        required: false
+        schema:
+          title: Comb Param
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Get
+      tags:
+      - users
+    post:
+      description: "Handles generic POST requests, to create one item.\n\nArgs:\n\
+        \    json_body (dict) = data for the item to be created\n\nReturns:\n    Response:\
+        \ The response from the GET operation."
+      operationId: generic_post_v1_users_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              title: Json Body
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Post
+      tags:
+      - users
+    put:
+      description: "Handles generic PUT requests, to update one item.\n\nArgs:\n \
+        \   json_body (dict) = data to be updated\n    update_item (str): \"1\" apply\
+        \ update_one() instead\n            of replace_one(). Defaults to \"0\"\n\n\
+        Returns:\n    Response: The response from the GET operation."
+      operationId: generic_put_v1_users_put
+      parameters:
+      - in: query
+        name: update_item
+        required: false
+        schema:
+          title: Update Item
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              title: Json Body
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Put
+      tags:
+      - users
+  /v1/users/current_user_d:
+    get:
+      description: Current user data read
+      operationId: current_user_d_v1_users_current_user_d_get
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      summary: Current User D
+  /v1/users/login:
+    post:
+      description: User login
+      operationId: login_user_v1_users_login_post
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - HTTPBasic: []
+      summary: Login User
+      tags:
+      - login
+  /v1/users/supad-create:
+    post:
+      description: Super admin user creation
+      operationId: super_admin_create_v1_users_supad_create_post
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - HTTPBasic: []
+      summary: Super Admin Create
+      tags:
+      - super-admin
+  /v1/users/test:
+    get:
+      description: Connection handler test
+      operationId: test_connection_handler_v1_users_test_get
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      summary: Test Connection Handler
+      tags:
+      - test
+  /v1/users_api_keys:
+    delete:
+      description: "Handles generic DELETE requests, to delete one row by id.\n\n\
+        Args:\n    id (str): The ID of the record to retrieve.\n\nReturns:\n    Response:\
+        \ The response from the GET operation."
+      operationId: generic_delete_v1_users_api_keys_delete
+      parameters:
+      - in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 50
+          minLength: 3
+          title: Id
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              anyOf:
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+              title: Json Body
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Delete
+      tags:
+      - users_api_keys
+    get:
+      description: "Handles generic GET requests, to get one row by id, a Like Search,\n\
+        get one row by additional_query_params, or fetch the\npaginated-limited-filtered\
+        \ list.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n    limit\
+        \ (int): The maximum number of records to retrieve.\n    page (int): The page\
+        \ number to retrieve.\n    like_param (str): The parameter to search for records.\n\
+        \    comb_param (str): The parameter to combine with the like_param.\n\nReturns:\n\
+        \    Response: The response from the GET operation."
+      operationId: generic_get_v1_users_api_keys_get
+      parameters:
+      - in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 50
+          minLength: 3
+          title: Id
+          type: string
+      - in: query
+        name: user_id
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User Id
+      - in: query
+        name: limit
+        required: false
+        schema:
+          anyOf:
+          - maximum: 100000
+            minimum: 1
+            type: integer
+          - type: 'null'
+          title: Limit
+      - in: query
+        name: page
+        required: false
+        schema:
+          anyOf:
+          - maximum: 100000
+            minimum: 1
+            type: integer
+          - type: 'null'
+          title: Page
+      - in: query
+        name: like_param
+        required: false
+        schema:
+          title: Like Param
+          type: string
+      - in: query
+        name: comb_param
+        required: false
+        schema:
+          title: Comb Param
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Get
+      tags:
+      - users_api_keys
+    post:
+      description: "Handles generic POST requests, to create one item.\n\nArgs:\n\
+        \    json_body (dict) = data for the item to be created\n\nReturns:\n    Response:\
+        \ The response from the GET operation."
+      operationId: generic_post_v1_users_api_keys_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              title: Json Body
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Post
+      tags:
+      - users_api_keys
+    put:
+      description: "Handles generic PUT requests, to update one item.\n\nArgs:\n \
+        \   json_body (dict) = data to be updated\n    update_item (str): \"1\" apply\
+        \ update_one() instead\n            of replace_one(). Defaults to \"0\"\n\n\
+        Returns:\n    Response: The response from the GET operation."
+      operationId: generic_put_v1_users_api_keys_put
+      parameters:
+      - in: query
+        name: update_item
+        required: false
+        schema:
+          title: Update Item
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              title: Json Body
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Put
+      tags:
+      - users_api_keys
+  /v1/users_config:
+    delete:
+      description: "Handles generic DELETE requests, to delete one row by id.\n\n\
+        Args:\n    id (str): The ID of the record to retrieve.\n\nReturns:\n    Response:\
+        \ The response from the GET operation."
+      operationId: generic_delete_v1_users_config_delete
+      parameters:
+      - in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 50
+          minLength: 3
+          title: Id
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              anyOf:
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+              title: Json Body
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Delete
+      tags:
+      - users_config
+    get:
+      description: "Handles generic GET requests, to get one row by id, a Like Search,\n\
+        get one row by additional_query_params, or fetch the\npaginated-limited-filtered\
+        \ list.\n\nArgs:\n    id (str): The ID of the record to retrieve.\n    limit\
+        \ (int): The maximum number of records to retrieve.\n    page (int): The page\
+        \ number to retrieve.\n    like_param (str): The parameter to search for records.\n\
+        \    comb_param (str): The parameter to combine with the like_param.\n\nReturns:\n\
+        \    Response: The response from the GET operation."
+      operationId: generic_get_v1_users_config_get
+      parameters:
+      - in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 50
+          minLength: 3
+          title: Id
+          type: string
+      - in: query
+        name: user_id
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User Id
+      - in: query
+        name: limit
+        required: false
+        schema:
+          anyOf:
+          - maximum: 100000
+            minimum: 1
+            type: integer
+          - type: 'null'
+          title: Limit
+      - in: query
+        name: page
+        required: false
+        schema:
+          anyOf:
+          - maximum: 100000
+            minimum: 1
+            type: integer
+          - type: 'null'
+          title: Page
+      - in: query
+        name: like_param
+        required: false
+        schema:
+          title: Like Param
+          type: string
+      - in: query
+        name: comb_param
+        required: false
+        schema:
+          title: Comb Param
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Get
+      tags:
+      - users_config
+    post:
+      description: "Handles generic POST requests, to create one item.\n\nArgs:\n\
+        \    json_body (dict) = data for the item to be created\n\nReturns:\n    Response:\
+        \ The response from the GET operation."
+      operationId: generic_post_v1_users_config_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              title: Json Body
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Post
+      tags:
+      - users_config
+    put:
+      description: "Handles generic PUT requests, to update one item.\n\nArgs:\n \
+        \   json_body (dict) = data to be updated\n    update_item (str): \"1\" apply\
+        \ update_one() instead\n            of replace_one(). Defaults to \"0\"\n\n\
+        Returns:\n    Response: The response from the GET operation."
+      operationId: generic_put_v1_users_config_put
+      parameters:
+      - in: query
+        name: update_item
+        required: false
+        schema:
+          title: Update Item
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              title: Json Body
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Generic Put
+      tags:
+      - users_config
