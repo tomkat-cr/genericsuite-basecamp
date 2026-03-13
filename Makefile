@@ -21,10 +21,16 @@ generate_openapi: fastapitemplate-install
 	RUN_PROTOCOL=http PATH_TO_SAVE_OPENAPI="." make run_qa && \
 	cd -
 
-transfer_debug: generate_openapi prepare_docs
+translate_uncommitted:
+	sh scripts/translation/run_translate_uncommitted.sh
+
+sample_code_prepare:
+	sh scripts/sample_code_prepare.sh
+
+transfer_debug: generate_openapi translate_uncommitted sample_code_prepare prepare_docs
 	bash scripts/mkdocs_transfer_site.sh
 
-transfer_cicd: generate_openapi prepare_docs
+transfer_cicd: generate_openapi translate_uncommitted sample_code_prepare prepare_docs
 	# Set DEBUG to false to avoid blocking automation in CI environments
 	DEBUG="false" sh scripts/mkdocs_transfer_site.sh
 
@@ -44,7 +50,7 @@ build: generate_openapi prepare_docs
 serve:
 	bash scripts/mkdocs_run.sh serve -a localhost:8015
 
-run: generate_openapi prepare_docs serve
+run: generate_openapi translate_uncommitted sample_code_prepare prepare_docs serve
 
 exampleapp-install: nvm_use
 	cd docs/code/exampleapp && make install

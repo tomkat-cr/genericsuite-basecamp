@@ -32,6 +32,6 @@
     "check-types": "make check-types"
   },
   "dependencies": {
-    "genericsuite-be-scripts": "github:tomkat-cr/genericsuite-be-scripts#develop"
+    "genericsuite-be-scripts": "^1.2.0"
   }
 }

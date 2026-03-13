@@ -6,6 +6,10 @@ Generic Suite (GS) is the ultimate development library designed to streamline fr
 
 [Release Notes](./Releases/index.md) | [Sample Code](./Sample-Code/index.md) | [Repositories](./repositories.md)
 
+![GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/images/GS_Release_2026-02-18_Image_1A.png)
+
+We are proud to announce the [GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/GS_Release_2026-02-18_Changelog.md)
+
 ## Get Started
 
 Join the growing community of developers using Generic Suite to supercharge their projects. Explore the repositories and start building today!

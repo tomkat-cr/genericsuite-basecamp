@@ -99,7 +99,7 @@
     "vite-plugin-require": "^1.2.14"
   },
   "dependencies": {
-    "genericsuite": "^1.1.0",
-    "genericsuite-ai": "^1.1.0"
+    "genericsuite": "^1.2.0",
+    "genericsuite-ai": "^1.2.0"
   }
 }

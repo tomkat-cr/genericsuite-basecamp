@@ -70,6 +70,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Api Keys to User Profile on exampleapp and fastapitemplate [GS-251].
 - Privacy policy [GS-252].
 - Introduce documentation preparation scripts, to reduce the FTP transfer time [GS-252].
+- "make translate_uncommitted" command to translate uncommitted changes in the "docs" directory before publishing [GS-252].
+- "make sample_code_prepare" to prepare sample code (exampleapp and fastapitemplate) to use the latest packages before publishing [GS-262].
 
 ### Changed
 - Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.

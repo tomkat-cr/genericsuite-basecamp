@@ -16,7 +16,7 @@ Key Professional Benefits:
 
 * Modern Data Validation: Migrating to Pydantic ensures faster, more reliable data serialization and strictly typed schemas, reducing runtime errors.
 
-* Enhanced Developer Experience: With the new FastAPI Template, automated dependency synchronization for Dockerfiles, Podman container engine, and MCP server standard startup script, setting up robust backend services is faster than ever.
+* Enhanced Developer Experience: With the new FastAPI Template, automated dependency synchronization for Dockerfiles, Podman container engine, and MCP server standard startup script, automatic local database tables structure creation, super user creation, setting up robust backend services is faster than ever.
 
 * AI & Privacy: Integrated AI Conversation Masking across all frameworks (FastAPI, Flask, Chalice) ensures that sensitive data stays protected during LLM interactions.
 
@@ -30,9 +30,9 @@ This "2nd Anniversary Edition" is designed to scale with your business needs, pr
 
 ### Package, Pull Request and Tag
 
-* Package: 
+* Package: https://www.npmjs.com/package/genericsuite/v/1.2.0
 * Pull Request: https://github.com/tomkat-cr/genericsuite-fe/pull/9
-* Tag: 
+* Tag: https://github.com/tomkat-cr/genericsuite-fe/releases/tag/1.2.0
 
 ### Pull Request Overview
 
@@ -65,20 +65,24 @@ Highlights
 - "make tailwind-build" to rebuild the Tailwind CSS files (without stay watching for changes) [GS-63].
 - "make tailwind-build" added to the publish bash script [GS-63].
 - getUserDataCache and setUserDataCache to set a cache reading current user's data, ad implemented in the Users.jsx specific functions [GS-251].
-- close button for GCE_RFC index messages shown returning fom the form data page [GS-251].
-- Api Keys to User Profile [GS-251].
+- Close button for GCE_RFC Index page emerging messages (e.g. "X items deleted...") shown returning from the Form Data page [GS-251].
+- Api Keys child component added to User Profile [GS-159].
 - "customOnChange()" function added to <PutOneFormfield /> as "onChange" parameter, also Formik setFieldValue() added as "setValue" parameter, so "component" type fields can update the Formik internal values and therefore saved in the database [GS-252].
 - ShowAsDisabledField component can render the custom component as a simulated disabled field (current behavior) or as a Formik Field, customizable with the new "showAsField", "isReadOnly", "type", "onChange", "onBlur" parameters. OnChange allows to store the calculated value in the Formik internal values and therefore saved in the database [GS-252].
 - USE_CONTAINERS_ENGINE_APP envvar to control whether to use containers engine app for local development environment when RUN_PROTOCOL="https" [GS-257].
 - RUN_PROTOCOL_AND_PORT_REPLACEMENT envvar to control automatic protocol and port replacement for local development environment variables APP_FE_URL_DEV and APP_API_URL_DEV [GS-257].
-- "gs_listing_columns" query parameter to limit the columns to be returned from the API in the GenericSelectDataPopulator [GS-252].
 - "link_external_configs.sh" script to link external JSON configs directory so it can be tested in GenericSuite FE Core [GS-258].
 - "config_name" field type change to "suggestion_dropdown" in "Admin > Users > User Configurations", so the Suggestion Dropdown can be tested in GenericSuite FE Core [GS-258].
 - Error icon to GsIconLib [GS-258].
 - <ChatBotButtonGeneric /> component to add a try-catch layer to field definitions that has "chatbot_popup" set to true [GS-258].
 - Comprehensive parameter documentation for `GenericSelectDataPopulator`.
 - Comprehensive documentation for `getUrlParams`.
-- Add VERBOSE_RUN_CONFIG envvar to enable verbose logging in run_config.sh.
+- VERBOSE_RUN_CONFIG envvar to enable verbose logging in run_config.sh.
+- MD5 utilities [GS-266].
+- BSON-type ObjectId() generation to "id.utilities.jsx" [GS-266].
+- "UsersUserHistory.jsx" and "users_user_history.json" to debug child listings with dates and MondoDB BSON-type ObjectId() generation [GS-266].
+- Implement navigation helpers for testability [GS-267].
+- "generalUtilities" to detect different element types, including dict and list [GS-251].
 
 ##### Changed
 - Enhance error message in the login page [GS-246].
@@ -91,8 +95,8 @@ Highlights
 - Rename "parentKeyNames" to "endpointKeyNames" in JSON config files [GS-159].
 - Move "parentUrl" attribute from "endpointKeyNames" to the root of the JSON config files [GS-159].
 - MainSectionContext, UsersContext and AppContext implemment useCallback, useMemo, useRef, and useReducer instead of useState, to avoid components unnecessary reloads [GS-251].
-- configs README referece the official GenericSuite documentation instead of repeating its content [GS-251].
-- getFieldElementsYupValidations() enabled to have validations on the form data page [GS-251].
+- Configs README referece the official GenericSuite documentation instead of repeating its content [GS-251].
+- getFieldElementsYupValidations() enabled to have validations on the Form Data page [GS-251].
 - Rename state and setState with errorState, setErrorState on AppContext.jsx, App.jsx, generic.editor.rfc.selector.jsx, generic.menu.service.jsx [GS-251].
 - Rename status and setStatus with errorStatus, setErrorStatus on generic.editor.rfc.formpage.jsx [GS-251]
 - Rename <FormPage /> parameters: mode_par, id_par, and editor_par to mode, id, and editor [GS-251].
@@ -107,16 +111,20 @@ Highlights
 - Pass `dbRow` to form fields types "select_component" and "component" for enhanced data context [GS-37].
 - Export `buildDescription` utility on "generic.editor.rfc.selector" and enhance "GenericSelectGenerator" documentation [GS-37].
 - Pass `currentObj` as a parameter to `dataPopulator` on getSelectFieldsOptions() [GS-37].
+- Centralize and enhance API error message extraction with a new `getErrorMsgFromApi` helper to avoid error messages like "[object Object]" when axios is used [GS-262].
+- Rename "idUtilities.getUuidV4" to "uuidUtilities.getUuidV4" [GS-266].
+- Login page design enhanced by isolating the logo from the user and password box.
 
 ##### Fixed
 - Error message when using axios and the session expires or the user credentials are invalid [GS-246].
+- API "errorMsg" as an array when there are errors in the main API call or in the specific functions API calls [GS-251].
 - getFileExtension() to remove the URL query parameters [GS-72].
 - Optimize the Generic CRUD Editor (GCE_RFC) API calls, avoiding repeated calls [GS-251].
 - Optimize the Generic Menu Generator (GMG) API calls, avoiding repeated calls [GS-251].
 - Login button shown on each page refresh, while menus are loading [GS-251].
 - GMG shows the "URL not found..." message during the menu loading [GS-251].
 - GCE_RFC doesn't show the error message when the session has been expired [GS-251].
-- Supress warning on the LoginPage about the username and password autocomplete attributes (More info: https://goo.gl/9p2vKq)
+- Suppress warning on the LoginPage about the username and password autocomplete attributes (More info: https://goo.gl/9p2vKq)
 - Fix input field color in the <SuggestionDropdown /> component [GS-252].
 - Fix the Cache initialization in the Generic CRUD Editor provider (MainSectionProvider) [GS-252].
 - Fix SuggestionDropdown component: use debounce to limit the number of calls to the API, and replace legacy Downshift component with useCombobox hook [GS-258].
@@ -125,14 +133,26 @@ Highlights
   * The includesAppValidLinks function is used as a security heuristic to determine if an error message should be rendered as HTML. This check was insufficient as it only verifies if the message contains a hardcoded 'valid' email or URL. An attacker can bypass this check by including one of these strings (e.g., 'support@exampleapp.com') in a malicious payload. If the error message contains untrusted data, such as reflected input from an API error response, this leads to a Cross-Site Scripting (XSS) vulnerability when the message is rendered in the UI.
 - Optimize user data fetching with request caching to avoid race conditions [GS-262].
 - "TypeError: stringDate.indexOf is not a function" on addMissingTz when the supplied date is a number [GS-194].
+- "[object Object] EFFF-020" when the API returns an error deleting/updating the item on EditFormFormikFinal() [GS-194].
+- Date not shown on read-only child listings data forms: timestampDbPostRead() use resultset[0] for calling processTimestampToDate() because "date" and "datetime-local" fields shown as "mm/dd/yyyy, --:-- --" [GS-266]
+- Use MD5 utilities to hash rowId in data forms when there's no row._id or row[editor.primaryKeyName], avoiding the "Encountered two children with the same key, `<table_name>_row_undefined_tr_enclosure`" warning [GS-266].
+- Query parameters are not recognized in getUrlParams() [GS-266].
+- Show only content when `menu=0` in the main page [GS-266].
+- Disable next page button and avoid show "Page 1 of 0" message when the table has no items on the GCE_RFC [GS-266].
+- Fix the drop-down menus closing when any other element is clicked [GS-266].
+- Prevent React warnings by handling null/undefined form field values in getFieldElementsDbValues() [GS-266] [GS-262].
+
+##### Security
+- Upgrade jest and babel to latest versions to fix the "npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful." warning [GS-219] [GS-267].
+- 37 security vulnerabilities (including high and critical ones) found in the project's dependencies were addressed, adding an "overrides" section to package.json to force secure versions of transitive dependencies (elliptic, json5, minimatch, postcss, loader-utils) without breaking your high-level setup [GS-219] [GS-267].
 
 ## GenericSuite Frontend AI
 
 ### Package, Pull Request and Tag
 
-* Package: 
+* Package: https://www.npmjs.com/package/genericsuite-ai/v/1.2.0
 * Pull Request: https://github.com/tomkat-cr/genericsuite-fe-ai/pull/9
-* Tag: 
+* Tag: https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.2.0
 
 ### Pull Request Overview
 
@@ -167,15 +187,18 @@ Highlights
   - If REACT_APP_X_TOKEN is not set, X_TOKEN can be used instead [GS-243].
   - If REACT_APP_USE_AXIOS is not set, USE_AXIOS can be used instead [GS-243].
 - The error message in the AI Assistant chat is now floating [GS-246].
+- Rename "idUtilities.getUuidV4" to "uuidUtilities.getUuidV4" [GS-266].
 
 ##### Fixed
 - Fix "npm warn deprecated text-encoding@0.7.0: no longer maintained" by removing "text-encoding" dependency and rollup external configuration [GS-219].
 - Fix "make publish" build error by reverting all run_lib changes in package.json and "public/static" removal.
 - Update chatbot popup routing to use hash-based URLs.
-- Adjust build output directories.
+- Adjust build output directories [GS-262].
 
 ##### Security
 - Implement URL sanitization in ConversationBlock and input sanitization in ChatBotButton to prevent XSS vulnerabilities, along with corresponding tests [GS-262].
+- Upgrade jest and babel to latest versions to fix the "npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful." warning [GS-219] [GS-267].
+- 37 security vulnerabilities (including high and critical ones) found in the project's dependencies were addressed, adding an "overrides" section to package.json to force secure versions of transitive dependencies (elliptic, json5, minimatch, postcss, loader-utils) without breaking your high-level setup [GS-219] [GS-267].
 
 ##### Removed
 - Remove @tailwindcss/vite
@@ -184,9 +207,9 @@ Highlights
 
 ### Package, Pull Request and Tag
 
-* Package: 
+* Package: https://pypi.org/project/genericsuite/0.3.0/
 * Pull Request: https://github.com/tomkat-cr/genericsuite-be/pull/14
-* Tag: 
+* Tag: https://github.com/tomkat-cr/genericsuite-be/releases/tag/0.3.0
 
 ### Pull Request Overview
 
@@ -224,9 +247,12 @@ Highlights
 - MCP access token retrieval from headers (Authorization: Bearer <token>) with the get_access_token() function in mcplib utilities [GS-159].
 - MCP_MANDATORY_USER_ID envvar to force MCP authentication with user_id and api_key. Default to "0" to allow api key only authentication [GS-159].
 - Implement logs endpoint [GS-250].
-- Add "gs_listing_columns" query parameter to limit the columns (attributes) to be returned in the listing [GS-252].
 - Add Message-ID header to outgoing emails [GS-37].
 - Allow configuring email debug mode via the SEND_EMAIL_DEBUG environment variable [GS-37].
+- `db_engine` configuration to SqlTable so methods like array_fields_management() and array_fields_value() can use the corresponding functions [GS-194].
+- Implement $inc, $push, $addToSet and $pull operations to the SQL abstraction [GS-194].
+- Add `get_table_structure()` and `quote_value()` on generic DB helpers to fix the  `super_admin_create()` ("supad-create" endpoint) execution on apps with specific user table mandatory attributes needing default values [GS-125].
+- Introduce $elemMatch support in all database abstractions. Enhance query handling by extracting and filtering $elemMatch conditions, improving data retrieval accuracy [GS-161] [GS-194] [GS-249] [GS-102].
 
 ##### Changed
 - Refactor: standardize storage retrieval URL prefix from `/asset` to `/assets` across all frameworks [GS-245].
@@ -251,13 +277,19 @@ Highlights
 - Allow `Request` objects as input for current user data functions to make the users onboarding workflow work [GS-37].
 - Prevent "AssertionError: AuthenticationMiddleware must be installed to access request.user" in `get_curr_user_id` when it's a normal Request with no JWT authentication [GS-37].
 - `send_email` includes "Message-ID" header to prevent google (and others) from rejecting emails [GS-37].
+- Update SQL abstraction to handle NULL comparisons dynamically [GS-262]. 
+- "bson.errors.InvalidId" error when creating a new user with Supabase, assigning `parent_keys["_id"] = ObjectId(parent_keys["id"])` [GS-251].
 
 ##### Security
-- Update "urllib3" to "^2.6.2" to fix security vulnerabilities [GS-219]:
+- Update "urllib3" to "^2.6.3" to fix security vulnerabilities [GS-219]:
     * "Allocation of Resources Without Limits or Throttling": "CWE-770", "CVE-2025-66418", "CVSS 8.9", "SNYK-PYTHON-URLLIB3-14192443"
-    * "Improper Handling of Highly Compressed Data (Data Amplification)": "CWE-409", "CVSS 8.9", "CVE-2025-66471", "SNYK-PYTHON-URLLIB3-14192442".
-- Update "werkzeug" to "^3.1.4" to fix security vulnerabilities [GS-219]:
-    * "Improper Handling of Windows Device Names": "CWE-67", "CVSS 6.3", "CVE-2025-66221", "SNYK-PYTHON-WERKZEUG-14151620".
+    * "Improper Handling of Highly Compressed Data (Data Amplification)": "CWE-409", "CVSS 8.9", "CVE-2025-66471", "CVE-2026-21441", "CWE-409".
+- Update "werkzeug" to "^3.1.6" to fix security vulnerabilities [GS-219]:
+    * "Improper Handling of Windows Device Names": "CWE-67", "CVSS 6.3", "CVE-2025-66221", "CVE-2026-27199", "CWE-67".
+- Upgrade "cryptography" to "^46.0.5" to fix security vulnerabilities [GS-219]:
+    * "Insufficient Verification of Data Authenticity": "CVE-2026-26007", "CWE-345".
+- Add mandatory filters to get_item_from_db() and GenericEndpointHelper.generic_crud_main() [GS-262].
+- Add sanitization to "message" parameter in POST /log endpoint [GS-262].
 
 ##### Removed
 - "boto3" and "pymongo" dependencies, so each project can have its own dependencies depending on the selected database and cloud storage provider [GS-245].
@@ -269,9 +301,9 @@ Highlights
 
 ### Package, Pull Request and Tag
 
-* Package: 
+* Package: https://pypi.org/project/genericsuite-ai/0.3.0/
 * Pull Request: https://github.com/tomkat-cr/genericsuite-be-ai/pull/12
-* Tag: 
+* Tag: https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.3.0
 
 ### Pull Request Overview
 
@@ -311,14 +343,16 @@ Highlights
 - Update faiss-cpu to version 1.12.0 and adjust the project Python version compatibility to >=3.10,<3.15 to fix "Could not find a version that satisfies the requirement faiss-cpu==1.13.1 (from versions: 1.7.3, 1.7.4, 1.8.0, 1.8.0.post1, 1.9.0, 1.9.0.post1, 1.12.0)" running the AWS lambda deployment [GS-251].
 
 ##### Security
-- Update "urllib3" to "^2.6.2" to fix security vulnerabilities [GS-219]:
+- Update "urllib3" to "^2.6.3" to fix security vulnerabilities [GS-219]:
     * "Allocation of Resources Without Limits or Throttling": "CWE-770", "CVE-2025-66418", "CVSS 8.9", "SNYK-PYTHON-URLLIB3-14192443"
-    * "Improper Handling of Highly Compressed Data (Data Amplification)": "CWE-409", "CVSS 8.9", "CVE-2025-66471", "SNYK-PYTHON-URLLIB3-14192442".
-- Update "langchain-core" to "^1.2.2" to fix security vulnerabilities [GS-219]:
+    * "Improper Handling of Highly Compressed Data (Data Amplification)": "CWE-409", "CVSS 8.9", "CVE-2025-66471", "CVE-2026-21441", "CWE-409".
+- Update "langchain-core" to "^1.2.5" to fix security vulnerabilities [GS-219]:
     * "Template Injection": "CWE-1336", "CVSS 8.3"
+    * "Deserialization of Untrusted Data": "CVE-2025-68664", "CWE-502"
 - Update "langchain" to "^1.2.0" to fix security vulnerabilities [GS-219]:
     * "Template Injection": "CWE-1336", "CVSS 8.3"
-- Update "langchain-openai" to "^1.1.4" to have the latest version [GS-219].
+- Update "langchain-openai" to "^1.1.9" to fix vulnerabilities [GS-219].
+    * "Server-side Request Forgery (SSRF)": "CVE-2026-26013", "CWE-918"
 
 ##### Removed
 - "langchain-groq" dependency because its API is now called with the OpenAI API [GS-248].
@@ -329,9 +363,11 @@ Highlights
 
 ### Package, Pull Request and Tag
 
-* Package: 
-* Pull Request: https://github.com/tomkat-cr/genericsuite-be-scripts/pull/13
-* Tag: 
+* Package: https://www.npmjs.com/package/genericsuite-be-scripts/v/1.3.0
+* Pull Request:
+    - https://github.com/tomkat-cr/genericsuite-be-scripts/pull/13
+    - https://github.com/tomkat-cr/genericsuite-be-scripts/pull/14
+* Tag: https://github.com/tomkat-cr/genericsuite-be-scripts/releases/tag/1.3.0
 
 ### Pull Request Overview
 
@@ -428,12 +464,10 @@ set_chalice_cnf.sh mongo_docker -> set_chalice_cnf.sh local_db_docker
 
 ### Pull Request and Tag
 
-
-* Package: 
 * Pull Request:
     - https://github.com/tomkat-cr/genericsuite-basecamp/pull/15
     - https://github.com/tomkat-cr/genericsuite-basecamp/pull/17
-* Tag: 
+* Tag: https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.5.0
 
 ### Pull Request Overview
 
@@ -468,6 +502,32 @@ Highlights
 
 ### CHANGELOG.md
 
+#### [1.5.0] - 2026-02-18
+
+##### Added
+- Multi-language documentation, starting with spanish and english (thanks to @otobonh for the idea) [GS-252].
+- Spanish docs, using Google Translate and OpenAI gpt-5-nano [GS-252].
+- Cloudflare tunnel Makefile targets to exampleapp and fastapitemplate [GS-257].
+- PATH_TO_SAVE_OPENAPI envvar to main Makefile to save the OpenAPI schema files [GS-245].
+- USE_CONTAINERS_ENGINE_APP envvar to turn on/off use containers engine app for local development environment when RUN_PROTOCOL="https" [GS-257].
+- Documentation for RUN_PROTOCOL_AND_PORT_REPLACEMENT envvar to turn on/off automatic protocol and port replacement for local development environment variables APP_CORS_ORIGIN (assigned from APP_CORS_ORIGIN_{STAGE}), APP_FE_URL (assigned from APP_FE_URL_{STAGE}), and REACT_APP_API_URL (assigned from APP_API_URL_{STAGE}), depending on RUN_PROTOCOL value [GS-257].
+- OPENAI_API_KEY, OPENAI_MODEL, OPENAI_TEMPERATURE envvars to prepare future automatic documentation translation [GS-252].
+- Add 2nd anniversary release changelog [GS-262].
+
+##### Changed
+- Replace `.pdf` files relative links with Github GS Basecamp raw content links [GS-252].
+- Replace exampleapp and fastapitemplate source code relative links with Github GS Basecamp URLs [GS-252].
+- "docs_prepare.py" filter certain unneeded filenames [GS-252].
+- Implement Cloudflare Tunnel documentation [GS-257].
+- Refactor `.env.example` files for common variables and enhance documentation on fastapitemplate and exampleapp [GS-252].
+- Update environment setup documentation [GS-252].
+- Rename "docs/Sample-Code" to "docs/code" [GS-252].
+
+##### Fixed
+- Add PyGithub to `mkdocs_install.sh` script because `mkdocs-git-committers-plugin` requires it [GS-262].
+- Fix users_api_keys primary key (_id) definition.
+
+
 #### [1.4.0] - 2026-01-21
 
 ##### Added
@@ -494,6 +554,8 @@ Highlights
 - Api Keys to User Profile on exampleapp and fastapitemplate [GS-251].
 - Privacy policy [GS-252].
 - Introduce documentation preparation scripts, to reduce the FTP transfer time [GS-252].
+- "make translate_uncommitted" command to translate uncommitted changes in the "docs" directory before publishing [GS-252].
+- "make sample_code_prepare" to prepare sample code (exampleapp and fastapitemplate) to use the latest packages before publishing [GS-262].
 
 ##### Changed
 - Enhance "exampleapp/apps/mcp-server/run_mcp_server.sh" separating the SCRIPT_DIR and BASE_DIR envvars.
@@ -543,23 +605,3 @@ Highlights
 - AWS_API_GATEWAY_STAGE envvar removed from all .env.example files.
 - boto3 and pymongo dependencies, so each project can have its own dependencies depending on the selected database and cloud storage provider [GS-245].
 - Unused generic API endpoints from OpenAPI specification.
-
-
-#### [1.5.0] - 2026-02-18
-
-##### Added
-- Multi-language documentation, starting with spanish and english (thanks to @otobonh for the idea) [GS-252].
-- Spanish docs, using Google Translate and OpenAI gpt-5-nano [GS-252].
-- Cloudflare tunnel Makefile targets to exampleapp and fastapitemplate [GS-257].
-- PATH_TO_SAVE_OPENAPI envvar to main Makefile to save the OpenAPI schema files [GS-245].
-- USE_CONTAINERS_ENGINE_APP envvar to turn on/off use containers engine app for local development environment when RUN_PROTOCOL="https" [GS-257].
-- Documentation for RUN_PROTOCOL_AND_PORT_REPLACEMENT envvar to turn on/off automatic protocol and port replacement for local development environment variables APP_CORS_ORIGIN (assigned from APP_CORS_ORIGIN_{STAGE}), APP_FE_URL (assigned from APP_FE_URL_{STAGE}), and REACT_APP_API_URL (assigned from APP_API_URL_{STAGE}), depending on RUN_PROTOCOL value [GS-257].
-- OPENAI_API_KEY, OPENAI_MODEL, OPENAI_TEMPERATURE envvars to prepare future automatic documentation translation [GS-252].
-
-##### Changed
-- Replace .pdf files relative links with Github GS Basecamp raw content links.
-- Replace exampleapp and fastapitemplate source code relative links with Github GS Basecamp URLs.
-- "docs_prepare.py" filter certain unneeded filenames.
-- Implement Cloudflare Tunnel documentation [GS-257].
-- Refactor `.env.example` files for common variables and enhance documentation on fastapitemplate and exampleapp.
-- docs: Update environment setup documentation.

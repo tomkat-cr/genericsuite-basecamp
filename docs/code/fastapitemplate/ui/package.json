@@ -102,7 +102,7 @@
     "vite-plugin-require": "^1.2.14"
   },
   "dependencies": {
-    "genericsuite": "github:tomkat-cr/genericsuite-fe#develop",
-    "genericsuite-ai": "github:tomkat-cr/genericsuite-fe-ai#develop"
+    "genericsuite": "^1.2.0",
+    "genericsuite-ai": "^1.2.0"
   }
 }
