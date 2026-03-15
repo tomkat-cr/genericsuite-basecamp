@@ -1,6 +1,6 @@
 site_name: The Generic Suite
 site_url: https://genericsuite.carlosjramirez.com
-copyright: Copyright &copy; 2024-PRESENT <a href="https://www.carlosjramirez.com">Carlos J. Ramirez</a>
+copyright: Copyright &copy; 2024-PRESENT <a href="https://www.carlosjramirez.com">Carlos Ramirez</a>
 
 repo_url: https://github.com/tomkat-cr/genericsuite-basecamp
 repo_name: tomkat-cr/genericsuite
@@ -97,7 +97,7 @@ plugins:
           # configuration_path: mkdocs.es.yml
           build: true
           site_name: La Generic Suite
-          copyright: Copyright &copy; 2024-PRESENTE <a href="https://www.carlosjramirez.com">Carlos J. Ramirez</a>
+          copyright: Copyright &copy; 2024-PRESENTE <a href="https://www.carlosjramirez.com">Carlos Ramirez</a>
           nav_translations:
             'Introduction': 'Introducción'
             'Repositories': 'Repositorios'

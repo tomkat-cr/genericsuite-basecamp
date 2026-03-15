@@ -27,10 +27,12 @@ translate_uncommitted:
 sample_code_prepare:
 	sh scripts/sample_code_prepare.sh
 
-transfer_debug: generate_openapi translate_uncommitted sample_code_prepare prepare_docs
+prepare_all: generate_openapi translate_uncommitted sample_code_prepare prepare_docs
+
+transfer_debug: prepare_all
 	bash scripts/mkdocs_transfer_site.sh
 
-transfer_cicd: generate_openapi translate_uncommitted sample_code_prepare prepare_docs
+transfer_cicd: prepare_all
 	# Set DEBUG to false to avoid blocking automation in CI environments
 	DEBUG="false" sh scripts/mkdocs_transfer_site.sh
 
@@ -44,13 +46,13 @@ nvm_use:
 venv:
 	if ! . scripts/mkdocs_run.sh; then if ! source scripts/mkdocs_run.sh; then @echo "❌ scripts/mkdocs_run.sh failed..."; fi; fi
 
-build: generate_openapi prepare_docs
+build: prepare_all
 	bash scripts/mkdocs_run.sh build
 
 serve:
 	bash scripts/mkdocs_run.sh serve -a localhost:8015
 
-run: generate_openapi translate_uncommitted sample_code_prepare prepare_docs serve
+run: prepare_all serve
 
 exampleapp-install: nvm_use
 	cd docs/code/exampleapp && make install

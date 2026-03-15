@@ -4,15 +4,16 @@ This repository is the starting point and documentation for GenericSuite-based p
 
 In this repository you will find:
 
-- The [Configuration Guide](./docs/Configuration-Guide/index.md)
-- The [Generic CRUD Editor Configuration](./docs/Configuration-Guide/Generic-CRUD-Editor-Configuration.md)
+- The [Main Documentation Page](./docs/index.md)
 - The [App Frontend](./docs/Frontend-Development/index.md)
 - The [App Backend](./docs/Backend-Development/index.md)
+- The [GenericSuite Core](./docs/Backend-Development/GenericSuite-Core/index.md)
+- The [GenericSuite AI](./docs/Backend-Development/GenericSuite-AI/index.md)
+- The [Configuration Guide](./docs/Configuration-Guide/index.md)
+- The [Generic CRUD Editor Configuration](./docs/Configuration-Guide/Generic-CRUD-Editor-Configuration.md)
 - The [Code examples](./docs/code/exampleapp/README.md) for your App development.
 - The [Releases](./docs/Releases/index.md) of the GenericSuite library.
 - The [Basecamp Changelog](./CHANGELOG.md) for the GenericSuite Basecamp repository.
-- The [GenericSuite Core](./docs/Backend-Development/GenericSuite-Core/index.md)
-- The [GenericSuite AI](./docs/Backend-Development/GenericSuite-AI/index.md)
 
 ## About GenericSuite
 
@@ -57,6 +58,8 @@ The GenericSuite Basecamp project is organized into the following main directori
 1. **Explore the documentation:** The `docs/` directory contains detailed information about the GenericSuite ecosystem.
 2. **Review the sample code:** The `docs/code/` directory provides examples for different backend and frontend frameworks.
 3. **Use the scripts:** The `scripts/` directory contains useful scripts for managing the documentation site.
+4. **Start the mkdocs local server:** The `scripts/mkdocs_run.sh` script can be used to start the mkdocs local server. You can run it using the `make serve` command to build and serve the documentation or `make run` to only serve the documentation.
+5. **Translate from english to other languages:** The `scripts/translation` directory contains the scripts to translate the documentation from english to other languages (e.g. spanish), checking the documents under `docs/en` directory modified after its counterparts under `docs/en` directory. You can run `make translate_uncommitted` script to run the translation process.
 
 ## Example Application
 
@@ -89,6 +92,9 @@ It is inspired by the principles of Caloric Deficit. The purpose is to achieve w
 
   - DynamoDB (AWS)
   - MongoDB (MongoDB Atlas or self-hosted)
+  - Postgres (PostgreSQL or AWS RDS)
+  - MySQL (MySQL or AWS RDS)
+  - Supabase
 
 - **Development Tools**:
 
@@ -101,9 +107,55 @@ It is inspired by the principles of Caloric Deficit. The purpose is to achieve w
 The following `make` commands are available to manage the `exampleapp`:
 
 - `make exampleapp-install`: Installs all dependencies for the monorepo.
-- `make exampleapp-run`: Starts the application.
 - `make exampleapp-update`: Updates the dependencies.
+- `make exampleapp-run`: Starts the application.
 - `make exampleapp-clean`: Removes all installed dependencies and build artifacts.
+
+## FastAPI Template Application
+
+GenericSuite Basecamp includes a full-stack `fastapitemplate` to demonstrate a real-world implementation of the suite's capabilities. This application is structured as a monorepo and showcases how to integrate frontend and backend components efficiently.
+
+**FastAPITemplate** is a full-stack application with no specific purpose, demonstrating a modern web app architecture with FastAPI based backend services and a React-based frontend implementing GenericSuite.
+
+**FastAPITemplate** let developers:
+
+- To have a template as a starting point to build their own applications
+- Pre-packed AI-powered experiences by letting application users to communicate by voice, text, or image uploads to a specialized assistant called AI Assistant, which is based on large language models, speech-to-text, text to image and image to text technologies.
+
+### Key Features of the FastAPITemplate App
+
+- **Monorepo Structure:** Managed with **NPM Workspaces** to streamline package management and build processes.
+
+- **Frontend**: Modern React application with Vite
+
+- **Backend Options**:
+
+  - FastAPI (Python)
+  - MCP Server (Python)
+
+- **Database Options**:
+
+  - DynamoDB (AWS)
+  - MongoDB (MongoDB Atlas or self-hosted)
+  - Postgres (PostgreSQL or AWS RDS)
+  - MySQL (MySQL or AWS RDS)
+  - Supabase
+
+- **Development Tools**:
+
+  - npm for package management and monorepo management
+  - Environment-based configuration
+
+### Running the FastAPITemplate App
+
+The following `make` commands are available to manage the `fastapitemplate`:
+
+- `make fastapitemplate-install`: Installs dependencies for the monorepo.
+- `make fastapitemplate-install-all`: Installs dependencies for all the services in the monorepo.
+- `make fastapitemplate-update`: Updates the dependencies.
+- `make fastapitemplate-create-ssl-certs`: Creates SSL self-signed certificates for the application.
+- `make fastapitemplate-run`: Starts the application.
+- `make fastapitemplate-clean`: Removes all installed dependencies and build artifacts.
 
 ## Repositories
 

@@ -5,13 +5,13 @@
         <td>
             <img
                 src="https://genericsuite.carlosjramirez.com/images/gs_logo_circle.svg"
-                title="GenericSuite logo by Carlos J. Ramirez"
+                title="GenericSuite logo by Carlos Ramirez"
             />
         </td>
         <td>
             <img
                 src="https://genericsuite.carlosjramirez.com/images/gs_ai_logo_circle.svg"
-                title="GenericSuite AI logo by Carlos J. Ramirez"
+                title="GenericSuite AI logo by Carlos Ramirez"
             />
         </td>
     </tr>
@@ -81,6 +81,6 @@ GenericSuite is open-sourced software licensed under the [ISC](https://github.co
 
 ## Credits
 
-This project is developed and maintained by [Carlos J. Ramirez](https://www.carlosjramirez.com). For more information or to contribute to the project, visit [GenericSuite on GitHub](https://github.com/tomkat-cr/genericsuite-basecamp).
+This project is developed and maintained by [Carlos Ramirez](https://www.carlosjramirez.com). For more information or to contribute to the project, visit [GenericSuite on GitHub](https://github.com/tomkat-cr/genericsuite-basecamp).
 
 Happy Coding!

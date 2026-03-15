@@ -41,9 +41,9 @@ This repository serves as:
 - **Technical leads** evaluating GenericSuite for projects
 
 ### Secondary Users
+- **Enterprise teams** seeking rapid application development solutions
 - **Open-source contributors** wanting to contribute to the ecosystem
 - **Students and learners** exploring modern full-stack development
-- **Enterprise teams** seeking rapid application development solutions
 
 ## Success Criteria
 
@@ -52,6 +52,7 @@ This repository serves as:
 - Example applications run successfully with minimal setup
 - Configuration guides are accurate and complete
 - Documentation is accessible via multiple channels (GitHub, ReadTheDocs)
+- Documentation is available in english and spanish
 
 ### Developer Adoption
 - Developers can successfully set up and run example applications within 30 minutes
@@ -70,9 +71,9 @@ This repository serves as:
 ### In Scope
 - Documentation for GenericSuite Core (frontend/backend)
 - Documentation for GenericSuite AI extensions
-- Complete example applications (ExampleApp monorepo)
+- Complete example applications (ExampleApp monorepo, FastAPI Template monorepo)
 - Configuration guides for all supported frameworks and databases
-- Deployment guides for AWS, local development, and VPS
+- Deployment guides for local development, AWS, GCP, Azure, and VPS
 - Release tracking and changelog maintenance
 - MkDocs-based documentation site with automated publishing
 
@@ -85,13 +86,15 @@ This repository serves as:
 ## Key Constraints
 
 ### Technical Constraints
-- Must maintain compatibility with Python 3.10+ and Node.js 20+
+- Must maintain compatibility with Python 3.12+ and Node.js 20+
 - Documentation must be accessible both online and offline
-- Example applications must work across multiple backend frameworks (FastAPI, Flask, Chalice)
-- Must support both MongoDB and DynamoDB database options
+- Example applications must work across multiple backend frameworks (FastAPI, Flask, Chalice, MCP Server)
+- Must support MongoDB, DynamoDB, PostgreSQL, MySQL, and Supabase database options
+- Must support FastAPI, Flask, Chalice, and MCP Server backend frameworks
+- Must support local development, AWS, GCP, Azure, and VPS deployment options
 
 ### Resource Constraints
-- Single maintainer (Carlos J. Ramirez) for primary development
+- Single maintainer (Carlos Ramirez) for primary development
 - Community-driven contributions for improvements and fixes
 - Documentation updates must align with package release cycles
 - Limited resources for extensive video or interactive tutorials

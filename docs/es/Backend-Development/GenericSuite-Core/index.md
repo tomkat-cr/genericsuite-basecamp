@@ -1173,6 +1173,6 @@ Este proyecto está licenciado bajo la Licencia ISC - vea el archivo LICENSE par
 
 ## Créditos
 
-Este proyecto es desarrollado y mantenido por Carlos J. Ramirez. Para más información o para contribuir al proyecto, visita [GenericSuite en GitHub](https://github.com/tomkat-cr/genericsuite-be).
+Este proyecto es desarrollado y mantenido por Carlos Ramirez. Para más información o para contribuir al proyecto, visita [GenericSuite en GitHub](https://github.com/tomkat-cr/genericsuite-be).
 
 ¡Feliz Codificación!

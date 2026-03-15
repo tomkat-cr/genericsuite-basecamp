@@ -50,7 +50,7 @@
   - **Port**: 5001 (configurable via BACKEND_LOCAL_PORT)
   - **Features**: AWS integration, automatic deployment, serverless architecture
   
-- **MCP Server**: Model Context Protocol server implementation
+- **MCP Server**: Model Context Protocol server implementation using the "fastmcp" and "mcp" python dependencies
   - **Purpose**: Demonstrates modern AI integration patterns
   - **Features**: Food and nutrition management tools
 
@@ -64,8 +64,27 @@
   - **Local**: DynamoDB Local for development
   - **Cloud**: AWS DynamoDB
   - **SDK**: Boto3 for AWS integration
+  
+- **PostgreSQL**: PostgreSQL managed database
+  - **Local**: PostgreSQL for development
+  - **Cloud**: AWS RDS for PostgreSQL
+  - **SDK**: psycopg2-binary for Python integration
+  
+- **MySQL**: MySQL managed database
+  - **Local**: MySQL for development
+  - **Cloud**: AWS RDS for MySQL
+  - **SDK**: mysql-connector-python for Python integration
+  
+- **Supabase**: Supabase managed database
+  - **Local**: There's no local Supabase for development
+  - **Cloud**: [Supabase](https://supabase.com/)
+  - **SDK**: supabase dependency for Python integration
 
 #### Package Management
+- **npm workspace**: Efficient package manager for Node.js (preferred)
+  - **Features**: Workspace support, fast installs, disk space efficiency
+  - **Configuration**: `package-lock.json` for monorepo management
+  
 - **pnpm 10.12.4+**: Efficient package manager for Node.js
   - **Features**: Workspace support, fast installs, disk space efficiency
   - **Configuration**: `pnpm-workspace.yaml` for monorepo management
@@ -74,9 +93,9 @@
   - **Features**: Incremental builds, remote caching, parallel execution
   - **Configuration**: `turbo.json` for build orchestration
   
-- **Pipenv**: Python dependency management
+- **uv**: Python dependency management (preferred)
   - **Features**: Virtual environment management, lock files, security scanning
-  - **Files**: `Pipfile` and `Pipfile.lock` for reproducible builds
+  - **Files**: `uv.lock` for reproducible builds
 
 ### Development Tools
 
@@ -88,8 +107,8 @@
 #### Code Quality Tools
 - **ESLint**: JavaScript/TypeScript linting with custom configurations
 - **Prettier**: Code formatting for consistent style
-- **Black**: Python code formatting
-- **flake8**: Python linting and style checking
+- **autopep8**: Python code formatting
+- **Flake8**: Python linting and style checking
 
 #### Testing Frameworks
 - **pytest**: Python testing framework with fixtures and plugins
@@ -98,7 +117,7 @@
 
 #### Development Environment
 - **Node.js 20+**: JavaScript runtime (version specified in `.nvmrc`)
-- **Python 3.10+**: Python runtime (version specified in `.python-version`)
+- **Python 3.12+**: Python runtime (version specified in `.python-version`)
 - **Make**: Build automation and task runner
 - **Shell Scripts**: Bash scripts for common development tasks
 
@@ -203,7 +222,7 @@ make exampleapp-create-ssl-certs
 ### Platform Constraints
 - **Operating System**: Primarily developed on macOS, compatible with Linux
 - **Node.js Version**: Requires Node.js 20+ for Tailwind CSS v4 and Shadcn v2+ compatibility
-- **Python Version**: Requires Python 3.10+ and < 4.0 for GenericSuite compatibility
+- **Python Version**: Requires Python 3.12+ and < 4.0 for GenericSuite compatibility
 - **Browser Support**: Modern browsers with ES6+ support
 
 ### Performance Constraints
@@ -266,7 +285,7 @@ PyYAML==6.0.2
 }
 ```
 
-#### Backend Dependencies (Pipfile)
+#### Backend Dependencies (pyproject.toml or Pipfile)
 ```toml
 [packages]
 genericsuite = "*"
