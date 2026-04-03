@@ -5,7 +5,7 @@ copyright: Copyright &copy; 2024-PRESENT <a href="https://www.carlosjramirez.com
 repo_url: https://github.com/tomkat-cr/genericsuite-basecamp
 repo_name: tomkat-cr/genericsuite
 
-docs_dir: docs_for_ftp
+docs_dir: docs
 site_dir: site
 
 nav:

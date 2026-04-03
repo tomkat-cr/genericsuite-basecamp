@@ -115,3 +115,6 @@ clean-all: clean exampleapp-clean fastapitemplate-clean
 
 lsof:
 	sudo lsof -PiTCP -sTCP:LISTEN
+
+agents_md_link:
+	ln -s CLAUDE.md AGENTS.md
