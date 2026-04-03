@@ -4,16 +4,16 @@ This repository is the starting point and documentation for GenericSuite-based p
 
 In this repository you will find:
 
-- The [Main Documentation Page](./docs/index.md)
-- The [App Frontend](./docs/Frontend-Development/index.md)
-- The [App Backend](./docs/Backend-Development/index.md)
-- The [GenericSuite Core](./docs/Backend-Development/GenericSuite-Core/index.md)
-- The [GenericSuite AI](./docs/Backend-Development/GenericSuite-AI/index.md)
-- The [Configuration Guide](./docs/Configuration-Guide/index.md)
-- The [Generic CRUD Editor Configuration](./docs/Configuration-Guide/Generic-CRUD-Editor-Configuration.md)
-- The [Code examples](./docs/code/exampleapp/README.md) for your App development.
-- The [Releases](./docs/Releases/index.md) of the GenericSuite library.
-- The [Basecamp Changelog](./CHANGELOG.md) for the GenericSuite Basecamp repository.
+- The [Main Documentation Page](../docs/en/index.md)
+- The [App Frontend](../docs/en/Frontend-Development/index.md)
+- The [App Backend](../docs/en/Backend-Development/index.md)
+- The [GenericSuite Core](../docs/en/Backend-Development/GenericSuite-Core/index.md)
+- The [GenericSuite AI](../docs/en/Backend-Development/GenericSuite-AI/index.md)
+- The [Configuration Guide](../docs/en/Configuration-Guide/index.md)
+- The [Generic CRUD Editor Configuration](../docs/en/Configuration-Guide/Generic-CRUD-Editor-Configuration.md)
+- The Code examples: [ExampleApp monorepo with TurboRepo](../docs/code/exampleapp/README.md) and [FastAPI Template monorepo with NPM Workspaces](../docs/code/fastapitemplate/README.md) for your App development.
+- The [Releases](../docs/en/Releases/index.md) of the GenericSuite library.
+- The [Basecamp Changelog](../CHANGELOG.md) for the GenericSuite Basecamp repository.
 
 ## About GenericSuite
 
@@ -159,4 +159,4 @@ The following `make` commands are available to manage the `fastapitemplate`:
 
 ## Repositories
 
-A full list of GenericSuite repositories can be found in the [docs/repositories.md](docs/repositories.md) file.
+A full list of GenericSuite repositories can be found in the [docs/repositories.md](../docs/en/repositories.md) file.

@@ -26,6 +26,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Changed
 - Update author name from "Carlos J. Ramirez" to "Carlos Ramirez".
 - Enhance tech context with new database, package management tools, adjust Python version requirements from 3.10+ to 3.12+ (< 4.0), and update environment variables section [GS-303].
+- Fix product context links [GS-303].
+- Update active context progress, remove done items and add new initiatives [GS-303].
 - Update the 2nd anniversary release changelog summary (fixing the AI conversations masking) and add links to the tag, pull request and packages URLs [GS-262].
 
 ### Fixed
