@@ -2,7 +2,7 @@
     "name": "fastapitemplate",
     "version": "1.0.0",
     "description": "FastAPI Template (fastapitemplate)",
-    "author": "Carlos J. Ramirez",
+    "author": "Carlos Ramirez",
     "license": "Private",
     "private": true,
     "workspaces": [

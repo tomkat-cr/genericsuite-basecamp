@@ -332,3 +332,4 @@ docs/code/exampleapp/apps/ui/public/static
 docs/code/exampleapp/apps/mcp-server/lib
 
 docs/code/fastapitemplate/ui/public/static
+.claude/settings.local.json

@@ -1033,8 +1033,8 @@ This is a suggested App development repository structure for a FastAPI project:
 ├── CHANGELOG.md
 ├── LICENSE
 ├── Makefile
-├── Pipfile
-├── Pipfile.lock
+├── pyproject.toml
+├── uv.lock
 ├── README.md
 ├── package-lock.json
 ├── package.json
@@ -1075,8 +1075,8 @@ This is a suggested App development repository structure for a Flask project:
 ├── CHANGELOG.md
 ├── LICENSE
 ├── Makefile
-├── Pipfile
-├── Pipfile.lock
+├── pyproject.toml
+├── uv.lock
 ├── README.md
 └── version.txt
 ```
@@ -1140,8 +1140,8 @@ This is a suggested App development repository structure for a Chalice project:
 ├── Makefile
 ├── package-lock.json
 ├── package.json
-├── Pipfile
-├── Pipfile.lock
+├── pyproject.toml
+├── uv.lock
 ├── README.md
 ├── requirements.txt
 └── version.txt
@@ -1171,6 +1171,6 @@ This project is licensed under the ISC License - see the [LICENSE](https://githu
 
 ## Credits
 
-This project is developed and maintained by Carlos J. Ramirez. For more information or to contribute to the project, visit [GenericSuite on GitHub](https://github.com/tomkat-cr/genericsuite-be).
+This project is developed and maintained by Carlos Ramirez. For more information or to contribute to the project, visit [GenericSuite on GitHub](https://github.com/tomkat-cr/genericsuite-be).
 
 Happy Coding!

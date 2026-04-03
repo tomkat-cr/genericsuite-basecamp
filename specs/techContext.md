@@ -50,7 +50,7 @@
   - **Port**: 5001 (configurable via BACKEND_LOCAL_PORT)
   - **Features**: AWS integration, automatic deployment, serverless architecture
   
-- **MCP Server**: Model Context Protocol server implementation
+- **MCP Server**: Model Context Protocol server implementation using the "fastmcp" and "mcp" python dependencies
   - **Purpose**: Demonstrates modern AI integration patterns
   - **Features**: Food and nutrition management tools
 
@@ -64,8 +64,27 @@
   - **Local**: DynamoDB Local for development
   - **Cloud**: AWS DynamoDB
   - **SDK**: Boto3 for AWS integration
+  
+- **PostgreSQL**: PostgreSQL managed database
+  - **Local**: PostgreSQL for development
+  - **Cloud**: AWS RDS for PostgreSQL
+  - **SDK**: psycopg2-binary for Python integration
+  
+- **MySQL**: MySQL managed database
+  - **Local**: MySQL for development
+  - **Cloud**: AWS RDS for MySQL
+  - **SDK**: mysql-connector-python for Python integration
+  
+- **Supabase**: Supabase managed database
+  - **Local**: There's no local Supabase for development
+  - **Cloud**: [Supabase](https://supabase.com/)
+  - **SDK**: supabase dependency for Python integration
 
 #### Package Management
+- **npm workspace**: Efficient package manager for Node.js (preferred)
+  - **Features**: Workspace support, fast installs, disk space efficiency
+  - **Configuration**: `package-lock.json` for monorepo management
+  
 - **pnpm 10.12.4+**: Efficient package manager for Node.js
   - **Features**: Workspace support, fast installs, disk space efficiency
   - **Configuration**: `pnpm-workspace.yaml` for monorepo management
@@ -74,9 +93,9 @@
   - **Features**: Incremental builds, remote caching, parallel execution
   - **Configuration**: `turbo.json` for build orchestration
   
-- **Pipenv**: Python dependency management
+- **uv**: Python dependency management (preferred)
   - **Features**: Virtual environment management, lock files, security scanning
-  - **Files**: `Pipfile` and `Pipfile.lock` for reproducible builds
+  - **Files**: `uv.lock` for reproducible builds
 
 ### Development Tools
 
@@ -88,8 +107,8 @@
 #### Code Quality Tools
 - **ESLint**: JavaScript/TypeScript linting with custom configurations
 - **Prettier**: Code formatting for consistent style
-- **Black**: Python code formatting
-- **flake8**: Python linting and style checking
+- **autopep8**: Python code formatting
+- **Flake8**: Python linting and style checking
 
 #### Testing Frameworks
 - **pytest**: Python testing framework with fixtures and plugins
@@ -98,7 +117,7 @@
 
 #### Development Environment
 - **Node.js 20+**: JavaScript runtime (version specified in `.nvmrc`)
-- **Python 3.10+**: Python runtime (version specified in `.python-version`)
+- **Python 3.12+**: Python runtime (version specified in `.python-version`)
 - **Make**: Build automation and task runner
 - **Shell Scripts**: Bash scripts for common development tasks
 
@@ -203,7 +222,7 @@ make exampleapp-create-ssl-certs
 ### Platform Constraints
 - **Operating System**: Primarily developed on macOS, compatible with Linux
 - **Node.js Version**: Requires Node.js 20+ for Tailwind CSS v4 and Shadcn v2+ compatibility
-- **Python Version**: Requires Python 3.10+ and < 4.0 for GenericSuite compatibility
+- **Python Version**: Requires Python 3.12+ and < 4.0 for GenericSuite compatibility
 - **Browser Support**: Modern browsers with ES6+ support
 
 ### Performance Constraints
@@ -266,7 +285,7 @@ PyYAML==6.0.2
 }
 ```
 
-#### Backend Dependencies (Pipfile)
+#### Backend Dependencies (pyproject.toml or Pipfile)
 ```toml
 [packages]
 genericsuite = "*"
@@ -330,37 +349,69 @@ flake8 = "*"
 
 ## Environment Configuration
 
-### Development Environment Variables
+File: `.env`
+
 ```bash
-# Documentation
-DEBUG=true                    # Enable debug mode for local development
-MKDOCS_SERVE_PORT=8000       # Port for local documentation server
+# Documentation FTP publishing
+REMOTE_HOST=...
+REMOTE_USERNAME=...
+REMOTE_PASSWORD=...
+REMOTE_DIRECTORY_PATH=...
 
-# Example Application - UI
-REACT_APP_API_URL=http://localhost:5011  # Backend API URL
-REACT_APP_USE_HTTPS=false    # Enable HTTPS in development
-RUN_BUNDLER=vite              # Build tool (vite or webpack)
-RUN_PROTOCOL=http            # Protocol (http or https)
-
-# Example Application - Backend
-DATABASE_TYPE=mongodb        # Database type (mongodb or dynamodb)
-MONGODB_URI=mongodb://localhost:27017/exampleapp
-AWS_REGION=us-east-1        # AWS region for DynamoDB
-DEBUG_MODE=true             # Enable debug logging
+# Documentation translation
+OPENAI_API_KEY=...
+OPENAI_MODEL=...
 ```
 
-### Production Environment Variables
-```bash
-# Documentation
-SITE_URL=https://genericsuite.carlosjramirez.com
-GOOGLE_ANALYTICS_ID=G-HL2GMT09NW
+File: `docs/code/exampleapp/apps/ui/.env`
 
-# Example Application
-REACT_APP_API_URL=https://api.example.com
-DATABASE_TYPE=mongodb
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/prod
-AWS_REGION=us-east-1
-DEBUG_MODE=false
+```bash
+# Example App - UI
+APP_LOCAL_DOMAIN_NAME=...
+FRONTEND_LOCAL_PORT=...
+APP_API_URL_DEV=...
+BACKEND_LOCAL_PORT=...
+REACT_APP_DEBUG=1
+```
+
+File: `docs/code/exampleapp/apps/api-fastapi/.env`
+File: `docs/code/exampleapp/apps/api-flask/.env`
+File: `docs/code/exampleapp/apps/api-chalice/.env`
+File: `docs/code/exampleapp/apps/mcp-server/.env`
+
+```bash
+# Example App - Backend
+APP_SECRET_KEY=...
+APP_SUPERADMIN_EMAIL=...
+APP_DB_ENGINE_QA=...
+APP_DB_NAME_QA=...
+APP_DB_URI_QA=...
+AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_QA=...
+FDA_API_KEY=...
+OPENAI_API_KEY=...
+FLASK_SECRET_KEY=...
+```
+
+File: `docs/code/fastapitemplate/.env`
+
+```bash
+# FastApiTemplate App - UI
+APP_LOCAL_DOMAIN_NAME=...
+FRONTEND_LOCAL_PORT=...
+APP_API_URL_DEV=...
+BACKEND_LOCAL_PORT=...
+REACT_APP_DEBUG=1
+
+# FastApiTemplate App - Backend
+APP_SECRET_KEY=...
+APP_SUPERADMIN_EMAIL=...
+APP_DB_ENGINE_QA=...
+APP_DB_NAME_QA=...
+APP_DB_URI_QA=...
+AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_QA=...
+FDA_API_KEY=...
+OPENAI_API_KEY=...
+FLASK_SECRET_KEY=...
 ```
 
 ### Security Configuration

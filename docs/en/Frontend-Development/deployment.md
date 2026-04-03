@@ -38,7 +38,7 @@ To solve it:
 * Click on 'Save changes'.
 * Confirm the operation.
  
-To link this S3 bucket to the App domain:"
+To link this S3 bucket to the App domain:
  
 * Go to Route 53.
 * Click on the Zone corresponding to the App domain.

@@ -262,6 +262,6 @@ This project is licensed under the terms of the [MIT](./LICENSE) license.
 
 ## Credits
 
-This project is developed and maintained by [Carlos J. Ramirez](https://www.carlosjramirez.com). For more information or to contribute to the project, visit [GenericSuite on GitHub](https://github.com/tomkat-cr/genericsuite-basecamp).
+This project is developed and maintained by [Carlos Ramirez](https://www.carlosjramirez.com). For more information or to contribute to the project, visit [GenericSuite on GitHub](https://github.com/tomkat-cr/genericsuite-basecamp).
 
 Happy Coding!

@@ -12,17 +12,17 @@ As we hit our 2nd-anniversary milestone, we are thrilled to announce a transform
 
 Key Professional Benefits:
 
-* Database & Cloud Agnostic: We’ve broken the limits. Support now extends to PostgreSQL, MySQL, and Supabase. 
-
-* Modern Data Validation: Migrating to Pydantic ensures faster, more reliable data serialization and strictly typed schemas, reducing runtime errors.
+* Database & Cloud Agnostic: We’ve broken the limits. Support now extends to PostgreSQL, MySQL, and Supabase, along with the already existing MongoDB and DynamoDB. 
 
 * Enhanced Developer Experience: With the new FastAPI Template, automated dependency synchronization for Dockerfiles, Podman container engine, and MCP server standard startup script, automatic local database tables structure creation, super user creation, setting up robust backend services is faster than ever.
 
-* AI & Privacy: Integrated AI Conversation Masking across all frameworks (FastAPI, Flask, Chalice) ensures that sensitive data stays protected during LLM interactions.
-
 * Frontend Optimization: A complete refactor of our Generic CRUD Editor (GCE_RFC) using React performance hooks significantly reduces component reloads, paired with a modern "rounded-xl" UI.
 
+* AI & Security: Integrated AI Conversation attachments URL masking/pre-signed URLs prevents over-billing attacks during LLM interactions.
+
 * Cloud storage abstraction layer: opening a path to switch between AWS S3, Azure Blob, and Google Cloud Storage (AWS is 100% implemented so far).
+
+* Modern Data Validation: Migrating to Pydantic ensures faster, more reliable data serialization and strictly typed schemas, reducing runtime errors.
 
 This "2nd Anniversary Edition" is designed to scale with your business needs, providing the foundation for high-performance, AI-driven applications. Check out the full changelog for details on our new Cloudflare Tunnel integration and Python 3.12 support!
 
@@ -30,9 +30,9 @@ This "2nd Anniversary Edition" is designed to scale with your business needs, pr
 
 ### Package, Pull Request and Tag
 
-* Package: https://www.npmjs.com/package/genericsuite/v/1.2.0
-* Pull Request: https://github.com/tomkat-cr/genericsuite-fe/pull/9
-* Tag: https://github.com/tomkat-cr/genericsuite-fe/releases/tag/1.2.0
+* Package: [https://www.npmjs.com/package/genericsuite/v/1.2.0](https://www.npmjs.com/package/genericsuite/v/1.2.0)
+* Pull Request: [https://github.com/tomkat-cr/genericsuite-fe/pull/9](https://github.com/tomkat-cr/genericsuite-fe/pull/9)
+* Tag: [https://github.com/tomkat-cr/genericsuite-fe/releases/tag/1.2.0](https://github.com/tomkat-cr/genericsuite-fe/releases/tag/1.2.0)
 
 ### Pull Request Overview
 
@@ -150,9 +150,9 @@ Highlights
 
 ### Package, Pull Request and Tag
 
-* Package: https://www.npmjs.com/package/genericsuite-ai/v/1.2.0
-* Pull Request: https://github.com/tomkat-cr/genericsuite-fe-ai/pull/9
-* Tag: https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.2.0
+* Package: [https://www.npmjs.com/package/genericsuite-ai/v/1.2.0](https://www.npmjs.com/package/genericsuite-ai/v/1.2.0)
+* Pull Request: [https://github.com/tomkat-cr/genericsuite-fe-ai/pull/9](https://github.com/tomkat-cr/genericsuite-fe-ai/pull/9)
+* Tag: [https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.2.0](https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.2.0)
 
 ### Pull Request Overview
 
@@ -207,9 +207,9 @@ Highlights
 
 ### Package, Pull Request and Tag
 
-* Package: https://pypi.org/project/genericsuite/0.3.0/
-* Pull Request: https://github.com/tomkat-cr/genericsuite-be/pull/14
-* Tag: https://github.com/tomkat-cr/genericsuite-be/releases/tag/0.3.0
+* Package: [https://pypi.org/project/genericsuite/0.3.0/](https://pypi.org/project/genericsuite/0.3.0/)
+* Pull Request: [https://github.com/tomkat-cr/genericsuite-be/pull/14](https://github.com/tomkat-cr/genericsuite-be/pull/14)
+* Tag: [https://github.com/tomkat-cr/genericsuite-be/releases/tag/0.3.0](https://github.com/tomkat-cr/genericsuite-be/releases/tag/0.3.0)
 
 ### Pull Request Overview
 
@@ -301,9 +301,9 @@ Highlights
 
 ### Package, Pull Request and Tag
 
-* Package: https://pypi.org/project/genericsuite-ai/0.3.0/
-* Pull Request: https://github.com/tomkat-cr/genericsuite-be-ai/pull/12
-* Tag: https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.3.0
+* Package: [https://pypi.org/project/genericsuite-ai/0.3.0/](https://pypi.org/project/genericsuite-ai/0.3.0/)
+* Pull Request: [https://github.com/tomkat-cr/genericsuite-be-ai/pull/12](https://github.com/tomkat-cr/genericsuite-be-ai/pull/12)
+* Tag: [https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.3.0](https://github.com/tomkat-cr/genericsuite-be-ai/releases/tag/0.3.0)
 
 ### Pull Request Overview
 
@@ -363,11 +363,11 @@ Highlights
 
 ### Package, Pull Request and Tag
 
-* Package: https://www.npmjs.com/package/genericsuite-be-scripts/v/1.3.0
+* Package: [https://www.npmjs.com/package/genericsuite-be-scripts/v/1.3.0](https://www.npmjs.com/package/genericsuite-be-scripts/v/1.3.0)
 * Pull Request:
-    - https://github.com/tomkat-cr/genericsuite-be-scripts/pull/13
-    - https://github.com/tomkat-cr/genericsuite-be-scripts/pull/14
-* Tag: https://github.com/tomkat-cr/genericsuite-be-scripts/releases/tag/1.3.0
+    - [https://github.com/tomkat-cr/genericsuite-be-scripts/pull/13](https://github.com/tomkat-cr/genericsuite-be-scripts/pull/13)
+    - [https://github.com/tomkat-cr/genericsuite-be-scripts/pull/14](https://github.com/tomkat-cr/genericsuite-be-scripts/pull/14)
+* Tag: [https://github.com/tomkat-cr/genericsuite-be-scripts/releases/tag/1.3.0](https://github.com/tomkat-cr/genericsuite-be-scripts/releases/tag/1.3.0)
 
 ### Pull Request Overview
 
@@ -465,9 +465,9 @@ set_chalice_cnf.sh mongo_docker -> set_chalice_cnf.sh local_db_docker
 ### Pull Request and Tag
 
 * Pull Request:
-    - https://github.com/tomkat-cr/genericsuite-basecamp/pull/15
-    - https://github.com/tomkat-cr/genericsuite-basecamp/pull/17
-* Tag: https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.5.0
+    - [https://github.com/tomkat-cr/genericsuite-basecamp/pull/15](https://github.com/tomkat-cr/genericsuite-basecamp/pull/15)
+    - [https://github.com/tomkat-cr/genericsuite-basecamp/pull/17](https://github.com/tomkat-cr/genericsuite-basecamp/pull/17)
+* Tag: [https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.5.0](https://github.com/tomkat-cr/genericsuite-basecamp/releases/tag/1.5.0)
 
 ### Pull Request Overview
 

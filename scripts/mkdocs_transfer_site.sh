@@ -10,6 +10,29 @@
 # - remote password
 # - remote directory path
 
+change_docs_dir_to_docs_for_ftp()
+{
+    # Change 'docs_dir: docs' to 'docs_dir: docs_for_ftp' in mkdocs.yml
+    if ! perl -i -pe's/docs_dir: docs/docs_dir: docs_for_ftp/g' mkdocs.yml
+    then
+        echo ""
+        echo "ERROR: 'perl -i -pe\'s/docs_dir: docs/docs_dir: docs_for_ftp/g\' mkdocs.yml' failed"
+        echo ""
+        exit 1
+    fi
+}
+
+restore_docs_dir_to_docs()
+{
+    # Restore 'docs_dir: docs_for_ftp' to 'docs_dir: docs' in mkdocs.yml
+    if ! perl -i -pe's/docs_dir: docs_for_ftp/docs_dir: docs/g' mkdocs.yml
+    then
+        echo ""
+        echo "ERROR: 'perl -i -pe\'s/docs_dir: docs_for_ftp/docs_dir: docs/g\' mkdocs.yml' failed"
+        echo ""
+    fi
+}
+
 set -o allexport; . .env ; set +o allexport ;
 
 MASKED_PASSWORD=$(echo ${REMOTE_PASSWORD} | perl -i -pe's/./*/g')
@@ -80,6 +103,11 @@ then
 fi
 
 echo ""
+echo "Change docs_dir to docs_for_ftp in mkdocs.yml..."
+echo ""
+change_docs_dir_to_docs_for_ftp
+
+echo ""
 echo "Begin 'mkdocs build' run..."
 echo ""
 
@@ -138,8 +166,14 @@ bye
 EOF
 if [ $? -ne 0 ]; then
     echo "ERROR: FTP transfer failed"
+    restore_docs_dir_to_docs
     exit 1
 fi
+
+echo ""
+echo "Restore docs_dir to docs in mkdocs.yml..."
+echo ""
+restore_docs_dir_to_docs
 
 echo ""
 echo "FTP transfer complete"

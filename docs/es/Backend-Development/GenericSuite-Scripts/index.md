@@ -1235,6 +1235,6 @@ GenericSuite es software de código abierto licenciado bajo la licencia ISC.
 
 ## Créditos
 
-Este proyecto es desarrollado y mantenido por Carlos J. Ramirez. Para más información o para contribuir al proyecto, visita [Los Scripts de GenericSuite (versión backend) en GitHub](https://github.com/tomkat-cr/genericsuite-be-scripts).
+Este proyecto es desarrollado y mantenido por Carlos Ramirez. Para más información o para contribuir al proyecto, visita [Los Scripts de GenericSuite (versión backend) en GitHub](https://github.com/tomkat-cr/genericsuite-be-scripts).
 
 ¡Feliz codificación!

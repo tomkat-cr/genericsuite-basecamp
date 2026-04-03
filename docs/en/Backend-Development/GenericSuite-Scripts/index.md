@@ -237,37 +237,38 @@ To link backend API to the App domain:
 
 ### Install dependencies
 
-* Install default package categories from Pipfile.<br>
-Runs `pipenv install`.<br>
+* Install default package categories from pyproject.toml or Pipfile.<br>
+Depending on the configured package manager, it will run `uv install`, `poetry install` or `pipenv install`.<br>
 Reference: https://pipenv.pypa.io/en/latest/commands.html#install
 
 ```bash
 make install
 ```
 
-* Install both develop and default package categories from Pipfile.<br>
-Runs `pipenv install --dev`.
+* Install both develop and default package categories from pyproject.toml or Pipfile.<br>
+Depending on the configured package manager, it will run `uv install --dev`, `poetry install --dev` or `pipenv install --dev`.<br>
+Reference: https://pipenv.pypa.io/en/latest/commands.html#install
 
 ```bash
 make install_dev
 ```
 
-* Install from the Pipfile.lock and completely ignore Pipfile information.<br>
-Runs `pipenv install --ignore-pipfile`.
+* Install from the .lock file and completely ignore Pipfile information.<br>
+Depending on the configured package manager, it will run `uv install --locked`, `poetry install --locked` or `pipenv install --ignore-pipfile`.
 
 ```bash
 make locked_install
 ```
 
-* Install both develop and default package categories from the Pipfile.lock and completely ignore Pipfile information.<br>
-Runs `pipenv install --dev --ignore-pipfile`.
+* Install both develop and default package categories from the .lock file and completely ignore pyproject.toml or Pipfile information.<br>
+Depending on the configured package manager, it will run `uv install --dev --locked`, `poetry install --dev --locked` or `pipenv install --dev --ignore-pipfile`.
 
 ```bash
 make locked_dev
 ```
 
-* Re-create the Pipenv lock file.<br>
-Runs `pipenv lock`.
+* Re-create the .lock file.<br>
+Depending on the configured package manager, it will run `uv lock`, `poetry lock` or `pipenv lock`.
 
 ```bash
 make lock
@@ -1235,6 +1236,6 @@ GenericSuite is open-sourced software licensed under the ISC license.
 
 ## Credits
 
-This project is developed and maintained by Carlos J. Ramirez. For more information or to contribute to the project, visit [The GenericSuite Scripts (backend version) on GitHub](https://github.com/tomkat-cr/genericsuite-be-scripts).
+This project is developed and maintained by Carlos Ramirez. For more information or to contribute to the project, visit [The GenericSuite Scripts (backend version) on GitHub](https://github.com/tomkat-cr/genericsuite-be-scripts).
 
 Happy Coding!

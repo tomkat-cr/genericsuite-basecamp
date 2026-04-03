@@ -2,7 +2,7 @@
   "name": "api_server",
   "version": "1.0.0",
   "description": "fastapitemplate (FastAPI backend)",
-  "author": "Carlos J. Ramirez",
+  "author": "Carlos Ramirez",
   "license": "Private",
   "type": "module",
   "homepage": "https://github.com/github-username/fastapitemplate#readme",

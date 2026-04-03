@@ -730,6 +730,6 @@ Este proyecto está licenciado bajo la ISC License; vea el archivo [LICENSE](htt
 
 ## Créditos
 
-Este proyecto es desarrollado y mantenido por Carlos J. Ramirez. Para más información o para contribuir al proyecto, visite [GenericSuite AI en GitHub](https://github.com/tomkat-cr/genericsuite-be-ai).
+Este proyecto es desarrollado y mantenido por Carlos Ramirez. Para más información o para contribuir al proyecto, visite [GenericSuite AI en GitHub](https://github.com/tomkat-cr/genericsuite-be-ai).
 
 ¡Feliz codificación!
