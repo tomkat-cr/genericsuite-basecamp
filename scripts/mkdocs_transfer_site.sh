@@ -24,7 +24,7 @@ change_docs_dir_to_docs_for_ftp()
 
 restore_docs_dir_to_docs()
 {
-    # Change 'docs_dir: docs' to 'docs_dir: docs_for_ftp' in mkdocs.yml
+    # Restore 'docs_dir: docs_for_ftp' to 'docs_dir: docs' in mkdocs.yml
     if ! perl -i -pe's/docs_dir: docs_for_ftp/docs_dir: docs/g' mkdocs.yml
     then
         echo ""
