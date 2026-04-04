@@ -19,15 +19,15 @@ set -e
 export TARGET_DIR="$1"
 export NEW_NAME="$2"
 export NEW_DOMAIN="$3"
-export TEMPLATE_NAME="${4:-fastapitemplate}"
-export BASECAMP_BRANCH="${5:-develop}"
+export TEMPLATE_NAME="$4"
+export BASECAMP_BRANCH="$5"
 
 clean_up() {
     echo "Cleaning up ${TMP_DIR}..."
     rm -rf "${TMP_DIR}"
 }
 
-# ── Validation ───────────────────────────────────────────────────────────────
+# ── Introduction ───────────────────────────────────────────────────────────────
 
 echo ""
 echo "Create a new project from a GenericSuite template"
@@ -52,12 +52,16 @@ if [ -z "${NEW_DOMAIN}" ]; then
 fi
 if [ -z "${TEMPLATE_NAME}" ]; then
     echo ""
-    echo "Enter template name: "
+    echo "Enter template name (default: fastapitemplate): "
     read TEMPLATE_NAME < /dev/tty
-    if [ -z "${TEMPLATE_NAME}" ]; then
-        TEMPLATE_NAME="fastapitemplate"
-    fi
 fi
+if [ -z "${BASECAMP_BRANCH}" ]; then
+    echo ""
+    echo "Enter basecamp branch (default: main): "
+    read BASECAMP_BRANCH < /dev/tty
+fi
+
+# ── Validation ───────────────────────────────────────────────────────────────
 
 if [ -z "${TARGET_DIR}" ]; then
     echo ""
@@ -77,10 +81,25 @@ if [ -e "${TARGET_DIR}" ]; then
     exit 1
 fi
 
+if ! echo "${NEW_NAME}" | grep -qE '^[a-z0-9][a-z0-9-]*[a-z0-9]$'; then
+    echo "Error: app name must contain only lowercase letters, numbers, and hyphens."
+    echo "  Got: ${NEW_NAME}"
+    exit 1
+fi
+
 if ! command -v git &>/dev/null; then
     echo "Error: git is not installed."
     echo ""
     exit 1
+fi
+
+# ── Set defaults ───────────────────────────────────────────────────────────────
+
+if [ -z "${TEMPLATE_NAME}" ]; then
+    TEMPLATE_NAME="fastapitemplate"
+fi
+if [ -z "${BASECAMP_BRANCH}" ]; then
+    BASECAMP_BRANCH="main"
 fi
 
 echo ""
@@ -148,5 +167,6 @@ echo "Next steps:"
 echo "  cd ${TARGET_DIR}"
 echo "  make init-app-environment   # copy .env.example → .env files"
 echo "  nano .env                   # edit .env file"
-echo "  npm run install:all         # install Node.js dependencies"
+echo "  make install-all            # install Node.js dependencies"
+echo "  make dev                    # start development environment"
 echo "  make run                    # start with Docker (local DB)"

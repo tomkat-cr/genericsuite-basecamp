@@ -1,4 +1,4 @@
-.PHONY: help up down restart logs build clean status
+.PHONY: help ui-build dbdef-copy up run run-db-only down restart hard-restart logs logs-f server-logs clean-docker docker-prune status install install-dev install-all lock update update-all build start dev clean unlink-config-dirs list-scripts build-if-required copy-env-files init-app-environment rebuild-ui create-ssl-certs cf-tunnel-login cf-tunnel-create cf-tunnel-run cf-tunnel-list cf-tunnel-check cf-tunnel-delete
 
 # Default target
 help:
@@ -54,6 +54,9 @@ clean-docker:
 
 docker-prune: clean-docker
 
+local-db-down:
+	bash node_modules/genericsuite-be-scripts/scripts/local_db/run_local_db_docker.sh down
+
 # Show service status
 status:
 	cd deploy && docker compose ps
@@ -64,7 +67,7 @@ install:
 install-dev:
 	npm install --include=dev
 
-install-all: install
+install-all: copy-env-files install
 	npm run install:all
 	@echo ""
 	@echo "Done installing dependencies for all workspaces"
@@ -118,7 +121,8 @@ init-app-environment:
 	@echo ""
 	@echo "Done initializing app environment"
 	@echo "Please update the .env file with your own values"
-	@echo "and then run 'make run' to start the services"
+	@echo "and then run 'make dev' or 'make run' to start the services"
+	@echo ""
 
 rebuild-ui:
 	cd ui && make build && cd .. && docker restart fastapitemplate-client
@@ -145,3 +149,6 @@ cf-tunnel-check:
 
 cf-tunnel-delete:
 	ACTION=delete bash node_modules/genericsuite-be-scripts/scripts/cloudfared-tunnel-manager.sh
+
+lsof:
+	bash node_modules/genericsuite-be-scripts/scripts/run_lsof.sh
