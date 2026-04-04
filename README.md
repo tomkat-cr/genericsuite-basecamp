@@ -67,7 +67,7 @@ In this repository you will find the [instructions](https://genericsuite.carlosj
 
 ## Changelog / Releases
 
-* [Releases](./docs/Releases/)
+* [Releases](./docs/en/Releases/index.md)
 
 ## Posts
 

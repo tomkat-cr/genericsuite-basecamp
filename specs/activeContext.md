@@ -40,8 +40,9 @@
 ## Next Steps (Priority Order)
 
 ### Immediate (Next 2 Weeks)
-1. **ExampleApp .env Unification**: Redesign `.env` structure to match `fastapitemplate` pattern
-2. **Testing Strategy**: Define scope, frameworks, and priority order for unit/integration tests across GenericSuite repos
+1. **Create a new project from FastApiTemplate or ExampleApp**: Create scripts to generate a new project from the code templates
+2. **ExampleApp .env Unification**: Redesign `.env` structure to match `fastapitemplate` pattern
+3. **Testing Strategy**: Define scope, frameworks, and priority order for unit/integration tests across GenericSuite repos
 
 ### Short Term (Next Month)
 1. **Documentation Review**: Comprehensive review with collaborator for clarity and completeness
@@ -52,6 +53,8 @@
 2. **Interactive Examples**: Add interactive code examples where possible
 3. **Migration Guides**: Create guides for upgrading between GenericSuite versions
 4. **Community Features**: Implement community feedback and discussion features
+5. **Publishing Automation**: Implement fully automated CI/CD pipeline with Git hooks for documentation builds and deployment
+6. **Automated Content Validation**: Add link checking, document linting, and automated testing of code examples
 
 ## Active Decisions and Considerations
 
@@ -69,6 +72,12 @@
 - **Impact**: More complex setup but better development workflow
 - **Status**: Successfully implemented
 
+#### Monorepo Strategy for FastApiTemplate
+- **Decision**: Use npm workspaces for FastApiTemplate monorepo management
+- **Rationale**: Demonstrates modern monorepo practices, improves developer experience
+- **Impact**: Simpler setup and better development workflow
+- **Status**: Successfully implemented
+
 #### ExampleApp .env Unification
 - **Decision**: Merge per-app `.env` files into a single unified `.env` (matching `fastapitemplate` approach)
 - **Rationale**: Simplifies developer onboarding and configuration management
@@ -82,12 +91,17 @@
 - **Decision**: Django and Express.js support declined — maintenance overhead outweighs community demand
 
 #### Database Abstraction
-- **Current**: MongoDB, DynamoDB, and PostgreSQL/SQL support with unified query syntax
-- **Status**: PostgreSQL/SQL support implemented
+- **Current**: MongoDB, DynamoDB, PostgreSQL, MySQL, and Supabase support with unified query syntax
+- **Status**: PostgreSQL, MySQL, and Supabase support implemented
 
 #### AI Integration Depth
 - **Current**: Comprehensive AI features via GenericSuite AI, MCP Server for tool-based AI integration
 - **Decision**: Continue expanding AI capabilities while maintaining simplicity
+
+#### Scripts to init a new project from code examples
+- **Current**: No existing scripts or documented procedure
+- **Decision**: Add scripts and a documented procedure to copy and init a new project from fastapitemplate or exampleapp
+- **Status**: Under development
 
 #### Testing Coverage
 - **Current**: Minimal — no standardized test suites across GenericSuite repos
@@ -127,7 +141,8 @@
 
 #### Community Response
 - Developers appreciate working examples over theoretical documentation
-- Monorepo structure for ExampleApp is well-received
+- ExampleApp has a good example of how to build a GenericSuite app
+- Monorepo structure FastApiTemplate are handy for quick project setup
 - AI integration features generate significant interest
 - Clear configuration guides reduce setup friction
 

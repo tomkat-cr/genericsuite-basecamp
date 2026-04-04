@@ -18,6 +18,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
+## [Unreleased] - 2026-04-04
+
+### Added
+- Scripts to copy and init a new project from "fastapitemplate" and "exampleapp": `scripts/new-project-from-template.sh` and `scripts/rename-app.sh` [GS-306].
+
 ## [1.5.1] - 2026-04-03
 
 ### Added

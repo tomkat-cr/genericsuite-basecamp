@@ -33,10 +33,10 @@ GenericSuite is a collection of packages designed to improve software developer 
   - Customizable CRUD editor, menu generator, and login interface.
   - Generic database and API endpoint builder.
   - Backend framework abstraction (FastAPI, Flask, Chalice).
-  - Database abstraction (MongoDB, DynamoDB).
+  - Database abstraction (MongoDB, DynamoDB, Postgres, MySQL, Supabase).
 - **GenericSuite AI:**
   - AI chatbot endpoint with integrations for OpenAI, LangChain, and Hugging Face.
-  - Computer vision, speech processing, and text-to-speech capabilities.
+  - Computer vision, image generation, speech processing, and text-to-speech capabilities.
   - Web scraping, translation tools, and vector search.
 - **GSAM (Generic Suite App Maker):**
   - AI-assisted app development, code generation, and database structuring.
@@ -55,7 +55,7 @@ The GenericSuite Basecamp project is organized into the following main directori
 
 ## Getting Started
 
-1. **Explore the documentation:** The `docs/` directory contains detailed information about the GenericSuite ecosystem.
+1. **Explore the documentation:** The `docs/en/` directory contains detailed information about the GenericSuite ecosystem.
 2. **Review the sample code:** The `docs/code/` directory provides examples for different backend and frontend frameworks.
 3. **Use the scripts:** The `scripts/` directory contains useful scripts for managing the documentation site.
 4. **Start the mkdocs local server:** The `scripts/mkdocs_run.sh` script can be used to start the mkdocs local server. You can run it using the `make serve` command to build and serve the documentation or `make run` to only serve the documentation.
@@ -159,4 +159,4 @@ The following `make` commands are available to manage the `fastapitemplate`:
 
 ## Repositories
 
-A full list of GenericSuite repositories can be found in the [docs/repositories.md](../docs/en/repositories.md) file.
+A full list of GenericSuite repositories can be found in the [docs/en/repositories.md](../docs/en/repositories.md) file.

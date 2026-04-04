@@ -83,6 +83,18 @@ make generate_openapi     # Generate OpenAPI schema from fastapitemplate server
 - Documentation must be available in **English and Spanish** (`docs/en/` and `docs/es/`)
 - Follow progressive disclosure: overview → section summary → detail page
 
+### Shell Scripts
+
+- All shell scripts must be POSIX-compliant (bash/zsh compatible).
+- Use `#!/bin/bash` shebang.
+- Always call bash scripts with `bash`, not `sh`.
+- Use `set -euo pipefail` for safety.
+- Quote all variable expansions: `"${var}"`.
+- Handle macOS vs Linux differences (e.g., prefer `perl -pi -e` over `sed -i`).
+- Avoid bash-specific features unless necessary, and if so, document them clearly.
+- Provide clear usage examples and error messages.
+- Don't use `read -p "Any prompt: " VAR`, use `echo "Any prompt: "` and `read VAR < /dev/tty`.
+
 ## Testing Instructions
 
 ### Python backends
@@ -225,3 +237,7 @@ MongoDB, DynamoDB, PostgreSQL (AWS RDS), MySQL (AWS RDS), Supabase
 ## Deployment Targets
 
 Local, AWS (Lambda + DynamoDB/RDS), GCP, Azure, VPS (with optional Cloudflare Tunnel)
+
+## Important Notes
+
+- The `AGENTS.md` file (if present) is a symlink to `CLAUDE.md` — edit only `CLAUDE.md`.
