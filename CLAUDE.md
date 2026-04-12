@@ -1,24 +1,26 @@
 # CLAUDE.md - GenericSuite Basecamp
 
-> This file must stay **in sync** with `AGENTS.md`. Whenever you change one, mirror the same change in the other so both tools continue to work correctly.
-
 ## Project Overview
 
-GenericSuite Basecamp is the central documentation and starting point repository for the GenericSuite ecosystem — a comprehensive full-stack development framework. This repo contains:
-- **MkDocs-based documentation site** (published to GitHub Pages + ReadTheDocs)
-- **ExampleApp monorepo** (`docs/code/exampleapp/`) — React UI + FastAPI/Flask/Chalice/MCP Server backends
-- **FastAPI Template monorepo** (`docs/code/fastapitemplate/`)
-- **Specs/memory bank** (`specs/`) — project context files
+GenericSuite Basecamp is the central documentation and starting point repository for the GenericSuite ecosystem — a comprehensive full-stack development framework.
 
 ## Context
 
-For deeper project context, read these files in order:
+This project contains:
 
-1. [Project Brief](./specs/projectBrief.md) — goals, audience, scope, constraints
-2. [Product Context](./specs/productContext.md) — ecosystem overview and feature set
-3. [Active Context](./specs/activeContext.md) — current work focus and next steps
-4. [System Patterns](./specs/systemPatterns.md) — architecture and design patterns
-5. [Tech Context](./specs/techContext.md) — technology stack, versions, dependencies
+- MkDocs-based documentation site (published to a FTP website and readthedocs.io): @docs/en/index.md
+- Configuration guide and template files: @docs/code/index.md
+- FastAPI Template monorepo (ReactJS UI + FastAPI/MCP Server): @docs/code/fastapitemplate/README.md
+- ExampleApp monorepo (ReactJS UI + FastAPI/Flask/Chalice/MCP Server): @docs/code/exampleapp/README.md
+
+Deeper project context (memory bank):
+
+- Project Brief (goals, audience, scope, constraints) @specs/projectBrief.md
+- Directory Structure: @specs/directoryStructure.md
+- Product Context (ecosystem overview and feature set): @specs/productContext.md
+- System Patterns (architecture and design patterns): @specs/systemPatterns.md
+- Tech Context (technology stack, versions, dependencies): @specs/techContext.md
+- Active Context (current work focus and next steps): @specs/activeContext.md
 
 ## Build and Run Commands
 
@@ -117,42 +119,6 @@ There is no project-level test runner; run tests from within each app directory 
 - Run `npm audit` / `pip-audit` regularly for dependency vulnerability scanning
 - CORS settings are configured per-environment via `APP_CORS_ORIGIN_{STAGE}` env vars
 
-## Directory Structure
-
-```
-genericsuite-basecamp/
-├── docs/                            # MkDocs content (source of truth)
-│   ├── en/                          # English documentation
-│   ├── es/                          # Spanish documentation
-│   ├── code/                        # Code examples
-│   │   ├── configuration-guide/     # Configuration guide validation rules files
-│   │   ├── exampleapp/              # ExampleApp monorepo
-│   │   │   ├── apps/                # exampleapp turborepo apps
-│   │   │   │   ├── api-fastapi/     # FastAPI backend
-│   │   │   │   ├── api-flask/       # Flask backend
-│   │   │   │   ├── api-chalice/     # AWS Chalice backend
-│   │   │   │   ├── config_dbdef/    # GenericSuite database/forms configuration files
-│   │   │   │   ├── mcp-server/      # MCP Server backend
-│   │   │   │   └── ui/              # React frontend
-│   │   │   ├── assets/              # exampleapp documentation assets (images)
-│   │   │   ├── packages/            # exampleapp turborepo packages
-│   │   │   └── scripts/             # exampleapp specific scripts
-│   │   ├── fastapitemplate/         # FastAPI Template monorepo
-│   │   │   ├── assets/              # fastapitemplate documentation assets (images)
-│   │   │   ├── config_dbdef/        # GenericSuite database/forms configuration files
-│   │   │   ├── deploy/              # Docker/Podman containerization deployment
-│   │   │   ├── scripts/             # fastapitemplate specific scripts
-│   │   │   ├── server/              # FastAPI backend
-│   │   │   └── ui/                  # React frontend
-│   │   ├── genericsuite-be-scrips/  # Backend script templates for AWS deployments
-│   │   └── genericsuite-configs/    # GenericSuite configuration JSON file examples
-│   └── stylesheets/                 # Custom CSS
-├── docs_for_ftp/                    # Mirror copy for FTP publishing (temporary files)
-├── specs/                           # Project memory bank (context docs)
-├── scripts/                         # Build, deploy, translation scripts
-├── mkdocs.yml                       # MkDocs configuration
-└── Makefile                         # All task automation
-```
 
 ## Key Environment Variables
 
