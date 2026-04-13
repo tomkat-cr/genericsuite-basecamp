@@ -6,9 +6,9 @@ import * as gsAi from "genericsuite-ai";
 import user_ingredients from "../../configs/frontend/user_ingredients.json";
 import {
     CALORIE_UNITS,
-    SERVING_SIZE_UNITS,
     INGREDIENT_TYPE,
-} from '../../_constants/app_constants.jsx';
+    SERVING_SIZE_UNITS,
+} from '../../constants/app_constants.jsx';
 
 const useUser = gs.UserContext.useUser;
 const GenericCrudEditor = gs.genericEditorRfcService.GenericCrudEditor;

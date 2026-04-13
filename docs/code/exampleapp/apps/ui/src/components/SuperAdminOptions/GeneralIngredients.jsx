@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as gs from "genericsuite";
 import general_ingredients from "../../configs/frontend/general_ingredients.json";
-import { CALORIE_UNITS, SERVING_SIZE_UNITS } from '../../_constants/app_constants.jsx';
+import { CALORIE_UNITS, SERVING_SIZE_UNITS } from '../../constants/app_constants.jsx';
 
 const dbApiService = gs.dbService.dbApiService;
 const GenericCrudEditor = gs.genericEditorRfcService.GenericCrudEditor;
@@ -16,7 +16,7 @@ const ACTION_DELETE = gs.generalConstants.ACTION_DELETE;
 export function GeneralIngredients_EditorData() {
     // console_debug_log("GeneralIngredients_EditorData");
     const registry = {
-        "GeneralIngredients": GeneralIngredients, 
+        "GeneralIngredients": GeneralIngredients,
         "GeneralIngredientsValidations": GeneralIngredientsValidations,
         "CALORIE_UNITS": CALORIE_UNITS,
         "SERVING_SIZE_UNITS": SERVING_SIZE_UNITS,
@@ -44,16 +44,16 @@ const GeneralIngredientsValidations = (data, editor, action) => {
     // general_ingredients pre-deletion validations
     return new Promise((resolve, reject) => {
         let resp = genericFuncArrayDefaultValue(data);
-        switch(action) {
+        switch (action) {
             case ACTION_DELETE:
                 const db = new dbApiService({ url: `${editor.dbApiUrl}/general_ingredients_in_user` });
                 const users_ingredient_id = convertId(data['_id'])
-                db.getOne({id: users_ingredient_id}).then( 
+                db.getOne({ id: users_ingredient_id }).then(
                     data => {
                         if (data['resultset']['rows_count'] > 0) {
                             resp.error = true;
-                            resp.errorMsg = (resp.errorMsg === '' ? '' : '<br>') + 
-                                'Cannot delete because it\'s referenced ' + 
+                            resp.errorMsg = (resp.errorMsg === '' ? '' : '<br>') +
+                                'Cannot delete because it\'s referenced ' +
                                 data['resultset']['rows_count'] + ' times in ' +
                                 ' in User\'s Ingredients.';
                         }

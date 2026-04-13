@@ -1,17 +1,17 @@
 import React from 'react';
 
 import * as gs from "genericsuite";
+import users_profile from "../../configs/frontend/users_profile.json";
 import {
     GENDERS,
     GOAL_CODES,
     HEIGHT_UNITS,
     WEIGHT_UNITS,
-} from '../../_constants/app_constants.jsx';
-import users_profile from "../../configs/frontend/users_profile.json";
+} from '../../constants/app_constants.jsx';
 import { UserMinimumDailyCalories } from '../Health/UserDailyCaloriesAndCondition.jsx';
-import { UsersDbPostWrite } from '../SuperAdminOptions/Users';
-import { UsersFoodTimes } from '../UsersMenu/UsersFoodTimes.jsx';
-import { UsersUserHistory } from '../UsersMenu/UsersUserHistory.jsx';
+import { UsersDbPostWrite } from '../SuperAdminOptions/Users.jsx';
+import { UsersFoodTimes } from './UsersFoodTimes.jsx';
+import { UsersUserHistory } from './UsersUserHistory.jsx';
 
 // const authenticationService = gs.authenticationService.authenticationService;
 const useUser = gs.UserContext.useUser;

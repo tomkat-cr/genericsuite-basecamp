@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import * as gs from "genericsuite";
 
 import {
+    CalorieCondition,
     MinimumDailyCalories,
     getMinimumDailyCalories,
-    CalorieCondition,
-} from '../Health/MinimumDailyCalories.jsx';
+} from './MinimumDailyCalories.jsx';
 
 const getUserData = gs.authenticationService.getUserData;
 

@@ -8,7 +8,7 @@ import {
     GOAL_CODES,
     HEIGHT_UNITS,
     WEIGHT_UNITS,
-} from '../../_constants/app_constants';
+} from '../../constants/app_constants';
 import { UserMinimumDailyCalories } from '../Health/UserDailyCaloriesAndCondition';
 import { UsersFoodTimes } from '../UsersMenu/UsersFoodTimes';
 import { UsersUserHistory } from '../UsersMenu/UsersUserHistory';

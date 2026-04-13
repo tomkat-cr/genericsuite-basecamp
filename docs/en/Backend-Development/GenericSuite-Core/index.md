@@ -338,7 +338,8 @@ APP_SUPERADMIN_EMAIL=xxxx
 # DEV: Docker container
 APP_DB_ENGINE_DEV=MONGODB
 APP_DB_NAME_DEV=mongo
-APP_DB_URI_DEV=mongodb://root:example@app.exampleapp.local:27017/
+APP_DB_URI_DEV=mongodb://root:example@127.0.0.1:27017/
+# APP_DB_URI_DEV=mongodb://root:example@app.exampleapp.local:27017/
 ```
 ```env
 # QA: MongoDB Atlas
@@ -739,6 +740,7 @@ DOCKER_ACCOUNT=docker_account_username
 # Testing endpoint
 # For http
 # (defaults to "http://localhost:5001")
+# TEST_APP_URL=http://localhost:5001
 # TEST_APP_URL=http://app.exampleapp.local:5001
 # For https
 # TEST_APP_URL=https://app.exampleapp.local:5002

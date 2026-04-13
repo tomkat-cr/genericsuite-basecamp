@@ -56,6 +56,11 @@ TARGET_PATTERNS=(
     "*.example"
     "*.txt"
     "*.cfg"
+    "*.js*"
+    "*.mjs"
+    "*.py"
+    "*.html"
+    "Makefile"
 )
 
 # Directories to skip
@@ -92,16 +97,17 @@ done
 echo ""
 echo "Renaming '$OLD_NAME' → '$NEW_NAME'"
 echo "Domain:  '${OLD_NAME}.com' → '$NEW_DOMAIN'"
+echo "Base directory: $BASE_DIR"
 echo ""
 
 FILE_COUNT=0
 
 while IFS= read -r -d '' file; do
-    if grep -qF "$OLD_NAME" "$file" 2>/dev/null; then
+    if grep -qiF "$OLD_NAME" "$file" 2>/dev/null; then
         # Replace domain first (more specific), then the plain app name
         perl -pi \
-            -e "s/\Q${OLD_NAME}.com\E/${NEW_DOMAIN}/g;" \
-            -e "s/\Q${OLD_NAME}\E/${NEW_NAME}/g;" \
+            -e "s/\Q${OLD_NAME}.com\E/${NEW_DOMAIN}/gi;" \
+            -e "s/\Q${OLD_NAME}\E/${NEW_NAME}/gi;" \
             "$file"
         echo "  updated: ${file#$BASE_DIR/}"
         FILE_COUNT=$((FILE_COUNT + 1))

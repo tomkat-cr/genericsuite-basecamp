@@ -69,6 +69,9 @@ config_staging:
 run: 
 	if [ ${MCP_SERVER_ENABLED} = "true" ]; then make config_local && cd ../server && bash ../node_modules/genericsuite-be-scripts/scripts/local_db/run_local_db_docker.sh run "0" dev && cd ../mcp-server && bash ./run_mcp_server.sh; else @echo "MCP Server (local) is DISABLED temporarily..." && read; fi
 
+run_dev:
+	if [ ${MCP_SERVER_ENABLED} = "true" ]; then make config_local && cd ../mcp-server && bash ./run_mcp_server.sh; else @echo "MCP Server (local) is DISABLED temporarily..." && read; fi
+
 run_qa:
 	if [ ${MCP_SERVER_ENABLED} = "true" ]; then make config_qa && cd ../mcp-server && bash ./run_mcp_server.sh; else @echo "MCP Server (qa) is DISABLED temporarily..." && read; fi
 

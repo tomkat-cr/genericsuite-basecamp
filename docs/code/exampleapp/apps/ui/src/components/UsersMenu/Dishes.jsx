@@ -4,9 +4,9 @@ import * as gs from "genericsuite";
 import dishes from "../../configs/frontend/dishes.json";
 import {
     CALORIE_UNITS,
-    SERVING_SIZE_UNITS,
     INGREDIENT_TYPE,
-} from '../../_constants/app_constants.jsx';
+    SERVING_SIZE_UNITS,
+} from '../../constants/app_constants.jsx';
 
 import {
     DishIngredients,
@@ -23,7 +23,7 @@ const GetFormData = gs.genericEditorRfcService.GetFormData;
 export function Dishes_EditorData() {
     // console_debug_log("Dishes_EditorData");
     const registry = {
-        "Dishes": Dishes, 
+        "Dishes": Dishes,
         "DishIngredients": DishIngredients,
         "UserIngredientsValidations": UserIngredientsValidations,
         "CALORIE_UNITS": CALORIE_UNITS,

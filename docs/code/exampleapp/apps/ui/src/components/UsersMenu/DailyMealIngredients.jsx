@@ -3,11 +3,11 @@ import React from 'react';
 import * as gs from "genericsuite";
 import * as gsAi from "genericsuite-ai";
 
+import daily_meal_ingredients from "../../configs/frontend/daily_meal_ingredients.json";
 import {
     CALORIE_UNITS,
     SERVING_SIZE_UNITS,
-} from '../../_constants/app_constants.jsx';
-import daily_meal_ingredients from "../../configs/frontend/daily_meal_ingredients.json";
+} from '../../constants/app_constants.jsx';
 import {
     totalCaloriesCalcInDailyMealIngredients,
 } from '../Health/MinimumDailyCalories.jsx';

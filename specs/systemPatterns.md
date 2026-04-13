@@ -254,9 +254,9 @@ docs/en/
 ```
 apps/ui/
 ├── src/
-│   ├── _components/ (React components)
-│   ├── _constants/ (Configuration constants)
-│   └── _images/ (UI assets)
+│   ├── components/ (React components)
+│   ├── constants/ (Configuration constants)
+│   └── images/ (UI assets)
 ├── public/ (Static assets)
 └── build/ (Generated output)
 ```

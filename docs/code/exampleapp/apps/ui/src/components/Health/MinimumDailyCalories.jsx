@@ -4,7 +4,7 @@ import * as gs from "genericsuite";
 import {
     CALORIE_DEFICIT_CLASS,
     CALORIE_SURPLUS_CLASS
-} from '../../_constants/class_name_constants';
+} from '../../constants/class_name_constants';
 
 const console_debug_log = gs.loggingService.console_debug_log;
 const ShowAsDisabledField = gs.genericEditorRfcUi.ShowAsDisabledField;

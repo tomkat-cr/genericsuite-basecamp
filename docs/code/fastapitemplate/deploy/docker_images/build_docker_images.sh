@@ -39,7 +39,7 @@ build_image() {
 }
 
 # Build the base image
-build_image "fynapp_python" "Dockerfile-Python" "."
+build_image "fastapitemplate_python" "Dockerfile-Python" "."
 
 # Build the MongoDB Atlas image
-build_image "fynapp_mongo_db_atlas" "Dockerfile-MongoDb-Atlas" "."
+build_image "fastapitemplate_mongo_db_atlas" "Dockerfile-MongoDb-Atlas" "."

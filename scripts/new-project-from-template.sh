@@ -23,6 +23,7 @@ export TEMPLATE_NAME="$4"
 export BASECAMP_BRANCH="$5"
 
 clean_up() {
+    echo ""
     echo "Cleaning up ${TMP_DIR}..."
     rm -rf "${TMP_DIR}"
 }

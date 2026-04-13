@@ -3,9 +3,9 @@ import React from 'react';
 import * as gs from "genericsuite";
 import users_user_history from "../../configs/frontend/users_user_history.json";
 import {
-    WEIGHT_UNITS,
     GOAL_CODES,
-} from '../../_constants/app_constants.jsx';
+    WEIGHT_UNITS,
+} from '../../constants/app_constants.jsx';
 
 const GenericCrudEditor = gs.genericEditorRfcService.GenericCrudEditor;
 const GetFormData = gs.genericEditorRfcService.GetFormData;
@@ -13,7 +13,7 @@ const GetFormData = gs.genericEditorRfcService.GetFormData;
 export function UsersUserHistory_EditorData() {
     // console_debug_log("UsersUserHistory_EditorData");
     const registry = {
-        "UsersUserHistory": UsersUserHistory, 
+        "UsersUserHistory": UsersUserHistory,
         "WEIGHT_UNITS": WEIGHT_UNITS,
         "GOAL_CODES": GOAL_CODES,
     }
@@ -27,7 +27,7 @@ export function UsersUserHistory() {
     };
 }
 
-export const UsersUserHistoryComponent = ({parentData}) => (
+export const UsersUserHistoryComponent = ({ parentData }) => (
     <GenericCrudEditor
         editorConfig={UsersUserHistory_EditorData()}
         parentData={parentData}

@@ -55,8 +55,8 @@ set_docker_env_vars() {
     export APP_DB_ENGINE=$(eval echo \$APP_DB_ENGINE_${STAGE_UPPERCASE})
     export APP_DB_NAME=$(eval echo \$APP_DB_NAME_${STAGE_UPPERCASE})
     if [[ "${GET_SECRETS_ENABLED}" = "0" || "${GET_SECRETS_CRITICAL}" = "0" ]]; then
-        APP_DB_URI_DEV="mongodb://root:example@fynapp-mongo:27017"
-        # APP_DB_URI_DEV="mongodb://fynapp-mongo:27017/?directConnection=true"
+        APP_DB_URI_DEV="mongodb://root:example@fastapitemplate-mongo:27017"
+        # APP_DB_URI_DEV="mongodb://fastapitemplate-mongo:27017/?directConnection=true"
         export APP_DB_URI=$(eval echo \$APP_DB_URI_${STAGE_UPPERCASE})
     else
         export APP_DB_URI=""
@@ -173,23 +173,23 @@ fi
 OTHER_DOCKER_COMPOSE_PARAMS=""
 # Check if the port 27017 (MongoDb) is already taken by any running docker container
 # For example by GSAM, GS BE or other services that use MongoDb
-if [ "$(is_docker_port_in_use 27017 fynapp-mongo)" = "0" ]; then
+if [ "$(is_docker_port_in_use 27017 fastapitemplate-mongo)" = "0" ]; then
     if [ "$USE_LOCAL_MONGODB" != "0" ]; then
         OTHER_DOCKER_COMPOSE_PARAMS="${OTHER_DOCKER_COMPOSE_PARAMS} --profile use_local_mongodb"
     else
         echo ""
-        echo "WARNING: Port 27017 is in use by any running ${DOCKER_CMD} container different than 'fynapp-mongo'"
+        echo "WARNING: Port 27017 is in use by any running ${DOCKER_CMD} container different than 'fastapitemplate-mongo'"
     fi
 fi
 
 # Check if the port 8081 (MongoDb Express) is already taken by any running docker container
 # For example by GSAM, GS BE or other services that use MongoDb
-if [ "$(is_docker_port_in_use 8081 fynapp-mongo-express)" = "0" ]; then
+if [ "$(is_docker_port_in_use 8081 fastapitemplate-mongo-express)" = "0" ]; then
     if [ "$USE_LOCAL_MONGODB" != "0" ]; then
         OTHER_DOCKER_COMPOSE_PARAMS="${OTHER_DOCKER_COMPOSE_PARAMS} --profile use_local_mongodb_express"
     else
         echo ""
-        echo "WARNING: Port 8081 is in use by any running ${DOCKER_CMD} container different than 'fynapp-mongo-express'"
+        echo "WARNING: Port 8081 is in use by any running ${DOCKER_CMD} container different than 'fastapitemplate-mongo-express'"
     fi
 fi
 
@@ -201,7 +201,7 @@ if [ "$USE_LOCAL_MONGODB" != "0" ]; then
     # E.g. to use the 'make dev' command (running frontend and backend without
     # docker compose) with local database in docker compose
     #
-    export MONGODB_HOST_NAME=fynapp-mongo
+    export MONGODB_HOST_NAME=fastapitemplate-mongo
     export MONGODB_HOST_PORT=27017
     export MONGODB_USER=root
     export MONGODB_PASSWORD=example
@@ -244,7 +244,7 @@ elif [ "$ACTION" = "logs-f" ]; then
     exit 0
 elif [ "$ACTION" = "logs-f-server-client" ]; then
     echo "Showing logs..."
-    ${DOCKER_COMPOSE_CMD} --project-name ${APP_NAME_LOWERCASE} logs -f fynapp-server fynapp-client
+    ${DOCKER_COMPOSE_CMD} --project-name ${APP_NAME_LOWERCASE} logs -f fastapitemplate-server fastapitemplate-client
     exit 0
 else
     echo "Error: Invalid action specified: $ACTION"
