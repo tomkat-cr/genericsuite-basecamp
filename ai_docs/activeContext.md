@@ -2,24 +2,69 @@
 
 ## Current Work Focus
 
-2026-04-03
+2026-04-18
 
 ### Primary Initiatives
 
-#### 1. Documentation Review (Short Term)
-- **Status**: Planned for short-term
-- **Focus**: Review all existing documentation with a collaborator to make it clearer, more understandable, and more comprehensive
-- **Next Steps**: Schedule review sessions, identify gaps, rewrite unclear sections
+#### 1. Specs for AI Agents (Active)
+- **Status**: In progress
+- **Focus**: Generate the `CLAUDE.md` files for all GenericSuite repositories with `claude /init`, review the generated file(s), eventually complement with additional specifications in the `docs` (or `ai_docs/`) directory (e.g. security, code styling, etc.), add `.claude/settings.local.json` to `.gitignore`, add `agents_md_link` to `Makefile` and run it to `ln -s CLAUDE.md AGENTS.md`
+- **Next Steps**: Review already-done files, complete all the GenericSuite repositories
+- **Tickets**: GS-303
 
-#### 2. ExampleApp .env Unification (Active)
-- **Status**: All 4 backends (FastAPI, Flask, Chalice, MCP Server) and UI are complete
+#### 2. Generate a new project from the code templates (Active)
+- **Status**: In progress
+- **Focus**: Create scripts to start new projects from FastApiTemplate or ExampleApp.
+- **Next Steps**: The script for FastApiTemplate is ready, now we need to figure out how to do the same from ExampleApp but asking the user for the desired endpoint handler (FastAPI, Flask or Chalice) and configure the project accordingly.
+- **Tickets**: GS-306
+
+#### 3. Add SAST (Active)
+- **Status**: In progress
+- **Focus**: Add static application security testing (SAST) to all the GenericSuite repositories, by runnig the Snyk CLI before publishing any GenericSuite package.
+- **Next Steps**: Complete all the GenericSuite repositories
+- **Tickets**: GS-315
+
+#### 4. ExampleApp .env Unification (Short Term)
+- **Status**: All 4 backends (FastAPI, Flask, Chalice, MCP Server) and UI has separated .env files
 - **Focus**: Unify the `.env` file structure across ExampleApp so it mirrors the single-file approach used in `fastapitemplate`
 - **Next Steps**: Merge per-app `.env` files into a unified `.env`, update documentation and scripts accordingly
+- **Tickets**: GS-306
 
-#### 3. Unit and Integration Testing (New Initiative)
+#### 5. Unit and Integration Testing (New Initiative)
 - **Status**: Planning phase
 - **Focus**: Add unit and integration tests to all GenericSuite repositories and Basecamp example applications
 - **Next Steps**: Define testing strategy, select frameworks per language/backend, implement test suites incrementally
+- **Tickets**: GS-20, GS-21
+
+#### 6. Add GCP object storage services (New Initiative)
+- **Status**: Planning phase
+- **Focus**: Add GCP object storage services to backend, as it is currently only available for AWS.
+- **Next Steps**: Define GCP object storage services, implement them
+- **Tickets**: GS-318
+
+#### 7. Add Azure object storage services (New Initiative)
+- **Status**: Planning phase
+- **Focus**: Add Azure object storage services to backend, as it is currently only available for AWS.
+- **Next Steps**: Define Azure object storage services, implement them
+- **Tickets**: GS-317
+
+#### 8. Add GCP deployment options (New Initiative)
+- **Status**: Planning phase
+- **Focus**: Add GCP deployment options to backend and UI, as it is currently only available for AWS.
+- **Next Steps**: Define GCP deployment options, use Terraform/OpenTofu as a best approach compared to platform-specific scripts (like the current AWS deployment option using CloudFormation), and implement them
+- **Tickets**: GS-40
+
+#### 9. Add Azure deployment options (New Initiative)
+- **Status**: Planning phase
+- **Focus**: Add Azure deployment options to backend and UI, as it is currently only available for AWS.
+- **Next Steps**: Define Azure deployment options, and implement them
+- **Tickets**: GS-316
+
+#### 10. Documentation Review (New Initiative)
+- **Status**: Planning phase
+- **Focus**: Review all existing documentation with a collaborator to make it clearer, more understandable, and more comprehensive
+- **Next Steps**: Schedule review sessions, identify gaps, rewrite unclear sections
+- **Tickets**: ???
 
 ### Completed Initiatives (Recent)
 
@@ -32,23 +77,28 @@
 ## Recent Changes
 
 - Completed MCP Server backend for ExampleApp
-- Added PostgreSQL/SQL database support to GenericSuite Core
+- Added PostgreSQL/SQL/Supabase database support to GenericSuite Core
 - Finalized Spanish localization of all documentation
 - Declined Django and Express.js backend support after evaluation
 - Completed ExampleApp with all four backends and React UI
 
 ## Next Steps (Priority Order)
 
-### Immediate (Next 2 Weeks)
-1. **Create a new project from FastApiTemplate or ExampleApp**: Create scripts to generate a new project from the code templates
-2. **ExampleApp .env Unification**: Redesign `.env` structure to match `fastapitemplate` pattern
+### Immediate (Next 1 Week)
+1. **Create a new project from FastApiTemplate**: Create scripts to generate a new project from the FastApiTemplate code template
+2. **Specs for AI Agents**
+3. **Add SAST**
+
+### Short Term (Next 2 Weeks)
+1. **ExampleApp .env Unification**: Redesign `.env` structure to match `fastapitemplate` pattern, enhance `.env.example` to make it easy to change the backend port and framework and document it on the README.md file
+2. **Create a new project from ExampleApp**: Create scripts to generate a new project from the ExampleApp code template, including the copy of selected backend framework directory and files only (not the whole ExampleApp)
 3. **Testing Strategy**: Define scope, frameworks, and priority order for unit/integration tests across GenericSuite repos
 
-### Short Term (Next Month)
-1. **Documentation Review**: Comprehensive review with collaborator for clarity and completeness
-2. **Testing Implementation**: Begin adding test suites to highest-priority repos
-
 ### Medium Term (Next Quarter)
+1. **Testing Implementation**: Begin adding test suites to highest-priority repos
+2. **Documentation Review**: Comprehensive review with collaborator for clarity and completeness
+
+### Long Term (Unknown)
 1. **Video Tutorials**: Create video walkthroughs for key workflows
 2. **Interactive Examples**: Add interactive code examples where possible
 3. **Migration Guides**: Create guides for upgrading between GenericSuite versions
@@ -193,16 +243,21 @@
 - **Timeline**: End of current quarter
 
 ### Community Engagement
-- **Current**: Growing GitHub stars and forks
+- **Current**: not growing GitHub stars and forks
 - **Goal**: Increase community contributions by 50%
-- **Timeline**: Next 6 months
+- **Timeline**: Next 12 months
 
 ### Developer Experience
-- **Current**: Most developers can set up ExampleApp in under 30 minutes
+- **Current**: Most developers can set up FastAPITemplate in under 30 minutes
+- **Goal**: Reduce setup time to under 15 minutes
+- **Timeline**: Next major release
+
+### Developer Experience
+- **Current**: Most developers cannot set up ExampleApp in under 60 minutes
 - **Goal**: Reduce setup time to under 15 minutes
 - **Timeline**: Next major release
 
 ### Release Cadence
-- **Current**: Documentation updates within 1 week of package releases (normally each 3 months)
-- **Goal**: Same-day documentation updates for major releases
-- **Timeline**: Implement automated processes within 2 months
+- **Current**: All library releases happens every 3 months
+- **Goal**: Increment the cadence to every month
+- **Timeline**: Implement automated processes within 6 months

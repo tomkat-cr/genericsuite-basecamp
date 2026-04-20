@@ -4,16 +4,16 @@ This repository is the starting point and documentation for GenericSuite-based p
 
 In this repository you will find:
 
-- The [Main Documentation Page](../docs/en/index.md)
-- The [App Frontend](../docs/en/Frontend-Development/index.md)
-- The [App Backend](../docs/en/Backend-Development/index.md)
-- The [GenericSuite Core](../docs/en/Backend-Development/GenericSuite-Core/index.md)
-- The [GenericSuite AI](../docs/en/Backend-Development/GenericSuite-AI/index.md)
-- The [Configuration Guide](../docs/en/Configuration-Guide/index.md)
-- The [Generic CRUD Editor Configuration](../docs/en/Configuration-Guide/Generic-CRUD-Editor-Configuration.md)
-- The Code examples: [ExampleApp monorepo with TurboRepo](../docs/code/exampleapp/README.md) and [FastAPI Template monorepo with NPM Workspaces](../docs/code/fastapitemplate/README.md) for your App development.
-- The [Releases](../docs/en/Releases/index.md) of the GenericSuite library.
-- The [Basecamp Changelog](../CHANGELOG.md) for the GenericSuite Basecamp repository.
+- Main Documentation Page @docs/en/index.md
+- App Frontend @docs/en/Frontend-Development/index.md
+- App Backend @docs/en/Backend-Development/index.md
+- GenericSuite Core @docs/en/Backend-Development/GenericSuite-Core/index.md
+- GenericSuite AI @docs/en/Backend-Development/GenericSuite-AI/index.md
+- Configuration Guide @docs/en/Configuration-Guide/index.md
+- Generic CRUD Editor Configuration @docs/en/Configuration-Guide/Generic-CRUD-Editor-Configuration.md)
+- Code examples: ExampleApp monorepo with TurboRepo @docs/code/exampleapp/README.md and FastAPI Template monorepo with NPM Workspaces @docs/code/fastapitemplate/README.md
+- Releases @docs/en/Releases/index.md of the GenericSuite library.
+- Basecamp Changelog @CHANGELOG.md for the GenericSuite Basecamp repository.
 
 ## About GenericSuite
 
@@ -52,6 +52,8 @@ The GenericSuite Basecamp project is organized into the following main directori
 - `docs/`: Contains the documentation for the project, including guides for backend and frontend development, configuration, and sample code.
 - `scripts/`: Includes various shell scripts for tasks such as installing MkDocs, running the documentation server, and transferring the site.
 - `overrides/`: Contains files to override the default MkDocs theme.
+- `ai_docs/`: Project specifications for AI Agents.
+- `.claude/`: Skills, plugins, commands, rules and sub-agents specifications for AI Agents.
 
 ## Getting Started
 
@@ -98,8 +100,8 @@ It is inspired by the principles of Caloric Deficit. The purpose is to achieve w
 
 - **Development Tools**:
 
-  - pnpm for package management
-  - TurboRepo for monorepo management
+  - NPM Workspaces or pnpm for package management
+  - NPM Workspaces or TurboRepo for monorepo management
   - Environment-based configuration
 
 ### Running the Example App
@@ -159,4 +161,4 @@ The following `make` commands are available to manage the `fastapitemplate`:
 
 ## Repositories
 
-A full list of GenericSuite repositories can be found in the [docs/en/repositories.md](../docs/en/repositories.md) file.
+A full list of GenericSuite repositories can be found in the @docs/en/repositories.md file.

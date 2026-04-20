@@ -109,12 +109,16 @@ fastapitemplate-clean:
 	bash docs/code/exampleapp/scripts/clean_directory.sh ./docs/code/fastapitemplate/server false "${DEBUG}"
 
 clean:
-	npm cache clean --force && rm -rf venv .pytest_cache .cache
+	npm cache clean --force && rm -rf venv .venv .pytest_cache .cache
 
 clean-all: clean exampleapp-clean fastapitemplate-clean
 
 lsof:
 	sudo lsof -PiTCP -sTCP:LISTEN
+
+sast-test:
+	snyk code test --severity-threshold=high --all-projects .
+	snyk test --severity-threshold=high --all-projects .
 
 agents_md_link:
 	ln -s CLAUDE.md AGENTS.md

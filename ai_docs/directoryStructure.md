@@ -4,7 +4,7 @@
 genericsuite-basecamp/
 ├── docs/                            # MkDocs content (source of truth)
 │   ├── en/                          # English documentation
-│   ├── es/                          # Spanish documentation
+│   ├── es/                          # Spanish documentation (AI generated)
 │   ├── code/                        # Code examples
 │   │   ├── configuration-guide/     # Configuration guide validation rules files
 │   │   ├── exampleapp/              # ExampleApp monorepo
@@ -28,9 +28,10 @@ genericsuite-basecamp/
 │   │   ├── genericsuite-be-scrips/  # Backend script templates for AWS deployments
 │   │   └── genericsuite-configs/    # GenericSuite configuration JSON file examples
 │   └── stylesheets/                 # Custom CSS
-├── docs_for_ftp/                    # Mirror copy for FTP publishing (temporary files)
-├── specs/                           # Project memory bank (context docs)
+├── docs_for_ftp/                    # Mirror copy for FTP publishing (temporary directory)
+├── ai_docs/                         # Project memory bank (context docs)
 ├── scripts/                         # Build, deploy, translation scripts
+├── site/                            # MkDocs generated site (temporary directory)
 ├── mkdocs.yml                       # MkDocs configuration
 └── Makefile                         # All task automation
 ```

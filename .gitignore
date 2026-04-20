@@ -273,8 +273,8 @@ venv.bak/
 .ropeproject
 
 # mkdocs documentation
-/site
-/docs_for_ftp
+site
+docs_for_ftp
 
 # mypy
 .mypy_cache/

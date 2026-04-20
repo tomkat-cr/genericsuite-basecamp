@@ -15,12 +15,12 @@ This project contains:
 
 Deeper project context (memory bank):
 
-- Project Brief (goals, audience, scope, constraints) @specs/projectBrief.md
-- Directory Structure: @specs/directoryStructure.md
-- Product Context (ecosystem overview and feature set): @specs/productContext.md
-- System Patterns (architecture and design patterns): @specs/systemPatterns.md
-- Tech Context (technology stack, versions, dependencies): @specs/techContext.md
-- Active Context (current work focus and next steps): @specs/activeContext.md
+- Project Brief (goals, audience, scope, constraints) @ai_docs/projectBrief.md
+- Directory Structure: @ai_docs/directoryStructure.md
+- Product Context (ecosystem overview and feature set): @ai_docs/productContext.md
+- System Patterns (architecture and design patterns): @ai_docs/systemPatterns.md
+- Tech Context (technology stack, versions, dependencies): @ai_docs/techContext.md
+- Active Context (current work focus and next steps): @ai_docs/activeContext.md
 
 ## Build and Run Commands
 
@@ -61,41 +61,13 @@ make clean            # Clean npm cache, venv, pytest cache
 make clean-all        # clean + exampleapp-clean + fastapitemplate-clean
 make sample_code_prepare  # Prepare sample code to use latest packages
 make generate_openapi     # Generate OpenAPI schema from fastapitemplate server
+make sast-test             # Run SAST testing
+make agents_md_link        # Link AGENTS.md and CLAUDE.md files
 ```
 
 ## Code Style Guidelines
 
-### Python (docs dependencies, scripts)
-- Formatter: `autopep8`
-- Linter: `Flake8`
-- Python version: `3.12+` (< 4.0)
-- Dependency management: `uv` (preferred) or `pipenv`
-
-### JavaScript / TypeScript (ExampleApp, FastAPI Template UI)
-- Formatter: `Prettier`
-- Linter: `ESLint` with per-package configs
-- Node.js version: `20+`
-- Package manager: `npm` workspaces (preferred) or `pnpm 10.12.4+`
-- Build tool: `Vite` (preferred) or `Webpack`
-- Monorepo orchestration: `TurboRepo`
-
-### Documentation (Markdown)
-- All docs written in Markdown with minimal HTML
-- Enhanced syntax via `pymdown-extensions`
-- Documentation must be available in **English and Spanish** (`docs/en/` and `docs/es/`)
-- Follow progressive disclosure: overview → section summary → detail page
-
-### Shell Scripts
-
-- All shell scripts must be POSIX-compliant (bash/zsh compatible).
-- Use `#!/bin/bash` shebang.
-- Always call bash scripts with `bash`, not `sh`.
-- Use `set -euo pipefail` for safety.
-- Quote all variable expansions: `"${var}"`.
-- Handle macOS vs Linux differences (e.g., prefer `perl -pi -e` over `sed -i`).
-- Avoid bash-specific features unless necessary, and if so, document them clearly.
-- Provide clear usage examples and error messages.
-- Don't use `read -p "Any prompt: " VAR`, use `echo "Any prompt: "` and `read VAR < /dev/tty`.
+- Follow the code style guidelines in @ai_docs/codeStyle.md
 
 ## Testing Instructions
 
@@ -113,79 +85,11 @@ There is no project-level test runner; run tests from within each app directory 
 
 ## Security Considerations
 
-- **Never commit `.env` files** — only `.env.example` templates are committed
-- All secrets (API keys, DB credentials, JWT secrets) must be in `.env` files
-- HTTPS required for all production deployments
-- Run `npm audit` / `pip-audit` regularly for dependency vulnerability scanning
-- CORS settings are configured per-environment via `APP_CORS_ORIGIN_{STAGE}` env vars
-
+- Follow the security considerations in @ai_docs/security.md
 
 ## Key Environment Variables
 
-File: `.env`
-
-```bash
-# Documentation FTP publishing
-REMOTE_HOST=...
-REMOTE_USERNAME=...
-REMOTE_PASSWORD=...
-REMOTE_DIRECTORY_PATH=...
-
-# Documentation translation
-OPENAI_API_KEY=...
-OPENAI_MODEL=...
-```
-
-File: `docs/code/exampleapp/apps/ui/.env`
-
-```bash
-# Example App - UI
-APP_LOCAL_DOMAIN_NAME=...
-FRONTEND_LOCAL_PORT=...
-APP_API_URL_DEV=...
-BACKEND_LOCAL_PORT=...
-REACT_APP_DEBUG=1
-```
-
-File: `docs/code/exampleapp/apps/api-fastapi/.env`
-File: `docs/code/exampleapp/apps/api-flask/.env`
-File: `docs/code/exampleapp/apps/api-chalice/.env`
-File: `docs/code/exampleapp/apps/mcp-server/.env`
-
-```bash
-# Example App - Backend
-APP_SECRET_KEY=...
-APP_SUPERADMIN_EMAIL=...
-APP_DB_ENGINE_QA=...
-APP_DB_NAME_QA=...
-APP_DB_URI_QA=...
-AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_QA=...
-FDA_API_KEY=...
-OPENAI_API_KEY=...
-FLASK_SECRET_KEY=...
-```
-
-File: `docs/code/fastapitemplate/.env`
-
-```bash
-# FastApiTemplate App - UI
-APP_LOCAL_DOMAIN_NAME=...
-FRONTEND_LOCAL_PORT=...
-APP_API_URL_DEV=...
-BACKEND_LOCAL_PORT=...
-REACT_APP_DEBUG=1
-
-# FastApiTemplate App - Backend
-APP_SECRET_KEY=...
-APP_SUPERADMIN_EMAIL=...
-APP_DB_ENGINE_QA=...
-APP_DB_NAME_QA=...
-APP_DB_URI_QA=...
-AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_QA=...
-FDA_API_KEY=...
-OPENAI_API_KEY=...
-FLASK_SECRET_KEY=...
-```
+- Follow env vars in @ai_docs/keyEnvVars.md
 
 ## Supported Backend Frameworks
 
@@ -198,12 +102,21 @@ FLASK_SECRET_KEY=...
 
 ## Supported Databases
 
-MongoDB, DynamoDB, PostgreSQL (AWS RDS), MySQL (AWS RDS), Supabase
+- MongoDB
+- DynamoDB
+- PostgreSQL
+- MySQL
+- Supabase
 
 ## Deployment Targets
 
-Local, AWS (Lambda + DynamoDB/RDS), GCP, Azure, VPS (with optional Cloudflare Tunnel)
+- Local (with optional Cloudflare Tunnel)
+- AWS (Lambda or EC2)
+- GCP (future)
+- Azure (future)
+- VPS
 
 ## Important Notes
 
 - The `AGENTS.md` file (if present) is a symlink to `CLAUDE.md` — edit only `CLAUDE.md`.
+- Skills, commands, rules, and sub-agents are located in the `.claude/` directory.
