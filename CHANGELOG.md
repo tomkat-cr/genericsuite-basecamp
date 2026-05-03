@@ -36,7 +36,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ## [1.5.1] - 2026-04-03
 
 ### Added
-- AGENTS.md and CLAUDE.md files to provide context and instructions to AI agents [GS-303].
+- AGENTS.md, GEMINI.md, and CLAUDE.md files to provide context and instructions to AI Coding Assistants [GS-303].
 
 ### Changed
 - Update author name from "Carlos J. Ramirez" to "Carlos Ramirez".

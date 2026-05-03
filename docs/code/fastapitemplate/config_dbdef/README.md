@@ -14,21 +14,21 @@ fastapitemplate/config_dbdef/
 |   ├── users_api_keys.json                     # User's API keys
 |   ├── users_config.json                       # User's configuration parameters
 |   ├── users_profile.json                      # User's profile page
-|   ├── users.json                              # Users
+|   └── users.json                              # Users
 ├── frontend/
 |   ├── ai_chatbot_conversations_complete.json  # AI Chatbot conversations for a CRUD editor
 |   ├── ai_chatbot_conversations.json           # AI Chatbot conversations for the Chatbot UI
-|   ├── app_constants.json                      # App general constants (billing plans, units, types, codes, gender, emails, urls, etc.)
+|   └── app_constants.json                      # App general constants (billing plans, units, types, codes, gender, emails, urls, etc.)
 |   ├── general_config.json                     # App dynamic configuration parameters
 |   ├── general_constants.json                  # App general constants (true/false, yes/no, languages, genders, etc.)
 |   ├── users_api_keys.json                     # User's API keys
 |   ├── users_config.json                       # User's configuration parameters
 |   ├── users_profile.json                      # User's profile page
-|   ├── users.json                              # Users
+|   └── users.json                              # Users
 ├── .gitignore
 ├── CHANGELOG.md
 ├── package.json
-├── README.md
+└── README.md
 ```
 
 ## Backend directory

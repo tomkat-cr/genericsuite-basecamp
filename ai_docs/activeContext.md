@@ -8,7 +8,7 @@
 
 #### 1. Specs for AI Agents (Active)
 - **Status**: In progress
-- **Focus**: Generate the `CLAUDE.md` files for all GenericSuite repositories with `claude /init`, review the generated file(s), eventually complement with additional specifications in the `docs` (or `ai_docs/`) directory (e.g. security, code styling, etc.), add `.claude/settings.local.json` to `.gitignore`, add `agents_md_link` to `Makefile` and run it to `ln -s CLAUDE.md AGENTS.md`
+- **Focus**: Generate the `CLAUDE.md` files for all GenericSuite repositories with `claude /init`, review the generated file(s), eventually complement with additional specifications in the `docs` (or `ai_docs/`) directory (e.g. security, code styling, etc.), add `.claude/settings.local.json` to `.gitignore`, and create a new files `AGENTS.md` and `GEMINI.md` with the content `@CLAUDE.md`.
 - **Next Steps**: Review already-done files, complete all the GenericSuite repositories
 - **Tickets**: GS-303
 

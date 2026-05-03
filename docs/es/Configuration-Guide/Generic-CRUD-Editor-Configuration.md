@@ -565,7 +565,7 @@ exampleapp/apps/config_dbdef/
 |   ├── users_food_times.json                   # Tiempos típicos de ingesta de comidas del usuario
 |   ├── users_profile.json                      # Página de perfil del usuario
 |   ├── users_user_history.json                 # Historial de datos del usuario (objetivos, peso, etc.)
-|   ├── users.json                              # Usuarios
+|   └── users.json                              # Usuarios
 ├── frontend/
 |   ├── ai_chatbot_conversations_complete.json  # Conversaciones de IA Chatbot para un editor CRUD
 |   ├── ai_chatbot_conversations.json           # Conversaciones de IA Chatbot para la interfaz de Chatbot
@@ -586,7 +586,7 @@ exampleapp/apps/config_dbdef/
 |   ├── users_food_times.json                   # Tiempos típicos de ingesta de comidas del usuario
 |   ├── users_profile.json                      # Página de perfil del usuario
 |   ├── users_user_history.json                 # Historial de datos del usuario (objetivos, peso, etc.)
-|   ├── users.json                              # Usuarios
+|   └── users.json                              # Usuarios
 ├── .gitignore
 ├── CHANGELOG.md
 ├── package.json
