@@ -175,7 +175,7 @@
 
 ### Community Engagement
 - **Open Source First**: All code and documentation should be openly available
-- **Clear Licensing**: ISC license for maximum compatibility
+- **Clear Licensing**: MIT license for maximum compatibility
 - **Contribution Friendly**: Lower barriers to community contributions
 - **Responsive Maintenance**: Quick response to issues and pull requests
 

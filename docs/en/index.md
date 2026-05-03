@@ -200,7 +200,7 @@ Spanish:
 
 ## License
 
-Generic Suite is open-sourced software licensed under the [ISC](https://github.com/tomkat-cr/genericsuite-basecamp/blob/main/LICENSE) license.
+Generic Suite is open-sourced software licensed under the [MIT](https://github.com/tomkat-cr/genericsuite-basecamp/blob/main/LICENSE) license.
 
 ## Credits
 

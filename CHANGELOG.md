@@ -28,6 +28,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Rename `specs/` to `ai_docs/`.
 - `.venv/` added to .gitignore and .dockerignore files.
 - `run_translate_uncommitted.sh` creates and deletes `.venv` virtual environment [GS-316].
+- License changed to MIT [FA-244].
 
 ### Fixed
 - `mkdocs_transfer_site.sh` removes the `docs_for_ftp` and `site` directories, and uses `.venv` instead of `venv` to avoid multiple python environments [GS-301].

@@ -1169,7 +1169,7 @@ The API specification is available in the [FastApiTemplate/server](../../../code
 
 ## License
 
-This project is licensed under the ISC License - see the [LICENSE](https://github.com/tomkat-cr/genericsuite-be/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/tomkat-cr/genericsuite-be/blob/main/LICENSE) file for details.
 
 ## Credits
 

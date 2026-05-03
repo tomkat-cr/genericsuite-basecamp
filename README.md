@@ -77,7 +77,7 @@ In this repository you will find the [instructions](https://genericsuite.carlosj
 
 ## License
 
-GenericSuite is open-sourced software licensed under the [ISC](https://github.com/tomkat-cr/genericsuite-basecamp/blob/main/LICENSE) license.
+GenericSuite is open-sourced software licensed under the [MIT](https://github.com/tomkat-cr/genericsuite-basecamp/blob/main/LICENSE) license.
 
 ## Credits
 
