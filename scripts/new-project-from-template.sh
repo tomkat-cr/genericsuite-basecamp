@@ -71,7 +71,7 @@ if [ -z "${TARGET_DIR}" ]; then
     echo "  new-app-name : (optional) rename the app; lowercase letters, numbers and hyphens only"
     echo "  new-domain   : (optional) new domain, defaults to <new-app-name>.com"
     echo "  template-name: (optional) template name, defaults to fastapitemplate"
-    echo "  basecamp-branch: (optional) basecamp branch, defaults to develop"
+    echo "  basecamp-branch: (optional) basecamp branch, defaults to main"
     echo ""
     exit 1
 fi
