@@ -82,10 +82,12 @@ if [ -e "${TARGET_DIR}" ]; then
     exit 1
 fi
 
-if ! echo "${NEW_NAME}" | grep -qE '^[a-z0-9][a-z0-9-]*[a-z0-9]$'; then
-    echo "Error: app name must contain only lowercase letters, numbers, and hyphens."
-    echo "  Got: ${NEW_NAME}"
-    exit 1
+if [ -n "${NEW_NAME}" ]; then
+    if ! echo "${NEW_NAME}" | grep -qE '^[a-z0-9][a-z0-9-]*[a-z0-9]$'; then
+        echo "Error: app name must contain only lowercase letters, numbers, and hyphens."
+        echo "  Got: ${NEW_NAME}"
+        exit 1
+    fi
 fi
 
 if ! command -v git &>/dev/null; then
@@ -116,7 +118,7 @@ echo ""
 TMP_DIR="$(mktemp -d)"
 
 BASECAMP_REPO="https://github.com/tomkat-cr/genericsuite-basecamp.git"
-TEMPLATE_PATH="docs/code/${TEMPLATE_NAME}"
+TEMPLATE_PATH="mkdocs_root/code/${TEMPLATE_NAME}"
 
 # trap 'rm -rf "$TMP_DIR"' EXIT
 trap 'clean_up' EXIT
