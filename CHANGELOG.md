@@ -25,7 +25,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - SAST testing [GS-315]
 
 ### Changed
-- Rename `specs/` to `ai_docs/`.
+- Rename `docs/` to `mkdocs_root/` [GS-208].
+- Rename `specs/` to `docs/` [GS-208].
 - `.venv/` added to .gitignore and .dockerignore files.
 - `run_translate_uncommitted.sh` creates and deletes `.venv` virtual environment [GS-316].
 - License changed to MIT [FA-244].

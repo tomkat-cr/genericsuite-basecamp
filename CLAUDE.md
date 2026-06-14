@@ -10,19 +10,19 @@ GenericSuite Basecamp is the central documentation and starting point repository
 
 This project contains:
 
-- MkDocs-based documentation site (published to a FTP website and readthedocs.io): @docs/en/index.md
-- Configuration guide and template files: @docs/code/index.md
-- FastAPI Template monorepo (ReactJS UI + FastAPI/MCP Server): @docs/code/fastapitemplate/README.md
-- ExampleApp monorepo (ReactJS UI + FastAPI/Flask/Chalice/MCP Server): @docs/code/exampleapp/README.md
+- MkDocs-based documentation site (published to a FTP website and readthedocs.io): @mkdocs_root/en/index.md
+- Configuration guide and template files: @mkdocs_root/code/index.md
+- FastAPI Template monorepo (ReactJS UI + FastAPI/MCP Server): @mkdocs_root/code/fastapitemplate/README.md
+- ExampleApp monorepo (ReactJS UI + FastAPI/Flask/Chalice/MCP Server): @mkdocs_root/code/exampleapp/README.md
 
 Deeper project context (memory bank):
 
-- Project Brief (goals, audience, scope, constraints) @ai_docs/projectBrief.md
-- Directory Structure: @ai_docs/directoryStructure.md
-- Product Context (ecosystem overview and feature set): @ai_docs/productContext.md
-- System Patterns (architecture and design patterns): @ai_docs/systemPatterns.md
-- Tech Context (technology stack, versions, dependencies): @ai_docs/techContext.md
-- Active Context (current work focus and next steps): @ai_docs/activeContext.md
+- Project Brief (goals, audience, scope, constraints) @docs/projectBrief.md
+- Directory Structure: @docs/directoryStructure.md
+- Product Context (ecosystem overview and feature set): @docs/productContext.md
+- System Patterns (architecture and design patterns): @docs/systemPatterns.md
+- Tech Context (technology stack, versions, dependencies): @docs/techContext.md
+- Active Context (current work focus and next steps): @docs/activeContext.md
 
 ## Build and Run Commands
 
@@ -34,7 +34,7 @@ make serve            # Start local docs server at http://localhost:8015
 make run              # prepare_all + serve (full pipeline)
 make build            # Build static site to site/
 make transfer         # Full publish to GitHub Pages + ReadTheDocs
-make translate_uncommitted  # Translate uncommitted docs in docs/ via AI
+make translate_uncommitted  # Translate uncommitted docs in mkdocs_root/ via AI
 ```
 
 ### ExampleApp
@@ -68,7 +68,7 @@ make sast-test             # Run SAST testing
 
 ## Code Style Guidelines
 
-- Follow the code style guidelines in @ai_docs/codeStyle.md
+- Follow the code style guidelines in @docs/codeStyle.md
 
 ## Testing Instructions
 
@@ -82,15 +82,15 @@ pytest                # Run all tests (from backend app directory)
 npm test              # Jest + React Testing Library
 ```
 
-There is no project-level test runner; run tests from within each app directory (e.g., `docs/code/exampleapp/apps/api-fastapi/`).
+There is no project-level test runner; run tests from within each app directory (e.g., `mkdocs_root/code/exampleapp/apps/api-fastapi/`).
 
 ## Security Considerations
 
-- Follow the security considerations in @ai_docs/security.md
+- Follow the security considerations in @docs/security.md
 
 ## Key Environment Variables
 
-- Follow env vars in @ai_docs/keyEnvVars.md
+- Follow env vars in @docs/keyEnvVars.md
 
 ## Supported Backend Frameworks
 
@@ -120,4 +120,4 @@ There is no project-level test runner; run tests from within each app directory 
 ## Important Notes
 
 - The files `AGENTS.md`, `GEMINI.md`, etc. (if present) have only a referece to `@CLAUDE.md` — edit only `CLAUDE.md`.
-- Skills, commands, rules, and sub-agents are located in the `.claude/` directory.
+- Skills live in `.ai/skills/` (source of truth); symlinked under `.agents/skills/`, `.claude/skills/`, `.codex/skills/`, `.gemini/skills/`, and `.devin/skills/`.

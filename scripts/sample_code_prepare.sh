@@ -55,28 +55,28 @@ install_npm_packages() {
     cd -
 }
 
-uninstal_python_packages "docs/code/exampleapp/apps/api-flask" "genericsuite genericsuite-ai"
-uninstal_npm_packages "docs/code/exampleapp/apps/api-flask" "genericsuite-be-scripts"
-install_python_packages "docs/code/exampleapp/apps/api-flask" "genericsuite genericsuite-ai"
-install_npm_packages "docs/code/exampleapp/apps/api-flask" "genericsuite-be-scripts"
+uninstal_python_packages "mkdocs_root/code/exampleapp/apps/api-flask" "genericsuite genericsuite-ai"
+uninstal_npm_packages "mkdocs_root/code/exampleapp/apps/api-flask" "genericsuite-be-scripts"
+install_python_packages "mkdocs_root/code/exampleapp/apps/api-flask" "genericsuite genericsuite-ai"
+install_npm_packages "mkdocs_root/code/exampleapp/apps/api-flask" "genericsuite-be-scripts"
 
-uninstal_python_packages "docs/code/exampleapp/apps/api-chalice" "genericsuite genericsuite-ai"
-uninstal_npm_packages "docs/code/exampleapp/apps/api-chalice" "genericsuite-be-scripts"
-install_python_packages "docs/code/exampleapp/apps/api-chalice" "genericsuite genericsuite-ai"
-install_npm_packages "docs/code/exampleapp/apps/api-chalice" "genericsuite-be-scripts"
+uninstal_python_packages "mkdocs_root/code/exampleapp/apps/api-chalice" "genericsuite genericsuite-ai"
+uninstal_npm_packages "mkdocs_root/code/exampleapp/apps/api-chalice" "genericsuite-be-scripts"
+install_python_packages "mkdocs_root/code/exampleapp/apps/api-chalice" "genericsuite genericsuite-ai"
+install_npm_packages "mkdocs_root/code/exampleapp/apps/api-chalice" "genericsuite-be-scripts"
 
-uninstal_python_packages "docs/code/exampleapp/apps/api-fastapi" "genericsuite genericsuite-ai"
-uninstal_npm_packages "docs/code/exampleapp/apps/api-fastapi" "genericsuite-be-scripts"
-install_python_packages "docs/code/exampleapp/apps/api-fastapi" "genericsuite genericsuite-ai"
-install_npm_packages "docs/code/exampleapp/apps/api-fastapi" "genericsuite-be-scripts"
+uninstal_python_packages "mkdocs_root/code/exampleapp/apps/api-fastapi" "genericsuite genericsuite-ai"
+uninstal_npm_packages "mkdocs_root/code/exampleapp/apps/api-fastapi" "genericsuite-be-scripts"
+install_python_packages "mkdocs_root/code/exampleapp/apps/api-fastapi" "genericsuite genericsuite-ai"
+install_npm_packages "mkdocs_root/code/exampleapp/apps/api-fastapi" "genericsuite-be-scripts"
 
-uninstal_npm_packages "docs/code/exampleapp/apps/ui" "genericsuite genericsuite-ai"
-install_npm_packages "docs/code/exampleapp/apps/ui" "genericsuite genericsuite-ai"
+uninstal_npm_packages "mkdocs_root/code/exampleapp/apps/ui" "genericsuite genericsuite-ai"
+install_npm_packages "mkdocs_root/code/exampleapp/apps/ui" "genericsuite genericsuite-ai"
 
-uninstal_python_packages "docs/code/fastapitemplate/server" "genericsuite genericsuite-ai"
-uninstal_npm_packages "docs/code/fastapitemplate/server" "genericsuite-be-scripts"
-install_python_packages "docs/code/fastapitemplate/server" "genericsuite genericsuite-ai"
-install_npm_packages "docs/code/fastapitemplate/server" "genericsuite-be-scripts"
+uninstal_python_packages "mkdocs_root/code/fastapitemplate/server" "genericsuite genericsuite-ai"
+uninstal_npm_packages "mkdocs_root/code/fastapitemplate/server" "genericsuite-be-scripts"
+install_python_packages "mkdocs_root/code/fastapitemplate/server" "genericsuite genericsuite-ai"
+install_npm_packages "mkdocs_root/code/fastapitemplate/server" "genericsuite-be-scripts"
 
-uninstal_npm_packages "docs/code/fastapitemplate/ui" "genericsuite genericsuite-ai"
-install_npm_packages "docs/code/fastapitemplate/ui" "genericsuite genericsuite-ai"
+uninstal_npm_packages "mkdocs_root/code/fastapitemplate/ui" "genericsuite genericsuite-ai"
+install_npm_packages "mkdocs_root/code/fastapitemplate/ui" "genericsuite genericsuite-ai"
