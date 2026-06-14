@@ -7,5 +7,6 @@ npm-debug.log
 .pytest_cache
 instance
 venv
+.venv
 .env
 logs

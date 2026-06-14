@@ -8,6 +8,12 @@ This documentation shows how to create the App frontend/backend configurations a
 
 Follow the instructions to build the `.json` files in the [Generic CRUD Editor Configuration Documentation](./Generic-CRUD-Editor-Configuration.md).
 
+## FastAPI Template
+
+The [FastApiTemplate](../../code/fastapitemplate/README.md) is a full-stack example application demonstrating how to create an App using GenericSuite. It is a web application architecture with a React-based frontend and Python-based backend service implemented with FastAPI.
+
+Click [here](../../code/fastapitemplate/README.md) to know more about it.
+
 ## Example App
 
 The [ExampleApp](../../code/exampleapp/README.md) is a full-stack example application demonstrating how to create an App using GenericSuite. It is a web application architecture with a React-based frontend and backend services implemented in FastAPI, Flask and Chalice.

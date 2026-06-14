@@ -273,8 +273,8 @@ venv.bak/
 .ropeproject
 
 # mkdocs documentation
-/site
-/docs_for_ftp
+site
+docs_for_ftp
 
 # mypy
 .mypy_cache/
@@ -332,4 +332,13 @@ docs/code/exampleapp/apps/ui/public/static
 docs/code/exampleapp/apps/mcp-server/lib
 
 docs/code/fastapitemplate/ui/public/static
+
+# Claude Code
 .claude/settings.local.json
+
+# AI Agents
+.claude
+.agents
+.codex
+.cursor
+.gemini

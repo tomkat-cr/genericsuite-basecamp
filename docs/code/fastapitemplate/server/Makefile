@@ -106,6 +106,10 @@ mongo_restore:
 	# E.g. STAGE=qa RESTORE_DIR=/tmp/fastapitemplate make mongo_restore
 	bash ../node_modules/genericsuite-be-scripts/scripts/mongo/db_mongo_restore.sh ${STAGE} ${RESTORE_DIR}
 
+create-supad:
+	# E.g. CHECKING=1 STAGE=dev make create-supad
+	bash ../node_modules/genericsuite-be-scripts/scripts/run_create_supad.sh
+
 # Config directories
 
 link_gs_libs:
@@ -232,6 +236,8 @@ aws_secrets:
 run: config_local clean_logs
 	bash ../node_modules/genericsuite-be-scripts/scripts/local_db/run_local_db_docker.sh run "0" dev
 	bash ../node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local
+
+run_dev: run
 
 run_qa: config_qa clean_logs
 	bash ../node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local qa

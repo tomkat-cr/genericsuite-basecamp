@@ -13,11 +13,11 @@
     "url": "https://github.com/github-username/exampleapp_backend_chalice/issues"
   },
   "scripts": {
-    "dev": "npm run start:qa",
+    "dev": "npm run start:${STAGE:-qa}",
     "build": "make install_dev",
     "test": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh test",
-    "start:local": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh",
-    "start:qa": "bash node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && bash node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local qa",
+    "start:dev": "bash ./node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh local_db_docker && bash ./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local",
+    "start:qa": "bash ./node_modules/genericsuite-be-scripts/scripts/aws/set_chalice_cnf.sh qa && bash ./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh run_local qa",
     "deploy": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh deploy",
     "pipfile": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh pipfile",
     "shell": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh shell",

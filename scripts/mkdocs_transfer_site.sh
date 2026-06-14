@@ -33,6 +33,11 @@ restore_docs_dir_to_docs()
     fi
 }
 
+remove_temp_directories() {
+    rm -rf site
+    rm -rf docs_for_ftp
+}
+
 set -o allexport; . .env ; set +o allexport ;
 
 MASKED_PASSWORD=$(echo ${REMOTE_PASSWORD} | perl -i -pe's/./*/g')
@@ -111,8 +116,8 @@ echo ""
 echo "Begin 'mkdocs build' run..."
 echo ""
 
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 
 if ! mkdocs build
@@ -121,6 +126,7 @@ then
     exit 1
 fi
 deactivate
+rm -rf .venv
 
 echo ""
 echo "'mkdocs build' completed"
@@ -176,10 +182,9 @@ echo ""
 restore_docs_dir_to_docs
 
 echo ""
+echo "Remove temp directories"
+echo ""
+remove_temp_directories
+
+echo ""
 echo "FTP transfer complete"
-
-
-
-
-
-

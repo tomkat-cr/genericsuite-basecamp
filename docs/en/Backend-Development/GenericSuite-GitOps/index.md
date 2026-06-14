@@ -252,7 +252,7 @@ make enter_n8n
 
 ## License
 
-GenericSuite is open-sourced software licensed under the ISC license.
+GenericSuite is open-sourced software licensed under the MIT license.
 
 ## Credits
 

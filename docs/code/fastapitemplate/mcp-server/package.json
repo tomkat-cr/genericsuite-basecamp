@@ -15,7 +15,7 @@
   "scripts": {
     "api:install": "make install",
     "api:update": "make update",
-    "dev": "make run_qa",
+    "dev": "make run_${STAGE:-qa}",
     "dev:start": "npm run start:qa:debug",
     "build": "make install_dev",
     "build:from_root": "npm run build",

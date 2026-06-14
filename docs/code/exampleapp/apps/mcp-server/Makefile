@@ -105,6 +105,10 @@ mongo_restore:
 	# E.g. STAGE=qa RESTORE_DIR=/tmp/exampleapp make mongo_restore
 	bash node_modules/genericsuite-be-scripts/scripts/mongo/db_mongo_restore.sh ${STAGE} ${RESTORE_DIR}
 
+create-supad:
+	# E.g. CHECKING=1 STAGE=dev make create-supad
+	bash ../node_modules/genericsuite-be-scripts/scripts/run_create_supad.sh
+
 link_gs_libs:
 	bash node_modules/genericsuite-be-scripts/scripts/link_gs_libs_for_dev.sh
 

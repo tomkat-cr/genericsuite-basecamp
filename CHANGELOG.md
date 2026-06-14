@@ -18,10 +18,26 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
+## [Unreleased] - 2026-04-04
+
+### Added
+- Scripts to copy and init a new project from "fastapitemplate" and "exampleapp": `scripts/new-project-from-template.sh` and `scripts/rename-app.sh` [GS-306].
+- SAST testing [GS-315]
+
+### Changed
+- Rename `specs/` to `ai_docs/`.
+- `.venv/` added to .gitignore and .dockerignore files.
+- `run_translate_uncommitted.sh` creates and deletes `.venv` virtual environment [GS-316].
+- License changed to MIT [FA-244].
+
+### Fixed
+- `mkdocs_transfer_site.sh` removes the `docs_for_ftp` and `site` directories, and uses `.venv` instead of `venv` to avoid multiple python environments [GS-301].
+
+
 ## [1.5.1] - 2026-04-03
 
 ### Added
-- AGENTS.md and CLAUDE.md files to provide context and instructions to AI agents [GS-303].
+- AGENTS.md, GEMINI.md, and CLAUDE.md files to provide context and instructions to AI Coding Assistants [GS-303].
 
 ### Changed
 - Update author name from "Carlos J. Ramirez" to "Carlos Ramirez".
