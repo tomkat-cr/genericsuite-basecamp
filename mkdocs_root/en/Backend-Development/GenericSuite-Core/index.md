@@ -658,9 +658,17 @@ AWS_LAMBDA_FUNCTION_ROLE_STAGING=exampleapp-api_handler-role-staging
 AWS_LAMBDA_FUNCTION_ROLE_DEMO=exampleapp-api_handler-role-demo
 AWS_LAMBDA_FUNCTION_ROLE_PROD=exampleapp-api_handler-role-prod
 ```
+
 ```env
-# AWS SSL certificate ARN (used by big_lambdas_manager.sh)
-AWS_SSL_CERTIFICATE_ARN=arn:aws:acm:AWS-REGION:AWS-ACCOUNT:certificate/AWS-CERTIFICATE-UUID
+# AWS SSL certificate ARN
+# - Used by big_lambdas_manager.sh on the backend
+# AWS_SSL_CERTIFICATE_ARN_BE=
+# - Used by aws_deploy_to_s3.sh and aws_get_ssl_cert_arn.sh on the frontend
+# AWS_SSL_CERTIFICATE_ARN_FE=
+# - One ARN for all stages/environments (frontend, backend, and website)
+# AWS_SSL_CERTIFICATE_ARN=
+# e.g. AWS_SSL_CERTIFICATE_ARN_BE=arn:aws:acm:AWS-REGION:AWS-ACCOUNT:certificate/AWS-CERTIFICATE-UUID
+# If not set, the script will try to get it from the AWS API
 ```
 
 * Deployment options

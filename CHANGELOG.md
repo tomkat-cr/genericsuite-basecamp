@@ -23,6 +23,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Added
 - Scripts to copy and init a new project from "fastapitemplate" and "exampleapp": `scripts/new-project-from-template.sh` and `scripts/rename-app.sh` [GS-306].
 - SAST testing [GS-315]
+- AWS_SSL_CERTIFICATE_ARN_FE and AWS_SSL_CERTIFICATE_ARN_BE envvars [GS-328].
 
 ### Changed
 - Rename `docs/` to `mkdocs_root/` [GS-208].
@@ -30,6 +31,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - `.venv/` added to .gitignore and .dockerignore files.
 - `run_translate_uncommitted.sh` creates and deletes `.venv` virtual environment [GS-316].
 - License changed to MIT [FA-244].
+- Enhance SSL certificate ARN documentation in the backend core for better clarity on the AWS_SSL_CERTIFICATE_ARN_FE and AWS_SSL_CERTIFICATE_ARN_BE envvars usage across backend and frontend scripts [GS-328].
 
 ### Fixed
 - `mkdocs_transfer_site.sh` removes the `docs_for_ftp` and `site` directories, and uses `.venv` instead of `venv` to avoid multiple python environments [GS-301].
