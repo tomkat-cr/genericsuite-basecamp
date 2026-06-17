@@ -8,13 +8,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ## [Unreleased] - YYYY-MM-DD
 
 ### Added
-
 ### Changed
-
 ### Fixed
-
 ### Security
-
 ### Removed
 
 
@@ -24,6 +20,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Scripts to copy and init a new project from "fastapitemplate" and "exampleapp": `scripts/new-project-from-template.sh` and `scripts/rename-app.sh` [GS-306].
 - SAST testing [GS-315]
 - AWS_SSL_CERTIFICATE_ARN_FE and AWS_SSL_CERTIFICATE_ARN_BE envvars [GS-328].
+- Multiple CORS Origins support to FastAPI in the `aws_big_lambda/template-sam.yml` file [GS-329].
 
 ### Changed
 - Rename `docs/` to `mkdocs_root/` [GS-208].

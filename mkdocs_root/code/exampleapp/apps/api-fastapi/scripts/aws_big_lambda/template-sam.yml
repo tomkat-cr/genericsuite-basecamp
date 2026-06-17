@@ -141,7 +141,7 @@ Resources:
           # LANGCHAIN_PROJECT: LANGCHAIN_PROJECT_placeholder
           # USER_AGENT: USER_AGENT_placeholder
           # # HUGGINGFACE_API_KEY: HUGGINGFACE_API_KEY_placeholder    # GsSecretParameter
-          # HUGGINGFACE_TEXT_TO_IMAGE_ENDPOINT: HUGGINGFACE_TEXT_TO_IMAGE_ENDPOINT_placeholder
+          # HUGGINGFACE_DEFAULT_CHAT_MODEL: HUGGINGFACE_DEFAULT_CHAT_MODEL_placeholder
           # # FDA_API_KEY: FDA_API_KEY_placeholder    # GsSecretParameter
 
           # APP_HOST_NAME: APP_HOST_NAME_placeholder
@@ -154,15 +154,6 @@ Resources:
         Fn::GetAtt:
         - LambdaExecutionRole
         - Arn
-
-      Events:
-        ApiEvent:
-          Type: Api
-          Properties:
-            Path: /asset/{item_id}
-            Method: get
-            RestApiId:
-              Ref: RestAPI
 
   APIHandlerInvokePermission:
     Type: AWS::Lambda::Permission
@@ -187,11 +178,13 @@ Resources:
         DomainName: api.example.com
         CertificateArn: CertificateArn_placeholder
 
-      Cors:
-        AllowMethods: "'GET,POST,PUT,DELETE,OPTIONS'"
-        AllowHeaders: "'Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'"
-        AllowOrigin: "'APP_CORS_ORIGIN_placeholder'"
-        AllowCredentials: "'true'"
+      # # 2026-06-17: Commented out to allow all origins.
+      # # FastAPI will handle multiple origins by splitting the `CORS_ORIGIN` string if it contains commas.
+      # Cors:
+      #   AllowMethods: "'GET,POST,PUT,DELETE,OPTIONS'"
+      #   AllowHeaders: "'Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'"
+      #   AllowOrigin: "'APP_CORS_ORIGIN_placeholder'"
+      #   AllowCredentials: "'true'"
 
       BinaryMediaTypes:
       - multipart/form-data
@@ -261,11 +254,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/menu_options:
             get:
@@ -317,18 +310,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/menu_options/element:
             post:
@@ -380,18 +366,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/users:
             get:
@@ -506,18 +485,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/users/test:
             get:
@@ -569,18 +541,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/users/login:
             get:
@@ -653,18 +618,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/users/supad-create:
             post:
@@ -716,18 +674,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/ai/chatbot:
             post:
@@ -791,18 +742,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/ai/image_to_text:
             post:
@@ -855,18 +799,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/ai/voice_to_text:
             post:
@@ -919,18 +856,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/ai_chatbot_conversations:
             get:
@@ -1045,18 +975,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/general_config:
             get:
@@ -1171,18 +1094,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/users_config:
             get:
@@ -1297,18 +1213,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/users_api_keys:
             get:
@@ -1423,18 +1332,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /v1/users/current_user_d:
             get:
@@ -1486,18 +1388,13 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
+
+          # App-specific routes
 
           /clarifai_models:
             get:
@@ -1608,18 +1505,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           # App-specific routes
 
@@ -1732,18 +1622,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /users_user_history:
             get:
@@ -1854,18 +1737,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /food_moments:
             get:
@@ -1976,18 +1852,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /food_moments/food_moment_in_user:
             get:
@@ -2038,18 +1907,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /fda_food_query:
             post:
@@ -2101,18 +1963,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''POST,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /general_ingredients:
             get:
@@ -2223,18 +2078,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /user_ingredients:
             get:
@@ -2345,18 +2193,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /user_ingredients_all:
             get:
@@ -2488,18 +2329,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /dishes:
             get:
@@ -2637,18 +2471,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /dish_ingredients:
             get:
@@ -2786,18 +2613,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /daily_meals:
             get:
@@ -2935,18 +2755,11 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
 
           /daily_meal_ingredients:
             get:
@@ -3084,15 +2897,9 @@ Resources:
                 responses:
                   default:
                     statusCode: '200'
-                    responseParameters:
-                      method.response.header.Access-Control-Allow-Methods: '''GET,POST,PUT,DELETE,OPTIONS'''
-                      method.response.header.Access-Control-Allow-Origin: '''http://localhost:3000'''
-                      method.response.header.Access-Control-Allow-Headers: '''Access-Control-Allow-Origin,Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'''
-                      method.response.header.Access-Control-Expose-Headers: '''Authorization,Access-Control-Allow-Origin,Content-Type,Content-Disposition,Content-Length'''
-                      method.response.header.Access-Control-Max-Age: '''600'''
-                      method.response.header.Access-Control-Allow-Credentials: '''true'''
-                requestTemplates:
-                  application/json: '{"statusCode": 200}'
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIHandler.Arn}/invocations
                 passthroughBehavior: when_no_match
-                type: mock
-                contentHandling: CONVERT_TO_TEXT
+                httpMethod: POST
+                type: aws_proxy
+
