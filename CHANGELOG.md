@@ -29,6 +29,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - `run_translate_uncommitted.sh` creates and deletes `.venv` virtual environment [GS-316].
 - License changed to MIT [FA-244].
 - Enhance SSL certificate ARN documentation in the backend core for better clarity on the AWS_SSL_CERTIFICATE_ARN_FE and AWS_SSL_CERTIFICATE_ARN_BE envvars usage across backend and frontend scripts [GS-328].
+- Initialize APP_ENVS variable in `update_additional_envvars.sh` for app-specific environment variables example [GS-329].
 
 ### Fixed
 - `mkdocs_transfer_site.sh` removes the `docs_for_ftp` and `site` directories, and uses `.venv` instead of `venv` to avoid multiple python environments [GS-301].

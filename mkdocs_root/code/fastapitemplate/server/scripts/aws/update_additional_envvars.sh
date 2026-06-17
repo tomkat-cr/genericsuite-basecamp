@@ -12,6 +12,8 @@
 
 # Set the App specific secrets
 export APP_SECRETS=""
+# Set the App specific envvars
+export APP_ENVS=""
 # /\ /\ /\ ExampleApp specific configuration
 
 CONFIG_FILE="$1"
