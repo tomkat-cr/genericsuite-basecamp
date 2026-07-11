@@ -60,8 +60,10 @@ export interface FieldElement {
     primaryKey?: boolean
     /** Formula function name to calculate value from other fields */
     formula?: string
-    /** Select specific: ID for predefined select options (e.g., "TRUE_FALSE") */
-    select_elements?: string
+    /** Select specific: ID for predefined select options (e.g., "TRUE_FALSE"),
+     * or an inline list of {title, value} objects.
+     * An array of bare strings is NOT valid (renders broken options). */
+    select_elements?: string | Array<{ title: string, value: string | number | boolean }>
     // Suggestion Dropdown specific attributes
     /** Field name in API response for the selected item Key */
     suggestion_id_fieldname?: string
