@@ -53,45 +53,45 @@ tests:
 test: tests
 
 test-run-build:
-	. ./node_modules/genericsuite/scripts/build_prod_test.sh
-	. ./node_modules/genericsuite/scripts/build_prod_test.sh restore
+	. ../node_modules/genericsuite-fe-scripts/build_prod_test.sh
+	. ../node_modules/genericsuite-fe-scripts/build_prod_test.sh restore
  
 test-run-build-restore:
-	. ./node_modules/genericsuite/scripts/build_prod_test.sh restore
+	. ../node_modules/genericsuite-fe-scripts/build_prod_test.sh restore
 
 eject-dev:
 	npm run eject-dev
 
 config: link_config_dirs
-	bash ./node_modules/genericsuite/scripts/change_env_be_endpoint.sh dev
+	bash ../node_modules/genericsuite-fe-scripts/scripts/change_env_be_endpoint.sh dev
 
 config_qa: link_config_dirs
-	bash ./node_modules/genericsuite/scripts/change_env_be_endpoint.sh qa
+	bash ../node_modules/genericsuite-fe-scripts/scripts/change_env_be_endpoint.sh qa
 
 config_demo: link_config_dirs
-	bash ./node_modules/genericsuite/scripts/change_env_be_endpoint.sh demo
+	bash ../node_modules/genericsuite-fe-scripts/scripts/change_env_be_endpoint.sh demo
 
 deploy: config
-	bash ./node_modules/genericsuite/scripts/aws_deploy_to_s3.sh
+	bash ../node_modules/genericsuite-fe-scripts/scripts/aws_deploy_to_s3.sh
 
 deploy_qa: config_qa
-	bash ./node_modules/genericsuite/scripts/aws_deploy_to_s3.sh
+	bash ../node_modules/genericsuite-fe-scripts/scripts/aws_deploy_to_s3.sh
 
 deploy_demo: config_demo
-	bash ./node_modules/genericsuite/scripts/aws_deploy_to_s3.sh
+	bash ../node_modules/genericsuite-fe-scripts/scripts/aws_deploy_to_s3.sh
 
 run: config
-	bash ./node_modules/genericsuite/scripts/run_app_frontend.sh dev
+	bash ../node_modules/genericsuite-fe-scripts/scripts/run_app_frontend.sh dev
 
 run_qa: config_qa
-	bash ./node_modules/genericsuite/scripts/run_app_frontend.sh qa
+	bash ../node_modules/genericsuite-fe-scripts/scripts/run_app_frontend.sh qa
 
 server: run
 start: run
 local: run
 
 run_prod: build-prod
-	# bash ./node_modules/genericsuite/scripts/run_app_frontend.sh prod
+	# bash ../node_modules/genericsuite-fe-scripts/scripts/run_app_frontend.sh prod
 	npm start
 
 tailwind:
@@ -101,7 +101,7 @@ tailwind-build:
 	npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css
 
 add_submodules:
-	bash ./node_modules/genericsuite/scripts/add_github_submodules.sh
+	bash ../node_modules/genericsuite-fe-scripts/scripts/add_github_submodules.sh
 
 create_ssl_certs:
-	bash ./node_modules/genericsuite/scripts/create_ssl_certs.sh
+	bash ../node_modules/genericsuite-fe-scripts/scripts/create_ssl_certs.sh

@@ -6,9 +6,11 @@ Generic Suite (GS) is the ultimate development library designed to streamline fr
 
 [Release Notes](./Releases/index.md) | [Sample Code](./Sample-Code/index.md) | [Repositories](./repositories.md)
 
+<!-->
 [![GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/images/GS_Release_2026-02-18_Image_1A.png)](./Releases/GS_Release_2026-02-18_Changelog.md)
 
 We are proud to announce the [GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/GS_Release_2026-02-18_Changelog.md)
+-->
 
 ## Get Started
 
@@ -52,6 +54,11 @@ Join the growing community of developers using Generic Suite to supercharge thei
 * AI chatbot endpoint with OpenAI, LangChain, and Hugging Face integrations.
 * Computer vision, speech processing, and text-to-speech capabilities.
 * Web scraping, translation tools, and vector search for advanced data handling.
+
+### AI Skills
+
+* Claude Skills plugin collection for the GenericSuite ecosystem.
+* A set of AI agent skills that build a complete GenericSuite application — React frontend, FastAPI backend, JSON-driven CRUD, AI assistant and MCP server — from a conversation.
 
 ### GSAM (Generic Suite App Maker)
 
@@ -124,6 +131,14 @@ Packages:
 * :fontawesome-brands-react:{ .react } [GenericSuite AI (frontend version) for React.js](./Frontend-Development/GenericSuite-AI/index.md)
 * :fontawesome-brands-python:{ .python } [GenericSuite AI (backend version) for Python](./Backend-Development/GenericSuite-AI/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
+
+### GenericSuite AI Agent Skills
+
+The **GenericSuite AI Agent Skills** is a Claude Skills plugin collection for the GenericSuite ecosystem. Its centerpiece is the **app-builder suite** (`gs-app-builder-suite`): a set of AI agent skills that build a complete GenericSuite application — React frontend, FastAPI backend, JSON-driven CRUD, AI assistant and MCP server — from a conversation.
+
+Repository:
+
+* :fontawesome-brands-python:{ .python } [GenericSuite AI Agent Skills](https://github.com/tomkat-cr/genericsuite-skills)
 
 ### GSAM: The Generic Suite AI App Maker
 

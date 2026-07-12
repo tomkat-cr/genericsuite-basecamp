@@ -15,12 +15,13 @@
 * GS BE AI: :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-be-ai](https://github.com/tomkat-cr/genericsuite-be-ai)
 * GS BE Scripts: :fontawesome-brands-linux:{ .linux } [https://github.com/tomkat-cr/genericsuite-be-scripts](https://github.com/tomkat-cr/genericsuite-be-scripts)
 
-### AI
+### IA
 
+* GenericSuite AI Agent Skills: :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-skills](https://github.com/tomkat-cr/genericsuite-skills)
 * GSAM (App Maker): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-app-maker](https://github.com/tomkat-cr/genericsuite-app-maker)
 * GS ASDT (Agentic Software Development Team): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-asdt-be](https://github.com/tomkat-cr/genericsuite-asdt-be)
 
-### Other
+### Otros
 
 * GS Basecamp: :fontawesome-brands-github:{ .github } [https://github.com/tomkat-cr/genericsuite-basecamp](https://github.com/tomkat-cr/genericsuite-basecamp)
 * Repos index: :fontawesome-brands-github:{ .github } [https://github.com/stars/tomkat-cr/lists/genericsuite](https://github.com/stars/tomkat-cr/lists/genericsuite)

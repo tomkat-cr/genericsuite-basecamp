@@ -12,10 +12,10 @@
   "license": "MIT",
   "packageManager": "pnpm@10.12.4",
   "devDependencies": {
-    "turbo": "^2.6.1"
+    "turbo": "^2.10.4"
   },
   "dependencies": {
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.4.2",
     "genericsuite": "github:tomkat-cr/genericsuite-fe#develop",
     "genericsuite-ai": "github:tomkat-cr/genericsuite-fe-ai#develop"
   }

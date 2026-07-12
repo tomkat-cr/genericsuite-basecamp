@@ -17,6 +17,7 @@ Index of the available repositories for GenericSuite.
 
 ### AI
 
+* GenericSuite AI Agent Skills: :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-skills](https://github.com/tomkat-cr/genericsuite-skills)
 * GSAM (App Maker): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-app-maker](https://github.com/tomkat-cr/genericsuite-app-maker)
 * GS ASDT (Agentic Software Development Team): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-asdt-be](https://github.com/tomkat-cr/genericsuite-asdt-be)
 
