@@ -283,6 +283,34 @@ The `autocomplete_fields` attribute is a dictionary that defines the fields to b
 },
 ```
 
+### Select Table
+
+The `select_table` field type is used to implement 1-1 relationships. It shows the related record's description in the listing and read-only views, and a dropdown populated from the related table in the create/edit form.
+
+The `related_table` attribute defines the table (or collection) to fetch the related records from. It's required.
+
+The `related_key` attribute defines the field name in the related table used as the key to match the field's value. Defaults to `_id`.
+
+The `description_fields` attribute is a list of field names from the related table used to build the description shown in the dropdown, listing, and read-only views. Defaults to `["name"]`.
+
+The `description_separator` attribute defines the string used to join the `description_fields` values together. Defaults to `" "`.
+
+The `related_filter` attribute is a dictionary of additional filters applied when fetching the related table's records. Defaults to `{}`.
+
+The API response includes a `{field}_description` attribute (e.g. `user_id_description`) with the resolved description for the related record.
+
+```json
+{
+  "name": "user_id",
+  "type": "select_table",
+  "label": "User",
+  "related_table": "users",
+  "description_fields": ["firstname", "lastname"],
+  "listing": true,
+  "required": true
+}
+```
+
 ### Specific functions
 
 Functions that extend the generic CRUD editor functionality from the frontend perspective. They're intended to be used before and after the database operations: read, write, delete, and validations.
