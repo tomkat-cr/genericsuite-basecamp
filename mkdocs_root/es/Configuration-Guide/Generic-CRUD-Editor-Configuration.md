@@ -283,6 +283,34 @@ El atributo `autocomplete_fields` es un diccionario que define los campos que se
 },
 ```
 
+### Select Table
+
+El tipo de campo `select_table` se utiliza para implementar relaciones 1-1. Muestra la descripción del registro relacionado en el listado y en las vistas de solo lectura, y un desplegable poblado desde la tabla relacionada en el formulario de creación/edición.
+
+El atributo `related_table` define la tabla (o colección) desde la que se obtienen los registros relacionados. Es obligatorio.
+
+El atributo `related_key` define el nombre del campo en la tabla relacionada que se utiliza como clave para coincidir con el valor del campo. Por defecto es `_id`.
+
+El atributo `description_fields` es una lista de nombres de campos de la tabla relacionada que se utilizan para construir la descripción mostrada en el desplegable, el listado y las vistas de solo lectura. Por defecto es `["name"]`.
+
+El atributo `description_separator` define la cadena utilizada para unir los valores de `description_fields`. Por defecto es `" "`.
+
+El atributo `related_filter` es un diccionario de filtros adicionales aplicados al obtener los registros de la tabla relacionada. Por defecto es `{}`.
+
+La respuesta de la API incluye un atributo `{field}_description` (p. ej. `user_id_description`) con la descripción resuelta del registro relacionado.
+
+```json
+{
+  "name": "user_id",
+  "type": "select_table",
+  "label": "User",
+  "related_table": "users",
+  "description_fields": ["firstname", "lastname"],
+  "listing": true,
+  "required": true
+}
+```
+
 ### Funciones específicas
 
 Funciones que amplían la funcionalidad del editor CRUD desde la perspectiva del frontend. Están destinadas a usarse antes y después de las operaciones de base de datos: leer, escribir, eliminar y validaciones.
