@@ -14,13 +14,18 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [Unreleased] - 2026-04-04
+## [1.6.0] - 2026-07-15
 
 ### Added
 - Scripts to copy and init a new project from "fastapitemplate" and "exampleapp": `scripts/new-project-from-template.sh` and `scripts/rename-app.sh` [GS-306].
 - SAST testing [GS-315]
 - AWS_SSL_CERTIFICATE_ARN_FE and AWS_SSL_CERTIFICATE_ARN_BE envvars [GS-328].
 - Multiple CORS Origins support to FastAPI in the `aws_big_lambda/template-sam.yml` file [GS-329].
+- `make create-supad` to exampleapp/fastapitemplate server [GS-306].
+- New AI skill definitions (`.ai/skills/`): add-doc, sample-code-update, translate-docs
+- Introduce `SelectElementItem` model for inline select options in CRUD editor configuration. Update `select_elements` field to support both predefined IDs and inline {title, value} objects [GS-254]
+- `mkdocs_root/en/ai-skills.md` — new docs page for the suite with the new AI skills documentation [GS-254].
+- `select_table` field type documentation to Add 1-1 relationships support to the CRUD Editor listing/data pages [GS-259].
 
 ### Changed
 - Rename `docs/` to `mkdocs_root/` [GS-208].
@@ -30,9 +35,35 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - License changed to MIT [FA-244].
 - Enhance SSL certificate ARN documentation in the backend core for better clarity on the AWS_SSL_CERTIFICATE_ARN_FE and AWS_SSL_CERTIFICATE_ARN_BE envvars usage across backend and frontend scripts [GS-328].
 - Initialize APP_ENVS variable in `update_additional_envvars.sh` for app-specific environment variables example [GS-329].
+- Update FastApiTemplate Makefile with new utility targets, "tomkat-cr" replaced with "github-username" in ".env.example" [GS-306]
+- Separate directory structure from CLAUDE.md to make it smalller [GS-303].
+- Update FastAPI template setup with instructions to run the `new-project-from-template.sh` using `curl` [GS-306].
+- Add FastApiTemplate reference to the configuration guide main document [GS-254]
+- FastApiTemplate: Refactor UI components renaming "_components" > "components", "_images" > "images", and "_constants" > "constants" [GS-306].
+- Update exampleap/fastapitemplate server and mcp-server development scripts for dynamic environment management, so stage can be set running `STAGE=dev make dev`(package.json now uses the STAGE variable on "dev": "make run_${STAGE:-qa}") [GS-306].
+- FastApiTemplate: Make ".env.example" files to use default values for less user changes on project startup [GS-306].
+- Enhance AGENTS.md, GEMINI.md, and CLAUDE.md files to provide better context and instructions to AI Coding Assistants [GS-303].
+- Include .claude, .agents, .codex, .cursor, and .gemini directories to share skills/commande from the .ai directory [GS-254]
+- Rename '.claude' to '.ai'
+- Fix directory graphs ending directory lines
+- Modify `food_moment_in_user` function documentation for clarity on user references. Clean up food moments operations documentation [GS-254].
+- ExampleApp: broad exception handling in FDA food endpoint [GS-254].
+- `mkdocs.yml` — one nav line ('AI Skills'), verified `build-safe` against the i18n folder convention [GS-254].
+- ExampleApp: Update dependencies in `package.json` and `pnpm-lock.yaml` for dotenv and turbo. [GS-254]
+- ExampleApp: Update `aiohappyeyeballs` and `aiohttp` versions in uv.lock files for API apps.
+- ExampleApp and FastApiTemplate: Refactor Makefile to use `genericsuite-fe-scripts` for build and deployment commands in UI app [GS-107].
 
 ### Fixed
 - `mkdocs_transfer_site.sh` removes the `docs_for_ftp` and `site` directories, and uses `.venv` instead of `venv` to avoid multiple python environments [GS-301].
+- "new-project-from-template.sh" branch and template user input because it wasn't asked due to early default values assignment [GS-306]
+- NEW_NAME validation only if it's set (scripts/new-project-from-template.sh) [GS-306]
+- BASECAMP_BRANCH documentation about default value to "main" (scripts/new-project-from-template.sh) [GS-306]
+- `scripts/rename-app.sh` — new filename-rename pass for fastapitemplate* files (fixes the openapi.json/yaml leftover; tested in a throwaway dir, 5/5 checks, reproduced by the `packages/genericsuite-skills/skills/python-fastapi-code-builder` AI skill reviewer) [GS-254].
+- "Could not resolve dependency: formik@2.4.5" error in ExampleApp [GS-254].
+
+### Removed
+- AGENTS.md symlink [GS-303]
+- `activeContext.md` moved to GS Superproject directory [GS-319]
 
 
 ## [1.5.1] - 2026-04-03

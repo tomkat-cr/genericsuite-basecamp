@@ -22,7 +22,6 @@ Deeper project context (memory bank):
 - Product Context (ecosystem overview and feature set): @docs/productContext.md
 - System Patterns (architecture and design patterns): @docs/systemPatterns.md
 - Tech Context (technology stack, versions, dependencies): @docs/techContext.md
-- Active Context (current work focus and next steps): @docs/activeContext.md
 
 ## Build and Run Commands
 
