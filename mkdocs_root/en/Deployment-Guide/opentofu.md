@@ -77,7 +77,7 @@ Per stack, additionally:
 - **secrets** — the core/AI/app secret and env variables (same lists as `aws_secrets_manager.sh`), plus `APP_DOMAIN_NAME`. Secret values travel only as sensitive `TF_VAR_*` environment variables — they are never written to `.tfvars` files on disk.
 - **s3** — `AWS_S3_CHATBOT_ATTACHMENTS_BUCKET_{STAGE}`.
 - **dynamodb** — `GIT_SUBMODULE_LOCAL_PATH` (the JSON config directory; its `frontend/` files, merged with `backend/`, define the tables).
-- **ecr / ec2 / lambda** — `AWS_LAMBDA_FUNCTION_NAME` (the base resource name); `ec2` and `lambda` also read the `domain` stack's outputs and use `ECR_DOCKER_IMAGE_TAG` for the image to deploy.
+- **ecr / ec2 / lambda** — `AWS_LAMBDA_FUNCTION_NAME` (the base resource name), and `ECR_DOCKER_IMAGE_TAG` for the image to deploy. The `ec2` stack additionally reads the `domain` stack's outputs (certificate ARN, hosted zone) via remote state; the `lambda` stack uses the default `execute-api` URL unless you pass a custom domain and certificate explicitly.
 
 ### Recommended apply order
 
