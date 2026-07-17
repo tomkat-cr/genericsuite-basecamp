@@ -27,6 +27,8 @@ nav:
     - 'GenericSuite AI': './Backend-Development/GenericSuite-AI/index.md'
     - 'Backend Scripts': './Backend-Development/GenericSuite-Scripts/index.md'
     - 'Deployment': './Backend-Development/deployment.md'
+  - 'Deployment Guide':
+    - 'OpenTofu (IaC)': './Deployment-Guide/opentofu.md'
   - 'Other':
     - 'Python Package Managers': './Other/python-package-managers.md'
     - 'History': './history.md'
@@ -114,6 +116,8 @@ plugins:
             'Deployment': 'Despliegue'
             'Backend Development': 'Desarrollo Backend'
             'Backend Scripts': 'Scripts del Backend'
+            'Deployment Guide': 'Guía de Despliegue'
+            'OpenTofu (IaC)': 'OpenTofu (IaC)'
             'Other': 'Otros'
             'Python Package Managers': 'Gestores de Paquetes de Python'
             'History': 'Historia'

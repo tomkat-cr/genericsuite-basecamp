@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ## [Unreleased] - YYYY-MM-DD
 
 ### Added
+- OpenTofu deployment guide (`mkdocs_root/en/Deployment-Guide/opentofu.md`) covering the genericsuite-fe-scripts and genericsuite-be-scripts IaC stacks, with a nav entry in `mkdocs.yml` [GS-334].
 ### Changed
 ### Fixed
 ### Security
