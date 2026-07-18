@@ -2,41 +2,41 @@
 
 ![gs_logo_circle.png](../../../assets/images/gs_logo_circle.png)
 
-GenericSuite (versión frontend) cuenta con un editor CRUD personalizable, generador de menús, interfaz de inicio de sesión, comunicación segura con la API y una batería de herramientas para acelerar tu proceso de desarrollo.
+The GenericSuite (frontend version) has a customizable CRUD editor, menu generator, login interface, API secure communication and a suite of tools to kickstart your development process.
 
 ## Características
 
-- **Editor CRUD personalizable:** código CRUD básico (Crear-Leer-Actualizar-Eliminar) que puede parametrizarse y ampliarse mediante archivos de configuración JSON. No es necesario reescribir el código para cada editor de tablas.
-- **Menú personalizable:** el menú y los endpoints pueden parametrizarse y ampliarse mediante archivos de configuración JSON en el lado del backend. La API suministrará la estructura del menú y la verificación de seguridad basada en el grupo de seguridad del usuario, y GenericSuite dibujará el menú y las opciones disponibles.
-- **Interfaz de inicio de sesión personalizable:** adapte fácilmente la página de inicio de sesión para que coincida con la identidad de su marca con el logotipo de la App.
-- **Scripts de desarrollo y producción:** comandos rápidos para iniciar el desarrollo o construir su aplicación para entornos de QA, staging y producción en AWS.
-- **Pruebas con Jest:** Viene preconfigurado con Jest para ejecutar pruebas, incluyendo una prueba inicial para el componente `<App />`.
+- **Editor CRUD personalizable:** código CRUD central (Create-Read-Update-Delete) que puede parametrizarse y extenderse mediante archivos de configuración JSON. No es necesario reescribir el código para cada editor de tablas.
+- **Menú personalizable:** el menú y los endpoints pueden parametrizarse y ampliarse mediante archivos de configuración JSON en el lado del backend. La API proporcionará la estructura del menú y la verificación de seguridad basada en el grupo de seguridad del usuario, y GenericSuite mostrará el menú y las opciones disponibles.
+- **Interfaz de inicio de sesión personalizable:** Adapte fácilmente la página de inicio de sesión para que coincida con la identidad de su marca con el logotipo de la aplicación.
+- **Scripts de desarrollo y producción:** Comandos rápidos para iniciar el desarrollo o construir su aplicación para entornos de QA, staging y producción en AWS.
+- **Pruebas con Jest:** Viene preconfigurado con Jest para ejecutar pruebas, incluida una prueba inicial para el componente `<App />`.
 
 El compañero perfecto para esta solución de frontend es la [versión de backend de The GenericSuite](https://github.com/tomkat-cr/genericsuite-be).
 
-Hay una versión de esta biblioteca con características de IA: [The GenericSuite AI](https://github.com/tomkat-cr/genericsuite-fe-ai).
+There's a version of this library with AI features: [The GenericSuite AI](https://github.com/tomkat-cr/genericsuite-fe-ai).
 
-## Pre-requisitos
+## Requisitos previos
 
-Necesitas instalar estas herramientas:
+Debe instalar estas herramientas:
 
-- Versión de Node 20+, instalada vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o instalación de [NPM y Node](https://nodejs.org/en/download)
+- Versión de Node 20+, instalada vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o [NPM y Node](https://nodejs.org/en/download) instalación.
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 
-## Getting Started
+## Inicio
 
-Para empezar con GenericSuite, sigue estos pasos:
+Para empezar con GenericSuite, siga estos pasos:
 
 ### Crear los repositorios de Git
 
-Crea los repositorios en tu plataforma de Git favorita ([Github](https://github.com/), [Gitlab](https://gitlab.com/), [Bitbucket](https://bitbucket.org/)).
+Cree los repositorios en su plataforma Git favorita ([Github](https://github.com/), [Gitlab](https://gitlab.com/), [Bitbucket](https://bitbucket.org/)).
 
-Un repositorio es para la App frontend y el otro para las configuraciones (archivos JSON de configuración) que se compartirán entre los repos y repos backend como un submódulo de Git.
+Un repositorio es para la aplicación frontend y el otro para las configuraciones (archivos de configuración JSON) que se compartirán entre los repositorios de frontend y backend como un submódulo de Git.
 
-Una vez creados, abre una ventana de Terminal y cambia al directorio raíz de tus repos.
+Una vez creados, abra una ventana de Terminal y cambie al directorio raíz de sus repos.
 
-Clona los repos.
+Clonar los repos.
 
 Ej.: para un repositorio llamado `exampleapp_frontend` creado en Github:
 
@@ -52,23 +52,23 @@ git clone https://github.com/tomkat-cr/exampleapp_configs.git
 
 ### Build tools
 
-Genericsuite admite las siguientes herramientas de build:
+Genericsuite admite las siguientes herramientas de compilación:
 
-* **Vite**<br>
-  Vite es una herramienta de construcción que busca proporcionar una experiencia de desarrollo más rápida y liviana para proyectos web modernos. Para más información consulta la [documentación de Vite](https://vite.dev).<br><br>
+- **Vite**<br>
+  Vite es una herramienta de construcción que tiene como objetivo proporcionar una experiencia de desarrollo más rápida y ligera para proyectos web modernos. Para más información consulte la [documentación de Vite](https://vite.dev).<br><br>
 
-* **Webpack**<br>
-  En su núcleo, Webpack es un empaquetador estático de módulos para aplicaciones modernas de JavaScript. Para más información consulta la [documentación de Webpack](https://webpack.js.org).<br><br>
+- **Webpack**<br>
+  En su núcleo, Webpack es un empaquetador estático de módulos para aplicaciones modernas de JavaScript. Para más información consulte la [documentación de Webpack](https://webpack.js.org).<br><br>
 
-* **Create React App**<br>
-  Create React App (CRA) es una herramienta que permite crear aplicaciones React. Su desarrollo y mantenimiento están abandonados, por lo que se recomienda usar "Vite" o "Webpack". Para más información consulta la [documentación de Create React App](https://create-react-app.dev).<br><br>
+- **Create React App**<br>
+  Create React App (CRA) es una herramienta que le permite crear aplicaciones React. Su desarrollo y mantenimiento han quedado abandonados, por lo que recomendamos usar "Vite" o "Webpack". Para más información consulte la [documentación de Create React App](https://create-react-app.dev).<br><br>
 
-* **React-app-rewired**<br>
-  React-app-rewired es una alternativa al Create React App por defecto. Recomendamos usar "Vite" o "Webpack" porque hoy en día se mantiene de forma “ligera” en su mayoría por la comunidad. Para más información consulta la [documentación de react-app-rewired](https://github.com/timarney/react-app-rewired).<br><br>
+- **React-app-rewired**<br>
+  React-app-rewired es una alternativa al Create React App predeterminado. Recomendamos usar "Vite" o "Webpack" porque hoy en día está mantenido de forma más ligera por la comunidad. Para más información consulte la [documentación de react-app-rewired](https://github.com/timarney/react-app-rewired).<br><br>
 
 ### Iniciar tu proyecto
 
-Crea la App ReactJS. Por ejemplo, `exampleapp_frontend`:
+Cree la App ReactJS. Por ejemplo, `exampleapp_frontend`:
 
 * **Vite**<br>
 
@@ -92,16 +92,16 @@ Automáticamente realiza el `npm init` y `git init`, añade las dependencias de 
 npx create-react-app exampleapp_frontend
 ```
 
-NOTA: Consulta la documentación [aquí](https://react.dev/learn/start-a-new-react-project) para alternativas de CRA (`create-react-app`).
+NOTA: Consulte la documentación [aquí](https://react.dev/learn/start-a-new-react-project) para alternativas de CRA (`create-react-app`).
 
 * **React-app-rewired**<br>
 
-Cambia al directorio de desarrollo local del frontend.<br>
+Cambie a su directorio de desarrollo local del frontend.<br>
 ```bash
 cd exampleapp_frontend
 ```
 
-CRA (`create-react-app`) está desactualizado, por lo que usamos [react-app-rewired](https://www.npmjs.com/package/react-app-rewired) para personalizar la configuración de CRA sin necesidad de expulsarla:
+CRA (`create-react-app`) está desactualizado, por lo que usamos [react-app-rewired](https://www.npmjs.com/package/react-app-rewired) para personalizar la configuración de CRA sin necesidad de expulsar:
 
 ```bash
 npm install --save-dev react-app-rewired
@@ -151,15 +151,15 @@ npm install --save-dev \
 
 ### Desinstalar dependencias no requeridas
 
-Desinstalar dependencias instaladas por CRA e incluidas en la biblioteca GenericSuite:
+Desinstalar dependencias no requeridas instaladas por CRA e incluidas en la biblioteca GenericSuite:
 
 ```bash
 npm uninstall react react-dom react-scripts web-vitals
 ```
 
-### Instalar las herramientas de construcción por separado
+### Instalar solo las herramientas de compilación
 
-Si ya tienes tu proyecto inicializado, por ejemplo con CRA, puedes instalar por separado las herramientas de construcción alternativas:
+Si ya tiene su proyecto inicializado, p. ej. con CRA, puede instalar por separado las herramientas de compilación alternativas:
 
 * **Vite**<br>
 
@@ -179,62 +179,61 @@ npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugi
 npm install --save-peer --strict-peer-deps webpack webpack-cli webpack-dev-server html-webpack-plugin interpolate-html-plugin
 -->
 
-### Preparar los Archivos de Configuración
+### Preparar los archivos de configuración
 
-Copia la plantilla de archivo [.env.example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example) desde `node_modules/genericsuite` a tu archivo `.env`:
+Copie la plantilla del archivo [.env.example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example) desde `node_modules/genericsuite` a su archivo `.env`:
 
 ```bash
 cp node_modules/genericsuite/.env.example .env`
 ```
 
-Y configura las variables según tus necesidades:
+Y configure las variables según sus necesidades:
 
-- Asigna `REACT_APP_APP_NAME` con el nombre de tu App.
+- Asigne `REACT_APP_APP_NAME` con el nombre de su App.
 
-- Asigna `API_VERSION` con la versión de la API. Por defecto es "v1".
+- Asigne `API_VERSION` con la versión de la API. Por defecto es "v1".
 
-- Asigna `APP_LOCAL_DOMAIN_NAME` con el dominio del API del backend en el entorno de desarrollo local. Por ejemplo app.ejemploapp.local o localhost.<br>
-  Por defecto es app.${REACT_APP_APP_NAME}.local (el REACT_APP_APP_NAME se convertirá a minúsculas).
+- Asigne `APP_LOCAL_DOMAIN_NAME` con el dominio de la API del entorno de desarrollo local. Por ejemplo app.exampleapp.local o localhost.<br>
+Predeterminado a app.${REACT_APP_APP_NAME}.local (REACT_APP_APP_NAME se convertirá a todo en minúsculas).
 
-- Asigna `FRONTEND_LOCAL_PORT` con el número de puerto del frontend en desarrollo local. Por defecto es 3000.
+- Asigne `FRONTEND_LOCAL_PORT` con el número de puerto del frontend de desarrollo local. Por defecto es 3000.
 
-- Asigna `BACKEND_LOCAL_PORT` con el puerto del backend API en desarrollo local. Por defecto es 5001.
+- Asigne `BACKEND_LOCAL_PORT` con el número de puerto de la API backend de desarrollo local. Por defecto es 5001.
 
-- Asigna `APP_API_URL_QA`, `APP_API_URL_STAGING`, `APP_API_URL_PROD` y `APP_API_URL_DEMO` con los nombres de dominio públicos correspondientes del backend API para los entornos de tu App.
+- Asigne `APP_API_URL_QA`, `APP_API_URL_STAGING`, `APP_API_URL_PROD`, y `APP_API_URL_DEMO` con los correspondientes nombres de dominio público de la API backend para tus entornos de la App.
 
-- Asigna `APP_FE_URL_QA`, `APP_FE_URL_STAGING`, `APP_FE_URL_PROD` y `APP_FE_URL_DEMO` con los nombres de dominio públicos correspondientes del frontend para los entornos de tu App.
+- Asigne `APP_FE_URL_QA`, `APP_FE_URL_STAGING`, `APP_FE_URL_PROD`, y `APP_FE_URL_DEMO` con los correspondientes nombres de dominio público del frontend para tus entornos de la App.
 
-- Asigna `REACT_APP_URI_PREFIX` con el prefijo de URI de la App. Esto se usará en todos los entornos después del nombre de dominio. Por ejemplo, https://app.ejemploapp.com/ejemplo_frontend
+- Asigne `REACT_APP_URI_PREFIX` con el prefijo de la URI de la App. Esto se usará en todos los entornos después del nombre de dominio. Por ejemplo: https://app.exampleapp.com/exampleapp_frontend
 
-- Configura tu `RUN_BUNDLER` deseado. Las opciones disponibles son "vite", "webpack" y "react-scripts". Por defecto es "vite".
+- Configure su `RUN_BUNDLER` deseado. Las opciones disponibles son "vite", "webpack" y "react-scripts". Por defecto es "vite".
 
-- Configura `RUN_PROTOCOL` con el protocolo para tu entorno de desarrollo local. Las opciones disponibles son "http" y "https". Por defecto es "" lo que significa que el usuario debe configurar manualmente el protocolo cuando inicie el entorno de desarrollo local.
+- Configure `RUN_PROTOCOL` con el protocolo para su entorno de desarrollo local. Las opciones disponibles son "http" y "https". Por defecto es "" lo que significa que el usuario debe configurar manualmente el protocolo cuando inicie el entorno de desarrollo local.
 
-- Configura `BACKEND_PATH` con la ruta de tu repositorio local de desarrollo del backend.
+- Configure `BACKEND_PATH` con la ruta de su repositorio local de desarrollo de la API backend.
 
-- Configura `GIT_SUBMODULE_LOCAL_PATH_FRONTEND` y `GIT_SUBMODULE_URL` con los parámetros de los archivos JSON para establecer un lugar de configuración común tanto para el frontend como para el backend (utilizado por add_github_submodules.sh).<br>Para ver archivos de ejemplo, consulta: [Guía de Configuración de Generic Suite](./../../Configuration-Guide/index.md)
+- Configure `GIT_SUBMODULE_LOCAL_PATH_FRONTEND` y `GIT_SUBMODULE_URL` con los parámetros de submódulo JSON para establecer un lugar común de configuración tanto para frontend como para backend (utilizado por add_github_submodules.sh).<br>Para archivos de ejemplo, visite: [Guía de Configuración de Generic Suite](./../../Configuration-Guide/index.md)
 
-- Configura los parámetros `AWS_*` con tus datos de AWS (utilizados por aws_deploy_to_s3.sh y change_env_be_endpoint.sh). Necesitarás una cuenta de AWS.
+- Configure los parámetros `AWS_*` con sus datos de AWS (utilizado por aws_deploy_to_s3.sh y change_env_be_endpoint.sh). Necesitará una cuenta de AWS.
 
-Para más información, consulta los comentarios de cada variable en el archivo [.env.example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example).
+Para obtener más información, consulte los comentarios de cada variable en el archivo [.env.example](https://github.com/tomkat-cr/genericsuite-fe/blob/main/.env.example).
 
 #### Otros parámetros
 
-* `REACT_APP_X_TOKEN=1` para usar 'x-access-tokens' en lugar de 'Authorization: Bearer'. Por defecto es "0"
+- `REACT_APP_X_TOKEN=1` para usar 'x-access-tokens' en lugar de 'Authorization: Bearer'. Por defecto es "0"
 
 
 ### Preparar el Makefile
 
-Copia la plantilla de `Makefile` desde `node_modules/genericsuite`:
+Copie la plantilla de Makefile desde `node_modules/genericsuite-fe-scripts`:
 
 ```bash
-cp node_modules/genericsuite/Makefile ./Makefile
+cp node_modules/genericsuite-fe-scripts/Makefile ./Makefile
 ```
-
 
 ### Cambiar Scripts en Package.json
 
-Abre el `package.json`:
+Abra el `package.json`:
 
 ```bash
 vi ./package.json
@@ -242,16 +241,15 @@ vi ./package.json
 # code ./package.json
 ```
 
-Si quieres alojar tu frontend en **github.io**, añade el parámetro homepage:
+Si desea alojar su frontend en **github.io**, agregue el parámetro homepage:
 
 ```package.json
 "homepage": "https://your-github-username.github.io/your-github-repository/",
 ```
-```
-NOTA: reemplaza `your-github-username` y `your-github-repository` por los tuyos.
-```
 
-Añade los siguientes scripts:
+NOTE: replace `your-github-username` and `your-github-repository` with your owns.
+
+Agregue los siguientes scripts:
 
 ```package.json
    "scripts": {
@@ -271,9 +269,9 @@ Añade los siguientes scripts:
    },
 ```
 
-## Estructura de la aplicación
+## Estructura de la App
 
-Esta es una estructura de repositorio de desarrollo de la App sugerida:
+Esta es una estructura sugerida de desarrollo de la App:
 
 ```
 .
@@ -346,7 +344,7 @@ En el directorio del proyecto:
 Configuración del transpiler Babel. Consulta la [documentación aquí](https://babeljs.io/docs/configuration).<br><br>
 
 - `CHANGELOG` ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe/blob/main/CHANGELOG.md))<br>
-Documentación de cambios para este proyecto.<br><br>
+Cambios documentados para este proyecto.<br><br>
 
 - `config-overrides.js` ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe/blob/main/config-overrides.js))<br>
 Configuración de React-app-rewired. Para más información consulta la [documentación de react-app-rewired](https://github.com/timarney/react-app-rewired).<br><br>
@@ -358,8 +356,8 @@ Configuración de pruebas JEST.<br><br>
 Servidor Node, para probar y depurar tu App en un entorno similar a producción.<br><br>
 
 - `tailwind.config.js`<br>
-Instala e inicializa Tailwind con [instrucciones aquí](https://tailwindcss.com/docs/installation).<br>
-Para configuración adicional de Tailwind consulta la [documentación aquí](https://tailwindcss.com/docs/configuration).<br><br>
+Instalar e inicializar Tailwind con las [instrucciones aquí](https://tailwindcss.com/docs/installation).<br>
+Para configuración adicional de Tailwind, consulta la [documentación aquí](https://tailwindcss.com/docs/configuration).<br><br>
 
 Configuración sugerida de Tailwind:
 
@@ -390,9 +388,9 @@ module.exports = {
 ```
 
 - `vite.config.mjs` ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe/blob/main/vite.config.mjs))<br>
-Configuración de Vite. Para más información consulta la [documentación de Vite](https://vite.dev/guide).<br><br>
+Configuración de Vite. Para más información consulte la [documentación de Vite](https://vite.dev/guide).<br><br>
 
-**IMPORTANTE**: si tienes un archivo `vite.config.js`, cámbialo a `vite.config.mjs`. Si no lo haces, Vite no funcionará y dará errores como:
+**IMPORTANTE**: si tiene un archivo `vite.config.js`, renómelo a `vite.config.mjs`. Si no lo haces, Vite no funcionará y mostrará errores como:
 ```
 ERROR: [plugin: externalize-deps] Failed to resolve "@tailwindcss/vite". This package is ESM only but it was tried to load by `require`.
 ```
@@ -449,15 +447,15 @@ Para configurar TypeScript. p. ej.
 
 ### Opción 1
 
-Si no tienes un `public/index.html` personalizado (solo el predeterminado creado por CRA):
+Si no tiene un `public/index.html` personalizado (solo el predeterminado creado por CRA):
 
-Crea el archivo `public/index.html`:
+Cree el archivo `public/index.html`:
 
 ```bash
 vi public/index.html
 ```
 
-Copiar y pegar este contenido:
+Copie y pegue este contenido:
 
 ```html
 <!DOCTYPE html>
@@ -513,15 +511,15 @@ Copiar y pegar este contenido:
 
 ### Opción 2
 
-Si ya tienes un archivo `public/index.html` personalizado:
+Si ya tiene un archivo `public/index.html` personalizado:
 
-Edita el archivo `public/index.html`:
+Edite el archivo `public/index.html`:
 
 ```bash
 vi public/index.html
 ```
 
-Asegúrate de añadir `%PUBLIC_URL%` a estas líneas:
+Asegúrese de añadir `%PUBLIC_URL%` a estas líneas:
 
 ```html
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -545,7 +543,7 @@ Después de esta línea:
     <link href="%PUBLIC_URL%/output.css" rel="stylesheet">
 ```
 
-Elimina el pie de página y los créditos:
+Elimine el pie de página y créditos:
 
 ```html
     <!-- credits -->
@@ -558,19 +556,19 @@ Elimina el pie de página y los créditos:
 
 ### Paso final para cualquier opción
 
-Finalmente ejecuta este comando para crear el archivo `src/output.css`:
+Finalmente ejecute este comando para crear el archivo `src/output.css`:
 
 ```bash
 npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css
 ```
 
-Y copia el archivo generado al directorio `public`:
+Y copie el archivo generado al directorio `public`:
 
 ```bash
 cp src/output.css public/
 ```
 
-Para mantener actualizado el archivo `src/output.css`, durante el ciclo de desarrollo abre una nueva terminal y ejecuta:
+Para mantener actualizado el archivo `src/output.css`, durante el ciclo de desarrollo abra una nueva terminal y ejecute:
 
 ```bash
 make tailwind
@@ -578,9 +576,9 @@ make tailwind
 
 ## Ejemplos de código y archivos de configuración JSON
 
-La configuración principal del menú, endpoints de la API y el editor CRUD se definen en los archivos de configuración JSON.
+El menú principal, los endpoints de la API y las configuraciones del editor CRUD se definen en los archivos de configuración JSON.
 
-Puedes encontrar ejemplos sobre configuraciones y cómo codificar una App en la [Guía de Creación y Configuración de GenericSuite](../../Configuration-Guide/index.md).
+Puede encontrar ejemplos sobre configuraciones y cómo codificar una App en la [Guía de Creación y Configuración de GenericSuite](../../Configuration-Guide/index.md).
 
 ## Uso
 
@@ -598,6 +596,6 @@ Para iniciar el servidor de desarrollo:
 make run
 ```
 
-### Despliegue para QA
+### Despliegue QA
 
-Consulta la [Guía de Despliegue](../deployment.md) para más detalles.
+Consulte la [Guía de Despliegue](../deployment.md) para obtener más detalles.

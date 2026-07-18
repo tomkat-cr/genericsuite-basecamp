@@ -4,10 +4,15 @@ Index of the available repositories for GenericSuite.
 
 ![gs_ai_logo_circle.png](../assets/images/gs_ai_logo_circle.png)
 
+### Superproject
+
+* GenericSuite: :fontawesome-brands-github:{ .github } [https://github.com/tomkat-cr/genericsuite](https://github.com/tomkat-cr/genericsuite)
+
 ### Frontend
 
 * GS FE Core: :fontawesome-brands-react:{ .react } [https://github.com/tomkat-cr/genericsuite-fe](https://github.com/tomkat-cr/genericsuite-fe)
 * GS FE AI: :fontawesome-brands-react:{ .react } [https://github.com/tomkat-cr/genericsuite-fe-ai](https://github.com/tomkat-cr/genericsuite-fe-ai)
+* GS FE Scripts: :fontawesome-brands-linux:{ .linux } [https://github.com/tomkat-cr/genericsuite-fe-scripts](https://github.com/tomkat-cr/genericsuite-fe-scripts)
 
 ### Backend
 
@@ -17,7 +22,7 @@ Index of the available repositories for GenericSuite.
 
 ### AI
 
-* GenericSuite AI Agent Skills: :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-skills](https://github.com/tomkat-cr/genericsuite-skills)
+* GenericSuite AI Agent Skills: :fontawesome-brands-openai:{ .openai } [https://github.com/tomkat-cr/genericsuite-skills](https://github.com/tomkat-cr/genericsuite-skills)
 * GSAM (App Maker): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-app-maker](https://github.com/tomkat-cr/genericsuite-app-maker)
 * GS ASDT (Agentic Software Development Team): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-asdt-be](https://github.com/tomkat-cr/genericsuite-asdt-be)
 
@@ -33,6 +38,7 @@ Index of the available repositories for GenericSuite.
 
 * :fontawesome-brands-npm:{ .npm } [https://www.npmjs.com/package/genericsuite](https://www.npmjs.com/package/genericsuite)
 * :fontawesome-brands-npm:{ .npm } [https://www.npmjs.com/package/genericsuite-ai](https://www.npmjs.com/package/genericsuite-ai)
+* :fontawesome-brands-npm:{ .npm } [https://www.npmjs.com/package/genericsuite-fe-scripts](https://www.npmjs.com/package/genericsuite-fe-scripts)
 
 ### Backend
 

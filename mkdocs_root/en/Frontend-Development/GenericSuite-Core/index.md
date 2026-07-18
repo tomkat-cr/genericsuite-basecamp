@@ -225,12 +225,11 @@ For more information, check the comments for each variable in the [.env.example]
 
 ### Prepare the Makefile
 
-Copy the `Makefile` template from `node_modules/genericsuite`:
+Copy the `Makefile` template from `node_modules/genericsuite-fe-scripts`:
 
 ```bash
-cp node_modules/genericsuite/Makefile ./Makefile
+cp node_modules/genericsuite-fe-scripts/Makefile ./Makefile
 ```
-
 
 ### Change Scripts in Package.json
 

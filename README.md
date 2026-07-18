@@ -72,7 +72,7 @@ In this repository you will find the [instructions](https://genericsuite.carlosj
 ## Posts
 
 * X: [@genericsuitelib](https://twitter.com/genericsuitelib)
-* [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
+* [https://www.carlosjramirez.com/en/genericsuite](https://www.carlosjramirez.com/en/genericsuite)
 * [https://www.carlosjramirez.com/genericsuite-es/](https://www.carlosjramirez.com/genericsuite-es/)
 
 ## License

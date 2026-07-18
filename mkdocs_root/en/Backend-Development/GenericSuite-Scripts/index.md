@@ -1,4 +1,4 @@
-# The GenericSuite Scripts
+# GenericSuite Scripts for Backend Development
 
 [GenericSuite Scripts (backend version)](https://github.com/tomkat-cr/genericsuite-be-scripts) is a suite of features to enhance the Python API development process.
 
@@ -21,7 +21,7 @@ This repository contains the backend scripts necessary to build and deploy APIs 
 
 ## Getting Started
 
-To get started with GenericSuite, follow these steps:
+To get started with GenericSuite Scripts (backend version), follow these steps:
 
 ### Initiate your project
 
@@ -35,12 +35,6 @@ npm init
 
 ```bash
 npm install -D genericsuite-be-scripts
-```
-
-To generate sef-signed SSL certificates, `office-addin-dev-certs` is required:
-
-```bash
-npm install -D office-addin-dev-certs
 ```
 
 ### Prepare the Makefile
@@ -1075,6 +1069,12 @@ make copy_ssl_certs
 
 ```bash
 make create_ssl_certs
+```
+
+**NOTE**: To generate sef-signed SSL certificates, using `mkcert` is recommended, but if you prefer to use `office-addin-dev-certs`, it's also supported. Install it with:
+
+```bash
+npm install -D office-addin-dev-certs
 ```
 
 ### NPM package scripts

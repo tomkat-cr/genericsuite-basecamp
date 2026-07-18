@@ -2,7 +2,7 @@ site_name: The Generic Suite
 site_url: https://genericsuite.carlosjramirez.com
 copyright: Copyright &copy; 2024-PRESENT <a href="https://www.carlosjramirez.com">Carlos Ramirez</a>
 
-repo_url: https://github.com/tomkat-cr/genericsuite-basecamp
+repo_url: https://github.com/tomkat-cr/genericsuite
 repo_name: tomkat-cr/genericsuite
 
 docs_dir: mkdocs_root
@@ -16,6 +16,8 @@ nav:
   - 'Sample Code': './Sample-Code/index.md'
   - 'AI Skills': './ai-skills.md'
   - 'Releases': './Releases/index.md'
+  - 'Deployment Guide':
+    - 'OpenTofu (IaC)': './Deployment-Guide/opentofu.md'
   - 'The GenericSuite Core': './genericsuite-core.md'
   - 'The GenericSuite AI': './genericsuite-ai.md'
   - 'Frontend Development':
@@ -27,8 +29,6 @@ nav:
     - 'GenericSuite AI': './Backend-Development/GenericSuite-AI/index.md'
     - 'Backend Scripts': './Backend-Development/GenericSuite-Scripts/index.md'
     - 'Deployment': './Backend-Development/deployment.md'
-  - 'Deployment Guide':
-    - 'OpenTofu (IaC)': './Deployment-Guide/opentofu.md'
   - 'Other':
     - 'Python Package Managers': './Other/python-package-managers.md'
     - 'History': './history.md'

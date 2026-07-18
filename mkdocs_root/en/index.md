@@ -6,7 +6,7 @@ Generic Suite (GS) is the ultimate development library designed to streamline fr
 
 [Release Notes](./Releases/index.md) | [Sample Code](./Sample-Code/index.md) | [Repositories](./repositories.md)
 
-<!-->
+<!--
 [![GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/images/GS_Release_2026-02-18_Image_1A.png)](./Releases/GS_Release_2026-02-18_Changelog.md)
 
 We are proud to announce the [GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/GS_Release_2026-02-18_Changelog.md)
@@ -69,10 +69,11 @@ Join the growing community of developers using Generic Suite to supercharge thei
 ### ASDT (Agentic Software Development Team)
 
 * Multi-agent AI collaboration for problem-solving and software automation.
-* Built on CrewAI, Camel AI, LangGraph, and Smolagent for scalable agentic workflows.
+* Built on CrewAI and Camel AI (LangGraph and Smolagent planned) for scalable agentic workflows.
 
 ### Effortless DevOps & Deployment
 
+* Deployments to production, QA, Staging and demo with OpenTofu (IaC) and CloudFormation (AWS).
 * Pre-configured GitOps scripts for Kubernetes, Docker, and VPS environments.
 * Local AI service setups, including OLLAMA, WebUI, Stable Diffusion, and N8N.
 * Comprehensive documentation and best practices via Generic Suite Basecamp.
@@ -100,6 +101,7 @@ Packages:
 
 * :fontawesome-brands-react:{ .react } [GenericSuite Core (frontend version) for React.js](./Frontend-Development/GenericSuite-Core/index.md)
 * :fontawesome-brands-python:{ .python } [GenericSuite Core (backend version) for Python](./Backend-Development/GenericSuite-Core/index.md)
+* :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (frontend version)](./Frontend-Development/GenericSuite-Scripts/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
 
 ![gs_ai_logo_circle.png](../assets/images/gs_ai_logo_circle.png)
@@ -163,6 +165,7 @@ The **Generic Suite Gitops** provides the scripts and configurations needed to d
 Repository:
 
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Gitops (Local Development Server operations)](https://github.com/tomkat-cr/genericsuite-gitops)
+* Deployment Guide: [OpenTofu (IaC) Deployment Guide](./Deployment-Guide/opentofu.md)
 
 ## Repositories
 
@@ -207,7 +210,7 @@ X: [@genericsuitelib](https://twitter.com/genericsuitelib)
 
 English:
 
-* [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
+* [https://www.carlosjramirez.com/en/genericsuite/](https://www.carlosjramirez.com/en/genericsuite/)
 
 Spanish:
 

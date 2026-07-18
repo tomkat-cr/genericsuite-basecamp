@@ -8,10 +8,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ## [Unreleased] - YYYY-MM-DD
 
 ### Added
-- OpenTofu deployment guide (`mkdocs_root/en/Deployment-Guide/opentofu.md`) covering the genericsuite-fe-scripts and genericsuite-be-scripts IaC stacks, with a nav entry in `mkdocs.yml` [GS-334].
+
 ### Changed
+
 ### Fixed
+
 ### Security
+
 ### Removed
 
 
@@ -27,6 +30,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Introduce `SelectElementItem` model for inline select options in CRUD editor configuration. Update `select_elements` field to support both predefined IDs and inline {title, value} objects [GS-254]
 - `mkdocs_root/en/ai-skills.md` — new docs page for the suite with the new AI skills documentation [GS-254].
 - `select_table` field type documentation to Add 1-1 relationships support to the CRUD Editor listing/data pages [GS-259].
+- OpenTofu deployment guide (`mkdocs_root/en/Deployment-Guide/opentofu.md`) covering the genericsuite-fe-scripts and genericsuite-be-scripts IaC stacks, with a nav entry in `mkdocs.yml` [GS-334].
 
 ### Changed
 - Rename `docs/` to `mkdocs_root/` [GS-208].

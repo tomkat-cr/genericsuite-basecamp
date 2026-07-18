@@ -1,33 +1,33 @@
-# Los Scripts de GenericSuite
+# Scripts de GenericSuite para el desarrollo del backend
 
-[Scripts de GenericSuite (versión backend)](https://github.com/tomkat-cr/genericsuite-be-scripts) es una suite de características para mejorar el desarrollo de APIs en Python.
+[GenericSuite Scripts (backend version)](https://github.com/tomkat-cr/genericsuite-be-scripts) es un conjunto de características para mejorar el proceso de desarrollo de la API en Python.
 
-Este repositorio contiene los scripts de backend necesarios para construir e implementar APIs creadas por [GenericSuite (versión backend)](../GenericSuite-Core/index.md) y [GenericSuite AI (versión backend)](../GenericSuite-AI/index.md).
+Este repositorio contiene los scripts de backend necesarios para construir y desplegar APIs creadas por [GenericSuite (versión backend)](../GenericSuite-Core/index.md) y [GenericSuite AI (versión backend)](../GenericSuite-AI/index.md).
 
 ## Características
 
-- **Despliegue AWS**: Despliegue a AWS como función Lambda con API Gateway usando SAM (AWS Serverless Application Model).
-- **Entorno de desarrollo local**: ejecución con http o https, con o sin Docker.
-- **Servidor DNS local**: para permitir acceso a la API mediante HTTPS con un nombre de dominio como `app.exampleapp.local` y permitir el acceso desde otros dispositivos localmente (p. ej. smartphones) para probar tu App.
-- **Creación de certificados SSL autofirmados**: para permitir que los entornos de desarrollo frontend y backend locales funcionen sobre conexiones HTTPS seguras.
-- **Gestión común de configuración JSON**: para añadir el Submódulo de Git con los directorios de configuración JSON comunes.
-- **Contenedor Docker de base de datos local**: utilizado por el sitio de pruebas y permite tener un entorno de desarrollo local fuera de línea.
+- **Despliegue en AWS**: Despliegue a AWS como función Lambda con API Gateway usando SAM (AWS Serverless Application Model).
+- **Entorno de Desarrollo Local**: ejecutándose con http o https, con o sin Docker.
+- **Servidor DNS Local**: para permitir el acceso API seguro a través de https con un nombre de dominio como `app.exampleapp.local` y permitir el acceso desde otros dispositivos localmente (p. ej. smartphones) para probar tu App.
+- **Certificados SSL autofirmados**: para permitir que los entornos de desarrollo frontend y backend locales funcionen sobre conexiones https seguras.
+- **Gestión común de configuración JSON**: para añadir el submódulo de Git con los directorios de configuración JSON comunes.
+- **Contenedor de base de datos local de Docker**: utilizado por el sitio de pruebas y permite tener un entorno de desarrollo local offline.
 
 ## Requisitos previos
 
-- Node versión 20+, instalado vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o instalación de [NPM y Node](https://nodejs.org/en/download).
+- Versión de Node 20+, instalada vía [NVM (Gestor de versiones de Node)](https://nodejs.org/en/download/package-manager) o instalación de [NPM y Node](https://nodejs.org/en/download).
 - [Los requisitos previos de The GenericSuite (versión backend)](https://github.com/tomkat-cr/genericsuite-be?tab=readme-ov-file#pre-requisites).
-- Para APIs con funcionalidades de IA: [La guía de instalación de The GenericSuite AI (versión backend)](https://github.com/tomkat-cr/genericsuite-be-ai?tab=readme-ov-file#installation).
+- Para APIs con IA: [La guía de instalación de The GenericSuite AI (versión backend)](https://github.com/tomkat-cr/genericsuite-be-ai?tab=readme-ov-file#installation).
 
-## Inicio
+## Empezando
 
-Para comenzar con GenericSuite, sigue estos pasos:
+Para empezar con los Scripts de GenericSuite (versión backend), sigue estos pasos:
 
 ### Iniciar tu proyecto
 
-Consulta [La guía de inicio rápido de The GenericSuite](https://github.com/tomkat-cr/genericsuite-be?tab=readme-ov-file#getting-started) para más detalles.
+Consulta [la guía de Inicio rápido de The GenericSuite](https://github.com/tomkat-cr/genericsuite-be?tab=readme-ov-file#getting-started) para más detalles.
 
-### Instalar los Scripts Backend de GenericSuite
+### Instalar los Scripts del Backend de GenericSuite
 
 ```bash
 npm init
@@ -37,15 +37,9 @@ npm init
 npm install -D genericsuite-be-scripts
 ```
 
-Para generar certificados SSL autofirmados, se requiere: 
-
-```bash
-npm install -D office-addin-dev-certs
-```
-
 ### Preparar el Makefile
 
-Copia la plantilla de `Makefile` desde `node_modules/genericsuite-be-scripts`:
+Copia la plantilla `Makefile` desde `node_modules/genericsuite-be-scripts`:
 
 ```bash
 cp node_modules/genericsuite-be-scripts/Makefile ./Makefile
@@ -87,7 +81,7 @@ bash node_modules/genericsuite-be-scripts/scripts/aws/init_chalice.sh
 
 #### Personalizar plantillas SAM
 
-Si necesitas hacer alguna personalización en el `samconfig.toml`:
+Si necesitas realizar alguna personalización en el `samconfig.toml`:
 
 Edita el archivo `template-samconfig.toml`:<br>
 
@@ -97,17 +91,17 @@ vi scripts/aws_big_lambda/template-samconfig.toml
 # code scripts/aws_big_lambda/template-samconfig.toml
 ```
 
-Revisa si se necesita alguna personalización.
+Verifica si se necesita alguna personalización.
 
 NOTA: El script de despliegue [big_lambdas_manager.sh](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/aws_big_lambda/big_lambdas_manager.sh) reemplazará `APP_NAME_LOWERCASE_placeholder` por el nombre de la aplicación definido en la variable `APP_NAME` en el archivo `.env`.
 
 <br>
 
-#### Añadir nuevos Endpoints a la Plantilla SAM
+#### Agregar nuevos Endpoints a la Plantilla SAM
 
 Cuando necesites añadir nuevos endpoints a tu App:
 
-Edita `template-sam.yml`:<br>
+Edita el `template-sam.yml`:<br>
 
 ```bash
 vi scripts/aws_big_lambda/template-sam.yml
@@ -115,15 +109,15 @@ vi scripts/aws_big_lambda/template-sam.yml
 # code scripts/aws_big_lambda/template-sam.yml
 ```
 
-En este archivo es donde se definen los endpoints, así como otros elementos de despliegue de SAM como las variables de entorno utilizadas por la función Lambda de AWS. Puedes añadir nuevos endpoints o personalizarlo según lo necesites.
+En este archivo es donde se definen los endpoints, así como otros elementos de despliegue de SAM como las variables de entorno utilizadas por la función Lambda de AWS. Puedes añadir nuevos endpoints o personalizarlo según lo necesario.
 
-Existe una plantilla de definición de endpoint en el archivo [node_modules/genericsuite-be-scripts/scripts/aws_big_lambda/template-sam-endpoint-entry.yml](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/aws_big_lambda/template-sam-endpoint-entry.yml).
+Hay un template de definición de endpoints en el archivo [node_modules/genericsuite-be-scripts/scripts/aws_big_lambda/template-sam-endpoint-entry.yml](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/aws_big_lambda/template-sam-endpoint-entry.yml).
 
-Ten cuidado con los elementos que terminan en `_placeholder` ya que son reemplazados por el script de despliegue `big_lambdas_manager.sh` con los valores correspondientes.
+Ten cuidado con los elementos que terminan en `_placeholder` porque son reemplazados por el script de despliegue `big_lambdas_manager.sh` con los valores correspondientes.
 
 <br>
 
-#### Añadir Variables de Entorno
+#### Añadir nuevas Variables de Entorno
 
 Si necesitas añadir variables de entorno adicionales a tu App:
 
@@ -135,20 +129,20 @@ vi scripts/aws/update_additional_envvars.sh
 # code scripts/aws/update_additional_envvars.sh
 ```
 
-Añade tus reemplazos de variables de entorno adicionales en `scripts/aws/update_additional_envvars.sh` como:<br>
+Añade tus sustituciones de variables de entorno adicionales en `scripts/aws/update_additional_envvars.sh` como:<br>
 
 ```bash
 perl -i -pe"s|ENVVAR_NAME_placeholder|${ENVVAR_NAME}|g" "${CONFIG_FILE}"
 ```
-... sustituyendo "ENVVAR_NAME" por el nombre de la variable de entorno
+... reemplazando "ENVVAR_NAME" por el nombre de la variable de entorno
 
-Añade las variables de entorno adicionales al archivo:
+Añade las variables de entorno adicionales al archivo `.env`:
 ```.env
 ENVVAR_NAME=ENVVAR_VALUE
 ```
-... sustituyendo "ENVVAR_NAME" por el nombre de la variable de entorno y ENVVAR_VALUE por su valor.
+... reemplazando "ENVVAR_NAME" por el nombre de la variable de entorno y ENVVAR_VALUE por su valor.
 
-Añade las variables de entorno adicionales al archivo `scripts/aws_big_lambda/template-sam.yml`, en la sección `APIHandler > Properties > Environment > Variables`. Por ejemplo:<br>
+Añade las variables de entorno adicionales al archivo `scripts/aws_big_lambda/template-sam.yml`, en la sección `APIHandler > Properties > Environment > Variables`. Por ejemplo.<br>
 
 ```yaml
       .
@@ -165,9 +159,9 @@ Añade las variables de entorno adicionales al archivo `scripts/aws_big_lambda/t
                   .
                   .
 ```
-... sustituyendo "ENVVAR_NAME" por el nombre de la variable de entorno y ENVVAR_VALUE por su valor.
+... reemplazando "ENVVAR_NAME" por el nombre de la variable de entorno y ENVVAR_VALUE por su valor.
 
-Si usas el framework Chalice, añade las variables de entorno adicionales al archivo `.chalice/config-example.json`, en la sección principal `environment_variables`. Por ejemplo:<br>
+Si usas el framework Chalice, añade las variables de entorno adicionales al archivo `.chalice/config-example.json` en la sección principal `environment_variables`. Por ejemplo.<br>
 
    ```
    {
@@ -183,33 +177,33 @@ Si usas el framework Chalice, añade las variables de entorno adicionales al arc
             .
             .
    ```
-... sustituyendo "ENVVAR_NAME" por el nombre de la variable de entorno (en ambos lugares).
+... reemplazando "ENVVAR_NAME" por el nombre de la variable de entorno (en ambos lugares).
 
 ## Uso
 
-### Iniciar el servidor de desarrollo
+### Iniciar Servidor de Desarrollo
 
-Para iniciar el servidor de desarrollo para la etapa `dev` y un contenedor MongoDB de Docker local:
+Para iniciar el servidor de desarrollo para la etapa `dev` y un contenedor local de MongoDB en Docker:
 
-   ```bash
-   make run
-   ```
+```bash
+make run
+```
 
 Para iniciar el servidor de desarrollo para la etapa `qa` y MongoDB Atlas:
 
-   ```bash
-   make run_qa
-   ```
+```bash
+make run_qa
+```
 
 Cuando haya cambios en las dependencias o en el archivo `.env`, reinicia el servidor de desarrollo local:
 
-   ```bash
-   make restart_qa
-   ```
+```bash
+make restart_qa
+```
 
 ### Crear usuario Super Admin
 
-Para crear el usuario Super Administrador inicial para el desarrollo local, así como para entornos de producción:
+Para crear el usuario inicial de Super Administrador para entornos locales, de pruebas y de producción:
 
 ```bash
 make create-supad
@@ -217,70 +211,71 @@ make create-supad
 
 ### Desplegar QA
 
-Para realizar un despliegue QA como función Lambda de AWS y API Gateway de AWS:
+Para realizar un despliegue QA como AWS Lambda Function y AWS API Gateway:
 
 ```bash
 make deploy_qa
 ```
 
-Para vincular la API de backend al dominio de la App:
+Para vincular la API del backend al dominio de la App:
 
-* Ve a Route 53.
-* Haz clic en la zona correspondiente al dominio de la App.
-* Haz clic en 'Crear registro'.
-* Introduce el subdominio: 'api-qa', 'api-staging', 'api-demo' o 'api' (para producción).
-* Habilita 'alias'.
-* En 'Route traffic to' selecciona la opción 'Alias to API Gateway API'.
-* En 'Choose region' selecciona la región de la App.
-* En 'Choose endpoint' selecciona el que corresponde al dominio de la App.
-* Haz clic en 'Create Records'.
+- Ve a Route 53.
+- Haz clic en la Zona correspondiente al dominio de la App.
+- Haz clic en 'Create Record'.
+- Introduce el subdominio: 'api-qa', 'api-staging', 'api-demo' o 'api' (para producción).
+- Activa 'alias'.
+- En 'Route traffic to' selecciona la opción 'Alias to API Gateway API'.
+- En 'Choose region' selecciona la región de la App.
+- En 'Choose endpoint' selecciona el correspondiente a la App.
+- Haz clic en 'Create Records'.
 
 ### Instalar dependencias
 
-* Instala las categorías de paquetes por defecto desde Pipfile.<br>
-Ejecuta `pipenv install`.<br>
-Referencias: https://pipenv.pypa.io/en/latest/commands.html#install
+- Instalar las categorías de paquetes predeterminadas desde pyproject.toml o Pipfile.<br>
+Dependiendo del gestor de paquetes configurado, ejecutará `uv install`, `poetry install` o `pipenv install`.<br>
+Referencia: https://pipenv.pypa.io/en/latest/commands.html#install
 
 ```bash
 make install
 ```
 
-* Instala tanto las categorías de paquetes de desarrollo como las predeterminadas desde Pipfile.<br>
-Ejecuta `pipenv install --dev`.
+- Instalar tanto las categorías de desarrollo como predeterminadas desde pyproject.toml o Pipfile.<br>
+Dependiendo del gestor de paquetes configurado, ejecutará `uv install --dev`, `poetry install --dev` o `pipenv install --dev`.<br>
+Referencia: https://pipenv.pypa.io/en/latest/commands.html#install
 
 ```bash
 make install_dev
 ```
 
-* Instala desde Pipfile.lock y omite por completo la información de Pipfile.<br>
-Ejecuta `pipenv install --ignore-pipfile`.
+- Instalar desde el archivo .lock e ignorar completamente la información del Pipfile.<br>
+Dependiendo del gestor de paquetes configurado, ejecutará `uv install --locked`, `poetry install --locked` o `pipenv install --ignore-pipfile`.
 
 ```bash
 make locked_install
 ```
 
-* Instala tanto las categorías de paquetes de desarrollo como las predeterminadas desde Pipfile.lock y omite por completo la información de Pipfile.<br>
-Ejecuta `pipenv install --dev --ignore-pipfile`.
+- Instalar tanto desarrollo como predeterminadas desde el archivo .lock e ignorar completamente la información de pyproject.toml o Pipfile.<br>
+Dependiendo del gestor de paquetes configurado, ejecutará `uv install --dev --locked`, `poetry install --dev --locked` o `pipenv install --dev --ignore-pipfile`.
 
 ```bash
 make locked_dev
 ```
 
-* ReCrea el archivo de bloqueo de Pipenv.<br>
-Ejecuta `pipenv lock`.
+- Recrear el archivo .lock.<br>
+Dependiendo del gestor de paquetes configurado, ejecutará `uv lock`, `poetry lock` o `pipenv lock`.
 
 ```bash
 make lock
 ```
 
-* Genera el archivo `requirements.txt`.<br>
+- Generar el archivo `requirements.txt`.<br>
 Ejecuta `sh scripts/aws/run_aws.sh pipfile`.
 
 ```bash
 make requirements
 ```
 
-* Instalación limpia.<br>
+- Instalación limpia.<br>
 Alias que ejecuta `make clean_rm` y `make install`.
 
 ```bash
@@ -289,59 +284,59 @@ make fresh
 
 ### Limpieza
 
-* Alias para ejecutar `make clean_rm`, `make clean_temp_dir`, y `make clean_logs`.
+- Alias para ejecutar `make clean_rm`, `make clean_temp_dir`, y `make clean_logs`.
 
 ```bash
 make clean
 ```
 
-* Elimina un entorno virtual creado por "pipenv run".<br>
+- Eliminar un entorno virtual creado por "pipenv run".<br>
 Ejecuta `pipenv --rm`.
 
 ```bash
 make clean_rm
 ```
 
-* Limpiar logs (en el directorio /logs).<br>
+- Limpiar logs (en el directorio /logs).<br>
 Ejecuta el script `scripts/clean_logs.sh`.
 
 ```bash
 make clean_logs
 ```
 
-* Limpiar logs, caché y archivos temporales.<br>
+- Limpiar logs, caché y archivos temporales.<br>
 Ejecuta `sh scripts/aws/run_aws.sh clean`.
 
 ```bash
 make clean_temp_dir
 ```
 
-### Utilidades de CLI
+### Utilidades CLI
 
-* Instalar herramientas de desarrollo (pyenv, pipenv, make, y opcionalmente: poetry, saml2aws).<br>
-Consulta [node_modules/genericsuite-be-scripts/scripts/install_dev_tools.sh](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/install_dev_tools.sh) para más detalles sobre cómo configurarlo vía el archivo `.env`.
+- Instalar herramientas de desarrollo (pyenv, pipenv, make, y opcionalmente: poetry, saml2aws).<br>
+Consulta [node_modules/genericsuite-be-scripts/scripts/install_dev_tools.sh](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/install_dev_tools.sh) para más detalles sobre cómo configurar vía el archivo `.env`.
 
 ```bash
 make install_tools
 ```
 
-* Mostrar puertos en uso.<br>
+- Mostrar puertos en uso.<br>
 Ejecuta `sh scripts/run_lsof.sh`.
 
 ```bash
 make lsof
 ```
 
-### Pruebas automatizadas
+### Pruebas Automatizadas
 
-* Inicia el contenedor de la base de datos local y ejecuta las pruebas.<br>
+- Iniciar el contenedor de la base de datos local y ejecutar las pruebas.<br>
 Ejecuta `sh scripts/run_app_tests.sh`.
 
 ```bash
 make test
 ```
 
-* Ejecuta la prueba sin iniciar el contenedor Docker de la base de datos local.<br>
+- Ejecutar la prueba sin iniciar el contenedor de base de datos local.<br>
 Ejecuta `sh scripts/aws/run_tests.sh`.
 
 ```bash
@@ -350,28 +345,28 @@ make test_only
 
 ### Linting
 
-* Ejecutar Prospector.<br>
+- Ejecutar Prospector.<br>
 Ejecuta `pipenv run prospector`.
 
 ```bash
 make lint
 ```
 
-* Ejecutar MyPy.<br>
+- Ejecutar MyPy.<br>
 Ejecuta `pipenv run mypy .`.
 
 ```bash
 make types
 ```
 
-* Ejecutar Coverage.<br>
+- Ejecutar Coverage.<br>
 Ejecuta `pipenv run coverage run -m unittest discover tests` y `pipenv run coverage report`.
 
 ```bash
 make coverage
 ```
 
-* Ejecutar Yapf Formatter y PyCodeStyle.<br>
+- Ejecutar Yapf Formatter y PyCodeStyle.<br>
 Ejecuta `pipenv run yapf -i *.py **/*.py **/**/*.py` y `pycodestyle`.<br>
 Referencias:<br>
    * [https://github.com/google/yapf](https://github.com/google/yapf)<br>
@@ -381,23 +376,23 @@ Referencias:<br>
 make format
 ```
 
-* Ejecutar Yapf (en modo "imprimir la diff para el código fuente arreglado") y PyCodeStyle.<br>
+- Ejecutar Yapf (en modo "imprimir la diff para el código fijo") y PyCodeStyle.<br>
 Ejecuta `pipenv run yapf --diff *.py **/*.py **/**/*.py` y `pycodestyle`.
 
 ```bash
 make format_check
 ```
 
-### Comandos de desarrollo
+### Comandos de Desarrollo
 
-* Realiza un Lint completo, verificación de tipos, pruebas unitarias e de integración, verificación de formato y estilo antes de las implementaciones.<br>
-Alias para ejecutar `make lint`, `make types`, `make tests`, `make format_check` y `make pycodestyle`.
+- Realizar un Lint completo, verificación de tipos, pruebas unitarias e de integración, verificación de formato y estilo antes de implementaciones.<br>
+Alias para ejecutar `make lint`, `make types`, `make tests`, `make format_check`, y `make pycodestyle`.
 
 ```bash
 make qa
 ```
 
-* Inicia el contenedor Docker de la base de datos local (utilizado para pruebas y ejecución de la etapa `dev`).<br>
+- Iniciar el contenedor de la base de datos local (utilizado para pruebas y ejecución en la etapa `dev`).<br>
 Ejecuta `sh scripts/local_db/run_local_db_docker.sh run`.
 
 ```bash
@@ -406,30 +401,30 @@ make local-db-up
 
 NOTAS:<br>
 
-**_Pila local de MongoDB_**:
+**_Stack local de MongoDB_**:
 
 Usa `mongodb://root:example@mongo:27017/` como URL para conectarte a la base de datos MongoDb local.<br>
 <br>
-Usa [http://localhost:8081](http://localhost:8081) para acceder a la UI de administración de MongoDb.<br>
-Usa el usuario: `admin` y la contraseña: `pass` como credenciales para acceder a la UI de administrador.<br>
+Usa [http://localhost:8081](http://localhost:8081) para acceder a la UI de Admin de MongoDb.<br>
+Usa usuario: `admin` y contraseña: `pass` como credenciales para acceder a la UI de Admin.<br>
 
-**_Pila local de DynamoDB_**:
+**_Stack local de DynamoDB_**:
 
 El puerto de la base de datos es 8000.<br>
       * dynamodb.endpoint = 'http://127.0.0.1:8000'<br>
       * dynamodb.endpoint = 'http://dynamodb-local:8000'<br>
 <br>
 Usa http://localhost:8095 para acceder a la UI de DynamoDB Manager.<br>
-Configúrala para conectarte a DynamoDB local:<br>
+Configúralo para conectarse a DynamoDB local:<br>
 <br>
-     [Añadir conexión]<br>
+     [Agregar conexión]<br>
        * Alias: Local<br>
        * Endpoint: http://127.0.0.1:8000<br>
        * Región: us-east-1<br>
        * Access Key: test<br>
        * Secret Key: test<br>
 
-**_Pila local de Postgres_**:
+**_Stack local de Postgres_**:
 
 El puerto de la base de datos es 5432.<br>
 Usa "postgresql://user:pass@postgres-local:5432/db" como URL para conectarte a la base de datos Postgres local.<br>
@@ -437,7 +432,7 @@ Usa "postgresql://user:pass@postgres-local:5432/db" como URL para conectarte a l
 Usa http://localhost:8080 para acceder a la UI de pgAdmin.<br>
 Usa usuario: "admin@admin.com" y contraseña: "admin" para acceder a la UI de pgAdmin.<br>
 
-**_Pila local de MySQL_**:
+**_Stack local de MySQL_**:
 
 Usa http://localhost:8082 para acceder a la UI de phpMyAdmin.<br>
 Usa usuario: "root" y contraseña: "pass" como credenciales para acceder a la UI de phpMyAdmin.<br>
@@ -445,74 +440,74 @@ Usa usuario: "root" y contraseña: "pass" como credenciales para acceder a la UI
 El puerto de la base de datos es 3306.<br>
 Usa "mysql://root:pass@mysql-local:3306/db" como URL para conectarte a la base de datos MySQL local.<br>
 
-**_Pila local de Supabase_**:
+**_Stack local de Supabase_**:
 
 No hay implementación local para Supabase.
 
-Para más información sobre la pila de bases de datos local, consulta el archivo [local_db_stack.yml](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/local_db/local_db_stack.yml).
+Para más información sobre la pila de bases de datos locales, consulta el archivo [local_db_stack.yml](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/local_db/local_db_stack.yml).
 
-* Muestra registros del contenedor de la base de datos local.<br>
+- Mostrar logs de la base de datos local en Docker.<br>
 Ejecuta `sh scripts/local_db/run_local_db_docker.sh logs`
 
 ```bash
 make local-db-logs
 ```
 
-* Detiene el contenedor Docker de la base de datos local.<br>
+- Detener el contenedor de la base de datos local en Docker.<br>
 Ejecuta `sh scripts/local_db/run_local_db_docker.sh down`
 
 ```bash
 make local-db-down
 ```
 
-* Respaldar una base de datos mongoDB.<br>
+- Respaldar una base de datos mongoDB.<br>
 Ejecuta `sh scripts/mongo/db_mongo_backup.sh ${STAGE} ${BACKUP_DIR}`<br>
 
 ```bash
 make mongo_backup
 ```
 
-Ej.  
+Ej.:  
 ```bash
 STAGE=qa BACKUP_DIR=./dumps make mongo_backup
 ```
 
-* Restaurar una base de datos mongoDB.<br>
+- Restaurar una base de datos mongoDB.<br>
 Ejecuta `sh scripts/mongo/db_mongo_restore.sh ${STAGE} ${RESTORE_DIR}`
 
 ```bash
 make mongo_restore
 ```
 
-Ej.
+Ej.:  
 ```bash
 STAGE=qa RESTORE_DIR=./dumps/bkp-mongodb-[exampleapp]_[stage]-[date]_[time].zip make mongo_restore
 ```
 
 ### Comandos específicos de Chalice
 
-* Establecer parámetros en `.chalice/config.json` para la etapa de producción.<br>
+- Establecer parámetros en `.chalice/config.json` como la etapa de producción.<br>
 Ejecuta `sh scripts/aws/set_chalice_cnf.sh prod`.
 
 ```bash
 make config
 ```
 
-* Establecer parámetros en `.chalice/config.json` sin una etapa específica.<br>
+- Establecer parámetros en `.chalice/config.json` sin una etapa específica.<br>
 Ejecuta `sh scripts/aws/set_chalice_cnf.sh`.
 
 ```bash
 make config_dev
 ```
 
-* Establecer parámetros en `.chalice/config.json` como la etapa de Desarrollo.<br>
+- Establecer parámetros en `.chalice/config.json` como la etapa de Desarrollo.<br>
 Ejecuta `sh scripts/aws/set_chalice_cnf.sh local_db_docker`.
 
 ```bash
 make config_local
 ```
 
-* Establecer parámetros en `.chalice/config.json` como la etapa de QA con reemplazo de variables CORS para permitir usar la base de datos en vivo de QA desde el entorno de desarrollo local.<br>
+- Establecer parámetros en `.chalice/config.json` como la etapa de QA con reemplazo de variables CORS específico, para permitir usar la base de datos en vivo de QA desde el entorno de desarrollo local.<br>
 Ejecuta `sh scripts/aws/set_chalice_cnf.sh qa`.<br>
 Referencias: 
    * `APP_CORS_ORIGIN_QA_CLOUD` y `APP_CORS_ORIGIN_QA_LOCAL` en el archivo [.env.example](https://github.com/tomkat-cr/genericsuite-be/blob/main/.env.example).<br>
@@ -521,62 +516,62 @@ Referencias:
 make config_qa
 ```
 
-* Establecer parámetros en `.chalice/config.json` para preparar el despliegue QA.<br>
+- Establecer parámetros en `.chalice/config.json` para preparar el despliegue de QA.<br>
 Ejecuta `sh scripts/aws/set_chalice_cnf.sh qa deploy`,
 
 ```bash
 make config_qa_for_deployment
 ```
 
-* Establecer parámetros en `.chalice/config.json` como la etapa de Staging.<br>
+- Establecer parámetros en `.chalice/config.json` como la etapa de Staging.<br>
 Ejecuta `sh scripts/aws/set_chalice_cnf.sh staging`.
 
 ```bash
 make config_staging
 ```
 
-* Crear la pila de AWS vía Chalice (comando).</BR/>
+- Crear la pila de AWS vía Chalice.<br>
 Ejecuta `sh scripts/aws/run_aws.sh create_stack`.
 
 ```bash
 make build
 ```
 
-* Genera el `requirements.txt`.<br>
+- Generar el `requirements.txt`.<br>
 Ejecuta `sh scripts/aws/run_aws.sh pipfile`.
 
 ```bash
 make build_local
 ```
 
-* Describir la pila de AWS con el comando Chalice.<br>
+- Describir la pila de AWS con el comando Chalice.<br>
 Ejecuta `sh scripts/aws/run_aws.sh describe_stack`.
 
 ```bash
 make build_check
 ```
 
-* Alias para ejecutar `make unbuild_qa`.
+- Alias para ejecutar `make unbuild_qa`.
 
 ```bash
 make unbuild
 ```
 
-* Eliminar la App Chalice QA.<br>
+- Eliminar la App QA de Chalice.<br>
 Ejecuta `sh scripts/aws/run_aws.sh delete_app qa`.
 
 ```bash
 make unbuild_qa
 ```
 
-* Eliminar la App Chalice de Staging.<br>
+- Eliminar la App de Staging de Chalice.<br>
 Ejecuta `sh scripts/aws/run_aws.sh delete_app staging`
 
 ```bash
 make unbuild_staging
 ```
 
-* Eliminar la pila de AWS creada por Chalice.<br>
+- Eliminar la pila de AWS creada por Chalice.<br>
 Ejecuta `sh scripts/aws/run_aws.sh delete_stack`
 
 ```bash
@@ -585,7 +580,7 @@ make delete_stack
 
 ### AWS S3
 
-Crear los buckets de AWS S3 para diferentes entornos y otras utilidades de AWS.
+Crear los Buckets de AWS S3 para diferentes entornos y otras utilidades de AWS.
 
 * Crear bucket S3 para desarrollo.<br>
 Ejecuta `sh scripts/aws/create_chatbot_s3_bucket.sh dev`.
@@ -599,7 +594,7 @@ make create_s3_bucket_dev
       * Los scripts `create_s3_bucket_*` también permiten crear o reasignar la Política del Bucket S3.
 
 
-      * Si recibes el mensaje `AWS_S3_CHATBOT_ATTACHMENTS_CREATION is not set to 1`, define esa variable de entorno o ejecuta el script de esta forma:
+      * Si recibes el mensaje `AWS_S3_CHATBOT_ATTACHMENTS_CREATION is not set to 1`, configura esa variable de entorno o ejecuta el script de esta manera:
 
          ```bash
          AWS_S3_CHATBOT_ATTACHMENTS_CREATION=1 make create_s3_bucket_dev
@@ -633,7 +628,7 @@ make create_s3_bucket_prod
 
 Para despliegue CF (CloudFormation):
 
-Lee todas las definiciones de tablas desde el directorio de configuración JSON y genera un archivo que puede usarse como plantilla de AWS Cloud Formation.
+Lee todas las definiciones de tablas desde el directorio de configuración JSON y genera un archivo que se puede usar como plantilla de AWS CloudFormation.
 
 ```bash
 make generate_cf_dynamodb
@@ -647,7 +642,7 @@ Lee todas las definiciones de tablas desde el directorio de configuración JSON 
 make generate_sam_dynamodb
 ```
 
-* Crear una configuración predeterminada de AWS en `${HOME}/.aws/config`<br>
+* Crear una configuración predeterminada de AWS config en `${HOME}/.aws/config`.<br>
 Ejecuta `sh scripts/aws/create_aws_config.sh`.
 
 ```bash
@@ -662,7 +657,7 @@ make create_aws_config
 make generate_postgres_dev_sql
 ```
 
-Genera el archivo SQL de Postgres para crear las tablas en cualquier entorno.
+Genera el archivo SQL de Postgres para crear las tablas para cualquier entorno.
 
 ```bash
 make create_postgres_dev_tables
@@ -688,7 +683,7 @@ Despliega las tablas de Postgres en AWS RDS.
 make generate_mysql_dev_sql
 ```
 
-Genera el archivo SQL de MySQL para crear las tablas en cualquier entorno.
+Genera el archivo SQL de MySQL para crear las tablas para cualquier entorno.
 
 ```bash
 make create_mysql_dev_tables
@@ -710,7 +705,7 @@ Despliega las tablas de MySQL en AWS RDS.
 
 ### Secrets
 
-* Generar una nueva semilla para el enmascarado de URLs de almacenamiento
+* Generar una nueva semilla para el enmascaramiento de URLs de almacenamiento
 
 Para asignar la variable de entorno STORAGE_URL_SEED.
 
@@ -720,7 +715,7 @@ make generate_seed
 
 ### Despliegue
 
-#### Despliegue de AWS Serverless
+#### Despliegue AWS Serverless
 
 Realiza el despliegue de la aplicación con AWS Lambda Functions y API Gateway, usando SAM (Serverless Application Model).
 
@@ -731,7 +726,7 @@ Ejecuta `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/big_lambdas_manag
 make deploy_qa
 ```
 
-* Probar localmente la API Gateway y la función Lambda de AWS, usando SAM local. Ejecuta `sam build` para probar posibles problemas de paquetes y dependencias, y luego `sam run local`.<br>
+* Probar localmente el API Gateway y la función AWS Lambda, usando SAM local. Ejecuta `sam build` para revisar posibles problemas con paquetes y dependencias, y luego `sam run local`.<br>
 Ejecuta `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/aws_big_lambda/big_lambdas_manager.sh sam_run_local qa`
 
 ```bash
@@ -748,8 +743,8 @@ Ejecuta `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/big_lambdas_manag
 make deploy_validate_qa
 ```
 
-* Crear solo el paquete de despliegue QA.<br>
-Útil para verificar el tamaño del paquete y probar la imagen con un contenedor Docker local.<br>
+* Crear solamente el paquete de despliegue QA.<br>
+Útil para revisar el tamaño del paquete y probar la imagen con un contenedor local de Docker.<br>
 Ejecuta `make create_s3_bucket_qa`, `sh scripts/aws_big_lambda/big_lambdas_manager.sh package qa`.
 
 ```bash
@@ -783,7 +778,7 @@ make deploy_prod
 make deploy
 ```
 
-* Previsualizar el comportamiento de los entornos en vivo QA/Staging/Prod.<br>
+* Previsualizar el comportamiento de los entornos live QA/Staging/Prod.<br>
 Ejecuta el script bash `scripts/build_prod_test.sh`.
 
 ```bash
@@ -792,7 +787,7 @@ make test-run-build
 ```
 
 ```bash
-# Restaurar el entorno tras la prueba
+# Restaurar el entorno después de la prueba
 make test-run-build-restore
 ```
 
@@ -811,19 +806,19 @@ Opciones:
 
 `STAGE`: `dev`, `qa`, `staging`, `demo`, `prod`
 
-`TARGET`: `kms` (gestionar claves KMS), `secrets` (gestionar los secretos).
+`TARGET`: `kms` (gestionar las claves KMS), `secrets` (gestionar los secretos).
 
 `ENGINE`: `localstack` (usar LocalStack como backend), `aws` (usar AWS como backend). Por defecto es `aws`
 
-`AWS_DEPLOYMENT_TYPE`: usado para definir la variable de entorno `APP_HOST_NAME`. Las opciones son: `lambda` (aplicación desplegada como AWS Lambda), `fargate` (aplicación desplegada como AWS Fargate), `ec2` (aplicación desplegada como AWS EC2). Por defecto es `lambda`.
+`AWS_DEPLOYMENT_TYPE`: usado para establecer la variable de entorno `APP_HOST_NAME`. Las opciones son: `lambda` (aplicación desplegada como AWS Lambda), `fargate` (aplicación desplegada como AWS Fargate), `ec2` (aplicación desplegada como AWS EC2). Por defecto es `lambda`.
 
-`KMS_KEY_ALIAS`: alias para la clave KMS. Por defecto `genericsuite-key`.
+`KMS_KEY_ALIAS`: alias para la clave KMS. Por defecto es `genericsuite-key`.
 
-`CICD_MODE`: `0` (modo verbose), `1` (menos verbose, más adecuado para CI/CD). Por defecto `0`
+`CICD_MODE`: `0` (modo detallado), `1` (menos detallado, más adecuado para CI/CD). Por defecto es `0`
 
-`TMP_BUILD_DIR`: directorio de trabajo temporal. Por defecto `/tmp/${APP_NAME_LOWERCASE}_aws_secrets_tmp`
+`TMP_BUILD_DIR`: directorio de trabajo temporal. Por defecto es `/tmp/${APP_NAME_LOWERCASE}_aws_secrets_tmp`
 
-`DEBUG`: `1` (activar modo debug), `0` (desactivar modo debug). Por defecto `1`
+`DEBUG`: `1` (habilitar modo de depuración), `0` (deshabilitar depuración). Por defecto es `1`
 
 Uso:
 
@@ -844,7 +839,7 @@ ACTION=run STAGE=qa TARGET=secrets make aws_secrets
 
 #### Despliegue AWS EC2
 
-Despliegue de la aplicación con instancias AWS EC2, ALB (Application Load Balancer), ECR (Elastic Container Registry), AWS Secrets Manager y CloudFormation.
+Realiza el despliegue de la aplicación con instancias AWS EC2, ALB (Elastic Load Balancer), ECR (Elastic Container Registry), AWS Secrets Manager y CloudFormation.
 
 * Preparar la imagen ECR para una etapa dada (p. ej. QA, staging, Demo, Prod).<br>
 Ejecuta `sh scripts/aws_ec2_elb/run-fastapi-ecr-creation.sh`
@@ -878,40 +873,40 @@ Opciones:
 
 `ENGINE`: `localstack` (usar LocalStack como backend), `aws` (usar AWS como backend). Por defecto `aws`
 
-`CICD_MODE`: `0` (modo verbose), `1` (menos verbose, más adecuado para CI/CD). Por defecto `0`
+`CICD_MODE`: `0` (modo detallado), `1` (menos detallado, más adecuado para CI/CD). Por defecto `0`
 
 `TMP_WORKING_DIR`: directorio de trabajo temporal. Por defecto `/tmp`
 
-`DEBUG`: `1` (activar modo debug), `0` (desactivar modo debug). Por defecto `1`
+`DEBUG`: `1` (habilitar modo de depuración), `0` (deshabilitar). Por defecto `1`
 
 Uso:
 
 ```bash
-# Realizar el despliegue ALB (Elastic Load Balancer) + instancia EC2 en la nube de AWS
+# Realizar el despliegue de ALB (Elastic Load Balancer) + instancia EC2 en la nube AWS en vivo
 ACTION=run STAGE=qa TARGET=ec2 ECR_DOCKER_IMAGE_TAG=0.0.16 make deploy_ec2
 ```
 
 ```bash
-# Realizar el despliegue del Dominio en la nube de AWS
+# Realizar el despliegue del Dominio en la nube AWS en vivo
 ACTION=run STAGE=qa TARGET=domain ECR_DOCKER_IMAGE_TAG=0.1.16 make deploy_ec2
 ```
 
 ```bash
-# Destruir el despliegue ALB + instancia EC2 en la nube de AWS
+# Destruir el despliegue de ALB + instancia EC2 en la nube AWS
 ACTION=destroy STAGE=qa TARGET=ec2 ECR_DOCKER_IMAGE_TAG=0.0.16 make deploy_ec2
 ```
 
 ```bash
-# Realizar el despliegue del Dominio en la nube de AWS local
+# Realizar el despliegue del Dominio en la nube AWS local
 ACTION=run STAGE=qa TARGET=domain ECR_DOCKER_IMAGE_TAG=0.1.16 ENGINE=localstack make deploy_ec2
 ```
 
 ```bash
-# Realizar el despliegue de la instancia EC2 en la nube de AWS local (ALB no se puede simular localmente)
+# Realizar el despliegue de la instancia EC2 en la nube AWS local (ALB no puede simularse localmente)
 ACTION=run STAGE=qa TARGET=ec2 ECR_DOCKER_IMAGE_TAG=0.0.16 ENGINE=localstack make deploy_ec2
 ```
 
-#### Despliegue DynamoDB AWS
+#### Despliegue DynamoDB de AWS
 
 * Gestiona despliegues DynamoDB en las diferentes etapas (p. ej. QA, staging, Demo, Prod).<br>
 Ejecuta `sh scripts/aws_dynamodb/run-dynamodb-deploy.sh`.
@@ -922,7 +917,7 @@ make deploy_dynamodb
 
 Opciones:
 
-`ACTION`: `run` (realizar el despliegue), `destroy` (destruir el despliegue), `describe` (describir las tablas DynamoDB), `list_tables` (listar todas las tablas DynamoDB).
+`ACTION`: `run` (desplegar), `destroy` (destruir el despliegue), `describe` (describir las tablas DynamoDB), `list_tables` (listar todas las tablas DynamoDB).
 
 `STAGE`: `dev`, `qa`, `staging`, `demo`, `prod`
 
@@ -930,27 +925,27 @@ Opciones:
 
 `ENGINE`: `localstack` (usar LocalStack como backend), `aws` (usar AWS como backend). Por defecto `aws`
 
-`CICD_MODE`: `0` (modo verbose), `1` (menos verbose, más adecuado para CI/CD). Por defecto `0`
+`CICD_MODE`: `0` (modo detallado), `1` (menos detallado, más adecuado para CI/CD). Por defecto `0`
 
 `TMP_BUILD_DIR`: directorio de trabajo temporal. Por defecto `/tmp/${APP_NAME_LOWERCASE}_dynamodb_tmp`
 
-`DEBUG`: `1` (activar modo debug), `0` (desactivar modo debug). Por defecto `1`
+`DEBUG`: `1` (habilitar modo de depuración), `0` (deshabilitar). Por defecto `1`
 
 Uso:
 
 ```bash
-# Realizar el despliegue de DynamoDB en la nube de AWS local
+# Desplegar DynamoDB en la nube AWS local
 ACTION=run STAGE=qa TARGET=dynamodb ENGINE=localstack make deploy_dynamodb
 ```
 
 ```bash
-# Realizar el despliegue de DynamoDB en la nube de AWS
+# Desplegar DynamoDB en la nube AWS en vivo
 ACTION=run STAGE=qa TARGET=dynamodb make deploy_dynamodb
 ```
 
-### Aplicación: Comandos Específicos
+### Comandos de Aplicación Específicos
 
-* Ejecutar la App localmente utilizando la base de datos de desarrollo, pidiendo ejecutarla sobre `http` o `https`.<br>
+* Ejecutar la App localmente usando la base de datos de desarrollo, pidiendo ejecutarla sobre `http` o `https`.<br>
 Ejecuta `make config_qa`, `make clean_logs`, y `sh scripts/aws/run_aws.sh run_local`.
 [???]
 
@@ -958,7 +953,7 @@ Ejecuta `make config_qa`, `make clean_logs`, y `sh scripts/aws/run_aws.sh run_lo
 make run
 ```
 
-* Ejecutar la App localmente utilizando la base de datos QA, pidiendo ejecutarla sobre `http` o `https`.<br>
+* Ejecutar la App localmente usando la base de datos de QA, pidiendo ejecutarla sobre `http` o `https`.<br>
 Ejecuta `make config_qa`, `make clean_logs`, y `sh scripts/aws/run_aws.sh run_local qa`.
 
 ```bash
@@ -966,20 +961,20 @@ make run_qa
 ```
 
 * Ejecuta `make config_qa`, `make clean_logs`, y `sh scripts/secure_local_server/run.sh "down" ""`
-Detén y destruye el contenedor local de Docker de la App (para cualquier etapa en ejecución).<br>
+Detén y destruye el contenedor local Docker de la App (para cualquier entorno en ejecución).<br>
 
 ```bash
 make down_qa
 ```
 
-* Reiniciar el contenedor local de Docker de la App en ejecución en QA.<br>
+* Reiniciar el contenedor local Docker de la App que se ejecuta en QA.<br>
 Ejecuta `make config_qa`, `make clean_logs`, `sh scripts/secure_local_server/run.sh "down" ""` y `sh scripts/aws/run_aws.sh run_local qa`.
 
 ```bash
 make restart_qa
 ```
 
-* Ejecutar la App localmente utilizando la base de datos de desarrollo (en un contenedor local de Docker), pidiendo ejecutarla sobre `http` o `https`.<br>
+* Ejecutar la App localmente usando la base de datos de desarrollo (en un contenedor Docker local), pidiendo ejecutarla sobre `http` o `https`.<br>
 Ejecuta `make config_local`, `make clean_logs`, `sh scripts/aws/run_aws.sh run_local dev`.
 [???]
 
@@ -994,15 +989,15 @@ Ejecuta `make config`, `make clean_logs`, `sh scripts/aws/run_aws.sh run`.
 make run_prod
 ```
 
-* Enlazar las librerías de GenericSuite al proyecto.<br>
-Enlaza las librerías locales de GenericSuite (repos con el código fuente) para tener recarga en caliente sin necesidad de ejecutar "pipenv update" cada vez que el código de las librerías cambia.<br>
+* Vincular las bibliotecas GenericSuite al proyecto.<br>
+Enlaza simbólicamente las bibliotecas GenericSuite LOCAL (repos con el código fuente) para tener un recargado en caliente sin necesidad de ejecutar "pipenv update" cada vez que cambie el código fuente de las bibliotecas.<br>
 Ejecuta `sh scripts/link_gs_libs_for_dev.sh`
 
 ```bash
 make link_gs_libs
 ```
 
-**NOTA**: establece la variable de entorno `BASE_DEVELOPMENT_PATH` para la ruta base de las librerías de GenericSuite (ruta al directorio padre de los repos "genericsuite-be*") en el archivo `.env`.
+**NOTA**: establece la variable de entorno `BASE_DEVELOPMENT_PATH` en el archivo `.env` para indicar la ruta base de las bibliotecas GenericSuite (ruta al directorio padre de las repos `genericsuite-be*`) .
 
 ```env
 # Consulta "genericsuite-be-scripts/scripts/link_gs_libs_for_dev.sh"
@@ -1018,36 +1013,36 @@ Ejecuta `sh scripts/add_github_submodules.sh`.
 make add_submodules
 ```
 
-### Servidor DNS local
+### Servidor DNS Local
 
-* Iniciar el Servidor DNS local.<br>
+* Iniciar el Servidor DNS Local.<br>
 Ejecuta `sh scripts/dns/run_local_dns.sh`
 
 ```bash
 make local_dns
 ```
 
-* Ejecuta `sh scripts/dns/run_local_dns.sh restart` para reiniciar el servidor DNS local.<br>
+* Ejecuta `sh scripts/dns/run_local_dns.sh restart` para reiniciar el Servidor DNS Local.<br>
 
 ```bash
 make local_dns_restart
 ```
 
-* Reiniciar y volver a construir la configuración del servidor DNS local cuando la IP local o cualquier parámetro DNS haya cambiado.<br>
+* Reiniciar y reconstruir la configuración del Servidor DNS Local cuando la IP local o cualquier parámetro DNS haya cambiado.<br>
 Ejecuta `sh scripts/dns/run_local_dns.sh rebuild`
 
 ```bash
 make local_dns_rebuild
 ```
 
-* Detener y destruir el servidor DNS local.<br>
+* Detener y destruir el Servidor DNS Local.<br>
 Ejecuta `sh scripts/dns/run_local_dns.sh down`.
 
 ```bash
 make local_dns_down
 ```
 
-* Probar el servidor DNS local.<br>
+* Probar el Servidor DNS Local.<br>
 Ejecuta `sh scripts/dns/run_local_dns.sh test`.
 
 ```bash
@@ -1063,7 +1058,7 @@ Ejecuta `sh scripts/local_ssl_certs_creation.sh`.
 make create_ssl_certs_only
 ```
 
-* Copiar los certificados SSL locales autofirmados al directorio frontend/repositorio local.<br>
+* Copiar los certificados SSL locales autofirmados al directorio/frontend del repositorio local.<br>
 Ejecuta `sh scripts/local_ssl_certs_copy.sh`.
 
 ```bash
@@ -1076,7 +1071,13 @@ make copy_ssl_certs
 make create_ssl_certs
 ```
 
-### Scripts de paquetes NPM
+**NOTA**: Para generar certificados SSL autofirmados, se recomienda usar `mkcert`, pero si prefieres usar `office-addin-dev-certs`, también es compatible. Instálalo con:
+
+```bash
+npm install -D office-addin-dev-certs
+```
+
+### Scripts de NPM
 
 * Actualizar el archivo package.json con la versión y todos los demás parámetros excepto dependencias.<br>
 Ejecuta `npm install --package-lock-only`.
@@ -1085,7 +1086,7 @@ Ejecuta `npm install --package-lock-only`.
 make npm_lock
 ```
 
-* Probar el publish a NPMJS sin publicar realmente.<br>
+* Probar la publicación a NPMJS sin publicarlo realmente.<br>
 Ejecuta `sh scripts/npm_publish.sh pre-publish`.
 
 ```bash
@@ -1095,15 +1096,15 @@ make pre-publish
 * Publicar el paquete de scripts a NPMJS.<br>
 Ejecuta `sh scripts/npm_publish.sh publish`.<br>
 Requisitos:<br>
-   * [Cuenta de NPMJS](https://www.npmjs.com/signup).
+   * [Cuenta NpmJS](https://www.npmjs.com/signup).
 
 ```bash
 make publish
 ```
 
-### Scripts de paquetes PyPI
+### Scripts de PyPi
 
-* Construir el directorio 'dist' necesario para la publicación en PyPI.<br>
+* Construir el directorio 'dist' necesario para la publicación en PyPi.<br>
 Ejecuta `poetry lock --no-update`, `rm -rf dist` y `python3 -m build`.<br>
 Requisitos:<br>
    * [poetry](https://python-poetry.org/).
@@ -1112,7 +1113,7 @@ Requisitos:<br>
 make pypi-build
 ```
 
-* Publicación de pruebas a PyPI.<br>
+* Publicación de prueba en PyPi.<br>
 Ejecuta `make pypi-build`, y `python3 -m twine upload --repository testpypi dist/*`.<br>
 Requisitos:<br>
    * [twine](https://pypi.org/project/twine/).<br>
@@ -1122,11 +1123,11 @@ Requisitos:<br>
 make pypi-publish-test
 ```
 
-* Publicación de PyPI en producción<br>
+* Publicación en PyPi de producción<br>
 Ejecuta `make pypi-build`, y `python3 -m twine upload dist/*`.<br>
 Requisitos:<br>
    * [twine](https://pypi.org/project/twine/).<br>
-   * [Cuenta PyPI](https://www.pypi.org/account/register/).
+   * [Cuenta PyPi](https://www.pypi.org/account/register/).
 
 ```bash
 make pypi-publish
@@ -1134,12 +1135,12 @@ make pypi-publish
 
 ## Solución de problemas
 
-- Si obtienes el error `Warning: Python >=3.9,<4.0 was not found on your system...` al hacer `make install`:
+- Si obtienes el error `Warning: Python >=3.9,<4.0 was not found on your system...` haciendo `make install`:
 
 ```bash
 make install
 ```
-... y la respuesta es similar a:
+... y la respuesta es como:
 ```
 pipenv install
 Warning: Python >=3.9,<4.0 was not found on your system...
@@ -1162,12 +1163,12 @@ pipenv --python ${HOME}/.pyenv/shims/python
 
 Y repetir `make install`
 
-- Si obtienes la advertencia `This version of npm is compatible with lockfileVersion@1...` al hacer `make install`:
+* Si obtienes la advertencia `This version of npm is compatible with lockfileVersion@1...` al hacer `make install`:
 
 ```bash
 npm install
 ```
-... y la respuesta es similar a:
+... y la respuesta es como:
 ```
 npm WARN read-shrinkwrap
 This version of npm is compatible with lockfileVersion@1,
@@ -1183,9 +1184,9 @@ nvm use 20
 
 Y repetir `make install`
 
-- Si recibes `APP_NAME not set` al hacer cualquier `make run`, es porque el archivo `.env` debe crearse o revisarse. Consulta la [Configuración de GenericsSuite (versión backend)](https://github.com/tomkat-cr/genericsuite-be?tab=readme-ov-file#configuration) o la [Configuración de GenericsSuite AI (versión backend)](https://github.com/tomkat-cr/genericsuite-be-ai?tab=readme-ov-file#configuration)
+- Si aparece `APP_NAME not set` al hacer cualquier `make run`, es porque hay que crear o revisar el archivo `.env`. Consulta la [Configuración de GenericsSuite (versión backend)](https://github.com/tomkat-cr/genericsuite-be?tab=readme-ov-file#configuration) o [Configuración de GenericsSuite AI (versión backend)](https://github.com/tomkat-cr/genericsuite-be-ai?tab=readme-ov-file#configuration)
 
-- Si obtienes errores de CORS en la comunicación entre el frontend y el backend:
+- Si obtienes errores de CORS en la comunicación entre frontend y backend:
 
    1. Para hacer que ambos usen `localhost` y `http`, cambia estas variables en el archivo `.env`:
 
@@ -1197,9 +1198,9 @@ APP_LOCAL_DOMAIN_NAME=localhost
 # Archivo .env del backend:
 APP_CORS_ORIGIN_QA_LOCAL=http://localhost:3000
 ```
-   Y `make run` para el frontend y el backend con la opción `http`.
+   Y ejecuta `make run` tanto el frontend como el backend con la opción `http`.
 
-   2. Para hacer que ambos usen el servidor DNS local y `https`, cambia estas variables en el archivo `.env`:
+   2. Para hacer que ambos usen el DNS local y `https`, cambia estas variables en el archivo `.env`:
 
 ```bash
 # Archivo .env del frontend:
@@ -1209,11 +1210,11 @@ APP_LOCAL_DOMAIN_NAME=app.exampleapp.local
 # Archivo .env del backend:
 APP_CORS_ORIGIN_QA_LOCAL=https://app.exampleapp.local:3000
 ```
-**NOTA**: reemplaza `exampleapp` por el nombre de tu App, todo en minúsculas.
+NOTA: reemplaza `exampleapp` por el nombre de tu App, todo en minúsculas.
 
-Y `make run` para el frontend y el backend con la opción `https`.<br>
+Y ejecuta `make run` tanto el frontend como el backend con la opción `https`.<br>
 
-- Si el servidor DNS local parece no ser alcanzable o no funciona:
+- Si el Servidor DNS Local parece inaccesible o no funciona:
 
 Reinicia el servidor backend local:
 
@@ -1223,15 +1224,15 @@ make local_dns_restart
 
 Si la IP local cambia, asegúrate de:
   1) Ejecutar `make local_dns_rebuild`.<br><br>
-  2) Copiar la `IP` reportada por el comando anterior.<br>Ej.:<br>
+  2) Copiar la dirección IP informada por el comando anterior.<br>Ej.:<br>
      `Local DNS domain 'app.exampleapp.local' is pointing to IP address '192.168.1.158'`.<br><br>
   3) Ejecutar `make restart_qa`<br><br>
-  4) Añadir la `IP` a los Servidores DNS en la configuración de red de tu ordenador (`Network > DNS servers`). La nueva IP del Servidor DNS debe ser la primera de la lista de servidores DNS.<br><br>
-  5) Reiniciar la conexión de red WiFi o LAN de la computadora.
+  4) Añadir la dirección IP a los Servidores DNS en la configuración de Red de tu ordenador (Network > DNS servers). La nueva IP de DNS debe ser la primera en la lista.<br><br>
+  5) Reiniciar la conexión de red WiFi o LAN del ordenador.
 
 ## Licencia
 
-GenericSuite es software de código abierto licenciado bajo la licencia ISC.
+GenericSuite es un software de código abierto licenciado bajo la licencia MIT.
 
 ## Créditos
 
