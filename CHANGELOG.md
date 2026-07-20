@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ## [Unreleased] - YYYY-MM-DD
 
 ### Added
+- Mobile Development documentation section: GenericSuite Flutter installation, JSON-driven CRUD, childComponents (1-N relationships), and the Apple-clean theming tokens [GS-261].
 
 ### Changed
 
