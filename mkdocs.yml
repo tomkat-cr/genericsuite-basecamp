@@ -118,6 +118,8 @@ plugins:
             'Deployment': 'Despliegue'
             'Backend Development': 'Desarrollo Backend'
             'Backend Scripts': 'Scripts del Backend'
+            'Mobile Development': 'Desarrollo Móvil'
+            'GenericSuite Flutter': 'Desarrollo Móvil con GenericSuite Flutter'
             'Deployment Guide': 'Guía de Despliegue'
             'OpenTofu (IaC)': 'OpenTofu (IaC)'
             'Other': 'Otros'
