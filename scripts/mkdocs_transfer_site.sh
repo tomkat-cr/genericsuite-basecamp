@@ -79,10 +79,10 @@ fi
 # Default values
 
 if [ "${DOCS_DIRECTORY_PATH}" = "" ]; then
-    DOCS_DIRECTORY_PATH="./docs"
+    DOCS_DIRECTORY_PATH="./mkdocs_root"
 fi
 if [ "${EXAMPLEAPP_DIRECTORY_PATH}" = "" ]; then
-    EXAMPLEAPP_DIRECTORY_PATH="${DOCS_DIRECTORY_PATH}/Sample-Code/exampleapp"
+    EXAMPLEAPP_DIRECTORY_PATH="${DOCS_DIRECTORY_PATH}/code/exampleapp"
 fi
 if [ "${DEBUG}" = "" ]; then
     DEBUG="false"
