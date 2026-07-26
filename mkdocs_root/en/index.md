@@ -1,21 +1,34 @@
 # Unlock Full-Stack Power with Generic Suite (GS)
 
-[![GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/images/GS_Release_2026-02-18_Image_1A.png)](./Releases/GS_Release_2026-02-18_Changelog.md)
 
-Generic Suite (GS) is the ultimate development library designed to streamline frontend and backend workflows, enabling rapid app development with AI-powered enhancements. Whether you're building robust APIs, scalable databases, or dynamic user interfaces, GS provides the flexibility and efficiency needed to accelerate your projects.
+![GenericSuite AI Logo](../assets/images/gs_ai_logo_circle.png)
+
+GenericSuite (GS) is a development library designed to streamline frontend, backend, mobile and AI workflows, enabling rapid app development with AI-powered enhancements.
+
+[![GenericSuite Diagram](../assets/images/genericsuite-architecture.png)](../assets/images/genericsuite-architecture.png)
+
+It's based on the generic programming paradigm (DRY Principle), and let define the application menu structure, database schemas, data input forms, API endpoints,authentication and authorization using JSON configuration files.
+
+The result is a complete application ready to be deployed and scaled:
+
+- The web frontend is built with ReactJs
+- Mobile apps are built with Flutter (supporting iOS, Android, Windows, macOS and web)
+- The backend APIs are built with Python and the framework of your choice (FastAPI, Flask or Chalice)
+- MCP Server is built with Python and FastMCP
+- Supports major cloud providers for deployment (AWS, GCP, Azure)
+- Supports major database engines (MongoDB, DynamoDB, PostgreSQL, MySQL, Supabase)
+- AI features can be powered by Claude, OpenAI, Gemini, AWS Bedrock, Google Vertex AI, Hugging Face, Ollama, etc.
+
+Whether you're building robust APIs, scalable databases, or dynamic user interfaces, GS provides the flexibility and efficiency needed to accelerate your projects.
 
 [Release Notes](./Releases/index.md) | [Sample Code](./Sample-Code/index.md) | [Repositories](./repositories.md)
-
-<!--
-We are proud to announce the [GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/GS_Release_2026-02-18_Changelog.md)
--->
 
 ## Get Started
 
 Join the growing community of developers using Generic Suite to supercharge their projects. Explore the repositories and start building today!
 
-* [Why choose Generic Suite?](#why-choose-generic-suite)
 * [Key Features](#key-features)
+* [Why choose Generic Suite?](#why-choose-generic-suite)
 * [What is the Generic Suite for?](#what-is-the-generic-suite-for)
 * [The Generic Suite Core](#the-generic-suite-core)
 * [The Generic Suite AI](#the-generic-suite-ai)
@@ -29,14 +42,6 @@ Join the growing community of developers using Generic Suite to supercharge thei
 * [Configuration Guide](./Configuration-Guide/index.md)
 * [History](./history.md)
 
-## Why Choose Generic Suite?
-
-* Seamless Full-Stack Integration – Develop applications faster with a unified library for both frontend and backend, reducing redundant code and ensuring consistency.
-* AI-Driven Efficiency – Leverage built-in AI capabilities to enhance automation, generate content, and optimize software development.
-* Customizable & Scalable – Adapt the framework to your specific needs, with support for multiple programming frameworks, databases, and deployment platforms.
-* Accelerated Development Workflow – Pre-built utilities and automation tools save time, letting you focus on innovation instead of repetitive tasks.
-* Cross-Platform Compatibility – Whether you're working with FastAPI, Flask, Chalice, MongoDB, DynamoDB, Postgres, MySQL, Supabase, GS adapts to your tech stack effortlessly.
-
 ## Key Features
 
 ### Core Framework
@@ -49,14 +54,22 @@ Join the growing community of developers using Generic Suite to supercharge thei
 
 ### AI-Powered Development
 
+* MCP Server to open the developed applications to AI Agents.
 * AI chatbot endpoint with OpenAI, LangChain, and Hugging Face integrations.
 * Computer vision, speech processing, and text-to-speech capabilities.
 * Web scraping, translation tools, and vector search for advanced data handling.
 
 ### AI Skills
 
-* Claude Skills plugin collection for the GenericSuite ecosystem.
-* A set of AI agent skills that build a complete GenericSuite application — React frontend, FastAPI backend, JSON-driven CRUD, AI assistant and MCP server — from a conversation.
+* Claude Skills plugin collection: a set of AI agent skills that build a complete GenericSuite application — React frontend, FastAPI backend, JSON-driven CRUD, AI assistant and MCP server — from a conversation.
+
+### Effortless DevOps & Deployment
+
+* Deployments to production, QA, Staging and demo with OpenTofu (IaC) and CloudFormation (AWS).
+* Support for multiple Cloud deployment platforms: AWS, Azure, GCP.
+* Pre-configured GitOps scripts for Kubernetes, Docker, and VPS environments.
+* Local AI service setups, including OLLAMA, WebUI, Stable Diffusion, and N8N.
+* Comprehensive documentation and best practices via Generic Suite Basecamp.
 
 ### GSAM (Generic Suite App Maker)
 
@@ -64,17 +77,13 @@ Join the growing community of developers using Generic Suite to supercharge thei
 * Image and video generation using cutting-edge AI models.
 * AI-powered app presentations, naming suggestions, and prompt engineering.
 
-### ASDT (Agentic Software Development Team)
+## Why Choose Generic Suite?
 
-* Multi-agent AI collaboration for problem-solving and software automation.
-* Built on CrewAI and Camel AI (LangGraph and Smolagent planned) for scalable agentic workflows.
-
-### Effortless DevOps & Deployment
-
-* Deployments to production, QA, Staging and demo with OpenTofu (IaC) and CloudFormation (AWS).
-* Pre-configured GitOps scripts for Kubernetes, Docker, and VPS environments.
-* Local AI service setups, including OLLAMA, WebUI, Stable Diffusion, and N8N.
-* Comprehensive documentation and best practices via Generic Suite Basecamp.
+* Seamless Full-Stack Integration – Develop applications faster with a unified library for both frontend and backend, reducing redundant code and ensuring consistency.
+* AI-Driven Efficiency – Leverage built-in AI capabilities to enhance automation, generate content, and optimize software development.
+* Customizable & Scalable – Adapt the framework to your specific needs, with support for multiple programming frameworks, databases, and deployment platforms.
+* Accelerated Development Workflow – Pre-built utilities and automation tools save time, letting you focus on innovation instead of repetitive tasks.
+* Cross-Platform Compatibility – Whether you're working with FastAPI, Flask, Chalice, MongoDB, DynamoDB, Postgres, MySQL, Supabase, GS adapts to your tech stack effortlessly.
 
 ## What is the Generic Suite for?
 
@@ -148,6 +157,7 @@ Repository:
 
 * :fontawesome-brands-python:{ .python } [GenericSuite App Maker](https://github.com/tomkat-cr/genericsuite-app-maker)
 
+<!--
 ### AI Agentic Software Development Team
 
 The **Generic Suite Agentic Software Development Team (ASDT)** provides a team of autonomous entities designed to solve software development problems using AI to make decisions, learn from interactions, and adapt to changing conditions without human intervention.
@@ -155,6 +165,7 @@ The **Generic Suite Agentic Software Development Team (ASDT)** provides a team o
 Repository:
 
 * :fontawesome-brands-python:{ .python } [GenericSuite Agentic Software Development Team](https://github.com/tomkat-cr/genericsuite-asdt-be)
+-->
 
 ## Server Operations
 
@@ -191,6 +202,9 @@ Check the [Sample Code](./Sample-Code/index.md) section for more information.
 ## Releases
 
 You can find the detailed changelog for each release [here](./Releases/index.md).
+
+[![GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/images/GS_Release_2026-02-18_Image_1A.png)](./Releases/GS_Release_2026-02-18_Changelog.md)
+We are proud to announce the [GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/GS_Release_2026-02-18_Changelog.md)
 
 ## Presentation
 
