@@ -1,9 +1,8 @@
 # Unlock Full-Stack Power with Generic Suite (GS)
 
+![GenericSuite AI Logo](../assets/images/gs_ai_logo_circle.png){ .center }
 
-![GenericSuite AI Logo](../assets/images/gs_ai_logo_circle.png)
-
-GenericSuite (GS) is a development library designed to streamline frontend, backend, mobile and AI workflows, enabling rapid app development with AI-powered enhancements.
+GenericSuite: an open source framework for building applications with AI-powered enhancements. Define your application once in JSON. Get web, mobile, backend API and MCP services out - ready to deploy and scale.
 
 [![GenericSuite Diagram](../assets/images/genericsuite-architecture.png)](../assets/images/genericsuite-architecture.png)
 
@@ -87,11 +86,11 @@ Join the growing community of developers using Generic Suite to supercharge thei
 
 ## What is the Generic Suite for?
 
-The Generic Suite is a frontend and backend set of utilities made with ReactJS and Python to help develop Apps faster.
+GenericSuite is a development library designed to streamline frontend, backend, mobile and AI workflows, enabling rapid app development with AI-powered enhancements. It has a set of utilities made with ReactJS, Flutter, and Python.
 
-It's composed by a **Generic Suite Core**, which is the core for all the suite elements, and extensions like the Generic Suite AI.
+It's composed by a [Generic Suite Core](#the-generic-suite-core), which is the core for all the suite elements, extensions like the [Generic Suite AI](#the-generic-suite-ai), [Generic Suite Mobile](#the-generic-suite-mobile), and auxiliary tools like the [Generic Suite Gitops](#server-operations), [Generic Suite AI Agent Skills](#genericsuite-ai-agent-skills), and [Generic Suite App Maker](#gsam-the-generic-suite-ai-app-maker).
 
-![gs_logo_circle.png](../assets/images/gs_logo_circle.png)
+![gs_logo_circle.png](../assets/images/gs_logo_circle.png){ .center }
 
 ## The Generic Suite Core
 
@@ -111,7 +110,7 @@ Packages:
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (frontend version)](./Frontend-Development/GenericSuite-Scripts/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
 
-![gs_ai_logo_circle.png](../assets/images/gs_ai_logo_circle.png)
+![gs_ai_logo_circle.png](../assets/images/gs_ai_logo_circle.png){ .center }
 
 ## The Generic Suite AI
 
@@ -140,6 +139,17 @@ Packages:
 * :fontawesome-brands-react:{ .react } [GenericSuite AI (frontend version) for React.js](./Frontend-Development/GenericSuite-AI/index.md)
 * :fontawesome-brands-python:{ .python } [GenericSuite AI (backend version) for Python](./Backend-Development/GenericSuite-AI/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
+
+### Generic Suite Mobile
+
+Features:
+
+* Same as [the Generic Suite Core](#the-generic-suite-core) but for mobile app builder.
+* Made with Flutter for iOS, Android, Windows, macOS and web.
+
+Packages:
+
+* :fontawesome-brands-flutter:{ .flutter } [GenericSuite Mobile for Flutter](./Mobile-Development/index.md)
 
 ### GenericSuite AI Agent Skills
 

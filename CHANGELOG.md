@@ -32,6 +32,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - `mkdocs_root/en/ai-skills.md` — new docs page for the suite with the new AI skills documentation [GS-254].
 - `select_table` field type documentation to Add 1-1 relationships support to the CRUD Editor listing/data pages [GS-259].
 - OpenTofu deployment guide (`mkdocs_root/en/Deployment-Guide/opentofu.md`) covering the genericsuite-fe-scripts and genericsuite-be-scripts IaC stacks, with a nav entry in `mkdocs.yml` [GS-334].
+- New architecture image for documentation index page [GS-327].
 
 ### Changed
 - Rename `docs/` to `mkdocs_root/` [GS-208].
@@ -58,6 +59,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - ExampleApp: Update dependencies in `package.json` and `pnpm-lock.yaml` for dotenv and turbo. [GS-254]
 - ExampleApp: Update `aiohappyeyeballs` and `aiohttp` versions in uv.lock files for API apps.
 - ExampleApp and FastApiTemplate: Refactor Makefile to use `genericsuite-fe-scripts` for build and deployment commands in UI app [GS-107].
+- Update index.md for improved clarity and content on Generic Suite features (one-liner followed by a brief description for quick reference, logos centered, new architecture image) [GS-327].
 
 ### Fixed
 - `mkdocs_transfer_site.sh` removes the `docs_for_ftp` and `site` directories, and uses `.venv` instead of `venv` to avoid multiple python environments [GS-301].
@@ -66,6 +68,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - BASECAMP_BRANCH documentation about default value to "main" (scripts/new-project-from-template.sh) [GS-306]
 - `scripts/rename-app.sh` — new filename-rename pass for fastapitemplate* files (fixes the openapi.json/yaml leftover; tested in a throwaway dir, 5/5 checks, reproduced by the `packages/genericsuite-skills/skills/python-fastapi-code-builder` AI skill reviewer) [GS-254].
 - "Could not resolve dependency: formik@2.4.5" error in ExampleApp [GS-254].
+- Transfer scripts to use "mkdocs_root" instead of "docs" [GS-208].
+
 
 ### Removed
 - AGENTS.md symlink [GS-303]
