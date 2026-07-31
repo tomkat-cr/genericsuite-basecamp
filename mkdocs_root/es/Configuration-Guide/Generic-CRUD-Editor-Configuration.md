@@ -287,6 +287,8 @@ El atributo `autocomplete_fields` es un diccionario que define los campos que se
 
 El tipo de campo `select_table` se utiliza para implementar relaciones 1-1. Muestra la descripción del registro relacionado en el listado y en las vistas de solo lectura, y un desplegable poblado desde la tabla relacionada en el formulario de creación/edición.
 
+El atributo `local_field` define el nombre del campo en la tabla actual utilizado para almacenar la clave del registro relacionado. Por defecto es el atributo `name`.
+
 El atributo `related_table` define la tabla (o colección) desde la que se obtienen los registros relacionados. Es obligatorio.
 
 El atributo `related_key` define el nombre del campo en la tabla relacionada que se utiliza como clave para coincidir con el valor del campo. Por defecto es `_id`.
@@ -301,9 +303,10 @@ La respuesta de la API incluye un atributo `{field}_description` (p. ej. `user_i
 
 ```json
 {
-  "name": "user_id",
+  "name": "user_firstname_lastname",
   "type": "select_table",
   "label": "User",
+  "local_field": "user_id",
   "related_table": "users",
   "description_fields": ["firstname", "lastname"],
   "listing": true,

@@ -287,6 +287,8 @@ The `autocomplete_fields` attribute is a dictionary that defines the fields to b
 
 The `select_table` field type is used to implement 1-1 relationships. It shows the related record's description in the listing and read-only views, and a dropdown populated from the related table in the create/edit form.
 
+The `local_field` attribute defines the field name in the current table used to store the related record's key. Defaults to the `name` attribute.
+
 The `related_table` attribute defines the table (or collection) to fetch the related records from. It's required.
 
 The `related_key` attribute defines the field name in the related table used as the key to match the field's value. Defaults to `_id`.
@@ -301,9 +303,10 @@ The API response includes a `{field}_description` attribute (e.g. `user_id_descr
 
 ```json
 {
-  "name": "user_id",
+  "name": "user_firstname_lastname",
   "type": "select_table",
   "label": "User",
+  "local_field": "user_id",
   "related_table": "users",
   "description_fields": ["firstname", "lastname"],
   "listing": true,
