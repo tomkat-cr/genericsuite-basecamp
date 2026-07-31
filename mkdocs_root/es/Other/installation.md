@@ -1,16 +1,26 @@
 # Instalación de GenericSuite
 
-## Versión global de Node
+## Requisitos previos
 
-Para establecer la versión predeterminada de `Node` que será utilizada por `nvm`:
+### Bash
 
-1. Ejecute el siguiente comando en su terminal, sustituyendo `<version>` por el número de versión de Node que desea establecer como predeterminado: `nvm alias default <version>`. Por ejemplo, para usar `Node 20`:
+Si planeas usar un entorno de desarrollo con Windows, debes instalar `Git Bash` desde el paquete de [Git for Windows](https://gitforwindows.org/). También necesitarás instalar la utilidad [Make](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows).
+
+Si planeas usar un entorno de desarrollo con MacOS o Linux, la shell bash y la utilidad Make ya están instaladas.
+
+### NodeJS
+
+Se recomienda usar [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) para gestionar múltiples versiones de [NodeJS](https://nodejs.org).
+
+Para establecer la versión predeterminada de `NodeJS` que será utilizada por `nvm`:
+
+1. Ejecuta el siguiente comando en tu terminal, sustituyendo `<version>` por el número de versión de Node que deseas establecer como predeterminada: `nvm alias default <version>`. Por ejemplo, para usar `Node 20`:
 
 ```sh
 nvm alias default 20
 ```
 
-2. Cree un archivo `.nvmrc` en la raíz de su proyecto con la versión de Node en su contenido, para que la nueva versión se establezca cuando ejecute `nvm use` o cuando se abra una Terminal en su editor de código favorito (p. ej. Visual Studio Code o Cursor.sh). Por ejemplo:
+2. Crea un archivo `.nvmrc` en el directorio raíz de tu proyecto con la versión de Node en su contenido, de modo que la nueva versión se establezca cuando ejecutes `nvm use` o cuando se abra una Terminal en tu editor de código favorito (p. ej. Visual Studio Code o Cursor.sh). Por ejemplo:
 
 Archivo: `.nvmrc`
 
@@ -18,9 +28,9 @@ Archivo: `.nvmrc`
 20
 ```
 
-3. Cree un archivo `.nvmrc` en el directorio home del usuario con la versión de Node y agregue los comandos en el script de inicio de la shell, para que la nueva versión se establezca cuando se abra una nueva ventana de Terminal. Por ejemplo:
+3. Crea un archivo `.nvmrc` en el directorio home de tu usuario con la versión de Node y añade los comandos en el script de inicio de la shell, para que la nueva versión se establezca cuando se abra una nueva ventana de Terminal. Por ejemplo:
 
-macOS:
+MacOS:
 
 Archivo: `/Users/$USER/.zshrc` o `/Users/$USER/.bashrc`
 
@@ -28,16 +38,22 @@ Linux:
 
 Archivo: `/home/$USER/.bashrc` o `/home/$USER/.profile`
 
-Agregue estas líneas:
+Añade estas líneas:
 
 ```sh
-# To set the Node version when new Terminal window is opened
+# Para establecer la versión de Node cuando se abra una nueva ventana de Terminal
 if [ -f "./.nvmrc" ]; then
     nvm use
 fi
 ```
 
-Y cree el archivo `.nvmrc` mencionado anteriormente en el directorio home del usuario: `/Users/$USER` o `/home/$USER`.
+Y crea el archivo `.nvmrc` mencionado anteriormente en el directorio home del usuario: `/Users/$USER` o `/home/$USER`.
+
+## Python
+
+Para instalar [Python](https://www.python.org), se recomienda usar [pyenv](https://github.com/pyenv/pyenv) que permite gestionar múltiples versiones de Python.
+
+Existe un script [install_dev_tools.sh](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/install_dev_tools.sh) en el repositorio [genericsuite-be-scripts](https://github.com/tomkat-cr/genericsuite-be-scripts) que facilita la instalación de `pyenv` y otras dependencias necesarias, como [uv](https://docs.astral.sh/uv/getting-started/installation/), [poetry](https://python-poetry.org/docs/), o [pipenv](https://pipenv.pypa.io/en/latest/) para la gestión de dependencias de Python.
 
 
 ## Backend
@@ -76,7 +92,7 @@ pipenv install genericsuite
 pipenv install genericsuite-ai
 ```
 
-Para instalar los scripts de backend de GenericSuite:
+Para instalar los scripts del backend de GenericSuite:
 
 ```bash
 npm install genericsuite-be-scripts
@@ -84,7 +100,7 @@ npm install genericsuite-be-scripts
 
 ### Instalar desde repositorios Git
 
-Para instalar cualquiera de las soluciones de backend (Core, AI, etc) desde una rama específica en los repositorios Git, p. ej. "branch_x":
+Para instalar cualquiera de las soluciones de backend (Core, AI, etc) desde una rama específica en los repositorios Git, por ejemplo, "branch_x":
 
 Pip
 ```bash
@@ -118,7 +134,7 @@ pipenv install git+https://github.com/tomkat-cr/genericsuite-be@branch_x
 pipenv install git+https://github.com/tomkat-cr/genericsuite-be-ai@branch_x
 ```
 
-Para instalar los scripts de backend desde una rama en los repositorios Git, p. ej. "branch_x":
+Para instalar los scripts del backend desde una rama específica en los repos Git, por ejemplo, "branch_x":
 
 ```bash
 npm install tomkat-cr/genericsuite-be-scripts#branch_x
@@ -152,7 +168,7 @@ poetry add ../genericsuite-be
 poetry add ../genericsuite-be-ai
 ```
 
-Para instalar los scripts de backend desde un directorio local:
+Para instalar los scripts del backend desde un directorio local:
 
 ```bash
 npm install ../genericsuite-be-scripts
@@ -200,7 +216,7 @@ npm uninstall genericsuite && npm install tomkat-cr/genericsuite-fe#develop
 npm uninstall genericsuite-ai && npm install tomkat-cr/genericsuite-fe-ai#develop
 ```
 
-O todo junto:
+O juntos:
 
 ```bash
 npm uninstall genericsuite genericsuite-ai && npm install tomkat-cr/genericsuite-fe#develop tomkat-cr/genericsuite-fe-ai#develop
@@ -208,4 +224,4 @@ npm uninstall genericsuite genericsuite-ai && npm install tomkat-cr/genericsuite
 
 **IMPORTANTE**:
 
-* Cuando haya realizado cambios en cualquiera de los paquetes frontend de GenericSuite, ejecute `make pre-publish` para reconstruir los archivos del directorio `dist` antes del `commit` y `push` en Git, ya que esos archivos son necesarios para que `npm install` funcione. Luego vuelva a instalar el paquete modificado en el proyecto padre (su aplicación) usando el comando `npm install tomkat-cr/genericsuite-fe` o `npm install tomkat-cr/genericsuite-fe-ai`.
+* Cuando hayas realizado cambios en cualquiera de los paquetes frontend de GenericSuite, realiza un `make pre-publish` para reconstruir los archivos del directorio `dist` antes del `commit` y `push` en Git, ya que esos archivos son necesarios para que `npm install` funcione. Luego vuelve a instalar el paquete cambiado en el proyecto padre (tu aplicación) usando el comando `npm install tomkat-cr/genericsuite-fe` o `npm install tomkat-cr/genericsuite-fe-ai`.

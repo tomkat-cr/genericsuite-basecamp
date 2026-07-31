@@ -41,4 +41,4 @@ npx skills add tomkat-cr/genericsuite-skills
 /gs-app-builder ./my-app "an inventory app with products and warehouses, with an AI chatbot"
 ```
 
-The repository also ships `agents-skills` (AGENTS.md generation, skill-creator meta-skill) and `release-prep-skills` (bilingual release notes). See the [genericsuite-skills README](https://github.com/tomkat-cr/genericsuite-skills#readme) for development and evaluation workflows.
+The repository also ships `agents-skills` (AGENTS.md generation, skill-creator meta-skill). See the [genericsuite-skills README](https://github.com/tomkat-cr/genericsuite-skills#readme) for development and evaluation workflows.

@@ -2,11 +2,15 @@
 
 ![GenericSuite AI Logo](../assets/images/gs_ai_logo_circle.png){ .center }
 
-GenericSuite: an open source framework for building applications with AI-powered enhancements. Define your application once in JSON. Get web, mobile, backend API and MCP services out - ready to deploy and scale.
+Have you ever found yourself copying the same common useful code from app to app over and over again?
 
-[![GenericSuite Diagram](../assets/images/genericsuite-architecture.png)](../assets/images/genericsuite-architecture.png)
+Don't you ever think that building a full-stack application is too complex?
 
-It's based on the generic programming paradigm (DRY Principle), and let define the application menu structure, database schemas, data input forms, API endpoints,authentication and authorization using JSON configuration files.
+GenericSuite (GS) is an open source framework for building applications with AI-powered enhancements. Define your application in JSON files. Get web, mobile, backend API and MCP services out - ready to deploy and scale.
+
+[![GenericSuite Diagram](../assets/images/genericsuite-architecture.png)](https://genericsuite.carlosjramirez.com/assets/images/genericsuite-architecture.png)
+
+It's based on the generic programming paradigm (DRY Principle), and let define the application menu structure, database schemas, data input forms, API endpoints, user authentication and authorization using JSON configuration files.
 
 The result is a complete application ready to be deployed and scaled:
 
@@ -20,11 +24,11 @@ The result is a complete application ready to be deployed and scaled:
 
 Whether you're building robust APIs, scalable databases, or dynamic user interfaces, GS provides the flexibility and efficiency needed to accelerate your projects.
 
+Join the growing community of developers using Generic Suite to supercharge their projects. Explore the repositories and start building today!
+
 [Release Notes](./Releases/index.md) | [Sample Code](./Sample-Code/index.md) | [Repositories](./repositories.md)
 
 ## Get Started
-
-Join the growing community of developers using Generic Suite to supercharge their projects. Explore the repositories and start building today!
 
 * [Key Features](#key-features)
 * [Why choose Generic Suite?](#why-choose-generic-suite)
@@ -38,6 +42,7 @@ Join the growing community of developers using Generic Suite to supercharge thei
 * [Post](#posts)
 * [Frontend Development](./Frontend-Development/index.md)
 * [Backend Development](./Backend-Development/index.md)
+* [Mobile Development](./Mobile-Development/index.md)
 * [Configuration Guide](./Configuration-Guide/index.md)
 * [History](./history.md)
 

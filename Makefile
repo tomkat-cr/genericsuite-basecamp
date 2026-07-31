@@ -25,6 +25,7 @@ translate_uncommitted:
 	sh scripts/translation/run_translate_uncommitted.sh
 
 sample_code_prepare:
+	# BRANCH=develop to use the latest develop branch. e.g. BRANCH=develop make sample_code_prepare
 	sh scripts/sample_code_prepare.sh
 
 prepare_all: generate_openapi translate_uncommitted sample_code_prepare prepare_docs
@@ -34,11 +35,14 @@ transfer_debug: prepare_all
 
 transfer_cicd: prepare_all
 	# Set DEBUG to false to avoid blocking automation in CI environments
+	# BRANCH=develop to use the latest develop branch. e.g. BRANCH=develop make transfer_cicd
 	DEBUG="false" sh scripts/mkdocs_transfer_site.sh
 
 transfer: transfer_cicd
+	# BRANCH=develop to use the latest develop branch. e.g. BRANCH=develop make transfer
 
 publish: transfer
+	# BRANCH=develop to use the latest develop branch. e.g. BRANCH=develop make publish
 
 nvm_use:
 	export NVM_DIR="${HOME}/.nvm" && [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh" && if ! nvm use; then echo "❌ NVM use failed. Please install it."; fi
@@ -50,6 +54,7 @@ build: prepare_all
 	bash scripts/mkdocs_run.sh build
 
 serve:
+	# BRANCH=develop to use the latest develop branch. e.g. BRANCH=develop make serve
 	bash scripts/mkdocs_run.sh serve -a localhost:8015
 
 run: prepare_all serve

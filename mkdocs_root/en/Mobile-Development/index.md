@@ -9,8 +9,6 @@ Repository layout:
 
 - `genericsuite_flutter/` — the reusable Flutter library (consumed as a Git
   dependency).
-- `flutter_project_template/` — a starter app template showing real-world
-  usage.
 
 ## Installation
 
@@ -165,4 +163,4 @@ class AppCallables extends AppCallablesSuper {
 - Library README:
   [genericsuite_flutter](https://github.com/tomkat-cr/genericsuite-mobile/tree/main/genericsuite_flutter)
 - Starter template:
-  [flutter_project_template](https://github.com/tomkat-cr/genericsuite-mobile/tree/main/flutter_project_template)
+  [flutter_project_template](https://github.com/tomkat-cr/genericsuite-mobile-exampleapp)

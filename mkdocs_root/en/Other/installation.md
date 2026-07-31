@@ -1,8 +1,18 @@
 # GenericSuite Installation
 
-## Node global version
+## Pre-requisites
 
-To set the default `Node` version to be used by `nvm`:
+### Bash
+
+If you plan to use a development environment with Windows, you must install the `Git Bash` from the [Git for Windows](https://gitforwindows.org/) package. You'll also need to install the [Make](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows) utilitys.
+
+If you plan to use a development environment with MacOS or Linux, bash shell and Make utilitys are already installed.
+
+### NodeJS
+
+It is recommended to use [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) to manage multiple [NodeJS](https://nodejs.org) versions.
+
+To set the default `NodeJS` version to be used by `nvm`:
 
 1. Run the following command in your terminal, replacing `<version>` with the Node version number you want to set as the default: `nvm alias default <version>`. For example, to use `Node 20`:
 
@@ -38,6 +48,12 @@ fi
 ```
 
 And create the `.nvmrc` file mentioned earlier in the user's home directory: `/Users/$USER` or `/home/$USER`.
+
+## Python
+
+To install [Python](https://www.python.org), it is recommeded to use [pyenv](https://github.com/pyenv/pyenv) that allows managing multiple Python versions.
+
+There is a script [install_dev_tools.sh](https://github.com/tomkat-cr/genericsuite-be-scripts/blob/main/scripts/install_dev_tools.sh) in the [genericsuite-be-scripts](https://github.com/tomkat-cr/genericsuite-be-scripts) repository that simplifies the installation of `pyenv` and other required dependencies, like [uv](https://docs.astral.sh/uv/getting-started/installation/), [poetry](https://python-poetry.org/docs/), or [pipenv](https://pipenv.pypa.io/en/latest/) for Python dependency management.
 
 
 ## Backend
