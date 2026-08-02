@@ -1154,7 +1154,7 @@ Fix it with these commands:
 
 ```bash   
 # Set the project Python version with pyenv
-pyenv local 3.12
+pyenv local 3.14
 ```
 ```bash
 # Set the Python path with pipenv

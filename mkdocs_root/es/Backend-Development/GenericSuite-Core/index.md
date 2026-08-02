@@ -600,7 +600,8 @@ FRONTEND_PATH=../exampleapp_frontend
 
 * Versión local de Python
 ```env
-PYTHON_VERSION=3.12
+PYTHON_VERSION=3.14
+# PYTHON_VERSION=3.12
 # PYTHON_VERSION=3.11.5
 # PYTHON_VERSION=3.10.12
 ```

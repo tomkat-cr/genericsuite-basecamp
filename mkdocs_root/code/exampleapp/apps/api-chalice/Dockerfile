@@ -1,7 +1,7 @@
 # File: exampleapp_backend/Dockerfile
 # 2022-02-25 | CR
 
-FROM python:3.11
+FROM python:3.14
 
 ARG FLASK_APP=chalicelib
 ARG APP_STAGE=dev

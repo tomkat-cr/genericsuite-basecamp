@@ -1154,7 +1154,7 @@ Solución con estos comandos:
 
 ```bash   
 # Establecer la versión de Python del proyecto con pyenv
-pyenv local 3.12
+pyenv local 3.14
 ```
 ```bash
 # Establecer la ruta de Python con pipenv
