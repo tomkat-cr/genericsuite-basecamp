@@ -117,35 +117,25 @@ npm install genericsuite
 
 ```bash
 npm install --save-dev \
-   @babel/cli \
    @babel/core \
    @babel/plugin-transform-class-properties \
    @babel/plugin-proposal-private-property-in-object \
    @babel/plugin-syntax-jsx \
    @babel/preset-env \
    @babel/preset-react \
-   @babel/preset-stage-0 \
    @babel/preset-typescript \
    @testing-library/jest-dom \
    @testing-library/react \
-   @testing-library/user-event \
    @types/jest \
    @types/react \
    babel-jest \
    babel-loader \
    babel-plugin-css-modules-transform \
-   css-loader \
-   file-loader \
-   interpolate-html-plugin \
    jest \
    jest-environment-jsdom \
-   path \
    postcss \
-   postcss-loader \
    react-test-renderer \
-   style-loader \
    tailwindcss \
-   url-loader \
    whatwg-fetch
 ```
 
@@ -173,10 +163,18 @@ npm install --save-peer --strict-peer-deps vite @vitejs/plugin-react
 * **Webpack**<br>
 
 ```bash
-npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin interpolate-html-plugin
+npm install --save-dev \
+   webpack \
+   webpack-cli \
+   webpack-dev-server \
+   html-webpack-plugin \
+   interpolate-html-plugin \
+   css-loader \
+   postcss-loader \
+   style-loader
 ```
 <!--
-npm install --save-peer --strict-peer-deps webpack webpack-cli webpack-dev-server html-webpack-plugin interpolate-html-plugin
+npm install --save-peer --strict-peer-deps webpack webpack-cli webpack-dev-server html-webpack-plugin interpolate-html-plugin css-loader postcss-loader style-loader
 -->
 
 ### Prepare the Configuration Files
@@ -266,7 +264,8 @@ Add the following scripts:
       "test-dev": "react-app-rewired test",
       "test": "jest",
       "predeploy": "npm run build",
-      "deploy": "gh-pages -d build"
+      "deploy": "# gh-pages -d build # Uncomment this line to deploy to github pages and run 'npm install -D gh-pages'",
+      "check-types": "tsc --noEmit"
    },
 ```
 

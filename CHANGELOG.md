@@ -8,7 +8,6 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ## [Unreleased] - YYYY-MM-DD
 
 ### Added
-- Mobile Development documentation section: GenericSuite Flutter installation, JSON-driven CRUD, childComponents (1-N relationships), and the Apple-clean theming tokens [GS-261].
 
 ### Changed
 
@@ -33,6 +32,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - `select_table` field type documentation to Add 1-1 relationships support to the CRUD Editor listing/data pages [GS-259].
 - OpenTofu deployment guide (`mkdocs_root/en/Deployment-Guide/opentofu.md`) covering the genericsuite-fe-scripts and genericsuite-be-scripts IaC stacks, with a nav entry in `mkdocs.yml` [GS-334].
 - New architecture image for documentation index page [GS-327].
+- Mobile Development documentation section: GenericSuite Flutter installation, JSON-driven CRUD, childComponents (1-N relationships), and the Apple-clean theming tokens [GS-261].
 
 ### Changed
 - Rename `docs/` to `mkdocs_root/` [GS-208].
@@ -61,6 +61,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - ExampleApp and FastApiTemplate: Refactor Makefile to use `genericsuite-fe-scripts` for build and deployment commands in UI app [GS-107].
 - Update index.md for improved clarity and content on Generic Suite features (one-liner followed by a brief description for quick reference, logos centered, new architecture image) [GS-327].
 - Update Makefile with branch usage instructions using the BRANCH envvar to prepare code from develop branch.
+- Frontend-Development/GenericSuite-Core (`en` and `es`): removed `@babel/cli`, `@babel/preset-stage-0`, `@testing-library/user-event`, `file-loader`, `path`, and `url-loader` from the "Install additional development dependencies" step — these are no longer required by `genericsuite-fe`'s own build/test pipeline [GS-338].
 
 ### Fixed
 - `mkdocs_transfer_site.sh` removes the `docs_for_ftp` and `site` directories, and uses `.venv` instead of `venv` to avoid multiple python environments [GS-301].
@@ -70,6 +71,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - `scripts/rename-app.sh` — new filename-rename pass for fastapitemplate* files (fixes the openapi.json/yaml leftover; tested in a throwaway dir, 5/5 checks, reproduced by the `packages/genericsuite-skills/skills/python-fastapi-code-builder` AI skill reviewer) [GS-254].
 - "Could not resolve dependency: formik@2.4.5" error in ExampleApp [GS-254].
 - Transfer scripts to use "mkdocs_root" instead of "docs" [GS-208].
+- "config-overrides.js" updated to fix errors running the app with RUN_BUNDLER="react-scripts" [GS-338].
 
 ### Security
 - Upgrade dependencies in exampleapp and fastapitemplate package-lock and uv.lock files for multiple applications. Notable changes include upgrading cryptography, crypto-browserify, downshift, react-icons, react-markdown, react-syntax-highlighter, react-router-dom, and yup [GS-219].
