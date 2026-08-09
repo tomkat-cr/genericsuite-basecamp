@@ -19,7 +19,7 @@
 - Versión de Python >= 3.10 y < 4.0 (instalar preferentemente con [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation); las versiones se especifican en los archivos `.python-version`)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
-- Versión de Node 20+, instalada vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o [NPM y Node](https://nodejs.org/en/download)
+- Versión de Node.js 26+, instalada vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o [NPM y Node](https://nodejs.org/en/download)
 - [Docker y Docker Composer](https://www.docker.com/products/docker-desktop)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/), [pipenv](https://pipenv.pypa.io/en/latest/), o [poetry](https://python-poetry.org/docs/) (para la gestión de dependencias de Python)
 

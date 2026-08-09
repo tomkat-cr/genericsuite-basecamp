@@ -14,21 +14,21 @@ Se recomienda usar [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) p
 
 Para establecer la versión predeterminada de `NodeJS` que será utilizada por `nvm`:
 
-1. Ejecuta el siguiente comando en tu terminal, sustituyendo `<version>` por el número de versión de Node que deseas establecer como predeterminada: `nvm alias default <version>`. Por ejemplo, para usar `Node 20`:
+1. Ejecuta el siguiente comando en tu terminal, sustituyendo `<version>` por el número de versión de Node.js que deseas establecer como predeterminada: `nvm alias default <version>`. Por ejemplo, para usar **Node.js 26**:
 
 ```sh
-nvm alias default 20
+nvm alias default 26
 ```
 
-2. Crea un archivo `.nvmrc` en el directorio raíz de tu proyecto con la versión de Node en su contenido, de modo que la nueva versión se establezca cuando ejecutes `nvm use` o cuando se abra una Terminal en tu editor de código favorito (p. ej. Visual Studio Code o Cursor.sh). Por ejemplo:
+2. Crea un archivo `.nvmrc` en el directorio raíz de tu proyecto con la versión de Node.js en su contenido, de modo que la nueva versión se establezca cuando ejecutes `nvm use` o cuando se abra una Terminal en tu editor de código favorito (p. ej. Visual Studio Code o Cursor.sh). Por ejemplo:
 
 Archivo: `.nvmrc`
 
 ```
-20
+26
 ```
 
-3. Crea un archivo `.nvmrc` en el directorio home de tu usuario con la versión de Node y añade los comandos en el script de inicio de la shell, para que la nueva versión se establezca cuando se abra una nueva ventana de Terminal. Por ejemplo:
+3. Crea un archivo `.nvmrc` en el directorio home de tu usuario con la versión de Node.js y añade los comandos en el script de inicio de la shell, para que la nueva versión se establezca cuando se abra una nueva ventana de Terminal. Por ejemplo:
 
 MacOS:
 
@@ -41,7 +41,7 @@ Archivo: `/home/$USER/.bashrc` o `/home/$USER/.profile`
 Añade estas líneas:
 
 ```sh
-# Para establecer la versión de Node cuando se abra una nueva ventana de Terminal
+# Para establecer la versión de Node.js cuando se abra una nueva ventana de Terminal
 if [ -f "./.nvmrc" ]; then
     nvm use
 fi

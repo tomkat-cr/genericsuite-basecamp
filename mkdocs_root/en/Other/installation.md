@@ -10,25 +10,25 @@ If you plan to use a development environment with MacOS or Linux, bash shell and
 
 ### NodeJS
 
-It is recommended to use [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) to manage multiple [NodeJS](https://nodejs.org) versions.
+It is recommended to use [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) to manage multiple [Node.js](https://nodejs.org) versions.
 
 To set the default `NodeJS` version to be used by `nvm`:
 
-1. Run the following command in your terminal, replacing `<version>` with the Node version number you want to set as the default: `nvm alias default <version>`. For example, to use `Node 20`:
+1. Run the following command in your terminal, replacing `<version>` with the Node.js version number you want to set as the default: `nvm alias default <version>`. For example, to use **Node.js 26**:
 
 ```sh
-nvm alias default 20
+nvm alias default 26
 ```
 
-2. Create a `.nvmrc` file in your project root directory with the Node version in its content, so the new version will be set when you run `nvm use` or when a Terminal is opened in your favorite code editor (e.g. Visual Studio Code or Cursor.sh). For example:
+2. Create a `.nvmrc` file in your project root directory with the Node.js version in its content, so the new version will be set when you run `nvm use` or when a Terminal is opened in your favorite code editor (e.g. Visual Studio Code or Cursor.sh). For example:
 
 File: `.nvmrc`
 
 ```
-20
+26
 ```
 
-3. Create a `.nvmrc` file in your user's home directory with the Node version and add the commands on the shell starter script, so the new version will be set when a new Terminal window is opened. For example:
+3. Create a `.nvmrc` file in your user's home directory with the Node.js version and add the commands on the shell starter script, so the new version will be set when a new Terminal window is opened. For example:
 
 MacOS:
 
@@ -41,7 +41,7 @@ File: `/home/$USER/.bashrc` or `/home/$USER/.profile`
 Add this lines:
 
 ```sh
-# To set the Node version when new Terminal window is opened
+# To set the Node.js version when new Terminal window is opened
 if [ -f "./.nvmrc" ]; then
     nvm use
 fi

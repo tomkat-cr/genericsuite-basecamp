@@ -95,7 +95,7 @@ Este PR integra Axios como alternativa a fetch, centraliza definiciones de varia
 - Eliminar dependencias de vite, webpack y react-app-rewired ejecutando npm_publish.sh [GS-198].
 - Implementar RUN_METHOD en aws_deploy_to_s3.sh y build_prod_test.sh, para que use vite, webpack o react-app-rewired [GS-199].
 - React Router actualizado de "^v6.18.0" a "^v7.5.3" [GS-199].
-- Versión predeterminada de Node actualizada a 20 en ".nvmrc" [GS-199].
+- Versión predeterminada de Node.js actualizada a 20 en ".nvmrc" [GS-199].
 - Tailwind CSS actualizado de "^v3.4.9" a "^v4.1.5" [GS-112].
 - Añadir *.ts, *.tsx y ./index.html a tailwind.config.js [GS-112].
 - Todos los flags de depuración desactivados.
@@ -140,7 +140,7 @@ Esta PR prepara el lanzamiento v1.0.23 actualizando dependencias centrales, aña
 - Añadir Vite como alternativa a webpack [GS-195].
 - Tailwind CSS actualizado de "^v3.4.9" a "^v4.1.5" [GS-112].
 - Añadir setupTests.js para arreglar pruebas de jest con "react-router-dom" a v7 [GS-199].
-- Versión de Node predeterminada actualizada a 20 en ".nvmrc" [GS-199].
+- Versión de Node.js predeterminada actualizada a 20 en ".nvmrc" [GS-199].
 - Añadir "@types/node" para resolver rutas sin error usando el prefijo "@/" [GS-112] [PC-2].
 
 ##### Correcciones
@@ -240,7 +240,7 @@ Este PR corrige problemas de limitación de tasa de DuckDuckGo y errores de bloq
 - Subir la versión a 0.1.14 y actualizar el correo del autor en setup.py y pyproject.toml
 - Cambia la integración con DuckDuckGo para usar la biblioteca ddgs y añade un método de búsqueda configurable
 - Añade una implementación de búsqueda paginada de Google, actualiza la sanitización de resultados y actualiza el changelog
-- Actualiza la versión de Node en .nvmrc de 18 a 20
+- Actualiza la versión de Node.js en .nvmrc de 18 a 20
 
 ### Changelog
 
@@ -347,7 +347,7 @@ Una actualización concisa para incluir nuevos repos y fortalecer la introducci�
 
 ##### Cambios
 - Cambiar "libraries" por "packages" cuando se hace referencia a paquetes frontend y backend de GenericSuite.
-- Actualizar la versión predeterminada de Node a 20+ para cumplir con los requisitos de tailwindcss v4 y Shadcn v2+.
+- Actualizar la versión predeterminada de Node.js a 20+ para cumplir con los requisitos de tailwindcss v4 y Shadcn v2+.
 - Cambiar "make transfer" para que se ejecute en modo CI/CD por defecto.
 - Cambiar redacción en history.md y README.md de exampleapp.
 - Cambiar build_if_required.sh para usar arrays de bash.
@@ -365,7 +365,7 @@ Una actualización concisa para incluir nuevos repos y fortalecer la introducci�
 
 Este PR actualiza la documentación y corrige temas de compilación/ejecución como parte de la versión 1.1.0.
 
-- Renombrar referencias de "libraries" a "packages" y elevar requisito de Node a ≥20 en toda la documentación
+- Renombrar referencias de "libraries" a "packages" y elevar requisito de Node.js a ≥20 en toda la documentación
 - Añadir enlace al código fuente en README de la Example App y mejorar la docs de variables de entorno
 - Arreglar el script de construcción para incluir el directorio raíz y comentar variables problemáticas de Langchain
 

@@ -186,7 +186,7 @@ GenericSuite continúa evolucionando, proporcionando herramientas que facilitan 
 ---
 
 ##### Nuevas
-- Añadir archivo ".nvmrc" para establecer la versión predeterminada de Node del repositorio.
+- Añadir archivo ".nvmrc" para establecer la versión predeterminada de Node.js del repositorio.
 - Añadir la base de datos DynamoDB funcionando junto con MongoDB en un contenedor Docker al ejecutar la App en la etapa "dev" [GS-102].
 - Añadir generación de tablas DynamoDB locales en "generate_dynamodb_cf.py" [GS-102].
 - Añadir contenedor Docker de DynamoDB a "mongodb_stack_for_test.yml" [GS-102].

@@ -91,6 +91,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Upgrade dependencies in exampleapp and fastapitemplate package-lock and uv.lock files for multiple applications. Notable changes include upgrading cryptography, crypto-browserify, downshift, react-icons, react-markdown, react-syntax-highlighter, react-router-dom, and yup [GS-219].
 - Migrate to Python 3.14 [GS-337].
 - Add rate limiter documentation to GS BE Core .env.example file [GS-332].
+- Bump Node.js version in .nvmrc to 26 [GS-339].
 
 ### Removed
 - AGENTS.md symlink [GS-303]

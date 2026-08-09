@@ -20,7 +20,7 @@ There's a version of this library with AI features: [The GenericSuite AI](https:
 
 Debe instalar estas herramientas:
 
-- Versión de Node 20+, instalada vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o [NPM y Node](https://nodejs.org/en/download) instalación.
+- Versión de Node.js 26+, instalada vía [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) o [NPM y Node](https://nodejs.org/en/download) instalación.
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - Make: [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 
@@ -352,7 +352,7 @@ Configuración de React-app-rewired. Para más información consulta la [documen
 Configuración de pruebas JEST.<br><br>
 
 - `server.js` ([ejemplo](https://github.com/tomkat-cr/genericsuite-fe/blob/main/server.js))<br>
-Servidor Node, para probar y depurar tu App en un entorno similar a producción.<br><br>
+Servidor Node.js, para probar y depurar tu App en un entorno similar a producción.<br><br>
 
 - `tailwind.config.js`<br>
 Instalar e inicializar Tailwind con las [instrucciones aquí](https://tailwindcss.com/docs/installation).<br>

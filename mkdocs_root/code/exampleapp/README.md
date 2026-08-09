@@ -51,7 +51,7 @@ The application is structured as a monorepo using [TurboRepo](https://turborepo.
 ### Software
 
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
-- [Node.js](https://nodejs.org/en/download/package-manager) version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install (version specified in `.nvmrc`).
+- [Node.js](https://nodejs.org/en/download/package-manager) version 26+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install (version specified in `.nvmrc`).
 - [pnpm](https://pnpm.io/installation) (version 10.12.4 or compatible)
 - [Make](https://formulae.brew.sh/formula/make): [Mac](https://formulae.brew.sh/formula/make) | [Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 - [Python](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably) version >= 3.10 and < 4.0 (install with [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) preferably. Versions specified in `.python-version` files)

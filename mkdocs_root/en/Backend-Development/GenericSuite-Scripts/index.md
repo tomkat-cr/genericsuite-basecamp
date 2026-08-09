@@ -15,7 +15,7 @@ This repository contains the backend scripts necessary to build and deploy APIs 
 
 ## Pre-requisites
 
-- Node version 20+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
+- Node.js version 26+, installed via [NVM (Node Package Manager)](https://nodejs.org/en/download/package-manager) or [NPM and Node](https://nodejs.org/en/download) install.
 - [The GenericSuite (backend version) pre-requisites](https://github.com/tomkat-cr/genericsuite-be?tab=readme-ov-file#pre-requisites).
 - For AI featured APIs: [The GenericSuite AI (backend version) installation guide](https://github.com/tomkat-cr/genericsuite-be-ai?tab=readme-ov-file#installation).
 
@@ -1176,7 +1176,7 @@ but package-lock.json was generated for lockfileVersion@3.
 I'll try to do my best with it!
 ```
 
-It's because you're using an old Node version. To solve it:
+It's because you're using an old Node.js version. To solve it:
 
 ```bash
 nvm use 20

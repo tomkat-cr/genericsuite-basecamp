@@ -26,7 +26,7 @@ RUN_INSTALL="false"
 for dir in "${DIRS_TO_CHECK[@]}"; do
     echo "Checking directory: $SCRIPT_DIR/../$dir/node_modules"
     if [ ! -d "$SCRIPT_DIR/../$dir/node_modules" ]; then
-        echo "Node modules not found in: $SCRIPT_DIR/../$dir/node_modules"
+        echo "Node.js modules not found in: $SCRIPT_DIR/../$dir/node_modules"
         RUN_INSTALL="true"
         break
     fi

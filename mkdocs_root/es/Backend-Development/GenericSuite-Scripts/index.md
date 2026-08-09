@@ -15,7 +15,7 @@ Este repositorio contiene los scripts de backend necesarios para construir y des
 
 ## Requisitos previos
 
-- Versión de Node 20+, instalada vía [NVM (Gestor de versiones de Node)](https://nodejs.org/en/download/package-manager) o instalación de [NPM y Node](https://nodejs.org/en/download).
+- Versión de Node.js 26+, instalada vía [NVM (Gestor de versiones de Node)](https://nodejs.org/en/download/package-manager) o instalación de [NPM y Node](https://nodejs.org/en/download).
 - [Los requisitos previos de The GenericSuite (versión backend)](https://github.com/tomkat-cr/genericsuite-be?tab=readme-ov-file#pre-requisites).
 - Para APIs con IA: [La guía de instalación de The GenericSuite AI (versión backend)](https://github.com/tomkat-cr/genericsuite-be-ai?tab=readme-ov-file#installation).
 
@@ -1176,10 +1176,10 @@ but package-lock.json was generated for lockfileVersion@3.
 I'll try to do my best with it!
 ```
 
-Es porque estás usando una versión antigua de Node. Para solucionarlo:
+Es porque estás usando una versión antigua de Node.js. Para solucionarlo:
 
 ```bash
-nvm use 20
+nvm use 26
 ```
 
 Y repetir `make install`

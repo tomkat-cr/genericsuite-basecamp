@@ -239,7 +239,7 @@ This PR fixes rate-limiting issues with DuckDuckGo searches and referer-blocking
 - Bumps version to 0.1.14 and updates author email in setup.py and pyproject.toml
 - Switches DuckDuckGo integration to use the ddgs library and adds configurable search method
 - Adds a paginated Google search implementation, updates result sanitization, and updates changelog
-- Updates Node version in .nvmrc from 18 to 20
+- Updates Node.js version in .nvmrc from 18 to 20
 
 ### Changelog
 
@@ -368,7 +368,7 @@ A concise update to include new repositories and strengthen the project’s intr
 
 This PR updates documentation and fixes build/runtime issues as part of the 1.1.0 release.
 
-- Rename “libraries” references to “packages” and bump Node requirement to ≥20 across docs
+- Rename “libraries” references to “packages” and bump Node.js requirement to ≥20 across docs
 - Add source code link in the example app README and enhance environment variable docs
 - Fix build script to include the root directory and comment out problematic Langchain env vars
 
