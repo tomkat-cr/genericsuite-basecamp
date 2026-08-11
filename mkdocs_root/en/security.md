@@ -1,32 +1,8 @@
 # GenericSuite Security Suite (`gs-security-suite`)
 
-**`genericsuite-security`** is a security auditing and production-readiness suite for software repositories and developer environments. It provides **5 specialized AI agent skills** backed by zero-dependency Python 3 standard library scripts.
+**Genericsuite-security** is a security auditing and production-readiness suite for software repositories and developer environments. It provides **5 specialized AI agent skills** backed by zero-dependency Python 3 standard library scripts.
 
 Whether used interactively through AI coding assistants (**Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, etc.) or directly as standalone CLI tools in CI/CD pipelines, this package helps developers audit supply chain dependencies, pin container references, eliminate unpinned GitHub Actions, and verify project readiness before production deployment.
-
----
-
-## Table of Contents
-
-- [Overview & Architecture](#overview--architecture)
-- [Included Skills](#included-skills)
-- [AI Agent Installation Guide](#ai-agent-installation-guide)
-  - [Claude Code](#claude-code)
-  - [Skills CLI](#skills-cli)
-  - [Google Antigravity (AGY)](#google-antigravity-agy)
-  - [Cursor](#cursor)
-  - [Windsurf & Other Open-Skill Agents](#windsurf--other-open-skill-agents)
-- [Skill Reference & Usage](#skill-reference--usage)
-  - [1. Supply-Chain IOC Scan](#1-supply-chain-ioc-scan)
-  - [2. Repo Corpus](#2-repo-corpus)
-  - [3. Repo Docker Scanner](#3-repo-docker-scanner)
-  - [4. Repo Packages Scanner](#4-repo-packages-scanner)
-  - [5. Project Weakness Analysis](#5-project-weakness-analysis)
-- [Standalone CLI Usage (No AI Required)](#standalone-cli-usage-no-ai-required)
-- [Verification & Self-Testing](#verification--self-testing)
-- [License & Support](#license--support)
-
----
 
 ## Overview & Architecture
 

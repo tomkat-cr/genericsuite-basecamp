@@ -1,32 +1,8 @@
 # Suite de Seguridad GenericSuite (`gs-security-suite`)
 
-**`genericsuite-security`** es una suite de auditoría de seguridad y preparación para producción para repositorios de software y entornos de desarrollo. Proporciona **5 habilidades especializadas de agentes de IA** respaldadas por scripts de la biblioteca estándar de Python 3 sin dependencias.
+**Genericsuite-security** es una suite de auditoría de seguridad y preparación para producción para repositorios de software y entornos de desarrollo. Proporciona **5 habilidades especializadas de agentes de IA** respaldadas por scripts de la biblioteca estándar de Python 3 sin dependencias.
 
 Ya sea utilizado de forma interactiva a través de asistentes de código IA (**Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, etc.) o directamente como herramientas CLI independientes en pipelines de CI/CD, este paquete ayuda a los desarrolladores a auditar dependencias de la cadena de suministro, fijar referencias de contenedores, eliminar acciones de GitHub sin fijar y verificar la preparación del proyecto antes del despliegue en producción.
-
----
-
-## Tabla de Contenidos
-
-- [- Visión general y Arquitectura](#vision-general-y-arquitectura)
-- [- Habilidades incluidas](#habilidades-incluidas)
-- [- Guía de instalación de agentes de IA](#guia-de-instalacion-de-agentes-de-ia)
-  - [Claude Code](#claude-code)
-  - [CLI de Habilidades](#cli-de-habilidades)
-  - [Antigravity de Google (AGY)](#antigravity-de-google-agy)
-  - [Cursor](#cursor)
-  - [Windsurf y otros agentes de habilidades abiertas](#windsurf-y-otros-agentes-de-habilidades-abiertas)
-- [- Referencia de Habilidades y Uso](#referencias-de-habilidades-y-uso)
-  - [1. Escaneo IOC de la Cadena de Suministro](#1-escaneo-ioc-de-la-cadena-de-suministro)
-  - [2. Corpus de Repos](#2-corpus-de-repos)
-  - [3. Analizador de Docker de Repos](#3-analizador-de-docker-de-repos)
-  - [4. Analizador de Paquetes de Repos](#4-analizador-de-paquetes-de-repos)
-  - [5. Análisis de Debilidades del Proyecto](#5-analisis-de-debilidades-del-proyecto)
-- [- Uso de CLI independiente (Sin IA Requerido)](#uso-de-cli-independiente-sin-ia-requerido)
-- [- Verificación y Autoevaluación](#verificacion-y-autoevaluacion)
-- [- Licencia y Soporte](#licencia-y-soporte)
-
----
 
 ## Visión general y Arquitectura
 
