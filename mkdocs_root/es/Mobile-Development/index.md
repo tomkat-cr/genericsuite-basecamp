@@ -1,11 +1,11 @@
 # GenericSuite Móvil (Flutter)
 
 [GenericSuite Móvil](https://github.com/tomkat-cr/genericsuite-mobile) trae
-el patrón CRUD impulsado por JSON de GenericSuite a las apps Flutter: define tus
+el patrón CRUD impulsado por JSON de GenericSuite a las apps de Flutter: define tus
 entidades en archivos de configuración JSON y monta el widget `CrudEditor` — no
 se necesita código Dart por entidad para CRUD estándar.
 
-Layout del repositorio:
+Estructura del repositorio:
 
 - `genericsuite_flutter/` — la biblioteca Flutter reutilizable (consumida como una dependencia Git).
 
@@ -24,7 +24,8 @@ dependencies:
 
 ## Arranque de la aplicación
 
-Crea una subclase de `AppCallablesSuper` para inyectar el comportamiento de tu aplicación, luego inicia la app con `CreateGsApp`:
+Subclasea `AppCallablesSuper` para inyectar el comportamiento de tu aplicación, y luego
+inicia la app con `CreateGsApp`:
 
 ```dart
 void main() {
@@ -33,7 +34,9 @@ void main() {
 ```
 
 `CreateGsApp` construye la raíz del árbol de widgets con `ShadApp`
-([shadcn_ui](https://pub.dev/packages/shadcn_ui), la versión Flutter de ShadCN) y deriva el tema de `MaterialApp` a partir de los tokens de tema de GenericSuite (ver [Theming](#theming)).
+([shadcn_ui](https://pub.dev/packages/shadcn_ui), la versión de Flutter de
+ShadCN) y deriva el tema de `MaterialApp` a partir de los tokens de tema de GenericSuite
+(ver [Temas](#temas)).
 
 ## CRUD impulsado por JSON
 
@@ -41,9 +44,9 @@ Los archivos de configuración viven bajo `assets/`:
 
 - `assets/config/stage.json` — selecciona el entorno (`dev`, `qa`,
   `staging`, `prod`).
-- `assets/config/config-{stage}.json` — URL base de la API y otros valores.
-- `assets/config_dbdef/backend/*.json` — endpoints REST y definiciones de esquemas.
-- `assets/config_dbdef/frontend/*.json` — tipos de campos, etiquetas, distribución de formularios.
+- `assets/config/config-{stage}.json` — URL base de API y otros valores.
+- `assets/config_dbdef/backend/*.json` — endpoint REST y definiciones de esquemas.
+- `assets/config_dbdef/frontend/*.json` — tipos de campos, etiquetas, diseño del formulario.
 
 Monta un editor:
 
@@ -57,7 +60,7 @@ CrudEditor(
 
 ## Componentes hijos (relaciones 1-N)
 
-El Editor CRUD de Flutter maneja `childComponents` de la misma manera que el editor CRUD de genericsuite-fe (React): la configuración JSON del frontend de una entidad padre lista los nombres de los componentes hijos, y cada uno se renderiza dentro del formulario de edición del padre.
+El Editor CRUD de Flutter maneja `childComponents` de la misma manera que lo hace el editor CRUD de genericsuite-fe (React): la configuración JSON del frontend de una entidad padre lista los nombres de componentes hijo, y cada uno se renderiza dentro del formulario de edición del padre.
 
 Configuración del padre (`assets/config_dbdef/frontend/users.json`):
 
@@ -69,9 +72,9 @@ Configuración del padre (`assets/config_dbdef/frontend/users.json`):
 }
 ```
 
-En móvil, cada hijo aparece como una sección pulsable en la parte inferior del formulario de edición del padre (nunca durante la creación). Al pulsar, se abre el editor del hijo a pantalla completa pasando la fila padre como `parentData`.
+En móvil, cada hijo aparece como una sección pulsable en la parte inferior del formulario de edición del padre (nunca en la creación). Al pulsar, se abre el editor hijo en pantalla completa con la fila del padre pasada como `parentData`.
 
-Registra un builder para cada nombre en el mapa `callbacks['childComponents']`:
+Registra un constructor para cada nombre en el mapa `callbacks['childComponents']`:
 
 ```dart
 Map<String, dynamic> callbacks = {
@@ -102,25 +105,25 @@ La configuración JSON del hijo declara la relación:
 }
 ```
 
-- `subType: "array"` — las filas hijo viven dentro de un atributo de tipo arreglo de la fila padre (`array_name` obligatorio). Las escrituras envían `{parentKey, <array_name>: newValues, <array_name>_old: initialValues}`.
+- `subType: "array"` — las filas hijo viven dentro de un atributo tipo arreglo de la fila padre (`array_name` es requerido). Las escrituras envían `{parentKey, <array_name>: newValues, <array_name>_old: initialValues}`.
 - `subType: "table"` — las filas hijo viven en su propia tabla; la clave del padre se fusiona en cada fila hijo.
 
-## Theming
+## Temas
 
 El lenguaje de diseño es limpio al estilo Apple: superficies blancas/neutras, texto casi negro, un color de acento (predeterminado `Colors.green`), radio de esquinas de 12 px y colores semánticos del sistema iOS.
 
-Sobre escribe `getThemeParams()` en tu `AppCallables` para personalizarlo — devuelve solo las claves que quieras cambiar; se fusionan sobre los valores predeterminados de la biblioteca (`defaultThemeParams` en `theme_config_defaults.dart`):
+Anula `getThemeParams()` en tu `AppCallables` para personalizar — devuelve solo las claves que quieras cambiar; se fusionan sobre los valores por defecto de la biblioteca (`defaultThemeParams` en `theme_config_defaults.dart`):
 
 | Token | Predeterminado | Propósito |
 | --- | --- | --- |
 | `accentColor` | `Colors.green` | El único color de acento |
 | `borderRadius` | `12.0` | Radio de esquinas (px) para entradas, botones, tarjetas |
-| `fontFamily` | `'Inter'` | Tipografía; `'Inter'` se carga vía google_fonts (similar a SF-Pro) |
-| `textTheme` | `null` | Sobrescritura opcional completa de `TextTheme` |
-| `textColor` | `#111111` | Text principal casi negro |
+| `fontFamily` | `'Inter'` | Tipografía; `'Inter'` se carga vía google_fonts (SF-Pro-like) |
+| `textTheme` | `null` | Sobre-escritura opcional completa de `TextTheme` |
+| `textColor` | `#111111` | Texto primario casi negro |
 | `secondaryTextColor` | `#6E6E73` | Etiqueta secundaria de iOS |
 | `separatorColor` | `#D1D1D6` | Separador de iOS (bordes, divisores) |
-| `neutralSurfaceColor` | `#F2F2F7` | Superficie neutral del sistema iOS (systemGray6) |
+| `neutralSurfaceColor` | `#F2F2F7` | Superficie neutral del sistema iOS Gris 6 |
 | `scaffoldBackgroundColor` | `Colors.white` | Fondo de la pantalla |
 | `appBarBackgroundColor` / `appBarForegroundColor` | blanco / casi negro | Superficies de la barra de la aplicación |
 | `errorBackgroundColor` | `#FF3B30` (systemRed) | Mensajes de error |
@@ -144,7 +147,8 @@ class AppCallables extends AppCallablesSuper {
 
 ## Más información
 
-- README de la biblioteca:
+- Lectura de la biblioteca:
   [genericsuite_flutter](https://github.com/tomkat-cr/genericsuite-mobile/tree/main/genericsuite_flutter)
+
 - Plantilla de inicio:
   [flutter_project_template](https://github.com/tomkat-cr/genericsuite-mobile-exampleapp)

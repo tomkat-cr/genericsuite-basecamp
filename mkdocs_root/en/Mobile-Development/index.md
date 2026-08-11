@@ -162,5 +162,6 @@ class AppCallables extends AppCallablesSuper {
 
 - Library README:
   [genericsuite_flutter](https://github.com/tomkat-cr/genericsuite-mobile/tree/main/genericsuite_flutter)
+
 - Starter template:
   [flutter_project_template](https://github.com/tomkat-cr/genericsuite-mobile-exampleapp)
