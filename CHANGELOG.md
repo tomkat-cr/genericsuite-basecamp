@@ -21,21 +21,22 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ## [1.6.0] - 2026-07-15
 
 ### Added
-- Scripts to copy and init a new project from "fastapitemplate" and "exampleapp": `scripts/new-project-from-template.sh` and `scripts/rename-app.sh` [GS-306].
+- New architecture image for documentation index page [GS-327].
+- Add AI Skills documentation page [GS-254].
+- Add Security Skills documentation page [GS-339].
+- GS FE Scripts documentation page [GS-107].
+- Mobile Development documentation section: GenericSuite Flutter installation, JSON-driven CRUD, childComponents (1-N relationships), and the Apple-clean theming tokens [GS-261].
+- OpenTofu deployment guide (`mkdocs_root/en/Deployment-Guide/opentofu.md`) covering the genericsuite-fe-scripts and genericsuite-be-scripts IaC stacks, with a nav entry in `mkdocs.yml` [GS-334].
+- GS Superproject, Security Suite and GS FE Scripts to the repositories.md page [GS-319].
 - SAST testing [GS-315]
+- `select_table` field type documentation to Add 1-1 relationships support to the CRUD Editor listing/data pages [GS-259].
+- Spanish nav_translations for Mobile Development docs section [GS-261].
+- Introduce `SelectElementItem` model for inline select options in CRUD editor configuration. Update `select_elements` field to support both predefined IDs and inline {title, value} objects [GS-254]
 - AWS_SSL_CERTIFICATE_ARN_FE and AWS_SSL_CERTIFICATE_ARN_BE envvars [GS-328].
 - Multiple CORS Origins support to FastAPI in the `aws_big_lambda/template-sam.yml` file [GS-329].
 - `make create-supad` to exampleapp/fastapitemplate server [GS-306].
+- Scripts to copy and init a new project from "fastapitemplate" and "exampleapp": `scripts/new-project-from-template.sh` and `scripts/rename-app.sh` [GS-306].
 - New AI skill definitions (`.ai/skills/`): add-doc, sample-code-update, translate-docs
-- Introduce `SelectElementItem` model for inline select options in CRUD editor configuration. Update `select_elements` field to support both predefined IDs and inline {title, value} objects [GS-254]
-- `mkdocs_root/en/ai-skills.md` — new docs page for the suite with the new AI skills documentation [GS-254].
-- `select_table` field type documentation to Add 1-1 relationships support to the CRUD Editor listing/data pages [GS-259].
-- OpenTofu deployment guide (`mkdocs_root/en/Deployment-Guide/opentofu.md`) covering the genericsuite-fe-scripts and genericsuite-be-scripts IaC stacks, with a nav entry in `mkdocs.yml` [GS-334].
-- New architecture image for documentation index page [GS-327].
-- GS FE Scripts documentation page [GS-107].
-- GS Superproject and GS FE Scripts to the repositories.md page [GS-319].
-- Mobile Development documentation section: GenericSuite Flutter installation, JSON-driven CRUD, childComponents (1-N relationships), and the Apple-clean theming tokens [GS-261].
-- Spanish nav_translations for Mobile Development docs section [GS-261]
 - "zipp" dependency to main requirements.txt to address a vulnerability as recommended by Snyk [GS-219].
 
 ### Changed

@@ -65,7 +65,11 @@ Join the growing community of developers using Generic Suite to supercharge thei
 
 ### AI Skills
 
-* Claude Skills plugin collection: a set of AI agent skills that build a complete GenericSuite application — React frontend, FastAPI backend, JSON-driven CRUD, AI assistant and MCP server — from a conversation.
+* GenericSuite AI Skills plugin collection: a set of AI agent skills that build a complete GenericSuite application — React frontend, FastAPI backend, JSON-driven CRUD, AI assistant and MCP server — from a conversation.
+
+### Security
+
+* GenericSuite Security Skills plugin collection: a set of AI agent skills and scripts to detect and respond to security threats, vulnerabilities and compliance issues.
 
 ### Effortless DevOps & Deployment
 
@@ -108,12 +112,14 @@ Features:
 * Framework abstractor: supports various frameworks including FastAPI, Flask and Chalice, making it adaptable to a range of projects.
 * [Utilities](./Backend-Development/GenericSuite-Scripts/index.md), and [Configurations](./Configuration-Guide/index.md) necessary to build and deploy scalable and maintainable applications.
 
-Packages:
+Documentation and repositories:
 
 * :fontawesome-brands-react:{ .react } [GenericSuite Core (frontend version) for React.js](./Frontend-Development/GenericSuite-Core/index.md)
 * :fontawesome-brands-python:{ .python } [GenericSuite Core (backend version) for Python](./Backend-Development/GenericSuite-Core/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (frontend version)](./Frontend-Development/GenericSuite-Scripts/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
+* Repositories: [Superproject](./repositories.md#superproject), [Frontend](./repositories.md#frontend), [Backend](./repositories.md#backend)
+* Packages: [PyPI and NPMJS](./repositories.md#published-packages)
 
 ![gs_ai_logo_circle.png](../assets/images/gs_ai_logo_circle.png){ .center }
 
@@ -139,11 +145,13 @@ Features:
 * Chats stored in the Database.
 * User Plan, OpenAI API key and model name attributes in the user profile, to allow free plan users to use Models at their own expense.
 
-Packages:
+Documentation and repositories:
 
 * :fontawesome-brands-react:{ .react } [GenericSuite AI (frontend version) for React.js](./Frontend-Development/GenericSuite-AI/index.md)
 * :fontawesome-brands-python:{ .python } [GenericSuite AI (backend version) for Python](./Backend-Development/GenericSuite-AI/index.md)
 * :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
+* Repositories: [Frontend](./repositories.md#frontend), [Backend](./repositories.md#backend)
+* Packages: [PyPI and NPMJS](./repositories.md#published-packages)
 
 ### Generic Suite Mobile
 
@@ -152,17 +160,19 @@ Features:
 * Same as [the Generic Suite Core](#the-generic-suite-core) but for mobile app builder.
 * Made with Flutter for iOS, Android, Windows, macOS and web.
 
-Packages:
+Documentation and repositories:
 
 * :fontawesome-brands-flutter:{ .flutter } [GenericSuite Mobile for Flutter](./Mobile-Development/index.md)
+* Repositories: [Mobile](./repositories.md#mobile)
 
 ### GenericSuite AI Agent Skills
 
 The **GenericSuite AI Agent Skills** is a Claude Skills plugin collection for the GenericSuite ecosystem. Its centerpiece is the **app-builder suite** (`gs-app-builder-suite`): a set of AI agent skills that build a complete GenericSuite application — React frontend, FastAPI backend, JSON-driven CRUD, AI assistant and MCP server — from a conversation.
 
-Repository:
+Documentation and repositories:
 
-* :fontawesome-brands-python:{ .python } [GenericSuite AI Agent Skills](https://github.com/tomkat-cr/genericsuite-skills)
+* :fontawesome-brands-openai:{ .openai } [GenericSuite AI Agent Skills](./ai-skills.md)
+* [Repositories](./repositories.md#ai)
 
 ### GSAM: The Generic Suite AI App Maker
 
@@ -182,14 +192,25 @@ Repository:
 * :fontawesome-brands-python:{ .python } [GenericSuite Agentic Software Development Team](https://github.com/tomkat-cr/genericsuite-asdt-be)
 -->
 
+## Security
+
+**`Genericsuite Security Suite`** is a security auditing and production-readiness suite for software repositories and developer environments. It provides **5 specialized AI agent skills** backed by zero-dependency Python 3 standard library scripts.
+
+Whether used interactively through AI coding assistants (**Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, etc.) or directly as standalone CLI tools in CI/CD pipelines, this package helps developers audit supply chain dependencies, pin container references, eliminate unpinned GitHub Actions, and verify project readiness before production deployment.
+
+Documentation and repositories:
+
+* :fontawesome-brands-openai:{ .openai } [GenericSuite Security Skills](./security.md)
+* [Repositories](./repositories.md#security)
+
 ## Server Operations
 
 The **Generic Suite Gitops** provides the scripts and configurations needed to deploy on various platforms (local development servers, VPS) using orchestration technologies like Kubernetes, and manage artifacts and repositories with Docker and GitHub.
 
-Repository:
+Documentation and repositories:
 
-* :fontawesome-brands-linux:{ .linux } [GenericSuite Gitops (Local Development Server operations)](https://github.com/tomkat-cr/genericsuite-gitops)
 * Deployment Guide: [OpenTofu (IaC) Deployment Guide](./Deployment-Guide/opentofu.md)
+* [Repositories](./repositories.md#platform)
 
 ## Repositories
 
@@ -199,6 +220,7 @@ Repository:
 
 * Main: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
 * Mirror: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
+* Mobile App (join the test flight to try it out): [Google Play Store](https://play.google.com/apps/internaltest/4701425955610073424)
 
 ## Sample Code
 

@@ -1,211 +1,198 @@
-# Desata el poder full-stack con Generic Suite (GS)
+# Desbloquea el poder full-stack con Generic Suite (GS)
 
-![Logotipo de GenericSuite IA](../assets/images/gs_ai_logo_circle.png){ .center }
+![Logo de GenericSuite IA](../assets/images/gs_ai_logo_circle.png){ .center }
 
-¿Alguna vez te has encontrado copiando el mismo código común y útil de una aplicación a otra una y otra vez?
+¿Alguna vez te has visto copiando el mismo código útil y común de una app a otra una y otra vez?
 
-¿No crees que construir una aplicación full-stack es demasiado compleja?
+¿No crees que construir una aplicación full-stack es demasiado complejo?
 
-GenericSuite (GS) es un framework de código abierto para construir aplicaciones con mejoras potenciadas por IA. Define tu aplicación en archivos JSON. Obtén servicios web, móviles, API de backend y MCP listos para desplegar y escalar.
+GenericSuite (GS) es un framework de código abierto para crear aplicaciones con mejoras potenciadas por IA. Define tu aplicación en archivos JSON. Obtén web, móvil, API de backend y servicios MCP listos para desplegar y escalar.
 
 [![Diagrama de GenericSuite](../assets/images/genericsuite-architecture.png)](https://genericsuite.carlosjramirez.com/assets/images/genericsuite-architecture.png)
 
-Se basa en el paradigma de programación genérica (Principio DRY) y permite definir la estructura de menús de la aplicación, esquemas de bases de datos, formularios de entrada de datos, endpoints de API, autenticación y autorización de usuarios utilizando archivos de configuración JSON.
+Se basa en el paradigma de programación genérica (principio DRY), y permite definir la estructura del menú de la aplicación, esquemas de bases de datos, formularios de entrada de datos, endpoints de API, autenticación y autorización de usuarios mediante archivos de configuración JSON.
 
-El resultado es una aplicación completa lista para desplegar y escalar:
+El resultado es una aplicación completa lista para desplegarse y escalarse:
 
 - El frontend web está construido con ReactJs
-- Las aplicaciones móviles están construidas con Flutter (compatibles con iOS, Android, Windows, macOS y web)
+- Las apps móviles están construidas con Flutter (soportando iOS, Android, Windows, macOS y web)
 - Las APIs de backend están construidas con Python y el framework de tu elección (FastAPI, Flask o Chalice)
-- El servidor MCP está construido con Python y FastMCP
+- El Servidor MCP está construido con Python y FastMCP
 - Soporta los principales proveedores de nube para despliegue (AWS, GCP, Azure)
-- Soporta los principales motores de bases de datos (MongoDB, DynamoDB, PostgreSQL, MySQL y Supabase)
+- Soporta los principales motores de bases de datos (MongoDB, DynamoDB, PostgreSQL, MySQL, Supabase)
 - Las funciones de IA pueden ser impulsadas por Claude, OpenAI, Gemini, AWS Bedrock, Google Vertex AI, Hugging Face, Ollama, etc.
 
-Ya sea que estés construyendo APIs robustas, bases de datos escalables o interfaces de usuario dinámicas, GS ofrece la flexibilidad y la eficiencia necesarias para acelerar tus proyectos.
+Ya sea que estés construyendo APIs robustas, bases de datos escalables o interfaces de usuario dinámicas, GS ofrece la flexibilidad y eficiencia necesarias para acelerar tus proyectos.
 
-Únete a la creciente comunidad de desarrolladores que utilizan Generic Suite para potenciar sus proyectos. Explora los repositorios y empieza a construir hoy mismo!
+Únete a la creciente comunidad de desarrolladores que utilizan Generic Suite para impulsar sus proyectos. Explora los repositorios y empieza a construir hoy mismo.
 
-[Notas de la versión](./Releases/index.md) | [Código de ejemplo](./Sample-Code/index.md) | [Repositorios](./repositories.md)
+[Notas de Lanzamiento](./Releases/index.md) | [Código de Ejemplo](./Sample-Code/index.md) | [Repositorios](./repositories.md)
 
-## Empezar
+## Cómo Empezar
 
-* [Características Clave](#características-Clave)
-* [¿Por qué elegir Generic Suite?](#por-qué-elegir-generic-suite)
-* [¿Para qué sirve Generic Suite?](#para-qué-sirve-generic-suite)
-* [El Núcleo de Generic Suite](#el-núcleo-de-generic-suite)
+* [Características Clave](#caracteristicas-clave)
+* [¿Por qué elegir Generic Suite?](#por-que-elegir-generic-suite)
+* [¿Para qué sirve Generic Suite?](#para-que-sirve-generic-suite)
+* [El Núcleo de Generic Suite](#el-nucleo-de-generic-suite)
 * [La IA de Generic Suite](#la-ia-de-generic-suite)
-* [Código de ejemplo](#código-de-ejemplo)
+* [Código de Ejemplo](#codigo-de-ejemplo)
 * [Repositorios](#repositorios)
 * [Lanzamientos](#lanzamientos)
-* [Presentación](#presentación)
+* [Presentación](#presentacion)
 * [Publicaciones](#publicaciones)
 * [Desarrollo Frontend](./Frontend-Development/index.md)
 * [Desarrollo Backend](./Backend-Development/index.md)
 * [Desarrollo Móvil](./Mobile-Development/index.md)
 * [Guía de Configuración](./Configuration-Guide/index.md)
-* [Historia](./historia.md)
+* [Historia](./history.md)
 
 ## Características Clave
 
 ### Núcleo del Framework
 
-* Editor CRUD personalizable, generador de menús y una interfaz de inicio de sesión personalizable.
-* Generador genérico de bases de datos y endpoints de API para eliminar código redundante.
-* Abstracción del framework de backend que admite FastAPI, Flask y Chalice.
-* Abstracción de bases de datos para MongoDB, DynamoDB, PostgreSQL, MySQL y Supabase con una sintaxis de consulta unificada.
-* Despliegue sencillo con AWS y otros servicios en la nube.
+* Editor CRUD personalizable, generador de menús e interfaz de inicio de sesión personalizable, desplegable a AWS y un conjunto de herramientas para impulsar el desarrollo de frontend.
+* Base de datos CRUD genérica y endpoints de API: al contar con un núcleo Create-Read-Update-Delete (CRUD) que puede parametrizarse y ampliarse, no es necesario reescribir código para cada editor de tablas.
+* Constructor genérico de menús y endpoints de API.
+* Abstracción de bases de datos: el backend puede usar MongoDB, DynamoDB, PostgreSQL, MySQL o Supabase como almacenamiento persistente, implementando una sintaxis similar a MongoDB.
+* Abstracción de frameworks: admite varios frameworks, incluyendo FastAPI, Flask y Chalice, lo que lo hace adaptable a una variedad de proyectos.
+* Utilidades ([Utilities](./Backend-Development/GenericSuite-Scripts/index.md)) y [Configuraciones](./Configuration-Guide/index.md) necesarias para construir y desplegar aplicaciones escalables y mantenibles.
 
-### Desarrollo impulsado por IA
+Documentación y repositorios:
 
-* Servidor MCP para abrir las aplicaciones desarrolladas a Agentes IA.
-* Endpoint de chatbot de IA con integraciones de OpenAI, LangChain y Hugging Face.
-* Visión por computadora, procesamiento de voz y conversión de texto a voz.
-* Extracción de datos web, herramientas de traducción y búsqueda vectorial para un manejo avanzado de datos.
+* :fontawesome-brands-react:{ .react } [GenericSuite Core (frontend version) for React.js](./Frontend-Development/GenericSuite-Core/index.md)
+* :fontawesome-brands-python:{ .python } [GenericSuite Core (backend version) for Python](./Backend-Development/GenericSuite-Core/index.md)
+* :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (frontend version)](./Frontend-Development/GenericSuite-Scripts/index.md)
+* :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
+* Repositorios: [Superproyecto](./repositories.md#superproject), [Frontend](./repositories.md#frontend), [Backend](./repositories.md#backend)
+* Paquetes: [PyPI y NPMJS](./repositories.md#published-packages)
 
-### Habilidades IA
-
-* Conjunto Claude Skills: un conjunto de habilidades de agentes IA que construyen una aplicación completa de GenericSuite — frontend React, backend FastAPI, CRUD impulsado por JSON, asistente de IA y servidor MCP — a partir de una conversación.
-
-### DevOps & Despliegue sin esfuerzo
-
-* Despliegues a producción, QA, Staging y demo con OpenTofu (IaC) y CloudFormation (AWS).
-* Soporte para múltiples plataformas de despliegue en la nube: AWS, Azure, GCP.
-* Scripts GitOps preconfigurados para Kubernetes, Docker y entornos VPS.
-* Configuraciones de servicio de IA locales, incluyendo OLLAMA, WebUI, Stable Diffusion y N8N.
-* Documentación completa y buenas prácticas a través de Generic Suite Basecamp.
-
-### GSAM (Generador de Aplicaciones Generic Suite)
-
-* Ideación asistida por IA para el desarrollo de aplicaciones, generación de código y estructuración de bases de datos.
-* Generación de imágenes y videos utilizando modelos de IA de vanguardia.
-* Presentaciones de aplicaciones impulsadas por IA, sugerencias de nombres y ingeniería de prompts.
-
-## ¿Por qué elegir Generic Suite?
-
-* Integración full-stack sin fisuras: Desarrolla aplicaciones más rápido con una biblioteca unificada para frontend y backend, reduciendo código redundante y asegurando consistencia.
-* Eficiencia impulsada por IA: Aprovecha las capacidades de IA integradas para mejorar la automatización, generar contenido y optimizar el desarrollo de software.
-* Personalizable y escalable: adapta el framework a tus necesidades específicas, con soporte para múltiples frameworks de programación, bases de datos y plataformas de despliegue.
-* Flujo de desarrollo acelerado: utilidades preconstruidas y herramientas de automatización ahorran tiempo, permitiéndote centrarte en la innovación en lugar de tareas repetitivas.
-* Compatibilidad multiplataforma: Ya sea que estés trabajando con FastAPI, Flask, Chalice, MongoDB, DynamoDB, PostgreSQL, MySQL, Supabase, GS se adapta a tu pila tecnológica sin esfuerzo.
-
-## ¿Para qué sirve Generic Suite?
-
-GenericSuite es una biblioteca de desarrollo diseñada para agilizar flujos de trabajo de frontend, backend, móvil e IA, habilitando un desarrollo rápido de aplicaciones con mejoras potenciadas por IA. Cuenta con un conjunto de utilidades hechas con ReactJS, Flutter y Python.
-
-Se compone de un [Núcleo de Generic Suite](#the-generic-suite-core), que es el núcleo de todos los elementos de la suite, extensiones como [La IA de Generic Suite](#the-generic-suite-ai), [Generic Suite Móvil](#the-generic-suite-mobile), y herramientas auxiliares como [Generic Suite Gitops](#server-operations), [Habilidades de Agentes IA de Generic Suite](#genericsuite-ai-agent-skills), y [GSAM - Generador de Aplicaciones de Generic Suite](#gsam-the-generic-suite-ai-app-maker).
-
-![gs_logo_circle.png](../assets/images/gs_logo_circle.png){ .center }
+![Logo de GenericSuite](../assets/images/gs_ai_logo_circle.png){ .center }
 
 ## La IA de Generic Suite
 
-**La IA de Generic Suite** es una extensión para ayudar a desarrollar aplicaciones que implementan IA.
+La **Generic Suite AI** es una extensión para ayudar a desarrollar Apps que implementan IA.
 
 Características:
 
-* Endpoint de Agente IA para implementar conversaciones tipo chatbot basadas en PLN.
-* OpenAI GPT, Google Gemini, Anthropic Claude, Meta Llama, Hugging Face, xAI, IBM WatsonX y muchos otros modelos compatibles.
-* API de OpenAI, API de Google, API de Anthropic, Hugging Face, Together AI, OpenRuter, API de IA/ML, Ollama, Clarifai y otros proveedores de LLM.
-* Visión por computadora (OpenAI GPT-4 Vision, Google Gemini Vision, Clarifai Vision).
+* Endpoints de Agentes IA para implementar conversaciones tipo chatbot NLP.
+* OpenAI GPT, Google Gemini, Anthropic Claude, Meta Llama, Hugging Face, xAI, IBM WatsonX y muchos otros modelos manejados.
+* OpenAI API, Google API, Anthropic API, Hugging Face, Together AI, OpenRuter, API de IA/ML, Ollama, Clarifai y otros proveedores de LLM.
+* Visión por computadora (OpenAI GPT4 Vision, Google Gemini Vision, Clarifai Vision).
 * Procesamiento de voz a texto (OpenAI Whisper, Clarifai Audio Models).
 * Texto a voz (OpenAI TTS-1, Clarifai Audio Models).
 * Generador de imágenes (OpenAI DALL-E 3, Google Gemini Image, Clarifai Image Models).
 * Indexadores vectoriales (FAISS, Chroma, Clarifai, Vectara, Weaviate, MongoDBAtlasVectorSearch).
 * Embeddings (OpenAI, Hugging Face, Bedrock, Cohere, Ollama, Clarifai).
-* Herramienta de búsqueda en la web.
-* Rastreo y análisis de páginas web.
+* Herramienta de búsqueda web.
+* Herramienta de raspeo y análisis de páginas web.
 * Lectores de JSON, PDF, Git y YouTube.
 * Herramientas de traducción de idiomas.
-* Chats almacenados en la base de datos.
-* Plan de usuario, clave API de OpenAI y atributos de nombre de modelo en el perfil de usuario, para permitir que los usuarios del plan gratuito utilicen los modelos a su propio costo.
+* Chats almacenados en la Base de Datos.
+* Atributos de Plan de Usuario, clave API de OpenAI y nombre de modelo en el perfil del usuario, para permitir a usuarios con plan gratuito usar Modelos con su propio costo.
 
-Paquetes:
+Documentación y repositorios:
 
-* [GenericSuite IA (versión frontend) para React.js](./Frontend-Development/GenericSuite-AI/index.md)
-* [GenericSuite IA (versión backend) para Python](./Backend-Development/GenericSuite-AI/index.md)
-* [GenericSuite Scripts (versión backend)](./Backend-Development/GenericSuite-Scripts/index.md)
+* :fontawesome-brands-react:{ .react } [GenericSuite AI (frontend version) for React.js](./Frontend-Development/GenericSuite-AI/index.md)
+* :fontawesome-brands-python:{ .python } [GenericSuite AI (backend version) for Python](./Backend-Development/GenericSuite-AI/index.md)
+* :fontawesome-brands-linux:{ .linux } [GenericSuite Scripts (backend version)](./Backend-Development/GenericSuite-Scripts/index.md)
+* Repositorios: [Frontend](./repositories.md#frontend), [Backend](./repositories.md#backend)
+* Paquetes: [PyPI y NPMJS](./repositories.md#published-packages)
 
 ### Generic Suite Móvil
 
 Características:
 
-* Las mismas que [el Núcleo de Generic Suite](#the-generic-suite-core), pero para el constructor de apps móviles.
-* Desarrollado con Flutter para iOS, Android, Windows, macOS y web.
+* Igual que [el Núcleo de Generic Suite](#el-nucleo-de-generic-suite) pero para el constructor de apps móviles.
+* Hecho con Flutter para iOS, Android, Windows, macOS y web.
 
-Paquetes:
+Documentación y repositorios:
 
-* [GenericSuite Mobile para Flutter](./Mobile-Development/index.md)
+* :fontawesome-brands-flutter:{ .flutter } [GenericSuite Mobile para Flutter](./Mobile-Development/index.md)
+* Repositorios: [Móvil](./repositories.md#mobile)
 
-### Habilidades de Agentes IA de Generic Suite
+### Habilidades de IA de GenericSuite
 
-Las **Habilidades de Agentes IA de GenericSuite** es una colección de plugins Claude Skills para el ecosistema de GenericSuite. Su pieza central es la **suite de constructor de aplicaciones** (`gs-app-builder-suite`): un conjunto de habilidades de agentes IA que construyen una aplicación completa de GenericSuite — frontend React, backend FastAPI, CRUD impulsado por JSON, asistente de IA y servidor MCP — a partir de una conversación.
+La **Colección de Habilidades de Agente IA de GenericSuite** es una colección de habilidades de IA tipo Claude para el ecosistema GenericSuite. Su pieza central es la **suite de creación de apps** (`gs-app-builder-suite`): un conjunto de habilidades de agente IA que construyen una aplicación completa de GenericSuite — frontend en React, backend en FastAPI, CRUD impulsado por JSON, asistente IA y servidor MCP — a partir de una conversación.
 
-Repositorio:
+Documentación y repositorios:
 
-* [Habilidades de Agentes IA de GenericSuite](https://github.com/tomkat-cr/genericsuite-skills)
+* :fontawesome-brands-openai:{ .openai } [Habilidades de IA de GenericSuite](/ai-skills.md)
+* [Repositorios](./repositories.md#ai)
 
 ### GSAM: El Generador de Aplicaciones de Generic Suite
 
-La herramienta de IA **Generic Suite App Maker (GSAM)** es la herramienta para mejorar la ideación en el desarrollo de software, probar modelos de IA, proveedores de LLM y sus características. También permite generar descripciones, estructuras de bases de datos, imágenes, videos o respuestas a partir de un prompt de texto, y dar inicio al código para usar con la biblioteca Generic Suite.
+La **Generador de Aplicaciones de Generic Suite (GSAM)** es la herramienta de IA para mejorar la ideación del desarrollo de software y probar modelos de IA, proveedores de LLM y sus características. También permite generar descripciones, estructuras de bases de datos, imágenes, videos o respuestas a partir de una indicación de texto, y dar un impulso inicial al código para usar con la biblioteca de Generic Suite.
 
 Repositorio:
 
-* [Generador de Aplicaciones de Generic Suite](https://github.com/tomkat-cr/genericsuite-app-maker)
+* :fontawesome-brands-python:{ .python } [Generador de Aplicaciones GenericSuite](https://github.com/tomkat-cr/genericsuite-app-maker)
 
 <!--
-### Equipo de Desarrollo de Software con IA
+### Equipo de Desarrollo de Software Asalariado por IA
 
-El **Equipo de Desarrollo de Software con IA de Generic Suite (ASDT)** ofrece un equipo de entidades autónomas diseñadas para resolver problemas de desarrollo de software utilizando IA para tomar decisiones, aprender de las interacciones y adaptarse a condiciones cambiantes sin intervención humana.
+El **Equipo de Desarrollo de Software Asalariado por IA de Generic Suite (ASDT)** ofrece un equipo de entidades autónomas diseñadas para resolver problemas de desarrollo de software usando IA para tomar decisiones, aprender de las interacciones y adaptarse a condiciones cambiantes sin intervención humana.
 
 Repositorio:
 
-* [Habilidades de Agentes IA de GenericSuite](https://github.com/tomkat-cr/genericsuite-asdt-be)
+* :fontawesome-brands-python:{ .python } [Equipo de Desarrollo de Software Asalariado por IA de GenericSuite](https://github.com/tomkat-cr/genericsuite-asdt-be)
 -->
 
-## Operaciones del servidor
+## Seguridad
 
-El **Generic Suite Gitops** ofrece los scripts y configuraciones necesarios para desplegar en varias plataformas (servidores de desarrollo locales, VPS) utilizando tecnologías de orquestación como Kubernetes, y gestionar artefactos y repositorios con Docker y GitHub.
+**`Genericsuite Security Suite`** es una suite de auditoría de seguridad y preparación para producción para repositorios de software y entornos de desarrollo. Proporciona **5 habilidades especializadas de agente IA** respaldadas por scripts de la biblioteca estándar de Python 3 sin dependencias.
 
-Repositorio:
+Ya sea usado de forma interactiva a través de asistentes de codificación IA (**Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, etc.) o directamente como herramientas CLI independientes en pipelines CI/CD, este paquete ayuda a los desarrolladores a auditar dependencias de la cadena de suministro, fijar referencias de contenedores, eliminar GitHub Actions sin pin, y verificar la preparación del proyecto antes del despliegue en producción.
 
-* [GenericSuite Gitops (Operaciones del servidor de desarrollo local)](https://github.com/tomkat-cr/genericsuite-gitops)
-* Guía de Despliegue: OpenTofu (IaC) Guía de Despliegue
+Documentación y repositorios:
 
-## Repositorios
+* :fontawesome-brands-openai:{ .openai } [GenericSuite Security Skills](./security.md)
+* [Repositorios](./repositories.md#security)
 
-[Haz clic aquí](./repositories.md) para revisar los repositorios de Git, paquetes NPMJS y PyPI.
+## Operaciones del Servidor
+
+**Generic Suite Gitops** proporciona los scripts y configuraciones necesarios para desplegar en varias plataformas (servidores de desarrollo locales, VPS) utilizando tecnologías de orquestación como Kubernetes, y gestionar artefactos y repositorios con Docker y GitHub.
+
+Documentación y repositorios:
+
+* Guía de Despliegue: [OpenTofu (IaC) Deployment Guide](./Deployment-Guide/opentofu.md)
+* [Repositorios](./repositories.md#platform)
+
+## Repositories
+
+[Haz clic aquí](./repositories.md) para revisar los repositorios de Git, paquetes de NPMJS y PyPI.
 
 ## Documentación
 
 * Principal: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
 * Espejo: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
+* App móvil (únete al flight de prueba para probarla): [Google Play Store](https://play.google.com/apps/internaltest/4701425955610073424)
 
-## Código de ejemplo
+## Código de Ejemplo
 
-Tenemos un [ExampleApp](../code/exampleapp/README.md) para mostrarte cómo usar las bibliotecas de GenericSuite.
+Tenemos una [ExampleApp](../code/exampleapp/README.md) para mostrarte cómo usar las bibliotecas de GenericSuite.
 
-[Banner de ExampleApp](../code/exampleapp/assets/exampleapp_banner_01.png)](../code/exampleapp/README.md)
+[![Banner de ExampleApp](../code/exampleapp/assets/exampleapp_banner_01.png)](../code/exampleapp/README.md)
 
-[ExampleApp](../code/exampleapp/README.md) es una aplicación de ejemplo con todas las funciones construida como un monorepo usando Turborepo y pnpm. Esto proporciona un plano práctico y real para que los desarrolladores aprendan y aceleren sus propios proyectos. Hay un frontend en React y backends en Python, utilizando los 3 marcos principales: FastAPI, Flask y Chalice.
+[ExampleApp](../code/exampleapp/README.md) es una aplicación de ejemplo completa construida como un monorepo usando Turborepo y pnpm. Esto proporciona una guía práctica y del mundo real para que los desarrolladores aprendan y aceleren sus propios proyectos. Hay un frontend en React y backends en Python, usando los 3 marcos principales: FastAPI, Flask y Chalice.
 
-[Banner de Plantilla FastAPI](../code/fastapitemplate/assets/fastapitemplate_banner_01.png)](../code/fastapitemplate/README.md)
+[![Banner de Plantilla de FastAPI](../code/fastapitemplate/assets/fastapitemplate_banner_01.png)](../code/fastapitemplate/README.md)
 
-También tenemos una [Plantilla FastAPI](../code/fastapitemplate/README.md) para ayudarte a empezar con backends basados en FastAPI.
+También contamos con una [Plantilla de FastAPI](../code/fastapitemplate/README.md) para ayudarte a empezar con backends basados en FastAPI.
 
-Consulta la sección [Código de ejemplo](./Sample-Code/index.md) para más información.
+Consulta la sección [Código de Ejemplo](./Sample-Code/index.md) para más información.
 
 ## Lanzamientos
 
 Puedes encontrar el registro de cambios detallado para cada versión [aquí](./Releases/index.md).
 
-[Imagen de lanzamiento de GenericSuite 2026-02-18 - 2ª Edición del Aniversario](./Releases/images/GS_Release_2026-02-18_Image_1A.png)](./Releases/GS_Release_2026-02-18_Changelog.md)
-Nos enorgullece anunciar el [Lanzamiento de GenericSuite 2026-02-18 - 2ª Edición del Aniversario](./Releases/GS_Release_2026-02-18_Changelog.md)
+[![Lanzamiento GenericSuite 20260218 - La Segunda Edición Aniversario](./Releases/images/GS_Release_2026-02-18_Image_1A.png)](./Releases/GS_Release_2026-02-18_Changelog.md)
+Estamos orgullosos de presentar el [Lanzamiento GenericSuite 20260218 - La Segunda Edición Aniversario](./Releases/GS_Release_2026-02-18_Changelog.md)
 
 ## Presentación
 
 Inglés:
 
-* [Introduction to Generic Suite](https://raw.githubusercontent.com/tomkat-cr/genericsuite-basecamp/main/mkdocs_root/en/documents/GS_Presentation_EN_V2.pdf)
+* [Introducción a Generic Suite](https://raw.githubusercontent.com/tomkat-cr/genericsuite-basecamp/main/mkdocs_root/en/documents/GS_Presentation_EN_V2.pdf)
 
 Español:
 
