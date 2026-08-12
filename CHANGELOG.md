@@ -75,6 +75,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Main english post page to redirect to `https://www.carlosjramirez.com/en/genericsuite`.
 - Move the 2nd anniversary release banner to the releases section.
 - Replace Github Gemini code review with SonarQube and Claude code review [GS-336].
+- Enhance translation script to support 'changed' mode for translating updated Markdown files. Added argument parsing for mode selection and implemented logic to identify changed files in mkdocs_root/en. Default mode is 'changed' and it can be set to 'uncommitted' for uncommitted files. This improves flexibility in translation processes [GS-252].
 
 ### Fixed
 - `mkdocs_transfer_site.sh` removes the `docs_for_ftp` and `site` directories, and uses `.venv` instead of `venv` to avoid multiple python environments [GS-301].

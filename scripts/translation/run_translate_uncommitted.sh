@@ -8,7 +8,7 @@ python3 -m venv .venv
 .venv/bin/pip install pyyaml openai
 
 # Run the translation script
-.venv/bin/python3 scripts/translation/translate_uncommitted.py
+.venv/bin/python3 scripts/translation/translate_uncommitted.py --mode ${MODE:-changed}
 
 # Remove virtual environment
 rm -rf .venv

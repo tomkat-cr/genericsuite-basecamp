@@ -22,6 +22,8 @@ generate_openapi: fastapitemplate-install
 	cd -
 
 translate_uncommitted:
+    # To translate uncommitted files: MODE=uncommitted make translate_uncommitted
+	# Default mode - Translate changed files: make translate_uncommitted
 	sh scripts/translation/run_translate_uncommitted.sh
 
 sample_code_prepare:
