@@ -6,6 +6,16 @@ tools to AI clients.
 """
 from typing import Dict, Any
 import os
+import dotenv
+
+# To prevent autopep8 and/or flake8 (or other formatters/linters)
+# from moving `dotenv.load_dotenv()` after imports:
+# 1. use `# noqa: F401` to signal linters/flakers to ignore that line.
+# 2. use 'isort: off/on' comments to instruct isort to ignore reordering,
+
+# isort: off
+dotenv.load_dotenv()  # noqa: F401
+# isort: on
 
 from genericsuite.util.app_logger import log_info
 from genericsuite.mcplib.util.create_app import create_app

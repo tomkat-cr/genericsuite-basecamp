@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
 
     console.log('** Vite options **');
     console.log('');
-    
+
     // Server configuration
     const serverConfig = {
         port: process.env.FRONTEND_LOCAL_PORT || 3000,
@@ -80,7 +80,12 @@ export default defineConfig(({ mode }) => {
         resolve: {
             alias: {
                 '@': resolve(__dirname, 'src'),
+                // Resolve the React and React DOM modules to the correct version on this workspace, not the root workspace
+                react: resolve(__dirname, 'node_modules/react'),
+                'react-dom': resolve(__dirname, 'node_modules/react-dom'),
             },
+            // Resolve the React and React DOM modules to the correct version on this workspace, not the root workspace
+            dedupe: ['react', 'react-dom'],
             extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.svg']
         },
         define: {

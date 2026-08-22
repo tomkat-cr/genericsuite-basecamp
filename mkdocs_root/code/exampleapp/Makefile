@@ -28,7 +28,7 @@ link:
 
 unlink:
 	bash scripts/link_common_assets.sh unlink
-	cd apps/ui && bash node_modules/genericsuite/scripts/run_symlinks_handler.sh remove
+	cd apps/ui && bash node_modules/genericsuite-fe-scripts/scripts/run_symlinks_handler.sh remove
 
 down_docker:
 	cd apps/api-chalice && make down_qa

@@ -23,9 +23,9 @@ TODO: Add fastapitemplate's tools here
 
 ## MCP Client Configuration
 
-### Claude Desktop
+### Claude Desktop or other MCP clients
 
-Add this configuration to your `claude_desktop_config.json`:
+Add this configuration to your `claude_desktop_config.json`, or `.cursor/mcp.json`, or other MCP client configuration file:
 
 For a local STDIO connection:
 
@@ -38,7 +38,6 @@ For a local STDIO connection:
         "/absolute/path/to/fastapitemplate/mcp-server/run_mcp_server.sh"
       ],
       "env": {
-        "GS_USER_ID": "xxxx",
         "GS_API_KEY": "xxxx"
       }
     }
@@ -77,7 +76,6 @@ For a local STDIO connection:
           "/absolute/path/to/fastapitemplate/mcp-server/run_mcp_server.sh"
         ],
         "env": {
-          "GS_USER_ID": "xxxx",
           "GS_API_KEY": "xxxx"
         }
       }

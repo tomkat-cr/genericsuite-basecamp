@@ -159,11 +159,18 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-node_modules
+# SSL certificates
 *.crt
 *.crt
 *.key
 ca.crt
 
+# NodeJS modules
+node_modules
+
 # localstack
 localstack_requirements.txt
+
+# MCP Server
+mcp_server.log
+.env.mcp.json

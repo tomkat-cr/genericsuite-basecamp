@@ -55,9 +55,9 @@ This MCP server provides comprehensive food and nutrition management capabilitie
 
 ## MCP Client Configuration
 
-### Claude Desktop
+### Claude Desktop or other MCP clients
 
-Add this configuration to your `claude_desktop_config.json`:
+Add this configuration to your `claude_desktop_config.json`, or `.cursor/mcp.json`, or other MCP client configuration file:
 
 ```json
 {
@@ -68,8 +68,22 @@ Add this configuration to your `claude_desktop_config.json`:
         "/absolute/path/to/genericsuite-basecamp/mkdocs_root/code/exampleapp/apps/mcp-server/run_mcp_server.sh"
       ],
       "env": {
-        "GS_USER_ID": "xxxx",
         "GS_API_KEY": "xxxx"
+      }
+    }
+  }
+}
+```
+
+For a remote HTTP connection:
+
+```json
+{
+  "mcpServers": {
+    "exampleapp": {
+      "url": "http://localhost:8070/mcp",
+      "headers": {
+        "Authorization": "Bearer sk-gsu-..."
       }
     }
   }
@@ -90,8 +104,24 @@ Add to your VS Code settings or `.vscode/mcp.json`:
           "/absolute/path/to/genericsuite-basecamp/mkdocs_root/code/exampleapp/apps/mcp-server/run_mcp_server.sh"
         ],
         "env": {
-          "GS_USER_ID": "xxxx",
           "GS_API_KEY": "xxxx"
+        }
+      }
+    }
+  }
+}
+```
+
+For a remote HTTP connection:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "exampleapp": {
+        "url": "http://localhost:8070/mcp",
+        "headers": {
+          "Authorization": "Bearer sk-gsu-..."
         }
       }
     }
