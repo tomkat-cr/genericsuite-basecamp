@@ -1,0 +1,22 @@
+{
+  "name": "genericsuite-exampleapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ui/src/index.jsx",
+  "scripts": {
+    "build": "echo \"No build necessary for main monorepo\" && exit 0",
+    "test": "echo \"No test necessary for main monorepo\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@11.21.0",
+  "devDependencies": {
+    "turbo": "^2.10.10"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "genericsuite": "github:tomkat-cr/genericsuite-fe#develop",
+    "genericsuite-ai": "github:tomkat-cr/genericsuite-fe-ai#develop"
+  }
+}

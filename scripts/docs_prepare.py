@@ -70,9 +70,9 @@ def main():
     parser = argparse.ArgumentParser(
         description="Convert MkDocs to Flutter Assets")
     parser.add_argument("--docs_dir", required=True,
-                        help="Path to the /docs directory")
+                        help="Path to the /mkdocs_root directory")
     parser.add_argument("--output_dir", default="docs_for_ftp",
-                        help="Path to output cleaned /docs directory")
+                        help="Path to output cleaned /mkdocs_root directory")
     parser.add_argument("--mkdocs_path", default="mkdocs.yml",
                         help="Path to mkdocs.yml file")
     args = parser.parse_args()

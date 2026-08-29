@@ -12,23 +12,23 @@
 
 change_docs_dir_to_docs_for_ftp()
 {
-    # Change 'docs_dir: docs' to 'docs_dir: docs_for_ftp' in mkdocs.yml
-    if ! perl -i -pe's/docs_dir: docs/docs_dir: docs_for_ftp/g' mkdocs.yml
+    # Change 'docs_dir: mkdocs_root' to 'docs_dir: docs_for_ftp' in mkdocs.yml
+    if ! perl -i -pe's/docs_dir: mkdocs_root/docs_dir: docs_for_ftp/g' mkdocs.yml
     then
         echo ""
-        echo "ERROR: 'perl -i -pe\'s/docs_dir: docs/docs_dir: docs_for_ftp/g\' mkdocs.yml' failed"
+        echo "ERROR: 'perl -i -pe\'s/docs_dir: mkdocs_root/docs_dir: docs_for_ftp/g\' mkdocs.yml' failed"
         echo ""
         exit 1
     fi
 }
 
-restore_docs_dir_to_docs()
+restore_docs_dir_to_mkdocs_root()
 {
-    # Restore 'docs_dir: docs_for_ftp' to 'docs_dir: docs' in mkdocs.yml
-    if ! perl -i -pe's/docs_dir: docs_for_ftp/docs_dir: docs/g' mkdocs.yml
+    # Restore 'docs_dir: docs_for_ftp' to 'docs_dir: mkdocs_root' in mkdocs.yml
+    if ! perl -i -pe's/docs_dir: docs_for_ftp/docs_dir: mkdocs_root/g' mkdocs.yml
     then
         echo ""
-        echo "ERROR: 'perl -i -pe\'s/docs_dir: docs_for_ftp/docs_dir: docs/g\' mkdocs.yml' failed"
+        echo "ERROR: 'perl -i -pe\'s/docs_dir: docs_for_ftp/docs_dir: mkdocs_root/g\' mkdocs.yml' failed"
         echo ""
     fi
 }
@@ -79,10 +79,10 @@ fi
 # Default values
 
 if [ "${DOCS_DIRECTORY_PATH}" = "" ]; then
-    DOCS_DIRECTORY_PATH="./docs"
+    DOCS_DIRECTORY_PATH="./mkdocs_root"
 fi
 if [ "${EXAMPLEAPP_DIRECTORY_PATH}" = "" ]; then
-    EXAMPLEAPP_DIRECTORY_PATH="${DOCS_DIRECTORY_PATH}/Sample-Code/exampleapp"
+    EXAMPLEAPP_DIRECTORY_PATH="${DOCS_DIRECTORY_PATH}/code/exampleapp"
 fi
 if [ "${DEBUG}" = "" ]; then
     DEBUG="false"
@@ -91,10 +91,10 @@ fi
 echo ""
 echo "Cleaning up directories..."
 echo ""
-# Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories under "docs/code/exampleapp" and sub-directories.
-if ! bash ./docs/code/exampleapp/scripts/clean_directory.sh "${EXAMPLEAPP_DIRECTORY_PATH}" "false" "${DEBUG}"
+# Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories under "mkdocs_root/code/exampleapp" and sub-directories.
+if ! bash ./mkdocs_root/code/exampleapp/scripts/clean_directory.sh "${EXAMPLEAPP_DIRECTORY_PATH}" "false" "${DEBUG}"
 then
-    echo "ERROR: 'bash ./docs/code/exampleapp/scripts/clean_directory.sh \"${EXAMPLEAPP_DIRECTORY_PATH}\" \"false\" \"${DEBUG}\"' failed"
+    echo "ERROR: 'bash ./mkdocs_root/code/exampleapp/scripts/clean_directory.sh \"${EXAMPLEAPP_DIRECTORY_PATH}\" \"false\" \"${DEBUG}\"' failed"
     exit 1
 fi
 
@@ -132,9 +132,9 @@ echo ""
 echo "'mkdocs build' completed"
 
 # Clean up all `node_modules`, `dist`, `build`, `.turbo`, `logs` directories and `.env*` files under "./site" and sub-directories.
-if ! sh ./docs/code/exampleapp/scripts/clean_directory.sh "${SOURCE_DIRECTORY_PATH}" "true" "${DEBUG}"
+if ! sh ./mkdocs_root/code/exampleapp/scripts/clean_directory.sh "${SOURCE_DIRECTORY_PATH}" "true" "${DEBUG}"
 then
-    echo "ERROR: 'sh ./docs/code/exampleapp/scripts/clean_directory.sh \"${SOURCE_DIRECTORY_PATH}\" \"true\" \"${DEBUG}\"' failed"
+    echo "ERROR: 'sh ./mkdocs_root/code/exampleapp/scripts/clean_directory.sh \"${SOURCE_DIRECTORY_PATH}\" \"true\" \"${DEBUG}\"' failed"
     exit 1
 fi
 
@@ -172,14 +172,14 @@ bye
 EOF
 if [ $? -ne 0 ]; then
     echo "ERROR: FTP transfer failed"
-    restore_docs_dir_to_docs
+    restore_docs_dir_to_mkdocs_root
     exit 1
 fi
 
 echo ""
-echo "Restore docs_dir to docs in mkdocs.yml..."
+echo "Restore docs_dir to mkdocs_root in mkdocs.yml..."
 echo ""
-restore_docs_dir_to_docs
+restore_docs_dir_to_mkdocs_root
 
 echo ""
 echo "Remove temp directories"

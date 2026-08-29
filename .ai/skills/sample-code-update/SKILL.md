@@ -10,8 +10,8 @@ Steps:
 1. Run `make sample_code_prepare` to execute the automated preparation script
 2. Check for any errors in the output and report them to the user
 3. If successful, show which packages were updated by running:
-   - `git diff docs/code/exampleapp/ | grep "^[+-].*version\|genericsuite" | head -40`
-   - `git diff docs/code/fastapitemplate/ | grep "^[+-].*version\|genericsuite" | head -40`
+   - `git diff mkdocs_root/code/exampleapp/ | grep "^[+-].*version\|genericsuite" | head -40`
+   - `git diff mkdocs_root/code/fastapitemplate/ | grep "^[+-].*version\|genericsuite" | head -40`
 4. Ask the user if they want to:
    - Run `make exampleapp-install` to test the updated dependencies
    - Run `make fastapitemplate-install` to test the updated dependencies

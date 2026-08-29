@@ -12,7 +12,7 @@ Steps:
    - What is the filename? (e.g., `my-feature.md`)
    - Brief description of what the page will cover
 2. Read one existing page from the target section to match conventions
-3. Create the English file at: `docs/en/{section}/{filename}`
-4. Create the Spanish stub at: `docs/es/{section}/{filename}` with a placeholder noting translation is pending
+3. Create the English file at: `mkdocs_root/en/{section}/{filename}`
+4. Create the Spanish stub at: `mkdocs_root/es/{section}/{filename}` with a placeholder noting translation is pending
 5. Show the user the `mkdocs.yml` nav entry they need to add for both language sections
 6. Remind the user to run `make serve` to preview the new page locally

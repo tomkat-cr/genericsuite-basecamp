@@ -64,7 +64,12 @@ def translate(
             "preserve the keys and translate only the values.\n"
             "6. CONSISTENCY: Maintain technical terms if commonly used in the "
             "target language (e.g., 'API', 'Backend', 'Endpoint').\n"
-            "7. NO EXPLANATIONS: Return ONLY the translated content."
+            "7. ANCHORS: for translated titles referenced by links with anchors, "
+            "translate the anchor. For example: for a title '# title in english' "
+            "translated to '# título en español', and referenced elsewhere as "
+            "[...](#title-in-english)), the anchor must be translated to "
+            "[...](#titulo-en-español).\n"
+            "8. NO EXPLANATIONS: Return ONLY the translated content."
         )
 
         log_debug(f"Translating {len(text)} chars to {dest} using {model}...")

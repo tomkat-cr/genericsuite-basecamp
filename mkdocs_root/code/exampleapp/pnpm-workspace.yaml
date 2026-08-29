@@ -1,0 +1,13 @@
+packages:
+  - apps/*
+  - packages/*
+
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - core-js-pure
+  - esbuild
+
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: false
+  unrs-resolver: false

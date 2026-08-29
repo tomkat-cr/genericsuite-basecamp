@@ -1,3 +1,4 @@
+import argparse
 import os
 import subprocess
 from translate_ai_module import translate
@@ -5,7 +6,7 @@ from translate_ai_module import translate
 
 def get_uncommitted_md_files(repo_path):
     """
-    Get the list of uncommitted .md files in the docs/en directory.
+    Get the list of uncommitted .md files in the mkdocs_root/en directory.
     """
     try:
         result = subprocess.run(
@@ -20,7 +21,7 @@ def get_uncommitted_md_files(repo_path):
             # Matches 'M ', 'A ', '?? ' etc. followed by the path
             if line.strip() and ".md" in line:
                 path = line.strip().split()[-1]
-                if path.startswith("docs/en/"):
+                if path.startswith("mkdocs_root/en/"):
                     files.append(path)
         return files
     except Exception as e:
@@ -28,12 +29,35 @@ def get_uncommitted_md_files(repo_path):
         return []
 
 
+def get_changed_md_files(repo_path):
+    """
+    Recursively walk mkdocs_root/en and return the list of .md files
+    (relative to repo_path) whose Spanish counterpart under mkdocs_root/es
+    is missing or older than the English source.
+    """
+    en_root = os.path.join(repo_path, "mkdocs_root", "en")
+    files = []
+    for dirpath, _dirnames, filenames in os.walk(en_root):
+        for filename in filenames:
+            if not filename.endswith(".md"):
+                continue
+            src_path = os.path.join(dirpath, filename)
+            dest_path = src_path.replace(
+                "/mkdocs_root/en/", "/mkdocs_root/es/"
+            )
+            if not os.path.exists(dest_path) or (
+                os.path.getmtime(src_path) > os.path.getmtime(dest_path)
+            ):
+                files.append(os.path.relpath(src_path, repo_path))
+    return files
+
+
 def translate_file(repo_path, file_path):
     """
     Translate a single file and save it to the corresponding /es/ path.
     """
     src_path = os.path.join(repo_path, file_path)
-    dest_path = src_path.replace("/docs/en/", "/docs/es/")
+    dest_path = src_path.replace("/mkdocs_root/en/", "/mkdocs_root/es/")
 
     print(f"Processing: {file_path}")
 
@@ -60,7 +84,7 @@ def translate_file(repo_path, file_path):
     print(f"  Saved to: {dest_path}")
 
 
-def main():
+def main(mode="uncommitted"):
     # Use absolute paths or relative to the script location
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(f"{script_dir}/../../")
@@ -78,11 +102,15 @@ def main():
                     os.environ[key] = value
 
     print(f"Repo path: {repo_path}")
+    print(f"Mode: {mode}")
 
-    files_pk = get_uncommitted_md_files(repo_path)
+    if mode == "changed":
+        files_pk = get_changed_md_files(repo_path)
+    else:
+        files_pk = get_uncommitted_md_files(repo_path)
 
     if not files_pk:
-        print("No uncommitted documentation files found in docs/en.")
+        print(f"No files found to translate in mkdocs_root/en (mode={mode}).")
         return
 
     print(f"Found {len(files_pk)} files to translate.")
@@ -91,4 +119,18 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(
+        description="Translate mkdocs_root/en Markdown files to Spanish."
+    )
+    parser.add_argument(
+        "--mode",
+        default="uncommitted",
+        choices=["uncommitted", "changed"],
+        help=(
+            "'uncommitted' (default) translates uncommitted .md files. "
+            "'changed' translates every mkdocs_root/en file that is newer "
+            "than (or missing) its mkdocs_root/es counterpart."
+        ),
+    )
+    args = parser.parse_args()
+    main(args.mode)

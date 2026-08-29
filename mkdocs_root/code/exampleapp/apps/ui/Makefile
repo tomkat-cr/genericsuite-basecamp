@@ -1,0 +1,95 @@
+.DEFAULT_GOAL := help
+.PHONY: help install update lock build-dev build-prod build dev clean fresh link_config_dirs unlink_config_dirs tests-dev tests test test-run-build test-run-build-restore eject-dev config config_qa config_demo deploy deploy_qa deploy_demo run run_qa server start local run_prod tailwind tailwind-build add_submodules create_ssl_certs
+SHELL := /bin/bash
+
+# General Commands
+help:
+	cat Makefile
+
+install:
+	npm install
+
+update:
+	npm update
+
+lock:
+	npm install --package-lock-only
+
+build-dev:
+	npm run build
+
+build-prod:
+	npm run build-prod
+
+build: build-dev
+
+dev:
+	npm install --dev
+
+clean:
+	npm --rm
+
+fresh: clean install
+
+# Development Commands
+tests-dev:
+	npm run test-dev
+
+tests:
+	npm test
+
+test: tests
+
+test-run-build:
+	. ../node_modules/genericsuite-fe-scripts/build_prod_test.sh
+	. ../node_modules/genericsuite-fe-scripts/build_prod_test.sh restore
+ 
+test-run-build-restore:
+	. ../node_modules/genericsuite-fe-scripts/build_prod_test.sh restore
+
+eject-dev:
+	npm run eject-dev
+
+config:
+	bash ../node_modules/genericsuite-fe-scripts/scripts/change_env_be_endpoint.sh dev
+
+config_qa:
+	bash ../node_modules/genericsuite-fe-scripts/scripts/change_env_be_endpoint.sh qa
+
+config_demo:
+	bash ../node_modules/genericsuite-fe-scripts/scripts/change_env_be_endpoint.sh demo
+
+deploy: config
+	bash ../node_modules/genericsuite-fe-scripts/scripts/aws_deploy_to_s3.sh
+
+deploy_qa: config_qa
+	bash ../node_modules/genericsuite-fe-scripts/scripts/aws_deploy_to_s3.sh
+
+deploy_demo: config_demo
+	bash ../node_modules/genericsuite-fe-scripts/scripts/aws_deploy_to_s3.sh
+
+run: config
+	bash ../node_modules/genericsuite-fe-scripts/scripts/run_app_frontend.sh dev
+
+run_qa: config_qa
+	bash ../node_modules/genericsuite-fe-scripts/scripts/run_app_frontend.sh qa
+
+server: run
+start: run
+local: run
+
+run_prod: build-prod
+	# bash ../node_modules/genericsuite-fe-scripts/scripts/run_app_frontend.sh prod
+	npm start
+
+tailwind:
+	npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css --watch
+
+tailwind-build:
+	npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css
+
+add_submodules:
+	bash ../node_modules/genericsuite-fe-scripts/scripts/add_github_submodules.sh
+
+create_ssl_certs:
+	bash ../node_modules/genericsuite-fe-scripts/scripts/create_ssl_certs.sh

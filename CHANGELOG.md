@@ -18,20 +18,91 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [Unreleased] - 2026-04-04
+## [1.6.0] - 2026-08-30
 
 ### Added
-- Scripts to copy and init a new project from "fastapitemplate" and "exampleapp": `scripts/new-project-from-template.sh` and `scripts/rename-app.sh` [GS-306].
+- New architecture image for documentation index page [GS-327].
+- Add AI Skills documentation page [GS-254].
+- Add Security Skills documentation page [GS-339].
+- GS FE Scripts documentation page [GS-107].
+- Mobile Development documentation section: GenericSuite Flutter installation, JSON-driven CRUD, childComponents (1-N relationships), and the Apple-clean theming tokens [GS-261].
+- OpenTofu deployment guide (`mkdocs_root/en/Deployment-Guide/opentofu.md`) covering the genericsuite-fe-scripts and genericsuite-be-scripts IaC stacks, with a nav entry in `mkdocs.yml` [GS-334].
+- GS Superproject, Security Suite and GS FE Scripts to the repositories.md page [GS-319].
 - SAST testing [GS-315]
+- `select_table` field type documentation to Add 1-1 relationships support to the CRUD Editor listing/data pages [GS-259].
+- Spanish nav_translations for Mobile Development docs section [GS-261].
+- Introduce `SelectElementItem` model for inline select options in CRUD editor configuration. Update `select_elements` field to support both predefined IDs and inline {title, value} objects [GS-254]
+- AWS_SSL_CERTIFICATE_ARN_FE and AWS_SSL_CERTIFICATE_ARN_BE envvars [GS-328].
+- Multiple CORS Origins support to FastAPI in the `aws_big_lambda/template-sam.yml` file [GS-329].
+- `make create-supad` to exampleapp/fastapitemplate server [GS-306].
+- Scripts to copy and init a new project from "fastapitemplate" and "exampleapp": `scripts/new-project-from-template.sh` and `scripts/rename-app.sh` [GS-306].
+- New AI skill definitions (`.ai/skills/`): add-doc, sample-code-update, translate-docs
+- "zipp" dependency to main requirements.txt to address a vulnerability as recommended by Snyk [GS-219].
 
 ### Changed
-- Rename `specs/` to `ai_docs/`.
+- Rename `docs/` to `mkdocs_root/` [GS-208].
+- Rename `specs/` to `docs/` [GS-208].
 - `.venv/` added to .gitignore and .dockerignore files.
 - `run_translate_uncommitted.sh` creates and deletes `.venv` virtual environment [GS-316].
 - License changed to MIT [FA-244].
+- Enhance SSL certificate ARN documentation in the backend core for better clarity on the AWS_SSL_CERTIFICATE_ARN_FE and AWS_SSL_CERTIFICATE_ARN_BE envvars usage across backend and frontend scripts [GS-328].
+- Initialize APP_ENVS variable in `update_additional_envvars.sh` for app-specific environment variables example [GS-329].
+- Update FastApiTemplate Makefile with new utility targets, "tomkat-cr" replaced with "github-username" in ".env.example" [GS-306]
+- Separate directory structure from CLAUDE.md to make it smalller [GS-303].
+- Update FastAPI template setup with instructions to run the `new-project-from-template.sh` using `curl` [GS-306].
+- Add FastApiTemplate reference to the configuration guide main document [GS-254]
+- FastApiTemplate: Refactor UI components renaming "_components" > "components", "_images" > "images", and "_constants" > "constants" [GS-306].
+- Update exampleap/fastapitemplate server and mcp-server development scripts for dynamic environment management, so stage can be set running `STAGE=dev make dev`(package.json now uses the STAGE variable on "dev": "make run_${STAGE:-qa}") [GS-306].
+- FastApiTemplate: Make ".env.example" files to use default values for less user changes on project startup [GS-306].
+- Enhance AGENTS.md, GEMINI.md, and CLAUDE.md files to provide better context and instructions to AI Coding Assistants [GS-303].
+- Include .claude, .agents, .codex, .cursor, and .gemini directories to share skills/commande from the .ai directory [GS-254]
+- Rename '.claude' to '.ai'
+- Fix directory graphs ending directory lines
+- Modify `food_moment_in_user` function documentation for clarity on user references. Clean up food moments operations documentation [GS-254].
+- ExampleApp: broad exception handling in FDA food endpoint [GS-254].
+- `mkdocs.yml` — one nav line ('AI Skills'), verified `build-safe` against the i18n folder convention [GS-254].
+- ExampleApp: Update dependencies in `package.json` and `pnpm-lock.yaml` for dotenv and turbo. [GS-254]
+- ExampleApp: Update `aiohappyeyeballs` and `aiohttp` versions in uv.lock files for API apps.
+- ExampleApp and FastApiTemplate: Refactor Makefile to use `genericsuite-fe-scripts` for build and deployment commands in UI app [GS-107].
+- Update index.md for improved clarity and content on Generic Suite features (one-liner followed by a brief description for quick reference, logos centered, new architecture image) [GS-327].
+- Update Makefile with branch usage instructions using the BRANCH envvar to prepare code from develop branch.
+- Frontend-Development/GenericSuite-Core: removed `@babel/cli`, `@babel/preset-stage-0`, `@testing-library/user-event`, `file-loader`, `path`, and `url-loader` from the "Install additional development dependencies" step — these are no longer required by `genericsuite-fe`'s own build/test pipeline [GS-338].
+- Frontend-Development/GenericSuite-Core: remove: unnecessary dependencies (`css-loader`, `postcss-loader`, `style-loader`, `express`, `gh-pages`) from the same documentation. The user can import them if webpack or github pages are going to be used in their app [GS-338].
+ [GS-338].
+- ASDT documentation so LangGraph and Smolagents are planned, not supported yet.
+- All CHANGELOG format unification.
+- Main repo to be the GS Superproject `repo_url: https://github.com/tomkat-cr/genericsuite` instead of the GS Basecamp [GS-319].
+- Main english post page to redirect to `https://www.carlosjramirez.com/en/genericsuite`.
+- Move the 2nd anniversary release banner to the releases section.
+- Replace Github Gemini code review with SonarQube and Claude code review [GS-336].
+- Enhance translation script to support 'changed' mode for translating updated Markdown files. Added argument parsing for mode selection and implemented logic to identify changed files in mkdocs_root/en. Default mode is 'changed' and it can be set to 'uncommitted' for uncommitted files. This improves flexibility in translation processes [GS-252].
 
 ### Fixed
 - `mkdocs_transfer_site.sh` removes the `docs_for_ftp` and `site` directories, and uses `.venv` instead of `venv` to avoid multiple python environments [GS-301].
+- `new-project-from-template.sh` branch and template user input because it wasn't asked due to early default values assignment [GS-306]
+- NEW_NAME validation only if it's set (scripts/new-project-from-template.sh) [GS-306]
+- BASECAMP_BRANCH documentation about default value to "main" (scripts/new-project-from-template.sh) [GS-306]
+- `scripts/rename-app.sh` — new filename-rename pass for fastapitemplate* files (fixes the openapi.json/yaml leftover; tested in a throwaway dir, 5/5 checks, reproduced by the `packages/genericsuite-skills/skills/python-fastapi-code-builder` AI skill reviewer) [GS-254].
+- "Could not resolve dependency: formik@2.4.5" error in ExampleApp [GS-254].
+- Transfer scripts to use "mkdocs_root" instead of "docs" [GS-208].
+- "config-overrides.js" updated to fix errors running the app with RUN_BUNDLER="react-scripts" [GS-338].
+- FastApiTemplate AWS_S3_BUCKET_NAME* values in `.env.example`.
+- Transfer scripts to use "mkdocs_root" instead of "docs" [GS-208].
+
+### Security
+- Upgrade dependencies in exampleapp and fastapitemplate package-lock and uv.lock files for multiple applications. Notable changes include upgrading cryptography, crypto-browserify, downshift, react-icons, react-markdown, react-syntax-highlighter, react-router-dom, and yup [GS-219].
+- Migrate to Python 3.14 [GS-337].
+- Add rate limiter documentation to GS BE Core .env.example file [GS-332].
+- Bump Node.js version in .nvmrc to 26 [GS-339].
+- exampleapp and fastapitemplate: "users_user_history.json", "users_config.json" and "users_api_keys.json" configuration files now use the "mandatoryFilters" parameter in the backend configuration to ensure the user history, config and API keys are forced to the current user [GS-327].
+- exampleapp and fastapitemplate: "users_user_history_admin.json", "users_config_admin.json" and "users_api_keys_admin.json" configuration files don't use the "mandatoryFilters" parameter to let the superuser to see all the user history, config and API keys when editing users [GS-327].
+- exampleapp and fastapitemplate: Upgrade @babel/core to ^7.29.7 to fix the @babel/core: Arbitrary File Read via sourceMappingURL Comment ([CVE-2026-49356](https://github.com/babel/babel/security/advisories/GHSA-4x5r-pxfx-6jf8)) [GS-219].
+
+### Removed
+- AGENTS.md symlink [GS-303]
+- `activeContext.md` moved to GS Superproject directory [GS-319]
+- ".ai/settings.json" MacOS-specific hooks (moved to ~/.claude/settings.json).
+- Because Webpack is not used in exampleapp and fastapitemplate, remove the following dependencies: css-loader, postcss-loader, style-loader, react-icons, web-vitals, fs, json-loader, with, constants-browserify, crypto-browserify, os-browserify, stream-browserify, tty-browserify, url, vm-browserify, @babel/cli, @babel/preset-stage-0, @rollup/plugin-typescript, @testing-library/user-event, file-loader, url-loader, path, gh-pages, express, express-rate-limit
 
 
 ## [1.5.1] - 2026-04-03

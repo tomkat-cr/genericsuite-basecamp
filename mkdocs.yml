@@ -2,10 +2,10 @@ site_name: The Generic Suite
 site_url: https://genericsuite.carlosjramirez.com
 copyright: Copyright &copy; 2024-PRESENT <a href="https://www.carlosjramirez.com">Carlos Ramirez</a>
 
-repo_url: https://github.com/tomkat-cr/genericsuite-basecamp
+repo_url: https://github.com/tomkat-cr/genericsuite
 repo_name: tomkat-cr/genericsuite
 
-docs_dir: docs
+docs_dir: mkdocs_root
 site_dir: site
 
 nav:
@@ -15,12 +15,19 @@ nav:
   - 'Configuration Guide': './Configuration-Guide/index.md'
   - 'Sample Code': './Sample-Code/index.md'
   - 'Releases': './Releases/index.md'
+  - 'AI Skills': './ai-skills.md'
+  - 'Security': './security.md'
+  - 'Deployment Guide':
+    - 'OpenTofu (IaC)': './Deployment-Guide/opentofu.md'
   - 'The GenericSuite Core': './genericsuite-core.md'
   - 'The GenericSuite AI': './genericsuite-ai.md'
   - 'Frontend Development':
     - 'GenericSuite Core': './Frontend-Development/GenericSuite-Core/index.md'
     - 'GenericSuite AI': './Frontend-Development/GenericSuite-AI/index.md'
+    - 'Frontend Scripts': './Frontend-Development/GenericSuite-Scripts/index.md'
     - 'Deployment': './Frontend-Development/deployment.md'
+  - 'Mobile Development':
+    - 'GenericSuite Flutter': './Mobile-Development/index.md'
   - 'Backend Development':
     - 'GenericSuite Core': './Backend-Development/GenericSuite-Core/index.md'
     - 'GenericSuite AI': './Backend-Development/GenericSuite-AI/index.md'
@@ -105,16 +112,23 @@ plugins:
             'Configuration Guide': 'Guía de Configuración'
             'Sample Code': 'Código de Ejemplo'
             'Releases': 'Releases'
+            'AI Skills': 'Skills de IA'
+            'Security': 'Seguridad'
             'The GenericSuite Core': 'GenericSuite Core'
             'The GenericSuite AI': 'GenericSuite AI'
             'Frontend Development': 'Desarrollo Frontend'
-            'GenericSuite Core': 'Desarrollo Frontend con GenericSuite Core'
-            'GenericSuite AI': 'Desarrollo Frontend con GenericSuite AI'
+            'GenericSuite Core': 'GenericSuite Core'
+            'GenericSuite AI': 'GenericSuite AI'
+            'Frontend Scripts': 'Scripts del Frontend'
             'Deployment': 'Despliegue'
             'Backend Development': 'Desarrollo Backend'
             'Backend Scripts': 'Scripts del Backend'
+            'Mobile Development': 'Desarrollo Móvil'
+            'GenericSuite Flutter': 'GenericSuite Flutter'
+            'Deployment Guide': 'Guía de Despliegue'
+            'OpenTofu (IaC)': 'OpenTofu (IaC)'
             'Other': 'Otros'
-            'Python Package Managers': 'Gestores de Paquetes de Python'
+            'Python Package Managers': 'Gestores de Paquetes Python'
             'History': 'Historia'
             'Privacy Policy': 'Política de Privacidad'
       # Use folder-based structure (optional, as it's the default behavior when language folders are present)
@@ -139,4 +153,4 @@ exclude_docs: |
   Sample-Code/exampleapp/apps/ui/index.html
 
 watch:
-  - docs/
+  - mkdocs_root/

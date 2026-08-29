@@ -21,7 +21,7 @@ The **GenericSuite Basecamp** is the starting point and documentation for [Gener
 
 [GenericSuite](https://genericsuite.carlosjramirez.com) is a comprehensive software solution designed to enhance your productivity and streamline your workflows.
 
-In this repository you will find the [instructions](https://genericsuite.carlosjramirez.com/Configuration-Guide/), [frontend](https://genericsuite.carlosjramirez.com/Configuration-Guide/#app-frontend) and [backend](https://genericsuite.carlosjramirez.com/Configuration-Guide/#app-backend) and [code examples](./docs/en/Sample-Code/index.md) for your App development.
+In this repository you will find the [instructions](https://genericsuite.carlosjramirez.com/Configuration-Guide/), [frontend](https://genericsuite.carlosjramirez.com/Configuration-Guide/#app-frontend) and [backend](https://genericsuite.carlosjramirez.com/Configuration-Guide/#app-backend) and [code examples](./mkdocs_root/en/Sample-Code/index.md) for your App development.
 
 ## Documentation
 
@@ -67,12 +67,12 @@ In this repository you will find the [instructions](https://genericsuite.carlosj
 
 ## Changelog / Releases
 
-* [Releases](./docs/en/Releases/index.md)
+* [Releases](./mkdocs_root/en/Releases/index.md)
 
 ## Posts
 
 * X: [@genericsuitelib](https://twitter.com/genericsuitelib)
-* [https://www.carlosjramirez.com/genericsuite](https://www.carlosjramirez.com/genericsuite)
+* [https://www.carlosjramirez.com/en/genericsuite](https://www.carlosjramirez.com/en/genericsuite)
 * [https://www.carlosjramirez.com/genericsuite-es/](https://www.carlosjramirez.com/genericsuite-es/)
 
 ## License
