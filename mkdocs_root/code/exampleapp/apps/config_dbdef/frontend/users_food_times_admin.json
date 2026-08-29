@@ -3,7 +3,7 @@
   "title": "Food Times",
   "name": "Food Time",
   "dbApiUrl": "users_food_times",
-  "component": "UsersFoodTimes",
+  "component": "UsersFoodTimesAdmin",
   "type": "child_listing",
   "subType": "array",
   "array_name": "food_times",

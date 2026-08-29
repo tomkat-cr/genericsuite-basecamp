@@ -313,7 +313,12 @@ class AppCallables extends AppCallablesSuper {
    * Get the user management related callbacks
    */
   @override
-  Map<String, dynamic> getUserCallbacks(BuildContext context) {
+  Map<String, dynamic> getUserCallbacks(
+      BuildContext context, dynamic userData) {
+    bool isSuperUser = userData != null &&
+        userData is Map &&
+        userData.containsKey('isSuperUser') &&
+        userData['isSuperUser'] == true;
     return {
       'specificFunctions': {
         'UsersDbPostWrite': (dynamic data,
@@ -322,20 +327,6 @@ class AppCallables extends AppCallablesSuper {
                 Map<String, dynamic> params,
                 BuildContext? context) async =>
             usersDbPostWrite(data, editorConfig, action, params, context),
-        'UsersOnboardingDbPreWrite': (dynamic data,
-                Map<String, dynamic> editorConfig,
-                String action,
-                Map<String, dynamic> params,
-                BuildContext? context) async =>
-            usersOnboardingDbPreWrite(
-                data, editorConfig, action, params, context),
-        'UsersOnboardingDbPostWrite': (dynamic data,
-                Map<String, dynamic> editorConfig,
-                String action,
-                Map<String, dynamic> params,
-                BuildContext? context) async =>
-            usersOnboardingDbPostWrite(
-                data, editorConfig, action, params, context),
       },
       "components": {
         'UserTotalQtyAndCondition': ({
@@ -346,15 +337,14 @@ class AppCallables extends AppCallablesSuper {
           required String action,
           Map<String, dynamic>? props,
         }) =>
-          userTotalQtyAndCondition(
-            config: config,
-            value: value,
-            onChanged: onChanged,
-            action: action,
-            storage: storage,
-            context: context,
-            props: props,
-          ),
+            UserTotalQtyAndCondition(
+              config: config,
+              value: value,
+              onChanged: onChanged,
+              action: action,
+              context: context,
+              props: props,
+            ),
         'UserMinimumDailyQty': ({
           dynamic data,
           required Map<String, dynamic> config,
@@ -363,7 +353,7 @@ class AppCallables extends AppCallablesSuper {
           required String action,
           Map<String, dynamic>? props,
         }) =>
-            userMinimumDailyCalories(
+            userMinimumDailyQty(
               config: config,
               value: value,
               onChanged: onChanged,
@@ -372,7 +362,40 @@ class AppCallables extends AppCallablesSuper {
               props: props,
             ),
       },
-      "childComponents": {}
+      "childComponents": {
+        "UsersUserHistory": ({
+          required Map<String, dynamic> parentData,
+          Map<String, dynamic>? props,
+        }) =>
+            CrudEditor(
+              jsonFileName: isSuperUser
+                  ? 'users_user_history_admin.json'
+                  : 'users_user_history.json',
+              callbacks: {},
+              props: {...?props, 'parentData': parentData},
+            ),
+        "UsersConfig": ({
+          required Map<String, dynamic> parentData,
+          Map<String, dynamic>? props,
+        }) =>
+            CrudEditor(
+              jsonFileName:
+                  isSuperUser ? 'users_config_admin.json' : 'users_config.json',
+              callbacks: {},
+              props: {...?props, 'parentData': parentData},
+            ),
+        "UsersApiKey": ({
+          required Map<String, dynamic> parentData,
+          Map<String, dynamic>? props,
+        }) =>
+            CrudEditor(
+              jsonFileName: isSuperUser
+                  ? 'users_api_keys_admin.json'
+                  : 'users_api_keys.json',
+              callbacks: {},
+              props: {...?props, 'parentData': parentData},
+            ),
+      }
     };
   }
 }
@@ -716,13 +739,15 @@ class ExampleappAnyOtherCrudEditorViewState extends State<ExampleappAnyOtherCrud
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
 import 'package:genericsuite/services/app_callables_super.dart';
 import 'package:genericsuite/services/crud_editor.dart';
 import 'package:genericsuite/services/http_service.dart';
 import 'package:genericsuite/services/locator_service.dart';
 import 'package:genericsuite/services/utilities.dart';
 
-const debug = false;
+const debug = true;
 
 class UserProfile extends StatefulWidget {
   const UserProfile({super.key});
@@ -732,8 +757,28 @@ class UserProfile extends StatefulWidget {
 }
 
 class UserProfileState extends State<UserProfile> {
+  final FlutterSecureStorage storage = storageLocator<FlutterSecureStorage>();
   String itemId = '';
+  Map<String, dynamic> userData = {};
   AppCallablesSuper appCallables = appCallablesLocator<AppCallablesSuper>();
+
+  Future<Map<String, dynamic>> loadUserData() {
+    return storage.read(key: 'user_data').then((userDataValue) {
+      Map<String, dynamic> userDataResponse = {};
+      if (userDataValue == null || userDataValue.isEmpty) {
+        userDataResponse = {
+          'errorMessage': "User data could not be loaded",
+          'errorCode': "UP-E010",
+        };
+        return Future.value(userDataResponse);
+      } else {
+        userDataResponse = Map<String, dynamic>.from(
+          json.decode(userDataValue),
+        );
+      }
+      return Future.value(userDataResponse);
+    });
+  }
 
   @override
   void initState() {
@@ -741,8 +786,12 @@ class UserProfileState extends State<UserProfile> {
     loadConfig().then((configStr) {
       Map<String, dynamic> config =
           Map<String, dynamic>.from(json.decode(configStr));
+      loadUserData().then((data) {
+        userData = data;
+      });
       if (debug) {
         logDebug('UserProfile | initState | itemId: $itemId');
+        logDebug('UserProfile | initState | userData: $userData');
       }
       setState(() {
         itemId = config["userId"];
@@ -755,7 +804,23 @@ class UserProfileState extends State<UserProfile> {
     if (itemId.isEmpty) {
       return Container();
     }
-    Map<String, dynamic> callbacks = appCallables.getUserCallbacks(context);
+    if (userData.containsKey('errorMessage') &&
+        userData['errorMessage'] != null &&
+        userData['errorMessage'].isNotEmpty) {
+      logDebug(
+          'UserProfile / build / errorMessage: ${userData['errorMessage']}');
+      return Dialog(
+        child: Column(
+          children: [
+            Text('${userData['errorMessage']} [${userData['errorCode']}]'),
+            TextButton(
+                onPressed: () => Navigator.pop(context), child: Text('OK')),
+          ],
+        ),
+      );
+    }
+    Map<String, dynamic> callbacks =
+        appCallables.getUserCallbacks(context, userData);
     Map<String, dynamic> props = {
       'isEditMode': true,
       'itemId': itemId,
@@ -1317,7 +1382,7 @@ Map<String, dynamic> callbacks = {
     }) =>
         CrudEditor(
           jsonFileName: 'users_food_times.json',
-          callbacks: AppCallables().getUserCallbacks(context),
+          callbacks: {},
           props: {...?props, 'parentData': parentData},
         ),
   },
@@ -1335,8 +1400,12 @@ So here the child JSON config declares the relationship:
     "type": "child_listing",
     "subType": "array",
     "array_name": "food_times",
+    "parentUrl": "users",
     "endpointKeyNames": [
-        {"parameterName": "user_id", "parentElementName": "_id"}
+        {
+          "parameterName": "user_id",
+          "parentElementName": "_id"
+        }
     ]
 }
 ```

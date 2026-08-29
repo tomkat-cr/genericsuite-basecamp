@@ -10,8 +10,8 @@ import {
     WEIGHT_UNITS,
 } from '../../constants/app_constants';
 import { UserMinimumDailyCalories } from '../Health/UserDailyCaloriesAndCondition';
-import { UsersFoodTimes } from '../UsersMenu/UsersFoodTimes';
-import { UsersUserHistory } from '../UsersMenu/UsersUserHistory';
+import { UsersFoodTimesAdmin } from '../UsersMenu/UsersFoodTimes';
+import { UsersUserHistoryAdmin } from '../UsersMenu/UsersUserHistory';
 
 import users from "../../configs/frontend/users.json";
 
@@ -26,8 +26,8 @@ const UsersValidations = gs.UsersValidations;
 const UsersDbListPreRead = gs.UsersDbListPreRead;
 const UsersPasswordValidations = gs.UsersPasswordValidations;
 const UsersDbPreWrite = gs.UsersDbPreWrite;
-const UsersConfig = gs.UsersConfig;
-const UsersApiKey = gs.UsersApiKey;
+const UsersConfigAdmin = gs.UsersConfigAdmin;
+const UsersApiKeyAdmin = gs.UsersApiKeyAdmin;
 
 const ACTION_CREATE = gs.generalConstants.ACTION_CREATE;
 const ACTION_UPDATE = gs.generalConstants.ACTION_UPDATE;
@@ -46,16 +46,16 @@ export function Users_EditorData(calleeName = 'Users_EditorData') {
         "TRUE_FALSE": TRUE_FALSE,
         "BILLING_PLANS": BILLING_PLANS,
         "UserMinimumDailyCalories": UserMinimumDailyCalories,
-        "UsersFoodTimes": UsersFoodTimes,
-        "UsersUserHistory": UsersUserHistory,
+        "UsersFoodTimesAdmin": UsersFoodTimesAdmin,
+        "UsersUserHistoryAdmin": UsersUserHistoryAdmin,
         "UsersDbPostWrite": UsersDbPostWrite,
-        "UsersConfig": UsersConfig,
+        "UsersConfigAdmin": UsersConfigAdmin,
         "Users": Users,
         "UsersDbListPreRead": UsersDbListPreRead,
         "UsersDbPreWrite": UsersDbPreWrite,
         "UsersValidations": UsersValidations,
         "UsersPasswordValidations": UsersPasswordValidations,
-        "UsersApiKey": UsersApiKey,
+        "UsersApiKeyAdmin": UsersApiKeyAdmin,
     }
     return GetFormData(users, registry, calleeName);
 }

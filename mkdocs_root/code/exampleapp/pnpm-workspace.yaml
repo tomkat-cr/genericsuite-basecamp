@@ -8,5 +8,6 @@ onlyBuiltDependencies:
   - esbuild
 
 allowBuilds:
+  '@parcel/watcher': true
   esbuild: false
   unrs-resolver: false

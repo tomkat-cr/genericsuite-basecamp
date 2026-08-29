@@ -147,8 +147,8 @@
         }
     ],
     "childComponents": [
-        "UsersConfig",
-        "UsersApiKey"
+        "UsersConfigAdmin",
+        "UsersApiKeyAdmin"
     ],
     "dbListPreRead": [
         "UsersDbListPreRead"

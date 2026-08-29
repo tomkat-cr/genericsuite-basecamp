@@ -45,9 +45,9 @@ export default defineConfig(({ mode }) => {
     // Add HTTPS if needed
     if (process.env.REACT_APP_API_URL.includes("https://")) {
         serverConfig.https = {
-            key: fs.readFileSync(resolve(__dirname, `${appLocalDomainName}.key`)),
-            cert: fs.readFileSync(resolve(__dirname, `${appLocalDomainName}.crt`)),
-            ca: fs.readFileSync(resolve(__dirname, 'ca.crt')),
+            key: fs.readFileSync(resolve(import.meta.dirname, `${appLocalDomainName}.key`)),
+            cert: fs.readFileSync(resolve(import.meta.dirname, `${appLocalDomainName}.crt`)),
+            ca: fs.readFileSync(resolve(import.meta.dirname, 'ca.crt')),
             // passphrase: process.env.SSL_PASSPHRASE || 'password',
         };
     }
@@ -67,7 +67,7 @@ export default defineConfig(({ mode }) => {
 
     console.log('Server config:', serverConfig);
     console.log('process_env:', process_env);
-    console.log('resolve(__dirname, "src"):', resolve(__dirname, "src"));
+    console.log('resolve(import.meta.dirname, "src"):', resolve(import.meta.dirname, "src"));
     console.log('');
 
     return {
@@ -79,10 +79,10 @@ export default defineConfig(({ mode }) => {
         server: serverConfig,
         resolve: {
             alias: {
-                '@': resolve(__dirname, 'src'),
+                '@': resolve(import.meta.dirname, 'src'),
                 // Resolve the React and React DOM modules to the correct version on this workspace, not the root workspace
-                react: resolve(__dirname, 'node_modules/react'),
-                'react-dom': resolve(__dirname, 'node_modules/react-dom'),
+                react: resolve(import.meta.dirname, 'node_modules/react'),
+                'react-dom': resolve(import.meta.dirname, 'node_modules/react-dom'),
             },
             // Resolve the React and React DOM modules to the correct version on this workspace, not the root workspace
             dedupe: ['react', 'react-dom'],

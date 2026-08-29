@@ -18,7 +18,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [1.6.0] - 2026-07-15
+## [1.6.0] - 2026-08-30
 
 ### Added
 - New architecture image for documentation index page [GS-327].
@@ -94,11 +94,15 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Migrate to Python 3.14 [GS-337].
 - Add rate limiter documentation to GS BE Core .env.example file [GS-332].
 - Bump Node.js version in .nvmrc to 26 [GS-339].
+- exampleapp and fastapitemplate: "users_user_history.json", "users_config.json" and "users_api_keys.json" configuration files now use the "mandatoryFilters" parameter in the backend configuration to ensure the user history, config and API keys are forced to the current user [GS-327].
+- exampleapp and fastapitemplate: "users_user_history_admin.json", "users_config_admin.json" and "users_api_keys_admin.json" configuration files don't use the "mandatoryFilters" parameter to let the superuser to see all the user history, config and API keys when editing users [GS-327].
+- exampleapp and fastapitemplate: Upgrade @babel/core to ^7.29.7 to fix the @babel/core: Arbitrary File Read via sourceMappingURL Comment ([CVE-2026-49356](https://github.com/babel/babel/security/advisories/GHSA-4x5r-pxfx-6jf8)) [GS-219].
 
 ### Removed
 - AGENTS.md symlink [GS-303]
 - `activeContext.md` moved to GS Superproject directory [GS-319]
 - ".ai/settings.json" MacOS-specific hooks (moved to ~/.claude/settings.json).
+- Because Webpack is not used in exampleapp and fastapitemplate, remove the following dependencies: css-loader, postcss-loader, style-loader, react-icons, web-vitals, fs, json-loader, with, constants-browserify, crypto-browserify, os-browserify, stream-browserify, tty-browserify, url, vm-browserify, @babel/cli, @babel/preset-stage-0, @rollup/plugin-typescript, @testing-library/user-event, file-loader, url-loader, path, gh-pages, express, express-rate-limit
 
 
 ## [1.5.1] - 2026-04-03

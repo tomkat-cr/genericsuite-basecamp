@@ -95,7 +95,7 @@ pipenv install genericsuite-ai
 Para instalar los scripts del backend de GenericSuite:
 
 ```bash
-npm install genericsuite-be-scripts
+npm install -D genericsuite-be-scripts
 ```
 
 ### Instalar desde repositorios Git
@@ -137,7 +137,7 @@ pipenv install git+https://github.com/tomkat-cr/genericsuite-be-ai@branch_x
 Para instalar los scripts del backend desde una rama específica en los repos Git, por ejemplo, "branch_x":
 
 ```bash
-npm install tomkat-cr/genericsuite-be-scripts#branch_x
+npm install -D tomkat-cr/genericsuite-be-scripts#branch_x
 ```
 
 ### Instalar desde directorio local
@@ -152,12 +152,12 @@ pip install ../genericsuite-be
 pip install ../genericsuite-be-ai
 ```
 
-Pipenv
+Uv
 ```bash
-pipenv install ../genericsuite-be
+uv add ../genericsuite-be
 ```
 ```bash
-pipenv install ../genericsuite-be-ai
+uv add ../genericsuite-be-ai
 ```
 
 Poetry
@@ -168,10 +168,18 @@ poetry add ../genericsuite-be
 poetry add ../genericsuite-be-ai
 ```
 
+Pipenv
+```bash
+pipenv install ../genericsuite-be
+```
+```bash
+pipenv install ../genericsuite-be-ai
+```
+
 Para instalar los scripts del backend desde un directorio local:
 
 ```bash
-npm install ../genericsuite-be-scripts
+npm install -D ../genericsuite-be-scripts
 ```
 
 ## Frontend
@@ -184,6 +192,9 @@ npm install genericsuite
 ```bash
 npm install genericsuite-ai
 ```
+```bash
+npm install -D genericsuite-fe-scripts
+```
 
 ### Instalar desde repositorios Git
 
@@ -194,6 +205,9 @@ npm install tomkat-cr/genericsuite-fe
 ```
 ```bash
 npm install tomkat-cr/genericsuite-fe-ai
+```
+```bash
+npm install -D tomkat-cr/genericsuite-fe-scripts
 ```
 
 Desde una rama específica:
@@ -206,6 +220,10 @@ npm install tomkat-cr/genericsuite-fe#branch_name
 npm uninstall generisuite-ai
 npm install tomkat-cr/genericsuite-fe-ai#branch_name
 ```
+```bash
+npm uninstall generisuite-fe-scripts
+npm install -D tomkat-cr/genericsuite-fe-scripts#branch_name
+```
 
 Ej.
 
@@ -214,6 +232,9 @@ npm uninstall genericsuite && npm install tomkat-cr/genericsuite-fe#develop
 ```
 ```bash
 npm uninstall genericsuite-ai && npm install tomkat-cr/genericsuite-fe-ai#develop
+```
+```bash
+npm uninstall generisuite-fe-scripts && npm install -D tomkat-cr/genericsuite-fe-scripts#develop
 ```
 
 O juntos:
