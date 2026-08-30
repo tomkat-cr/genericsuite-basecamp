@@ -1,5 +1,6 @@
 # Generic Suite Release Changelogs
 
+* [GS Release 20260830 - v1.0.0](./GS_Release_2026-08-30_Changelog.md)
 * [GS Release 20260218 - 2nd Anniversary Release](./GS_Release_2026-02-18_Changelog.md)
 * [GS Release 20251117 - MCP Server Edition](./GS_Release_2025-11-17_Changelog.md)
 * [GS Release 20250705 - ExampleApp Monorepo Edition](./GS_Release_2025-07-05_Changelog.md)

@@ -240,8 +240,8 @@ Check the [Sample Code](./Sample-Code/index.md) section for more information.
 
 You can find the detailed changelog for each release [here](./Releases/index.md).
 
-[![GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/images/GS_Release_2026-02-18_Image_1A.png)](./Releases/GS_Release_2026-02-18_Changelog.md)
-We are proud to announce the [GenericSuite 20260218 Release - The 2nd Anniversary Edition](./Releases/GS_Release_2026-02-18_Changelog.md)
+[![GenericSuite 20260830 Release - v1.0.0](./Releases/images/GS_Release_2026-08-30_Image_1A.jpeg)](./Releases/GS_Release_2026-08-30_Changelog.md)
+We are proud to announce the [GenericSuite 20260830 Release - v1.0.0](./Releases/GS_Release_2026-08-30_Changelog.md)
 
 ## Presentation
 

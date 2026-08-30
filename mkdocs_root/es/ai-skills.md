@@ -1,6 +1,6 @@
 # Habilidades de IA
 
-Habilidades de agentes de IA para el ecosistema [GenericSuite](https://genericsuite.carlosjramirez.com) — un **repositorio de plugins Claude Skills**. Las habilidades son directorios autocontenidos bajo `skills/`, cada uno con un `SKILL.md` y recursos empaquetados opcional (referencias, scripts, evals), organizados en grupos de plugins en [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json).
+Habilidades de agentes de IA para el ecosistema [GenericSuite](https://github.com/tomkat-cr/genericsuite-skills) — un **repositorio de plugins Claude Skills**. Las habilidades son directorios autocontenidos bajo `skills/`, cada uno con un `SKILL.md` y recursos empaquetados opcional (referencias, scripts, evals), organizados en grupos de plugins en [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json).
 
 ## La Suite App-Builder (`gs-app-builder-suite`)
 

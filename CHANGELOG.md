@@ -38,6 +38,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Scripts to copy and init a new project from "fastapitemplate" and "exampleapp": `scripts/new-project-from-template.sh` and `scripts/rename-app.sh` [GS-306].
 - New AI skill definitions (`.ai/skills/`): add-doc, sample-code-update, translate-docs
 - "zipp" dependency to main requirements.txt to address a vulnerability as recommended by Snyk [GS-219].
+- Release notes for GenericSuite v1.0.0: introducing the Superproject structure with all packages as git submodules, enhanced security features, and new mobile development capabilities. Added changelog documentation and images for the release [GS-327].
 
 ### Changed
 - Rename `docs/` to `mkdocs_root/` [GS-208].

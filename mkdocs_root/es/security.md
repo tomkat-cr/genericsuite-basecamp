@@ -19,12 +19,12 @@ La suite se basa en principios centrales de ingeniería de seguridad:
 
 | Habilidad | Directorio | Descripción | Disparadores / Indicaciones |
 |---|---|---|---|
-| **`supply-chain-ioc-scan`** | [`skills/supply-chain-ioc-scan`](skills/supply-chain-ioc-scan) | Triage de ataques divulgados de la cadena de suministro y gusanos npm/PyPI (p. ej., Shai-Hulud) en disco local y cachés. | *"¿Estamos afectados por [campaña]?"*, *"Verificar dependencias comprometidas"*, *"¿Instalamos la versión dañina?"* |
-| **`repo-corpus`** | [`skills/repo-corpus`](skills/repo-corpus) | Enumerar y clonar una organización, usuario de GitHub o directorio local en checks seguros con un manifiesto `corpus.json`. | *"Clonar todas las repos de mi organización"*, *"Auditar cada repositorio"*, *"Construir un corpus de repos"*
+| **`supply-chain-ioc-scan`** | [`skills/supply-chain-ioc-scan`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/supply-chain-ioc-scan) | Triage de ataques divulgados de la cadena de suministro y gusanos npm/PyPI (p. ej., Shai-Hulud) en disco local y cachés. | *"¿Estamos afectados por [campaña]?"*, *"Verificar dependencias comprometidas"*, *"¿Instalamos la versión dañina?"* |
+| **`repo-corpus`** | [`skills/repo-corpus`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-corpus) | Enumerar y clonar una organización, usuario de GitHub o directorio local en checks seguros con un manifiesto `corpus.json`. | *"Clonar todas las repos de mi organización"*, *"Auditar cada repositorio"*, *"Construir un corpus de repos"*
 
-| **`repo-docker-scanner`** | [`skills/repo-docker-scanner`](skills/repo-docker-scanner) | Escanear referencias de contenedores para etiquetas mutables (`:latest`, etiquetas flotantes) clasificado por contexto de ejecución (P0/P1/P2). | *"¿Nuestras imágenes de Docker están fijadas?"*, *"Buscar etiquetas :latest"*, *"Fijación de digest de imágenes"* |
-| **`repo-packages-scanner`** | [`skills/repo-packages-scanner`](skills/repo-packages-scanner) | Escanear GitHub Actions (`uses:`) y archivos de bloqueo de paquetes para versiones no fijadas, rangos flotantes y `curl | bash`. | *"¿Nuestras GitHub Actions están fijadas?"*, *"Dependencias sin fijar"*, *"Falta de lockfile"*, *"curl pipe bash"* |
-| **`project-weakness-analysis`** | [`skills/project-weakness-analysis`](skills/project-weakness-analysis) | Calcular la preparación para producción y el riesgo de seguridad por proyecto en ejes independientes, sin promediar. | *"¿Está esto listo para producción?"*, *"Auditar mis proyectos"*, *"Revisión de preparación para producción"* |
+| **`repo-docker-scanner`** | [`skills/repo-docker-scanner`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-docker-scanner) | Escanear referencias de contenedores para etiquetas mutables (`:latest`, etiquetas flotantes) clasificado por contexto de ejecución (P0/P1/P2). | *"¿Nuestras imágenes de Docker están fijadas?"*, *"Buscar etiquetas :latest"*, *"Fijación de digest de imágenes"* |
+| **`repo-packages-scanner`** | [`skills/repo-packages-scanner`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-packages-scanner) | Escanear GitHub Actions (`uses:`) y archivos de bloqueo de paquetes para versiones no fijadas, rangos flotantes y `curl | bash`. | *"¿Nuestras GitHub Actions están fijadas?"*, *"Dependencias sin fijar"*, *"Falta de lockfile"*, *"curl pipe bash"* |
+| **`project-weakness-analysis`** | [`skills/project-weakness-analysis`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/project-weakness-analysis) | Calcular la preparación para producción y el riesgo de seguridad por proyecto en ejes independientes, sin promediar. | *"¿Está esto listo para producción?"*, *"Auditar mis proyectos"*, *"Revisión de preparación para producción"* |
 
 ---
 
@@ -121,7 +121,7 @@ Cualquier agente de IA que siga el formato estándar de Agent Skills puede usar 
 
 ### 1. Escaneo IOC de la Cadena de Suministro
 
-- **Directorio**: [`skills/supply-chain-ioc-scan`](skills/supply-chain-ioc-scan)
+- **Directorio**: [`skills/supply-chain-ioc-scan`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/supply-chain-ioc-scan)
 - **Propósito**: Triagem rápida de incidentes cuando se disclose una cadena de suministro de npm, PyPI u otra fuente de suministro de software (p. ej., Keyv / Cacheable Shai-Hulud).
 - **Características clave**:
   - Escanea tanto el eje de dependencias (archivos de bloqueo, `~/.npm/_cacache`, `node_modules`) como el eje de artefactos (hashes SHA-1/256 del payload, dominios C2, hooks de IDE, procesos).
@@ -151,7 +151,7 @@ PROFILE=iocs/custom-campaign.json ./scripts/run_scan.sh ~/projets
 
 ### 2. Corpus de Repos
 
-- **Directorio**: [`skills/repo-corpus`](skills/repo-corpus)
+- **Directorio**: [`skills/repo-corpus`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-corpus)
 - **Propósito**: Base de la fase 1 para escaneo a nivel de organización. Clona de forma segura repositorios desde una organización o usuario de GitHub o estructura de directorios en un manifiesto `corpus.json` atribuible.
 - **Características clave**:
   - Flags de clonación git de confianza cero (impide la ejecución de hooks, submódulos o código malicioso durante el clon).
@@ -181,7 +181,7 @@ python3 scripts/build_corpus.py --org my-org --list-only
 
 ### 3. Analizador Docker de Repos
 
-- **Directorio**: [`skills/repo-docker-scanner`](skills/repo-docker-scanner)
+- **Directorio**: [`skills/repo-docker-scanner`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-docker-scanner)
 - **Propósito**: Escáner de fase 2 de análisis estático. Detecta referencias de contenedores mutables (`:latest`, etiquetas flotantes, digest faltante) y clasifica los hallazgos por contexto de ejecución.
 - **Características clave**:
   - Jerarquía de prioridad por contexto:
@@ -214,7 +214,7 @@ cd skills/repo-docker-scanner
 
 ### 4. Analizador de Paquetes de Repos
 
-- **Directorio**: [`skills/repo-packages-scanner`](skills/repo-packages-scanner)
+- **Directorio**: [`skills/repo-packages-scanner`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-packages-scanner)
 - **Propósito**: Escáner estático de la fase 3. Audita GitHub Actions (`uses:`) y dependencias de paquetes en npm, PyPI, Go, Rust, Ruby y Poetry.
 - **Características clave**:
   - Marca GitHub Actions no fijadas (debe usar hashes SHA de 40 caracteres, p. ej. `actions/checkout@a5ac7e5...`).
@@ -248,7 +248,7 @@ cd skills/repo-packages-scanner
 
 ### 5. Análisis de Debilidades del Proyecto
 
-- **Directorio**: [`skills/project-weakness-analysis`](skills/project-weakness-analysis)
+- **Directorio**: [`skills/project-weakness-analysis`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/project-weakness-analysis)
 - **Propósito**: Evalúa si los proyectos de software están listos y son seguros para la implementación en producción.
 - **Características clave**:
   - **Dos ejes independientes (nunca promediados)**:
