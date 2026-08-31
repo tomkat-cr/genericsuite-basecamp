@@ -1,4 +1,4 @@
-# GenericSuite Mobile (Flutter)
+# GenericSuite Móvil (Flutter)
 
 <img 
     align="right"
@@ -8,15 +8,15 @@
     title="GenericSuite logo by Carlos J. Ramirez"
 />
 
-[GenericSuite Móvil](https://github.com/tomkat-cr/genericsuite-mobile) trae el patrón CRUD impulsado por JSON de GenericSuite a las apps Flutter: define tus entidades en archivos de configuración JSON, monta el widget `CrudEditor` — no se necesita código Dart por entidad para CRUD estándar, y aprovecha la interfaz de inicio de sesión personalizable, el constructor de menús y un conjunto de herramientas para acelerar el desarrollo de tu aplicación móvil Flutter/Dart.
+[GenericSuite Mobile](https://github.com/tomkat-cr/genericsuite-mobile) trae el patrón CRUD impulsado por JSON de GenericSuite a las apps Flutter: define tus entidades en archivos de configuración JSON, monta el widget `CrudEditor` — no se necesita código Dart por entidad para CRUD estándar, y aprovecha la interfaz de inicio de sesión personalizable, el constructor de menús y una colección de herramientas para acelerar el desarrollo de tu App móvil Flutter/Dart.
 
 ## Características
 
-- **Editor CRUD personalizable:** código CRUD central (*Create, Read, Update, Delete*) que puede parametrizarse y ampliarse mediante archivos de configuración JSON. No es necesario reescribir código para cada editor de tabla.
-- **Menú personalizable:** el menú y los endpoints pueden parametrizarse y ampliarse mediante archivos de configuración JSON en el lado del backend. La API proporcionará la estructura del menú y la verificación de seguridad basada en el grupo de seguridad del usuario, y GenericSuite dibujará el menú y las opciones disponibles.
-- **Pantalla de inicio de sesión personalizable:** Adapta fácilmente la pantalla de inicio de sesión para que coincida con la identidad de tu marca con el logo de la aplicación.
-- **Scripts de desarrollo y producción:** comandos rápidos para iniciar el desarrollo o compilar tu aplicación para entornos de QA, staging o producción en proveedores de nube populares.
-- **Widgets personalizables:** un conjunto de widgets que pueden parametrizarse y ampliarse mediante archivos de configuración JSON.
+- **Editor CRUD personalizable:** código CRUD central (*Create, Read, Update, Delete*) que puede parametrizarse y ampliarse mediante archivos de configuración JSON. No es necesario reescribir código para cada editor de tablas.
+- **Menú personalizable:** el menú y los endpoints pueden parametrizarse y ampliarse mediante archivos de configuración JSON en el lado del back-end. La API proporcionará la estructura del menú y la verificación de seguridad basada en el grupo de seguridad del usuario, y GenericSuite dibujará el menú y las opciones disponibles.
+- **Pantalla de inicio de sesión personalizable:** Adáptala fácilmente para que coincida con la identidad de tu marca con el logo de la App.
+- **Scripts de desarrollo y producción:** Comandos rápidos para iniciar el desarrollo o compilar tu aplicación para entornos de QA, staging o producción en proveedores de nube populares.
+- **Widgets personalizables:** Un conjunto de widgets que pueden parametrizarse y ampliarse mediante archivos de configuración JSON.
 - **Flutter/Dart:** GenericSuite está construido con Flutter/Dart, lo que lo hace compatible con Android e iOS.
 
 El compañero perfecto para esta solución móvil es la [versión de backend de The GenericSuite](https://genericsuite.carlosjramirez.com/Backend-Development/GenericSuite-Core/).
@@ -27,47 +27,61 @@ El compañero perfecto para esta solución móvil es la [versión de backend de 
 
 - [SDK de Flutter](https://docs.flutter.dev/install)
 - [Android Studio](https://developer.android.com/studio) (para gestionar Android SDK, emuladores, etc.)
-- [Xcode](https://developer.apple.com/xcode/) (para gestionar iOS SDK, emuladores, etc.)
+- [Xcode](https://developer.apple.com/xcode/) (para gestionar el iOS SDK, emuladores, etc.)
 - [Paquete móvil de GenericSuite](https://github.com/tomkat-cr/genericsuite-mobile)
 - [Paquete backend de GenericSuite](https://github.com/tomkat-cr/genericsuite-be)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - [Make](https://formulae.brew.sh/formula/make) (Mac) | Linux trae Make instalado por defecto | [Make](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows) (Windows)
 
-### Instalación
+#### ¿No tienes un proyecto Flutter?
 
-- Crea un nuevo proyecto Flutter:
+Crea un nuevo proyecto Flutter usando el comando `flutter create`:
 
 ```bash
 flutter create exampleapp
 ```
 
-- Abre el archivo `pubspec.yaml` y añade GenericSuite a la sección `dependencies:`:
+### Instalación
+
+- Añade el paquete genericsuite:
+
+```bash
+flutter pub add genericsuite
+```
+
+O manualmente:
+
+1. Abre el archivo `pubspec.yaml` y añade GenericSuite a la sección `dependencies:`:
 
 ```yaml
   genericsuite:
     git:
       url: https://github.com/tomkat-cr/genericsuite-mobile
-      ref: main  # or develop
+      ref: main  # o develop
       path: genericsuite_flutter
 ```
 
-- Instala las dependencias.
+2. Instala las dependencias.
 
 ```bash
 flutter pub get
 ```
 
+## Uso
+
+### Ejemplos de uso
+
+En los siguientes ejemplos crearemos una aplicación simple con una página de inicio, una página de perfil de usuario y otras funcionalidades.
+
 ### Configuración
 
-- Consulta la [Guía de Creación y Configuración de la App] para obtener más información sobre cómo crear los archivos de configuración JSON.
+- Consulta la [Guía de Creación y Configuración de la App](https://genericsuite.carlosjramirez.com/Configuration-Guide/) para obtener más información sobre cómo crear los archivos de configuración JSON.
 
-- Consulta la [Guía de Backend] para obtener más información sobre cómo crear la API.
-
-## Uso
+- Consulta la [Guía de Backend](https://genericsuite.carlosjramirez.com/Backend-Development/GenericSuite-Core) para obtener más información sobre cómo crear la API.
 
 ### Estructura de directorios de la app
 
-La siguiente estructura de directorios es una referencia para la estructura de tu app. Puedes encontrar más información sobre la estructura de directorios en la [Guía de Creación y Configuración de la App].
+La siguiente estructura de directorios es una referencia para la estructura de tu app. Puedes encontrar más información sobre la estructura de directorios en la [Guía de Creación y Configuración de la App](https://genericsuite.carlosjramirez.com/Configuration-Guide/).
 
 ```
 .
@@ -133,13 +147,13 @@ La siguiente estructura de directorios es una referencia para la estructura de t
 └── windows
 ```
 
-### Arranque de la app
+### Arranque de la App
 
 #### lib/main.dart
 
-El archivo `main.dart` es el punto de entrada de la app. En nuestros ejemplos creamos el widget `ExampleApp`, que es una subclase de `StatelessWidget` que construye el árbol de widgets de la app.
+El archivo `main.dart` es el punto de entrada de la app. En nuestros ejemplos creamos el widget `ExampleApp`, que es una subclase de `StatelessWidget` y construye el árbol de widgets de la app.
 
-La clase `AppCallables` inyecta el comportamiento de tu app y la configuración de tema en el framework de GenericSuite, y `CreateGsApp` construye la raíz del árbol de widgets con `ShadApp` ([shadcn_ui](https://pub.dev/packages/shadcn_ui), la versión Flutter de ShadCN) y deriva el tema de la `MaterialApp` a partir de los tokens de tema de GenericSuite (ver [Tematización](#tematizacion)).
+La clase `AppCallables` inyecta el comportamiento de tu app y la configuración de tema en el marco de GenericSuite, y `CreateGsApp` construye la raíz del árbol de widgets con `ShadApp` (shadcn_ui, el port de Flutter de ShadCN) y deriva el tema de la `MaterialApp` a partir de los tokens de tema de GenericSuite (ver [Temas](#temas)).
 
 ```dart
 import 'package:flutter/material.dart';
@@ -164,7 +178,7 @@ class ExampleApp extends StatelessWidget {
 
 #### lib/domain/app_menu_callables.dart
 
-Este archivo define las funciones de menú de la app (funciones que se llaman cuando se selecciona un elemento del menú de la app, widgets especificados en los archivos de configuración JSON, etc.), la información de la app, los elementos de la pantalla principal y los callbacks relacionados con la gestión de usuarios.
+Este archivo define las llamadas de menú de la app (funciones que se llaman cuando se selecciona un ítem del menú de la app, widgets especificados en los archivos de configuración JSON, etc.), la info de la app, los elementos de la pantalla principal y los callbacks relacionados con la gestión de usuarios.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -180,11 +194,11 @@ import '../views/user_profile.dart';
 
 import '../domain/exampleapp_utilities.dart';
 
-// "exampleapp_any_other_crud_editor_view.dart" tiene el widget ExampleappAnyOtherCrudEditorView,
-// que también es una vista alternativa para el HomePageBody
+// "exampleapp_any_other_crud_editor_view.dart" has the ExampleappAnyOtherCrudEditorView widget,
+// which is also an alternative view for the HomepageBody widget
 import '../views/exampleapp_any_other_crud_editor_view.dart';
 
-// "homepage_body.dart" tiene el widget HomepageBody, que es la vista principal de la app
+// "homepage_body.dart" has the HomepageBody widget, which is the main view of the app
 import '../widgets/homepage_body.dart';
 
 import '../widgets/exampleapp_any_other_widget.dart';
@@ -193,7 +207,7 @@ const debug = false;
 
 class AppCallables extends AppCallablesSuper {
   /*
-   * Obtener los parámetros de tema
+   * Get the theme parameters
    */
   @override
   Map<String, dynamic> getThemeParams() {
@@ -205,7 +219,7 @@ class AppCallables extends AppCallablesSuper {
       'fontFamily': gsFontFamily,
       'textTheme': null, // TextTheme? — app-provided full text theme
       'textColor': textColor,
-      'secondaryTextColor': secondaryTextColor',
+      'secondaryTextColor': secondaryTextColor,
       'separatorColor': separatorColor,
       'neutralSurfaceColor': neutralSurfaceColor,
       'primarySwatch': primarySwatch,
@@ -242,7 +256,7 @@ class AppCallables extends AppCallablesSuper {
   }
 
   /*
-   * Obtener las funciones de menú y otras opciones
+   * Get the menu callables and other options
    */
   @override
   Map<String, dynamic> getMenuCallables() {
@@ -277,14 +291,14 @@ class AppCallables extends AppCallablesSuper {
   }
 
   /*
-   * Obtener la información de la app
+   * Get the app info
    */
   @override
   Map<String, dynamic> getAppInfo() {
     return {
       "version": "1.0.0",
       "name": appName,
-      "description": "Nutrition in your pocket",
+      "description": "Nutrición en tu bolsillo",
       "appEmail": "support@fynapp.com",
       "appPhone": "+57 316 320-1208",
       "appWebsite": "https://fynapp.com",
@@ -296,21 +310,21 @@ class AppCallables extends AppCallablesSuper {
   }
 
   /*
-   * Obtener los elementos de la pantalla principal
+   * Get the main screen elements
    */
   @override
   Map<String, dynamic> getMainScreenElements() {
     return {
       "mainScreen": (userData) => HomePageBody(userData),
       "alternateScreen": () => Dishes(),
-      "redirect": false, // o true para redirigir a la pantalla alterna
+      "redirect": false, // or true to redirect to alternate screen
       "icon": Icons.dashboard,
       "args": {},
     };
   }
 
   /*
-   * Obtener los callbacks relacionados con la gestión de usuarios
+   * Get the user management related callbacks
    */
   @override
   Map<String, dynamic> getUserCallbacks(
@@ -401,26 +415,26 @@ class AppCallables extends AppCallablesSuper {
 }
 ```
 
-## Tematización
+## Temas
 
-El lenguaje de diseño es limpio tipo Apple: superficies blancas/ neutrales, texto casi negro, un color de acento (predeterminado `Colors.green`), esquinas de 12 px, y colores semánticos del sistema iOS.
+El lenguaje de diseño es limpio de Apple: superficies blancas/neutras, texto casi negro, un único color de acento (predeterminado `Colors.green`), radio de esquinas de 12 px, y colores semánticos del sistema iOS.
 
-Sobrescribe `getThemeParams()` en tu `AppCallables` para personalizar — devuelve solo las claves que quieres cambiar; se fusionan sobre los valores por defecto de la biblioteca (`defaultThemeParams` en `theme_config_defaults.dart`):
+Sobrescribe `getThemeParams()` en tu `AppCallables` para personalizar — devuelve solo las claves que quieras cambiar; se fusionan sobre los valores predeterminados de la biblioteca (`defaultThemeParams` en `theme_config_defaults.dart`):
 
 | Token | Predeterminado | Propósito |
 | --- | --- | --- |
 | `accentColor` | `Colors.green` | El único color de acento |
-| `borderRadius` | `12.0` | Radio de las esquinas (px) para entradas, botones, tarjetas |
-| `fontFamily` | `'Inter'` | Tipografía; `'Inter'` se carga vía google_fonts (SF-Pro-like) |
-| `textTheme` | `null` | Sobre-escritura opcional de `TextTheme` completo |
-| `textColor` | `#111111` | Texto principal casi negro |
+| `borderRadius` | `12.0` | Radio de esquinas (px) para inputs, botones, tarjetas |
+| `fontFamily` | `'Inter'` | Tipografía; `'Inter'` se carga vía google_fonts (similar a SF Pro) |
+| `textTheme` | `null` | Sobrescritura opcional completa de `TextTheme` |
+| `textColor` | `#111111` | Color del texto primario cercano al negro |
 | `secondaryTextColor` | `#6E6E73` | Etiqueta secundaria de iOS |
-| `separatorColor` | `#D1D1D6` | Separadores de iOS (bordes, divisores) |
-| `neutralSurfaceColor` | `#F2F2F7` | Superficie neutral del sistema iOS (systemGray6) |
-| `scaffoldBackgroundColor` | `Colors.white` | Fondo de la pantalla |
-| `appBarBackgroundColor` / `appBarForegroundColor` | blanco / casi negro | Superficies de la barra de la app |
+| `separatorColor` | `#D1D1D6` | Separador de iOS (bordes, divisores) |
+| `neutralSurfaceColor` | `#F2F2F7` | Superficie neutral de iOS (systemGray6) |
+| `scaffoldBackgroundColor` | `Colors.white` | Fondo de pantalla |
+| `appBarBackgroundColor` / `appBarForegroundColor` | blanco / cercano al negro | Fondos y texto de la AppBar |
 | `errorBackgroundColor` | `#FF3B30` (systemRed) | Mensajes de error |
-| `infoBackgroundColor` | `#007AFF` (systemBlue) | Mensajes informativos |
+| `infoBackgroundColor` | `#007AFF` (systemBlue) | Mensajes de información |
 | `warningBackgroundColor` | `#FF9500` (systemOrange) | Advertencias |
 | `successBackgroundColor` | `#34C759` (systemGreen) | Mensajes de éxito |
 
@@ -452,33 +466,33 @@ const Color accentForegroundColor = Colors.white;
 
 const double borderRadius = 12.0;
 
-// Define el grosor de la línea de borde de Material inputDecorationTheme
-// border and enabledBorder, y el grosor de dividerTheme
+// Defines the border line's weight of Material inputDecorationTheme
+// border and enabledBorder, and dividerTheme thickness
 const double separatorWidth = 0.50;
 
-// Espacio vertical entre campos de formulario apilados para que los anillos de foco
-// no se superpongan con el borde anterior / etiqueta flotante.
+// Vertical gap between stacked form fields so outlined focus rings do not
+// overlap the previous field's border / floating label.
 const double fieldVerticalSpacing = 12.0;
 
-// Esquema base de shadcn_ui para buildGsShadTheme(). Valores válidos coinciden
-// con ShadColorScheme.fromName: blue, gray, green, neutral, orange, red, rose,
-// slate, stone, violet, yellow, zinc. Las apps pueden sobreescribir mediante getThemeParams().
+// Named shadcn_ui base scheme for buildGsShadTheme(). Valid values match
+// ShadColorScheme.fromName: blue, gray, green, neutral, orange, red, rose,
+// slate, stone, violet, yellow, zinc. Apps override via getThemeParams().
 const String shadColorSchemeName = 'green';
 
-// Tokens tipográficos. 'Inter' activa GoogleFonts.interTextTheme() en
-// CreateGsApp; cualquier otro nombre de familia se aplica tal cual. Una app también puede
-// proporcionar un TextTheme completo via el parámetro de tema 'textTheme' (null = derivación
-// desde fontFamily).
+// Typography tokens. 'Inter' triggers GoogleFonts.interTextTheme() in
+// CreateGsApp; any other family name is applied verbatim. An app can also
+// provide a full TextTheme via the 'textTheme' theme param (null = derive
+// from fontFamily).
 const String gsFontFamily = 'Inter';
 
-const Color textColor = Color(0xFF111111); // casi negro
-const Color secondaryTextColor = Color(0xFF6E6E73); // etiqueta secundaria de iOS
+const Color textColor = Color(0xFF111111); // near-black
+const Color secondaryTextColor = Color(0xFF6E6E73); // iOS secondary label
 
 const Color separatorColor = Color(0xFFD1D1D6); // iOS separator
 const Color neutralSurfaceColor = Color(0xFFF2F2F7); // iOS systemGray6
 
-// Token heredado, suplantado por accentColor. Mantener porque las apps existentes
-// hacen referencia a él en sus overrides getThemeParams().
+// Legacy token, superseded by accentColor. Kept because existing apps
+// reference it in their getThemeParams() overrides.
 const MaterialColor primarySwatch = accentColor;
 const Color scaffoldBackgroundColor = Colors.white;
 
@@ -491,7 +505,7 @@ const Color drawerBarForegroundColor = appBarForegroundColor;
 const Color drawerBackgroundColor = scaffoldBackgroundColor; // Colors.white;
 const Color drawerForegroundColor = textColor;
 
-// Colores semánticos del sistema iOS
+// iOS system semantic colors
 const Color errorBackgroundColor = Color(0xFFFF3B30); // systemRed
 const Color errorForegroundColor = Colors.white;
 
@@ -504,11 +518,11 @@ const Color warningForegroundColor = Colors.white;
 const Color successBackgroundColor = Color(0xFF34C759); // systemGreen
 const Color successForegroundColor = Colors.white;
 
-const String closeButtonPlacement = "bottom"; // "bottom" o "right"
+const String closeButtonPlacement = "bottom"; // "bottom" or "right"
 
 const String appBarLogoPath = 
-   'assets/images/app_logo_horizontal.png'; // Si queda vacío, se mostrará el nombre de la app en la barra
-                                            // de la app
+   'assets/images/app_logo_horizontal.png'; // If left empty, the appName
+                                            // will be displayed in the app bar
 const double appBarLogoHeight = 32.0;
 const double appBarLogoWidth = 128.0;
 
@@ -530,9 +544,9 @@ const FontWeight drawerHeaderTextFontWeight = FontWeight.bold;
 
 #### lib/domain/exampleapp_crud_editor_sf_users.dart
 
-Este archivo contiene las "funciones específicas" que se llaman cuando se crea o se actualiza un usuario en la base de datos.
+Este archivo contiene las "funciones específicas" que se llaman cuando un usuario es creado o actualizado en la base de datos.
 
-* *Funciones específicas* son callables que extienden las capacidades del Editor CRUD Genérico (`CrudEditor`).
+* *Specific Functions* son llamadas que extienden las capacidades del Crud Editor de GenericSuite (`CrudEditor` widget).
 
 ```dart
 import 'package:flutter/material.dart';
@@ -677,9 +691,9 @@ class AboutState extends State<About> {
 
 ### lib/views/exampleapp_any_other_crud_editor_view.dart
 
-Este archivo contiene un editor CRUD (implementado por el widget GenericSuite `CrudEditor`) que se utiliza para mostrar una tabla de datos de una tabla de base de datos.
+Este archivo contiene un editor CRUD (implementado por el widget GenericSuite `CrudEditor`) que se usa para mostrar una tabla de datos de una tabla de base de datos.
 
-La tabla utilizada es la tabla [exampleapp_any_other](#assetsconfig_dbdeffrontendexampleapp_any_other_tablejson).
+La tabla usada es la tabla [exampleapp_any_other](#assetsconfig_dbdeffrontendexampleapp_any_other_tablejson).
 
 ```dart
 import 'package:flutter/material.dart';
@@ -845,7 +859,7 @@ class UserProfileState extends State<UserProfile> {
 
 ### lib/widgets/homepage_body.dart
 
-Este archivo contiene el widget HomePageBody que se utiliza para mostrar la página de inicio de la app.
+Este archivo contiene el widget HomePageBody que se usa para mostrar la página de inicio de la app.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -947,7 +961,7 @@ class _HomePageBodyState extends State<HomePageBody> {
 
 ### lib/domain/exampleapp_utilities.dart
 
-Este archivo contiene funciones utilitarias de ejemplo que se utilizan en la ExampleApp.
+Este archivo contiene funciones utilitarias de ejemplo que son utilizadas por el ExampleApp.
 
 ```dart
 import 'package:genericsuite/services/convertion_utilities.dart';
@@ -1355,9 +1369,9 @@ Widget userTotalQtyAndCondition({
 
 ### Componentes hijos (relaciones 1-N)
 
-El CRUD Editor de Flutter maneja `childComponents` de la misma forma que el CRUD Editor de [genericsuite-fe (React)](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/lib/services/generic.editor.rfc.service.jsx): la configuración JSON del frontend de una entidad padre lista los nombres de los componentes hijo, y cada uno se renderiza dentro del formulario de edición del padre.
+El CRUD de Flutter maneja `childComponents` de la misma manera que el CRUD Editor de la [genericsuite-fe (React)](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/lib/services/generic.editor.rfc.service.jsx): la configuración JSON del frontend de una entidad padre lista los nombres de los componentes hijos, y cada uno se renderiza dentro del formulario de edición del padre.
 
-Configuración padre (`assets/config_dbdef/frontend/users.json`):
+Configuración del padre (`assets/config_dbdef/frontend/users.json`):
 
 ```json
 {
@@ -1367,11 +1381,11 @@ Configuración padre (`assets/config_dbdef/frontend/users.json`):
 }
 ```
 
-En móvil, cada hijo aparece como una sección pulsable en la parte inferior del formulario de edición del padre (nunca durante la creación).
+En móvil, cada hijo aparece como una sección tocable al final del formulario de edición del padre (nunca durante la creación).
 
-Pulsar una sección abre el editor del hijo en pantalla completa pasando la fila padre como `parentData`.
+Tocar una sección abre el editor del hijo en pantalla completa con la fila padre pasada como `parentData`.
 
-Registra un builder para cada nombre en el mapa `callbacks['childComponents']`:
+Registra un constructor para cada nombre en el mapa `callbacks['childComponents']`:
 
 ```dart
 Map<String, dynamic> callbacks = {
@@ -1389,11 +1403,11 @@ Map<String, dynamic> callbacks = {
 };
 ```
 
-NOTA: es importante propagar los `props` recibidos dentro de los `props` de `CrudEditor` (llevan `isChildComponent: true` y `showAppMenu: false`, lo que habilita el botón de volver en la pantalla empujada) y agregar `'parentData': parentData`.
+NOTA: es importante propagar las `props` recibidas dentro de las `props` de `CrudEditor` (llevan `isChildComponent: true` y `showAppMenu: false`, lo que habilita el botón de volver en la pantalla empujada) y añadir `'parentData': parentData`.
 
-El builder normalmente devuelve un `CrudEditor` cuyo config JSON tiene `"type": "child_listing"`, un `"subType"` de `"array"` (filas hijas almacenadas en un atributo de array de la fila padre, requiere `"array_name"`) o `"table"` (filas hijas en su propia tabla), y `"endpointKeyNames"` que mapea el nombre del parámetro de la API al campo id del padre.
+El builder normalmente devuelve un `CrudEditor` cuyo config JSON tiene `"type": "child_listing"`, un `"subType"` de `"array"` (filas hijas almacenadas en un atributo de arreglo de la fila padre, requiere `"array_name"`) o `"table"` (filas hijas en su propia tabla), y un mapeo `"endpointKeyNames"` que vincula el nombre del parámetro de la API con el campo id del padre.
 
-Así que aquí el config JSON hijo declara la relación:
+Así que aquí el config JSON del hijo declara la relación:
 
 ```json
 {
@@ -1410,14 +1424,14 @@ Así que aquí el config JSON hijo declara la relación:
 }
 ```
 
-- `subType: "array"` — las filas hijas viven dentro de un atributo de array de la fila padre (`array_name` requerido). Las escrituras envían `{parentKey, <array_name>: newValues, <array_name>_old: initialValues}`.
-- `subType: "table"` — las filas hijas viven en su propia tabla; la clave del padre se fusiona en cada fila hija.
+- `subType: "array"` — las filas hijas viven dentro de un atributo de arreglo de la fila padre (`array_name` requerido). Las escrituras envían `{parentKey, <array_name>: newValues, <array_name>_old: initialValues}`.
+- `subType: "table"` — las filas hijas viven en su propia tabla; la clave padre se fusiona en cada fila hija.
 
 ### CRUD impulsado por JSON
 
 #### assets/config_dbdef/backend/app_main_menu.json
 
-Aquí puedes definir la estructura del menú de la app. El menú se define como una lista de elementos de menú, donde cada elemento puede ser un enlace de navegación (nav_link, un elemento de menú de nivel superior) o un menú desplegable (nav_dropdown, un elemento de menú que contiene una lista de otros elementos de menú).
+Aquí puedes definir la estructura del menú de la app. El menú se define como una lista de elementos de menú, donde cada elemento puede ser un enlace de navegación (nav_link, un elemento de menú de nivel superior) o un menú desplegable (nav_dropdown, un elemento de menú que contiene una lista de otros elementos).
 
 ```json
 [
@@ -1469,7 +1483,7 @@ Aquí puedes definir la estructura del menú de la app. El menú se define como 
 
 #### assets/config_dbdef/backend/exampleapp_any_other_table.json
 
-Aquí puedes definir el nombre físico de la tabla y otra configuración de backend para la tabla en la base de datos.
+Aquí puedes definir el nombre físico de la tabla y otra configuración del backend para la tabla en la base de datos.
 
 ```json
 {
@@ -1599,7 +1613,7 @@ Este archivo define la etapa en uso. Puede ser `dev`, `qa`, `staging`, `prod`, `
 }
 ```
 
-## Estructura de directorios del paquete GenericSuite
+## Estructura del paquete GenericSuite
 
 ```
 genericsuite
@@ -1608,7 +1622,6 @@ genericsuite
 ├── genericsuite.iml
 ├── lib
 │   ├── genericsuite.dart
-│   │   ...
 │   ├── services
 │   │   ├── app_callables_super.dart
 │   │   ├── autocomplete_service.dart
@@ -1653,4 +1666,4 @@ genericsuite
   [genericsuite_flutter](https://github.com/tomkat-cr/genericsuite-mobile/tree/main/genericsuite_flutter)
 
 - Plantilla de inicio:
-  [plantilla de proyecto Flutter](https://github.com/tomkat-cr/genericsuite-mobile-exampleapp)
+  [flutter_project_template](https://github.com/tomkat-cr/genericsuite-mobile-exampleapp)
