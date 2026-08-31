@@ -39,6 +39,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - New AI skill definitions (`.ai/skills/`): add-doc, sample-code-update, translate-docs
 - "zipp" dependency to main requirements.txt to address a vulnerability as recommended by Snyk [GS-219].
 - Release notes for GenericSuite v1.0.0: introducing the Superproject structure with all packages as git submodules, enhanced security features, and new mobile development capabilities. Added changelog documentation and images for the release [GS-327].
+- Update fastapitemplate ".env.example" to include APP_MAIN_FILE variable [GS-327].
 
 ### Changed
 - Rename `docs/` to `mkdocs_root/` [GS-208].
@@ -77,6 +78,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Move the 2nd anniversary release banner to the releases section.
 - Replace Github Gemini code review with SonarQube and Claude code review [GS-336].
 - Enhance translation script to support 'changed' mode for translating updated Markdown files. Added argument parsing for mode selection and implemented logic to identify changed files in mkdocs_root/en. Default mode is 'changed' and it can be set to 'uncommitted' for uncommitted files. This improves flexibility in translation processes [GS-252].
+- Update fastapitemplate OpenAPI specifications in JSON and YAML files by adding validation constraints for message, log_type, and timestamp fields, and introduce a new hp field (LogRequest) [GS-327].
 
 ### Fixed
 - `mkdocs_transfer_site.sh` removes the `docs_for_ftp` and `site` directories, and uses `.venv` instead of `venv` to avoid multiple python environments [GS-301].
@@ -89,6 +91,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - "config-overrides.js" updated to fix errors running the app with RUN_BUNDLER="react-scripts" [GS-338].
 - FastApiTemplate AWS_S3_BUCKET_NAME* values in `.env.example`.
 - Transfer scripts to use "mkdocs_root" instead of "docs" [GS-208].
+- Update fastapitemplate Makefile to copy .env file to the server directory for configuration management [GS-327].
+- "scripts/sample_code_prepare.sh" to npm install GS FE and BE Scripts under devDependencies [GS-327].
 
 ### Security
 - Upgrade dependencies in exampleapp and fastapitemplate package-lock and uv.lock files for multiple applications. Notable changes include upgrading cryptography, crypto-browserify, downshift, react-icons, react-markdown, react-syntax-highlighter, react-router-dom, and yup [GS-219].

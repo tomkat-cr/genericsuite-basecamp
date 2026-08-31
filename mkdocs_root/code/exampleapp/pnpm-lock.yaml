@@ -25,20 +25,20 @@ importers:
   apps/api-chalice:
     dependencies:
       genericsuite-be-scripts:
-        specifier: github:tomkat-cr/genericsuite-be-scripts#develop
-        version: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/63236845be3f852ce0866d7561831f236a78fb7b
+        specifier: ^1.4.0
+        version: 1.4.0
 
   apps/api-fastapi:
     dependencies:
       genericsuite-be-scripts:
-        specifier: github:tomkat-cr/genericsuite-be-scripts#develop
-        version: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/63236845be3f852ce0866d7561831f236a78fb7b
+        specifier: ^1.4.0
+        version: 1.4.0
 
   apps/api-flask:
     dependencies:
       genericsuite-be-scripts:
-        specifier: github:tomkat-cr/genericsuite-be-scripts#develop
-        version: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/63236845be3f852ce0866d7561831f236a78fb7b
+        specifier: ^1.4.0
+        version: 1.4.0
 
   apps/config_dbdef: {}
 
@@ -50,12 +50,6 @@ importers:
 
   apps/ui:
     dependencies:
-      genericsuite:
-        specifier: github:tomkat-cr/genericsuite-fe#develop
-        version: https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/40d53899a497c01034b489466c0f52602f4e4f68(axios@1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(bson@7.2.0)(buffer@6.0.3)(downshift@9.4.0(react@18.3.1))(formik@2.4.9(@types/react@19.1.0)(react@18.3.1))(history@4.10.1)(js-md5@0.8.3)(react-dom@18.3.1(react@18.3.1))(react-error-overlay@6.1.0)(react-markdown@10.1.0(@types/react@19.1.0)(react@18.3.1)(supports-color@8.1.1))(react-router-dom@7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-syntax-highlighter@16.1.1(react@18.3.1))(react@18.3.1)(rxjs@6.6.7)(yup@1.7.1)
-      genericsuite-ai:
-        specifier: github:tomkat-cr/genericsuite-fe-ai#develop
-        version: https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/5b577fc42203bf285cc7f080b58f85ea2ce2017f(axios@1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/40d53899a497c01034b489466c0f52602f4e4f68(axios@1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(bson@7.2.0)(buffer@6.0.3)(downshift@9.4.0(react@18.3.1))(formik@2.4.9(@types/react@19.1.0)(react@18.3.1))(history@4.10.1)(js-md5@0.8.3)(react-dom@18.3.1(react@18.3.1))(react-error-overlay@6.1.0)(react-markdown@10.1.0(@types/react@19.1.0)(react@18.3.1)(supports-color@8.1.1))(react-router-dom@7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-syntax-highlighter@16.1.1(react@18.3.1))(react@18.3.1)(rxjs@6.6.7)(yup@1.7.1))(react-dom@18.3.1(react@18.3.1))(react-error-overlay@6.1.0)(react-router-dom@7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-syntax-highlighter@16.1.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -124,8 +118,8 @@ importers:
         specifier: ^8.5.26
         version: 8.5.26
       react-error-overlay:
-        specifier: 6.1.0
-        version: 6.1.0
+        specifier: 6.0.9
+        version: 6.0.9
       tailwindcss:
         specifier: ^4.3.3
         version: 4.3.3
@@ -2927,19 +2921,6 @@ packages:
   generic-names@1.0.3:
     resolution: {integrity: sha512-b6OHfQuKasIKM9b6YPkX+KUj/TLBTx3B/1aT1T5F12FEuEqyFMdr59OMS53aoaSw8eVtapdqieX6lbg5opaOhA==}
 
-  genericsuite-ai@https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/5b577fc42203bf285cc7f080b58f85ea2ce2017f:
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/5b577fc42203bf285cc7f080b58f85ea2ce2017f}
-    version: 1.2.0
-    engines: {node: '>= 18.12.0'}
-    peerDependencies:
-      axios: ^1.19.0
-      genericsuite: github:tomkat-cr/genericsuite-fe#develop
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      react-error-overlay: 6.0.9
-      react-router-dom: ^7.18.2
-      react-syntax-highlighter: ^16.1.1
-
   genericsuite-ai@https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/8c8291024c2ce6b19ce223fcc4a2b0134637aa91:
     resolution: {gitHosted: true, integrity: sha512-0ZKtY6IAsYgRZj+RQjh8HdfyH+coMJPunX5Ycq6cmajXJ+4nSOvI6zX1XPPYgtW+xW4SDGXwFy7sfnUMdmlzVA==, tarball: https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/8c8291024c2ce6b19ce223fcc4a2b0134637aa91}
     version: 1.2.0
@@ -2953,6 +2934,9 @@ packages:
       react-router-dom: ^7.18.2
       react-syntax-highlighter: ^16.1.1
 
+  genericsuite-be-scripts@1.4.0:
+    resolution: {integrity: sha512-xNfxbKOsNnyLz5lb5F2i2q5ezv36NrxrnXMathGjksA/AFiFY6WV0/RORrt9HOkm9D5HPkcuXRoqlwoj1ndjkw==}
+
   genericsuite-be-scripts@https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/63236845be3f852ce0866d7561831f236a78fb7b:
     resolution: {gitHosted: true, integrity: sha512-kTTgrPfLPJdyFYGaqIR48RShqQp+qXJl5cVWR3WnKNYgjIPh/WBVEO+Vpt12j6EElYr4hRcrIh4VWTt8FosOeA==, tarball: https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/63236845be3f852ce0866d7561831f236a78fb7b}
     version: 1.3.0
@@ -2960,27 +2944,6 @@ packages:
   genericsuite-fe-scripts@https://codeload.github.com/tomkat-cr/genericsuite-fe-scripts/tar.gz/389e25a782998dd8dc2f88a6c4ff0dbddf6b769b:
     resolution: {gitHosted: true, integrity: sha512-c6yamI2EASj5JRH5is7yqblSdVTBrBISY5bHFv56ni7oKUMP7YHJJ9LxPl7lmw60KAbWqHzUVfkj8PfhpdN0Rg==, tarball: https://codeload.github.com/tomkat-cr/genericsuite-fe-scripts/tar.gz/389e25a782998dd8dc2f88a6c4ff0dbddf6b769b}
     version: 1.0.0
-
-  genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/40d53899a497c01034b489466c0f52602f4e4f68:
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/40d53899a497c01034b489466c0f52602f4e4f68}
-    version: 1.2.0
-    engines: {node: '>= 18.12.0'}
-    peerDependencies:
-      axios: ^1.19.0
-      bson: 7.2.0
-      buffer: ^6.0.3
-      downshift: ^9.4.0
-      formik: ^2.4.9
-      history: ^4.9.0
-      js-md5: ^0.8.3
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      react-error-overlay: 6.0.9
-      react-markdown: ^10.1.0
-      react-router-dom: ^7.18.2
-      react-syntax-highlighter: ^16.1.1
-      rxjs: ^6.3.3
-      yup: ^1.7.1
 
   genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/680ac931864a47777a1d400bb099f57309ba278a:
     resolution: {gitHosted: true, integrity: sha512-TtX68Kz/uxC4TMcuJoTRfxI2SMqfKj4LZbbZJH5FFpYw4romEgkOyLmxsKqlkaYpJD65JiJgHQSrIF6py5fKmw==, tarball: https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/680ac931864a47777a1d400bb099f57309ba278a}
@@ -4247,9 +4210,6 @@ packages:
 
   react-error-overlay@6.0.9:
     resolution: {integrity: sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==}
-
-  react-error-overlay@6.1.0:
-    resolution: {integrity: sha512-SN/U6Ytxf1QGkw/9ve5Y+NxBbZM6Ht95tuXNMKs8EJyFa/Vy/+Co3stop3KBHARfn/giv+Lj1uUnTfOJ3moFEQ==}
 
   react-fast-compare@2.0.4:
     resolution: {integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==}
@@ -7994,16 +7954,6 @@ snapshots:
     dependencies:
       loader-utils: 0.2.17
 
-  genericsuite-ai@https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/5b577fc42203bf285cc7f080b58f85ea2ce2017f(axios@1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/40d53899a497c01034b489466c0f52602f4e4f68(axios@1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(bson@7.2.0)(buffer@6.0.3)(downshift@9.4.0(react@18.3.1))(formik@2.4.9(@types/react@19.1.0)(react@18.3.1))(history@4.10.1)(js-md5@0.8.3)(react-dom@18.3.1(react@18.3.1))(react-error-overlay@6.1.0)(react-markdown@10.1.0(@types/react@19.1.0)(react@18.3.1)(supports-color@8.1.1))(react-router-dom@7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-syntax-highlighter@16.1.1(react@18.3.1))(react@18.3.1)(rxjs@6.6.7)(yup@1.7.1))(react-dom@18.3.1(react@18.3.1))(react-error-overlay@6.1.0)(react-router-dom@7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-syntax-highlighter@16.1.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      axios: 1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)
-      genericsuite: https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/40d53899a497c01034b489466c0f52602f4e4f68(axios@1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(bson@7.2.0)(buffer@6.0.3)(downshift@9.4.0(react@18.3.1))(formik@2.4.9(@types/react@19.1.0)(react@18.3.1))(history@4.10.1)(js-md5@0.8.3)(react-dom@18.3.1(react@18.3.1))(react-error-overlay@6.1.0)(react-markdown@10.1.0(@types/react@19.1.0)(react@18.3.1)(supports-color@8.1.1))(react-router-dom@7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-syntax-highlighter@16.1.1(react@18.3.1))(react@18.3.1)(rxjs@6.6.7)(yup@1.7.1)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-error-overlay: 6.1.0
-      react-router-dom: 7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-syntax-highlighter: 16.1.1(react@18.3.1)
-
   genericsuite-ai@https://codeload.github.com/tomkat-cr/genericsuite-fe-ai/tar.gz/8c8291024c2ce6b19ce223fcc4a2b0134637aa91(axios@1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/680ac931864a47777a1d400bb099f57309ba278a(axios@1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(bson@7.2.0)(buffer@6.0.3)(downshift@9.4.0(react@18.3.1))(formik@2.4.9(@types/react@19.1.0)(react@18.3.1))(history@4.10.1)(js-md5@0.8.3)(react-dom@18.3.1(react@18.3.1))(react-error-overlay@6.0.9)(react-markdown@10.1.0(@types/react@19.1.0)(react@18.3.1)(supports-color@8.1.1))(react-router-dom@7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-syntax-highlighter@16.1.1(react@18.3.1))(react@18.3.1)(rxjs@6.6.7)(yup@1.7.1))(react-dom@18.3.1(react@18.3.1))(react-error-overlay@6.0.9)(react-router-dom@7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-syntax-highlighter@16.1.1(react@18.3.1))(react@18.3.1):
     dependencies:
       axios: 1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)
@@ -8014,27 +7964,11 @@ snapshots:
       react-router-dom: 7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-syntax-highlighter: 16.1.1(react@18.3.1)
 
+  genericsuite-be-scripts@1.4.0: {}
+
   genericsuite-be-scripts@https://codeload.github.com/tomkat-cr/genericsuite-be-scripts/tar.gz/63236845be3f852ce0866d7561831f236a78fb7b: {}
 
   genericsuite-fe-scripts@https://codeload.github.com/tomkat-cr/genericsuite-fe-scripts/tar.gz/389e25a782998dd8dc2f88a6c4ff0dbddf6b769b: {}
-
-  genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/40d53899a497c01034b489466c0f52602f4e4f68(axios@1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(bson@7.2.0)(buffer@6.0.3)(downshift@9.4.0(react@18.3.1))(formik@2.4.9(@types/react@19.1.0)(react@18.3.1))(history@4.10.1)(js-md5@0.8.3)(react-dom@18.3.1(react@18.3.1))(react-error-overlay@6.1.0)(react-markdown@10.1.0(@types/react@19.1.0)(react@18.3.1)(supports-color@8.1.1))(react-router-dom@7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-syntax-highlighter@16.1.1(react@18.3.1))(react@18.3.1)(rxjs@6.6.7)(yup@1.7.1):
-    dependencies:
-      axios: 1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)
-      bson: 7.2.0
-      buffer: 6.0.3
-      downshift: 9.4.0(react@18.3.1)
-      formik: 2.4.9(@types/react@19.1.0)(react@18.3.1)
-      history: 4.10.1
-      js-md5: 0.8.3
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-error-overlay: 6.1.0
-      react-markdown: 10.1.0(@types/react@19.1.0)(react@18.3.1)(supports-color@8.1.1)
-      react-router-dom: 7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-syntax-highlighter: 16.1.1(react@18.3.1)
-      rxjs: 6.6.7
-      yup: 1.7.1
 
   genericsuite@https://codeload.github.com/tomkat-cr/genericsuite-fe/tar.gz/680ac931864a47777a1d400bb099f57309ba278a(axios@1.19.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(bson@7.2.0)(buffer@6.0.3)(downshift@9.4.0(react@18.3.1))(formik@2.4.9(@types/react@19.1.0)(react@18.3.1))(history@4.10.1)(js-md5@0.8.3)(react-dom@18.3.1(react@18.3.1))(react-error-overlay@6.0.9)(react-markdown@10.1.0(@types/react@19.1.0)(react@18.3.1)(supports-color@8.1.1))(react-router-dom@7.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-syntax-highlighter@16.1.1(react@18.3.1))(react@18.3.1)(rxjs@6.6.7)(yup@1.7.1):
     dependencies:
@@ -9564,8 +9498,6 @@ snapshots:
       scheduler: 0.27.0
 
   react-error-overlay@6.0.9: {}
-
-  react-error-overlay@6.1.0: {}
 
   react-fast-compare@2.0.4: {}
 

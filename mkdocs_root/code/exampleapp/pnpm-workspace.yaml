@@ -11,3 +11,6 @@ allowBuilds:
   '@parcel/watcher': true
   esbuild: false
   unrs-resolver: false
+
+minimumReleaseAgeExclude:
+  - genericsuite-be-scripts@1.4.0
