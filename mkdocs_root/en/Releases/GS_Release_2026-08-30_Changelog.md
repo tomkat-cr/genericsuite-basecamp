@@ -26,6 +26,8 @@ Key Professional Benefits:
 
 Check out the full changelog for every detail across all 16 packages!
 
+*IMPORTANT*: check the [20260830 - v1.0.0 - Migration Guide](./GS_Release_2026-08-30_Migration_Guide.md) to migrate from the previous version to the new one.
+
 ## GenericSuite Superproject
 
 ### Package, Pull Request and Tag

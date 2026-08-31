@@ -28,7 +28,7 @@
     "create_stack": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh create_stack",
     "delete_stack": "./node_modules/genericsuite-be-scripts/scripts/aws/run_aws.sh delete_stack"
   },
-  "dependencies": {
+  "devDependencies": {
     "genericsuite-be-scripts": "^1.4.0"
   }
 }
