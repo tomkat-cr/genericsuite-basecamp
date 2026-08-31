@@ -18,6 +18,16 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
+## [1.6.1] - 2026-08-31
+
+### Added
+- Include flutter pub.dev package to repositories and instructions to install GS Mobile from pub.dev [GS-261].
+
+### Changed
+- Documentation updated with AI logo replaced by the superproject banner, clarify AI agent skills description, and enhance mobile development installation instructions [GS-327].
+- Update security suite descriptions for consistency across languages [GS-327].
+
+
 ## [1.6.0] - 2026-08-30
 
 ### Added

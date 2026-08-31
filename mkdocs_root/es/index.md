@@ -1,6 +1,6 @@
 # Desbloquea el poder full-stack con Generic Suite (GS)
 
-![Logotipo de GenericSuite AI](../assets/images/gs_ai_logo_circle.png){ .center }
+![GenericSuite superproject banner](../assets/images/GS_Superproject_banner_010.png)
 
 ¿Alguna vez te has encontrado copiando el mismo código útil y común de una aplicación a otra una y otra vez?
 
@@ -171,7 +171,7 @@ Repositorio:
 -->
 ## Seguridad
 
-Conjunto de Seguridad de GenericSuite es una suite de auditoría de seguridad y preparación para producción para repositorios de software y entornos de desarrollo. Proporciona **5 habilidades especializadas de IA** respaldadas por scripts de la biblioteca estándar de Python 3 sin dependencias.
+Conjunto de Seguridad de GenericSuite es una suite de auditoría de seguridad y preparación para producción para repositorios de software y entornos de desarrollo. Proporciona **un conjunto de habilidades especializadas de IA** respaldadas por scripts de la biblioteca estándar de Python 3 sin dependencias.
 
 Ya sea usado de forma interactiva a través de asistentes de codificación IA (**Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, etc.) o directamente como herramientas CLI independientes en pipelines de CI/CD, este paquete ayuda a los desarrolladores a auditar dependencias de la cadena de suministro, fijar referencias de contenedores, eliminar Acciones de GitHub no fijadas y verificar la preparación del proyecto antes del despliegue en producción.
 

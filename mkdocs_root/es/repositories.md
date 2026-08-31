@@ -29,7 +29,7 @@ El GS Superproyecto es la raíz del ecosistema GenericSuite. Contiene todos los 
 
 ### IA
 
-* Habilidades de Agente de IA de GenericSuite: :fontawesome-brands-openai:{ .openai } [https://github.com/tomkat-cr/genericsuite-skills](https://github.com/tomkat-cr/genericsuite-skills)
+* Skills de Generación de Código con IA de GenericSuite: :fontawesome-brands-openai:{ .openai } [https://github.com/tomkat-cr/genericsuite-skills](https://github.com/tomkat-cr/genericsuite-skills)
 * GSAM (App Maker): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-app-maker](https://github.com/tomkat-cr/genericsuite-app-maker)
 * GS ASDT (Equipo de Desarrollo de Software Agentico): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-asdt-be](https://github.com/tomkat-cr/genericsuite-asdt-be)
 
@@ -68,3 +68,7 @@ El GS Superproyecto es la raíz del ecosistema GenericSuite. Contiene todos los 
 * :fontawesome-brands-python:{ .python } [https://pypi.org/project/genericsuite](https://pypi.org/project/genericsuite)
 * :fontawesome-brands-python:{ .python } [https://pypi.org/project/genericsuite-ai/](https://pypi.org/project/genericsuite-ai/)
 * :fontawesome-brands-npm:{ .npm } [https://www.npmjs.com/package/genericsuite-be-scripts](https://www.npmjs.com/package/genericsuite-be-scripts)
+
+### Móvil
+
+* :fontawesome-brands-flutter:{ .flutter } [https://pub.dev/packages/genericsuite](https://pub.dev/packages/genericsuite)

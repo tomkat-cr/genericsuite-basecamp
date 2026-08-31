@@ -99,10 +99,13 @@ Puntos destacados
 
 ### Package, Pull Request and Tag
 
-* Package: [https://www.npmjs.com/package/genericsuite-ai/v/1.3.0](https://www.npmjs.com/package/genericsuite-ai/v/1.3.0)
+* Package # 1: [https://www.npmjs.com/package/genericsuite-ai/v/1.3.0](https://www.npmjs.com/package/genericsuite-ai/v/1.3.0)
+* Package # 2: [https://www.npmjs.com/package/genericsuite-ai/v/1.3.1](https://www.npmjs.com/package/genericsuite-ai/v/1.3.1)
 * Pull Request # 1: [https://github.com/tomkat-cr/genericsuite-fe-ai/pull/11](https://github.com/tomkat-cr/genericsuite-fe-ai/pull/11)
 * Pull Request # 2: [https://github.com/tomkat-cr/genericsuite-fe-ai/pull/12](https://github.com/tomkat-cr/genericsuite-fe-ai/pull/12)
-* Tag: [https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.3.0](https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.3.0)
+* Pull Request # 3: [https://github.com/tomkat-cr/genericsuite-fe-ai/pull/13](https://github.com/tomkat-cr/genericsuite-fe-ai/pull/13)
+* Tag # 1: [https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.3.0](https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.3.0)
+* Tag # 2: [https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.3.0](https://github.com/tomkat-cr/genericsuite-fe-ai/releases/tag/1.3.1)
 
 ### Pull Request Overview
 

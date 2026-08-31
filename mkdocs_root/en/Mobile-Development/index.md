@@ -33,15 +33,25 @@ The perfect companion for this mobile solution is the [backend version of The Ge
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
 - [Make](https://formulae.brew.sh/formula/make) (Mac) | Linux has Make installed by default | [Make](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows) (Windows)
 
-### Installation
+#### Don't have a Flutter project?
 
-- Create a new Flutter project:
+Create a new Flutter project using the `flutter create` command:
 
 ```bash
 flutter create exampleapp
 ```
 
-- Open the `pubspec.yaml` file and add the GenericSuite to the `dependencies:` section:
+### Installation
+
+- Add the genericsuite package:
+
+```bash
+flutter pub add genericsuite
+```
+
+Or manually:
+
+1. Open the `pubspec.yaml` file and add the GenericSuite to the `dependencies:` section:
 
 ```yaml
   genericsuite:
@@ -51,19 +61,23 @@ flutter create exampleapp
       path: genericsuite_flutter
 ```
 
-- Install the dependencies.
+2. Install the dependencies.
 
 ```bash
 flutter pub get
 ```
+
+## Usage
+
+### Usage examples
+
+In the following examples we will create a simple app with a home page, a user profile page and other functionality.
 
 ### Configuration
 
 - Check the [App Creation and Configuration Guide](https://genericsuite.carlosjramirez.com/Configuration-Guide/) for more information about how to create the JSON configuration files.
 
 - Check the [Backend Guide](https://genericsuite.carlosjramirez.com/Backend-Development/GenericSuite-Core) for more information about how to create the API.
-
-## Usage
 
 ### App directory structure
 

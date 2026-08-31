@@ -29,7 +29,7 @@ The GS Superproject is the root of the GenericSuite ecosystem. It contains all t
 
 ### AI
 
-* GenericSuite AI Agent Skills: :fontawesome-brands-openai:{ .openai } [https://github.com/tomkat-cr/genericsuite-skills](https://github.com/tomkat-cr/genericsuite-skills)
+* GenericSuite Code Generation AI Skills: :fontawesome-brands-openai:{ .openai } [https://github.com/tomkat-cr/genericsuite-skills](https://github.com/tomkat-cr/genericsuite-skills)
 * GSAM (App Maker): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-app-maker](https://github.com/tomkat-cr/genericsuite-app-maker)
 * GS ASDT (Agentic Software Development Team): :fontawesome-brands-python:{ .python } [https://github.com/tomkat-cr/genericsuite-asdt-be](https://github.com/tomkat-cr/genericsuite-asdt-be)
 
@@ -68,3 +68,7 @@ The GS Superproject is the root of the GenericSuite ecosystem. It contains all t
 * :fontawesome-brands-python:{ .python } [https://pypi.org/project/genericsuite](https://pypi.org/project/genericsuite)
 * :fontawesome-brands-python:{ .python } [https://pypi.org/project/genericsuite-ai/](https://pypi.org/project/genericsuite-ai/)
 * :fontawesome-brands-npm:{ .npm } [https://www.npmjs.com/package/genericsuite-be-scripts](https://www.npmjs.com/package/genericsuite-be-scripts)
+
+### Mobile
+
+* :fontawesome-brands-flutter:{ .flutter } [https://pub.dev/packages/genericsuite](https://pub.dev/packages/genericsuite)

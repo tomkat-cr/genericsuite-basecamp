@@ -1,6 +1,6 @@
 # Suite de Seguridad GenericSuite (`gs-security-suite`)
 
-**Genericsuite-security** es una suite de auditoría de seguridad y preparación para producción para repositorios de software y entornos de desarrollo. Proporciona **5 habilidades especializadas de agentes IA** respaldadas por scripts de la biblioteca estándar de Python 3 sin dependencias.
+**Genericsuite-security** es una suite de auditoría de seguridad y preparación para producción para repositorios de software y entornos de desarrollo. Proporciona **un conjunto de habilidades especializadas de agentes IA** respaldadas por scripts de la biblioteca estándar de Python 3 sin dependencias.
 
 Ya sea utilizado de forma interactiva a través de asistentes de codificación IA (**Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, etc.) o directamente como herramientas CLI independientes en pipelines CI/CD, este paquete ayuda a los desarrolladores a auditar dependencias de la cadena de suministro, fijar referencias de contenedores, eliminar acciones de GitHub no fijadas y verificar la preparación del proyecto antes de la implementación en producción.
 
