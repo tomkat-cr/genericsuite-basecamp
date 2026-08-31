@@ -1636,15 +1636,25 @@
         "properties": {
           "message": {
             "type": "string",
+            "maxLength": 5000,
+            "minLength": 10,
             "title": "Message"
           },
           "log_type": {
             "type": "string",
+            "maxLength": 10,
+            "minLength": 4,
             "title": "Log Type"
           },
           "timestamp": {
             "type": "integer",
+            "minimum": 0.0,
             "title": "Timestamp"
+          },
+          "hp": {
+            "type": "string",
+            "title": "Hp",
+            "default": ""
           }
         },
         "type": "object",

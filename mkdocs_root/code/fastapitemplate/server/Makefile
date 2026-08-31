@@ -118,6 +118,7 @@ link_gs_libs:
 link_config_dirs:
 	if [ -d ./lib/config_dbdef ]; then rm -rf ./lib/config_dbdef; fi
 	cp -R ../config_dbdef ./lib/config_dbdef
+	cp ../.env ./.env
 
 unlink_config_dirs:
 	if [ -d ./lib/config_dbdef ]; then rm -rf ./lib/config_dbdef; fi

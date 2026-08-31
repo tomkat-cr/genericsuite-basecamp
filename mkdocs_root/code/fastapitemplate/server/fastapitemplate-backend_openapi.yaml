@@ -12,13 +12,22 @@ components:
     LogRequest:
       description: 'Log request '
       properties:
+        hp:
+          default: ''
+          title: Hp
+          type: string
         log_type:
+          maxLength: 10
+          minLength: 4
           title: Log Type
           type: string
         message:
+          maxLength: 5000
+          minLength: 10
           title: Message
           type: string
         timestamp:
+          minimum: 0.0
           title: Timestamp
           type: integer
       required:

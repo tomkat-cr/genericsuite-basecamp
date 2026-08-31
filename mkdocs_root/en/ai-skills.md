@@ -1,6 +1,6 @@
 # AI Skills
 
-AI agent skills for the [GenericSuite](https://genericsuite.carlosjramirez.com) ecosystem — a **Claude Skills plugin repository**. Skills are self-contained directories under `skills/`, each with a `SKILL.md` and optional bundled resources (references, scripts, evals), organized into plugin groups in [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json).
+AI agent skills for the [GenericSuite](https://github.com/tomkat-cr/genericsuite-skills) ecosystem — a **Claude Skills plugin repository**. Skills are self-contained directories under `skills/`, each with a `SKILL.md` and optional bundled resources (references, scripts, evals), organized into plugin groups in [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json).
 
 ## The App-Builder Suite (`gs-app-builder-suite`)
 
