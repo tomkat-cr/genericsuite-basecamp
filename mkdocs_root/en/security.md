@@ -19,11 +19,11 @@ The suite is built around core security engineering principles:
 
 | Skill | Directory | Description | Triggers / Prompts |
 |---|---|---|---|
-| **`supply-chain-ioc-scan`** | [`skills/supply-chain-ioc-scan`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/supply-chain-ioc-scan) | Triage disclosed supply-chain attacks and npm/PyPI worms (e.g. Shai-Hulud) across local disk & caches. | *"Are we affected by [campaign]?"*, *"Check for compromised dependencies"*, *"Did we install the bad version?"* |
-| **`repo-corpus`** | [`skills/repo-corpus`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-corpus) | Enumerate & clone a GitHub org, user, or local directory into safe checkouts with a `corpus.json` manifest. | *"Clone all repos in my org"*, *"Audit every repository"*, *"Build a repo corpus"* |
-| **`repo-docker-scanner`** | [`skills/repo-docker-scanner`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-docker-scanner) | Scan container references for mutable tags (`:latest`, floating tags) tiered by execution context (P0/P1/P2). | *"Are our docker images pinned?"*, *"Find :latest tags"*, *"Image digest pinning"* |
-| **`repo-packages-scanner`** | [`skills/repo-packages-scanner`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-packages-scanner) | Scan GitHub Actions (`uses:`) & package lockfiles for unpinned versions, floating ranges, and `curl \| bash`. | *"Are our GitHub Actions pinned?"*, *"Unpinned dependencies"*, *"Missing lockfile"*, *"curl pipe bash"* |
-| **`project-weakness-analysis`** | [`skills/project-weakness-analysis`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/project-weakness-analysis) | Score production-readiness and security risk per project across independent, non-averaged axes. | *"Is this ready for production?"*, *"Audit my projects"*, *"Production readiness review"* |
+| **`supply-chain-ioc-scan`** | [skills/supply-chain-ioc-scan](https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/supply-chain-ioc-scan) | Triage disclosed supply-chain attacks and npm/PyPI worms (e.g. Shai-Hulud) across local disk & caches. | *"Are we affected by [campaign]?"*, *"Check for compromised dependencies"*, *"Did we install the bad version?"* |
+| **`repo-corpus`** | [skills/repo-corpus](https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-corpus) | Enumerate & clone a GitHub org, user, or local directory into safe checkouts with a `corpus.json` manifest. | *"Clone all repos in my org"*, *"Audit every repository"*, *"Build a repo corpus"* |
+| **`repo-docker-scanner`** | [skills/repo-docker-scanner](https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-docker-scanner) | Scan container references for mutable tags (`:latest`, floating tags) tiered by execution context (P0/P1/P2). | *"Are our docker images pinned?"*, *"Find :latest tags"*, *"Image digest pinning"* |
+| **`repo-packages-scanner`** | [skills/repo-packages-scanner](https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-packages-scanner) | Scan GitHub Actions (`uses:`) & package lockfiles for unpinned versions, floating ranges, and `curl \| bash`. | *"Are our GitHub Actions pinned?"*, *"Unpinned dependencies"*, *"Missing lockfile"*, *"curl pipe bash"* |
+| **`project-weakness-analysis`** | [skills/project-weakness-analysis](https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/project-weakness-analysis) | Score production-readiness and security risk per project across independent, non-averaged axes. | *"Is this ready for production?"*, *"Audit my projects"*, *"Production readiness review"* |
 
 ---
 
@@ -120,7 +120,7 @@ Any AI agent that adheres to the standard Agent Skills format can use these skil
 
 ### 1. Supply-Chain IOC Scan
 
-- **Directory**: [`skills/supply-chain-ioc-scan`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/supply-chain-ioc-scan)
+- **Directory**: [skills/supply-chain-ioc-scan](https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/supply-chain-ioc-scan)
 - **Purpose**: Rapid incident triage when an npm, PyPI, or vendor supply-chain attack (e.g., Keyv / Cacheable Shai-Hulud worm) is disclosed.
 - **Key Features**:
   - Scans both **dependency axis** (lockfiles, `~/.npm/_cacache`, `node_modules`) and **artifact axis** (SHA-1/256 payload hashes, C2 domains, IDE hooks, processes).
@@ -150,7 +150,7 @@ PROFILE=iocs/custom-campaign.json ./scripts/run_scan.sh ~/projects
 
 ### 2. Repo Corpus
 
-- **Directory**: [`skills/repo-corpus`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-corpus)
+- **Directory**: [skills/repo-corpus](https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-corpus)
 - **Purpose**: Phase 1 foundation for org-wide scanning. Safely clones repositories from a GitHub organization, user, or directory tree into an attributable `corpus.json` manifest.
 - **Key Features**:
   - Zero-trust git clone flags (prevents execution of hooks, submodules, or malicious code during clone).
@@ -180,7 +180,7 @@ python3 scripts/build_corpus.py --org my-org --list-only
 
 ### 3. Repo Docker Scanner
 
-- **Directory**: [`skills/repo-docker-scanner`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-docker-scanner)
+- **Directory**: [skills/repo-docker-scanner](https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-docker-scanner)
 - **Purpose**: Phase 2 static analysis scanner. Detects mutable container image references (`:latest`, floating tags, missing digests) and tiers findings by execution context.
 - **Key Features**:
   - Context-aware priority tiering:
@@ -213,7 +213,7 @@ cd skills/repo-docker-scanner
 
 ### 4. Repo Packages Scanner
 
-- **Directory**: [`skills/repo-packages-scanner`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-packages-scanner)
+- **Directory**: [skills/repo-packages-scanner](https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/repo-packages-scanner)
 - **Purpose**: Phase 3 static analysis scanner. Audits GitHub Actions (`uses:` refs) and package dependencies across npm, PyPI, Go, Rust, Ruby, and Poetry.
 - **Key Features**:
   - Flags unpinned GitHub Actions (must use 40-character commit SHA, e.g. `actions/checkout@a5ac7e5...`).
@@ -247,7 +247,7 @@ cd skills/repo-packages-scanner
 
 ### 5. Project Weakness Analysis
 
-- **Directory**: [`skills/project-weakness-analysis`https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/project-weakness-analysis)
+- **Directory**: [skills/project-weakness-analysis](https://github.com/tomkat-cr/genericsuite-security/tree/main/skills/project-weakness-analysis)
 - **Purpose**: Evaluates whether software projects are ready and safe for production deployment.
 - **Key Features**:
   - **Two Independent Axes (Never Averaged)**:

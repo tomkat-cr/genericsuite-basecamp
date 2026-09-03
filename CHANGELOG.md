@@ -27,6 +27,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Documentation updated with AI logo replaced by the superproject banner, clarify AI agent skills description, and enhance mobile development installation instructions [GS-327].
 - Update security suite descriptions for consistency across languages [GS-327].
 
+### Fixes
+- Security Skills documentation: fix skills descriptions/links formatting, ensuring links to work properly [GS-327].
 
 ## [1.6.0] - 2026-08-30
 
