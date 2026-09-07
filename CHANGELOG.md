@@ -18,7 +18,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
-## [1.6.1] - 2026-08-31
+## [1.6.1] - 2026-09-03
 
 ### Added
 - Include flutter pub.dev package to repositories and instructions to install GS Mobile from pub.dev [GS-261].
@@ -29,6 +29,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### Fixes
 - Security Skills documentation: fix skills descriptions/links formatting, ensuring links to work properly [GS-327].
+
 
 ## [1.6.0] - 2026-08-30
 
