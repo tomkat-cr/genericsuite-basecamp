@@ -101,6 +101,26 @@ Está compuesto por un [Núcleo de Generic Suite](#el-nucleo-de-generic-suite), 
 
 ![gs_logo_circle.png](../assets/images/gs_logo_circle.png){ .center }
 
+## The Generic Suite Core
+
+Características:
+
+* Editor CRUD personalizable, generador de menús y interfaz de inicio de sesión personalizables.
+* Generador genérico de bases de datos y endpoints de API para eliminar código redundante.
+* Abstracción del framework backend que soporta FastAPI, Flask y Chalice.
+* Abstracción de bases de datos para MongoDB, DynamoDB, PostgreSQL, MySQL y Supabase con una sintaxis de consultas unificada.
+* Despliegue sencillo con AWS y otros servicios en la nube.
+* [Utilidades](./Backend-Development/GenericSuite-Scripts/index.md) y [Configuraciones](./Configuration-Guide/index.md) necesarias para construir y desplegar aplicaciones escalables y mantenibles.
+
+Documentation and repositories:
+
+* :fontawesome-brands-react:{ .react } [Núcleo de Generic Suite (versión frontend) para React.js](./Frontend-Development/GenericSuite-Core/index.md)
+* :fontawesome-brands-python:{ .python } [Núcleo de Generic Suite (versión backend) para Python](./Backend-Development/GenericSuite-Core/index.md)
+* :fontawesome-brands-linux:{ .linux } [Utilidades de Generic Suite (versión frontend)](./Frontend-Development/GenericSuite-Scripts/index.md)
+* :fontawesome-brands-linux:{ .linux } [Utilidades de Generic Suite (versión backend)](./Backend-Development/GenericSuite-Scripts/index.md)
+* Repositorios: [Superproyecto](./repositories.md#superproject), [Frontend](./repositories.md#frontend), [Backend](./repositories.md#backend)
+* Paquetes: [PyPI y NPMJS](./repositories.md#published-packages)
+
 ## La IA de Generic Suite
 
 La IA de Generic Suite es una extensión para ayudar a desarrollar Apps que implementan IA.
@@ -131,19 +151,7 @@ Documentación y repositorios:
 * Repositorios: [Frontend](./repositories.md#frontend), [Backend](./repositories.md#backend)
 * Paquetes: [PyPI y NPMJS](./repositories.md#published-packages)
 
-### Generic Suite Móvil
-
-Características:
-
-* Igual que [el Núcleo de Generic Suite](#el-nucleo-de-generic-suite) pero para el constructor de apps móviles.
-* Desarrollado con Flutter para iOS, Android, Windows, macOS y web.
-
-Documentación y repositorios:
-
-* :fontawesome-brands-flutter:{ .flutter } [GenericSuite Mobile para Flutter](./Mobile-Development/index.md)
-* Repositorios: [Móvil](./repositories.md#mobile)
-
-### Habilidades de IA de GenericSuite Agent
+## Habilidades de IA de GenericSuite Agent
 
 La colección de Habilidades de IA de GenericSuite Agent es una colección de plugins Claude Skills para el ecosistema GenericSuite. Su pieza central es el **app-builder suite** (`gs-app-builder-suite`): un conjunto de habilidades de agente de IA que construyen una aplicación completa de GenericSuite — frontend React, backend FastAPI, CRUD impulsado por JSON, asistente de IA y servidor MCP — a partir de una conversación.
 
@@ -151,8 +159,18 @@ Documentación y repositorios:
 
 * :fontawesome-brands-openai:{ .openai } [Habilidades de IA del GenericSuite Agent](./ai-skills.md)
 * [Repositorios](./repositories.md#ai)
+## Seguridad
 
-### GSAM: El Generador de Aplicaciones de Generic Suite
+Conjunto de Seguridad de GenericSuite es una suite de auditoría de seguridad y preparación para producción para repositorios de software y entornos de desarrollo. Proporciona **un conjunto de habilidades (Skills) especializadas de IA** respaldadas por scripts de la biblioteca estándar de Python 3 sin dependencias.
+
+Ya sea usado de forma interactiva a través de asistentes de codificación IA (**Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, etc.) o directamente como herramientas CLI independientes en pipelines de CI/CD, este paquete ayuda a los desarrolladores a auditar dependencias de la cadena de suministro, fijar referencias de contenedores, eliminar Acciones de GitHub no fijadas y verificar la preparación del proyecto antes del despliegue en producción.
+
+Documentación y repositorios:
+
+* :fontawesome-brands-openai:{ .openai } [Habilidades de Seguridad de GenericSuite](./security.md)
+* [Repositorios](./repositories.md#security)
+
+## GSAM: El Generador de Aplicaciones de Generic Suite
 
 El **Generador de Aplicaciones de Generic Suite (GSAM)** es la herramienta de IA para enriquecer la ideación del desarrollo de software y probar modelos de IA, proveedores de LLM y sus características. También permite generar descripciones, estructuras de bases de datos, imágenes, videos o respuestas a partir de un prompt de texto, y generar código inicial para ser utilizado con la biblioteca de Generic Suite.
 
@@ -169,16 +187,18 @@ Repositorio:
 
 * :fontawesome-brands-python:{ .python } [Equipo de Desarrollo de Software Asistido por IA de GenericSuite](https://github.com/tomkat-cr/genericsuite-asdt-be)
 -->
-## Seguridad
 
-Conjunto de Seguridad de GenericSuite es una suite de auditoría de seguridad y preparación para producción para repositorios de software y entornos de desarrollo. Proporciona **un conjunto de habilidades especializadas de IA** respaldadas por scripts de la biblioteca estándar de Python 3 sin dependencias.
+### Generic Suite Móvil
 
-Ya sea usado de forma interactiva a través de asistentes de codificación IA (**Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, etc.) o directamente como herramientas CLI independientes en pipelines de CI/CD, este paquete ayuda a los desarrolladores a auditar dependencias de la cadena de suministro, fijar referencias de contenedores, eliminar Acciones de GitHub no fijadas y verificar la preparación del proyecto antes del despliegue en producción.
+Características:
+
+* Igual que [el Núcleo de Generic Suite](#el-nucleo-de-generic-suite) pero para el constructor de apps móviles.
+* Desarrollado con Flutter para iOS, Android, Windows, macOS y web.
 
 Documentación y repositorios:
 
-* :fontawesome-brands-openai:{ .openai } [Habilidades de Seguridad de GenericSuite](./security.md)
-* [Repositorios](./repositories.md#security)
+* :fontawesome-brands-flutter:{ .flutter } [GenericSuite Mobile para Flutter](./Mobile-Development/index.md)
+* Repositorios: [Móvil](./repositories.md#mobile)
 
 ## Operaciones del Servidor
 
@@ -188,16 +208,6 @@ Documentación y repositorios:
 
 * Guía de Despliegue: [OpenTofu (IaC) Deployment Guide](./Deployment-Guide/opentofu.md)
 * [Repositorios](./repositories.md#platform)
-
-## Repositorios
-
-Haz clic aquí para revisar los repos Git, los paquetes NPMJS y PyPI.
-
-## Documentación
-
-* Principal: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
-* Espejo: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
-* Aplicación móvil (únete al programa de pruebas para probarla): [Google Play Store](https://play.google.com/apps/internaltest/4701425955610073424)
 
 ## Código de ejemplo
 
@@ -212,6 +222,16 @@ Tenemos un [ExampleApp](../code/exampleapp/README.md) para mostrarte cómo usar 
 También disponemos de una [Plantilla de FastAPI](../code/fastapitemplate/README.md) para ayudarte a empezar con backends basados en FastAPI.
 
 Consulta la sección [Código de muestra](./Sample-Code/index.md) para obtener más información.
+
+## Repositorios
+
+Haz clic aquí para revisar los repos Git, los paquetes NPMJS y PyPI.
+
+## Documentación
+
+* Principal: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
+* Espejo: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
+* Aplicación móvil (únete al programa de pruebas para probarla): [Google Play Store](https://play.google.com/apps/internaltest/4701425955610073424)
 
 ## Lanzamientos
 

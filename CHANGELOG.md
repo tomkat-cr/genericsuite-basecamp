@@ -18,6 +18,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Removed
 
 
+## [Unreleased] - YYYY-MM-DD
+
+### Fixed
+- Missing GS core section in the index.md file spanish version, and re-order sections for consistency [GS-327].
+
+
 ## [1.6.1] - 2026-09-03
 
 ### Added

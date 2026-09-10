@@ -153,19 +153,7 @@ Documentation and repositories:
 * Repositories: [Frontend](./repositories.md#frontend), [Backend](./repositories.md#backend)
 * Packages: [PyPI and NPMJS](./repositories.md#published-packages)
 
-### Generic Suite Mobile
-
-Features:
-
-* Same as [the Generic Suite Core](#the-generic-suite-core) but for mobile app builder.
-* Made with Flutter for iOS, Android, Windows, macOS and web.
-
-Documentation and repositories:
-
-* :fontawesome-brands-flutter:{ .flutter } [GenericSuite Mobile for Flutter](./Mobile-Development/index.md)
-* Repositories: [Mobile](./repositories.md#mobile)
-
-### GenericSuite AI Agent Skills
+## GenericSuite AI Agent Skills
 
 The **GenericSuite AI Agent Skills** is a Claude Skills plugin collection for the GenericSuite ecosystem. Its centerpiece is the **app-builder suite** (`gs-app-builder-suite`): a set of AI agent skills that build a complete GenericSuite application — React frontend, FastAPI backend, JSON-driven CRUD, AI assistant and MCP server — from a conversation.
 
@@ -174,7 +162,18 @@ Documentation and repositories:
 * :fontawesome-brands-openai:{ .openai } [GenericSuite AI Agent Skills](./ai-skills.md)
 * [Repositories](./repositories.md#ai)
 
-### GSAM: The Generic Suite AI App Maker
+## Security
+
+**`Genericsuite Security Suite`** is a security auditing and production-readiness suite for software repositories and developer environments. It provides **a set of specialized AI agent skills** backed by zero-dependency Python 3 standard library scripts.
+
+Whether used interactively through AI coding assistants (**Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, etc.) or directly as standalone CLI tools in CI/CD pipelines, this package helps developers audit supply chain dependencies, pin container references, eliminate unpinned GitHub Actions, and verify project readiness before production deployment.
+
+Documentation and repositories:
+
+* :fontawesome-brands-openai:{ .openai } [GenericSuite Security Skills](./security.md)
+* [Repositories](./repositories.md#security)
+
+## GSAM: The Generic Suite AI App Maker
 
 The **Generic Suite App Maker (GSAM)** is the AI tool to enhance the software development ideation and test AI models, LLM providers and its features. It also allows to generate descriptions, database structures, images, videos or answers from a text prompt, and kick start code to be used with the Generic Suite library.
 
@@ -192,16 +191,17 @@ Repository:
 * :fontawesome-brands-python:{ .python } [GenericSuite Agentic Software Development Team](https://github.com/tomkat-cr/genericsuite-asdt-be)
 -->
 
-## Security
+## Generic Suite Mobile
 
-**`Genericsuite Security Suite`** is a security auditing and production-readiness suite for software repositories and developer environments. It provides **a set of specialized AI agent skills** backed by zero-dependency Python 3 standard library scripts.
+Features:
 
-Whether used interactively through AI coding assistants (**Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, etc.) or directly as standalone CLI tools in CI/CD pipelines, this package helps developers audit supply chain dependencies, pin container references, eliminate unpinned GitHub Actions, and verify project readiness before production deployment.
+* Same as [the Generic Suite Core](#the-generic-suite-core) but for mobile app builder.
+* Made with Flutter for iOS, Android, Windows, macOS and web.
 
 Documentation and repositories:
 
-* :fontawesome-brands-openai:{ .openai } [GenericSuite Security Skills](./security.md)
-* [Repositories](./repositories.md#security)
+* :fontawesome-brands-flutter:{ .flutter } [GenericSuite Mobile for Flutter](./Mobile-Development/index.md)
+* Repositories: [Mobile](./repositories.md#mobile)
 
 ## Server Operations
 
@@ -211,16 +211,6 @@ Documentation and repositories:
 
 * Deployment Guide: [OpenTofu (IaC) Deployment Guide](./Deployment-Guide/opentofu.md)
 * [Repositories](./repositories.md#platform)
-
-## Repositories
-
-[Click here](./repositories.md) to review the Git repositories, NPMJS and PyPI packages.
-
-## Documentation
-
-* Main: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
-* Mirror: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
-* Mobile App (join the test flight to try it out): [Google Play Store](https://play.google.com/apps/internaltest/4701425955610073424)
 
 ## Sample Code
 
@@ -235,6 +225,16 @@ We have an [ExampleApp](../code/exampleapp/README.md) to show you how to use the
 Also we have a [FastAPI Template](../code/fastapitemplate/README.md) to help you get started with FastAPI based backends.
 
 Check the [Sample Code](./Sample-Code/index.md) section for more information.
+
+## Repositories
+
+[Click here](./repositories.md) to review the Git repositories, NPMJS and PyPI packages.
+
+## Documentation
+
+* Main: [https://genericsuite.carlosjramirez.com](https://genericsuite.carlosjramirez.com)
+* Mirror: [https://genericsuite.readthedocs.io](https://genericsuite.readthedocs.io)
+* Mobile App (join the test flight to try it out): [Google Play Store](https://play.google.com/apps/internaltest/4701425955610073424)
 
 ## Releases
 
