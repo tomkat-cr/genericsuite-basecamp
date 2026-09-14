@@ -20,6 +20,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ## [Unreleased] - YYYY-MM-DD
 
+### Changed
+- Update Privacy Policy: Revise effective date, add GS Doc mobile app details, and clarify data collection practices including cookies and third-party integrations for both English and Spanish versions [GS-327].
+
 ### Fixed
 - Missing GS core section in the index.md file spanish version, and re-order sections for consistency [GS-327].
 
