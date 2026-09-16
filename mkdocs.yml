@@ -72,7 +72,7 @@ extra:
       make our documentation better.
   analytics:
     provider: google
-    property: G-HL2GMT09NW
+    property: G-ZPNNX81XZB
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/stars/tomkat-cr/lists/genericsuite
