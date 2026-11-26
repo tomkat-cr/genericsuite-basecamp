@@ -437,6 +437,14 @@ Sobrescribe `getThemeParams()` en tu `AppCallables` para personalizar — devuel
 | `infoBackgroundColor` | `#007AFF` (systemBlue) | Mensajes de información |
 | `warningBackgroundColor` | `#FF9500` (systemOrange) | Advertencias |
 | `successBackgroundColor` | `#34C759` (systemGreen) | Mensajes de éxito |
+| `listingRowEvenBackgroundColor` | `Color(0xFFE5E7EB)` (gray-200) | Fondo de las filas pares (índice 0, 2, 4, ...) |
+| `listingRowOddBackgroundColor` | `Colors.transparent` | Fondo de las filas impares |
+| `listingRowEvenTextColor` | `textColor` | Color del texto del título en las filas pares |
+| `listingRowOddTextColor` | `textColor` | Color del texto del título en las filas impares |
+| `listingRowSubtitleColor` | `secondaryTextColor` | Color del texto del subtítulo (línea 2) |
+| `listingColumnSeparator` | `' · '` | Texto entre los valores de columna en una línea |
+
+Las claves de la pantalla de listado se describen en [Pantalla de listado](#pantalla-de-listado).
 
 Ejemplo:
 
@@ -1561,6 +1569,112 @@ Aquí puedes definir la configuración para mostrar los datos de la tabla en una
         "DailyMealIngredients"
     ]
 }
+```
+
+#### Pantalla de listado
+
+La pantalla de listado muestra las filas de una entidad. Cada fila puede tener dos líneas de texto:
+
+- La línea 1 es el título de la fila. Muestra las primeras columnas de listado.
+- La línea 2 es el subtítulo de la fila. Muestra las siguientes columnas de listado.
+
+Una columna de listado es un campo con `"listing": true`. Las columnas siguen el orden de `fieldElements`.
+
+Define el número de columnas de cada línea en el archivo JSON de frontend de la entidad (`assets/config_dbdef/frontend/<entidad>.json`). Usa dos claves opcionales de nivel superior de tipo int:
+
+| Clave | Predeterminado | Uso |
+| --- | --- | --- |
+| `colsForListingLine1` | `1` | Número de columnas de listado en la línea 1 (título de la fila) |
+| `colsForListingLine2` | `0` | Número de columnas de listado en la línea 2 (subtítulo de la fila). `0` no muestra subtítulo. |
+
+Ejemplo:
+
+```json
+{
+    "name": "users",
+    "colsForListingLine1": 2,
+    "colsForListingLine2": 2,
+    "fieldElements": [
+        {
+            "name": "firstname",
+            "label": "First name",
+            "type": "text",
+            "listing": true
+        },
+        {
+            "name": "lastname",
+            "label": "Last name",
+            "type": "text",
+            "listing": true
+        },
+        {
+            "name": "email",
+            "label": "Email",
+            "type": "text",
+            "listing": true
+        },
+        {
+            "name": "superuser",
+            "label": "Superuser",
+            "type": "boolean",
+            "listing": true
+        }
+    ]
+}
+```
+
+Con este ejemplo, cada fila muestra:
+
+- Línea 1: `John · Smith`
+- Línea 2: `john@mail.com · Yes`
+
+Las reglas son:
+
+- La prioridad es: el valor de `CrudEditor(props: {...})`, luego el valor del JSON de frontend, y después el valor predeterminado.
+- Un valor puede ser un int o una cadena numérica, por ejemplo `"2"`.
+- Un valor no válido usa el valor predeterminado.
+- Un valor negativo pasa a ser `0`.
+- El número total de columnas se limita al número de campos de listado.
+- Si la línea 1 es `0` y la entidad tiene campos de listado, la línea 1 pasa a ser `1`.
+
+Los valores se formatean en el listado:
+
+| Tipo de campo | Valor en el listado |
+| --- | --- |
+| `select_table` | La descripción |
+| `select` | La etiqueta de la opción. Si no hay etiqueta, se muestra el valor sin procesar. |
+| `date` | `yyyy-MM-dd` |
+| `datetime` | `yyyy-MM-dd HH:mm` |
+| `boolean` | `Yes` o `No` |
+
+Los valores vacíos o nulos no se muestran. Los valores de una línea se unen con el parámetro de tema `listingColumnSeparator` (predeterminado `' · '`).
+
+Los colores de las filas y el separador son parámetros de tema. Consulta [Temas](#temas). Sobrescríbelos en `getThemeParams()`:
+
+```dart
+class AppCallables extends AppCallablesSuper {
+  @override
+  Map<String, dynamic> getThemeParams() {
+    return {
+      'listingRowEvenBackgroundColor': Colors.white,
+      'listingRowOddBackgroundColor': Color(0xFFF2F2F7),
+      'listingColumnSeparator': ' | ',
+    };
+  }
+}
+```
+
+Para definir las columnas en el código, pasa las mismas claves en las props de `CrudEditor`:
+
+```dart
+CrudEditor(
+  jsonFileName: 'users.json',
+  callbacks: {},
+  props: {
+    'colsForListingLine1': 2,
+    'colsForListingLine2': 1,
+  },
+)
 ```
 
 ### Configuración de la App

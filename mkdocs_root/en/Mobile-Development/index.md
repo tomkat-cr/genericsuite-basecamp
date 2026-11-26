@@ -437,6 +437,14 @@ Override `getThemeParams()` in your `AppCallables` to customize — return only 
 | `infoBackgroundColor` | `#007AFF` (systemBlue) | Info messages |
 | `warningBackgroundColor` | `#FF9500` (systemOrange) | Warnings |
 | `successBackgroundColor` | `#34C759` (systemGreen) | Success messages |
+| `listingRowEvenBackgroundColor` | `Color(0xFFE5E7EB)` (gray-200) | Background of even rows (index 0, 2, 4, ...) |
+| `listingRowOddBackgroundColor` | `Colors.transparent` | Background of odd rows |
+| `listingRowEvenTextColor` | `textColor` | Title text color of even rows |
+| `listingRowOddTextColor` | `textColor` | Title text color of odd rows |
+| `listingRowSubtitleColor` | `secondaryTextColor` | Subtitle (line 2) text color |
+| `listingColumnSeparator` | `' · '` | Text between column values on one line |
+
+The listing screen keys are described in [Listing screen](#listing-screen).
 
 Example:
 
@@ -1561,6 +1569,112 @@ Here you can define the configuration to show the table data in a CRUD editor vi
         "DailyMealIngredients"
     ]
 }
+```
+
+#### Listing screen
+
+The listing screen shows the rows of an entity. Each row can have two lines of text:
+
+- Line 1 is the row title. It shows the first listing columns.
+- Line 2 is the row subtitle. It shows the next listing columns.
+
+A listing column is a field with `"listing": true`. The columns follow the order of `fieldElements`.
+
+Set the number of columns for each line in the frontend JSON file of the entity (`assets/config_dbdef/frontend/<entity>.json`). Use two optional top-level int keys:
+
+| Key | Default | Use |
+| --- | --- | --- |
+| `colsForListingLine1` | `1` | Number of listing columns on line 1 (row title) |
+| `colsForListingLine2` | `0` | Number of listing columns on line 2 (row subtitle). `0` shows no subtitle. |
+
+Example:
+
+```json
+{
+    "name": "users",
+    "colsForListingLine1": 2,
+    "colsForListingLine2": 2,
+    "fieldElements": [
+        {
+            "name": "firstname",
+            "label": "First name",
+            "type": "text",
+            "listing": true
+        },
+        {
+            "name": "lastname",
+            "label": "Last name",
+            "type": "text",
+            "listing": true
+        },
+        {
+            "name": "email",
+            "label": "Email",
+            "type": "text",
+            "listing": true
+        },
+        {
+            "name": "superuser",
+            "label": "Superuser",
+            "type": "boolean",
+            "listing": true
+        }
+    ]
+}
+```
+
+With this example, each row shows:
+
+- Line 1: `John · Smith`
+- Line 2: `john@mail.com · Yes`
+
+The rules are:
+
+- The priority is: the `CrudEditor(props: {...})` value, then the frontend JSON value, then the default value.
+- A value can be an int or a numeric string, for example `"2"`.
+- An invalid value uses the default value.
+- A negative value becomes `0`.
+- The total number of columns is limited to the number of listing fields.
+- If line 1 is `0` and the entity has listing fields, line 1 becomes `1`.
+
+Values are formatted in the listing:
+
+| Field type | Listing value |
+| --- | --- |
+| `select_table` | The description |
+| `select` | The option label. If there is no label, the raw value is shown. |
+| `date` | `yyyy-MM-dd` |
+| `datetime` | `yyyy-MM-dd HH:mm` |
+| `boolean` | `Yes` or `No` |
+
+Empty or null values are not shown. The values on one line are joined with the `listingColumnSeparator` theme parameter (default `' · '`).
+
+The row colors and the separator are theme parameters. See [Theming](#theming). Override them in `getThemeParams()`:
+
+```dart
+class AppCallables extends AppCallablesSuper {
+  @override
+  Map<String, dynamic> getThemeParams() {
+    return {
+      'listingRowEvenBackgroundColor': Colors.white,
+      'listingRowOddBackgroundColor': Color(0xFFF2F2F7),
+      'listingColumnSeparator': ' | ',
+    };
+  }
+}
+```
+
+To set the columns in code, pass the same keys in the `CrudEditor` props:
+
+```dart
+CrudEditor(
+  jsonFileName: 'users.json',
+  callbacks: {},
+  props: {
+    'colsForListingLine1': 2,
+    'colsForListingLine2': 1,
+  },
+)
 ```
 
 ### App configuration
