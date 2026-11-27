@@ -1,41 +1,41 @@
-# GenericSuite Móvil (Flutter)
+# GenericSuite Mobile (Flutter)
 
 <img 
     align="right"
     width="100"
     height="100"
     src="https://genericsuite.carlosjramirez.com/images/gs_logo_circle.svg"
-    title="GenericSuite logo by Carlos J. Ramirez"
+    title="Logotipo de GenericSuite, de Carlos J. Ramirez"
 />
 
-[GenericSuite Mobile](https://github.com/tomkat-cr/genericsuite-mobile) trae el patrón CRUD impulsado por JSON de GenericSuite a las apps Flutter: define tus entidades en archivos de configuración JSON, monta el widget `CrudEditor` — no se necesita código Dart por entidad para CRUD estándar, y aprovecha la interfaz de inicio de sesión personalizable, el constructor de menús y una colección de herramientas para acelerar el desarrollo de tu App móvil Flutter/Dart.
+[GenericSuite Mobile](https://github.com/tomkat-cr/genericsuite-mobile) lleva el patrón CRUD de GenericSuite basado en JSON a las aplicaciones Flutter: define tus entidades en archivos de configuración JSON y añade el widget `CrudEditor` —no se necesita código Dart por entidad para las operaciones CRUD estándar—. También puedes aprovechar la interfaz de inicio de sesión personalizable, el generador de menús y un conjunto de herramientas para agilizar el desarrollo de aplicaciones móviles con Flutter/Dart.
 
 ## Características
 
-- **Editor CRUD personalizable:** código CRUD central (*Create, Read, Update, Delete*) que puede parametrizarse y ampliarse mediante archivos de configuración JSON. No es necesario reescribir código para cada editor de tablas.
-- **Menú personalizable:** el menú y los endpoints pueden parametrizarse y ampliarse mediante archivos de configuración JSON en el lado del back-end. La API proporcionará la estructura del menú y la verificación de seguridad basada en el grupo de seguridad del usuario, y GenericSuite dibujará el menú y las opciones disponibles.
-- **Pantalla de inicio de sesión personalizable:** Adáptala fácilmente para que coincida con la identidad de tu marca con el logo de la App.
-- **Scripts de desarrollo y producción:** Comandos rápidos para iniciar el desarrollo o compilar tu aplicación para entornos de QA, staging o producción en proveedores de nube populares.
-- **Widgets personalizables:** Un conjunto de widgets que pueden parametrizarse y ampliarse mediante archivos de configuración JSON.
-- **Flutter/Dart:** GenericSuite está construido con Flutter/Dart, lo que lo hace compatible con Android e iOS.
+- **Editor CRUD personalizable:** código CRUD básico (*Create, Read, Update, Delete*) que se puede parametrizar y ampliar mediante archivos de configuración JSON. No es necesario reescribir el código para cada editor de tablas.
+- **Menú personalizable:** el menú y los endpoints se pueden parametrizar y ampliar mediante archivos de configuración JSON en el Backend. La API proporciona la estructura del menú y realiza la comprobación de seguridad según el grupo de seguridad del usuario; GenericSuite dibuja el menú y las opciones disponibles.
+- **Pantalla de inicio de sesión personalizable:** adapta fácilmente la pantalla de inicio de sesión a la identidad de tu marca con el logotipo de la aplicación.
+- **Scripts de desarrollo y producción:** comandos rápidos para iniciar el desarrollo o compilar la aplicación para entornos de QA, staging o producción en los principales proveedores de nube.
+- **Widgets personalizables:** un conjunto de widgets que se pueden parametrizar y ampliar mediante archivos de configuración JSON.
+- **Flutter/Dart:** GenericSuite está desarrollado con Flutter/Dart, por lo que es compatible con Android y iOS.
 
-El compañero perfecto para esta solución móvil es la [versión de backend de The GenericSuite](https://genericsuite.carlosjramirez.com/Backend-Development/GenericSuite-Core/).
+El complemento perfecto para esta solución móvil es la [versión Backend de The GenericSuite](https://genericsuite.carlosjramirez.com/Backend-Development/GenericSuite-Core/).
 
-## Cómo empezar
+## Primeros pasos
 
 ### Requisitos previos
 
-- [SDK de Flutter](https://docs.flutter.dev/install)
-- [Android Studio](https://developer.android.com/studio) (para gestionar Android SDK, emuladores, etc.)
-- [Xcode](https://developer.apple.com/xcode/) (para gestionar el iOS SDK, emuladores, etc.)
+- [Flutter SDK](https://docs.flutter.dev/install)
+- [Android Studio](https://developer.android.com/studio) (para administrar Android SDK, emuladores, etc.)
+- [Xcode](https://developer.apple.com/xcode/) (para administrar iOS SDK, emuladores, etc.)
 - [Paquete móvil de GenericSuite](https://github.com/tomkat-cr/genericsuite-mobile)
-- [Paquete backend de GenericSuite](https://github.com/tomkat-cr/genericsuite-be)
+- [Paquete Backend de GenericSuite](https://github.com/tomkat-cr/genericsuite-be)
 - [Git](https://www.atlassian.com/git/tutorials/install-git)
-- [Make](https://formulae.brew.sh/formula/make) (Mac) | Linux trae Make instalado por defecto | [Make](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows) (Windows)
+- [Make](https://formulae.brew.sh/formula/make) (Mac) | Linux incluye Make de forma predeterminada | [Make](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows) (Windows)
 
 #### ¿No tienes un proyecto Flutter?
 
-Crea un nuevo proyecto Flutter usando el comando `flutter create`:
+Crea un proyecto Flutter con el comando `flutter create`:
 
 ```bash
 flutter create exampleapp
@@ -49,7 +49,7 @@ flutter create exampleapp
 flutter pub add genericsuite
 ```
 
-O manualmente:
+O hazlo manualmente:
 
 1. Abre el archivo `pubspec.yaml` y añade GenericSuite a la sección `dependencies:`:
 
@@ -57,7 +57,7 @@ O manualmente:
   genericsuite:
     git:
       url: https://github.com/tomkat-cr/genericsuite-mobile
-      ref: main  # o develop
+      ref: main  # or develop
       path: genericsuite_flutter
 ```
 
@@ -71,17 +71,17 @@ flutter pub get
 
 ### Ejemplos de uso
 
-En los siguientes ejemplos crearemos una aplicación simple con una página de inicio, una página de perfil de usuario y otras funcionalidades.
+En los siguientes ejemplos crearemos una aplicación sencilla con una página de inicio, una página de perfil de usuario y otras funcionalidades.
 
 ### Configuración
 
-- Consulta la [Guía de Creación y Configuración de la App](https://genericsuite.carlosjramirez.com/Configuration-Guide/) para obtener más información sobre cómo crear los archivos de configuración JSON.
+- Consulta la [Guía de creación y configuración de aplicaciones](https://genericsuite.carlosjramirez.com/Configuration-Guide/) para obtener más información sobre cómo crear los archivos de configuración JSON.
 
-- Consulta la [Guía de Backend](https://genericsuite.carlosjramirez.com/Backend-Development/GenericSuite-Core) para obtener más información sobre cómo crear la API.
+- Consulta la [Guía del Backend](https://genericsuite.carlosjramirez.com/Backend-Development/GenericSuite-Core) para obtener más información sobre cómo crear la API.
 
-### Estructura de directorios de la app
+### Estructura del directorio de la aplicación
 
-La siguiente estructura de directorios es una referencia para la estructura de tu app. Puedes encontrar más información sobre la estructura de directorios en la [Guía de Creación y Configuración de la App](https://genericsuite.carlosjramirez.com/Configuration-Guide/).
+La siguiente estructura de directorios sirve como referencia para tu aplicación. Encontrarás más información sobre la estructura de directorios en la [Guía de creación y configuración de aplicaciones](https://genericsuite.carlosjramirez.com/Configuration-Guide/).
 
 ```
 .
@@ -147,13 +147,13 @@ La siguiente estructura de directorios es una referencia para la estructura de t
 └── windows
 ```
 
-### Arranque de la App
+### Inicio de la aplicación
 
 #### lib/main.dart
 
-El archivo `main.dart` es el punto de entrada de la app. En nuestros ejemplos creamos el widget `ExampleApp`, que es una subclase de `StatelessWidget` y construye el árbol de widgets de la app.
+El archivo `main.dart` es el punto de entrada de la aplicación. En nuestros ejemplos, creamos el widget `ExampleApp`, una subclase de `StatelessWidget` que construye el árbol de widgets de la aplicación.
 
-La clase `AppCallables` inyecta el comportamiento de tu app y la configuración de tema en el marco de GenericSuite, y `CreateGsApp` construye la raíz del árbol de widgets con `ShadApp` (shadcn_ui, el port de Flutter de ShadCN) y deriva el tema de la `MaterialApp` a partir de los tokens de tema de GenericSuite (ver [Temas](#temas)).
+La clase `AppCallables` inyecta el comportamiento de la aplicación y la configuración del tema en el framework GenericSuite. `CreateGsApp` construye la raíz del árbol de widgets con `ShadApp` ([shadcn_ui](https://pub.dev/packages/shadcn_ui), la adaptación de ShadCN para Flutter) y deriva el tema de `MaterialApp` de los tokens del tema de GenericSuite (consulta [Tematización](#tematización)).
 
 ```dart
 import 'package:flutter/material.dart';
@@ -178,7 +178,7 @@ class ExampleApp extends StatelessWidget {
 
 #### lib/domain/app_menu_callables.dart
 
-Este archivo define las llamadas de menú de la app (funciones que se llaman cuando se selecciona un ítem del menú de la app, widgets especificados en los archivos de configuración JSON, etc.), la info de la app, los elementos de la pantalla principal y los callbacks relacionados con la gestión de usuarios.
+Este archivo define las funciones del menú de la aplicación (funciones que se ejecutan al seleccionar un elemento del menú, widgets especificados en los archivos de configuración JSON, etc.), la información de la aplicación, los elementos de la pantalla principal y las funciones de retorno relacionadas con la gestión de usuarios.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -194,11 +194,11 @@ import '../views/user_profile.dart';
 
 import '../domain/exampleapp_utilities.dart';
 
-// "exampleapp_any_other_crud_editor_view.dart" has the ExampleappAnyOtherCrudEditorView widget,
-// which is also an alternative view for the HomepageBody widget
+// "exampleapp_any_other_crud_editor_view.dart" contiene el widget ExampleappAnyOtherCrudEditorView,
+// que también es una vista alternativa para el widget HomepageBody
 import '../views/exampleapp_any_other_crud_editor_view.dart';
 
-// "homepage_body.dart" has the HomepageBody widget, which is the main view of the app
+// "homepage_body.dart" contiene el widget HomepageBody, que es la vista principal de la aplicación
 import '../widgets/homepage_body.dart';
 
 import '../widgets/exampleapp_any_other_widget.dart';
@@ -298,7 +298,7 @@ class AppCallables extends AppCallablesSuper {
     return {
       "version": "1.0.0",
       "name": appName,
-      "description": "Nutrición en tu bolsillo",
+      "description": "Nutrition in your pocket",
       "appEmail": "support@fynapp.com",
       "appPhone": "+57 316 320-1208",
       "appWebsite": "https://fynapp.com",
@@ -415,34 +415,34 @@ class AppCallables extends AppCallablesSuper {
 }
 ```
 
-## Temas
+## Tematización
 
-El lenguaje de diseño es limpio de Apple: superficies blancas/neutras, texto casi negro, un único color de acento (predeterminado `Colors.green`), radio de esquinas de 12 px, y colores semánticos del sistema iOS.
+El lenguaje visual tiene una estética limpia al estilo Apple: superficies blancas o neutras, texto casi negro, un color de acento (por defecto `Colors.green`), un radio de esquina de 12 px y colores semánticos del sistema iOS.
 
-Sobrescribe `getThemeParams()` en tu `AppCallables` para personalizar — devuelve solo las claves que quieras cambiar; se fusionan sobre los valores predeterminados de la biblioteca (`defaultThemeParams` en `theme_config_defaults.dart`):
+Sobrescribe `getThemeParams()` en tu `AppCallables` para personalizar el tema. Devuelve solo las claves que quieras cambiar; se combinarán con los valores predeterminados de la biblioteca (`defaultThemeParams` en `theme_config_defaults.dart`):
 
 | Token | Predeterminado | Propósito |
 | --- | --- | --- |
 | `accentColor` | `Colors.green` | El único color de acento |
-| `borderRadius` | `12.0` | Radio de esquinas (px) para inputs, botones, tarjetas |
-| `fontFamily` | `'Inter'` | Tipografía; `'Inter'` se carga vía google_fonts (similar a SF Pro) |
-| `textTheme` | `null` | Sobrescritura opcional completa de `TextTheme` |
-| `textColor` | `#111111` | Color del texto primario cercano al negro |
+| `borderRadius` | `12.0` | Radio de esquina (px) para campos de entrada, botones y tarjetas |
+| `fontFamily` | `'Inter'` | Tipografía; `'Inter'` se carga mediante google_fonts (similar a SF-Pro) |
+| `textTheme` | `null` | Anulación opcional de todo el `TextTheme` |
+| `textColor` | `#111111` | Color principal del texto, casi negro |
 | `secondaryTextColor` | `#6E6E73` | Etiqueta secundaria de iOS |
 | `separatorColor` | `#D1D1D6` | Separador de iOS (bordes, divisores) |
-| `neutralSurfaceColor` | `#F2F2F7` | Superficie neutral de iOS (systemGray6) |
+| `neutralSurfaceColor` | `#F2F2F7` | Superficie neutra systemGray6 de iOS |
 | `scaffoldBackgroundColor` | `Colors.white` | Fondo de pantalla |
-| `appBarBackgroundColor` / `appBarForegroundColor` | blanco / cercano al negro | Fondos y texto de la AppBar |
+| `appBarBackgroundColor` / `appBarForegroundColor` | blanco / casi negro | Superficies de la barra de la aplicación |
 | `errorBackgroundColor` | `#FF3B30` (systemRed) | Mensajes de error |
-| `infoBackgroundColor` | `#007AFF` (systemBlue) | Mensajes de información |
+| `infoBackgroundColor` | `#007AFF` (systemBlue) | Mensajes informativos |
 | `warningBackgroundColor` | `#FF9500` (systemOrange) | Advertencias |
 | `successBackgroundColor` | `#34C759` (systemGreen) | Mensajes de éxito |
-| `listingRowEvenBackgroundColor` | `Color(0xFFE5E7EB)` (gray-200) | Fondo de las filas pares (índice 0, 2, 4, ...) |
+| `listingRowEvenBackgroundColor` | `Color(0xFFE5E7EB)` (gray-200) | Fondo de las filas pares (índices 0, 2, 4, ...) |
 | `listingRowOddBackgroundColor` | `Colors.transparent` | Fondo de las filas impares |
 | `listingRowEvenTextColor` | `textColor` | Color del texto del título en las filas pares |
 | `listingRowOddTextColor` | `textColor` | Color del texto del título en las filas impares |
 | `listingRowSubtitleColor` | `secondaryTextColor` | Color del texto del subtítulo (línea 2) |
-| `listingColumnSeparator` | `' · '` | Texto entre los valores de columna en una línea |
+| `listingColumnSeparator` | `' · '` | Texto entre los valores de columna de una misma línea |
 
 Las claves de la pantalla de listado se describen en [Pantalla de listado](#pantalla-de-listado).
 
@@ -462,7 +462,7 @@ class AppCallables extends AppCallablesSuper {
 
 #### lib/config/theme_config.dart
 
-Este archivo define el tema de la app (colores, estilos, etc.).
+Este archivo define el tema de la aplicación (colores, estilos, etc.).
 
 ```dart
 import 'package:flutter/material.dart';
@@ -548,13 +548,13 @@ const double drawerHeaderTextFontSize = 20.0;
 const FontWeight drawerHeaderTextFontWeight = FontWeight.bold;
 ```
 
-### Código de soporte CRUD
+### Código de compatibilidad con CRUD
 
 #### lib/domain/exampleapp_crud_editor_sf_users.dart
 
-Este archivo contiene las "funciones específicas" que se llaman cuando un usuario es creado o actualizado en la base de datos.
+Este archivo contiene las «funciones específicas» que se ejecutan cuando se crea o actualiza un usuario en la base de datos.
 
-* *Specific Functions* son llamadas que extienden las capacidades del Crud Editor de GenericSuite (`CrudEditor` widget).
+* *Las funciones específicas* son funciones invocables que amplían las capacidades del editor CRUD genérico (widget `CrudEditor`).
 
 ```dart
 import 'package:flutter/material.dart';
@@ -661,7 +661,7 @@ Future<Map<String, dynamic>> usersOnboardingDbPostWrite(
 
 ### lib/views/about.dart
 
-Este archivo es un StatelessWidget que muestra una página de información simple con un título y una descripción.
+Este archivo define un `StatelessWidget` que muestra una página sencilla «Acerca de» con un título y una descripción.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -699,9 +699,9 @@ class AboutState extends State<About> {
 
 ### lib/views/exampleapp_any_other_crud_editor_view.dart
 
-Este archivo contiene un editor CRUD (implementado por el widget GenericSuite `CrudEditor`) que se usa para mostrar una tabla de datos de una tabla de base de datos.
+Este archivo contiene un editor CRUD (implementado con el widget `CrudEditor` de GenericSuite) que se usa para mostrar los datos de una tabla de la base de datos.
 
-La tabla usada es la tabla [exampleapp_any_other](#assetsconfig_dbdeffrontendexampleapp_any_other_tablejson).
+La tabla utilizada es [exampleapp_any_other](#assetsconfig_dbdeffrontendexampleapp_any_other_tablejson).
 
 ```dart
 import 'package:flutter/material.dart';
@@ -867,7 +867,7 @@ class UserProfileState extends State<UserProfile> {
 
 ### lib/widgets/homepage_body.dart
 
-Este archivo contiene el widget HomePageBody que se usa para mostrar la página de inicio de la app.
+Este archivo contiene el widget HomePageBody, que se utiliza para mostrar la página de inicio de la aplicación.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -969,7 +969,7 @@ class _HomePageBodyState extends State<HomePageBody> {
 
 ### lib/domain/exampleapp_utilities.dart
 
-Este archivo contiene funciones utilitarias de ejemplo que son utilizadas por el ExampleApp.
+Este archivo contiene funciones de utilidad de ejemplo que utiliza ExampleApp.
 
 ```dart
 import 'package:genericsuite/services/convertion_utilities.dart';
@@ -1375,11 +1375,11 @@ Widget userTotalQtyAndCondition({
 }
 ```
 
-### Componentes hijos (relaciones 1-N)
+### Componentes secundarios (relaciones 1-N)
 
-El CRUD de Flutter maneja `childComponents` de la misma manera que el CRUD Editor de la [genericsuite-fe (React)](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/lib/services/generic.editor.rfc.service.jsx): la configuración JSON del frontend de una entidad padre lista los nombres de los componentes hijos, y cada uno se renderiza dentro del formulario de edición del padre.
+El editor CRUD de Flutter gestiona `childComponents` del mismo modo que el editor CRUD de [genericsuite-fe (React)](https://github.com/tomkat-cr/genericsuite-fe/blob/main/src/lib/services/generic.editor.rfc.service.jsx): la configuración JSON del frontend de una entidad principal enumera los nombres de sus componentes secundarios, y cada uno se muestra dentro del formulario de edición de la entidad principal.
 
-Configuración del padre (`assets/config_dbdef/frontend/users.json`):
+Configuración de la entidad principal (`assets/config_dbdef/frontend/users.json`):
 
 ```json
 {
@@ -1389,9 +1389,9 @@ Configuración del padre (`assets/config_dbdef/frontend/users.json`):
 }
 ```
 
-En móvil, cada hijo aparece como una sección tocable al final del formulario de edición del padre (nunca durante la creación).
+En dispositivos móviles, cada componente secundario aparece como una sección seleccionable en la parte inferior del formulario de **edición** de la entidad principal (nunca al crearla).
 
-Tocar una sección abre el editor del hijo en pantalla completa con la fila padre pasada como `parentData`.
+Al tocar una sección, se abre el editor secundario a pantalla completa y se le pasa la fila principal mediante `parentData`.
 
 Registra un constructor para cada nombre en el mapa `callbacks['childComponents']`:
 
@@ -1411,11 +1411,11 @@ Map<String, dynamic> callbacks = {
 };
 ```
 
-NOTA: es importante propagar las `props` recibidas dentro de las `props` de `CrudEditor` (llevan `isChildComponent: true` y `showAppMenu: false`, lo que habilita el botón de volver en la pantalla empujada) y añadir `'parentData': parentData`.
+NOTA: es importante propagar el `props` recibido al `props` de `CrudEditor` (contiene `isChildComponent: true` y `showAppMenu: false`, que habilitan el botón para volver en la pantalla abierta) y añadir `'parentData': parentData`.
 
-El builder normalmente devuelve un `CrudEditor` cuyo config JSON tiene `"type": "child_listing"`, un `"subType"` de `"array"` (filas hijas almacenadas en un atributo de arreglo de la fila padre, requiere `"array_name"`) o `"table"` (filas hijas en su propia tabla), y un mapeo `"endpointKeyNames"` que vincula el nombre del parámetro de la API con el campo id del padre.
+Por lo general, el constructor devuelve un `CrudEditor` cuya configuración JSON tiene `"type": "child_listing"`, un `"subType"` con el valor `"array"` (las filas secundarias se almacenan en un atributo de tipo array de la fila principal; requiere `"array_name"`) o `"table"` (las filas secundarias están en su propia tabla), y `"endpointKeyNames"`, que asigna el nombre del parámetro de la API al campo del ID de la fila principal.
 
-Así que aquí el config JSON del hijo declara la relación:
+Así, en este caso, la configuración JSON del componente secundario declara la relación:
 
 ```json
 {
@@ -1432,14 +1432,14 @@ Así que aquí el config JSON del hijo declara la relación:
 }
 ```
 
-- `subType: "array"` — las filas hijas viven dentro de un atributo de arreglo de la fila padre (`array_name` requerido). Las escrituras envían `{parentKey, <array_name>: newValues, <array_name>_old: initialValues}`.
-- `subType: "table"` — las filas hijas viven en su propia tabla; la clave padre se fusiona en cada fila hija.
+- `subType: "array"`: las filas secundarias se encuentran dentro de un atributo de tipo array de la fila principal (se requiere `array_name`). Las escrituras envían `{parentKey, <array_name>: newValues, <array_name>_old: initialValues}`.
+- `subType: "table"`: las filas secundarias están en su propia tabla; la clave de la entidad principal se combina con cada fila secundaria.
 
-### CRUD impulsado por JSON
+### CRUD basado en JSON
 
 #### assets/config_dbdef/backend/app_main_menu.json
 
-Aquí puedes definir la estructura del menú de la app. El menú se define como una lista de elementos de menú, donde cada elemento puede ser un enlace de navegación (nav_link, un elemento de menú de nivel superior) o un menú desplegable (nav_dropdown, un elemento de menú que contiene una lista de otros elementos).
+Aquí puedes definir la estructura del menú de la aplicación. El menú se define como una lista de elementos, cada uno de los cuales puede ser un enlace de navegación (`nav_link`, un elemento de nivel superior) o un menú desplegable (`nav_dropdown`, un elemento que contiene una lista de otros elementos).
 
 ```json
 [
@@ -1491,7 +1491,7 @@ Aquí puedes definir la estructura del menú de la app. El menú se define como 
 
 #### assets/config_dbdef/backend/exampleapp_any_other_table.json
 
-Aquí puedes definir el nombre físico de la tabla y otra configuración del backend para la tabla en la base de datos.
+Aquí puedes definir el nombre físico de la tabla y otras opciones de configuración del Backend para la tabla de la base de datos.
 
 ```json
 {
@@ -1501,7 +1501,7 @@ Aquí puedes definir el nombre físico de la tabla y otra configuración del bac
 
 #### assets/config_dbdef/frontend/exampleapp_any_other_table.json
 
-Aquí puedes definir la configuración para mostrar los datos de la tabla en una vista editor CRUD.
+Aquí puedes definir la configuración para mostrar los datos de la tabla en una vista del editor CRUD.
 
 ```json
 {
@@ -1575,17 +1575,17 @@ Aquí puedes definir la configuración para mostrar los datos de la tabla en una
 
 La pantalla de listado muestra las filas de una entidad. Cada fila puede tener dos líneas de texto:
 
-- La línea 1 es el título de la fila. Muestra las primeras columnas de listado.
-- La línea 2 es el subtítulo de la fila. Muestra las siguientes columnas de listado.
+- La línea 1 es el título de la fila. Muestra las primeras columnas del listado.
+- La línea 2 es el subtítulo de la fila. Muestra las columnas siguientes del listado.
 
-Una columna de listado es un campo con `"listing": true`. Las columnas siguen el orden de `fieldElements`.
+Una columna del listado es un campo con `"listing": true`. Las columnas aparecen en el mismo orden que en `fieldElements`.
 
-Define el número de columnas de cada línea en el archivo JSON de frontend de la entidad (`assets/config_dbdef/frontend/<entidad>.json`). Usa dos claves opcionales de nivel superior de tipo int:
+Define el número de columnas de cada línea en el archivo JSON del frontend de la entidad (`assets/config_dbdef/frontend/<entity>.json`). Usa estas dos claves opcionales de nivel superior de tipo int:
 
 | Clave | Predeterminado | Uso |
 | --- | --- | --- |
-| `colsForListingLine1` | `1` | Número de columnas de listado en la línea 1 (título de la fila) |
-| `colsForListingLine2` | `0` | Número de columnas de listado en la línea 2 (subtítulo de la fila). `0` no muestra subtítulo. |
+| `colsForListingLine1` | `1` | Número de columnas del listado en la línea 1 (título de la fila) |
+| `colsForListingLine2` | `0` | Número de columnas del listado en la línea 2 (subtítulo de la fila). `0` significa que no se muestra ningún subtítulo. |
 
 Ejemplo:
 
@@ -1628,18 +1628,18 @@ Con este ejemplo, cada fila muestra:
 - Línea 1: `John · Smith`
 - Línea 2: `john@mail.com · Yes`
 
-Las reglas son:
+Estas son las reglas:
 
-- La prioridad es: el valor de `CrudEditor(props: {...})`, luego el valor del JSON de frontend, y después el valor predeterminado.
-- Un valor puede ser un int o una cadena numérica, por ejemplo `"2"`.
-- Un valor no válido usa el valor predeterminado.
-- Un valor negativo pasa a ser `0`.
-- El número total de columnas se limita al número de campos de listado.
+- La prioridad es: el valor de `CrudEditor(props: {...})`, luego el valor del JSON del frontend y, por último, el valor predeterminado.
+- El valor puede ser un int o una cadena numérica, por ejemplo, `"2"`.
+- Si el valor no es válido, se utiliza el valor predeterminado.
+- Los valores negativos se convierten en `0`.
+- El número total de columnas está limitado por la cantidad de campos del listado.
 - Si la línea 1 es `0` y la entidad tiene campos de listado, la línea 1 pasa a ser `1`.
 
 Los valores se formatean en el listado:
 
-| Tipo de campo | Valor en el listado |
+| Tipo de campo | Valor del listado |
 | --- | --- |
 | `select_table` | La descripción |
 | `select` | La etiqueta de la opción. Si no hay etiqueta, se muestra el valor sin procesar. |
@@ -1647,9 +1647,9 @@ Los valores se formatean en el listado:
 | `datetime` | `yyyy-MM-dd HH:mm` |
 | `boolean` | `Yes` o `No` |
 
-Los valores vacíos o nulos no se muestran. Los valores de una línea se unen con el parámetro de tema `listingColumnSeparator` (predeterminado `' · '`).
+Los valores vacíos o nulos no se muestran. Los valores de una misma línea se unen con el parámetro de tema `listingColumnSeparator` (por defecto, `' · '`).
 
-Los colores de las filas y el separador son parámetros de tema. Consulta [Temas](#temas). Sobrescríbelos en `getThemeParams()`:
+Los colores de las filas y el separador son parámetros del tema. Consulta [Tematización](#tematización). Para sobrescribirlos, usa `getThemeParams()`:
 
 ```dart
 class AppCallables extends AppCallablesSuper {
@@ -1664,7 +1664,7 @@ class AppCallables extends AppCallablesSuper {
 }
 ```
 
-Para definir las columnas en el código, pasa las mismas claves en las props de `CrudEditor`:
+Para establecer las columnas en el código, pasa las mismas claves en las propiedades de `CrudEditor`:
 
 ```dart
 CrudEditor(
@@ -1677,11 +1677,11 @@ CrudEditor(
 )
 ```
 
-### Configuración de la App
+### Configuración de la aplicación
 
 #### assets/config
 
-Para cada etapa (dev, qa, staging, prod, demo, etc.), debe haber archivos `config-{stage}.json` y `stage-{stage}.json` en el directorio `assets/config` con la siguiente estructura:
+Para cada entorno (dev, qa, staging, prod, demo, etc.), debe haber archivos `config-{stage}.json` y `stage-{stage}.json` en el directorio `assets/config` con la siguiente estructura:
 
 #### assets/config/config-dev.json
 
@@ -1719,7 +1719,7 @@ Para cada etapa (dev, qa, staging, prod, demo, etc.), debe haber archivos `confi
 
 #### assets/config/stage.json
 
-Este archivo define la etapa en uso. Puede ser `dev`, `qa`, `staging`, `prod`, `demo`, etc.
+Este archivo define el entorno en uso. Puede ser `dev`, `qa`, `staging`, `prod`, `demo`, etc.
 
 ```json
 {
@@ -1727,7 +1727,7 @@ Este archivo define la etapa en uso. Puede ser `dev`, `qa`, `staging`, `prod`, `
 }
 ```
 
-## Estructura del paquete GenericSuite
+## Estructura de directorios del paquete GenericSuite
 
 ```
 genericsuite
@@ -1776,7 +1776,7 @@ genericsuite
 
 ## Información adicional
 
-- Lectura de la biblioteca:
+- README de la biblioteca:
   [genericsuite_flutter](https://github.com/tomkat-cr/genericsuite-mobile/tree/main/genericsuite_flutter)
 
 - Plantilla de inicio:

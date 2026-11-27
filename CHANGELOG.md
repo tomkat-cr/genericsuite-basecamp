@@ -20,8 +20,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ## [Unreleased] - YYYY-MM-DD
 
+### Added
+- Mobile "Listing screen" docs (colsForListingLine1 / colsForListingLine2 in the frontend JSON, value formatting) and the listing theme params in the Theming table (listingRowEvenBackgroundColor, listingRowOddBackgroundColor, listingRowEvenTextColor, listingRowOddTextColor, listingRowSubtitleColor, and listingColumnSeparator), in English and Spanish [GS-346].
+
 ### Changed
 - Update Privacy Policy: Revise effective date, add GS Doc mobile app details, and clarify data collection practices including cookies and third-party integrations for both English and Spanish versions [GS-327].
+- Translate uncommitted default model changed to OpenAI GPT 6 Luna [GS-316].
 
 ### Fixed
 - Missing GS core section in the index.md file spanish version, and re-order sections for consistency [GS-327].
